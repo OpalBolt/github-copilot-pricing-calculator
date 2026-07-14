@@ -814,33 +814,63 @@
     color: var(--slate-7);
   }
   
-  .task-models-table {
-    width: 100%;
-    font-size: 13px;
-    border-collapse: collapse;
+  .task-model-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 12px;
   }
-  .task-models-table tr {
-    border-bottom: 1px solid var(--slate-3);
+  .task-guide-model-chip {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 12px 14px;
+    background: var(--slate-2);
+    border: 1px solid var(--slate-3);
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
   }
-  .task-models-table tr:last-child {
-    border-bottom: none;
+  .task-guide-model-chip.unpriced {
+    opacity: 0.68;
   }
-  .task-models-table td {
-    padding: 10px 0;
+  .task-guide-model-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
-  .task-models-table td:first-child {
-    font-weight: 500;
+  .task-guide-accent {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    flex: 0 0 auto;
+  }
+  .task-guide-model-name {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 600;
     color: var(--nordic-black);
-    min-width: 160px;
+    cursor: help;
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    padding: 2px 10px;
+    background: var(--white);
+    max-width: 100%;
   }
-  .task-models-table td:last-child {
+  .task-guide-model-price {
+    font-size: 12px;
+    font-weight: 500;
     color: var(--slate-6);
   }
-  .task-models-table tr.unpriced {
-    opacity: 0.6;
+  .task-guide-model-reason {
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--slate-7);
   }
-  .task-models-table tr.unpriced td:first-child {
+  .task-guide-unpriced-note {
+    font-size: 11px;
     color: var(--slate-5);
+    font-style: italic;
   }
   .dim-icon {
     display: inline-block;
@@ -849,8 +879,9 @@
     cursor: help;
   }
   .task-guide-model-name {
-    cursor: help;
-    border-bottom: 1px dotted var(--slate-5);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
   }
 
   @media (max-width: 768px) {

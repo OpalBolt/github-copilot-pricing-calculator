@@ -824,33 +824,63 @@
     color: var(--slate-7);
   }
   
-  .task-models-table {
-    width: 100%;
-    font-size: 13px;
-    border-collapse: collapse;
+  .task-model-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 12px;
   }
-  .task-models-table tr {
-    border-bottom: 1px solid var(--slate-3);
+  .task-guide-model-chip {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 12px 14px;
+    background: var(--slate-2);
+    border: 1px solid var(--slate-3);
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
   }
-  .task-models-table tr:last-child {
-    border-bottom: none;
+  .task-guide-model-chip.unpriced {
+    opacity: 0.68;
   }
-  .task-models-table td {
-    padding: 10px 0;
+  .task-guide-model-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
-  .task-models-table td:first-child {
-    font-weight: 500;
+  .task-guide-accent {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    flex: 0 0 auto;
+  }
+  .task-guide-model-name {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 600;
     color: var(--nordic-black);
-    min-width: 160px;
+    cursor: help;
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    padding: 2px 10px;
+    background: var(--white);
+    max-width: 100%;
   }
-  .task-models-table td:last-child {
+  .task-guide-model-price {
+    font-size: 12px;
+    font-weight: 500;
     color: var(--slate-6);
   }
-  .task-models-table tr.unpriced {
-    opacity: 0.6;
+  .task-guide-model-reason {
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--slate-7);
   }
-  .task-models-table tr.unpriced td:first-child {
+  .task-guide-unpriced-note {
+    font-size: 11px;
     color: var(--slate-5);
+    font-style: italic;
   }
   .dim-icon {
     display: inline-block;
@@ -859,8 +889,9 @@
     cursor: help;
   }
   .task-guide-model-name {
-    cursor: help;
-    border-bottom: 1px dotted var(--slate-5);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
   }
 
   @media (max-width: 768px) {
@@ -1808,6 +1839,9 @@
     const lines = [m.name, `${m.provider} · ${m.category}`];
     lines.push(m.taskArea ? `Task area: ${m.taskArea}` : 'Task area: Not documented in the GitHub model comparison guide');
     if (m.excelsAt) lines.push(`Excels at: ${m.excelsAt}`);
+    lines.push(`Pricing: input $${fmt(m.input)} / 1M (~${Math.round(m.input / 0.01)} cr)`);
+    lines.push(`Pricing: cached $${fmt(m.cached)} / 1M (~${Math.round(m.cached / 0.01)} cr)`);
+    lines.push(`Pricing: output $${fmt(m.output)} / 1M (~${Math.round(m.output / 0.01)} cr)`);
     return escapeAttr(lines.join('\n'));
   }
 
@@ -2122,11 +2156,20 @@
         const nameTooltip = unpriced
           ? escapeAttr(`${rec.model}\nNot found in current pricing table — may be deprecated or unavailable.`)
           : modelTooltip(model);
+        const accentClass = taskAreaColorClass(model?.taskArea || task.title) || 'task-swatch-undoc';
+        const priceLine = unpriced
+          ? 'Pricing unavailable'
+          : `Input ${fmt(model.input)} / 1M (${Math.round(model.input / 0.01)} cr) · Output ${fmt(model.output)} / 1M (${Math.round(model.output / 0.01)} cr)`;
         return `
-          <tr class="${dimClass}">
-            <td><span class="task-guide-model-name" title="${nameTooltip}">${rec.model}</span>${unpriced ? ' <span class="dim-icon">⚠</span>' : ''}</td>
-            <td>${rec.reason}</td>
-          </tr>`;
+          <div class="task-guide-model-chip ${dimClass}">
+            <div class="task-guide-model-head">
+              <span class="task-guide-accent ${accentClass}"></span>
+              <span class="task-guide-model-name" title="${nameTooltip}">${rec.model}</span>
+            </div>
+            <div class="task-guide-model-price">${priceLine}</div>
+            <div class="task-guide-model-reason">${rec.reason}</div>
+            ${unpriced ? '<div class="task-guide-unpriced-note">May be deprecated or unavailable.</div>' : ''}
+          </div>`;
       }).join('');
       
       return `
@@ -2134,9 +2177,7 @@
         <h3>${task.title}</h3>
         <p>${task.intro}</p>
         <h4>Recommended models</h4>
-        <table class="task-models-table">
-          <tbody>${recModels}</tbody>
-        </table>
+        <div class="task-model-list">${recModels}</div>
         <h4>When to use these models</h4>
         <ul>
           ${task.useCases.map(uc => `<li>${uc}</li>`).join('')}

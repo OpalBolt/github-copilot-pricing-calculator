@@ -119,6 +119,9 @@
     const lines = [m.name, `${m.provider} · ${m.category}`];
     lines.push(m.taskArea ? `Task area: ${m.taskArea}` : 'Task area: Not documented in the GitHub model comparison guide');
     if (m.excelsAt) lines.push(`Excels at: ${m.excelsAt}`);
+    lines.push(`Pricing: input $${fmt(m.input)} / 1M (~${Math.round(m.input / 0.01)} cr)`);
+    lines.push(`Pricing: cached $${fmt(m.cached)} / 1M (~${Math.round(m.cached / 0.01)} cr)`);
+    lines.push(`Pricing: output $${fmt(m.output)} / 1M (~${Math.round(m.output / 0.01)} cr)`);
     return escapeAttr(lines.join('\n'));
   }
 
@@ -433,11 +436,20 @@
         const nameTooltip = unpriced
           ? escapeAttr(`${rec.model}\nNot found in current pricing table — may be deprecated or unavailable.`)
           : modelTooltip(model);
+        const accentClass = taskAreaColorClass(model?.taskArea || task.title) || 'task-swatch-undoc';
+        const priceLine = unpriced
+          ? 'Pricing unavailable'
+          : `Input ${fmt(model.input)} / 1M (${Math.round(model.input / 0.01)} cr) · Output ${fmt(model.output)} / 1M (${Math.round(model.output / 0.01)} cr)`;
         return `
-          <tr class="${dimClass}">
-            <td><span class="task-guide-model-name" title="${nameTooltip}">${rec.model}</span>${unpriced ? ' <span class="dim-icon">⚠</span>' : ''}</td>
-            <td>${rec.reason}</td>
-          </tr>`;
+          <div class="task-guide-model-chip ${dimClass}">
+            <div class="task-guide-model-head">
+              <span class="task-guide-accent ${accentClass}"></span>
+              <span class="task-guide-model-name" title="${nameTooltip}">${rec.model}</span>
+            </div>
+            <div class="task-guide-model-price">${priceLine}</div>
+            <div class="task-guide-model-reason">${rec.reason}</div>
+            ${unpriced ? '<div class="task-guide-unpriced-note">May be deprecated or unavailable.</div>' : ''}
+          </div>`;
       }).join('');
       
       return `
@@ -445,9 +457,7 @@
         <h3>${task.title}</h3>
         <p>${task.intro}</p>
         <h4>Recommended models</h4>
-        <table class="task-models-table">
-          <tbody>${recModels}</tbody>
-        </table>
+        <div class="task-model-list">${recModels}</div>
         <h4>When to use these models</h4>
         <ul>
           ${task.useCases.map(uc => `<li>${uc}</li>`).join('')}
