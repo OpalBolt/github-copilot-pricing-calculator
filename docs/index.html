@@ -370,7 +370,26 @@
   }
   tbody td.dim { color: var(--slate-5); font-size: 13px; }
 
-  .model-name { font-weight: 600; color: var(--nordic-black); }
+  .model-name {
+    display: inline-block;
+    font-weight: 600;
+    color: var(--nordic-black);
+    cursor: help;
+    border: 2px solid var(--slate-4);
+    border-radius: 999px;
+    padding: 2px 10px;
+  }
+  .model-name.model-bg-0 { border-color: #0EA5E9; background: #0EA5E914; }
+  .model-name.model-bg-1 { border-color: #A855F7; background: #A855F714; }
+  .model-name.model-bg-2 { border-color: #F59E0B; background: #F59E0B14; }
+  .model-name.model-bg-3 { border-color: #10B981; background: #10B98114; }
+  .model-name.model-bg-4 { border-color: #EF4444; background: #EF444414; }
+  .model-name.model-bg-5 { border-color: #6366F1; background: #6366F114; }
+  .model-name.model-bg-undoc {
+    border-color: var(--slate-4);
+    border-style: dashed;
+    background: var(--slate-2);
+  }
 
   .badge {
     display: inline-block;
@@ -1064,7 +1083,6 @@
             
 <th class="sortable" data-col="category">Category <span class="sort-icon">↕</span></th>
 
-            <th class="sortable" data-col="taskArea" style="width:56px;text-align:center">Task <span class="sort-icon">↕</span></th>
             
 <th class="sortable" data-col="tier">Tier <span class="sort-icon">↕</span></th>
 
@@ -1850,12 +1868,6 @@
     return escapeAttr(lines.join('\n'));
   }
 
-  function taskAreaSwatch(m) {
-    const colorClass = taskAreaColorClass(m.taskArea);
-    const cls = colorClass ? `task-swatch ${colorClass}` : 'task-swatch task-swatch-undoc';
-    return `<span class="${cls}" title="${modelTooltip(m)}"></span>`;
-  }
-
   function initTaskAreaLegend() {
     const areas = new Set();
     ALL_MODELS.forEach(m => { if (m.taskArea) areas.add(m.taskArea); });
@@ -1913,11 +1925,10 @@
             onclick="toggleCompare(${m._idx})">${cmpIcon}</button>
         </td>
         <td>
-          <span class="model-name">${m.name}</span>${footnote}${statusBadge(m.status)}
+          <span class="model-name ${'model-bg-' + (taskAreaColorClass(m.taskArea) || 'task-swatch-undoc').replace('task-swatch-', '')}" title="${modelTooltip(m)}">${m.name}</span>${footnote}${statusBadge(m.status)}
         </td>
         <td class="dim">${m.provider}</td>
         <td><span class="cat-badge ${catClass(m.category)}">${m.category}</span></td>
-        <td style="text-align:center">${taskAreaSwatch(m)}</td>
         <td>${m.tier === 'Long context' ? `<span class="tier-lc">Long context</span>` : `<span class="dim">Default</span>`}</td>
         <td class="num">$${fmt(m.input)}</td>
         <td class="num">$${fmt(m.cached)}</td>

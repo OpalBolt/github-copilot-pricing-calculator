@@ -125,12 +125,6 @@
     return escapeAttr(lines.join('\n'));
   }
 
-  function taskAreaSwatch(m) {
-    const colorClass = taskAreaColorClass(m.taskArea);
-    const cls = colorClass ? `task-swatch ${colorClass}` : 'task-swatch task-swatch-undoc';
-    return `<span class="${cls}" title="${modelTooltip(m)}"></span>`;
-  }
-
   function initTaskAreaLegend() {
     const areas = new Set();
     ALL_MODELS.forEach(m => { if (m.taskArea) areas.add(m.taskArea); });
@@ -188,11 +182,10 @@
             onclick="toggleCompare(${m._idx})">${cmpIcon}</button>
         </td>
         <td>
-          <span class="model-name">${m.name}</span>${footnote}${statusBadge(m.status)}
+          <span class="model-name ${'model-bg-' + (taskAreaColorClass(m.taskArea) || 'task-swatch-undoc').replace('task-swatch-', '')}" title="${modelTooltip(m)}">${m.name}</span>${footnote}${statusBadge(m.status)}
         </td>
         <td class="dim">${m.provider}</td>
         <td><span class="cat-badge ${catClass(m.category)}">${m.category}</span></td>
-        <td style="text-align:center">${taskAreaSwatch(m)}</td>
         <td>${m.tier === 'Long context' ? `<span class="tier-lc">Long context</span>` : `<span class="dim">Default</span>`}</td>
         <td class="num">$${fmt(m.input)}</td>
         <td class="num">$${fmt(m.cached)}</td>
