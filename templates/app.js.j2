@@ -409,9 +409,13 @@
       btn.classList.toggle('active', btn.dataset.tab === tabName);
     });
     
-    // Update tab content visibility
+    // Update tab content visibility (the "Pricing & Compare" tab controls
+    // both the #pricing-tab controls panel and the #pricing-tab-body
+    // filters/table/legend section below it).
     document.querySelectorAll('.tab-content').forEach(content => {
-      content.classList.toggle('active', content.id === tabName);
+      const isPricingBody = content.id === 'pricing-tab-body';
+      const belongsToTab = isPricingBody ? 'pricing-tab' : content.id;
+      content.classList.toggle('active', belongsToTab === tabName);
     });
     
     // Render task guide on first show
@@ -436,15 +440,15 @@
         const nameTooltip = unpriced
           ? escapeAttr(`${rec.model}\nNot found in current pricing table — may be deprecated or unavailable.`)
           : modelTooltip(model);
-        const accentClass = taskAreaColorClass(model?.taskArea || task.title) || 'task-swatch-undoc';
+        const swatchClass = taskAreaColorClass(model?.taskArea || task.title) || 'task-swatch-undoc';
+        const borderClass = 'task-swatch-border-' + swatchClass.replace('task-swatch-', '');
         const priceLine = unpriced
           ? 'Pricing unavailable'
           : `Input ${fmt(model.input)} / 1M (${Math.round(model.input / 0.01)} cr) · Output ${fmt(model.output)} / 1M (${Math.round(model.output / 0.01)} cr)`;
         return `
           <div class="task-guide-model-chip ${dimClass}">
             <div class="task-guide-model-head">
-              <span class="task-guide-accent ${accentClass}"></span>
-              <span class="task-guide-model-name" title="${nameTooltip}">${rec.model}</span>
+              <span class="task-guide-model-name ${borderClass}" title="${nameTooltip}">${rec.model}</span>
             </div>
             <div class="task-guide-model-price">${priceLine}</div>
             <div class="task-guide-model-reason">${rec.reason}</div>

@@ -846,14 +846,6 @@
   .task-guide-model-head {
     display: flex;
     align-items: center;
-    gap: 8px;
-  }
-  .task-guide-accent {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-radius: 2px;
-    flex: 0 0 auto;
   }
   .task-guide-model-name {
     display: inline-block;
@@ -861,11 +853,21 @@
     font-weight: 600;
     color: var(--nordic-black);
     cursor: help;
-    border: 1px solid currentColor;
+    border: 2px solid var(--slate-4);
     border-radius: 999px;
     padding: 2px 10px;
     background: var(--white);
     max-width: 100%;
+  }
+  .task-guide-model-name.task-swatch-border-0 { border-color: #0EA5E9; background: #0EA5E90F; }
+  .task-guide-model-name.task-swatch-border-1 { border-color: #A855F7; background: #A855F70F; }
+  .task-guide-model-name.task-swatch-border-2 { border-color: #F59E0B; background: #F59E0B0F; }
+  .task-guide-model-name.task-swatch-border-3 { border-color: #10B981; background: #10B9810F; }
+  .task-guide-model-name.task-swatch-border-4 { border-color: #EF4444; background: #EF44440F; }
+  .task-guide-model-name.task-swatch-border-5 { border-color: #6366F1; background: #6366F10F; }
+  .task-guide-model-name.task-swatch-border-undoc {
+    border-color: var(--slate-4);
+    border-style: dashed;
   }
   .task-guide-model-price {
     font-size: 12px;
@@ -977,9 +979,11 @@
     </div>
   </div>
 
-  <!-- Filters -->
-  <div class="filters-bar" id="pricing-tab-content">
-    
+  <!-- Everything below only belongs to the "Pricing & Compare" tab -->
+  <div id="pricing-tab-body" class="tab-content active">
+    <!-- Filters -->
+    <div class="filters-bar">
+      
 <div class="filter-group">
   <span class="filter-label">Provider</span>
   <div class="filter-chips" id="filter-provider">
@@ -1001,7 +1005,7 @@
   </div>
 </div>
 
-    
+      
 <div class="filter-group">
   <span class="filter-label">Category</span>
   <div class="filter-chips" id="filter-category">
@@ -1017,7 +1021,7 @@
   </div>
 </div>
 
-    
+      
 <div class="filter-group">
   <span class="filter-label">Status</span>
   <div class="filter-chips" id="filter-status">
@@ -1031,74 +1035,75 @@
   </div>
 </div>
 
-    <div id="filter-task-area-group" class="filter-group" style="display: none;">
-      <span class="filter-label">Task area</span>
-      <div class="filter-chips" id="filter-task-area"></div>
+      <div id="filter-task-area-group" class="filter-group" style="display: none;">
+        <span class="filter-label">Task area</span>
+        <div class="filter-chips" id="filter-task-area"></div>
+      </div>
+      <div class="search-wrap">
+        <input type="search" id="search-input" placeholder="Search model name…" />
+      </div>
     </div>
-    <div class="search-wrap">
-      <input type="search" id="search-input" placeholder="Search model name…" />
+
+    <!-- Table meta row -->
+    <div class="table-meta" id="pricing-table-meta">
+      <span class="table-meta-count" id="row-count"></span>
     </div>
-  </div>
 
-  <!-- Table meta row -->
-  <div class="table-meta" id="pricing-table-meta">
-    <span class="table-meta-count" id="row-count"></span>
-  </div>
-
-  <!-- Unified table -->
-  <div class="table-wrapper" id="pricing-table-wrapper">
-    <table id="main-table">
-      <thead>
-        <tr>
-          <th style="width:36px;padding:10px 8px"></th>
-          
+    <!-- Unified table -->
+    <div class="table-wrapper" id="pricing-table-wrapper">
+      <table id="main-table">
+        <thead>
+          <tr>
+            <th style="width:36px;padding:10px 8px"></th>
+            
 <th class="sortable" data-col="name">Model <span class="sort-icon">↕</span></th>
 
-          
+            
 <th class="sortable" data-col="provider">Provider <span class="sort-icon">↕</span></th>
 
-          
+            
 <th class="sortable" data-col="category">Category <span class="sort-icon">↕</span></th>
 
-          <th class="sortable" data-col="taskArea" style="width:56px;text-align:center">Task <span class="sort-icon">↕</span></th>
-          
+            <th class="sortable" data-col="taskArea" style="width:56px;text-align:center">Task <span class="sort-icon">↕</span></th>
+            
 <th class="sortable" data-col="tier">Tier <span class="sort-icon">↕</span></th>
 
-          
+            
 <th class="sortable num" data-col="input">Input / 1M <span class="sort-icon">↕</span></th>
 
-          
+            
 <th class="sortable num" data-col="cached">Cached / 1M <span class="sort-icon">↕</span></th>
 
-          
+            
 <th class="sortable num" data-col="cacheWrite">Cache write / 1M <span class="sort-icon">↕</span></th>
 
-          
+            
 <th class="sortable num" data-col="output">Output / 1M <span class="sort-icon">↕</span></th>
 
-          
+            
 <th class="sortable num" data-col="cost">Est. cost <span class="sort-icon">↕</span></th>
 
-          <th class="bar-cell">Relative cost</th>
-        </tr>
-      </thead>
-      <tbody id="table-body"></tbody>
-    </table>
-    <div class="no-results" id="no-results">No models match your filters.</div>
-  </div>
+            <th class="bar-cell">Relative cost</th>
+          </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+      </table>
+      <div class="no-results" id="no-results">No models match your filters.</div>
+    </div>
 
-  <!-- Task area legend -->
-  <div class="task-area-legend" id="task-area-legend" style="display:none">
-    <span class="legend-label">Task area:</span>
-    <div class="legend-items" id="legend-items"></div>
-  </div>
+    <!-- Task area legend -->
+    <div class="task-area-legend" id="task-area-legend" style="display:none">
+      <span class="legend-label">Task area:</span>
+      <div class="legend-items" id="legend-items"></div>
+    </div>
 
-  <p class="page-note">
-    Est. cost = (input tokens × input rate + cached tokens × cached rate + output tokens × output rate) ÷ 1M, based on your token split above.
-    Cache write applies to Anthropic models only.
-    Code completions and next-edit suggestions are not billed in AI credits.
-    · <a href="https://docs.github.com/en/copilot/reference/copilot-billing/models-and-pricing" target="_blank">Source pricing →</a>
-  </p>
+    <p class="page-note">
+      Est. cost = (input tokens × input rate + cached tokens × cached rate + output tokens × output rate) ÷ 1M, based on your token split above.
+      Cache write applies to Anthropic models only.
+      Code completions and next-edit suggestions are not billed in AI credits.
+      · <a href="https://docs.github.com/en/copilot/reference/copilot-billing/models-and-pricing" target="_blank">Source pricing →</a>
+    </p>
+  </div>
 </main>
 
 <footer class="page-footer">
@@ -2129,9 +2134,13 @@
       btn.classList.toggle('active', btn.dataset.tab === tabName);
     });
     
-    // Update tab content visibility
+    // Update tab content visibility (the "Pricing & Compare" tab controls
+    // both the #pricing-tab controls panel and the #pricing-tab-body
+    // filters/table/legend section below it).
     document.querySelectorAll('.tab-content').forEach(content => {
-      content.classList.toggle('active', content.id === tabName);
+      const isPricingBody = content.id === 'pricing-tab-body';
+      const belongsToTab = isPricingBody ? 'pricing-tab' : content.id;
+      content.classList.toggle('active', belongsToTab === tabName);
     });
     
     // Render task guide on first show
@@ -2156,15 +2165,15 @@
         const nameTooltip = unpriced
           ? escapeAttr(`${rec.model}\nNot found in current pricing table — may be deprecated or unavailable.`)
           : modelTooltip(model);
-        const accentClass = taskAreaColorClass(model?.taskArea || task.title) || 'task-swatch-undoc';
+        const swatchClass = taskAreaColorClass(model?.taskArea || task.title) || 'task-swatch-undoc';
+        const borderClass = 'task-swatch-border-' + swatchClass.replace('task-swatch-', '');
         const priceLine = unpriced
           ? 'Pricing unavailable'
           : `Input ${fmt(model.input)} / 1M (${Math.round(model.input / 0.01)} cr) · Output ${fmt(model.output)} / 1M (${Math.round(model.output / 0.01)} cr)`;
         return `
           <div class="task-guide-model-chip ${dimClass}">
             <div class="task-guide-model-head">
-              <span class="task-guide-accent ${accentClass}"></span>
-              <span class="task-guide-model-name" title="${nameTooltip}">${rec.model}</span>
+              <span class="task-guide-model-name ${borderClass}" title="${nameTooltip}">${rec.model}</span>
             </div>
             <div class="task-guide-model-price">${priceLine}</div>
             <div class="task-guide-model-reason">${rec.reason}</div>

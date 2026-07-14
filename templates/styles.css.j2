@@ -836,14 +836,6 @@
   .task-guide-model-head {
     display: flex;
     align-items: center;
-    gap: 8px;
-  }
-  .task-guide-accent {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-radius: 2px;
-    flex: 0 0 auto;
   }
   .task-guide-model-name {
     display: inline-block;
@@ -851,11 +843,21 @@
     font-weight: 600;
     color: var(--nordic-black);
     cursor: help;
-    border: 1px solid currentColor;
+    border: 2px solid var(--slate-4);
     border-radius: 999px;
     padding: 2px 10px;
     background: var(--white);
     max-width: 100%;
+  }
+  .task-guide-model-name.task-swatch-border-0 { border-color: #0EA5E9; background: #0EA5E90F; }
+  .task-guide-model-name.task-swatch-border-1 { border-color: #A855F7; background: #A855F70F; }
+  .task-guide-model-name.task-swatch-border-2 { border-color: #F59E0B; background: #F59E0B0F; }
+  .task-guide-model-name.task-swatch-border-3 { border-color: #10B981; background: #10B9810F; }
+  .task-guide-model-name.task-swatch-border-4 { border-color: #EF4444; background: #EF44440F; }
+  .task-guide-model-name.task-swatch-border-5 { border-color: #6366F1; background: #6366F10F; }
+  .task-guide-model-name.task-swatch-border-undoc {
+    border-color: var(--slate-4);
+    border-style: dashed;
   }
   .task-guide-model-price {
     font-size: 12px;

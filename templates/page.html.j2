@@ -62,61 +62,64 @@
     </div>
   </div>
 
-  <!-- Filters -->
-  <div class="filters-bar" id="pricing-tab-content">
-    {{ m.filter_chip_group('filter-provider', 'Provider', ['all', 'OpenAI', 'Anthropic', 'Google', 'Fine-tuned (GitHub)', 'Microsoft', 'Moonshot AI'], 'all') }}
-    {{ m.filter_chip_group('filter-category', 'Category', ['all', 'Powerful', 'Versatile', 'Lightweight'], 'all') }}
-    {{ m.filter_chip_group('filter-status', 'Status', ['all', 'GA', 'preview'], 'all') }}
-    <div id="filter-task-area-group" class="filter-group" style="display: none;">
-      <span class="filter-label">Task area</span>
-      <div class="filter-chips" id="filter-task-area"></div>
+  <!-- Everything below only belongs to the "Pricing & Compare" tab -->
+  <div id="pricing-tab-body" class="tab-content active">
+    <!-- Filters -->
+    <div class="filters-bar">
+      {{ m.filter_chip_group('filter-provider', 'Provider', ['all', 'OpenAI', 'Anthropic', 'Google', 'Fine-tuned (GitHub)', 'Microsoft', 'Moonshot AI'], 'all') }}
+      {{ m.filter_chip_group('filter-category', 'Category', ['all', 'Powerful', 'Versatile', 'Lightweight'], 'all') }}
+      {{ m.filter_chip_group('filter-status', 'Status', ['all', 'GA', 'preview'], 'all') }}
+      <div id="filter-task-area-group" class="filter-group" style="display: none;">
+        <span class="filter-label">Task area</span>
+        <div class="filter-chips" id="filter-task-area"></div>
+      </div>
+      <div class="search-wrap">
+        <input type="search" id="search-input" placeholder="Search model name…" />
+      </div>
     </div>
-    <div class="search-wrap">
-      <input type="search" id="search-input" placeholder="Search model name…" />
+
+    <!-- Table meta row -->
+    <div class="table-meta" id="pricing-table-meta">
+      <span class="table-meta-count" id="row-count"></span>
     </div>
-  </div>
 
-  <!-- Table meta row -->
-  <div class="table-meta" id="pricing-table-meta">
-    <span class="table-meta-count" id="row-count"></span>
-  </div>
+    <!-- Unified table -->
+    <div class="table-wrapper" id="pricing-table-wrapper">
+      <table id="main-table">
+        <thead>
+          <tr>
+            <th style="width:36px;padding:10px 8px"></th>
+            {{ m.table_header_cell('name', 'Model', false) }}
+            {{ m.table_header_cell('provider', 'Provider', false) }}
+            {{ m.table_header_cell('category', 'Category', false) }}
+            <th class="sortable" data-col="taskArea" style="width:56px;text-align:center">Task <span class="sort-icon">↕</span></th>
+            {{ m.table_header_cell('tier', 'Tier', false) }}
+            {{ m.table_header_cell('input', 'Input / 1M', true) }}
+            {{ m.table_header_cell('cached', 'Cached / 1M', true) }}
+            {{ m.table_header_cell('cacheWrite', 'Cache write / 1M', true) }}
+            {{ m.table_header_cell('output', 'Output / 1M', true) }}
+            {{ m.table_header_cell('cost', 'Est. cost', true) }}
+            <th class="bar-cell">Relative cost</th>
+          </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+      </table>
+      <div class="no-results" id="no-results">No models match your filters.</div>
+    </div>
 
-  <!-- Unified table -->
-  <div class="table-wrapper" id="pricing-table-wrapper">
-    <table id="main-table">
-      <thead>
-        <tr>
-          <th style="width:36px;padding:10px 8px"></th>
-          {{ m.table_header_cell('name', 'Model', false) }}
-          {{ m.table_header_cell('provider', 'Provider', false) }}
-          {{ m.table_header_cell('category', 'Category', false) }}
-          <th class="sortable" data-col="taskArea" style="width:56px;text-align:center">Task <span class="sort-icon">↕</span></th>
-          {{ m.table_header_cell('tier', 'Tier', false) }}
-          {{ m.table_header_cell('input', 'Input / 1M', true) }}
-          {{ m.table_header_cell('cached', 'Cached / 1M', true) }}
-          {{ m.table_header_cell('cacheWrite', 'Cache write / 1M', true) }}
-          {{ m.table_header_cell('output', 'Output / 1M', true) }}
-          {{ m.table_header_cell('cost', 'Est. cost', true) }}
-          <th class="bar-cell">Relative cost</th>
-        </tr>
-      </thead>
-      <tbody id="table-body"></tbody>
-    </table>
-    <div class="no-results" id="no-results">No models match your filters.</div>
-  </div>
+    <!-- Task area legend -->
+    <div class="task-area-legend" id="task-area-legend" style="display:none">
+      <span class="legend-label">Task area:</span>
+      <div class="legend-items" id="legend-items"></div>
+    </div>
 
-  <!-- Task area legend -->
-  <div class="task-area-legend" id="task-area-legend" style="display:none">
-    <span class="legend-label">Task area:</span>
-    <div class="legend-items" id="legend-items"></div>
+    <p class="page-note">
+      Est. cost = (input tokens × input rate + cached tokens × cached rate + output tokens × output rate) ÷ 1M, based on your token split above.
+      Cache write applies to Anthropic models only.
+      Code completions and next-edit suggestions are not billed in AI credits.
+      · <a href="https://docs.github.com/en/copilot/reference/copilot-billing/models-and-pricing" target="_blank">Source pricing →</a>
+    </p>
   </div>
-
-  <p class="page-note">
-    Est. cost = (input tokens × input rate + cached tokens × cached rate + output tokens × output rate) ÷ 1M, based on your token split above.
-    Cache write applies to Anthropic models only.
-    Code completions and next-edit suggestions are not billed in AI credits.
-    · <a href="https://docs.github.com/en/copilot/reference/copilot-billing/models-and-pricing" target="_blank">Source pricing →</a>
-  </p>
 </main>
 
 <footer class="page-footer">
