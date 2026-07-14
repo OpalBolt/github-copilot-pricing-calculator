@@ -6,6 +6,9 @@
   // All rates $ per 1M tokens
   const ALL_MODELS = {{ models_json }};
 
+  // Task guide data
+  const TASK_GUIDE = {{ task_guide_json }};
+
   // ── Preset profiles ──────────────────────────────────────────
   const PROFILES = {
     superuser: { name: 'Superuser/Developer', input: 0.49, cached: 98.62, output: 0.89 },
@@ -19,9 +22,11 @@
     filterProvider: 'all',
     filterCategory: 'all',
     filterStatus: 'all',
+    filterTaskArea: 'all',
     search: '',
     compareIds: new Set(),
     activeProfile: null,
+    activeTab: 'pricing-tab',
   };
 
   ALL_MODELS.forEach((m, i) => { m._idx = i; });
@@ -88,6 +93,28 @@
       : `<span class="badge badge-preview">Preview</span>`;
   }
 
+  function taskAreaBadge(area) {
+    if (!area) {
+      return `<span class="task-area-badge task-area-undoc" title="Not documented in the GitHub model comparison guide">—</span>`;
+    }
+    // Deterministic color based on hash of the area name
+    let hash = 0;
+    for (let i = 0; i < area.length; i++) {
+      hash = ((hash << 5) - hash) + area.charCodeAt(i);
+      hash |= 0; // Convert to 32bit integer
+    }
+    const colors = ['#E8F4F8', '#F0E8F8', '#F8F0E8', '#E8F8E8', '#F8E8E8', '#F8F8E8'];
+    const colorClass = `task-area-${(Math.abs(hash) % colors.length)}`;
+    const truncated = area.length > 25 ? area.substring(0, 22) + '...' : area;
+    return `<span class="task-area-badge ${colorClass}" title="${area}">${truncated}</span>`;
+  }
+
+  function excellsAtBadge(text) {
+    if (!text) return '';
+    const truncated = text.length > 50 ? text.substring(0, 47) + '...' : text;
+    return `<span class="excels-at-icon" title="${text}">✓</span>`;
+  }
+
   // ── Render ───────────────────────────────────────────────────
   function render() {
     const cfg = getConfig();
@@ -97,6 +124,7 @@
     const visible = rows.filter(m => {
       if (state.filterProvider !== 'all' && m.provider !== state.filterProvider) return false;
       if (state.filterCategory !== 'all' && m.category !== state.filterCategory) return false;
+      if (state.filterTaskArea !== 'all' && m.taskArea !== state.filterTaskArea) return false;
       if (state.filterStatus !== 'all') {
         const isPreview = m.status === 'preview';
         if (state.filterStatus === 'GA' && isPreview) return false;
@@ -136,6 +164,7 @@
         </td>
         <td class="dim">${m.provider}</td>
         <td><span class="cat-badge ${catClass(m.category)}">${m.category}</span></td>
+        <td>${taskAreaBadge(m.taskArea)}</td>
         <td>${m.tier === 'Long context' ? `<span class="tier-lc">Long context</span>` : `<span class="dim">Default</span>`}</td>
         <td class="num">$${fmt(m.input)}</td>
         <td class="num">$${fmt(m.cached)}</td>
@@ -204,6 +233,26 @@
   setupFilterGroup('filter-provider', 'filterProvider');
   setupFilterGroup('filter-category', 'filterCategory');
   setupFilterGroup('filter-status',   'filterStatus');
+
+  // ── Initialize task area filter ──────────────────────────────
+  function initTaskAreaFilter() {
+    const taskAreas = new Set(['all']);
+    ALL_MODELS.forEach(m => {
+      if (m.taskArea) taskAreas.add(m.taskArea);
+    });
+    
+    if (taskAreas.size > 1) {
+      const container = document.getElementById('filter-task-area');
+      const html = [...taskAreas].map(area => {
+        const active = area === 'all' ? ' active' : '';
+        return `<button class="filter-chip${active}" data-value="${area}">${area}</button>`;
+      }).join('');
+      container.innerHTML = html;
+      document.getElementById('filter-task-area-group').style.display = 'block';
+      setupFilterGroup('filter-task-area', 'filterTaskArea');
+    }
+  }
+  initTaskAreaFilter();
 
   // ── Search ───────────────────────────────────────────────────
   document.getElementById('search-input').addEventListener('input', e => {
@@ -278,11 +327,12 @@
       const caBarW  = Math.round((m.cached / (maxCached || 1)) * 100);
       const outBarW = Math.round((m.output / (maxOutput || 1)) * 100);
       const footnote = m.footnote ? `<span class="footnote-icon" title="${m.footnote}">!</span>` : '';
+      const taskAreaDisplay = taskAreaBadge(m.taskArea);
       return `
       <div class="cmp-card">
         <button class="cmp-card-remove" title="Remove" onclick="toggleCompare(${m._idx})">✕</button>
         <div class="cmp-card-name">${m.name}${footnote}${m.tier === 'Long context' ? ' <span style="font-size:10px;color:var(--link)">LC</span>' : ''}</div>
-        <div class="cmp-card-provider">${m.provider} · <span class="cat-badge ${catClass(m.category)}" style="font-size:10px;padding:1px 6px">${m.category}</span></div>
+        <div class="cmp-card-provider">${m.provider} · <span class="cat-badge ${catClass(m.category)}" style="font-size:10px;padding:1px 6px">${m.category}</span> · ${taskAreaDisplay}</div>
         <div class="cmp-card-rows">
           <div class="cmp-rate-row">
             <span class="cmp-rate-label">Input</span>
@@ -319,6 +369,74 @@
     }
   }
 
+  // ── Tab switching ────────────────────────────────────────────
+  function switchTab(tabName) {
+    state.activeTab = tabName;
+    
+    // Update tab button active states
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.tab === tabName);
+    });
+    
+    // Update tab content visibility
+    document.querySelectorAll('.tab-content').forEach(content => {
+      content.classList.toggle('active', content.id === tabName);
+    });
+    
+    // Render task guide on first show
+    if (tabName === 'guide-tab') {
+      renderTaskGuide();
+    }
+  }
+
+  function renderTaskGuide() {
+    const container = document.getElementById('guide-content');
+    if (!TASK_GUIDE || TASK_GUIDE.length === 0) {
+      container.innerHTML = '<p>No task guide data available.</p>';
+      return;
+    }
+    
+    // Build task cards
+    const html = TASK_GUIDE.map(task => {
+      const recModels = task.recommended.map(rec => {
+        const model = ALL_MODELS.find(m => m.name === rec.model);
+        const unpriced = !model;
+        const dimClass = unpriced ? 'unpriced' : '';
+        const tooltip = unpriced ? 'title="This model is in the guide but not in the pricing table; it may be deprecated or unavailable."' : '';
+        return `
+          <tr class="${dimClass}">
+            <td>${rec.model}${tooltip ? ' <span class="dim-icon" ' + tooltip + '>⚠</span>' : ''}</td>
+            <td>${rec.reason}</td>
+          </tr>`;
+      }).join('');
+      
+      return `
+      <div class="task-card">
+        <h3>${task.title}</h3>
+        <p>${task.intro}</p>
+        <h4>Recommended models</h4>
+        <table class="task-models-table">
+          <tbody>${recModels}</tbody>
+        </table>
+        <h4>When to use these models</h4>
+        <ul>
+          ${task.useCases.map(uc => `<li>${uc}</li>`).join('')}
+        </ul>
+        ${task.useDifferent ? `<div class="task-guidance"><strong>When to use a different model:</strong> ${task.useDifferent}</div>` : ''}
+      </div>`;
+    }).join('');
+    
+    container.innerHTML = html;
+  }
+
+  // ── Tab nav event listeners ──────────────────────────────────
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      switchTab(btn.dataset.tab);
+    });
+  });
+
   // ── Initial render ────────────────────────────────────────────
   render();
+
 </script>

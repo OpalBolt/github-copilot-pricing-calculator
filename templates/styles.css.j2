@@ -124,6 +124,41 @@
     border-color: var(--link);
   }
 
+  /* ── Tabs ────────────────────────────────────────────────── */
+  .tabs-nav {
+    display: flex;
+    gap: 0;
+    border-bottom: 2px solid var(--slate-3);
+    margin: 0 0 24px 0;
+  }
+  .tab-btn {
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    color: var(--slate-6);
+    cursor: pointer;
+    transition: all 150ms ease-out;
+    margin-bottom: -2px;
+  }
+  .tab-btn:hover {
+    color: var(--slate-8);
+  }
+  .tab-btn.active {
+    border-bottom-color: var(--efi-yellow);
+    color: var(--nordic-black);
+    font-weight: 600;
+  }
+
+  .tab-content {
+    display: none;
+  }
+  .tab-content.active {
+    display: block;
+  }
+
   .controls-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -378,6 +413,36 @@
     color: var(--link);
     font-weight: 500;
     white-space: nowrap;
+  }
+
+  /* Task area badge */
+  .task-area-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 8px;
+    border-radius: 2px;
+    white-space: nowrap;
+    cursor: help;
+  }
+  .task-area-undoc {
+    background: var(--slate-2);
+    color: var(--slate-5);
+    font-style: italic;
+  }
+  .task-area-0 { background: #E8F4F8; color: #006B8A; }
+  .task-area-1 { background: #F0E8F8; color: #6B008A; }
+  .task-area-2 { background: #F8F0E8; color: #8A6B00; }
+  .task-area-3 { background: #E8F8E8; color: #008A2B; }
+  .task-area-4 { background: #F8E8E8; color: #8A0000; }
+  .task-area-5 { background: #F8F8E8; color: #8A8A00; }
+
+  .excels-at-icon {
+    display: inline-block;
+    margin-left: 4px;
+    font-size: 12px;
+    color: #059669;
+    cursor: help;
   }
 
   /* cost bar */
@@ -648,6 +713,99 @@
   }
   .page-footer a { color: var(--link); text-decoration: none; }
   .page-footer a:hover { text-decoration: underline; }
+
+  /* ── Task Guide Styles ───────────────────────────────────── */
+  .task-card {
+    background: var(--white);
+    border: 1px solid var(--slate-3);
+    border-radius: 4px;
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+  .task-card h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--nordic-black);
+    margin-bottom: 12px;
+  }
+  .task-card h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--slate-8);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 20px;
+    margin-bottom: 12px;
+  }
+  .task-card p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--slate-7);
+    margin-bottom: 16px;
+  }
+  .task-card ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .task-card li {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--slate-7);
+    margin-left: 0;
+    padding-left: 24px;
+    position: relative;
+    margin-bottom: 8px;
+  }
+  .task-card li::before {
+    content: '•';
+    position: absolute;
+    left: 8px;
+  }
+  .task-guidance {
+    background: var(--slate-2);
+    border-left: 3px solid var(--slate-5);
+    padding: 12px 16px;
+    margin-top: 16px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--slate-7);
+  }
+  
+  .task-models-table {
+    width: 100%;
+    font-size: 13px;
+    border-collapse: collapse;
+  }
+  .task-models-table tr {
+    border-bottom: 1px solid var(--slate-3);
+  }
+  .task-models-table tr:last-child {
+    border-bottom: none;
+  }
+  .task-models-table td {
+    padding: 10px 0;
+  }
+  .task-models-table td:first-child {
+    font-weight: 500;
+    color: var(--nordic-black);
+    min-width: 160px;
+  }
+  .task-models-table td:last-child {
+    color: var(--slate-6);
+  }
+  .task-models-table tr.unpriced {
+    opacity: 0.6;
+  }
+  .task-models-table tr.unpriced td:first-child {
+    color: var(--slate-5);
+  }
+  .dim-icon {
+    display: inline-block;
+    margin-left: 4px;
+    font-size: 10px;
+    cursor: help;
+  }
 
   @media (max-width: 768px) {
     .page-header { padding: 32px 20px 28px; }

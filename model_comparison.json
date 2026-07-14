@@ -1,0 +1,279 @@
+{
+  "fetchDate": "2026-07-14",
+  "summary": [
+    {
+      "model": "GPT-5 mini",
+      "taskArea": "General-purpose coding and writing",
+      "excelsAt": "Fast, accurate code completions and explanations",
+      "furtherReadingText": "GPT-5 mini model card",
+      "furtherReadingUrl": "https://cdn.openai.com/gpt-5-system-card.pdf"
+    },
+    {
+      "model": "GPT-5.3-Codex",
+      "taskArea": "Agentic software development",
+      "excelsAt": "Agentic tasks",
+      "furtherReadingText": "GPT-5.3-Codex model card",
+      "furtherReadingUrl": "https://deploymentsafety.openai.com/gpt-5-3-codex"
+    },
+    {
+      "model": "GPT-5.4",
+      "taskArea": "Deep reasoning and debugging",
+      "excelsAt": "Multi-step problem solving and architecture-level code analysis",
+      "furtherReadingText": "GPT-5.4 model card",
+      "furtherReadingUrl": "https://deploymentsafety.openai.com/gpt-5-4-thinking/introduction"
+    },
+    {
+      "model": "GPT-5.4 mini",
+      "taskArea": "Agentic software development",
+      "excelsAt": "Codebase exploration and is especially effective when using grep-style tools",
+      "furtherReadingText": "GPT-5.4 mini model card",
+      "furtherReadingUrl": "https://deploymentsafety.openai.com/gpt-5-4-thinking/gpt-5-4-thinking.pdf"
+    },
+    {
+      "model": "GPT-5.5",
+      "taskArea": "Deep reasoning and debugging",
+      "excelsAt": "Multi-step problem solving and architecture-level code analysis",
+      "furtherReadingText": "GPT-5.5 model card",
+      "furtherReadingUrl": "https://deploymentsafety.openai.com/gpt-5-5/gpt-5-5.pdf"
+    },
+    {
+      "model": "GPT-5.6 Luna",
+      "taskArea": "Fast help with simple or repetitive tasks",
+      "excelsAt": "Quick, cost-efficient responses for smaller, faster coding tasks",
+      "furtherReadingText": "",
+      "furtherReadingUrl": ""
+    },
+    {
+      "model": "GPT-5.6 Sol",
+      "taskArea": "Deep reasoning and debugging",
+      "excelsAt": "Complex reasoning over large codebases and long-running agentic work",
+      "furtherReadingText": "",
+      "furtherReadingUrl": ""
+    },
+    {
+      "model": "GPT-5.6 Terra",
+      "taskArea": "General-purpose coding and agent tasks",
+      "excelsAt": "Balanced everyday interactive and agentic coding",
+      "furtherReadingText": "",
+      "furtherReadingUrl": ""
+    },
+    {
+      "model": "Claude Fable 5",
+      "taskArea": "Long-horizon, autonomous coding and knowledge-work",
+      "excelsAt": "First-attempt correctness through upfront reasoning, aggressive parallel tool batching, and proactive verification of pre-existing test state before debugging",
+      "furtherReadingText": "Claude Fable 5 model card",
+      "furtherReadingUrl": "https://anthropic.com/claude-fable-5-mythos-5-system-card"
+    },
+    {
+      "model": "Claude Haiku 4.5",
+      "taskArea": "Fast help with simple or repetitive tasks",
+      "excelsAt": "Fast, reliable answers to lightweight coding questions",
+      "furtherReadingText": "Claude Haiku 4.5 model card",
+      "furtherReadingUrl": "https://assets.anthropic.com/m/99128ddd009bdcb/Claude-Haiku-4-5-System-Card.pdf"
+    },
+    {
+      "model": "Claude Opus 4.7",
+      "taskArea": "Deep reasoning and debugging",
+      "excelsAt": "Complex problem-solving challenges, sophisticated reasoning",
+      "furtherReadingText": "Claude Opus 4.7 model card",
+      "furtherReadingUrl": "https://cdn.sanity.io/files/4zrzovbb/website/037f06850df7fbe871e206dad004c3db5fd50340.pdf"
+    },
+    {
+      "model": "Claude Opus 4.8",
+      "taskArea": "Deep reasoning and debugging",
+      "excelsAt": "Complex problem-solving challenges, sophisticated reasoning",
+      "furtherReadingText": "Claude Opus 4.8 model card",
+      "furtherReadingUrl": "https://www-cdn.anthropic.com/0b4915911bb0d19eca5b5ee635c80fef830a37ea.pdf"
+    },
+    {
+      "model": "Claude Opus 4.8 (fast mode) (preview)",
+      "taskArea": "Deep reasoning and debugging",
+      "excelsAt": "Complex problem-solving challenges, sophisticated reasoning",
+      "furtherReadingText": "Claude Opus 4.8 model card",
+      "furtherReadingUrl": "https://www-cdn.anthropic.com/0b4915911bb0d19eca5b5ee635c80fef830a37ea.pdf"
+    },
+    {
+      "model": "Claude Sonnet 4.5",
+      "taskArea": "General-purpose coding and agent tasks",
+      "excelsAt": "Complex problem-solving challenges, sophisticated reasoning",
+      "furtherReadingText": "Claude Sonnet 4.5 model card",
+      "furtherReadingUrl": "https://assets.anthropic.com/m/12f214efcc2f457a/original/Claude-Sonnet-4-5-System-Card.pdf"
+    },
+    {
+      "model": "Claude Sonnet 4.6",
+      "taskArea": "General-purpose coding and agent tasks",
+      "excelsAt": "Complex problem-solving challenges, sophisticated reasoning",
+      "furtherReadingText": "Claude Sonnet 4.6 model card",
+      "furtherReadingUrl": "https://www-cdn.anthropic.com/78073f739564e986ff3e28522761a7a0b4484f84.pdf"
+    },
+    {
+      "model": "Claude Sonnet 5",
+      "taskArea": "General-purpose coding and agent tasks",
+      "excelsAt": "Complex problem-solving challenges, sophisticated reasoning",
+      "furtherReadingText": "Claude Sonnet 5 model card",
+      "furtherReadingUrl": "https://www-cdn.anthropic.com/9e6a1044980d8c4ed85669faf9c2a8342e2e9f1e/Claude%20Sonnet%205%20System%20Card.pdf"
+    },
+    {
+      "model": "Gemini 2.5 Pro",
+      "taskArea": "Deep reasoning and debugging",
+      "excelsAt": "Complex code generation, debugging, and research workflows",
+      "furtherReadingText": "Gemini 2.5 Pro model card",
+      "furtherReadingUrl": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-pro.pdf"
+    },
+    {
+      "model": "Gemini 3 Flash",
+      "taskArea": "Fast help with simple or repetitive tasks",
+      "excelsAt": "Fast, reliable answers to lightweight coding questions",
+      "furtherReadingText": "Gemini 3 Flash model card",
+      "furtherReadingUrl": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-Flash-Model-Card.pdf"
+    },
+    {
+      "model": "Gemini 3.1 Pro",
+      "taskArea": "Deep reasoning and debugging",
+      "excelsAt": "Effective and efficient edit-then-test loops with high tool precision",
+      "furtherReadingText": "",
+      "furtherReadingUrl": ""
+    },
+    {
+      "model": "Gemini 3.5 Flash",
+      "taskArea": "Fast help with simple or repetitive tasks",
+      "excelsAt": "Fast, reliable answers to lightweight coding questions",
+      "furtherReadingText": "Gemini 3.5 Flash model card",
+      "furtherReadingUrl": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-5-Flash-Model-Card.pdf"
+    },
+    {
+      "model": "MAI-Code-1-Flash[^mai-code-1-flash]",
+      "taskArea": "General-purpose coding and writing",
+      "excelsAt": "Fast, accurate code completions and explanations",
+      "furtherReadingText": "MAI-Code-1-Flash model card",
+      "furtherReadingUrl": "https://aka.ms/mai-code-1-flash-modelcard"
+    },
+    {
+      "model": "Qwen2.5",
+      "taskArea": "General-purpose coding and writing",
+      "excelsAt": "Code generation, reasoning, and code repair / debugging",
+      "furtherReadingText": "Qwen2.5 model card",
+      "furtherReadingUrl": "https://arxiv.org/pdf/2409.12186"
+    },
+    {
+      "model": "Raptor mini",
+      "taskArea": "General-purpose coding and writing",
+      "excelsAt": "Fast, accurate code completions and explanations",
+      "furtherReadingText": "",
+      "furtherReadingUrl": ""
+    },
+    {
+      "model": "Kimi K2.7 Code",
+      "taskArea": "General-purpose coding and agent tasks",
+      "excelsAt": "Fast, reliable answers to lightweight coding questions",
+      "furtherReadingText": "Kimi K2.7 Code model card",
+      "furtherReadingUrl": "https://huggingface.co/moonshotai/Kimi-K2.7-Code"
+    }
+  ],
+  "tasks": [
+    {
+      "slug": "general-purpose-coding-and-writing",
+      "title": "General-purpose coding and writing",
+      "intro": "Use these models for common development tasks that require a balance of quality, speed, and cost efficiency. These models are a good default when you don't have specific requirements.",
+      "recommended": [
+        {
+          "model": "GPT-5.3-Codex",
+          "reason": "Delivers higher-quality code on complex engineering tasks like features, tests, debugging, refactors, and reviews without lengthy instructions."
+        },
+        {
+          "model": "GPT-5 mini",
+          "reason": "Reliable default for most coding and writing tasks. Fast, accurate, and works well across languages and frameworks."
+        },
+        {
+          "model": "Raptor mini",
+          "reason": "Specialized for fast, accurate inline suggestions and explanations."
+        },
+        {
+          "model": "MAI-Code-1-Flash",
+          "reason": "Strong instruction-following and adaptive reasoning make it a reliable default for everyday coding tasks, writing, and multi-turn development workflows."
+        }
+      ],
+      "useCases": [
+        "Write or review functions, short files, or code diffs.",
+        "Generate documentation, comments, or summaries."
+      ],
+      "useDifferent": "If you're working on complex refactoring, architectural decisions, or multi-step logic, consider a model from [Deep reasoning and debugging](#task-deep-reasoning-and-debugging). For faster, simpler tasks like repetitive edits or one-off code suggestions, see [Fast help with simple or repetitive tasks](#task-fast-help-with-simple-or-repetitive-tasks)."
+    },
+    {
+      "slug": "fast-help-with-simple-or-repetitive-tasks",
+      "title": "Fast help with simple or repetitive tasks",
+      "intro": "These models are optimized for speed and responsiveness. They\u2019re ideal for quick edits, utility functions, syntax help, and lightweight prototyping. You\u2019ll get fast answers without waiting for unnecessary depth or long reasoning chains.",
+      "recommended": [
+        {
+          "model": "Claude Haiku 4.5",
+          "reason": "Balances fast responses with quality output. Ideal for small tasks and lightweight code explanations."
+        },
+        {
+          "model": "MAI-Code-1-Flash",
+          "reason": "Handles quick coding tasks with adaptive efficiency, stays concise for simple requests and delivers fast, accurate responses without unnecessary depth."
+        }
+      ],
+      "useCases": [
+        "Write or edit small functions or utility code.",
+        "Ask quick syntax or language questions."
+      ],
+      "useDifferent": "If you\u2019re working on complex refactoring, architectural decisions, or multi-step logic, see [Deep reasoning and debugging](#task-deep-reasoning-and-debugging). For tasks that need stronger general-purpose reasoning or more structured output, see [General-purpose coding and writing](#task-general-purpose-coding-and-writing)."
+    },
+    {
+      "slug": "deep-reasoning-and-debugging",
+      "title": "Deep reasoning and debugging",
+      "intro": "These models are designed for tasks that require step-by-step reasoning, complex decision-making, or high-context awareness. They work well when you need structured analysis, thoughtful code generation, or multi-file understanding.",
+      "recommended": [
+        {
+          "model": "GPT-5 mini",
+          "reason": "Delivers deep reasoning and debugging with faster responses and lower resource usage than GPT-5. Ideal for interactive sessions and step-by-step code analysis."
+        },
+        {
+          "model": "GPT-5.5",
+          "reason": "Great at complex reasoning, code analysis, and technical decision-making."
+        },
+        {
+          "model": "Claude Sonnet 4.6",
+          "reason": "Improves on Sonnet 4.5 with more reliable completions and smarter reasoning under pressure."
+        },
+        {
+          "model": "Claude Opus 4.7",
+          "reason": "Anthropic\u2019s most powerful model. Improves on Claude Opus 4.6."
+        },
+        {
+          "model": "Gemini 3.1 Pro",
+          "reason": "Advanced reasoning across long contexts and scientific or technical analysis."
+        }
+      ],
+      "useCases": [
+        "Debug complex issues with context across multiple files.",
+        "Refactor large or interconnected codebases."
+      ],
+      "useDifferent": "For fast iteration or lightweight tasks, see [Fast help with simple or repetitive tasks](#task-fast-help-with-simple-or-repetitive-tasks). For general development workflows or content generation, see [General-purpose coding and writing](#task-general-purpose-coding-and-writing)."
+    },
+    {
+      "slug": "working-with-visuals-diagrams-screenshots",
+      "title": "Working with visuals (diagrams, screenshots)",
+      "intro": "Use these models when you want to ask questions about screenshots, diagrams, UI components, or other visual input. These models support multimodal input and are well suited for front-end work or visual debugging.",
+      "recommended": [
+        {
+          "model": "GPT-5 mini",
+          "reason": "Reliable default for most coding and writing tasks. Fast, accurate, and supports multimodal input for visual reasoning tasks. Works well across languages and frameworks."
+        },
+        {
+          "model": "Claude Sonnet 4.6",
+          "reason": "Improves on Sonnet 4.5 with more reliable completions and smarter reasoning under pressure."
+        },
+        {
+          "model": "Gemini 3.1 Pro",
+          "reason": "Deep reasoning and debugging, ideal for complex code generation, debugging, and research workflows."
+        }
+      ],
+      "useCases": [
+        "Ask questions about diagrams, screenshots, or UI components.",
+        "Get feedback on visual drafts or workflows."
+      ],
+      "useDifferent": "If your task involves deep reasoning or large-scale refactoring, consider a model from [Deep reasoning and debugging](#task-deep-reasoning-and-debugging). For text-only tasks or simpler code edits, see [Fast help with simple or repetitive tasks](#task-fast-help-with-simple-or-repetitive-tasks)."
+    }
+  ]
+}

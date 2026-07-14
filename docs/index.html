@@ -134,6 +134,41 @@
     border-color: var(--link);
   }
 
+  /* ── Tabs ────────────────────────────────────────────────── */
+  .tabs-nav {
+    display: flex;
+    gap: 0;
+    border-bottom: 2px solid var(--slate-3);
+    margin: 0 0 24px 0;
+  }
+  .tab-btn {
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    color: var(--slate-6);
+    cursor: pointer;
+    transition: all 150ms ease-out;
+    margin-bottom: -2px;
+  }
+  .tab-btn:hover {
+    color: var(--slate-8);
+  }
+  .tab-btn.active {
+    border-bottom-color: var(--efi-yellow);
+    color: var(--nordic-black);
+    font-weight: 600;
+  }
+
+  .tab-content {
+    display: none;
+  }
+  .tab-content.active {
+    display: block;
+  }
+
   .controls-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -388,6 +423,36 @@
     color: var(--link);
     font-weight: 500;
     white-space: nowrap;
+  }
+
+  /* Task area badge */
+  .task-area-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 8px;
+    border-radius: 2px;
+    white-space: nowrap;
+    cursor: help;
+  }
+  .task-area-undoc {
+    background: var(--slate-2);
+    color: var(--slate-5);
+    font-style: italic;
+  }
+  .task-area-0 { background: #E8F4F8; color: #006B8A; }
+  .task-area-1 { background: #F0E8F8; color: #6B008A; }
+  .task-area-2 { background: #F8F0E8; color: #8A6B00; }
+  .task-area-3 { background: #E8F8E8; color: #008A2B; }
+  .task-area-4 { background: #F8E8E8; color: #8A0000; }
+  .task-area-5 { background: #F8F8E8; color: #8A8A00; }
+
+  .excels-at-icon {
+    display: inline-block;
+    margin-left: 4px;
+    font-size: 12px;
+    color: #059669;
+    cursor: help;
   }
 
   /* cost bar */
@@ -659,6 +724,99 @@
   .page-footer a { color: var(--link); text-decoration: none; }
   .page-footer a:hover { text-decoration: underline; }
 
+  /* ── Task Guide Styles ───────────────────────────────────── */
+  .task-card {
+    background: var(--white);
+    border: 1px solid var(--slate-3);
+    border-radius: 4px;
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+  .task-card h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--nordic-black);
+    margin-bottom: 12px;
+  }
+  .task-card h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--slate-8);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 20px;
+    margin-bottom: 12px;
+  }
+  .task-card p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--slate-7);
+    margin-bottom: 16px;
+  }
+  .task-card ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .task-card li {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--slate-7);
+    margin-left: 0;
+    padding-left: 24px;
+    position: relative;
+    margin-bottom: 8px;
+  }
+  .task-card li::before {
+    content: '•';
+    position: absolute;
+    left: 8px;
+  }
+  .task-guidance {
+    background: var(--slate-2);
+    border-left: 3px solid var(--slate-5);
+    padding: 12px 16px;
+    margin-top: 16px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--slate-7);
+  }
+  
+  .task-models-table {
+    width: 100%;
+    font-size: 13px;
+    border-collapse: collapse;
+  }
+  .task-models-table tr {
+    border-bottom: 1px solid var(--slate-3);
+  }
+  .task-models-table tr:last-child {
+    border-bottom: none;
+  }
+  .task-models-table td {
+    padding: 10px 0;
+  }
+  .task-models-table td:first-child {
+    font-weight: 500;
+    color: var(--nordic-black);
+    min-width: 160px;
+  }
+  .task-models-table td:last-child {
+    color: var(--slate-6);
+  }
+  .task-models-table tr.unpriced {
+    opacity: 0.6;
+  }
+  .task-models-table tr.unpriced td:first-child {
+    color: var(--slate-5);
+  }
+  .dim-icon {
+    display: inline-block;
+    margin-left: 4px;
+    font-size: 10px;
+    cursor: help;
+  }
+
   @media (max-width: 768px) {
     .page-header { padding: 32px 20px 28px; }
     .page-header h1 { font-size: 28px; }
@@ -687,49 +845,63 @@
   <div class="controls">
     <h2>Configure your estimate</h2>
     
-    <!-- Profile Presets -->
-    <div class="profile-presets">
-      <span class="profile-label">Quick presets:</span>
-      <div class="profile-buttons">
-        <button class="profile-btn" data-profile="superuser">Superuser/Developer</button>
-        <button class="profile-btn" data-profile="regular">Regular User</button>
-      </div>
+    <!-- Tabs -->
+    <div class="tabs-nav">
+      <button class="tab-btn active" data-tab="pricing-tab">Pricing & Compare</button>
+      <button class="tab-btn" data-tab="guide-tab">Task Guide</button>
     </div>
     
-    <div class="controls-grid">
+    <!-- Pricing Tab -->
+    <div id="pricing-tab" class="tab-content active">
+      <!-- Profile Presets -->
+      <div class="profile-presets">
+        <span class="profile-label">Quick presets:</span>
+        <div class="profile-buttons">
+          <button class="profile-btn" data-profile="superuser">Superuser/Developer</button>
+          <button class="profile-btn" data-profile="regular">Regular User</button>
+        </div>
+      </div>
       
+      <div class="controls-grid">
+        
 <div class="input-group">
   <label for="total-tokens">Total tokens</label>
   <input type="number" id="total-tokens" value="1000000" min="1" max="None" step="100000" />
 </div>
 
-      
+        
 <div class="input-group">
   <label for="input-pct">Input %</label>
   <input type="number" id="input-pct" value="1.45" min="0" max="100" step="0.1" />
 </div>
 
-      
+        
 <div class="input-group">
   <label for="cached-pct">Cached input %</label>
   <input type="number" id="cached-pct" value="96.62" min="0" max="100" step="0.1" />
 </div>
 
-      
+        
 <div class="input-group">
   <label for="output-pct">Output %</label>
   <input type="number" id="output-pct" value="1.93" min="0" max="100" step="0.1" />
 </div>
 
+      </div>
+      <div class="summary-chips" id="summary-chips"></div>
+      <div id="pct-warning" style="display: none; margin-top: 12px; padding: 8px 12px; background: #FEF9C3; border: 1px solid #EAB308; border-radius: 4px; font-size: 13px; color: #854D0E;">
+        ⚠️ Input, Cached, and Output percentages must sum to 100%
+      </div>
     </div>
-    <div class="summary-chips" id="summary-chips"></div>
-    <div id="pct-warning" style="display: none; margin-top: 12px; padding: 8px 12px; background: #FEF9C3; border: 1px solid #EAB308; border-radius: 4px; font-size: 13px; color: #854D0E;">
-      ⚠️ Input, Cached, and Output percentages must sum to 100%
+    
+    <!-- Task Guide Tab (placeholder, will be filled by JS) -->
+    <div id="guide-tab" class="tab-content">
+      <div id="guide-content"></div>
     </div>
   </div>
 
   <!-- Filters -->
-  <div class="filters-bar">
+  <div class="filters-bar" id="pricing-tab-content">
     
 <div class="filter-group">
   <span class="filter-label">Provider</span>
@@ -782,18 +954,22 @@
   </div>
 </div>
 
+    <div id="filter-task-area-group" class="filter-group" style="display: none;">
+      <span class="filter-label">Task area</span>
+      <div class="filter-chips" id="filter-task-area"></div>
+    </div>
     <div class="search-wrap">
       <input type="search" id="search-input" placeholder="Search model name…" />
     </div>
   </div>
 
   <!-- Table meta row -->
-  <div class="table-meta">
+  <div class="table-meta" id="pricing-table-meta">
     <span class="table-meta-count" id="row-count"></span>
   </div>
 
   <!-- Unified table -->
-  <div class="table-wrapper">
+  <div class="table-wrapper" id="pricing-table-wrapper">
     <table id="main-table">
       <thead>
         <tr>
@@ -806,6 +982,9 @@
 
           
 <th class="sortable" data-col="category">Category <span class="sort-icon">↕</span></th>
+
+          
+<th class="sortable" data-col="taskArea">Task area <span class="sort-icon">↕</span></th>
 
           
 <th class="sortable" data-col="tier">Tier <span class="sort-icon">↕</span></th>
@@ -874,7 +1053,10 @@
     "cached": 0.025,
     "cacheWrite": null,
     "output": 2.0,
-    "footnote": null
+    "footnote": null,
+    "taskArea": "General-purpose coding and writing",
+    "excelsAt": "Fast, accurate code completions and explanations",
+    "furtherReadingUrl": "https://cdn.openai.com/gpt-5-system-card.pdf"
   },
   {
     "name": "GPT-5.3-Codex",
@@ -886,7 +1068,10 @@
     "cached": 0.175,
     "cacheWrite": null,
     "output": 14.0,
-    "footnote": null
+    "footnote": null,
+    "taskArea": "Agentic software development",
+    "excelsAt": "Agentic tasks",
+    "furtherReadingUrl": "https://deploymentsafety.openai.com/gpt-5-3-codex"
   },
   {
     "name": "GPT-5.4",
@@ -898,7 +1083,10 @@
     "cached": 0.25,
     "cacheWrite": null,
     "output": 15.0,
-    "footnote": null
+    "footnote": null,
+    "taskArea": "Deep reasoning and debugging",
+    "excelsAt": "Multi-step problem solving and architecture-level code analysis",
+    "furtherReadingUrl": "https://deploymentsafety.openai.com/gpt-5-4-thinking/introduction"
   },
   {
     "name": "GPT-5.4",
@@ -910,7 +1098,10 @@
     "cached": 0.5,
     "cacheWrite": null,
     "output": 22.5,
-    "footnote": null
+    "footnote": null,
+    "taskArea": "Deep reasoning and debugging",
+    "excelsAt": "Multi-step problem solving and architecture-level code analysis",
+    "furtherReadingUrl": "https://deploymentsafety.openai.com/gpt-5-4-thinking/introduction"
   },
   {
     "name": "GPT-5.4 mini",
@@ -922,7 +1113,10 @@
     "cached": 0.075,
     "cacheWrite": null,
     "output": 4.5,
-    "footnote": null
+    "footnote": null,
+    "taskArea": "Agentic software development",
+    "excelsAt": "Codebase exploration and is especially effective when using grep-style tools",
+    "furtherReadingUrl": "https://deploymentsafety.openai.com/gpt-5-4-thinking/gpt-5-4-thinking.pdf"
   },
   {
     "name": "GPT-5.4 nano",
@@ -934,7 +1128,10 @@
     "cached": 0.02,
     "cacheWrite": null,
     "output": 1.25,
-    "footnote": null
+    "footnote": null,
+    "taskArea": null,
+    "excelsAt": null,
+    "furtherReadingUrl": null
   },
   {
     "name": "GPT-5.5",
@@ -946,7 +1143,10 @@
     "cached": 0.5,
     "cacheWrite": null,
     "output": 30.0,
-    "footnote": null
+    "footnote": null,
+    "taskArea": "Deep reasoning and debugging",
+    "excelsAt": "Multi-step problem solving and architecture-level code analysis",
+    "furtherReadingUrl": "https://deploymentsafety.openai.com/gpt-5-5/gpt-5-5.pdf"
   },
   {
     "name": "GPT-5.5",
@@ -958,7 +1158,10 @@
     "cached": 1.0,
     "cacheWrite": null,
     "output": 45.0,
-    "footnote": null
+    "footnote": null,
+    "taskArea": "Deep reasoning and debugging",
+    "excelsAt": "Multi-step problem solving and architecture-level code analysis",
+    "furtherReadingUrl": "https://deploymentsafety.openai.com/gpt-5-5/gpt-5-5.pdf"
   },
   {
     "name": "GPT-5.6 Luna",
@@ -970,7 +1173,10 @@
     "cached": 0.1,
     "cacheWrite": null,
     "output": 6.0,
-    "footnote": null
+    "footnote": null,
+    "taskArea": "Fast help with simple or repetitive tasks",
+    "excelsAt": "Quick, cost-efficient responses for smaller, faster coding tasks",
+    "furtherReadingUrl": ""
   },
   {
     "name": "GPT-5.6 Luna",
@@ -982,7 +1188,10 @@
     "cached": 0.2,
     "cacheWrite": null,
     "output": 9.0,
-    "footnote": null
+    "footnote": null,
+    "taskArea": "Fast help with simple or repetitive tasks",
+    "excelsAt": "Quick, cost-efficient responses for smaller, faster coding tasks",
+    "furtherReadingUrl": ""
   },
   {
     "name": "GPT-5.6 Sol",
@@ -994,7 +1203,10 @@
     "cached": 0.5,
     "cacheWrite": null,
     "output": 30.0,
-    "footnote": null
+    "footnote": null,
+    "taskArea": "Deep reasoning and debugging",
+    "excelsAt": "Complex reasoning over large codebases and long-running agentic work",
+    "furtherReadingUrl": ""
   },
   {
     "name": "GPT-5.6 Sol",
@@ -1006,7 +1218,10 @@
     "cached": 1.0,
     "cacheWrite": null,
     "output": 45.0,
-    "footnote": null
+    "footnote": null,
+    "taskArea": "Deep reasoning and debugging",
+    "excelsAt": "Complex reasoning over large codebases and long-running agentic work",
+    "furtherReadingUrl": ""
   },
   {
     "name": "GPT-5.6 Terra",
@@ -1018,7 +1233,10 @@
     "cached": 0.25,
     "cacheWrite": null,
     "output": 15.0,
-    "footnote": null
+    "footnote": null,
+    "taskArea": "General-purpose coding and agent tasks",
+    "excelsAt": "Balanced everyday interactive and agentic coding",
+    "furtherReadingUrl": ""
   },
   {
     "name": "GPT-5.6 Terra",
@@ -1030,7 +1248,10 @@
     "cached": 0.5,
     "cacheWrite": null,
     "output": 22.5,
-    "footnote": null
+    "footnote": null,
+    "taskArea": "General-purpose coding and agent tasks",
+    "excelsAt": "Balanced everyday interactive and agentic coding",
+    "furtherReadingUrl": ""
   },
   {
     "name": "Claude Haiku 4.5",
@@ -1042,7 +1263,10 @@
     "cached": 0.1,
     "cacheWrite": 1.25,
     "output": 5.0,
-    "footnote": null
+    "footnote": null,
+    "taskArea": "Fast help with simple or repetitive tasks",
+    "excelsAt": "Fast, reliable answers to lightweight coding questions",
+    "furtherReadingUrl": "https://assets.anthropic.com/m/99128ddd009bdcb/Claude-Haiku-4-5-System-Card.pdf"
   },
   {
     "name": "Claude Sonnet 4",
@@ -1054,7 +1278,10 @@
     "cached": 0.3,
     "cacheWrite": 3.75,
     "output": 15.0,
-    "footnote": null
+    "footnote": null,
+    "taskArea": null,
+    "excelsAt": null,
+    "furtherReadingUrl": null
   },
   {
     "name": "Claude Sonnet 4.5",
@@ -1066,7 +1293,10 @@
     "cached": 0.3,
     "cacheWrite": 3.75,
     "output": 15.0,
-    "footnote": null
+    "footnote": null,
+    "taskArea": "General-purpose coding and agent tasks",
+    "excelsAt": "Complex problem-solving challenges, sophisticated reasoning",
+    "furtherReadingUrl": "https://assets.anthropic.com/m/12f214efcc2f457a/original/Claude-Sonnet-4-5-System-Card.pdf"
   },
   {
     "name": "Claude Sonnet 4.6",
@@ -1078,7 +1308,10 @@
     "cached": 0.3,
     "cacheWrite": 3.75,
     "output": 15.0,
-    "footnote": null
+    "footnote": null,
+    "taskArea": "General-purpose coding and agent tasks",
+    "excelsAt": "Complex problem-solving challenges, sophisticated reasoning",
+    "furtherReadingUrl": "https://www-cdn.anthropic.com/78073f739564e986ff3e28522761a7a0b4484f84.pdf"
   },
   {
     "name": "Claude Opus 4.5",
@@ -1090,7 +1323,10 @@
     "cached": 0.5,
     "cacheWrite": 6.25,
     "output": 25.0,
-    "footnote": null
+    "footnote": null,
+    "taskArea": null,
+    "excelsAt": null,
+    "furtherReadingUrl": null
   },
   {
     "name": "Claude Opus 4.6",
@@ -1102,7 +1338,10 @@
     "cached": 0.5,
     "cacheWrite": 6.25,
     "output": 25.0,
-    "footnote": null
+    "footnote": null,
+    "taskArea": null,
+    "excelsAt": null,
+    "furtherReadingUrl": null
   },
   {
     "name": "Claude Opus 4.7",
@@ -1114,7 +1353,10 @@
     "cached": 0.5,
     "cacheWrite": 6.25,
     "output": 25.0,
-    "footnote": null
+    "footnote": null,
+    "taskArea": "Deep reasoning and debugging",
+    "excelsAt": "Complex problem-solving challenges, sophisticated reasoning",
+    "furtherReadingUrl": "https://cdn.sanity.io/files/4zrzovbb/website/037f06850df7fbe871e206dad004c3db5fd50340.pdf"
   },
   {
     "name": "Claude Opus 4.8",
@@ -1126,7 +1368,10 @@
     "cached": 0.5,
     "cacheWrite": 6.25,
     "output": 25.0,
-    "footnote": null
+    "footnote": null,
+    "taskArea": "Deep reasoning and debugging",
+    "excelsAt": "Complex problem-solving challenges, sophisticated reasoning",
+    "furtherReadingUrl": "https://www-cdn.anthropic.com/0b4915911bb0d19eca5b5ee635c80fef830a37ea.pdf"
   },
   {
     "name": "Claude Sonnet 5",
@@ -1138,7 +1383,10 @@
     "cached": 0.2,
     "cacheWrite": 2.5,
     "output": 10.0,
-    "footnote": "Claude Sonnet 5 is available at the promotional pricing of $2.00 per 1M input tokens, $0.20 per 1M cached input tokens, $2.50 per 1M cache write tokens, and $10.00 per 1M output tokens through August 31, 2026."
+    "footnote": "Claude Sonnet 5 is available at the promotional pricing of $2.00 per 1M input tokens, $0.20 per 1M cached input tokens, $2.50 per 1M cache write tokens, and $10.00 per 1M output tokens through August 31, 2026.",
+    "taskArea": "General-purpose coding and agent tasks",
+    "excelsAt": "Complex problem-solving challenges, sophisticated reasoning",
+    "furtherReadingUrl": "https://www-cdn.anthropic.com/9e6a1044980d8c4ed85669faf9c2a8342e2e9f1e/Claude%20Sonnet%205%20System%20Card.pdf"
   },
   {
     "name": "Claude Opus 4.8 (fast mode)",
@@ -1150,7 +1398,10 @@
     "cached": 1.0,
     "cacheWrite": 12.5,
     "output": 50.0,
-    "footnote": null
+    "footnote": null,
+    "taskArea": null,
+    "excelsAt": null,
+    "furtherReadingUrl": null
   },
   {
     "name": "Claude Fable 5",
@@ -1162,7 +1413,10 @@
     "cached": 1.0,
     "cacheWrite": 12.5,
     "output": 50.0,
-    "footnote": null
+    "footnote": null,
+    "taskArea": "Long-horizon, autonomous coding and knowledge-work",
+    "excelsAt": "First-attempt correctness through upfront reasoning, aggressive parallel tool batching, and proactive verification of pre-existing test state before debugging",
+    "furtherReadingUrl": "https://anthropic.com/claude-fable-5-mythos-5-system-card"
   },
   {
     "name": "Gemini 2.5 Pro",
@@ -1174,7 +1428,10 @@
     "cached": 0.125,
     "cacheWrite": null,
     "output": 10.0,
-    "footnote": null
+    "footnote": null,
+    "taskArea": "Deep reasoning and debugging",
+    "excelsAt": "Complex code generation, debugging, and research workflows",
+    "furtherReadingUrl": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-pro.pdf"
   },
   {
     "name": "Gemini 3 Flash",
@@ -1186,7 +1443,10 @@
     "cached": 0.05,
     "cacheWrite": null,
     "output": 3.0,
-    "footnote": null
+    "footnote": null,
+    "taskArea": "Fast help with simple or repetitive tasks",
+    "excelsAt": "Fast, reliable answers to lightweight coding questions",
+    "furtherReadingUrl": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-Flash-Model-Card.pdf"
   },
   {
     "name": "Gemini 3.1 Pro",
@@ -1198,7 +1458,10 @@
     "cached": 0.2,
     "cacheWrite": null,
     "output": 12.0,
-    "footnote": null
+    "footnote": null,
+    "taskArea": "Deep reasoning and debugging",
+    "excelsAt": "Effective and efficient edit-then-test loops with high tool precision",
+    "furtherReadingUrl": ""
   },
   {
     "name": "Gemini 3.1 Pro",
@@ -1210,7 +1473,10 @@
     "cached": 0.4,
     "cacheWrite": null,
     "output": 18.0,
-    "footnote": null
+    "footnote": null,
+    "taskArea": "Deep reasoning and debugging",
+    "excelsAt": "Effective and efficient edit-then-test loops with high tool precision",
+    "furtherReadingUrl": ""
   },
   {
     "name": "Gemini 3.5 Flash",
@@ -1222,7 +1488,10 @@
     "cached": 0.15,
     "cacheWrite": null,
     "output": 9.0,
-    "footnote": null
+    "footnote": null,
+    "taskArea": "Fast help with simple or repetitive tasks",
+    "excelsAt": "Fast, reliable answers to lightweight coding questions",
+    "furtherReadingUrl": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-5-Flash-Model-Card.pdf"
   },
   {
     "name": "Raptor mini",
@@ -1234,7 +1503,10 @@
     "cached": 0.025,
     "cacheWrite": null,
     "output": 2.0,
-    "footnote": null
+    "footnote": null,
+    "taskArea": "General-purpose coding and writing",
+    "excelsAt": "Fast, accurate code completions and explanations",
+    "furtherReadingUrl": ""
   },
   {
     "name": "MAI-Code-1-Flash",
@@ -1246,7 +1518,10 @@
     "cached": 0.075,
     "cacheWrite": null,
     "output": 4.5,
-    "footnote": null
+    "footnote": null,
+    "taskArea": null,
+    "excelsAt": null,
+    "furtherReadingUrl": null
   },
   {
     "name": "Kimi K2.7 Code",
@@ -1258,7 +1533,118 @@
     "cached": 0.19,
     "cacheWrite": null,
     "output": 4.0,
-    "footnote": null
+    "footnote": null,
+    "taskArea": "General-purpose coding and agent tasks",
+    "excelsAt": "Fast, reliable answers to lightweight coding questions",
+    "furtherReadingUrl": "https://huggingface.co/moonshotai/Kimi-K2.7-Code"
+  }
+];
+
+  // Task guide data
+  const TASK_GUIDE = [
+  {
+    "slug": "general-purpose-coding-and-writing",
+    "title": "General-purpose coding and writing",
+    "intro": "Use these models for common development tasks that require a balance of quality, speed, and cost efficiency. These models are a good default when you don't have specific requirements.",
+    "recommended": [
+      {
+        "model": "GPT-5.3-Codex",
+        "reason": "Delivers higher-quality code on complex engineering tasks like features, tests, debugging, refactors, and reviews without lengthy instructions."
+      },
+      {
+        "model": "GPT-5 mini",
+        "reason": "Reliable default for most coding and writing tasks. Fast, accurate, and works well across languages and frameworks."
+      },
+      {
+        "model": "Raptor mini",
+        "reason": "Specialized for fast, accurate inline suggestions and explanations."
+      },
+      {
+        "model": "MAI-Code-1-Flash",
+        "reason": "Strong instruction-following and adaptive reasoning make it a reliable default for everyday coding tasks, writing, and multi-turn development workflows."
+      }
+    ],
+    "useCases": [
+      "Write or review functions, short files, or code diffs.",
+      "Generate documentation, comments, or summaries."
+    ],
+    "useDifferent": "If you're working on complex refactoring, architectural decisions, or multi-step logic, consider a model from [Deep reasoning and debugging](#task-deep-reasoning-and-debugging). For faster, simpler tasks like repetitive edits or one-off code suggestions, see [Fast help with simple or repetitive tasks](#task-fast-help-with-simple-or-repetitive-tasks)."
+  },
+  {
+    "slug": "fast-help-with-simple-or-repetitive-tasks",
+    "title": "Fast help with simple or repetitive tasks",
+    "intro": "These models are optimized for speed and responsiveness. They\u2019re ideal for quick edits, utility functions, syntax help, and lightweight prototyping. You\u2019ll get fast answers without waiting for unnecessary depth or long reasoning chains.",
+    "recommended": [
+      {
+        "model": "Claude Haiku 4.5",
+        "reason": "Balances fast responses with quality output. Ideal for small tasks and lightweight code explanations."
+      },
+      {
+        "model": "MAI-Code-1-Flash",
+        "reason": "Handles quick coding tasks with adaptive efficiency, stays concise for simple requests and delivers fast, accurate responses without unnecessary depth."
+      }
+    ],
+    "useCases": [
+      "Write or edit small functions or utility code.",
+      "Ask quick syntax or language questions."
+    ],
+    "useDifferent": "If you\u2019re working on complex refactoring, architectural decisions, or multi-step logic, see [Deep reasoning and debugging](#task-deep-reasoning-and-debugging). For tasks that need stronger general-purpose reasoning or more structured output, see [General-purpose coding and writing](#task-general-purpose-coding-and-writing)."
+  },
+  {
+    "slug": "deep-reasoning-and-debugging",
+    "title": "Deep reasoning and debugging",
+    "intro": "These models are designed for tasks that require step-by-step reasoning, complex decision-making, or high-context awareness. They work well when you need structured analysis, thoughtful code generation, or multi-file understanding.",
+    "recommended": [
+      {
+        "model": "GPT-5 mini",
+        "reason": "Delivers deep reasoning and debugging with faster responses and lower resource usage than GPT-5. Ideal for interactive sessions and step-by-step code analysis."
+      },
+      {
+        "model": "GPT-5.5",
+        "reason": "Great at complex reasoning, code analysis, and technical decision-making."
+      },
+      {
+        "model": "Claude Sonnet 4.6",
+        "reason": "Improves on Sonnet 4.5 with more reliable completions and smarter reasoning under pressure."
+      },
+      {
+        "model": "Claude Opus 4.7",
+        "reason": "Anthropic\u2019s most powerful model. Improves on Claude Opus 4.6."
+      },
+      {
+        "model": "Gemini 3.1 Pro",
+        "reason": "Advanced reasoning across long contexts and scientific or technical analysis."
+      }
+    ],
+    "useCases": [
+      "Debug complex issues with context across multiple files.",
+      "Refactor large or interconnected codebases."
+    ],
+    "useDifferent": "For fast iteration or lightweight tasks, see [Fast help with simple or repetitive tasks](#task-fast-help-with-simple-or-repetitive-tasks). For general development workflows or content generation, see [General-purpose coding and writing](#task-general-purpose-coding-and-writing)."
+  },
+  {
+    "slug": "working-with-visuals-diagrams-screenshots",
+    "title": "Working with visuals (diagrams, screenshots)",
+    "intro": "Use these models when you want to ask questions about screenshots, diagrams, UI components, or other visual input. These models support multimodal input and are well suited for front-end work or visual debugging.",
+    "recommended": [
+      {
+        "model": "GPT-5 mini",
+        "reason": "Reliable default for most coding and writing tasks. Fast, accurate, and supports multimodal input for visual reasoning tasks. Works well across languages and frameworks."
+      },
+      {
+        "model": "Claude Sonnet 4.6",
+        "reason": "Improves on Sonnet 4.5 with more reliable completions and smarter reasoning under pressure."
+      },
+      {
+        "model": "Gemini 3.1 Pro",
+        "reason": "Deep reasoning and debugging, ideal for complex code generation, debugging, and research workflows."
+      }
+    ],
+    "useCases": [
+      "Ask questions about diagrams, screenshots, or UI components.",
+      "Get feedback on visual drafts or workflows."
+    ],
+    "useDifferent": "If your task involves deep reasoning or large-scale refactoring, consider a model from [Deep reasoning and debugging](#task-deep-reasoning-and-debugging). For text-only tasks or simpler code edits, see [Fast help with simple or repetitive tasks](#task-fast-help-with-simple-or-repetitive-tasks)."
   }
 ];
 
@@ -1275,9 +1661,11 @@
     filterProvider: 'all',
     filterCategory: 'all',
     filterStatus: 'all',
+    filterTaskArea: 'all',
     search: '',
     compareIds: new Set(),
     activeProfile: null,
+    activeTab: 'pricing-tab',
   };
 
   ALL_MODELS.forEach((m, i) => { m._idx = i; });
@@ -1344,6 +1732,28 @@
       : `<span class="badge badge-preview">Preview</span>`;
   }
 
+  function taskAreaBadge(area) {
+    if (!area) {
+      return `<span class="task-area-badge task-area-undoc" title="Not documented in the GitHub model comparison guide">—</span>`;
+    }
+    // Deterministic color based on hash of the area name
+    let hash = 0;
+    for (let i = 0; i < area.length; i++) {
+      hash = ((hash << 5) - hash) + area.charCodeAt(i);
+      hash |= 0; // Convert to 32bit integer
+    }
+    const colors = ['#E8F4F8', '#F0E8F8', '#F8F0E8', '#E8F8E8', '#F8E8E8', '#F8F8E8'];
+    const colorClass = `task-area-${(Math.abs(hash) % colors.length)}`;
+    const truncated = area.length > 25 ? area.substring(0, 22) + '...' : area;
+    return `<span class="task-area-badge ${colorClass}" title="${area}">${truncated}</span>`;
+  }
+
+  function excellsAtBadge(text) {
+    if (!text) return '';
+    const truncated = text.length > 50 ? text.substring(0, 47) + '...' : text;
+    return `<span class="excels-at-icon" title="${text}">✓</span>`;
+  }
+
   // ── Render ───────────────────────────────────────────────────
   function render() {
     const cfg = getConfig();
@@ -1353,6 +1763,7 @@
     const visible = rows.filter(m => {
       if (state.filterProvider !== 'all' && m.provider !== state.filterProvider) return false;
       if (state.filterCategory !== 'all' && m.category !== state.filterCategory) return false;
+      if (state.filterTaskArea !== 'all' && m.taskArea !== state.filterTaskArea) return false;
       if (state.filterStatus !== 'all') {
         const isPreview = m.status === 'preview';
         if (state.filterStatus === 'GA' && isPreview) return false;
@@ -1392,6 +1803,7 @@
         </td>
         <td class="dim">${m.provider}</td>
         <td><span class="cat-badge ${catClass(m.category)}">${m.category}</span></td>
+        <td>${taskAreaBadge(m.taskArea)}</td>
         <td>${m.tier === 'Long context' ? `<span class="tier-lc">Long context</span>` : `<span class="dim">Default</span>`}</td>
         <td class="num">$${fmt(m.input)}</td>
         <td class="num">$${fmt(m.cached)}</td>
@@ -1460,6 +1872,26 @@
   setupFilterGroup('filter-provider', 'filterProvider');
   setupFilterGroup('filter-category', 'filterCategory');
   setupFilterGroup('filter-status',   'filterStatus');
+
+  // ── Initialize task area filter ──────────────────────────────
+  function initTaskAreaFilter() {
+    const taskAreas = new Set(['all']);
+    ALL_MODELS.forEach(m => {
+      if (m.taskArea) taskAreas.add(m.taskArea);
+    });
+    
+    if (taskAreas.size > 1) {
+      const container = document.getElementById('filter-task-area');
+      const html = [...taskAreas].map(area => {
+        const active = area === 'all' ? ' active' : '';
+        return `<button class="filter-chip${active}" data-value="${area}">${area}</button>`;
+      }).join('');
+      container.innerHTML = html;
+      document.getElementById('filter-task-area-group').style.display = 'block';
+      setupFilterGroup('filter-task-area', 'filterTaskArea');
+    }
+  }
+  initTaskAreaFilter();
 
   // ── Search ───────────────────────────────────────────────────
   document.getElementById('search-input').addEventListener('input', e => {
@@ -1534,11 +1966,12 @@
       const caBarW  = Math.round((m.cached / (maxCached || 1)) * 100);
       const outBarW = Math.round((m.output / (maxOutput || 1)) * 100);
       const footnote = m.footnote ? `<span class="footnote-icon" title="${m.footnote}">!</span>` : '';
+      const taskAreaDisplay = taskAreaBadge(m.taskArea);
       return `
       <div class="cmp-card">
         <button class="cmp-card-remove" title="Remove" onclick="toggleCompare(${m._idx})">✕</button>
         <div class="cmp-card-name">${m.name}${footnote}${m.tier === 'Long context' ? ' <span style="font-size:10px;color:var(--link)">LC</span>' : ''}</div>
-        <div class="cmp-card-provider">${m.provider} · <span class="cat-badge ${catClass(m.category)}" style="font-size:10px;padding:1px 6px">${m.category}</span></div>
+        <div class="cmp-card-provider">${m.provider} · <span class="cat-badge ${catClass(m.category)}" style="font-size:10px;padding:1px 6px">${m.category}</span> · ${taskAreaDisplay}</div>
         <div class="cmp-card-rows">
           <div class="cmp-rate-row">
             <span class="cmp-rate-label">Input</span>
@@ -1575,8 +2008,76 @@
     }
   }
 
+  // ── Tab switching ────────────────────────────────────────────
+  function switchTab(tabName) {
+    state.activeTab = tabName;
+    
+    // Update tab button active states
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.tab === tabName);
+    });
+    
+    // Update tab content visibility
+    document.querySelectorAll('.tab-content').forEach(content => {
+      content.classList.toggle('active', content.id === tabName);
+    });
+    
+    // Render task guide on first show
+    if (tabName === 'guide-tab') {
+      renderTaskGuide();
+    }
+  }
+
+  function renderTaskGuide() {
+    const container = document.getElementById('guide-content');
+    if (!TASK_GUIDE || TASK_GUIDE.length === 0) {
+      container.innerHTML = '<p>No task guide data available.</p>';
+      return;
+    }
+    
+    // Build task cards
+    const html = TASK_GUIDE.map(task => {
+      const recModels = task.recommended.map(rec => {
+        const model = ALL_MODELS.find(m => m.name === rec.model);
+        const unpriced = !model;
+        const dimClass = unpriced ? 'unpriced' : '';
+        const tooltip = unpriced ? 'title="This model is in the guide but not in the pricing table; it may be deprecated or unavailable."' : '';
+        return `
+          <tr class="${dimClass}">
+            <td>${rec.model}${tooltip ? ' <span class="dim-icon" ' + tooltip + '>⚠</span>' : ''}</td>
+            <td>${rec.reason}</td>
+          </tr>`;
+      }).join('');
+      
+      return `
+      <div class="task-card">
+        <h3>${task.title}</h3>
+        <p>${task.intro}</p>
+        <h4>Recommended models</h4>
+        <table class="task-models-table">
+          <tbody>${recModels}</tbody>
+        </table>
+        <h4>When to use these models</h4>
+        <ul>
+          ${task.useCases.map(uc => `<li>${uc}</li>`).join('')}
+        </ul>
+        ${task.useDifferent ? `<div class="task-guidance"><strong>When to use a different model:</strong> ${task.useDifferent}</div>` : ''}
+      </div>`;
+    }).join('');
+    
+    container.innerHTML = html;
+  }
+
+  // ── Tab nav event listeners ──────────────────────────────────
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      switchTab(btn.dataset.tab);
+    });
+  });
+
   // ── Initial render ────────────────────────────────────────────
   render();
+
 </script>
 
 </body>
