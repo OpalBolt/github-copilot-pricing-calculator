@@ -1,0 +1,116 @@
+{% import 'macros.html.j2' as m %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GitHub Copilot · Token cost calculator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&family=Source+Serif+4:ital,wght@1,500&display=swap" rel="stylesheet" />
+  {% include 'styles.css.j2' %}
+</head>
+<body>
+
+<!-- ── Header ──────────────────────────────────────────────── -->
+<header class="page-header">
+  <p class="eyebrow">GitHub Copilot · AI credits</p>
+  <h1>Token cost calculator</h1>
+  <p>Compare what every model actually costs in AI credits before you commit to one. All prices are per 1 million tokens · 1 AI credit = $0.01 USD.</p>
+  <p class="meta">Source: <a href="https://docs.github.com/en/copilot/reference/copilot-billing/models-and-pricing" target="_blank">docs.github.com · models and pricing</a> · Data fetched: <span id="fetch-date">—</span></p>
+</header>
+
+<!-- ── Main ────────────────────────────────────────────────── -->
+<main>
+
+  <!-- Controls -->
+  <div class="controls">
+    <h2>Configure your estimate</h2>
+    
+    <!-- Profile Presets -->
+    <div class="profile-presets">
+      <span class="profile-label">Quick presets:</span>
+      <div class="profile-buttons">
+        <button class="profile-btn" data-profile="superuser">Superuser/Developer</button>
+        <button class="profile-btn" data-profile="regular">Regular User</button>
+      </div>
+    </div>
+    
+    <div class="controls-grid">
+      {{ m.input_group('total-tokens', 'Total tokens', 1000000, 1, None, 100000) }}
+      {{ m.input_group('input-pct', 'Input %', 1.45, 0, 100, 0.1) }}
+      {{ m.input_group('cached-pct', 'Cached input %', 96.62, 0, 100, 0.1) }}
+      {{ m.input_group('output-pct', 'Output %', 1.93, 0, 100, 0.1) }}
+    </div>
+    <div class="summary-chips" id="summary-chips"></div>
+    <div id="pct-warning" style="display: none; margin-top: 12px; padding: 8px 12px; background: #FEF9C3; border: 1px solid #EAB308; border-radius: 4px; font-size: 13px; color: #854D0E;">
+      ⚠️ Input, Cached, and Output percentages must sum to 100%
+    </div>
+  </div>
+
+  <!-- Filters -->
+  <div class="filters-bar">
+    {{ m.filter_chip_group('filter-provider', 'Provider', ['all', 'OpenAI', 'Anthropic', 'Google', 'Fine-tuned (GitHub)', 'Microsoft', 'Moonshot AI'], 'all') }}
+    {{ m.filter_chip_group('filter-category', 'Category', ['all', 'Powerful', 'Versatile', 'Lightweight'], 'all') }}
+    {{ m.filter_chip_group('filter-status', 'Status', ['all', 'GA', 'preview'], 'all') }}
+    <div class="search-wrap">
+      <input type="search" id="search-input" placeholder="Search model name…" />
+    </div>
+  </div>
+
+  <!-- Table meta row -->
+  <div class="table-meta">
+    <span class="table-meta-count" id="row-count"></span>
+  </div>
+
+  <!-- Unified table -->
+  <div class="table-wrapper">
+    <table id="main-table">
+      <thead>
+        <tr>
+          <th style="width:36px;padding:10px 8px"></th>
+          {{ m.table_header_cell('name', 'Model', false) }}
+          {{ m.table_header_cell('provider', 'Provider', false) }}
+          {{ m.table_header_cell('category', 'Category', false) }}
+          {{ m.table_header_cell('tier', 'Tier', false) }}
+          {{ m.table_header_cell('input', 'Input / 1M', true) }}
+          {{ m.table_header_cell('cached', 'Cached / 1M', true) }}
+          {{ m.table_header_cell('cacheWrite', 'Cache write / 1M', true) }}
+          {{ m.table_header_cell('output', 'Output / 1M', true) }}
+          {{ m.table_header_cell('cost', 'Est. cost', true) }}
+          <th class="bar-cell">Relative cost</th>
+        </tr>
+      </thead>
+      <tbody id="table-body"></tbody>
+    </table>
+    <div class="no-results" id="no-results">No models match your filters.</div>
+  </div>
+
+  <p class="page-note">
+    Est. cost = (input tokens × input rate + cached tokens × cached rate + output tokens × output rate) ÷ 1M, based on your token split above.
+    Cache write applies to Anthropic models only.
+    Code completions and next-edit suggestions are not billed in AI credits.
+    · <a href="https://docs.github.com/en/copilot/reference/copilot-billing/models-and-pricing" target="_blank">Source pricing →</a>
+  </p>
+</main>
+
+<footer class="page-footer">
+  <span>GitHub Copilot · Token cost calculator · Data sourced from GitHub docs</span>
+  <a href="https://docs.github.com/en/copilot/reference/copilot-billing/models-and-pricing" target="_blank">View source pricing →</a>
+</footer>
+
+<!-- ── Compare tray ────────────────────────────────────────── -->
+<div id="compare-tray" role="region" aria-label="Model comparison">
+  <div class="tray-header">
+    <span class="tray-title">Comparing <span id="tray-count">0</span> models</span>
+    <div class="tray-actions">
+      <button class="tray-clear" onclick="clearCompare()">Clear all</button>
+    </div>
+  </div>
+  <div class="tray-cards" id="tray-cards"></div>
+</div>
+
+{% include 'app.js.j2' %}
+
+</body>
+</html>

@@ -1,0 +1,324 @@
+<script>
+  // ── Pricing data (fetched {{ fetchDate }}) ──
+  const FETCH_DATE = '{{ fetchDate }}';
+  document.getElementById('fetch-date').textContent = FETCH_DATE;
+
+  // All rates $ per 1M tokens
+  const ALL_MODELS = {{ models_json }};
+
+  // ── Preset profiles ──────────────────────────────────────────
+  const PROFILES = {
+    superuser: { name: 'Superuser/Developer', input: 0.49, cached: 98.62, output: 0.89 },
+    regular: { name: 'Regular User', input: 5.45, cached: 86.36, output: 8.18 },
+  };
+
+  // ── State ────────────────────────────────────────────────────
+  const state = {
+    sortCol: 'cost',
+    sortDir: 'asc',
+    filterProvider: 'all',
+    filterCategory: 'all',
+    filterStatus: 'all',
+    search: '',
+    compareIds: new Set(),
+    activeProfile: null,
+  };
+
+  ALL_MODELS.forEach((m, i) => { m._idx = i; });
+
+  // ── Helpers ──────────────────────────────────────────────────
+  const fmt     = n => n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const fmtCost = n => n.toLocaleString('en-US', { minimumFractionDigits: 3, maximumFractionDigits: 3 });
+
+  function setProfile(profileKey) {
+    const profile = PROFILES[profileKey];
+    if (!profile) return;
+    
+    state.activeProfile = profileKey;
+    document.getElementById('input-pct').value = profile.input;
+    document.getElementById('cached-pct').value = profile.cached;
+    document.getElementById('output-pct').value = profile.output;
+    
+    // Update button active state
+    document.querySelectorAll('.profile-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.profile === profileKey);
+    });
+    
+    render();
+  }
+
+  function getConfig() {
+    const total = parseFloat(document.getElementById('total-tokens').value) || 1_000_000;
+    let ip = parseFloat(document.getElementById('input-pct').value)  || 1.45;
+    let cp = parseFloat(document.getElementById('cached-pct').value) || 96.62;
+    let op = parseFloat(document.getElementById('output-pct').value) || 1.93;
+    const sum = ip + cp + op;
+    
+    // Show warning if percentages don't sum to 100
+    const warning = document.getElementById('pct-warning');
+    if (Math.abs(sum - 100) > 0.1) {
+      warning.style.display = 'block';
+    } else {
+      warning.style.display = 'none';
+    }
+    
+    ip = ip / sum * 100; cp = cp / sum * 100; op = op / sum * 100;
+    return {
+      total,
+      inputTokens:  total * ip  / 100,
+      cachedTokens: total * cp  / 100,
+      outputTokens: total * op  / 100,
+      ip, cp, op,
+    };
+  }
+
+  function estimateCost(m, cfg) {
+    return (cfg.inputTokens  / 1_000_000) * m.input
+         + (cfg.cachedTokens / 1_000_000) * m.cached
+         + (cfg.outputTokens / 1_000_000) * (m.output || 0);
+  }
+
+  function catClass(c) {
+    return c === 'Powerful' ? 'cat-powerful' : c === 'Lightweight' ? 'cat-lightweight' : 'cat-versatile';
+  }
+
+  function statusBadge(s) {
+    return s === 'GA'
+      ? `<span class="badge badge-ga">GA</span>`
+      : `<span class="badge badge-preview">Preview</span>`;
+  }
+
+  // ── Render ───────────────────────────────────────────────────
+  function render() {
+    const cfg = getConfig();
+    const rows = ALL_MODELS.map(m => ({ ...m, cost: estimateCost(m, cfg) }));
+
+    const q = state.search.toLowerCase();
+    const visible = rows.filter(m => {
+      if (state.filterProvider !== 'all' && m.provider !== state.filterProvider) return false;
+      if (state.filterCategory !== 'all' && m.category !== state.filterCategory) return false;
+      if (state.filterStatus !== 'all') {
+        const isPreview = m.status === 'preview';
+        if (state.filterStatus === 'GA' && isPreview) return false;
+        if (state.filterStatus === 'preview' && !isPreview) return false;
+      }
+      if (q && !m.name.toLowerCase().includes(q)) return false;
+      return true;
+    });
+
+    const col = state.sortCol;
+    const dir = state.sortDir === 'asc' ? 1 : -1;
+    visible.sort((a, b) => {
+      const av = a[col], bv = b[col];
+      if (typeof av === 'number' && typeof bv === 'number') return (av - bv) * dir;
+      return String(av ?? '').localeCompare(String(bv ?? '')) * dir;
+    });
+
+    const maxCost = visible.reduce((m, r) => Math.max(m, r.cost), 0) || 1;
+
+    const tbody = document.getElementById('table-body');
+    tbody.innerHTML = visible.map(m => {
+      const barW    = Math.round((m.cost / maxCost) * 100);
+      const cw      = m.cacheWrite != null ? `$${fmt(m.cacheWrite)}` : `<span class="dim">—</span>`;
+      const inCmp   = state.compareIds.has(m._idx);
+      const cmpCls  = inCmp ? 'cmp-btn active' : 'cmp-btn';
+      const cmpIcon = inCmp ? '−' : '+';
+      const rowCls  = inCmp ? 'in-compare' : '';
+      const footnote = m.footnote ? `<span class="footnote-icon" title="${m.footnote}">!</span>` : '';
+      return `
+      <tr class="${rowCls}" data-idx="${m._idx}">
+        <td style="padding:11px 8px">
+          <button class="${cmpCls}" title="${inCmp ? 'Remove from comparison' : 'Add to comparison'}"
+            onclick="toggleCompare(${m._idx})">${cmpIcon}</button>
+        </td>
+        <td>
+          <span class="model-name">${m.name}</span>${footnote}${statusBadge(m.status)}
+        </td>
+        <td class="dim">${m.provider}</td>
+        <td><span class="cat-badge ${catClass(m.category)}">${m.category}</span></td>
+        <td>${m.tier === 'Long context' ? `<span class="tier-lc">Long context</span>` : `<span class="dim">Default</span>`}</td>
+        <td class="num">$${fmt(m.input)}</td>
+        <td class="num">$${fmt(m.cached)}</td>
+        <td class="num">${cw}</td>
+        <td class="num">$${fmt(m.output)}</td>
+        <td class="num"><span class="cost-usd">$${fmtCost(m.cost)}</span></td>
+        <td class="bar-cell">
+          <div class="credit-bar-wrap">
+            <div class="credit-bar-bg"><div class="credit-bar-fill" style="width:${barW}%"></div></div>
+            <span class="credit-val">${Math.round(m.cost / 0.01)} cr</span>
+          </div>
+        </td>
+      </tr>`;
+    }).join('');
+
+    document.getElementById('no-results').style.display = visible.length ? 'none' : 'block';
+    document.getElementById('row-count').innerHTML =
+      `Showing <strong>${visible.length}</strong> of <strong>${ALL_MODELS.length}</strong> models`;
+
+    document.querySelectorAll('thead th[data-col]').forEach(th => {
+      th.classList.remove('sort-asc', 'sort-desc');
+      const icon = th.querySelector('.sort-icon');
+      if (th.dataset.col === state.sortCol) {
+        th.classList.add(state.sortDir === 'asc' ? 'sort-asc' : 'sort-desc');
+        if (icon) icon.textContent = state.sortDir === 'asc' ? '↑' : '↓';
+      } else {
+        if (icon) icon.textContent = '↕';
+      }
+    });
+
+    document.getElementById('summary-chips').innerHTML = `
+      <span class="chip">Total tokens: <strong>${cfg.total.toLocaleString()}</strong></span>
+      <span class="chip">Input: <strong>${Math.round(cfg.ip)}%</strong></span>
+      <span class="chip">Cached: <strong>${Math.round(cfg.cp)}%</strong></span>
+      <span class="chip">Output: <strong>${Math.round(cfg.op)}%</strong></span>
+    `;
+
+    renderCompareTray(cfg);
+  }
+
+  // ── Sort ─────────────────────────────────────────────────────
+  document.querySelectorAll('thead th.sortable').forEach(th => {
+    th.addEventListener('click', () => {
+      const col = th.dataset.col;
+      if (state.sortCol === col) {
+        state.sortDir = state.sortDir === 'asc' ? 'desc' : 'asc';
+      } else {
+        state.sortCol = col;
+        state.sortDir = col === 'cost' || col === 'input' || col === 'output' ? 'asc' : 'asc';
+      }
+      render();
+    });
+  });
+
+  // ── Filter chips ─────────────────────────────────────────────
+  function setupFilterGroup(groupId, stateKey) {
+    document.getElementById(groupId).addEventListener('click', e => {
+      const btn = e.target.closest('.filter-chip');
+      if (!btn) return;
+      document.querySelectorAll(`#${groupId} .filter-chip`).forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state[stateKey] = btn.dataset.value;
+      render();
+    });
+  }
+  setupFilterGroup('filter-provider', 'filterProvider');
+  setupFilterGroup('filter-category', 'filterCategory');
+  setupFilterGroup('filter-status',   'filterStatus');
+
+  // ── Search ───────────────────────────────────────────────────
+  document.getElementById('search-input').addEventListener('input', e => {
+    state.search = e.target.value;
+    state.activeProfile = null;  // Clear active profile when user manually edits
+    document.querySelectorAll('.profile-btn').forEach(btn => btn.classList.remove('active'));
+    render();
+  });
+
+  // ── Profile preset buttons ────────────────────────────────────
+  document.querySelectorAll('.profile-btn').forEach(btn => {
+    btn.addEventListener('click', () => setProfile(btn.dataset.profile));
+  });
+
+  // ── Live recalc on token inputs ───────────────────────────────
+  ['total-tokens', 'input-pct', 'cached-pct', 'output-pct'].forEach(id => {
+    document.getElementById(id).addEventListener('input', e => {
+      state.activeProfile = null;  // Clear active profile when user manually edits
+      document.querySelectorAll('.profile-btn').forEach(btn => btn.classList.remove('active'));
+      render();
+    });
+  });
+
+  // ── Compare ───────────────────────────────────────────────────
+  const MAX_COMPARE = 5;
+
+  function toggleCompare(idx) {
+    if (state.compareIds.has(idx)) {
+      state.compareIds.delete(idx);
+    } else {
+      if (state.compareIds.size >= MAX_COMPARE) return;
+      state.compareIds.add(idx);
+    }
+    render();
+  }
+
+  function clearCompare() {
+    state.compareIds.clear();
+    render();
+  }
+
+  function renderCompareTray(cfg) {
+    const tray = document.getElementById('compare-tray');
+    const cards = document.getElementById('tray-cards');
+    const count = state.compareIds.size;
+
+    document.getElementById('tray-count').textContent = count;
+
+    if (count === 0) {
+      tray.classList.remove('visible');
+      document.body.classList.remove('tray-open');
+      return;
+    }
+
+    tray.classList.add('visible');
+    document.body.classList.add('tray-open');
+
+    const compared = [...state.compareIds].map(idx => {
+      const m = ALL_MODELS[idx];
+      return { ...m, cost: estimateCost(m, cfg) };
+    });
+
+    const maxInput  = Math.max(...compared.map(m => m.input));
+    const maxCached = Math.max(...compared.map(m => m.cached));
+    const maxOutput = Math.max(...compared.map(m => m.output));
+    const maxCost   = Math.max(...compared.map(m => m.cost));
+    const minCost   = Math.min(...compared.map(m => m.cost));
+
+    cards.innerHTML = compared.map(m => {
+      const isCheapest = compared.length > 1 && m.cost === minCost;
+      const inBarW  = Math.round((m.input  / (maxInput  || 1)) * 100);
+      const caBarW  = Math.round((m.cached / (maxCached || 1)) * 100);
+      const outBarW = Math.round((m.output / (maxOutput || 1)) * 100);
+      const footnote = m.footnote ? `<span class="footnote-icon" title="${m.footnote}">!</span>` : '';
+      return `
+      <div class="cmp-card">
+        <button class="cmp-card-remove" title="Remove" onclick="toggleCompare(${m._idx})">✕</button>
+        <div class="cmp-card-name">${m.name}${footnote}${m.tier === 'Long context' ? ' <span style="font-size:10px;color:var(--link)">LC</span>' : ''}</div>
+        <div class="cmp-card-provider">${m.provider} · <span class="cat-badge ${catClass(m.category)}" style="font-size:10px;padding:1px 6px">${m.category}</span></div>
+        <div class="cmp-card-rows">
+          <div class="cmp-rate-row">
+            <span class="cmp-rate-label">Input</span>
+            <div class="cmp-rate-bar-bg"><div class="cmp-rate-bar-fill ${isCheapest ? 'highlight' : ''}" style="width:${inBarW}%"></div></div>
+            <span class="cmp-rate-val">$${fmt(m.input)}</span>
+          </div>
+          <div class="cmp-rate-row">
+            <span class="cmp-rate-label">Cached</span>
+            <div class="cmp-rate-bar-bg"><div class="cmp-rate-bar-fill ${isCheapest ? 'highlight' : ''}" style="width:${caBarW}%"></div></div>
+            <span class="cmp-rate-val">$${fmt(m.cached)}</span>
+          </div>
+          <div class="cmp-rate-row">
+            <span class="cmp-rate-label">Output</span>
+            <div class="cmp-rate-bar-bg"><div class="cmp-rate-bar-fill ${isCheapest ? 'highlight' : ''}" style="width:${outBarW}%"></div></div>
+            <span class="cmp-rate-val">$${fmt(m.output)}</span>
+          </div>
+        </div>
+        <div class="cmp-card-cost">
+          <div>
+            <div class="cmp-cost-label">Est. cost</div>
+            <div class="cmp-credits">${Math.round(m.cost / 0.01)} credits</div>
+          </div>
+          <span class="cmp-cost-val ${isCheapest ? 'cheapest' : ''}">$${fmtCost(m.cost)}</span>
+        </div>
+      </div>`;
+    }).join('');
+
+    if (count < MAX_COMPARE) {
+      cards.innerHTML += `
+      <div class="cmp-card cmp-card-add">
+        <span class="cmp-card-add-icon">+</span>
+        Click <strong>+</strong> on any row to add
+      </div>`;
+    }
+  }
+
+  // ── Initial render ────────────────────────────────────────────
+  render();
+</script>

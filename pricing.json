@@ -1,0 +1,357 @@
+{
+  "fetchDate": "2026-07-14",
+  "models": [
+    {
+      "provider": "OpenAI",
+      "Model": "GPT-5 mini",
+      "Release status": "GA",
+      "Category": "Lightweight",
+      "Tier": "Default",
+      "Threshold (input tokens)": "Not applicable",
+      "Input": 0.25,
+      "Cached input": 0.025,
+      "Output": 2.0
+    },
+    {
+      "provider": "OpenAI",
+      "Model": "GPT-5.3-Codex",
+      "Release status": "GA",
+      "Category": "Powerful",
+      "Tier": "Default",
+      "Threshold (input tokens)": "Not applicable",
+      "Input": 1.75,
+      "Cached input": 0.175,
+      "Output": 14.0
+    },
+    {
+      "provider": "OpenAI",
+      "Model": "GPT-5.4",
+      "Release status": "GA",
+      "Category": "Versatile",
+      "Tier": "Default",
+      "Threshold (input tokens)": "\u2264 272K",
+      "Input": 2.5,
+      "Cached input": 0.25,
+      "Output": 15.0
+    },
+    {
+      "provider": "OpenAI",
+      "Model": "GPT-5.4",
+      "Release status": "GA",
+      "Category": "Versatile",
+      "Tier": "Long context",
+      "Threshold (input tokens)": "> 272K",
+      "Input": 5.0,
+      "Cached input": 0.5,
+      "Output": 22.5
+    },
+    {
+      "provider": "OpenAI",
+      "Model": "GPT-5.4 mini",
+      "Release status": "GA",
+      "Category": "Lightweight",
+      "Tier": "Default",
+      "Threshold (input tokens)": "Not applicable",
+      "Input": 0.75,
+      "Cached input": 0.075,
+      "Output": 4.5
+    },
+    {
+      "provider": "OpenAI",
+      "Model": "GPT-5.4 nano",
+      "Release status": "GA",
+      "Category": "Lightweight",
+      "Tier": "Default",
+      "Threshold (input tokens)": "Not applicable",
+      "Input": 0.2,
+      "Cached input": 0.02,
+      "Output": 1.25
+    },
+    {
+      "provider": "OpenAI",
+      "Model": "GPT-5.5",
+      "Release status": "GA",
+      "Category": "Powerful",
+      "Tier": "Default",
+      "Threshold (input tokens)": "\u2264 272K",
+      "Input": 5.0,
+      "Cached input": 0.5,
+      "Output": 30.0
+    },
+    {
+      "provider": "OpenAI",
+      "Model": "GPT-5.5",
+      "Release status": "GA",
+      "Category": "Powerful",
+      "Tier": "Long context",
+      "Threshold (input tokens)": "> 272K",
+      "Input": 10.0,
+      "Cached input": 1.0,
+      "Output": 45.0
+    },
+    {
+      "provider": "OpenAI",
+      "Model": "GPT-5.6 Luna",
+      "Release status": "GA",
+      "Category": "Lightweight",
+      "Tier": "Default",
+      "Threshold (input tokens)": "\u2264 200K",
+      "Input": 1.0,
+      "Cached input": 0.1,
+      "Output": 6.0
+    },
+    {
+      "provider": "OpenAI",
+      "Model": "GPT-5.6 Luna",
+      "Release status": "GA",
+      "Category": "Lightweight",
+      "Tier": "Long context",
+      "Threshold (input tokens)": "> 200K",
+      "Input": 2.0,
+      "Cached input": 0.2,
+      "Output": 9.0
+    },
+    {
+      "provider": "OpenAI",
+      "Model": "GPT-5.6 Sol",
+      "Release status": "GA",
+      "Category": "Powerful",
+      "Tier": "Default",
+      "Threshold (input tokens)": "\u2264 272K",
+      "Input": 5.0,
+      "Cached input": 0.5,
+      "Output": 30.0
+    },
+    {
+      "provider": "OpenAI",
+      "Model": "GPT-5.6 Sol",
+      "Release status": "GA",
+      "Category": "Powerful",
+      "Tier": "Long context",
+      "Threshold (input tokens)": "> 272K",
+      "Input": 10.0,
+      "Cached input": 1.0,
+      "Output": 45.0
+    },
+    {
+      "provider": "OpenAI",
+      "Model": "GPT-5.6 Terra",
+      "Release status": "GA",
+      "Category": "Versatile",
+      "Tier": "Default",
+      "Threshold (input tokens)": "\u2264 272K",
+      "Input": 2.5,
+      "Cached input": 0.25,
+      "Output": 15.0
+    },
+    {
+      "provider": "OpenAI",
+      "Model": "GPT-5.6 Terra",
+      "Release status": "GA",
+      "Category": "Versatile",
+      "Tier": "Long context",
+      "Threshold (input tokens)": "> 272K",
+      "Input": 5.0,
+      "Cached input": 0.5,
+      "Output": 22.5
+    },
+    {
+      "provider": "Anthropic",
+      "Model": "Claude Haiku 4.5",
+      "Release status": "GA",
+      "Category": "Versatile",
+      "Input": 1.0,
+      "Cached input": 0.1,
+      "Cache write": 1.25,
+      "Output": 5.0
+    },
+    {
+      "provider": "Anthropic",
+      "Model": "Claude Sonnet 4",
+      "Release status": "GA",
+      "Category": "Versatile",
+      "Input": 3.0,
+      "Cached input": 0.3,
+      "Cache write": 3.75,
+      "Output": 15.0
+    },
+    {
+      "provider": "Anthropic",
+      "Model": "Claude Sonnet 4.5",
+      "Release status": "GA",
+      "Category": "Versatile",
+      "Input": 3.0,
+      "Cached input": 0.3,
+      "Cache write": 3.75,
+      "Output": 15.0
+    },
+    {
+      "provider": "Anthropic",
+      "Model": "Claude Sonnet 4.6",
+      "Release status": "GA",
+      "Category": "Versatile",
+      "Input": 3.0,
+      "Cached input": 0.3,
+      "Cache write": 3.75,
+      "Output": 15.0
+    },
+    {
+      "provider": "Anthropic",
+      "Model": "Claude Opus 4.5",
+      "Release status": "GA",
+      "Category": "Powerful",
+      "Input": 5.0,
+      "Cached input": 0.5,
+      "Cache write": 6.25,
+      "Output": 25.0
+    },
+    {
+      "provider": "Anthropic",
+      "Model": "Claude Opus 4.6",
+      "Release status": "GA",
+      "Category": "Powerful",
+      "Input": 5.0,
+      "Cached input": 0.5,
+      "Cache write": 6.25,
+      "Output": 25.0
+    },
+    {
+      "provider": "Anthropic",
+      "Model": "Claude Opus 4.7",
+      "Release status": "GA",
+      "Category": "Powerful",
+      "Input": 5.0,
+      "Cached input": 0.5,
+      "Cache write": 6.25,
+      "Output": 25.0
+    },
+    {
+      "provider": "Anthropic",
+      "Model": "Claude Opus 4.8",
+      "Release status": "GA",
+      "Category": "Powerful",
+      "Input": 5.0,
+      "Cached input": 0.5,
+      "Cache write": 6.25,
+      "Output": 25.0
+    },
+    {
+      "provider": "Anthropic",
+      "Model": "Claude Sonnet 5",
+      "_footnotes": [
+        "sonnet-5-promo"
+      ],
+      "Release status": "GA",
+      "Category": "Versatile",
+      "Input": 2.0,
+      "Cached input": 0.2,
+      "Cache write": 2.5,
+      "Output": 10.0
+    },
+    {
+      "provider": "Anthropic",
+      "Model": "Claude Opus 4.8 (fast mode) (preview)",
+      "Release status": "GA",
+      "Category": "Powerful",
+      "Input": 10.0,
+      "Cached input": 1.0,
+      "Cache write": 12.5,
+      "Output": 50.0
+    },
+    {
+      "provider": "Anthropic",
+      "Model": "Claude Fable 5",
+      "Release status": "GA",
+      "Category": "Powerful",
+      "Input": 10.0,
+      "Cached input": 1.0,
+      "Cache write": 12.5,
+      "Output": 50.0
+    },
+    {
+      "provider": "Google",
+      "Model": "Gemini 2.5 Pro",
+      "Release status": "GA",
+      "Category": "Powerful",
+      "Tier": "Default",
+      "Threshold (input tokens)": "Not applicable",
+      "Input": 1.25,
+      "Cached input": 0.125,
+      "Output": 10.0
+    },
+    {
+      "provider": "Google",
+      "Model": "Gemini 3 Flash",
+      "Release status": "Public preview",
+      "Category": "Lightweight",
+      "Tier": "Default",
+      "Threshold (input tokens)": "Not applicable",
+      "Input": 0.5,
+      "Cached input": 0.05,
+      "Output": 3.0
+    },
+    {
+      "provider": "Google",
+      "Model": "Gemini 3.1 Pro",
+      "Release status": "Public preview",
+      "Category": "Powerful",
+      "Tier": "Default",
+      "Threshold (input tokens)": "\u2264 200K",
+      "Input": 2.0,
+      "Cached input": 0.2,
+      "Output": 12.0
+    },
+    {
+      "provider": "Google",
+      "Model": "Gemini 3.1 Pro",
+      "Release status": "Public preview",
+      "Category": "Powerful",
+      "Tier": "Long context",
+      "Threshold (input tokens)": "> 200K",
+      "Input": 4.0,
+      "Cached input": 0.4,
+      "Output": 18.0
+    },
+    {
+      "provider": "Google",
+      "Model": "Gemini 3.5 Flash",
+      "Release status": "GA",
+      "Category": "Lightweight",
+      "Tier": "Default",
+      "Threshold (input tokens)": "Not applicable",
+      "Input": 1.5,
+      "Cached input": 0.15,
+      "Output": 9.0
+    },
+    {
+      "provider": "Fine-tuned (GitHub)",
+      "Model": "Raptor mini",
+      "Release status": "GA",
+      "Category": "Versatile",
+      "Input": 0.25,
+      "Cached input": 0.025,
+      "Output": 2.0
+    },
+    {
+      "provider": "Microsoft",
+      "Model": "MAI-Code-1-Flash",
+      "Release status": "GA",
+      "Category": "Lightweight",
+      "Input": 0.75,
+      "Cached input": 0.075,
+      "Output": 4.5
+    },
+    {
+      "provider": "Moonshot AI",
+      "Model": "Kimi K2.7 Code",
+      "Release status": "GA",
+      "Category": "Versatile",
+      "Input": 0.95,
+      "Cached input": 0.19,
+      "Output": 4.0
+    }
+  ],
+  "footnotes": {
+    "sonnet-5-promo": "Claude Sonnet 5 is available at the promotional pricing of $2.00 per 1M input tokens, $0.20 per 1M cached input tokens, $2.50 per 1M cache write tokens, and $10.00 per 1M output tokens through August 31, 2026."
+  }
+}

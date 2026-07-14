@@ -1,0 +1,80 @@
+{# Reusable Jinja2 macros for the token calculator #}
+
+{% macro footnote_icon(text) %}
+{% if text %}
+<span class="footnote-icon" title="{{ text }}">!</span>
+{% endif %}
+{% endmacro %}
+
+{% macro filter_chip_group(group_id, filter_label, options, active_value) %}
+<div class="filter-group">
+  <span class="filter-label">{{ filter_label }}</span>
+  <div class="filter-chips" id="{{ group_id }}">
+    {% for opt in options %}
+      <button class="filter-chip{% if opt == active_value %} active{% endif %}" data-value="{{ opt }}">{{ opt }}</button>
+    {% endfor %}
+  </div>
+</div>
+{% endmacro %}
+
+{% macro input_group(input_id, label, value, min_val, max_val, step) %}
+<div class="input-group">
+  <label for="{{ input_id }}">{{ label }}</label>
+  <input type="number" id="{{ input_id }}" value="{{ value }}" min="{{ min_val }}" max="{{ max_val }}" step="{{ step }}" />
+</div>
+{% endmacro %}
+
+{% macro status_badge(status) %}
+{% if status == 'GA' %}
+<span class="badge badge-ga">GA</span>
+{% else %}
+<span class="badge badge-preview">Preview</span>
+{% endif %}
+{% endmacro %}
+
+{% macro category_badge(category) %}
+{% if category == 'Powerful' %}
+{% set cat_class = 'cat-powerful' %}
+{% elif category == 'Lightweight' %}
+{% set cat_class = 'cat-lightweight' %}
+{% else %}
+{% set cat_class = 'cat-versatile' %}
+{% endif %}
+<span class="cat-badge {{ cat_class }}">{{ category }}</span>
+{% endmacro %}
+
+{% macro table_header_cell(col_name, display_text, is_num) %}
+<th class="sortable{% if is_num %} num{% endif %}" data-col="{{ col_name }}">{{ display_text }} <span class="sort-icon">↕</span></th>
+{% endmacro %}
+
+{% macro compare_card(model) %}
+<div class="cmp-card">
+  <button class="cmp-card-remove" title="Remove" onclick="toggleCompare({{ model._idx }})">✕</button>
+  <div class="cmp-card-name">{{ model.name }}{% if model.tier == 'Long context' %} <span style="font-size:10px;color:var(--link)">LC</span>{% endif %}</div>
+  <div class="cmp-card-provider">{{ model.provider }} · {{ self.category_badge(model.category) }}</div>
+  <div class="cmp-card-rows">
+    <div class="cmp-rate-row">
+      <span class="cmp-rate-label">Input</span>
+      <div class="cmp-rate-bar-bg"><div class="cmp-rate-bar-fill" style="width:0%"></div></div>
+      <span class="cmp-rate-val">${{ '{:.2f}'.format(model.input) }}</span>
+    </div>
+    <div class="cmp-rate-row">
+      <span class="cmp-rate-label">Cached</span>
+      <div class="cmp-rate-bar-bg"><div class="cmp-rate-bar-fill" style="width:0%"></div></div>
+      <span class="cmp-rate-val">${{ '{:.2f}'.format(model.cached) }}</span>
+    </div>
+    <div class="cmp-rate-row">
+      <span class="cmp-rate-label">Output</span>
+      <div class="cmp-rate-bar-bg"><div class="cmp-rate-bar-fill" style="width:0%"></div></div>
+      <span class="cmp-rate-val">${{ '{:.2f}'.format(model.output) }}</span>
+    </div>
+  </div>
+  <div class="cmp-card-cost">
+    <div>
+      <div class="cmp-cost-label">Est. cost</div>
+      <div class="cmp-credits">0 credits</div>
+    </div>
+    <span class="cmp-cost-val">$0.000</span>
+  </div>
+</div>
+{% endmacro %}

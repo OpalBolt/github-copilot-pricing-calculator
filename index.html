@@ -1,0 +1,1583 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GitHub Copilot · Token cost calculator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&family=Source+Serif+4:ital,wght@1,500&display=swap" rel="stylesheet" />
+  <style>
+  /* ── Design tokens ──────────────────────────────────────── */
+  :root {
+    --efi-yellow:   #FFD100;
+    --nordic-black: #101820;
+    --canvas:       #F7FAFC;
+    --white:        #FFFFFF;
+    --slate-2:      #F1F5F9;
+    --slate-3:      #E2E8F0;
+    --slate-5:      #94A3B8;
+    --slate-6:      #64748B;
+    --slate-7:      #475569;
+    --slate-8:      #334155;
+    --slate-9:      #1E293B;
+    --link:         #007FA3;
+    --cta-hover:    #E6BC00;
+    --ease:         cubic-bezier(0.2, 0, 0, 1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.70;
+    color: var(--slate-8);
+    background: var(--canvas);
+  }
+
+  /* ── Header ─────────────────────────────────────────────── */
+  .page-header {
+    background: var(--nordic-black);
+    padding: 48px 64px 40px;
+    border-bottom: 3px solid var(--efi-yellow);
+  }
+  .page-header .eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--efi-yellow);
+    margin-bottom: 12px;
+  }
+  .page-header h1 {
+    font-size: 42px;
+    font-weight: 600;
+    line-height: 1.10;
+    color: var(--white);
+    max-width: 720px;
+  }
+  .page-header p {
+    margin-top: 16px;
+    font-size: 16px;
+    line-height: 1.70;
+    color: var(--slate-5);
+    max-width: 640px;
+  }
+  .page-header .meta {
+    margin-top: 20px;
+    font-size: 13px;
+    color: var(--slate-6);
+  }
+  .page-header .meta a { color: var(--slate-5); text-decoration: underline; }
+
+  /* ── Main ───────────────────────────────────────────────── */
+  main {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 64px 96px;
+  }
+
+  /* ── Controls panel ─────────────────────────────────────── */
+  .controls {
+    background: var(--white);
+    border: 1px solid var(--slate-3);
+    padding: 28px 32px;
+    margin-bottom: 24px;
+  }
+  .controls h2 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--nordic-black);
+    margin-bottom: 20px;
+  }
+
+  .profile-presets {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .profile-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--slate-7);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .profile-buttons {
+    display: flex;
+    gap: 8px;
+  }
+  .profile-btn {
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 500;
+    border: 1px solid var(--slate-3);
+    background: var(--white);
+    color: var(--slate-7);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 150ms ease-out;
+  }
+  .profile-btn:hover {
+    background: var(--slate-2);
+    border-color: var(--slate-5);
+    color: var(--slate-8);
+  }
+  .profile-btn.active {
+    background: var(--link);
+    color: var(--white);
+    border-color: var(--link);
+  }
+
+  .controls-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+    align-items: end;
+  }
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .input-group label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--slate-7);
+  }
+  .input-group input[type="number"] {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--nordic-black);
+    background: var(--canvas);
+    border: 1px solid var(--slate-3);
+    border-radius: 2px;
+    padding: 9px 12px;
+    width: 100%;
+    transition: border-color 180ms var(--ease);
+    outline: none;
+  }
+  .input-group input[type="number"]:focus { border-color: var(--efi-yellow); }
+
+  .summary-chips {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--slate-3);
+  }
+  .chip {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--slate-7);
+    background: var(--slate-2);
+    border-radius: 999px;
+    padding: 3px 12px;
+  }
+  .chip strong { color: var(--nordic-black); }
+
+  /* ── Filters bar ────────────────────────────────────────── */
+  .filters-bar {
+    background: var(--white);
+    border: 1px solid var(--slate-3);
+    border-bottom: none;
+    padding: 16px 20px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .filter-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .filter-group .filter-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--slate-6);
+    white-space: nowrap;
+  }
+  .filter-chips {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .filter-chip {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--slate-7);
+    background: var(--slate-2);
+    border: 1px solid var(--slate-3);
+    border-radius: 4px;
+    padding: 4px 10px;
+    cursor: pointer;
+    transition: background 120ms var(--ease), color 120ms var(--ease), border-color 120ms var(--ease);
+    white-space: nowrap;
+  }
+  .filter-chip:hover { background: var(--slate-3); }
+  .filter-chip.active {
+    background: var(--nordic-black);
+    color: var(--white);
+    border-color: var(--nordic-black);
+  }
+
+  .search-wrap {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .search-wrap input[type="search"] {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 13px;
+    color: var(--nordic-black);
+    background: var(--canvas);
+    border: 1px solid var(--slate-3);
+    border-radius: 2px;
+    padding: 7px 12px;
+    width: 200px;
+    outline: none;
+    transition: border-color 180ms var(--ease);
+  }
+  .search-wrap input[type="search"]:focus { border-color: var(--efi-yellow); }
+
+  /* ── Table ──────────────────────────────────────────────── */
+  .table-wrapper {
+    overflow-x: auto;
+    background: var(--white);
+    border: 1px solid var(--slate-3);
+  }
+  .table-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px 10px;
+    border-top: 1px solid var(--slate-3);
+    background: var(--white);
+    border-bottom: 1px solid var(--slate-3);
+  }
+  .table-meta-count {
+    font-size: 13px;
+    color: var(--slate-6);
+  }
+  .table-meta-count strong { color: var(--nordic-black); }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    min-width: 1000px;
+  }
+
+  thead th {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--slate-6);
+    background: var(--slate-2);
+    padding: 10px 14px;
+    text-align: left;
+    white-space: nowrap;
+    border-bottom: 2px solid var(--slate-3);
+    user-select: none;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+  thead th.sortable {
+    cursor: pointer;
+  }
+  thead th.sortable:hover { color: var(--nordic-black); background: var(--slate-3); }
+  thead th.sort-asc,
+  thead th.sort-desc { color: var(--nordic-black); background: var(--slate-3); }
+  thead th.num { text-align: right; }
+
+  .sort-icon {
+    display: inline-block;
+    margin-left: 5px;
+    opacity: 0.35;
+    font-size: 10px;
+  }
+  th.sort-asc  .sort-icon,
+  th.sort-desc .sort-icon { opacity: 1; }
+
+  tbody tr {
+    border-bottom: 1px solid var(--slate-3);
+    transition: background 120ms var(--ease);
+  }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: var(--slate-2); }
+  tbody tr.hidden { display: none; }
+
+  tbody td {
+    padding: 11px 14px;
+    vertical-align: middle;
+  }
+  tbody td.num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    font-weight: 500;
+    color: var(--nordic-black);
+  }
+  tbody td.dim { color: var(--slate-5); font-size: 13px; }
+
+  .model-name { font-weight: 600; color: var(--nordic-black); }
+
+  .badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    border-radius: 999px;
+    margin-left: 5px;
+    vertical-align: middle;
+  }
+  .badge-ga      { background: #DCFCE7; color: #166534; }
+  .badge-preview { background: #FEF9C3; color: #854D0E; }
+
+  .footnote-icon {
+    display: inline-block;
+    margin-left: 4px;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: bold;
+    background: #FCA5A5;
+    color: #7F1D1D;
+    border-radius: 50%;
+    cursor: help;
+    border: 1px solid #DC2626;
+  }
+  .footnote-icon:hover {
+    background: #EF4444;
+    color: #FCA5A5;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .cat-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 2px;
+  }
+  .cat-powerful    { background: var(--slate-9); color: var(--white); }
+  .cat-versatile   { background: var(--slate-7); color: var(--white); }
+  .cat-lightweight { background: var(--slate-3); color: var(--slate-8); }
+
+  .tier-lc {
+    font-size: 11px;
+    color: var(--link);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  /* cost bar */
+  .bar-cell { min-width: 130px; }
+  .credit-bar-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .credit-bar-bg {
+    flex: 1;
+    height: 4px;
+    background: var(--slate-3);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  .credit-bar-fill {
+    height: 100%;
+    background: var(--efi-yellow);
+    border-radius: 999px;
+    transition: width 320ms var(--ease);
+  }
+  .credit-val {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--nordic-black);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    min-width: 48px;
+    text-align: right;
+  }
+  .cost-usd {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--nordic-black);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+
+  /* no-results */
+  .no-results {
+    text-align: center;
+    padding: 48px 24px;
+    color: var(--slate-5);
+    font-size: 14px;
+    display: none;
+  }
+
+  /* ── Compare toggle (table rows) ────────────────────────── */
+  .cmp-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    border: 1.5px solid var(--slate-3);
+    background: transparent;
+    color: var(--slate-5);
+    font-size: 16px;
+    line-height: 1;
+    cursor: pointer;
+    transition: border-color 120ms var(--ease), color 120ms var(--ease), background 120ms var(--ease);
+    flex-shrink: 0;
+  }
+  .cmp-btn:hover { border-color: var(--efi-yellow); color: var(--nordic-black); }
+  .cmp-btn.active {
+    border-color: var(--efi-yellow);
+    background: var(--efi-yellow);
+    color: var(--nordic-black);
+  }
+
+  tbody tr.in-compare { background: #FFFDE6; }
+  tbody tr.in-compare:hover { background: #FFF9C4; }
+
+  /* ── Compare tray ────────────────────────────────────────── */
+  #compare-tray {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--nordic-black);
+    border-top: 3px solid var(--efi-yellow);
+    z-index: 100;
+    transform: translateY(100%);
+    transition: transform 320ms var(--ease);
+    padding: 16px 32px 20px;
+  }
+  #compare-tray.visible { transform: translateY(0); }
+
+  .tray-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+  }
+  .tray-title {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--efi-yellow);
+  }
+  .tray-actions { display: flex; gap: 12px; align-items: center; }
+  .tray-clear {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--slate-5);
+    background: transparent;
+    border: 1px solid var(--slate-7);
+    border-radius: 4px;
+    padding: 4px 12px;
+    cursor: pointer;
+    transition: color 120ms var(--ease), border-color 120ms var(--ease);
+  }
+  .tray-clear:hover { color: var(--white); border-color: var(--slate-5); }
+
+  .tray-cards {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--slate-7) transparent;
+  }
+
+  .cmp-card {
+    background: var(--slate-9);
+    border: 1px solid var(--slate-7);
+    border-radius: 4px;
+    padding: 14px 16px;
+    min-width: 210px;
+    max-width: 240px;
+    flex-shrink: 0;
+    position: relative;
+  }
+  .cmp-card-remove {
+    position: absolute;
+    top: 8px; right: 8px;
+    width: 18px; height: 18px;
+    border-radius: 999px;
+    border: 1px solid var(--slate-6);
+    background: transparent;
+    color: var(--slate-5);
+    font-size: 12px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 120ms var(--ease), color 120ms var(--ease);
+  }
+  .cmp-card-remove:hover { background: var(--slate-7); color: var(--white); }
+
+  .cmp-card-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--white);
+    padding-right: 20px;
+    line-height: 1.3;
+    margin-bottom: 2px;
+  }
+  .cmp-card-provider {
+    font-size: 11px;
+    color: var(--slate-5);
+    margin-bottom: 10px;
+  }
+  .cmp-card-rows { display: flex; flex-direction: column; gap: 5px; margin-bottom: 12px; }
+  .cmp-rate-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .cmp-rate-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--slate-6);
+    width: 46px;
+    flex-shrink: 0;
+  }
+  .cmp-rate-bar-bg {
+    flex: 1;
+    height: 3px;
+    background: var(--slate-7);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  .cmp-rate-bar-fill {
+    height: 100%;
+    background: var(--slate-5);
+    border-radius: 999px;
+  }
+  .cmp-rate-bar-fill.highlight { background: var(--efi-yellow); }
+  .cmp-rate-val {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--slate-3);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    min-width: 36px;
+    text-align: right;
+  }
+
+  .cmp-card-cost {
+    border-top: 1px solid var(--slate-7);
+    padding-top: 10px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .cmp-cost-label { font-size: 11px; color: var(--slate-5); }
+  .cmp-cost-val {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--white);
+    font-variant-numeric: tabular-nums;
+  }
+  .cmp-cost-val.cheapest { color: var(--efi-yellow); }
+  .cmp-credits {
+    font-size: 11px;
+    color: var(--slate-5);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* add-slot card */
+  .cmp-card-add {
+    min-width: 140px;
+    max-width: 140px;
+    border-style: dashed;
+    border-color: var(--slate-7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 6px;
+    color: var(--slate-6);
+    font-size: 12px;
+    text-align: center;
+    padding: 20px 12px;
+  }
+  .cmp-card-add-icon { font-size: 20px; color: var(--slate-7); }
+
+  /* body padding when tray visible */
+  body.tray-open { padding-bottom: 220px; }
+
+  /* ── Footer ─────────────────────────────────────────────── */
+  .page-note {
+    font-size: 13px;
+    color: var(--slate-6);
+    margin-top: 12px;
+    line-height: 1.60;
+  }
+  .page-note a { color: var(--link); text-decoration: none; }
+  .page-note a:hover { text-decoration: underline; }
+
+  .page-footer {
+    border-top: 1px solid var(--slate-5);
+    padding: 28px 64px;
+    font-size: 13px;
+    color: var(--slate-6);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .page-footer a { color: var(--link); text-decoration: none; }
+  .page-footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 768px) {
+    .page-header { padding: 32px 20px 28px; }
+    .page-header h1 { font-size: 28px; }
+    main { padding: 24px 16px 64px; }
+    .filters-bar { padding: 12px 16px; gap: 12px; }
+    .search-wrap { margin-left: 0; width: 100%; }
+    .search-wrap input { width: 100%; }
+    .page-footer { padding: 24px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── Header ──────────────────────────────────────────────── -->
+<header class="page-header">
+  <p class="eyebrow">GitHub Copilot · AI credits</p>
+  <h1>Token cost calculator</h1>
+  <p>Compare what every model actually costs in AI credits before you commit to one. All prices are per 1 million tokens · 1 AI credit = $0.01 USD.</p>
+  <p class="meta">Source: <a href="https://docs.github.com/en/copilot/reference/copilot-billing/models-and-pricing" target="_blank">docs.github.com · models and pricing</a> · Data fetched: <span id="fetch-date">—</span></p>
+</header>
+
+<!-- ── Main ────────────────────────────────────────────────── -->
+<main>
+
+  <!-- Controls -->
+  <div class="controls">
+    <h2>Configure your estimate</h2>
+    
+    <!-- Profile Presets -->
+    <div class="profile-presets">
+      <span class="profile-label">Quick presets:</span>
+      <div class="profile-buttons">
+        <button class="profile-btn" data-profile="superuser">Superuser/Developer</button>
+        <button class="profile-btn" data-profile="regular">Regular User</button>
+      </div>
+    </div>
+    
+    <div class="controls-grid">
+      
+<div class="input-group">
+  <label for="total-tokens">Total tokens</label>
+  <input type="number" id="total-tokens" value="1000000" min="1" max="None" step="100000" />
+</div>
+
+      
+<div class="input-group">
+  <label for="input-pct">Input %</label>
+  <input type="number" id="input-pct" value="1.45" min="0" max="100" step="0.1" />
+</div>
+
+      
+<div class="input-group">
+  <label for="cached-pct">Cached input %</label>
+  <input type="number" id="cached-pct" value="96.62" min="0" max="100" step="0.1" />
+</div>
+
+      
+<div class="input-group">
+  <label for="output-pct">Output %</label>
+  <input type="number" id="output-pct" value="1.93" min="0" max="100" step="0.1" />
+</div>
+
+    </div>
+    <div class="summary-chips" id="summary-chips"></div>
+    <div id="pct-warning" style="display: none; margin-top: 12px; padding: 8px 12px; background: #FEF9C3; border: 1px solid #EAB308; border-radius: 4px; font-size: 13px; color: #854D0E;">
+      ⚠️ Input, Cached, and Output percentages must sum to 100%
+    </div>
+  </div>
+
+  <!-- Filters -->
+  <div class="filters-bar">
+    
+<div class="filter-group">
+  <span class="filter-label">Provider</span>
+  <div class="filter-chips" id="filter-provider">
+    
+      <button class="filter-chip active" data-value="all">all</button>
+    
+      <button class="filter-chip" data-value="OpenAI">OpenAI</button>
+    
+      <button class="filter-chip" data-value="Anthropic">Anthropic</button>
+    
+      <button class="filter-chip" data-value="Google">Google</button>
+    
+      <button class="filter-chip" data-value="Fine-tuned (GitHub)">Fine-tuned (GitHub)</button>
+    
+      <button class="filter-chip" data-value="Microsoft">Microsoft</button>
+    
+      <button class="filter-chip" data-value="Moonshot AI">Moonshot AI</button>
+    
+  </div>
+</div>
+
+    
+<div class="filter-group">
+  <span class="filter-label">Category</span>
+  <div class="filter-chips" id="filter-category">
+    
+      <button class="filter-chip active" data-value="all">all</button>
+    
+      <button class="filter-chip" data-value="Powerful">Powerful</button>
+    
+      <button class="filter-chip" data-value="Versatile">Versatile</button>
+    
+      <button class="filter-chip" data-value="Lightweight">Lightweight</button>
+    
+  </div>
+</div>
+
+    
+<div class="filter-group">
+  <span class="filter-label">Status</span>
+  <div class="filter-chips" id="filter-status">
+    
+      <button class="filter-chip active" data-value="all">all</button>
+    
+      <button class="filter-chip" data-value="GA">GA</button>
+    
+      <button class="filter-chip" data-value="preview">preview</button>
+    
+  </div>
+</div>
+
+    <div class="search-wrap">
+      <input type="search" id="search-input" placeholder="Search model name…" />
+    </div>
+  </div>
+
+  <!-- Table meta row -->
+  <div class="table-meta">
+    <span class="table-meta-count" id="row-count"></span>
+  </div>
+
+  <!-- Unified table -->
+  <div class="table-wrapper">
+    <table id="main-table">
+      <thead>
+        <tr>
+          <th style="width:36px;padding:10px 8px"></th>
+          
+<th class="sortable" data-col="name">Model <span class="sort-icon">↕</span></th>
+
+          
+<th class="sortable" data-col="provider">Provider <span class="sort-icon">↕</span></th>
+
+          
+<th class="sortable" data-col="category">Category <span class="sort-icon">↕</span></th>
+
+          
+<th class="sortable" data-col="tier">Tier <span class="sort-icon">↕</span></th>
+
+          
+<th class="sortable num" data-col="input">Input / 1M <span class="sort-icon">↕</span></th>
+
+          
+<th class="sortable num" data-col="cached">Cached / 1M <span class="sort-icon">↕</span></th>
+
+          
+<th class="sortable num" data-col="cacheWrite">Cache write / 1M <span class="sort-icon">↕</span></th>
+
+          
+<th class="sortable num" data-col="output">Output / 1M <span class="sort-icon">↕</span></th>
+
+          
+<th class="sortable num" data-col="cost">Est. cost <span class="sort-icon">↕</span></th>
+
+          <th class="bar-cell">Relative cost</th>
+        </tr>
+      </thead>
+      <tbody id="table-body"></tbody>
+    </table>
+    <div class="no-results" id="no-results">No models match your filters.</div>
+  </div>
+
+  <p class="page-note">
+    Est. cost = (input tokens × input rate + cached tokens × cached rate + output tokens × output rate) ÷ 1M, based on your token split above.
+    Cache write applies to Anthropic models only.
+    Code completions and next-edit suggestions are not billed in AI credits.
+    · <a href="https://docs.github.com/en/copilot/reference/copilot-billing/models-and-pricing" target="_blank">Source pricing →</a>
+  </p>
+</main>
+
+<footer class="page-footer">
+  <span>GitHub Copilot · Token cost calculator · Data sourced from GitHub docs</span>
+  <a href="https://docs.github.com/en/copilot/reference/copilot-billing/models-and-pricing" target="_blank">View source pricing →</a>
+</footer>
+
+<!-- ── Compare tray ────────────────────────────────────────── -->
+<div id="compare-tray" role="region" aria-label="Model comparison">
+  <div class="tray-header">
+    <span class="tray-title">Comparing <span id="tray-count">0</span> models</span>
+    <div class="tray-actions">
+      <button class="tray-clear" onclick="clearCompare()">Clear all</button>
+    </div>
+  </div>
+  <div class="tray-cards" id="tray-cards"></div>
+</div>
+
+<script>
+  // ── Pricing data (fetched 2026-07-14) ──
+  const FETCH_DATE = '2026-07-14';
+  document.getElementById('fetch-date').textContent = FETCH_DATE;
+
+  // All rates $ per 1M tokens
+  const ALL_MODELS = [
+  {
+    "name": "GPT-5 mini",
+    "provider": "OpenAI",
+    "category": "Lightweight",
+    "status": "GA",
+    "tier": "Default",
+    "input": 0.25,
+    "cached": 0.025,
+    "cacheWrite": null,
+    "output": 2.0,
+    "footnote": null
+  },
+  {
+    "name": "GPT-5.3-Codex",
+    "provider": "OpenAI",
+    "category": "Powerful",
+    "status": "GA",
+    "tier": "Default",
+    "input": 1.75,
+    "cached": 0.175,
+    "cacheWrite": null,
+    "output": 14.0,
+    "footnote": null
+  },
+  {
+    "name": "GPT-5.4",
+    "provider": "OpenAI",
+    "category": "Versatile",
+    "status": "GA",
+    "tier": "Default",
+    "input": 2.5,
+    "cached": 0.25,
+    "cacheWrite": null,
+    "output": 15.0,
+    "footnote": null
+  },
+  {
+    "name": "GPT-5.4",
+    "provider": "OpenAI",
+    "category": "Versatile",
+    "status": "GA",
+    "tier": "Long context",
+    "input": 5.0,
+    "cached": 0.5,
+    "cacheWrite": null,
+    "output": 22.5,
+    "footnote": null
+  },
+  {
+    "name": "GPT-5.4 mini",
+    "provider": "OpenAI",
+    "category": "Lightweight",
+    "status": "GA",
+    "tier": "Default",
+    "input": 0.75,
+    "cached": 0.075,
+    "cacheWrite": null,
+    "output": 4.5,
+    "footnote": null
+  },
+  {
+    "name": "GPT-5.4 nano",
+    "provider": "OpenAI",
+    "category": "Lightweight",
+    "status": "GA",
+    "tier": "Default",
+    "input": 0.2,
+    "cached": 0.02,
+    "cacheWrite": null,
+    "output": 1.25,
+    "footnote": null
+  },
+  {
+    "name": "GPT-5.5",
+    "provider": "OpenAI",
+    "category": "Powerful",
+    "status": "GA",
+    "tier": "Default",
+    "input": 5.0,
+    "cached": 0.5,
+    "cacheWrite": null,
+    "output": 30.0,
+    "footnote": null
+  },
+  {
+    "name": "GPT-5.5",
+    "provider": "OpenAI",
+    "category": "Powerful",
+    "status": "GA",
+    "tier": "Long context",
+    "input": 10.0,
+    "cached": 1.0,
+    "cacheWrite": null,
+    "output": 45.0,
+    "footnote": null
+  },
+  {
+    "name": "GPT-5.6 Luna",
+    "provider": "OpenAI",
+    "category": "Lightweight",
+    "status": "GA",
+    "tier": "Default",
+    "input": 1.0,
+    "cached": 0.1,
+    "cacheWrite": null,
+    "output": 6.0,
+    "footnote": null
+  },
+  {
+    "name": "GPT-5.6 Luna",
+    "provider": "OpenAI",
+    "category": "Lightweight",
+    "status": "GA",
+    "tier": "Long context",
+    "input": 2.0,
+    "cached": 0.2,
+    "cacheWrite": null,
+    "output": 9.0,
+    "footnote": null
+  },
+  {
+    "name": "GPT-5.6 Sol",
+    "provider": "OpenAI",
+    "category": "Powerful",
+    "status": "GA",
+    "tier": "Default",
+    "input": 5.0,
+    "cached": 0.5,
+    "cacheWrite": null,
+    "output": 30.0,
+    "footnote": null
+  },
+  {
+    "name": "GPT-5.6 Sol",
+    "provider": "OpenAI",
+    "category": "Powerful",
+    "status": "GA",
+    "tier": "Long context",
+    "input": 10.0,
+    "cached": 1.0,
+    "cacheWrite": null,
+    "output": 45.0,
+    "footnote": null
+  },
+  {
+    "name": "GPT-5.6 Terra",
+    "provider": "OpenAI",
+    "category": "Versatile",
+    "status": "GA",
+    "tier": "Default",
+    "input": 2.5,
+    "cached": 0.25,
+    "cacheWrite": null,
+    "output": 15.0,
+    "footnote": null
+  },
+  {
+    "name": "GPT-5.6 Terra",
+    "provider": "OpenAI",
+    "category": "Versatile",
+    "status": "GA",
+    "tier": "Long context",
+    "input": 5.0,
+    "cached": 0.5,
+    "cacheWrite": null,
+    "output": 22.5,
+    "footnote": null
+  },
+  {
+    "name": "Claude Haiku 4.5",
+    "provider": "Anthropic",
+    "category": "Versatile",
+    "status": "GA",
+    "tier": "Default",
+    "input": 1.0,
+    "cached": 0.1,
+    "cacheWrite": 1.25,
+    "output": 5.0,
+    "footnote": null
+  },
+  {
+    "name": "Claude Sonnet 4",
+    "provider": "Anthropic",
+    "category": "Versatile",
+    "status": "GA",
+    "tier": "Default",
+    "input": 3.0,
+    "cached": 0.3,
+    "cacheWrite": 3.75,
+    "output": 15.0,
+    "footnote": null
+  },
+  {
+    "name": "Claude Sonnet 4.5",
+    "provider": "Anthropic",
+    "category": "Versatile",
+    "status": "GA",
+    "tier": "Default",
+    "input": 3.0,
+    "cached": 0.3,
+    "cacheWrite": 3.75,
+    "output": 15.0,
+    "footnote": null
+  },
+  {
+    "name": "Claude Sonnet 4.6",
+    "provider": "Anthropic",
+    "category": "Versatile",
+    "status": "GA",
+    "tier": "Default",
+    "input": 3.0,
+    "cached": 0.3,
+    "cacheWrite": 3.75,
+    "output": 15.0,
+    "footnote": null
+  },
+  {
+    "name": "Claude Opus 4.5",
+    "provider": "Anthropic",
+    "category": "Powerful",
+    "status": "GA",
+    "tier": "Default",
+    "input": 5.0,
+    "cached": 0.5,
+    "cacheWrite": 6.25,
+    "output": 25.0,
+    "footnote": null
+  },
+  {
+    "name": "Claude Opus 4.6",
+    "provider": "Anthropic",
+    "category": "Powerful",
+    "status": "GA",
+    "tier": "Default",
+    "input": 5.0,
+    "cached": 0.5,
+    "cacheWrite": 6.25,
+    "output": 25.0,
+    "footnote": null
+  },
+  {
+    "name": "Claude Opus 4.7",
+    "provider": "Anthropic",
+    "category": "Powerful",
+    "status": "GA",
+    "tier": "Default",
+    "input": 5.0,
+    "cached": 0.5,
+    "cacheWrite": 6.25,
+    "output": 25.0,
+    "footnote": null
+  },
+  {
+    "name": "Claude Opus 4.8",
+    "provider": "Anthropic",
+    "category": "Powerful",
+    "status": "GA",
+    "tier": "Default",
+    "input": 5.0,
+    "cached": 0.5,
+    "cacheWrite": 6.25,
+    "output": 25.0,
+    "footnote": null
+  },
+  {
+    "name": "Claude Sonnet 5",
+    "provider": "Anthropic",
+    "category": "Versatile",
+    "status": "GA",
+    "tier": "Default",
+    "input": 2.0,
+    "cached": 0.2,
+    "cacheWrite": 2.5,
+    "output": 10.0,
+    "footnote": "Claude Sonnet 5 is available at the promotional pricing of $2.00 per 1M input tokens, $0.20 per 1M cached input tokens, $2.50 per 1M cache write tokens, and $10.00 per 1M output tokens through August 31, 2026."
+  },
+  {
+    "name": "Claude Opus 4.8 (fast mode)",
+    "provider": "Anthropic",
+    "category": "Powerful",
+    "status": "preview",
+    "tier": "Default",
+    "input": 10.0,
+    "cached": 1.0,
+    "cacheWrite": 12.5,
+    "output": 50.0,
+    "footnote": null
+  },
+  {
+    "name": "Claude Fable 5",
+    "provider": "Anthropic",
+    "category": "Powerful",
+    "status": "GA",
+    "tier": "Default",
+    "input": 10.0,
+    "cached": 1.0,
+    "cacheWrite": 12.5,
+    "output": 50.0,
+    "footnote": null
+  },
+  {
+    "name": "Gemini 2.5 Pro",
+    "provider": "Google",
+    "category": "Powerful",
+    "status": "GA",
+    "tier": "Default",
+    "input": 1.25,
+    "cached": 0.125,
+    "cacheWrite": null,
+    "output": 10.0,
+    "footnote": null
+  },
+  {
+    "name": "Gemini 3 Flash",
+    "provider": "Google",
+    "category": "Lightweight",
+    "status": "preview",
+    "tier": "Default",
+    "input": 0.5,
+    "cached": 0.05,
+    "cacheWrite": null,
+    "output": 3.0,
+    "footnote": null
+  },
+  {
+    "name": "Gemini 3.1 Pro",
+    "provider": "Google",
+    "category": "Powerful",
+    "status": "preview",
+    "tier": "Default",
+    "input": 2.0,
+    "cached": 0.2,
+    "cacheWrite": null,
+    "output": 12.0,
+    "footnote": null
+  },
+  {
+    "name": "Gemini 3.1 Pro",
+    "provider": "Google",
+    "category": "Powerful",
+    "status": "preview",
+    "tier": "Long context",
+    "input": 4.0,
+    "cached": 0.4,
+    "cacheWrite": null,
+    "output": 18.0,
+    "footnote": null
+  },
+  {
+    "name": "Gemini 3.5 Flash",
+    "provider": "Google",
+    "category": "Lightweight",
+    "status": "GA",
+    "tier": "Default",
+    "input": 1.5,
+    "cached": 0.15,
+    "cacheWrite": null,
+    "output": 9.0,
+    "footnote": null
+  },
+  {
+    "name": "Raptor mini",
+    "provider": "Fine-tuned (GitHub)",
+    "category": "Versatile",
+    "status": "GA",
+    "tier": "Default",
+    "input": 0.25,
+    "cached": 0.025,
+    "cacheWrite": null,
+    "output": 2.0,
+    "footnote": null
+  },
+  {
+    "name": "MAI-Code-1-Flash",
+    "provider": "Microsoft",
+    "category": "Lightweight",
+    "status": "GA",
+    "tier": "Default",
+    "input": 0.75,
+    "cached": 0.075,
+    "cacheWrite": null,
+    "output": 4.5,
+    "footnote": null
+  },
+  {
+    "name": "Kimi K2.7 Code",
+    "provider": "Moonshot AI",
+    "category": "Versatile",
+    "status": "GA",
+    "tier": "Default",
+    "input": 0.95,
+    "cached": 0.19,
+    "cacheWrite": null,
+    "output": 4.0,
+    "footnote": null
+  }
+];
+
+  // ── Preset profiles ──────────────────────────────────────────
+  const PROFILES = {
+    superuser: { name: 'Superuser/Developer', input: 0.49, cached: 98.62, output: 0.89 },
+    regular: { name: 'Regular User', input: 5.45, cached: 86.36, output: 8.18 },
+  };
+
+  // ── State ────────────────────────────────────────────────────
+  const state = {
+    sortCol: 'cost',
+    sortDir: 'asc',
+    filterProvider: 'all',
+    filterCategory: 'all',
+    filterStatus: 'all',
+    search: '',
+    compareIds: new Set(),
+    activeProfile: null,
+  };
+
+  ALL_MODELS.forEach((m, i) => { m._idx = i; });
+
+  // ── Helpers ──────────────────────────────────────────────────
+  const fmt     = n => n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const fmtCost = n => n.toLocaleString('en-US', { minimumFractionDigits: 3, maximumFractionDigits: 3 });
+
+  function setProfile(profileKey) {
+    const profile = PROFILES[profileKey];
+    if (!profile) return;
+    
+    state.activeProfile = profileKey;
+    document.getElementById('input-pct').value = profile.input;
+    document.getElementById('cached-pct').value = profile.cached;
+    document.getElementById('output-pct').value = profile.output;
+    
+    // Update button active state
+    document.querySelectorAll('.profile-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.profile === profileKey);
+    });
+    
+    render();
+  }
+
+  function getConfig() {
+    const total = parseFloat(document.getElementById('total-tokens').value) || 1_000_000;
+    let ip = parseFloat(document.getElementById('input-pct').value)  || 1.45;
+    let cp = parseFloat(document.getElementById('cached-pct').value) || 96.62;
+    let op = parseFloat(document.getElementById('output-pct').value) || 1.93;
+    const sum = ip + cp + op;
+    
+    // Show warning if percentages don't sum to 100
+    const warning = document.getElementById('pct-warning');
+    if (Math.abs(sum - 100) > 0.1) {
+      warning.style.display = 'block';
+    } else {
+      warning.style.display = 'none';
+    }
+    
+    ip = ip / sum * 100; cp = cp / sum * 100; op = op / sum * 100;
+    return {
+      total,
+      inputTokens:  total * ip  / 100,
+      cachedTokens: total * cp  / 100,
+      outputTokens: total * op  / 100,
+      ip, cp, op,
+    };
+  }
+
+  function estimateCost(m, cfg) {
+    return (cfg.inputTokens  / 1_000_000) * m.input
+         + (cfg.cachedTokens / 1_000_000) * m.cached
+         + (cfg.outputTokens / 1_000_000) * (m.output || 0);
+  }
+
+  function catClass(c) {
+    return c === 'Powerful' ? 'cat-powerful' : c === 'Lightweight' ? 'cat-lightweight' : 'cat-versatile';
+  }
+
+  function statusBadge(s) {
+    return s === 'GA'
+      ? `<span class="badge badge-ga">GA</span>`
+      : `<span class="badge badge-preview">Preview</span>`;
+  }
+
+  // ── Render ───────────────────────────────────────────────────
+  function render() {
+    const cfg = getConfig();
+    const rows = ALL_MODELS.map(m => ({ ...m, cost: estimateCost(m, cfg) }));
+
+    const q = state.search.toLowerCase();
+    const visible = rows.filter(m => {
+      if (state.filterProvider !== 'all' && m.provider !== state.filterProvider) return false;
+      if (state.filterCategory !== 'all' && m.category !== state.filterCategory) return false;
+      if (state.filterStatus !== 'all') {
+        const isPreview = m.status === 'preview';
+        if (state.filterStatus === 'GA' && isPreview) return false;
+        if (state.filterStatus === 'preview' && !isPreview) return false;
+      }
+      if (q && !m.name.toLowerCase().includes(q)) return false;
+      return true;
+    });
+
+    const col = state.sortCol;
+    const dir = state.sortDir === 'asc' ? 1 : -1;
+    visible.sort((a, b) => {
+      const av = a[col], bv = b[col];
+      if (typeof av === 'number' && typeof bv === 'number') return (av - bv) * dir;
+      return String(av ?? '').localeCompare(String(bv ?? '')) * dir;
+    });
+
+    const maxCost = visible.reduce((m, r) => Math.max(m, r.cost), 0) || 1;
+
+    const tbody = document.getElementById('table-body');
+    tbody.innerHTML = visible.map(m => {
+      const barW    = Math.round((m.cost / maxCost) * 100);
+      const cw      = m.cacheWrite != null ? `$${fmt(m.cacheWrite)}` : `<span class="dim">—</span>`;
+      const inCmp   = state.compareIds.has(m._idx);
+      const cmpCls  = inCmp ? 'cmp-btn active' : 'cmp-btn';
+      const cmpIcon = inCmp ? '−' : '+';
+      const rowCls  = inCmp ? 'in-compare' : '';
+      const footnote = m.footnote ? `<span class="footnote-icon" title="${m.footnote}">!</span>` : '';
+      return `
+      <tr class="${rowCls}" data-idx="${m._idx}">
+        <td style="padding:11px 8px">
+          <button class="${cmpCls}" title="${inCmp ? 'Remove from comparison' : 'Add to comparison'}"
+            onclick="toggleCompare(${m._idx})">${cmpIcon}</button>
+        </td>
+        <td>
+          <span class="model-name">${m.name}</span>${footnote}${statusBadge(m.status)}
+        </td>
+        <td class="dim">${m.provider}</td>
+        <td><span class="cat-badge ${catClass(m.category)}">${m.category}</span></td>
+        <td>${m.tier === 'Long context' ? `<span class="tier-lc">Long context</span>` : `<span class="dim">Default</span>`}</td>
+        <td class="num">$${fmt(m.input)}</td>
+        <td class="num">$${fmt(m.cached)}</td>
+        <td class="num">${cw}</td>
+        <td class="num">$${fmt(m.output)}</td>
+        <td class="num"><span class="cost-usd">$${fmtCost(m.cost)}</span></td>
+        <td class="bar-cell">
+          <div class="credit-bar-wrap">
+            <div class="credit-bar-bg"><div class="credit-bar-fill" style="width:${barW}%"></div></div>
+            <span class="credit-val">${Math.round(m.cost / 0.01)} cr</span>
+          </div>
+        </td>
+      </tr>`;
+    }).join('');
+
+    document.getElementById('no-results').style.display = visible.length ? 'none' : 'block';
+    document.getElementById('row-count').innerHTML =
+      `Showing <strong>${visible.length}</strong> of <strong>${ALL_MODELS.length}</strong> models`;
+
+    document.querySelectorAll('thead th[data-col]').forEach(th => {
+      th.classList.remove('sort-asc', 'sort-desc');
+      const icon = th.querySelector('.sort-icon');
+      if (th.dataset.col === state.sortCol) {
+        th.classList.add(state.sortDir === 'asc' ? 'sort-asc' : 'sort-desc');
+        if (icon) icon.textContent = state.sortDir === 'asc' ? '↑' : '↓';
+      } else {
+        if (icon) icon.textContent = '↕';
+      }
+    });
+
+    document.getElementById('summary-chips').innerHTML = `
+      <span class="chip">Total tokens: <strong>${cfg.total.toLocaleString()}</strong></span>
+      <span class="chip">Input: <strong>${Math.round(cfg.ip)}%</strong></span>
+      <span class="chip">Cached: <strong>${Math.round(cfg.cp)}%</strong></span>
+      <span class="chip">Output: <strong>${Math.round(cfg.op)}%</strong></span>
+    `;
+
+    renderCompareTray(cfg);
+  }
+
+  // ── Sort ─────────────────────────────────────────────────────
+  document.querySelectorAll('thead th.sortable').forEach(th => {
+    th.addEventListener('click', () => {
+      const col = th.dataset.col;
+      if (state.sortCol === col) {
+        state.sortDir = state.sortDir === 'asc' ? 'desc' : 'asc';
+      } else {
+        state.sortCol = col;
+        state.sortDir = col === 'cost' || col === 'input' || col === 'output' ? 'asc' : 'asc';
+      }
+      render();
+    });
+  });
+
+  // ── Filter chips ─────────────────────────────────────────────
+  function setupFilterGroup(groupId, stateKey) {
+    document.getElementById(groupId).addEventListener('click', e => {
+      const btn = e.target.closest('.filter-chip');
+      if (!btn) return;
+      document.querySelectorAll(`#${groupId} .filter-chip`).forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state[stateKey] = btn.dataset.value;
+      render();
+    });
+  }
+  setupFilterGroup('filter-provider', 'filterProvider');
+  setupFilterGroup('filter-category', 'filterCategory');
+  setupFilterGroup('filter-status',   'filterStatus');
+
+  // ── Search ───────────────────────────────────────────────────
+  document.getElementById('search-input').addEventListener('input', e => {
+    state.search = e.target.value;
+    state.activeProfile = null;  // Clear active profile when user manually edits
+    document.querySelectorAll('.profile-btn').forEach(btn => btn.classList.remove('active'));
+    render();
+  });
+
+  // ── Profile preset buttons ────────────────────────────────────
+  document.querySelectorAll('.profile-btn').forEach(btn => {
+    btn.addEventListener('click', () => setProfile(btn.dataset.profile));
+  });
+
+  // ── Live recalc on token inputs ───────────────────────────────
+  ['total-tokens', 'input-pct', 'cached-pct', 'output-pct'].forEach(id => {
+    document.getElementById(id).addEventListener('input', e => {
+      state.activeProfile = null;  // Clear active profile when user manually edits
+      document.querySelectorAll('.profile-btn').forEach(btn => btn.classList.remove('active'));
+      render();
+    });
+  });
+
+  // ── Compare ───────────────────────────────────────────────────
+  const MAX_COMPARE = 5;
+
+  function toggleCompare(idx) {
+    if (state.compareIds.has(idx)) {
+      state.compareIds.delete(idx);
+    } else {
+      if (state.compareIds.size >= MAX_COMPARE) return;
+      state.compareIds.add(idx);
+    }
+    render();
+  }
+
+  function clearCompare() {
+    state.compareIds.clear();
+    render();
+  }
+
+  function renderCompareTray(cfg) {
+    const tray = document.getElementById('compare-tray');
+    const cards = document.getElementById('tray-cards');
+    const count = state.compareIds.size;
+
+    document.getElementById('tray-count').textContent = count;
+
+    if (count === 0) {
+      tray.classList.remove('visible');
+      document.body.classList.remove('tray-open');
+      return;
+    }
+
+    tray.classList.add('visible');
+    document.body.classList.add('tray-open');
+
+    const compared = [...state.compareIds].map(idx => {
+      const m = ALL_MODELS[idx];
+      return { ...m, cost: estimateCost(m, cfg) };
+    });
+
+    const maxInput  = Math.max(...compared.map(m => m.input));
+    const maxCached = Math.max(...compared.map(m => m.cached));
+    const maxOutput = Math.max(...compared.map(m => m.output));
+    const maxCost   = Math.max(...compared.map(m => m.cost));
+    const minCost   = Math.min(...compared.map(m => m.cost));
+
+    cards.innerHTML = compared.map(m => {
+      const isCheapest = compared.length > 1 && m.cost === minCost;
+      const inBarW  = Math.round((m.input  / (maxInput  || 1)) * 100);
+      const caBarW  = Math.round((m.cached / (maxCached || 1)) * 100);
+      const outBarW = Math.round((m.output / (maxOutput || 1)) * 100);
+      const footnote = m.footnote ? `<span class="footnote-icon" title="${m.footnote}">!</span>` : '';
+      return `
+      <div class="cmp-card">
+        <button class="cmp-card-remove" title="Remove" onclick="toggleCompare(${m._idx})">✕</button>
+        <div class="cmp-card-name">${m.name}${footnote}${m.tier === 'Long context' ? ' <span style="font-size:10px;color:var(--link)">LC</span>' : ''}</div>
+        <div class="cmp-card-provider">${m.provider} · <span class="cat-badge ${catClass(m.category)}" style="font-size:10px;padding:1px 6px">${m.category}</span></div>
+        <div class="cmp-card-rows">
+          <div class="cmp-rate-row">
+            <span class="cmp-rate-label">Input</span>
+            <div class="cmp-rate-bar-bg"><div class="cmp-rate-bar-fill ${isCheapest ? 'highlight' : ''}" style="width:${inBarW}%"></div></div>
+            <span class="cmp-rate-val">$${fmt(m.input)}</span>
+          </div>
+          <div class="cmp-rate-row">
+            <span class="cmp-rate-label">Cached</span>
+            <div class="cmp-rate-bar-bg"><div class="cmp-rate-bar-fill ${isCheapest ? 'highlight' : ''}" style="width:${caBarW}%"></div></div>
+            <span class="cmp-rate-val">$${fmt(m.cached)}</span>
+          </div>
+          <div class="cmp-rate-row">
+            <span class="cmp-rate-label">Output</span>
+            <div class="cmp-rate-bar-bg"><div class="cmp-rate-bar-fill ${isCheapest ? 'highlight' : ''}" style="width:${outBarW}%"></div></div>
+            <span class="cmp-rate-val">$${fmt(m.output)}</span>
+          </div>
+        </div>
+        <div class="cmp-card-cost">
+          <div>
+            <div class="cmp-cost-label">Est. cost</div>
+            <div class="cmp-credits">${Math.round(m.cost / 0.01)} credits</div>
+          </div>
+          <span class="cmp-cost-val ${isCheapest ? 'cheapest' : ''}">$${fmtCost(m.cost)}</span>
+        </div>
+      </div>`;
+    }).join('');
+
+    if (count < MAX_COMPARE) {
+      cards.innerHTML += `
+      <div class="cmp-card cmp-card-add">
+        <span class="cmp-card-add-icon">+</span>
+        Click <strong>+</strong> on any row to add
+      </div>`;
+    }
+  }
+
+  // ── Initial render ────────────────────────────────────────────
+  render();
+</script>
+
+</body>
+</html>
