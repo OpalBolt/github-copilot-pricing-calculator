@@ -415,34 +415,63 @@
     white-space: nowrap;
   }
 
-  /* Task area badge */
-  .task-area-badge {
+  /* Task area swatches — small color chips with a hover tooltip carrying
+     the full "Task area" + "Excels at" text (see modelTooltip() in JS). */
+  .task-swatch {
     display: inline-block;
-    font-size: 11px;
-    font-weight: 500;
-    padding: 3px 8px;
-    border-radius: 2px;
-    white-space: nowrap;
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
     cursor: help;
+    vertical-align: middle;
   }
-  .task-area-undoc {
-    background: var(--slate-2);
-    color: var(--slate-5);
-    font-style: italic;
+  .task-swatch-undoc {
+    background: repeating-linear-gradient(
+      45deg, var(--slate-3), var(--slate-3) 2px, var(--white) 2px, var(--white) 4px
+    );
   }
-  .task-area-0 { background: #E8F4F8; color: #006B8A; }
-  .task-area-1 { background: #F0E8F8; color: #6B008A; }
-  .task-area-2 { background: #F8F0E8; color: #8A6B00; }
-  .task-area-3 { background: #E8F8E8; color: #008A2B; }
-  .task-area-4 { background: #F8E8E8; color: #8A0000; }
-  .task-area-5 { background: #F8F8E8; color: #8A8A00; }
+  .task-swatch-0 { background: #0EA5E9; }
+  .task-swatch-1 { background: #A855F7; }
+  .task-swatch-2 { background: #F59E0B; }
+  .task-swatch-3 { background: #10B981; }
+  .task-swatch-4 { background: #EF4444; }
+  .task-swatch-5 { background: #6366F1; }
 
-  .excels-at-icon {
-    display: inline-block;
-    margin-left: 4px;
+  /* Legend below the table mapping swatch color -> task area name */
+  .task-area-legend {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 18px;
+    margin-top: 14px;
+    padding: 12px 16px;
+    background: var(--white);
+    border: 1px solid var(--slate-3);
+    border-radius: 4px;
     font-size: 12px;
-    color: #059669;
-    cursor: help;
+    color: var(--slate-7);
+  }
+  .legend-label {
+    font-weight: 600;
+    color: var(--slate-8);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 11px;
+  }
+  .legend-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+  }
+  .legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .legend-item .task-swatch {
+    width: 12px;
+    height: 12px;
   }
 
   /* cost bar */
@@ -608,6 +637,19 @@
     font-size: 11px;
     color: var(--slate-5);
     margin-bottom: 10px;
+  }
+  .cmp-task-line {
+    height: 4px;
+    border-radius: 2px;
+    margin-bottom: 12px;
+    cursor: help;
+    transition: transform 120ms var(--ease);
+  }
+  .cmp-task-line:hover { transform: scaleY(1.8); }
+  .cmp-task-line-undoc {
+    background: repeating-linear-gradient(
+      45deg, var(--slate-6), var(--slate-6) 3px, var(--slate-7) 3px, var(--slate-7) 6px
+    );
   }
   .cmp-card-rows { display: flex; flex-direction: column; gap: 5px; margin-bottom: 12px; }
   .cmp-rate-row {
@@ -805,6 +847,10 @@
     margin-left: 4px;
     font-size: 10px;
     cursor: help;
+  }
+  .task-guide-model-name {
+    cursor: help;
+    border-bottom: 1px dotted var(--slate-5);
   }
 
   @media (max-width: 768px) {

@@ -93,26 +93,51 @@
       : `<span class="badge badge-preview">Preview</span>`;
   }
 
-  function taskAreaBadge(area) {
-    if (!area) {
-      return `<span class="task-area-badge task-area-undoc" title="Not documented in the GitHub model comparison guide">—</span>`;
-    }
-    // Deterministic color based on hash of the area name
+  // ── Task area helpers ────────────────────────────────────────
+  const TASK_SWATCH_COLORS = 6;
+
+  function escapeAttr(str) {
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/"/g, '&quot;')
+      .replace(/</g, '&lt;');
+  }
+
+  function taskAreaColorClass(area) {
+    if (!area) return null;
     let hash = 0;
     for (let i = 0; i < area.length; i++) {
       hash = ((hash << 5) - hash) + area.charCodeAt(i);
       hash |= 0; // Convert to 32bit integer
     }
-    const colors = ['#E8F4F8', '#F0E8F8', '#F8F0E8', '#E8F8E8', '#F8E8E8', '#F8F8E8'];
-    const colorClass = `task-area-${(Math.abs(hash) % colors.length)}`;
-    const truncated = area.length > 25 ? area.substring(0, 22) + '...' : area;
-    return `<span class="task-area-badge ${colorClass}" title="${area}">${truncated}</span>`;
+    return `task-swatch-${Math.abs(hash) % TASK_SWATCH_COLORS}`;
   }
 
-  function excellsAtBadge(text) {
-    if (!text) return '';
-    const truncated = text.length > 50 ? text.substring(0, 47) + '...' : text;
-    return `<span class="excels-at-icon" title="${text}">✓</span>`;
+  // Builds the full hover tooltip text shared by the table, compare tray,
+  // and task guide — so the same info is available everywhere a model appears.
+  function modelTooltip(m) {
+    const lines = [m.name, `${m.provider} · ${m.category}`];
+    lines.push(m.taskArea ? `Task area: ${m.taskArea}` : 'Task area: Not documented in the GitHub model comparison guide');
+    if (m.excelsAt) lines.push(`Excels at: ${m.excelsAt}`);
+    return escapeAttr(lines.join('\n'));
+  }
+
+  function taskAreaSwatch(m) {
+    const colorClass = taskAreaColorClass(m.taskArea);
+    const cls = colorClass ? `task-swatch ${colorClass}` : 'task-swatch task-swatch-undoc';
+    return `<span class="${cls}" title="${modelTooltip(m)}"></span>`;
+  }
+
+  function initTaskAreaLegend() {
+    const areas = new Set();
+    ALL_MODELS.forEach(m => { if (m.taskArea) areas.add(m.taskArea); });
+    if (areas.size === 0) return;
+    const container = document.getElementById('legend-items');
+    container.innerHTML = [...areas].sort().map(area => {
+      const cls = taskAreaColorClass(area);
+      return `<span class="legend-item"><span class="task-swatch ${cls}"></span>${area}</span>`;
+    }).join('');
+    document.getElementById('task-area-legend').style.display = 'flex';
   }
 
   // ── Render ───────────────────────────────────────────────────
@@ -164,7 +189,7 @@
         </td>
         <td class="dim">${m.provider}</td>
         <td><span class="cat-badge ${catClass(m.category)}">${m.category}</span></td>
-        <td>${taskAreaBadge(m.taskArea)}</td>
+        <td style="text-align:center">${taskAreaSwatch(m)}</td>
         <td>${m.tier === 'Long context' ? `<span class="tier-lc">Long context</span>` : `<span class="dim">Default</span>`}</td>
         <td class="num">$${fmt(m.input)}</td>
         <td class="num">$${fmt(m.cached)}</td>
@@ -253,6 +278,7 @@
     }
   }
   initTaskAreaFilter();
+  initTaskAreaLegend();
 
   // ── Search ───────────────────────────────────────────────────
   document.getElementById('search-input').addEventListener('input', e => {
@@ -327,12 +353,14 @@
       const caBarW  = Math.round((m.cached / (maxCached || 1)) * 100);
       const outBarW = Math.round((m.output / (maxOutput || 1)) * 100);
       const footnote = m.footnote ? `<span class="footnote-icon" title="${m.footnote}">!</span>` : '';
-      const taskAreaDisplay = taskAreaBadge(m.taskArea);
+      const taskColorClass = taskAreaColorClass(m.taskArea);
+      const taskLineCls = taskColorClass ? `cmp-task-line ${taskColorClass}` : 'cmp-task-line cmp-task-line-undoc';
       return `
       <div class="cmp-card">
         <button class="cmp-card-remove" title="Remove" onclick="toggleCompare(${m._idx})">✕</button>
         <div class="cmp-card-name">${m.name}${footnote}${m.tier === 'Long context' ? ' <span style="font-size:10px;color:var(--link)">LC</span>' : ''}</div>
-        <div class="cmp-card-provider">${m.provider} · <span class="cat-badge ${catClass(m.category)}" style="font-size:10px;padding:1px 6px">${m.category}</span> · ${taskAreaDisplay}</div>
+        <div class="cmp-card-provider">${m.provider} · <span class="cat-badge ${catClass(m.category)}" style="font-size:10px;padding:1px 6px">${m.category}</span></div>
+        <div class="${taskLineCls}" title="${modelTooltip(m)}"></div>
         <div class="cmp-card-rows">
           <div class="cmp-rate-row">
             <span class="cmp-rate-label">Input</span>
@@ -402,10 +430,12 @@
         const model = ALL_MODELS.find(m => m.name === rec.model);
         const unpriced = !model;
         const dimClass = unpriced ? 'unpriced' : '';
-        const tooltip = unpriced ? 'title="This model is in the guide but not in the pricing table; it may be deprecated or unavailable."' : '';
+        const nameTooltip = unpriced
+          ? escapeAttr(`${rec.model}\nNot found in current pricing table — may be deprecated or unavailable.`)
+          : modelTooltip(model);
         return `
           <tr class="${dimClass}">
-            <td>${rec.model}${tooltip ? ' <span class="dim-icon" ' + tooltip + '>⚠</span>' : ''}</td>
+            <td><span class="task-guide-model-name" title="${nameTooltip}">${rec.model}</span>${unpriced ? ' <span class="dim-icon">⚠</span>' : ''}</td>
             <td>${rec.reason}</td>
           </tr>`;
       }).join('');

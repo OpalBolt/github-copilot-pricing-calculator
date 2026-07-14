@@ -90,7 +90,7 @@
           {{ m.table_header_cell('name', 'Model', false) }}
           {{ m.table_header_cell('provider', 'Provider', false) }}
           {{ m.table_header_cell('category', 'Category', false) }}
-          {{ m.table_header_cell('taskArea', 'Task area', false) }}
+          <th class="sortable" data-col="taskArea" style="width:56px;text-align:center">Task <span class="sort-icon">↕</span></th>
           {{ m.table_header_cell('tier', 'Tier', false) }}
           {{ m.table_header_cell('input', 'Input / 1M', true) }}
           {{ m.table_header_cell('cached', 'Cached / 1M', true) }}
@@ -103,6 +103,12 @@
       <tbody id="table-body"></tbody>
     </table>
     <div class="no-results" id="no-results">No models match your filters.</div>
+  </div>
+
+  <!-- Task area legend -->
+  <div class="task-area-legend" id="task-area-legend" style="display:none">
+    <span class="legend-label">Task area:</span>
+    <div class="legend-items" id="legend-items"></div>
   </div>
 
   <p class="page-note">
