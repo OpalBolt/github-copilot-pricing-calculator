@@ -963,7 +963,7 @@
         
 <div class="input-group">
   <label for="total-tokens">Total tokens</label>
-  <input type="number" id="total-tokens" value="1000000" min="1" max="None" step="100000" />
+  <input type="number" id="total-tokens" value="1000000" min="1" step="100000" />
 </div>
 
         
@@ -982,6 +982,12 @@
 <div class="input-group">
   <label for="output-pct">Output %</label>
   <input type="number" id="output-pct" value="1.93" min="0" max="100" step="0.1" />
+</div>
+
+        
+<div class="input-group">
+  <label for="budget-amount">Budget ($)</label>
+  <input type="number" id="budget-amount" value="80" min="0" step="0.01" />
 </div>
 
       </div>
@@ -1083,22 +1089,22 @@
 <th class="sortable" data-col="category">Category <span class="sort-icon">↕</span></th>
 
             
-<th class="sortable" data-col="tier">Tier <span class="sort-icon">↕</span></th>
+<th class="sortable num" data-col="input">Input <span class="sort-icon">↕</span></th>
 
             
-<th class="sortable num" data-col="input">Input / 1M <span class="sort-icon">↕</span></th>
+<th class="sortable num" data-col="cached">Cached <span class="sort-icon">↕</span></th>
 
             
-<th class="sortable num" data-col="cached">Cached / 1M <span class="sort-icon">↕</span></th>
-
-            
-<th class="sortable num" data-col="cacheWrite">Cache write / 1M <span class="sort-icon">↕</span></th>
-
-            
-<th class="sortable num" data-col="output">Output / 1M <span class="sort-icon">↕</span></th>
+<th class="sortable num" data-col="output">Output <span class="sort-icon">↕</span></th>
 
             
 <th class="sortable num" data-col="cost">Est. cost <span class="sort-icon">↕</span></th>
+
+            
+<th class="sortable num" data-col="runs">Runs <span class="sort-icon">↕</span></th>
+
+            
+<th class="sortable num" data-col="tokens">Tokens <span class="sort-icon">↕</span></th>
 
             <th class="bar-cell">Relative cost</th>
           </tr>
@@ -1116,7 +1122,7 @@
 
     <p class="page-note">
       Est. cost = (input tokens × input rate + cached tokens × cached rate + output tokens × output rate) ÷ 1M, based on your token split above.
-      Cache write applies to Anthropic models only.
+      Input / Cached / Output rates are priced per 1M tokens. Runs = Budget ÷ Est. cost. Tokens = Runs × Total tokens.
       Code completions and next-edit suggestions are not billed in AI credits.
       · <a href="https://docs.github.com/en/copilot/reference/copilot-billing/models-and-pricing" target="_blank">Source pricing →</a>
     </p>
@@ -1776,6 +1782,16 @@
   // ── Helpers ──────────────────────────────────────────────────
   const fmt     = n => n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   const fmtCost = n => n.toLocaleString('en-US', { minimumFractionDigits: 3, maximumFractionDigits: 3 });
+  const fmtMoney = n => n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const fmtRuns  = n => n.toLocaleString('en-US', { maximumFractionDigits: 1 });
+  const fmtCompact = n => {
+    const abs = Math.abs(n);
+    if (!Number.isFinite(n)) return '—';
+    if (abs >= 1_000_000_000) return `${(n / 1_000_000_000).toFixed(1)}B`;
+    if (abs >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M`;
+    if (abs >= 1_000) return `${(n / 1_000).toFixed(1)}K`;
+    return `${n.toLocaleString('en-US', { maximumFractionDigits: 0 })}`;
+  };
 
   function setProfile(profileKey) {
     const profile = PROFILES[profileKey];
@@ -1799,6 +1815,7 @@
     let ip = parseFloat(document.getElementById('input-pct').value)  || 1.45;
     let cp = parseFloat(document.getElementById('cached-pct').value) || 96.62;
     let op = parseFloat(document.getElementById('output-pct').value) || 1.93;
+    const budget = Math.max(0, parseFloat(document.getElementById('budget-amount').value) || 0);
     const sum = ip + cp + op;
     
     // Show warning if percentages don't sum to 100
@@ -1816,6 +1833,7 @@
       cachedTokens: total * cp  / 100,
       outputTokens: total * op  / 100,
       ip, cp, op,
+      budget,
     };
   }
 
@@ -1863,6 +1881,7 @@
     if (m.excelsAt) lines.push(`Excels at: ${m.excelsAt}`);
     lines.push(`Pricing: input $${fmt(m.input)} / 1M (~${Math.round(m.input / 0.01)} cr)`);
     lines.push(`Pricing: cached $${fmt(m.cached)} / 1M (~${Math.round(m.cached / 0.01)} cr)`);
+    if (m.cacheWrite != null) lines.push(`Pricing: cache write $${fmt(m.cacheWrite)} / 1M (~${Math.round(m.cacheWrite / 0.01)} cr)`);
     lines.push(`Pricing: output $${fmt(m.output)} / 1M (~${Math.round(m.output / 0.01)} cr)`);
     return escapeAttr(lines.join('\n'));
   }
@@ -1882,7 +1901,12 @@
   // ── Render ───────────────────────────────────────────────────
   function render() {
     const cfg = getConfig();
-    const rows = ALL_MODELS.map(m => ({ ...m, cost: estimateCost(m, cfg) }));
+    const rows = ALL_MODELS.map(m => {
+      const cost = estimateCost(m, cfg);
+      const runs = cost > 0 ? cfg.budget / cost : null;
+      const tokens = runs != null ? runs * cfg.total : null;
+      return { ...m, cost, runs, tokens };
+    });
 
     const q = state.search.toLowerCase();
     const visible = rows.filter(m => {
@@ -1903,6 +1927,9 @@
     visible.sort((a, b) => {
       const av = a[col], bv = b[col];
       if (typeof av === 'number' && typeof bv === 'number') return (av - bv) * dir;
+      if (av == null && bv == null) return 0;
+      if (av == null) return 1;
+      if (bv == null) return -1;
       return String(av ?? '').localeCompare(String(bv ?? '')) * dir;
     });
 
@@ -1911,12 +1938,14 @@
     const tbody = document.getElementById('table-body');
     tbody.innerHTML = visible.map(m => {
       const barW    = Math.round((m.cost / maxCost) * 100);
-      const cw      = m.cacheWrite != null ? `$${fmt(m.cacheWrite)}` : `<span class="dim">—</span>`;
       const inCmp   = state.compareIds.has(m._idx);
       const cmpCls  = inCmp ? 'cmp-btn active' : 'cmp-btn';
       const cmpIcon = inCmp ? '−' : '+';
       const rowCls  = inCmp ? 'in-compare' : '';
       const footnote = m.footnote ? `<span class="footnote-icon" title="${m.footnote}">!</span>` : '';
+      const tierBadge = m.tier === 'Long context' ? ` <span class="tier-lc" title="Long context tier">LC</span>` : '';
+      const runsLabel = m.runs != null ? fmtRuns(m.runs) : '—';
+      const tokensLabel = m.tokens != null ? fmtCompact(m.tokens) : '—';
       return `
       <tr class="${rowCls}" data-idx="${m._idx}">
         <td style="padding:11px 8px">
@@ -1924,16 +1953,16 @@
             onclick="toggleCompare(${m._idx})">${cmpIcon}</button>
         </td>
         <td>
-          <span class="model-name ${'model-bg-' + (taskAreaColorClass(m.taskArea) || 'task-swatch-undoc').replace('task-swatch-', '')}" title="${modelTooltip(m)}">${m.name}</span>${footnote}${statusBadge(m.status)}
+          <span class="model-name ${'model-bg-' + (taskAreaColorClass(m.taskArea) || 'task-swatch-undoc').replace('task-swatch-', '')}" title="${modelTooltip(m)}">${m.name}</span>${tierBadge}${footnote}${statusBadge(m.status)}
         </td>
         <td class="dim">${m.provider}</td>
         <td><span class="cat-badge ${catClass(m.category)}">${m.category}</span></td>
-        <td>${m.tier === 'Long context' ? `<span class="tier-lc">Long context</span>` : `<span class="dim">Default</span>`}</td>
         <td class="num">$${fmt(m.input)}</td>
         <td class="num">$${fmt(m.cached)}</td>
-        <td class="num">${cw}</td>
         <td class="num">$${fmt(m.output)}</td>
         <td class="num"><span class="cost-usd">$${fmtCost(m.cost)}</span></td>
+        <td class="num">${runsLabel}</td>
+        <td class="num">${tokensLabel}</td>
         <td class="bar-cell">
           <div class="credit-bar-wrap">
             <div class="credit-bar-bg"><div class="credit-bar-fill" style="width:${barW}%"></div></div>
@@ -1963,6 +1992,8 @@
       <span class="chip">Input: <strong>${Math.round(cfg.ip)}%</strong></span>
       <span class="chip">Cached: <strong>${Math.round(cfg.cp)}%</strong></span>
       <span class="chip">Output: <strong>${Math.round(cfg.op)}%</strong></span>
+      <span class="chip">Budget: <strong>$${fmtMoney(cfg.budget)}</strong></span>
+      <span class="chip">AI credits: <strong>${fmtRuns(cfg.budget / 0.01)}</strong></span>
     `;
 
     renderCompareTray(cfg);
@@ -2039,6 +2070,9 @@
       render();
     });
   });
+
+  // Budget doesn't affect the token-mix profile, so it re-renders without clearing it.
+  document.getElementById('budget-amount').addEventListener('input', () => render());
 
   // ── Compare ───────────────────────────────────────────────────
   const MAX_COMPARE = 5;

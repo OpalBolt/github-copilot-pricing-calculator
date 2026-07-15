@@ -20,7 +20,7 @@
 {% macro input_group(input_id, label, value, min_val, max_val, step) %}
 <div class="input-group">
   <label for="{{ input_id }}">{{ label }}</label>
-  <input type="number" id="{{ input_id }}" value="{{ value }}" min="{{ min_val }}" max="{{ max_val }}" step="{{ step }}" />
+  <input type="number" id="{{ input_id }}" value="{{ value }}"{% if min_val is not none %} min="{{ min_val }}"{% endif %}{% if max_val is not none %} max="{{ max_val }}"{% endif %} step="{{ step }}" />
 </div>
 {% endmacro %}
 
