@@ -43,8 +43,8 @@
 <span class="cat-badge {{ cat_class }}">{{ category }}</span>
 {% endmacro %}
 
-{% macro table_header_cell(col_name, display_text, is_num) %}
-<th class="sortable{% if is_num %} num{% endif %}" data-col="{{ col_name }}">{{ display_text }} <span class="sort-icon">↕</span></th>
+{% macro table_header_cell(col_name, display_text, is_num, tooltip=None) %}
+<th class="sortable{% if is_num %} num{% endif %}" data-col="{{ col_name }}"{% if tooltip %} title="{{ tooltip }}"{% endif %}>{{ display_text }} <span class="sort-icon">↕</span></th>
 {% endmacro %}
 
 {% macro compare_card(model) %}

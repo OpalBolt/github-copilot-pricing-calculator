@@ -113,10 +113,10 @@
             <th class="sortable num col-input" data-col="input">Input <span class="sort-icon">↕</span></th>
             <th class="sortable num col-cached" data-col="cached">Cached <span class="sort-icon">↕</span></th>
             <th class="sortable num col-output" data-col="output">Output <span class="sort-icon">↕</span></th>
-            {{ m.table_header_cell('cost', 'Est. cost', true) }}
-            {{ m.table_header_cell('runs', 'Runs', true) }}
-            {{ m.table_header_cell('tokens', 'Tokens', true) }}
-            <th class="bar-cell">Relative cost</th>
+            {{ m.table_header_cell('cost', 'Est. cost', true, 'Estimated USD cost for one run of your configured token mix (Total tokens × Input/Cached/Output %).') }}
+            {{ m.table_header_cell('runs', 'Runs', true, 'How many times you could repeat your configured token mix within your budget (Budget ÷ Est. cost).') }}
+            {{ m.table_header_cell('tokens', 'Tokens', true, 'Total tokens affordable within your budget for this model (Runs × Total tokens).') }}
+            <th class="bar-cell" title="Bar length shows cost relative to the most expensive model currently shown. Value is in AI credits (1 credit = $0.01).">Relative cost</th>
           </tr>
         </thead>
         <tbody id="table-body"></tbody>
@@ -162,6 +162,33 @@
           <dd>
             Tokens the model generates in its reply.
             Generation is sequential and compute-heavy, so output usually has the highest per-token rate even when it is a small share of total tokens.
+          </dd>
+        </div>
+      </dl>
+      <h3 class="explanation-subheading">Table columns</h3>
+      <dl class="explanation-grid explanation-grid-cols-4">
+        <div class="explanation-card">
+          <dt>Est. cost</dt>
+          <dd>
+            The estimated USD cost for one run of your configured token mix. It combines your total tokens with the Input / Cached / Output percentages and each model's rates.
+          </dd>
+        </div>
+        <div class="explanation-card">
+          <dt>Runs</dt>
+          <dd>
+            How many times you could repeat that exact token mix within your budget. This is Budget ÷ Est. cost, so larger budgets or cheaper models increase the count.
+          </dd>
+        </div>
+        <div class="explanation-card">
+          <dt>Tokens</dt>
+          <dd>
+            The total raw token volume your budget can afford for that model. It is Runs × Total tokens, so it moves with Runs but tells you the overall token capacity.
+          </dd>
+        </div>
+        <div class="explanation-card">
+          <dt>Relative cost</dt>
+          <dd>
+            A bar that shows cost relative to the most expensive model currently visible. The value is displayed in AI credits, where 1 credit equals $0.01.
           </dd>
         </div>
       </dl>
