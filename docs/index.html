@@ -269,6 +269,46 @@
     border-color: var(--nordic-black);
   }
 
+  .column-toggle-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .column-toggle-chips {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .column-toggle-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--slate-7);
+    background: var(--slate-2);
+    border: 1px solid var(--slate-3);
+    border-radius: 4px;
+    padding: 4px 10px;
+    cursor: pointer;
+    transition: background 120ms var(--ease), color 120ms var(--ease), border-color 120ms var(--ease);
+    white-space: nowrap;
+  }
+  .column-toggle-chip:hover { background: var(--slate-3); }
+  .column-toggle-chip input {
+    accent-color: var(--nordic-black);
+    margin: 0;
+  }
+  .column-toggle-chip.active {
+    background: var(--nordic-black);
+    color: var(--white);
+    border-color: var(--nordic-black);
+  }
+  .column-toggle-chip.active input {
+    accent-color: var(--white);
+  }
+
   .search-wrap {
     margin-left: auto;
     display: flex;
@@ -294,6 +334,11 @@
     overflow-x: auto;
     background: var(--white);
     border: 1px solid var(--slate-3);
+  }
+  #main-table.hide-input .col-input,
+  #main-table.hide-cached .col-cached,
+  #main-table.hide-output .col-output {
+    display: none;
   }
   .table-meta {
     display: flex;
@@ -1069,6 +1114,23 @@
       <div class="search-wrap">
         <input type="search" id="search-input" placeholder="Search model name…" />
       </div>
+      <div class="column-toggle-group" aria-label="Table columns">
+        <span class="filter-label">Columns</span>
+        <div class="column-toggle-chips">
+          <label class="column-toggle-chip" for="toggle-input-col">
+            <input type="checkbox" id="toggle-input-col" checked />
+            <span>Input</span>
+          </label>
+          <label class="column-toggle-chip" for="toggle-cached-col">
+            <input type="checkbox" id="toggle-cached-col" checked />
+            <span>Cached</span>
+          </label>
+          <label class="column-toggle-chip" for="toggle-output-col">
+            <input type="checkbox" id="toggle-output-col" checked />
+            <span>Output</span>
+          </label>
+        </div>
+      </div>
     </div>
 
     <!-- Table meta row -->
@@ -1091,15 +1153,9 @@
             
 <th class="sortable" data-col="category">Category <span class="sort-icon">↕</span></th>
 
-            
-<th class="sortable num" data-col="input">Input <span class="sort-icon">↕</span></th>
-
-            
-<th class="sortable num" data-col="cached">Cached <span class="sort-icon">↕</span></th>
-
-            
-<th class="sortable num" data-col="output">Output <span class="sort-icon">↕</span></th>
-
+            <th class="sortable num col-input" data-col="input">Input <span class="sort-icon">↕</span></th>
+            <th class="sortable num col-cached" data-col="cached">Cached <span class="sort-icon">↕</span></th>
+            <th class="sortable num col-output" data-col="output">Output <span class="sort-icon">↕</span></th>
             
 <th class="sortable num" data-col="cost">Est. cost <span class="sort-icon">↕</span></th>
 
@@ -1778,6 +1834,9 @@
     compareIds: new Set(),
     activeProfile: null,
     activeTab: 'pricing-tab',
+    showInput: true,
+    showCached: true,
+    showOutput: true,
   };
 
   ALL_MODELS.forEach((m, i) => { m._idx = i; });
@@ -1901,6 +1960,24 @@
     document.getElementById('task-area-legend').style.display = 'flex';
   }
 
+  function applyColumnVisibility() {
+    const mainTable = document.getElementById('main-table');
+    if (!mainTable) return;
+    mainTable.classList.toggle('hide-input', !state.showInput);
+    mainTable.classList.toggle('hide-cached', !state.showCached);
+    mainTable.classList.toggle('hide-output', !state.showOutput);
+
+    const syncToggle = (id, visible) => {
+      const input = document.getElementById(id);
+      if (input) input.checked = visible;
+      const label = input ? document.querySelector(`label[for="${id}"]`) : null;
+      if (label) label.classList.toggle('active', visible);
+    };
+    syncToggle('toggle-input-col', state.showInput);
+    syncToggle('toggle-cached-col', state.showCached);
+    syncToggle('toggle-output-col', state.showOutput);
+  }
+
   // ── Render ───────────────────────────────────────────────────
   function render() {
     const cfg = getConfig();
@@ -1960,9 +2037,9 @@
         </td>
         <td class="dim">${m.provider}</td>
         <td><span class="cat-badge ${catClass(m.category)}">${m.category}</span></td>
-        <td class="num">$${fmt(m.input)}</td>
-        <td class="num">$${fmt(m.cached)}</td>
-        <td class="num">$${fmt(m.output)}</td>
+        <td class="num col-input">$${fmt(m.input)}</td>
+        <td class="num col-cached">$${fmt(m.cached)}</td>
+        <td class="num col-output">$${fmt(m.output)}</td>
         <td class="num"><span class="cost-usd">$${fmtCost(m.cost)}</span></td>
         <td class="num">${runsLabel}</td>
         <td class="num">${tokensLabel}</td>
@@ -1999,6 +2076,7 @@
       <span class="chip">AI credits: <strong>${fmtRuns(cfg.budget / 0.01)}</strong></span>
     `;
 
+    applyColumnVisibility();
     renderCompareTray(cfg);
   }
 
@@ -2076,6 +2154,20 @@
 
   // Budget doesn't affect the token-mix profile, so it re-renders without clearing it.
   document.getElementById('budget-amount').addEventListener('input', () => render());
+
+  // ── Column visibility toggles ────────────────────────────────
+  function setupColumnToggle(toggleId, stateKey) {
+    const input = document.getElementById(toggleId);
+    if (!input) return;
+    input.addEventListener('change', e => {
+      state[stateKey] = e.target.checked;
+      applyColumnVisibility();
+    });
+  }
+  setupColumnToggle('toggle-input-col', 'showInput');
+  setupColumnToggle('toggle-cached-col', 'showCached');
+  setupColumnToggle('toggle-output-col', 'showOutput');
+  applyColumnVisibility();
 
   // ── Compare ───────────────────────────────────────────────────
   const MAX_COMPARE = 5;

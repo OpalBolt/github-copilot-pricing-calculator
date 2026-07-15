@@ -77,6 +77,23 @@
       <div class="search-wrap">
         <input type="search" id="search-input" placeholder="Search model name…" />
       </div>
+      <div class="column-toggle-group" aria-label="Table columns">
+        <span class="filter-label">Columns</span>
+        <div class="column-toggle-chips">
+          <label class="column-toggle-chip" for="toggle-input-col">
+            <input type="checkbox" id="toggle-input-col" checked />
+            <span>Input</span>
+          </label>
+          <label class="column-toggle-chip" for="toggle-cached-col">
+            <input type="checkbox" id="toggle-cached-col" checked />
+            <span>Cached</span>
+          </label>
+          <label class="column-toggle-chip" for="toggle-output-col">
+            <input type="checkbox" id="toggle-output-col" checked />
+            <span>Output</span>
+          </label>
+        </div>
+      </div>
     </div>
 
     <!-- Table meta row -->
@@ -93,9 +110,9 @@
             {{ m.table_header_cell('name', 'Model', false) }}
             {{ m.table_header_cell('provider', 'Provider', false) }}
             {{ m.table_header_cell('category', 'Category', false) }}
-            {{ m.table_header_cell('input', 'Input', true) }}
-            {{ m.table_header_cell('cached', 'Cached', true) }}
-            {{ m.table_header_cell('output', 'Output', true) }}
+            <th class="sortable num col-input" data-col="input">Input <span class="sort-icon">↕</span></th>
+            <th class="sortable num col-cached" data-col="cached">Cached <span class="sort-icon">↕</span></th>
+            <th class="sortable num col-output" data-col="output">Output <span class="sort-icon">↕</span></th>
             {{ m.table_header_cell('cost', 'Est. cost', true) }}
             {{ m.table_header_cell('runs', 'Runs', true) }}
             {{ m.table_header_cell('tokens', 'Tokens', true) }}
