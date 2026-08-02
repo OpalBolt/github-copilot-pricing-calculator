@@ -1396,8 +1396,8 @@
 </div>
 
 <script>
-  // ── Pricing data (fetched 2026-07-14) ──
-  const FETCH_DATE = '2026-07-14';
+  // ── Pricing data (fetched 2026-08-02) ──
+  const FETCH_DATE = '2026-08-02';
   document.getElementById('fetch-date').textContent = FETCH_DATE;
 
   // All rates $ per 1M tokens
@@ -1528,10 +1528,10 @@
     "category": "Lightweight",
     "status": "GA",
     "tier": "Default",
-    "input": 1.0,
-    "cached": 0.1,
+    "input": 0.2,
+    "cached": 0.02,
     "cacheWrite": null,
-    "output": 6.0,
+    "output": 1.2,
     "footnote": null,
     "taskArea": "Fast help with simple or repetitive tasks",
     "excelsAt": "Quick, cost-efficient responses for smaller, faster coding tasks",
@@ -1543,10 +1543,10 @@
     "category": "Lightweight",
     "status": "GA",
     "tier": "Long context",
-    "input": 2.0,
-    "cached": 0.2,
+    "input": 0.4,
+    "cached": 0.04,
     "cacheWrite": null,
-    "output": 9.0,
+    "output": 1.8,
     "footnote": null,
     "taskArea": "Fast help with simple or repetitive tasks",
     "excelsAt": "Quick, cost-efficient responses for smaller, faster coding tasks",
@@ -1588,10 +1588,10 @@
     "category": "Versatile",
     "status": "GA",
     "tier": "Default",
-    "input": 2.5,
-    "cached": 0.25,
+    "input": 2.0,
+    "cached": 0.2,
     "cacheWrite": null,
-    "output": 15.0,
+    "output": 12.0,
     "footnote": null,
     "taskArea": "General-purpose coding and agent tasks",
     "excelsAt": "Balanced everyday interactive and agentic coding",
@@ -1603,10 +1603,10 @@
     "category": "Versatile",
     "status": "GA",
     "tier": "Long context",
-    "input": 5.0,
-    "cached": 0.5,
+    "input": 4.0,
+    "cached": 0.4,
     "cacheWrite": null,
-    "output": 22.5,
+    "output": 18.0,
     "footnote": null,
     "taskArea": "General-purpose coding and agent tasks",
     "excelsAt": "Balanced everyday interactive and agentic coding",
@@ -1733,6 +1733,21 @@
     "furtherReadingUrl": "https://www-cdn.anthropic.com/0b4915911bb0d19eca5b5ee635c80fef830a37ea.pdf"
   },
   {
+    "name": "Claude Opus 5",
+    "provider": "Anthropic",
+    "category": "Powerful",
+    "status": "GA",
+    "tier": "Default",
+    "input": 5.0,
+    "cached": 0.5,
+    "cacheWrite": 6.25,
+    "output": 25.0,
+    "footnote": null,
+    "taskArea": "Deep reasoning and debugging",
+    "excelsAt": "Complex problem-solving challenges, sophisticated reasoning",
+    "furtherReadingUrl": "https://www-cdn.anthropic.com/c5fbac3f0b1280a933ebd26d3cb8bb9f5bdeaf48/Claude%20Opus%205%20System%20Card.pdf"
+  },
+  {
     "name": "Claude Sonnet 5",
     "provider": "Anthropic",
     "category": "Versatile",
@@ -1776,36 +1791,6 @@
     "taskArea": "Long-horizon, autonomous coding and knowledge-work",
     "excelsAt": "First-attempt correctness through upfront reasoning, aggressive parallel tool batching, and proactive verification of pre-existing test state before debugging",
     "furtherReadingUrl": "https://anthropic.com/claude-fable-5-mythos-5-system-card"
-  },
-  {
-    "name": "Gemini 2.5 Pro",
-    "provider": "Google",
-    "category": "Powerful",
-    "status": "GA",
-    "tier": "Default",
-    "input": 1.25,
-    "cached": 0.125,
-    "cacheWrite": null,
-    "output": 10.0,
-    "footnote": null,
-    "taskArea": "Deep reasoning and debugging",
-    "excelsAt": "Complex code generation, debugging, and research workflows",
-    "furtherReadingUrl": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-pro.pdf"
-  },
-  {
-    "name": "Gemini 3 Flash",
-    "provider": "Google",
-    "category": "Lightweight",
-    "status": "preview",
-    "tier": "Default",
-    "input": 0.5,
-    "cached": 0.05,
-    "cacheWrite": null,
-    "output": 3.0,
-    "footnote": null,
-    "taskArea": "Fast help with simple or repetitive tasks",
-    "excelsAt": "Fast, reliable answers to lightweight coding questions",
-    "furtherReadingUrl": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-Flash-Model-Card.pdf"
   },
   {
     "name": "Gemini 3.1 Pro",
@@ -1853,6 +1838,21 @@
     "furtherReadingUrl": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-5-Flash-Model-Card.pdf"
   },
   {
+    "name": "Gemini 3.6 Flash",
+    "provider": "Google",
+    "category": "Versatile",
+    "status": "GA",
+    "tier": "Default",
+    "input": 1.5,
+    "cached": 0.15,
+    "cacheWrite": null,
+    "output": 7.5,
+    "footnote": null,
+    "taskArea": "Fast help with simple or repetitive tasks",
+    "excelsAt": "Fast, reliable answers to lightweight coding questions",
+    "furtherReadingUrl": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-6-Flash-Model-Card.pdf"
+  },
+  {
     "name": "Raptor mini",
     "provider": "Fine-tuned (GitHub)",
     "category": "Versatile",
@@ -1881,6 +1881,36 @@
     "taskArea": null,
     "excelsAt": null,
     "furtherReadingUrl": null
+  },
+  {
+    "name": "Grok 4.5",
+    "provider": "xAI",
+    "category": "Versatile",
+    "status": "GA",
+    "tier": "Default",
+    "input": 2.0,
+    "cached": 0.5,
+    "cacheWrite": null,
+    "output": 6.0,
+    "footnote": null,
+    "taskArea": "General-purpose coding and agent tasks",
+    "excelsAt": "Complex problem-solving challenges, sophisticated reasoning",
+    "furtherReadingUrl": "https://media.x.ai/v1/website/card-7f81d41b.pdf"
+  },
+  {
+    "name": "Grok 4.5",
+    "provider": "xAI",
+    "category": "Versatile",
+    "status": "GA",
+    "tier": "Long context",
+    "input": 4.0,
+    "cached": 1.0,
+    "cacheWrite": null,
+    "output": 12.0,
+    "footnote": null,
+    "taskArea": "General-purpose coding and agent tasks",
+    "excelsAt": "Complex problem-solving challenges, sophisticated reasoning",
+    "furtherReadingUrl": "https://media.x.ai/v1/website/card-7f81d41b.pdf"
   },
   {
     "name": "Kimi K2.7 Code",

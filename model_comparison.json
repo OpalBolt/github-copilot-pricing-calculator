@@ -1,5 +1,5 @@
 {
-  "fetchDate": "2026-07-14",
+  "fetchDate": "2026-08-02",
   "summary": [
     {
       "model": "GPT-5 mini",
@@ -93,6 +93,13 @@
       "furtherReadingUrl": "https://www-cdn.anthropic.com/0b4915911bb0d19eca5b5ee635c80fef830a37ea.pdf"
     },
     {
+      "model": "Claude Opus 5",
+      "taskArea": "Deep reasoning and debugging",
+      "excelsAt": "Complex problem-solving challenges, sophisticated reasoning",
+      "furtherReadingText": "Claude Opus 5 model card",
+      "furtherReadingUrl": "https://www-cdn.anthropic.com/c5fbac3f0b1280a933ebd26d3cb8bb9f5bdeaf48/Claude%20Opus%205%20System%20Card.pdf"
+    },
+    {
       "model": "Claude Sonnet 4.5",
       "taskArea": "General-purpose coding and agent tasks",
       "excelsAt": "Complex problem-solving challenges, sophisticated reasoning",
@@ -114,20 +121,6 @@
       "furtherReadingUrl": "https://www-cdn.anthropic.com/9e6a1044980d8c4ed85669faf9c2a8342e2e9f1e/Claude%20Sonnet%205%20System%20Card.pdf"
     },
     {
-      "model": "Gemini 2.5 Pro",
-      "taskArea": "Deep reasoning and debugging",
-      "excelsAt": "Complex code generation, debugging, and research workflows",
-      "furtherReadingText": "Gemini 2.5 Pro model card",
-      "furtherReadingUrl": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-pro.pdf"
-    },
-    {
-      "model": "Gemini 3 Flash",
-      "taskArea": "Fast help with simple or repetitive tasks",
-      "excelsAt": "Fast, reliable answers to lightweight coding questions",
-      "furtherReadingText": "Gemini 3 Flash model card",
-      "furtherReadingUrl": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-Flash-Model-Card.pdf"
-    },
-    {
       "model": "Gemini 3.1 Pro",
       "taskArea": "Deep reasoning and debugging",
       "excelsAt": "Effective and efficient edit-then-test loops with high tool precision",
@@ -142,11 +135,25 @@
       "furtherReadingUrl": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-5-Flash-Model-Card.pdf"
     },
     {
+      "model": "Gemini 3.6 Flash",
+      "taskArea": "Fast help with simple or repetitive tasks",
+      "excelsAt": "Fast, reliable answers to lightweight coding questions",
+      "furtherReadingText": "Gemini 3.6 Flash model card",
+      "furtherReadingUrl": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-6-Flash-Model-Card.pdf"
+    },
+    {
       "model": "MAI-Code-1-Flash[^mai-code-1-flash]",
       "taskArea": "General-purpose coding and writing",
       "excelsAt": "Fast, accurate code completions and explanations",
       "furtherReadingText": "MAI-Code-1-Flash model card",
       "furtherReadingUrl": "https://aka.ms/mai-code-1-flash-modelcard"
+    },
+    {
+      "model": "Grok 4.5",
+      "taskArea": "General-purpose coding and agent tasks",
+      "excelsAt": "Complex problem-solving challenges, sophisticated reasoning",
+      "furtherReadingText": "Grok 4.5 model card",
+      "furtherReadingUrl": "https://media.x.ai/v1/website/card-7f81d41b.pdf"
     },
     {
       "model": "Qwen2.5",

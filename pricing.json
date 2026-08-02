@@ -1,5 +1,5 @@
 {
-  "fetchDate": "2026-07-14",
+  "fetchDate": "2026-08-02",
   "models": [
     {
       "provider": "OpenAI",
@@ -96,9 +96,9 @@
       "Category": "Lightweight",
       "Tier": "Default",
       "Threshold (input tokens)": "\u2264 200K",
-      "Input": 1.0,
-      "Cached input": 0.1,
-      "Output": 6.0
+      "Input": 0.2,
+      "Cached input": 0.02,
+      "Output": 1.2
     },
     {
       "provider": "OpenAI",
@@ -107,9 +107,9 @@
       "Category": "Lightweight",
       "Tier": "Long context",
       "Threshold (input tokens)": "> 200K",
-      "Input": 2.0,
-      "Cached input": 0.2,
-      "Output": 9.0
+      "Input": 0.4,
+      "Cached input": 0.04,
+      "Output": 1.8
     },
     {
       "provider": "OpenAI",
@@ -140,9 +140,9 @@
       "Category": "Versatile",
       "Tier": "Default",
       "Threshold (input tokens)": "\u2264 272K",
-      "Input": 2.5,
-      "Cached input": 0.25,
-      "Output": 15.0
+      "Input": 2.0,
+      "Cached input": 0.2,
+      "Output": 12.0
     },
     {
       "provider": "OpenAI",
@@ -151,9 +151,9 @@
       "Category": "Versatile",
       "Tier": "Long context",
       "Threshold (input tokens)": "> 272K",
-      "Input": 5.0,
-      "Cached input": 0.5,
-      "Output": 22.5
+      "Input": 4.0,
+      "Cached input": 0.4,
+      "Output": 18.0
     },
     {
       "provider": "Anthropic",
@@ -237,6 +237,16 @@
     },
     {
       "provider": "Anthropic",
+      "Model": "Claude Opus 5",
+      "Release status": "GA",
+      "Category": "Powerful",
+      "Input": 5.0,
+      "Cached input": 0.5,
+      "Cache write": 6.25,
+      "Output": 25.0
+    },
+    {
+      "provider": "Anthropic",
       "Model": "Claude Sonnet 5",
       "_footnotes": [
         "sonnet-5-promo"
@@ -267,28 +277,6 @@
       "Cached input": 1.0,
       "Cache write": 12.5,
       "Output": 50.0
-    },
-    {
-      "provider": "Google",
-      "Model": "Gemini 2.5 Pro",
-      "Release status": "GA",
-      "Category": "Powerful",
-      "Tier": "Default",
-      "Threshold (input tokens)": "Not applicable",
-      "Input": 1.25,
-      "Cached input": 0.125,
-      "Output": 10.0
-    },
-    {
-      "provider": "Google",
-      "Model": "Gemini 3 Flash",
-      "Release status": "Public preview",
-      "Category": "Lightweight",
-      "Tier": "Default",
-      "Threshold (input tokens)": "Not applicable",
-      "Input": 0.5,
-      "Cached input": 0.05,
-      "Output": 3.0
     },
     {
       "provider": "Google",
@@ -324,6 +312,17 @@
       "Output": 9.0
     },
     {
+      "provider": "Google",
+      "Model": "Gemini 3.6 Flash",
+      "Release status": "GA",
+      "Category": "Versatile",
+      "Tier": "Default",
+      "Threshold (input tokens)": "Not applicable",
+      "Input": 1.5,
+      "Cached input": 0.15,
+      "Output": 7.5
+    },
+    {
       "provider": "Fine-tuned (GitHub)",
       "Model": "Raptor mini",
       "Release status": "GA",
@@ -340,6 +339,28 @@
       "Input": 0.75,
       "Cached input": 0.075,
       "Output": 4.5
+    },
+    {
+      "provider": "xAI",
+      "Model": "Grok 4.5",
+      "Release status": "GA",
+      "Category": "Versatile",
+      "Tier": "Default",
+      "Threshold (input tokens)": "\u2264 200K",
+      "Input": 2.0,
+      "Cached input": 0.5,
+      "Output": 6.0
+    },
+    {
+      "provider": "xAI",
+      "Model": "Grok 4.5",
+      "Release status": "GA",
+      "Category": "Versatile",
+      "Tier": "Long context",
+      "Threshold (input tokens)": "> 200K",
+      "Input": 4.0,
+      "Cached input": 1.0,
+      "Output": 12.0
     },
     {
       "provider": "Moonshot AI",
