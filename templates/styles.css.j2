@@ -1043,6 +1043,52 @@
     .search-wrap { margin-left: 0; width: 100%; }
     .search-wrap input { width: 100%; }
     .explanation-grid { grid-template-columns: 1fr; }
+    .hub-grid { grid-template-columns: 1fr; }
     .page-footer { padding: 24px 20px; }
   }
+  .hub-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .hub-card {
+    display: block;
+    background: var(--white);
+    border: 1px solid var(--slate-3);
+    padding: 32px;
+    text-decoration: none;
+    color: var(--slate-8);
+    transition: border-color 150ms var(--ease), box-shadow 150ms var(--ease);
+  }
+  .hub-card:hover {
+    border-color: var(--efi-yellow);
+    box-shadow: 0 6px 20px rgba(16, 24, 32, 0.07);
+  }
+  .hub-eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--slate-5);
+    margin-bottom: 10px;
+  }
+  .hub-card h2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--nordic-black);
+    margin-bottom: 10px;
+  }
+  .hub-card p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--slate-6);
+  }
+  .hub-cta {
+    display: inline-block;
+    margin-top: 18px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--link);
+  }
+  .hub-card:hover .hub-cta { color: var(--nordic-black); }
   /* ── Landing hub ─────────────────────────────────────────── */
