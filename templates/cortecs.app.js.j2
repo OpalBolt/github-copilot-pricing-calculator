@@ -14,6 +14,12 @@
   const ALL_MODELS = {{ models_json }};
   const PROVIDERS  = {{ providers_json }};
 
+
+  const PROFILES = {
+    superuser: { name: 'Superuser/Developer', input: 0.49, cached: 98.62, output: 0.89 },
+    regular:   { name: 'Regular User', input: 5.45, cached: 86.36, output: 8.18 },
+  };
+
   // ── State ─────────────────────────────────────────────────────────
   // Filter chips are toggles that combine with AND; sort/search/toggles mirror
   // the GitHub tool (templates/app.js.j2). Default sort is cheapest est. cost
@@ -27,7 +33,23 @@
     showCached: true,
     showOutput: true,
     compareIds: new Set(),
+    activeProfile: null,
   };
+
+
+  // ── Profile presets (mirror app.js.j2) ────────────────────────────
+  function setProfile(profileKey) {
+    const profile = PROFILES[profileKey];
+    if (!profile) return;
+    state.activeProfile = profileKey;
+    document.getElementById('input-pct').value = profile.input;
+    document.getElementById('cached-pct').value = profile.cached;
+    document.getElementById('output-pct').value = profile.output;
+    document.querySelectorAll('.profile-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.profile === profileKey);
+    });
+    recompute();
+  }
 
   // ── Helpers ─────────────────────────────────────────────────────────
   const fmt      = n => n.toLocaleString('en-US', { minimumFractionDigits: 3, maximumFractionDigits: 3 });
@@ -439,10 +461,22 @@
     });
   });
 
-  // Budget machinery: light recompute so expanded drill-downs survive keystrokes.
-  ['total-tokens', 'input-pct', 'cached-pct', 'output-pct', 'budget-amount'].forEach(id => {
-    document.getElementById(id).addEventListener('input', recompute);
+  // Profile preset buttons
+  document.querySelectorAll('.profile-btn').forEach(btn => {
+    btn.addEventListener('click', () => setProfile(btn.dataset.profile));
   });
+
+  // Token-mix inputs clear the active profile on manual edit
+  ['total-tokens', 'input-pct', 'cached-pct', 'output-pct'].forEach(id => {
+    document.getElementById(id).addEventListener('input', e => {
+      state.activeProfile = null;
+      document.querySelectorAll('.profile-btn').forEach(btn => btn.classList.remove('active'));
+      recompute();
+    });
+  });
+
+  // Budget alone does not affect the token-mix profile, so it skips the clear
+  document.getElementById('budget-amount').addEventListener('input', recompute);
 
   // Delegated drill-down toggle — attached once on the <tbody>; survives the
   // innerHTML rebuilds render() does because the listener lives on the element.

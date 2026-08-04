@@ -71,6 +71,13 @@
   <!-- Controls (budget machinery, mirrored from the GitHub tool, in €) -->
   <div class="controls">
     <h2>Configure your estimate</h2>
+      <div class="profile-presets">
+        <span class="profile-label">Quick presets:</span>
+        <div class="profile-buttons">
+          <button class="profile-btn" data-profile="superuser">Superuser/Developer</button>
+          <button class="profile-btn" data-profile="regular">Regular User</button>
+        </div>
+      </div>
     <div class="controls-grid">
       {{ m.input_group('total-tokens', 'Total tokens', 1000000, 1, none, 100000) }}
       {{ m.input_group('input-pct', 'Input %', 20, 0, 100, 0.1) }}
