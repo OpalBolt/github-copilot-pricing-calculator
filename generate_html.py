@@ -335,6 +335,20 @@ def main():
         cortecs_out.write_text(cortecs_html, encoding="utf-8")
         print(f"Generated {cortecs_out} ({len(cortecs_models)} models)")
 
+    # Render the provider comparison page from cached providers.json.
+    # Loaded unconditionally so --no-fetch still regenerates the page.
+    providers_path = Path(__file__).parent / "providers.json"
+    if providers_path.exists():
+        providers_data = json.loads(providers_path.read_text(encoding="utf-8"))
+        providers = providers_data.get("providers", [])
+        providers_template = env.get_template("provider-compare.html.j2")
+        providers_html = providers_template.render(providers=providers)
+        providers_out = Path(__file__).parent / "docs" / "provider-compare.html"
+        providers_out.write_text(providers_html, encoding="utf-8")
+        print(f"Generated {providers_out} ({len(providers)} providers)")
+    else:
+        print("Warning: providers.json not found, skipping provider comparison page", file=sys.stderr)
+
 
 if __name__ == "__main__":
     main()

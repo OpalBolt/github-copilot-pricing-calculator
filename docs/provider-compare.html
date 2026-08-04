@@ -1,9 +1,21 @@
+
+
+
+
+  
+    
+  
+    
+  
+    
+  
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Token &amp; price calculators</title>
+  <title>Provider price comparison</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&family=Source+Serif+4:ital,wght@1,500&display=swap" rel="stylesheet" />
@@ -1149,31 +1161,377 @@
 
 <!-- ── Header ──────────────────────────────────────────────── -->
 <header class="page-header">
-  <p class="eyebrow">Calculators</p>
-  <h1>Token &amp; price calculators</h1>
-  <p>Standalone calculators for token costs and model pricing. Pick one to open it.</p>
+  <p class="eyebrow">Providers · Price comparison</p>
+  <h1>Provider price comparison</h1>
+  <p>What does a budget buy you on each provider? Pay-per-token and subscription plans sit side by side, normalized to effective tokens per dollar.</p>
+  <p class="meta"><a href="index.html">← All tools</a> · All prices are per 1 million tokens · Baked from providers.json at generate time</p>
 </header>
 
 <!-- ── Main ────────────────────────────────────────────────── -->
 <main>
-  <div class="hub-grid">
-    <a class="hub-card" href="copilot.html">
-      <p class="hub-eyebrow">GitHub Copilot</p>
-      <h2>Token cost calculator</h2>
-      <p>See what every Copilot model costs in AI credits. Sort and filter the table and estimate how far a budget goes per model.</p>
-      <span class="hub-cta">Open calculator →</span>
-    </a>
-    <a class="hub-card" href="cortecs.html">
-      <p class="hub-eyebrow">Cortecs</p>
-      <h2>Model price calculator</h2>
-      <p>Every Cortecs model at its cheapest available provider price, in euros per 1 million tokens.</p>
-      <span class="hub-cta">Open calculator →</span>
-    </a>
+
+  <!-- Controls (static; wired up in slices 03–05) -->
+  <div class="controls provider-controls">
+    <h2>Configure your estimate</h2>
+    <div class="controls-grid">
+      
+<div class="input-group">
+  <label for="budget-amount">Budget ($)</label>
+  <input type="number" id="budget-amount" value="10" min="0" step="0.01" />
+</div>
+
+      
+<div class="input-group">
+  <label for="input-pct">Input %</label>
+  <input type="number" id="input-pct" value="30" min="0" max="100" step="0.1" />
+</div>
+
+      
+<div class="input-group">
+  <label for="cached-pct">Cached input %</label>
+  <input type="number" id="cached-pct" value="50" min="0" max="100" step="0.1" />
+</div>
+
+      
+<div class="input-group">
+  <label for="output-pct">Output %</label>
+  <input type="number" id="output-pct" value="20" min="0" max="100" step="0.1" />
+</div>
+
+    </div>
+    
+    <div class="column-toggle-chips">
+      <span class="filter-label">Subscription tier</span>
+      
+      <label class="column-toggle-chip" for="tier-lite">
+        <input type="radio" name="tier" id="tier-lite" value="Lite" checked />
+        <span>Lite</span>
+      </label>
+      
+      <label class="column-toggle-chip" for="tier-pro">
+        <input type="radio" name="tier" id="tier-pro" value="Pro" />
+        <span>Pro</span>
+      </label>
+      
+      <label class="column-toggle-chip" for="tier-max">
+        <input type="radio" name="tier" id="tier-max" value="Max" />
+        <span>Max</span>
+      </label>
+      
+    </div>
+    <label class="off-peak-toggle" for="off-peak-toggle">
+      <input type="checkbox" id="off-peak-toggle" />
+      <span>Off-peak pricing <span class="dim">(Mon–Fri 14:00–18:00 UTC+8)</span></span>
+    </label>
+    
+    <div class="column-toggle-chips">
+      <span class="filter-label">Models</span>
+      <label class="column-toggle-chip" for="show-all-models">
+        <input type="checkbox" id="show-all-models" />
+        <span>Show all models</span>
+      </label>
+    </div>
   </div>
+
+  <!-- Table -->
+  <div class="table-wrapper">
+    <table id="provider-table">
+      <thead>
+        <tr>
+          <th>Provider</th>
+          <th>Plan</th>
+          <th>Model</th>
+          <th class="num">Input $/1M</th>
+          <th class="num">Cached $/1M</th>
+          <th class="num">Output $/1M</th>
+          <th class="num">Effective tokens/$</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+          
+          
+            
+            <tr>
+              <td><span class="provider-badge pb-0">DeepSeek</span></td>
+              <td>Paygo</td>
+              <td>deepseek-v4-flash</td>
+              <td class="num">$0.14</td>
+              <td class="num">$0.0028</td>
+              <td class="num">$0.28</td>
+              <td class="num">—</td>
+            </tr>
+            
+            <tr>
+              <td><span class="provider-badge pb-0">DeepSeek</span></td>
+              <td>Paygo</td>
+              <td>deepseek-v4-pro</td>
+              <td class="num">$0.435</td>
+              <td class="num">$0.003625</td>
+              <td class="num">$0.87</td>
+              <td class="num">—</td>
+            </tr>
+            
+          
+        
+          
+          
+            
+            <tr>
+              <td><span class="provider-badge pb-1">z.ai</span></td>
+              <td>Paygo</td>
+              <td>glm-5.2</td>
+              <td class="num">$1.4</td>
+              <td class="num">$0.26</td>
+              <td class="num">$4.4</td>
+              <td class="num">—</td>
+            </tr>
+            
+            <tr>
+              <td><span class="provider-badge pb-1">z.ai</span></td>
+              <td>Paygo</td>
+              <td>glm-5.1</td>
+              <td class="num">$1.4</td>
+              <td class="num">$0.26</td>
+              <td class="num">$4.4</td>
+              <td class="num">—</td>
+            </tr>
+            
+            <tr>
+              <td><span class="provider-badge pb-1">z.ai</span></td>
+              <td>Paygo</td>
+              <td>glm-5</td>
+              <td class="num">$1</td>
+              <td class="num">$0.2</td>
+              <td class="num">$3.2</td>
+              <td class="num">—</td>
+            </tr>
+            
+            <tr>
+              <td><span class="provider-badge pb-1">z.ai</span></td>
+              <td>Paygo</td>
+              <td>glm-5-turbo</td>
+              <td class="num">$1.2</td>
+              <td class="num">$0.24</td>
+              <td class="num">$4</td>
+              <td class="num">—</td>
+            </tr>
+            
+            <tr>
+              <td><span class="provider-badge pb-1">z.ai</span></td>
+              <td>Paygo</td>
+              <td>glm-4.7</td>
+              <td class="num">$0.6</td>
+              <td class="num">$0.11</td>
+              <td class="num">$2.2</td>
+              <td class="num">—</td>
+            </tr>
+            
+            <tr>
+              <td><span class="provider-badge pb-1">z.ai</span></td>
+              <td>Paygo</td>
+              <td>glm-4.7-flashx</td>
+              <td class="num">$0.07</td>
+              <td class="num">$0.01</td>
+              <td class="num">$0.4</td>
+              <td class="num">—</td>
+            </tr>
+            
+            <tr>
+              <td><span class="provider-badge pb-1">z.ai</span></td>
+              <td>Paygo</td>
+              <td>glm-4.6</td>
+              <td class="num">$0.6</td>
+              <td class="num">$0.11</td>
+              <td class="num">$2.2</td>
+              <td class="num">—</td>
+            </tr>
+            
+            <tr>
+              <td><span class="provider-badge pb-1">z.ai</span></td>
+              <td>Paygo</td>
+              <td>glm-4.5</td>
+              <td class="num">$0.6</td>
+              <td class="num">$0.11</td>
+              <td class="num">$2.2</td>
+              <td class="num">—</td>
+            </tr>
+            
+            <tr>
+              <td><span class="provider-badge pb-1">z.ai</span></td>
+              <td>Paygo</td>
+              <td>glm-4.5-x</td>
+              <td class="num">$2.2</td>
+              <td class="num">$0.45</td>
+              <td class="num">$8.9</td>
+              <td class="num">—</td>
+            </tr>
+            
+            <tr>
+              <td><span class="provider-badge pb-1">z.ai</span></td>
+              <td>Paygo</td>
+              <td>glm-4.5-air</td>
+              <td class="num">$0.2</td>
+              <td class="num">$0.03</td>
+              <td class="num">$1.1</td>
+              <td class="num">—</td>
+            </tr>
+            
+            <tr>
+              <td><span class="provider-badge pb-1">z.ai</span></td>
+              <td>Paygo</td>
+              <td>glm-4.5-airx</td>
+              <td class="num">$1.1</td>
+              <td class="num">$0.22</td>
+              <td class="num">$4.5</td>
+              <td class="num">—</td>
+            </tr>
+            
+            <tr>
+              <td><span class="provider-badge pb-1">z.ai</span></td>
+              <td>Paygo</td>
+              <td>glm-4-32b-0414-128k</td>
+              <td class="num">$0.1</td>
+              <td class="num">$0</td>
+              <td class="num">$0.1</td>
+              <td class="num">—</td>
+            </tr>
+            
+            <tr>
+              <td><span class="provider-badge pb-1">z.ai</span></td>
+              <td>Paygo</td>
+              <td>glm-4.7-flash</td>
+              <td class="num">$0</td>
+              <td class="num">$0</td>
+              <td class="num">$0</td>
+              <td class="num">—</td>
+            </tr>
+            
+            <tr>
+              <td><span class="provider-badge pb-1">z.ai</span></td>
+              <td>Paygo</td>
+              <td>glm-4.5-flash</td>
+              <td class="num">$0</td>
+              <td class="num">$0</td>
+              <td class="num">$0</td>
+              <td class="num">—</td>
+            </tr>
+            
+          
+        
+          
+          
+            
+              
+              <tr>
+                <td><span class="provider-badge pb-2">z.ai Devpack</span></td>
+                <td>Lite</td>
+                <td>glm-5.2</td>
+                <td class="num">—</td>
+                <td class="num">—</td>
+                <td class="num">—</td>
+                <td class="num">—</td>
+              </tr>
+              
+              <tr>
+                <td><span class="provider-badge pb-2">z.ai Devpack</span></td>
+                <td>Lite</td>
+                <td>glm-5-turbo</td>
+                <td class="num">—</td>
+                <td class="num">—</td>
+                <td class="num">—</td>
+                <td class="num">—</td>
+              </tr>
+              
+              <tr>
+                <td><span class="provider-badge pb-2">z.ai Devpack</span></td>
+                <td>Lite</td>
+                <td>glm-4.7</td>
+                <td class="num">—</td>
+                <td class="num">—</td>
+                <td class="num">—</td>
+                <td class="num">—</td>
+              </tr>
+              
+            
+              
+              <tr>
+                <td><span class="provider-badge pb-2">z.ai Devpack</span></td>
+                <td>Pro</td>
+                <td>glm-5.2</td>
+                <td class="num">—</td>
+                <td class="num">—</td>
+                <td class="num">—</td>
+                <td class="num">—</td>
+              </tr>
+              
+              <tr>
+                <td><span class="provider-badge pb-2">z.ai Devpack</span></td>
+                <td>Pro</td>
+                <td>glm-5-turbo</td>
+                <td class="num">—</td>
+                <td class="num">—</td>
+                <td class="num">—</td>
+                <td class="num">—</td>
+              </tr>
+              
+              <tr>
+                <td><span class="provider-badge pb-2">z.ai Devpack</span></td>
+                <td>Pro</td>
+                <td>glm-4.7</td>
+                <td class="num">—</td>
+                <td class="num">—</td>
+                <td class="num">—</td>
+                <td class="num">—</td>
+              </tr>
+              
+            
+              
+              <tr>
+                <td><span class="provider-badge pb-2">z.ai Devpack</span></td>
+                <td>Max</td>
+                <td>glm-5.2</td>
+                <td class="num">—</td>
+                <td class="num">—</td>
+                <td class="num">—</td>
+                <td class="num">—</td>
+              </tr>
+              
+              <tr>
+                <td><span class="provider-badge pb-2">z.ai Devpack</span></td>
+                <td>Max</td>
+                <td>glm-5-turbo</td>
+                <td class="num">—</td>
+                <td class="num">—</td>
+                <td class="num">—</td>
+                <td class="num">—</td>
+              </tr>
+              
+              <tr>
+                <td><span class="provider-badge pb-2">z.ai Devpack</span></td>
+                <td>Max</td>
+                <td>glm-4.7</td>
+                <td class="num">—</td>
+                <td class="num">—</td>
+                <td class="num">—</td>
+                <td class="num">—</td>
+              </tr>
+              
+            
+          
+        
+      </tbody>
+    </table>
+  </div>
+
+  <p class="page-note">
+    Prices are per 1M tokens as published. Subscription plans bill in credits — their $/1M and the Effective tokens/$ column fill in once the budget, token mix, tier, and off-peak math are wired up.
+  </p>
 </main>
 
 <footer class="page-footer">
-  <span>Token &amp; price calculators</span>
+  <span>Provider price comparison · Data from providers.json</span>
+  <a href="index.html">← All tools</a>
 </footer>
 
 </body>
