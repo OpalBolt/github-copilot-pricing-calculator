@@ -2,6 +2,68 @@
   "fetchDate": "2026-08-04",
   "currency": "EUR",
   "source": "https://api.cortecs.ai/v1/models?extended=true&currency=EUR",
+  "providers": {
+    "aki": {
+      "eu_native": true,
+      "zdr": true
+    },
+    "amazon_ireland": {
+      "eu_native": false,
+      "zdr": true
+    },
+    "amazon_paris": {
+      "eu_native": false,
+      "zdr": true
+    },
+    "azure_sc": {
+      "eu_native": false,
+      "zdr": false
+    },
+    "azure_spc": {
+      "eu_native": false,
+      "zdr": false
+    },
+    "berget": {
+      "eu_native": true,
+      "zdr": true
+    },
+    "google": {
+      "eu_native": false,
+      "zdr": true
+    },
+    "inceptron": {
+      "eu_native": true,
+      "zdr": true
+    },
+    "infercom": {
+      "eu_native": true,
+      "zdr": true
+    },
+    "ionos": {
+      "eu_native": true,
+      "zdr": true
+    },
+    "mistral": {
+      "eu_native": true,
+      "zdr": true
+    },
+    "nebius": {
+      "eu_native": true,
+      "zdr": true
+    },
+    "ovh": {
+      "eu_native": true,
+      "zdr": true
+    },
+    "scaleway": {
+      "eu_native": true,
+      "zdr": true
+    },
+    "tensorix": {
+      "eu_native": true,
+      "zdr": true
+    }
+  },
   "models": [
     {
       "id": "deepseek-v4-flash-0731",

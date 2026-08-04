@@ -1,15 +1,21 @@
 <script>
   // ── Pricing data (fetched {{ fetchDate }}) ──────────────────────────
-  // Each model: { id, owned_by, input, cached, output } — all rates € per 1M tokens.
+  // Each model: { id, owned_by, input, cached, output, providers: [...] } — all token
+  // rates are € per 1M. `providers` is the drill-down (per-provider price, quant,
+  // context, features, audio/speech cost where present).
+  // PROVIDERS is the fetch-derived sovereignty/ZDR table (slice 04); the client only
+  // reads it for badges, never recomputes it.
   // ponytail: cached = cache_read_cost where the provider publishes one, else the
   // input rate (fallback baked in generate_html.py). Same / 1_000_000 division as
   // the GitHub tool; Cortecs rates are already €/1M, no further conversion.
   const ALL_MODELS = {{ models_json }};
+  const PROVIDERS  = {{ providers_json }};
 
   // ── Helpers ─────────────────────────────────────────────────────────
   const fmt      = n => n.toLocaleString('en-US', { minimumFractionDigits: 3, maximumFractionDigits: 3 });
   const fmtMoney = n => n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   const fmtRuns  = n => n.toLocaleString('en-US', { maximumFractionDigits: 1 });
+  const rate     = v => v > 0 ? `€${fmt(v)}` : 'Free';
 
   // Reads the controls panel. Mirrors app.js.j2 getConfig(): the three percentages
   // are normalized to 100 so an off-sum mix still computes a sane cost.
@@ -41,37 +47,107 @@
          + (cfg.outputTokens / 1_000_000) * (m.output || 0);
   }
 
-  // ── Render ──────────────────────────────────────────────────────────
-  function render() {
-    const cfg = getConfig();
-    const rows = ALL_MODELS.map(m => ({ ...m, cost: estimateCost(m, cfg) }));
-    // Relative-cost bar scaled over the current view; most expensive row fills the
-    // bar, cheapest is the floor (same scale as the GitHub tool, recomputed per view).
-    const maxCost = rows.reduce((mx, r) => Math.max(mx, r.cost), 0) || 1;
+  // EU-sovereign / ZDR badges from the baked provider table, not the client.
+  function providerBadges(name) {
+    const p = PROVIDERS[name];
+    if (!p) return '';
+    return (p.eu_native ? '<span class="badge-eu" title="EU-sovereign (eu_native)">🇪🇺</span>' : '')
+         + (p.zdr ? '<span class="badge-zdr" title="Zero data retention">🔒</span>' : '');
+  }
 
-    document.getElementById('table-body').innerHTML = rows.map(m => {
-      // Free-model guard: cost > 0 ? budget / cost : null — never divide by zero.
-      const runs    = m.cost > 0 ? cfg.budget / m.cost : null;
-      const runsLbl = runs != null ? fmtRuns(runs) : '—';
-      const costLbl = m.cost > 0 ? `€${fmt(m.cost)}` : 'Free';
-      const bar     = m.cost > 0
-        ? `<div class="credit-bar-wrap"><div class="credit-bar-bg">`
-          + `<div class="credit-bar-fill" style="width:${Math.round(m.cost / maxCost * 100)}%"></div>`
-          + `</div></div>`
-        : `<span class="dim">free</span>`;
-      const rate = v => v > 0 ? `€${fmt(v)}` : 'Free';
-      return `
-      <tr>
+  // ── Build the table once ────────────────────────────────────────────
+  // Rows are created a single time so the expand/collapse state survives the
+  // budget recompute (recompute() only touches cost/runs/bar cells). A delegated
+  // click on <tbody> toggles the nested provider table — it never fires on the
+  // controls panel, so it can't fight the budget inputs.
+  function buildTable() {
+    const body = document.getElementById('table-body');
+    body.innerHTML = ALL_MODELS.map(m => `
+      <tr class="model-row" data-id="${m.id}">
         <td>${m.id}</td>
         <td class="owner">${m.owned_by}</td>
         <td class="num">${rate(m.input)}</td>
         <td class="num">${rate(m.cached)}</td>
         <td class="num">${rate(m.output)}</td>
-        <td class="num"><span class="cost-usd">${costLbl}</span></td>
-        <td class="num">${runsLbl}</td>
-        <td class="bar-cell">${bar}</td>
+        <td class="num cost-cell">—</td>
+        <td class="num runs-cell">—</td>
+        <td class="bar-cell bar-fill-cell"></td>
+      </tr>`).join('');
+    body.addEventListener('click', onRowClick);
+  }
+
+  function onRowClick(e) {
+    const tr = e.target.closest('tr.model-row');
+    if (!tr) return;                       // ignore clicks inside a drill-down row
+    const next = tr.nextElementSibling;
+    if (next && next.classList.contains('drilldown-row')) {
+      next.remove();                       // collapse
+      tr.classList.remove('expanded');
+      return;
+    }
+    const m = ALL_MODELS.find(x => x.id === tr.dataset.id);
+    const rows = (m.providers || []).map(providerRowHtml).join('')
+      || '<tr class="provider-row"><td colspan="8" class="dim">No provider detail</td></tr>';
+    const drill = document.createElement('tr');
+    drill.className = 'drilldown-row';
+    drill.innerHTML = `<td colspan="8">
+      <table class="provider-table">
+        <thead><tr>
+          <th>Provider</th>
+          <th class="num">Input €/1M</th>
+          <th class="num">Cached €/1M</th>
+          <th class="num">Output €/1M</th>
+          <th>Quant</th>
+          <th class="num">Context</th>
+          <th>Features</th>
+          <th>Audio</th>
+        </tr></thead>
+        <tbody>${rows}</tbody>
+      </table></td>`;
+    tr.after(drill);
+    tr.classList.add('expanded');
+  }
+
+  function providerRowHtml(p) {
+    const ctx  = p.context_size ? p.context_size.toLocaleString() : '—';
+    const feats = (p.features || []).join(', ') || '—';
+    // Audio models carry audio_cost (€/s) and optionally speech_cost (€/1M chars);
+    // these don't fit the token columns, so they live only in the drill-down.
+    let audio = '';
+    if (p.audio_cost != null) {
+      audio = `€${fmt(p.audio_cost)}/s`;
+      if (p.speech_cost != null) audio += ` · €${fmt(p.speech_cost)}/1M chars`;
+    }
+    return `
+      <tr class="provider-row">
+        <td>${p.name}${providerBadges(p.name)}</td>
+        <td class="num">${rate(p.input)}</td>
+        <td class="num">${rate(p.cached)}</td>
+        <td class="num">${rate(p.output)}</td>
+        <td>${p.quantization || '—'}</td>
+        <td class="num">${ctx}</td>
+        <td>${feats}</td>
+        <td>${audio}</td>
       </tr>`;
-    }).join('');
+  }
+
+  // ── Recompute cost / runs / bar on any control change ───────────────
+  function recompute() {
+    const cfg = getConfig();
+    const maxCost = ALL_MODELS.reduce((mx, m) => Math.max(mx, estimateCost(m, cfg)), 0) || 1;
+
+    document.querySelectorAll('#table-body tr.model-row').forEach(tr => {
+      const m = ALL_MODELS.find(x => x.id === tr.dataset.id);
+      const cost = estimateCost(m, cfg);
+      const runs = cost > 0 ? cfg.budget / cost : null;   // free-model guard, no /0
+      tr.querySelector('.cost-cell').textContent = cost > 0 ? `€${fmt(cost)}` : 'Free';
+      tr.querySelector('.runs-cell').textContent = runs != null ? fmtRuns(runs) : '—';
+      tr.querySelector('.bar-fill-cell').innerHTML = cost > 0
+        ? `<div class="credit-bar-wrap"><div class="credit-bar-bg">`
+          + `<div class="credit-bar-fill" style="width:${Math.round(cost / maxCost * 100)}%"></div>`
+          + `</div></div>`
+        : `<span class="dim">free</span>`;
+    });
 
     document.getElementById('summary-chips').innerHTML = `
       <span class="chip">Total tokens: <strong>${cfg.total.toLocaleString()}</strong></span>
@@ -82,10 +158,11 @@
     `;
   }
 
-  // ── Live recalc on any control ──────────────────────────────────────
+  // ── Live recalc on any control (never rebuilds rows, so drills stay open) ──
   ['total-tokens', 'input-pct', 'cached-pct', 'output-pct', 'budget-amount'].forEach(id => {
-    document.getElementById(id).addEventListener('input', render);
+    document.getElementById(id).addEventListener('input', recompute);
   });
 
-  render();
+  buildTable();
+  recompute();
 </script>

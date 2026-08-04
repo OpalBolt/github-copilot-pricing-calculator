@@ -32,7 +32,7 @@ from fetch_pricing import fetch_markdown, parse_tables
 from fetch_model_comparison import fetch_markdown as fetch_markdown_comparison, parse_model_comparison
 
 # Import fetch_cortecs functionality
-from fetch_cortecs import fetch_json as fetch_cortecs_json, validate as validate_cortecs, API_URL as CORTECS_URL
+from fetch_cortecs import build as build_cortecs, API_URL as CORTECS_URL
 
 
 def normalize_models(
@@ -185,20 +185,11 @@ def main():
             if not comparison_path.exists():
                 print("Warning: model_comparison.json not found, continuing without comparison data", file=sys.stderr)
 
-    # Fetch Cortecs models if not --no-fetch
+    # Fetch Cortecs models if not --no-fetch (3 calls + provider-attribute derivation, slice 04)
     if not args.no_fetch:
         print("Fetching Cortecs models data...")
         try:
-            cortecs_payload = fetch_cortecs_json(CORTECS_URL)
-            cortecs_models = validate_cortecs(cortecs_payload)
-            from datetime import date
-
-            cortecs_output = {
-                "fetchDate": date.today().isoformat(),
-                "currency": "EUR",
-                "source": CORTECS_URL,
-                "models": cortecs_models,
-            }
+            cortecs_output = build_cortecs()
             cortecs_path.write_text(json.dumps(cortecs_output, indent=2), encoding="utf-8")
             print(f"Updated {cortecs_path}")
         except Exception as e:
@@ -262,27 +253,48 @@ def main():
             cortecs_data.get("models", []),
             key=lambda m: (m["pricing"]["input_token"], m["pricing"]["output_token"], m["id"]),
         )
-        # Flat shape for the client JS: id/owner + €/1M rates. Cached reuses the
-        # provider's cache_read_cost where published, else the input rate (prompt
-        # caching reuses input computation). is-not-None keeps an explicit 0 intact.
-        cortecs_js_models = [
-            {
+        # Flat shape for the client JS: id/owner + €/1M rates + the drill-down's
+        # per-provider rows. Cached reuses cache_read_cost where published, else the
+        # input rate (prompt caching reuses input computation); is-not-None keeps an
+        # explicit 0 intact. Audio/speech costs ride along only when present (slice 04).
+        def _cached(pr):
+            crc = pr.get("cache_read_cost")
+            return crc if crc is not None else pr.get("input_token", 0)
+
+        cortecs_js_models = []
+        for m in cortecs_models:
+            prov_rows = []
+            for name, pd in m.get("providers_details", {}).items():
+                pr = pd.get("pricing", {})
+                r = {
+                    "name": name,
+                    "quantization": pd.get("quantization"),
+                    "context_size": pd.get("context_size"),
+                    "input": pr.get("input_token", 0),
+                    "cached": _cached(pr),
+                    "output": pr.get("output_token", 0),
+                    "features": pd.get("supported_features", []),
+                }
+                if "audio_cost" in pr:
+                    r["audio_cost"] = pr["audio_cost"]
+                if "speech_cost" in pr:
+                    r["speech_cost"] = pr["speech_cost"]
+                prov_rows.append(r)
+            cortecs_js_models.append({
                 "id": m["id"],
                 "owned_by": m.get("owned_by", ""),
                 "input": m["pricing"]["input_token"],
-                "cached": m["pricing"]["cache_read_cost"]
-                    if m["pricing"].get("cache_read_cost") is not None
-                    else m["pricing"]["input_token"],
+                "cached": _cached(m["pricing"]),
                 "output": m["pricing"]["output_token"],
-            }
-            for m in cortecs_models
-        ]
+                "providers": prov_rows,
+            })
         cortecs_template = env.get_template("cortecs.html.j2")
         cortecs_html = cortecs_template.render(
             fetchDate=cortecs_data.get("fetchDate", "unknown"),
             source=cortecs_data.get("source", CORTECS_URL),
             models=cortecs_models,
             models_json=json.dumps(cortecs_js_models),
+            providers_json=json.dumps(cortecs_data.get("providers", {})),
         )
         cortecs_out = Path(__file__).parent / "docs" / "cortecs.html"
         cortecs_out.write_text(cortecs_html, encoding="utf-8")

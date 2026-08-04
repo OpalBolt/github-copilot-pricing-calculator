@@ -16,6 +16,20 @@
     #cortecs-table td.owner { color: var(--slate-5); }
     /* bar cell needs to breathe despite the nowrap above */
     #cortecs-table td.bar-cell { white-space: normal; }
+
+    /* ── Provider drill-down (slice 04) ── */
+    #cortecs-table tr.model-row { cursor: pointer; }
+    #cortecs-table tr.model-row:hover td { background: var(--slate-1, #f1f5f9); }
+    #cortecs-table tr.model-row.expanded td { border-bottom-style: dashed; }
+    #cortecs-table tr.drilldown-row > td { padding: 0; background: var(--slate-1, #f8fafc); }
+    .provider-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .provider-table th { text-align: left; font-weight: 600; color: var(--slate-5);
+                          padding: 6px 10px; border-bottom: 1px solid var(--slate-2, #e2e8f0);
+                          white-space: nowrap; }
+    .provider-table td { padding: 5px 10px; white-space: nowrap; }
+    .provider-table td:last-child { white-space: normal; } /* features can wrap */
+    .badge-eu, .badge-zdr { margin-left: 4px; font-size: 12px; white-space: nowrap; }
+    .provider-table .dim { color: var(--slate-4, #94a3b8); }
   </style>
 </head>
 <body>
@@ -73,6 +87,7 @@
     Rates are € per 1M tokens. Cached reuses the provider's cache-read rate where published, otherwise the input rate.
     Runs = Budget ÷ Est. cost. Free models (€0) show “Free” and never divide by zero.
     Prices shown are the cheapest available provider for each model; Cortecs also offers fastest and balanced routing.
+    Click any model row to expand its providers — per-provider price, quantization, context size, features, and audio cost; 🇪🇺 marks EU-sovereign providers, 🔒 marks zero-data-retention.
   </p>
 </main>
 
