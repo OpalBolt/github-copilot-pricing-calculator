@@ -1,0 +1,69 @@
+{% import 'macros.html.j2' as m %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cortecs · Model price calculator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&family=Source+Serif+4:ital,wght@1,500&display=swap" rel="stylesheet" />
+  {% include 'styles.css.j2' %}
+  {# ponytail: scoped table override; later slices fold cortecs styles into styles.css.j2 #}
+  <style>
+    #cortecs-table { table-layout: auto; }
+    #cortecs-table th, #cortecs-table td { white-space: nowrap; }
+    #cortecs-table td.owner { color: var(--slate-5); }
+  </style>
+</head>
+<body>
+
+<!-- ── Header ──────────────────────────────────────────────── -->
+<header class="page-header">
+  <p class="eyebrow">Cortecs · € per 1M tokens</p>
+  <h1>Model price calculator</h1>
+  <p>Every Cortecs model at its cheapest available provider price. All prices are in euros per 1 million tokens.</p>
+  <p class="meta">Source: <a href="{{ source }}" target="_blank">api.cortecs.ai · /v1/models</a> · Data fetched: <span id="fetch-date">{{ fetchDate }}</span></p>
+</header>
+
+<!-- ── Main ────────────────────────────────────────────────── -->
+<main>
+  <div class="table-meta">
+    <span class="table-meta-count"><strong>{{ models|length }}</strong> models</span>
+  </div>
+
+  <div class="table-wrapper">
+    <table id="cortecs-table">
+      <thead>
+        <tr>
+          <th>Model</th>
+          <th>Owner</th>
+          <th class="num">Input €/1M</th>
+          <th class="num">Output €/1M</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for m in models %}
+        <tr>
+          <td>{{ m.id }}</td>
+          <td class="owner">{{ m.owned_by }}</td>
+          <td class="num">{% if m.pricing.input_token == 0 %}Free{% else %}€{{ '{:.3f}'.format(m.pricing.input_token) }}{% endif %}</td>
+          <td class="num">{% if m.pricing.output_token == 0 %}Free{% else %}€{{ '{:.3f}'.format(m.pricing.output_token) }}{% endif %}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <p class="page-note">
+    Prices shown are the cheapest available provider for each model; Cortecs also offers fastest and balanced routing.
+  </p>
+</main>
+
+<footer class="page-footer">
+  <span>Cortecs · Model price calculator · Data sourced from the Cortecs models API</span>
+  <a href="{{ source }}" target="_blank">View source API →</a>
+</footer>
+
+</body>
+</html>

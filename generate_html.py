@@ -31,6 +31,9 @@ from fetch_pricing import fetch_markdown, parse_tables
 # Import fetch_model_comparison functionality
 from fetch_model_comparison import fetch_markdown as fetch_markdown_comparison, parse_model_comparison
 
+# Import fetch_cortecs functionality
+from fetch_cortecs import fetch_json as fetch_cortecs_json, validate as validate_cortecs, API_URL as CORTECS_URL
+
 
 def normalize_models(
     models: list[dict], footnotes: dict[str, str] = None, comparison_summary: list[dict] = None
@@ -127,6 +130,7 @@ def main():
 
     pricing_path = Path(__file__).parent / "pricing.json"
     comparison_path = Path(__file__).parent / "model_comparison.json"
+    cortecs_path = Path(__file__).parent / "cortecs.json"
 
     # Fetch pricing if not --no-fetch
     if not args.no_fetch:
@@ -181,6 +185,30 @@ def main():
             if not comparison_path.exists():
                 print("Warning: model_comparison.json not found, continuing without comparison data", file=sys.stderr)
 
+    # Fetch Cortecs models if not --no-fetch
+    if not args.no_fetch:
+        print("Fetching Cortecs models data...")
+        try:
+            cortecs_payload = fetch_cortecs_json(CORTECS_URL)
+            cortecs_models = validate_cortecs(cortecs_payload)
+            from datetime import date
+
+            cortecs_output = {
+                "fetchDate": date.today().isoformat(),
+                "currency": "EUR",
+                "source": CORTECS_URL,
+                "models": cortecs_models,
+            }
+            cortecs_path.write_text(json.dumps(cortecs_output, indent=2), encoding="utf-8")
+            print(f"Updated {cortecs_path}")
+        except Exception as e:
+            print(
+                f"Warning: Cortecs fetch failed ({e}), will try to use existing cortecs.json",
+                file=sys.stderr,
+            )
+            if not cortecs_path.exists():
+                print("Warning: cortecs.json not found, skipping Cortecs page", file=sys.stderr)
+
     # Load pricing.json
     if not pricing_path.exists():
         print(f"Error: {pricing_path} not found", file=sys.stderr)
@@ -218,6 +246,24 @@ def main():
     output_path = Path(__file__).parent / "docs/index.html"
     output_path.write_text(html, encoding="utf-8")
     print(f"Generated {output_path} ({len(models)} models)")
+
+    # Render the Cortecs page from cortecs.json (if present).
+    # Server-side default order: cheapest input price first; client sort lands later.
+    if cortecs_path.exists():
+        cortecs_data = json.loads(cortecs_path.read_text(encoding="utf-8"))
+        cortecs_models = sorted(
+            cortecs_data.get("models", []),
+            key=lambda m: (m["pricing"]["input_token"], m["pricing"]["output_token"], m["id"]),
+        )
+        cortecs_template = env.get_template("cortecs.html.j2")
+        cortecs_html = cortecs_template.render(
+            fetchDate=cortecs_data.get("fetchDate", "unknown"),
+            source=cortecs_data.get("source", CORTECS_URL),
+            models=cortecs_models,
+        )
+        cortecs_out = Path(__file__).parent / "docs" / "cortecs.html"
+        cortecs_out.write_text(cortecs_html, encoding="utf-8")
+        print(f"Generated {cortecs_out} ({len(cortecs_models)} models)")
 
 
 if __name__ == "__main__":

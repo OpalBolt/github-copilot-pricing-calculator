@@ -1,5 +1,5 @@
 {
-  "fetchDate": "2026-08-02",
+  "fetchDate": "2026-08-04",
   "summary": [
     {
       "model": "GPT-5 mini",
@@ -40,22 +40,22 @@
       "model": "GPT-5.6 Luna",
       "taskArea": "Fast help with simple or repetitive tasks",
       "excelsAt": "Quick, cost-efficient responses for smaller, faster coding tasks",
-      "furtherReadingText": "",
-      "furtherReadingUrl": ""
+      "furtherReadingText": "GPT-5.6 model card",
+      "furtherReadingUrl": "https://deploymentsafety.openai.com/gpt-5-6/gpt-5-6.pdf"
     },
     {
       "model": "GPT-5.6 Sol",
       "taskArea": "Deep reasoning and debugging",
       "excelsAt": "Complex reasoning over large codebases and long-running agentic work",
-      "furtherReadingText": "",
-      "furtherReadingUrl": ""
+      "furtherReadingText": "GPT-5.6 model card",
+      "furtherReadingUrl": "https://deploymentsafety.openai.com/gpt-5-6/gpt-5-6.pdf"
     },
     {
       "model": "GPT-5.6 Terra",
       "taskArea": "General-purpose coding and agent tasks",
       "excelsAt": "Balanced everyday interactive and agentic coding",
-      "furtherReadingText": "",
-      "furtherReadingUrl": ""
+      "furtherReadingText": "GPT-5.6 model card",
+      "furtherReadingUrl": "https://deploymentsafety.openai.com/gpt-5-6/gpt-5-6.pdf"
     },
     {
       "model": "Claude Fable 5",
@@ -192,6 +192,10 @@
           "reason": "Reliable default for most coding and writing tasks. Fast, accurate, and works well across languages and frameworks."
         },
         {
+          "model": "GPT-5.6 Terra",
+          "reason": "Balanced all-round choice for everyday interactive and agentic coding."
+        },
+        {
           "model": "Raptor mini",
           "reason": "Specialized for fast, accurate inline suggestions and explanations."
         },
@@ -211,6 +215,10 @@
       "title": "Fast help with simple or repetitive tasks",
       "intro": "These models are optimized for speed and responsiveness. They\u2019re ideal for quick edits, utility functions, syntax help, and lightweight prototyping. You\u2019ll get fast answers without waiting for unnecessary depth or long reasoning chains.",
       "recommended": [
+        {
+          "model": "GPT-5.6 Luna",
+          "reason": "Lightweight, cost-efficient option for smaller, faster tasks. The lowest-cost model in the GPT-5.6 family."
+        },
         {
           "model": "Claude Haiku 4.5",
           "reason": "Balances fast responses with quality output. Ideal for small tasks and lightweight code explanations."
@@ -238,6 +246,10 @@
         {
           "model": "GPT-5.5",
           "reason": "Great at complex reasoning, code analysis, and technical decision-making."
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "reason": "The highest reasoning ceiling in the GPT-5.6 family. Best for complex reasoning over large codebases and demanding, long-running agentic work."
         },
         {
           "model": "Claude Sonnet 4.6",

@@ -1,0 +1,1844 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cortecs · Model price calculator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&family=Source+Serif+4:ital,wght@1,500&display=swap" rel="stylesheet" />
+  <style>
+  /* ── Design tokens ──────────────────────────────────────── */
+  :root {
+    --efi-yellow:   #FFD100;
+    --nordic-black: #101820;
+    --canvas:       #F7FAFC;
+    --white:        #FFFFFF;
+    --slate-2:      #F1F5F9;
+    --slate-3:      #E2E8F0;
+    --slate-5:      #94A3B8;
+    --slate-6:      #64748B;
+    --slate-7:      #475569;
+    --slate-8:      #334155;
+    --slate-9:      #1E293B;
+    --link:         #007FA3;
+    --cta-hover:    #E6BC00;
+    --ease:         cubic-bezier(0.2, 0, 0, 1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.70;
+    color: var(--slate-8);
+    background: var(--canvas);
+  }
+
+  /* ── Header ─────────────────────────────────────────────── */
+  .page-header {
+    background: var(--nordic-black);
+    padding: 48px 64px 40px;
+    border-bottom: 3px solid var(--efi-yellow);
+  }
+  .page-header .eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--efi-yellow);
+    margin-bottom: 12px;
+  }
+  .page-header h1 {
+    font-size: 42px;
+    font-weight: 600;
+    line-height: 1.10;
+    color: var(--white);
+    max-width: 720px;
+  }
+  .page-header p {
+    margin-top: 16px;
+    font-size: 16px;
+    line-height: 1.70;
+    color: var(--slate-5);
+    max-width: 640px;
+  }
+  .page-header .meta {
+    margin-top: 20px;
+    font-size: 13px;
+    color: var(--slate-6);
+  }
+  .page-header .meta a { color: var(--slate-5); text-decoration: underline; }
+
+  /* ── Main ───────────────────────────────────────────────── */
+  main {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 64px 96px;
+  }
+
+  /* ── Controls panel ─────────────────────────────────────── */
+  .controls {
+    background: var(--white);
+    border: 1px solid var(--slate-3);
+    padding: 28px 32px;
+    margin-bottom: 24px;
+  }
+  .controls h2 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--nordic-black);
+    margin-bottom: 20px;
+  }
+
+  .profile-presets {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .profile-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--slate-7);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .profile-buttons {
+    display: flex;
+    gap: 8px;
+  }
+  .profile-btn {
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 500;
+    border: 1px solid var(--slate-3);
+    background: var(--white);
+    color: var(--slate-7);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 150ms ease-out;
+  }
+  .profile-btn:hover {
+    background: var(--slate-2);
+    border-color: var(--slate-5);
+    color: var(--slate-8);
+  }
+  .profile-btn.active {
+    background: var(--link);
+    color: var(--white);
+    border-color: var(--link);
+  }
+
+  /* ── Tabs ────────────────────────────────────────────────── */
+  .tabs-nav {
+    display: flex;
+    gap: 0;
+    border-bottom: 2px solid var(--slate-3);
+    margin: 0 0 24px 0;
+  }
+  .tab-btn {
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    color: var(--slate-6);
+    cursor: pointer;
+    transition: all 150ms ease-out;
+    margin-bottom: -2px;
+  }
+  .tab-btn:hover {
+    color: var(--slate-8);
+  }
+  .tab-btn.active {
+    border-bottom-color: var(--efi-yellow);
+    color: var(--nordic-black);
+    font-weight: 600;
+  }
+
+  .tab-content {
+    display: none;
+  }
+  .tab-content.active {
+    display: block;
+  }
+
+  .controls-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+    align-items: end;
+  }
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .input-group label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--slate-7);
+  }
+  .input-group input[type="number"] {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--nordic-black);
+    background: var(--canvas);
+    border: 1px solid var(--slate-3);
+    border-radius: 2px;
+    padding: 9px 12px;
+    width: 100%;
+    transition: border-color 180ms var(--ease);
+    outline: none;
+  }
+  .input-group input[type="number"]:focus { border-color: var(--efi-yellow); }
+
+  .summary-chips {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--slate-3);
+  }
+  .chip {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--slate-7);
+    background: var(--slate-2);
+    border-radius: 999px;
+    padding: 3px 12px;
+  }
+  .chip strong { color: var(--nordic-black); }
+
+  /* ── Filters bar ────────────────────────────────────────── */
+  .filters-bar {
+    background: var(--white);
+    border: 1px solid var(--slate-3);
+    border-bottom: none;
+    padding: 16px 20px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .filter-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .filter-group .filter-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--slate-6);
+    white-space: nowrap;
+  }
+  .filter-chips {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .filter-chip {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--slate-7);
+    background: var(--slate-2);
+    border: 1px solid var(--slate-3);
+    border-radius: 4px;
+    padding: 4px 10px;
+    cursor: pointer;
+    transition: background 120ms var(--ease), color 120ms var(--ease), border-color 120ms var(--ease);
+    white-space: nowrap;
+  }
+  .filter-chip:hover { background: var(--slate-3); }
+  .filter-chip.active {
+    background: var(--nordic-black);
+    color: var(--white);
+    border-color: var(--nordic-black);
+  }
+
+  .column-toggle-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .column-toggle-chips {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .column-toggle-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--slate-7);
+    background: var(--slate-2);
+    border: 1px solid var(--slate-3);
+    border-radius: 4px;
+    padding: 4px 10px;
+    cursor: pointer;
+    transition: background 120ms var(--ease), color 120ms var(--ease), border-color 120ms var(--ease);
+    white-space: nowrap;
+  }
+  .column-toggle-chip:hover { background: var(--slate-3); }
+  .column-toggle-chip input {
+    accent-color: var(--nordic-black);
+    margin: 0;
+  }
+  .column-toggle-chip.active {
+    background: var(--link);
+    color: var(--white);
+    border-color: var(--link);
+  }
+  .column-toggle-chip.active input {
+    accent-color: var(--white);
+  }
+
+  .search-wrap {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .search-wrap input[type="search"] {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 13px;
+    color: var(--nordic-black);
+    background: var(--canvas);
+    border: 1px solid var(--slate-3);
+    border-radius: 2px;
+    padding: 7px 12px;
+    width: 200px;
+    outline: none;
+    transition: border-color 180ms var(--ease);
+  }
+  .search-wrap input[type="search"]:focus { border-color: var(--efi-yellow); }
+
+  /* ── Table ──────────────────────────────────────────────── */
+  .table-wrapper {
+    overflow-x: auto;
+    background: var(--white);
+    border: 1px solid var(--slate-3);
+  }
+  #main-table.hide-input .col-input,
+  #main-table.hide-cached .col-cached,
+  #main-table.hide-output .col-output {
+    display: none;
+  }
+  .table-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px 10px;
+    border-top: 1px solid var(--slate-3);
+    background: var(--white);
+    border-bottom: 1px solid var(--slate-3);
+  }
+  .table-meta-count {
+    font-size: 13px;
+    color: var(--slate-6);
+  }
+  .table-meta-count strong { color: var(--nordic-black); }
+
+  table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    font-size: 14px;
+    min-width: 1000px;
+  }
+
+  #main-table th[data-col="name"] { width: 230px; }
+  #main-table th[data-col="provider"] { width: 120px; }
+  #main-table th[data-col="category"] { width: 120px; }
+  #main-table th[data-col="input"] { width: 90px; }
+  #main-table th[data-col="cached"] { width: 90px; }
+  #main-table th[data-col="output"] { width: 90px; }
+  #main-table th[data-col="cost"] { width: 90px; }
+  #main-table th[data-col="runs"] { width: 90px; }
+  #main-table th[data-col="tokens"] { width: 90px; }
+
+  thead th {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--slate-6);
+    background: var(--slate-2);
+    padding: 10px 14px;
+    text-align: left;
+    white-space: nowrap;
+    border-bottom: 2px solid var(--slate-3);
+    user-select: none;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+  thead th.sortable {
+    cursor: pointer;
+  }
+  thead th.sortable:hover { color: var(--nordic-black); background: var(--slate-3); }
+  thead th.sort-asc,
+  thead th.sort-desc { color: var(--nordic-black); background: var(--slate-3); }
+  thead th.num { text-align: right; }
+
+  .sort-icon {
+    display: inline-block;
+    margin-left: 5px;
+    opacity: 0.35;
+    font-size: 10px;
+  }
+  th.sort-asc  .sort-icon,
+  th.sort-desc .sort-icon { opacity: 1; }
+
+  tbody tr {
+    border-bottom: 1px solid var(--slate-3);
+    transition: background 120ms var(--ease);
+  }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: var(--slate-2); }
+  tbody tr.hidden { display: none; }
+
+  tbody td {
+    padding: 11px 14px;
+    vertical-align: middle;
+  }
+  tbody td.num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    font-weight: 500;
+    color: var(--nordic-black);
+  }
+  tbody td.dim { color: var(--slate-5); font-size: 13px; }
+
+  .model-name {
+    display: inline-block;
+    font-weight: 600;
+    color: var(--nordic-black);
+    cursor: help;
+    border: 2px solid var(--slate-4);
+    border-radius: 999px;
+    padding: 2px 10px;
+  }
+  .model-name.model-bg-0 { border-color: #0EA5E9; background: #0EA5E914; }
+  .model-name.model-bg-1 { border-color: #A855F7; background: #A855F714; }
+  .model-name.model-bg-2 { border-color: #F59E0B; background: #F59E0B14; }
+  .model-name.model-bg-3 { border-color: #10B981; background: #10B98114; }
+  .model-name.model-bg-4 { border-color: #EF4444; background: #EF444414; }
+  .model-name.model-bg-5 { border-color: #6366F1; background: #6366F114; }
+  .model-name.model-bg-undoc {
+    border-color: var(--slate-4);
+    background: #F3F4F614;
+  }
+
+  .badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    border-radius: 999px;
+    margin-left: 5px;
+    vertical-align: middle;
+  }
+  .badge-ga      { background: #DCFCE7; color: #166534; }
+  .badge-preview { background: #FEF9C3; color: #854D0E; }
+
+  .footnote-icon {
+    display: inline-block;
+    margin-left: 4px;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: bold;
+    background: #FCA5A5;
+    color: #7F1D1D;
+    border-radius: 50%;
+    cursor: help;
+    border: 1px solid #DC2626;
+  }
+  .footnote-icon:hover {
+    background: #EF4444;
+    color: #FCA5A5;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .cat-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 2px;
+  }
+  .cat-powerful    { background: var(--slate-9); color: var(--white); }
+  .cat-versatile   { background: var(--slate-7); color: var(--white); }
+  .cat-lightweight { background: var(--slate-3); color: var(--slate-8); }
+
+  .tier-lc {
+    font-size: 11px;
+    color: var(--link);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  /* Task area swatches — small color chips with a hover tooltip carrying
+     the full "Task area" + "Excels at" text (see modelTooltip() in JS). */
+  .task-swatch {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: help;
+    vertical-align: middle;
+  }
+  .task-swatch-undoc {
+    background: repeating-linear-gradient(
+      45deg, var(--slate-3), var(--slate-3) 2px, var(--white) 2px, var(--white) 4px
+    );
+  }
+  .task-swatch-0 { background: #0EA5E9; }
+  .task-swatch-1 { background: #A855F7; }
+  .task-swatch-2 { background: #F59E0B; }
+  .task-swatch-3 { background: #10B981; }
+  .task-swatch-4 { background: #EF4444; }
+  .task-swatch-5 { background: #6366F1; }
+
+  /* Legend below the table mapping swatch color -> task area name */
+  .task-area-legend {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 18px;
+    margin-top: 14px;
+    padding: 12px 16px;
+    background: var(--white);
+    border: 1px solid var(--slate-3);
+    border-radius: 4px;
+    font-size: 12px;
+    color: var(--slate-7);
+  }
+  .legend-label {
+    font-weight: 600;
+    color: var(--slate-8);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 11px;
+  }
+  .legend-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+  }
+  .legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .legend-item .task-swatch {
+    width: 12px;
+    height: 12px;
+  }
+
+  /* cost bar */
+  .bar-cell { min-width: 96px; }
+  .credit-bar-wrap {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 8px;
+  }
+  .credit-bar-bg {
+    flex: 1;
+    min-width: 0;
+    height: 4px;
+    background: var(--slate-3);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  .credit-bar-fill {
+    height: 100%;
+    background: var(--efi-yellow);
+    border-radius: 999px;
+    transition: width 320ms var(--ease);
+  }
+  .credit-val {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--nordic-black);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    min-width: 48px;
+    flex-shrink: 0;
+    text-align: right;
+  }
+  .cost-usd {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--nordic-black);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+
+  /* no-results */
+  .no-results {
+    text-align: center;
+    padding: 48px 24px;
+    color: var(--slate-5);
+    font-size: 14px;
+    display: none;
+  }
+
+  /* ── Compare toggle (table rows) ────────────────────────── */
+  .cmp-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    border: 1.5px solid var(--slate-3);
+    background: transparent;
+    color: var(--slate-5);
+    font-size: 16px;
+    line-height: 1;
+    cursor: pointer;
+    transition: border-color 120ms var(--ease), color 120ms var(--ease), background 120ms var(--ease);
+    flex-shrink: 0;
+  }
+  .cmp-btn:hover { border-color: var(--efi-yellow); color: var(--nordic-black); }
+  .cmp-btn.active {
+    border-color: var(--efi-yellow);
+    background: var(--efi-yellow);
+    color: var(--nordic-black);
+  }
+
+  tbody tr.in-compare { background: #FFFDE6; }
+  tbody tr.in-compare:hover { background: #FFF9C4; }
+
+  /* ── Compare tray ────────────────────────────────────────── */
+  #compare-tray {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--nordic-black);
+    border-top: 3px solid var(--efi-yellow);
+    z-index: 100;
+    transform: translateY(100%);
+    transition: transform 320ms var(--ease);
+    padding: 16px 32px 20px;
+  }
+  #compare-tray.visible { transform: translateY(0); }
+
+  .tray-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+  }
+  .tray-title {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--efi-yellow);
+  }
+  .tray-actions { display: flex; gap: 12px; align-items: center; }
+  .tray-clear {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--slate-5);
+    background: transparent;
+    border: 1px solid var(--slate-7);
+    border-radius: 4px;
+    padding: 4px 12px;
+    cursor: pointer;
+    transition: color 120ms var(--ease), border-color 120ms var(--ease);
+  }
+  .tray-clear:hover { color: var(--white); border-color: var(--slate-5); }
+
+  .tray-cards {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--slate-7) transparent;
+  }
+
+  .cmp-card {
+    background: var(--slate-9);
+    border: 1px solid var(--slate-7);
+    border-radius: 4px;
+    padding: 14px 16px;
+    min-width: 210px;
+    max-width: 240px;
+    flex-shrink: 0;
+    position: relative;
+  }
+  .cmp-card-remove {
+    position: absolute;
+    top: 8px; right: 8px;
+    width: 18px; height: 18px;
+    border-radius: 999px;
+    border: 1px solid var(--slate-6);
+    background: transparent;
+    color: var(--slate-5);
+    font-size: 12px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 120ms var(--ease), color 120ms var(--ease);
+  }
+  .cmp-card-remove:hover { background: var(--slate-7); color: var(--white); }
+
+  .cmp-card-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--white);
+    padding-right: 20px;
+    line-height: 1.3;
+    margin-bottom: 2px;
+  }
+  .cmp-card-provider {
+    font-size: 11px;
+    color: var(--slate-5);
+    margin-bottom: 10px;
+  }
+  .cmp-task-line {
+    height: 4px;
+    border-radius: 2px;
+    margin-bottom: 12px;
+    cursor: help;
+    transition: transform 120ms var(--ease);
+  }
+  .cmp-task-line:hover { transform: scaleY(1.8); }
+  .cmp-task-line-undoc {
+    background: repeating-linear-gradient(
+      45deg, var(--slate-6), var(--slate-6) 3px, var(--slate-7) 3px, var(--slate-7) 6px
+    );
+  }
+  .cmp-card-rows { display: flex; flex-direction: column; gap: 5px; margin-bottom: 12px; }
+  .cmp-rate-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .cmp-rate-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--slate-6);
+    width: 46px;
+    flex-shrink: 0;
+  }
+  .cmp-rate-bar-bg {
+    flex: 1;
+    height: 3px;
+    background: var(--slate-7);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  .cmp-rate-bar-fill {
+    height: 100%;
+    background: var(--slate-5);
+    border-radius: 999px;
+  }
+  .cmp-rate-bar-fill.highlight { background: var(--efi-yellow); }
+  .cmp-rate-val {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--slate-3);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    min-width: 36px;
+    text-align: right;
+  }
+
+  .cmp-card-cost {
+    border-top: 1px solid var(--slate-7);
+    padding-top: 10px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .cmp-cost-label { font-size: 11px; color: var(--slate-5); }
+  .cmp-cost-val {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--white);
+    font-variant-numeric: tabular-nums;
+  }
+  .cmp-cost-val.cheapest { color: var(--efi-yellow); }
+  .cmp-credits {
+    font-size: 11px;
+    color: var(--slate-5);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* add-slot card */
+  .cmp-card-add {
+    min-width: 140px;
+    max-width: 140px;
+    border-style: dashed;
+    border-color: var(--slate-7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 6px;
+    color: var(--slate-6);
+    font-size: 12px;
+    text-align: center;
+    padding: 20px 12px;
+  }
+  .cmp-card-add-icon { font-size: 20px; color: var(--slate-7); }
+
+  /* body padding when tray visible */
+  body.tray-open { padding-bottom: 220px; }
+
+  /* ── Footer ─────────────────────────────────────────────── */
+  .page-note {
+    font-size: 13px;
+    color: var(--slate-6);
+    margin-top: 12px;
+    line-height: 1.60;
+  }
+  .page-note a { color: var(--link); text-decoration: none; }
+  .page-note a:hover { text-decoration: underline; }
+
+  .explanation-section {
+    margin-top: 16px;
+    padding: 16px 18px;
+    background: var(--white);
+    border: 1px solid var(--slate-3);
+    border-radius: 4px;
+  }
+  .explanation-section h2 {
+    margin: 0 0 8px;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--nordic-black);
+  }
+  #strategies-tab > h2 {
+    margin: 24px 0 8px;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--nordic-black);
+  }
+  .explanation-section h3 {
+    margin: 18px 0 10px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--slate-7);
+  }
+  .explanation-intro,
+  .explanation-note {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--slate-7);
+  }
+  .explanation-intro { margin-bottom: 12px; }
+  .explanation-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin: 0;
+  }
+  .explanation-grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .explanation-card {
+    min-width: 0;
+    padding: 12px 14px;
+    background: var(--slate-2);
+    border: 1px solid var(--slate-3);
+    border-radius: 4px;
+  }
+  .explanation-card dt {
+    margin: 0 0 6px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--slate-8);
+  }
+  .explanation-card dd {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--slate-7);
+  }
+  .explanation-card.explanation-input dt { color: #0F766E; }
+  .explanation-card.explanation-cached dt { color: #6B21A8; }
+  .explanation-card.explanation-output dt { color: #B45309; }
+  .explanation-note {
+    margin-top: 12px;
+  }
+
+  .page-footer {
+    border-top: 1px solid var(--slate-5);
+    padding: 28px 64px;
+    font-size: 13px;
+    color: var(--slate-6);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .page-footer a { color: var(--link); text-decoration: none; }
+  .page-footer a:hover { text-decoration: underline; }
+
+  /* ── Task Guide Styles ───────────────────────────────────── */
+  .task-card {
+    background: var(--white);
+    border: 1px solid var(--slate-3);
+    border-radius: 4px;
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+  .task-card h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--nordic-black);
+    margin-bottom: 12px;
+  }
+  .task-card h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--slate-8);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 20px;
+    margin-bottom: 12px;
+  }
+  .task-card p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--slate-7);
+    margin-bottom: 16px;
+  }
+  .task-card ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .task-card li {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--slate-7);
+    margin-left: 0;
+    padding-left: 24px;
+    position: relative;
+    margin-bottom: 8px;
+  }
+  .task-card li::before {
+    content: '•';
+    position: absolute;
+    left: 8px;
+  }
+  .task-guidance {
+    background: var(--slate-2);
+    border-left: 3px solid var(--slate-5);
+    padding: 12px 16px;
+    margin-top: 16px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--slate-7);
+  }
+  
+  .task-model-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 12px;
+  }
+  .task-guide-model-chip {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 12px 14px;
+    background: var(--slate-2);
+    border: 1px solid var(--slate-3);
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+  }
+  .task-guide-model-chip.unpriced {
+    opacity: 0.68;
+  }
+  .task-guide-model-head {
+    display: flex;
+    align-items: center;
+  }
+  .task-guide-model-name {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--nordic-black);
+    cursor: help;
+    border: 2px solid var(--slate-4);
+    border-radius: 999px;
+    padding: 2px 10px;
+    background: var(--white);
+    max-width: 100%;
+  }
+  .task-guide-model-name.task-swatch-border-0 { border-color: #0EA5E9; background: #0EA5E90F; }
+  .task-guide-model-name.task-swatch-border-1 { border-color: #A855F7; background: #A855F70F; }
+  .task-guide-model-name.task-swatch-border-2 { border-color: #F59E0B; background: #F59E0B0F; }
+  .task-guide-model-name.task-swatch-border-3 { border-color: #10B981; background: #10B9810F; }
+  .task-guide-model-name.task-swatch-border-4 { border-color: #EF4444; background: #EF44440F; }
+  .task-guide-model-name.task-swatch-border-5 { border-color: #6366F1; background: #6366F10F; }
+  .task-guide-model-name.task-swatch-border-undoc {
+    border-color: var(--slate-4);
+    border-style: dashed;
+  }
+  .task-guide-model-price {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--slate-6);
+  }
+  .task-guide-model-reason {
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--slate-7);
+  }
+  .task-guide-unpriced-note {
+    font-size: 11px;
+    color: var(--slate-5);
+    font-style: italic;
+  }
+  .dim-icon {
+    display: inline-block;
+    margin-left: 4px;
+    font-size: 10px;
+    cursor: help;
+  }
+  .task-guide-model-name {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 768px) {
+    .page-header { padding: 32px 20px 28px; }
+    .page-header h1 { font-size: 28px; }
+    main { padding: 24px 16px 64px; }
+    .filters-bar { padding: 12px 16px; gap: 12px; }
+    .search-wrap { margin-left: 0; width: 100%; }
+    .search-wrap input { width: 100%; }
+    .explanation-grid { grid-template-columns: 1fr; }
+    .page-footer { padding: 24px 20px; }
+  }
+</style>
+  
+  <style>
+    #cortecs-table { table-layout: auto; }
+    #cortecs-table th, #cortecs-table td { white-space: nowrap; }
+    #cortecs-table td.owner { color: var(--slate-5); }
+  </style>
+</head>
+<body>
+
+<!-- ── Header ──────────────────────────────────────────────── -->
+<header class="page-header">
+  <p class="eyebrow">Cortecs · € per 1M tokens</p>
+  <h1>Model price calculator</h1>
+  <p>Every Cortecs model at its cheapest available provider price. All prices are in euros per 1 million tokens.</p>
+  <p class="meta">Source: <a href="https://api.cortecs.ai/v1/models?extended=true&currency=EUR" target="_blank">api.cortecs.ai · /v1/models</a> · Data fetched: <span id="fetch-date">2026-08-04</span></p>
+</header>
+
+<!-- ── Main ────────────────────────────────────────────────── -->
+<main>
+  <div class="table-meta">
+    <span class="table-meta-count"><strong>105</strong> models</span>
+  </div>
+
+  <div class="table-wrapper">
+    <table id="cortecs-table">
+      <thead>
+        <tr>
+          <th>Model</th>
+          <th>Owner</th>
+          <th class="num">Input €/1M</th>
+          <th class="num">Output €/1M</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          <td>qwen3guard-gen-0.6b</td>
+          <td class="owner">Alibaba Cloud</td>
+          <td class="num">Free</td>
+          <td class="num">Free</td>
+        </tr>
+        
+        <tr>
+          <td>qwen3guard-gen-8b</td>
+          <td class="owner">Alibaba Cloud</td>
+          <td class="num">Free</td>
+          <td class="num">Free</td>
+        </tr>
+        
+        <tr>
+          <td>nova-micro-v1</td>
+          <td class="owner">Amazon</td>
+          <td class="num">€0.036</td>
+          <td class="num">€0.143</td>
+        </tr>
+        
+        <tr>
+          <td>gpt-oss-20b</td>
+          <td class="owner">OpenAI</td>
+          <td class="num">€0.040</td>
+          <td class="num">€0.150</td>
+        </tr>
+        
+        <tr>
+          <td>nvidia-nemotron-3-nano-omni</td>
+          <td class="owner">Nvidia</td>
+          <td class="num">€0.053</td>
+          <td class="num">€0.213</td>
+        </tr>
+        
+        <tr>
+          <td>nvidia-nemotron-3-nano-30b-a3b</td>
+          <td class="owner">Nvidia</td>
+          <td class="num">€0.054</td>
+          <td class="num">€0.215</td>
+        </tr>
+        
+        <tr>
+          <td>gpt-5-nano</td>
+          <td class="owner">OpenAI</td>
+          <td class="num">€0.054</td>
+          <td class="num">€0.394</td>
+        </tr>
+        
+        <tr>
+          <td>qwen3-coder-30b-a3b-instruct</td>
+          <td class="owner">Alibaba Cloud</td>
+          <td class="num">€0.060</td>
+          <td class="num">€0.220</td>
+        </tr>
+        
+        <tr>
+          <td>nova-lite-v1</td>
+          <td class="owner">Amazon</td>
+          <td class="num">€0.062</td>
+          <td class="num">€0.247</td>
+        </tr>
+        
+        <tr>
+          <td>qwen3-235b-a22b-instruct-2507</td>
+          <td class="owner">Alibaba Cloud</td>
+          <td class="num">€0.062</td>
+          <td class="num">€0.408</td>
+        </tr>
+        
+        <tr>
+          <td>glm-4.7-flash</td>
+          <td class="owner">Z.ai</td>
+          <td class="num">€0.072</td>
+          <td class="num">€0.429</td>
+        </tr>
+        
+        <tr>
+          <td>gpt-oss-120b</td>
+          <td class="owner">OpenAI</td>
+          <td class="num">€0.080</td>
+          <td class="num">€0.400</td>
+        </tr>
+        
+        <tr>
+          <td>cosmos3-super-reasoner</td>
+          <td class="owner">Nvidia</td>
+          <td class="num">€0.089</td>
+          <td class="num">€0.266</td>
+        </tr>
+        
+        <tr>
+          <td>gemma-3-27b-it</td>
+          <td class="owner">Google</td>
+          <td class="num">€0.089</td>
+          <td class="num">€0.268</td>
+        </tr>
+        
+        <tr>
+          <td>qwen3-30b-a3b-instruct-2507</td>
+          <td class="owner">Alibaba Cloud</td>
+          <td class="num">€0.089</td>
+          <td class="num">€0.268</td>
+        </tr>
+        
+        <tr>
+          <td>qwen3-32b</td>
+          <td class="owner">Alibaba Cloud</td>
+          <td class="num">€0.089</td>
+          <td class="num">€0.268</td>
+        </tr>
+        
+        <tr>
+          <td>mistral-small-3.2-24b-instruct-2506</td>
+          <td class="owner">Mistral AI</td>
+          <td class="num">€0.090</td>
+          <td class="num">€0.280</td>
+        </tr>
+        
+        <tr>
+          <td>ministral-3b-2512</td>
+          <td class="owner">Mistral AI</td>
+          <td class="num">€0.100</td>
+          <td class="num">€0.100</td>
+        </tr>
+        
+        <tr>
+          <td>mistral-7b-instruct-v0.3</td>
+          <td class="owner">Mistral AI</td>
+          <td class="num">€0.100</td>
+          <td class="num">€0.100</td>
+        </tr>
+        
+        <tr>
+          <td>qwen3.5-9b</td>
+          <td class="owner">Alibaba Cloud</td>
+          <td class="num">€0.100</td>
+          <td class="num">€0.150</td>
+        </tr>
+        
+        <tr>
+          <td>mistral-small-2503</td>
+          <td class="owner">Mistral AI</td>
+          <td class="num">€0.100</td>
+          <td class="num">€0.300</td>
+        </tr>
+        
+        <tr>
+          <td>voxtral-small-2507</td>
+          <td class="owner">Mistral AI</td>
+          <td class="num">€0.100</td>
+          <td class="num">€0.300</td>
+        </tr>
+        
+        <tr>
+          <td>gpt-4.1-nano</td>
+          <td class="owner">OpenAI</td>
+          <td class="num">€0.100</td>
+          <td class="num">€0.390</td>
+        </tr>
+        
+        <tr>
+          <td>gemma-4-26b-a4b-it</td>
+          <td class="owner">Google</td>
+          <td class="num">€0.100</td>
+          <td class="num">€0.500</td>
+        </tr>
+        
+        <tr>
+          <td>hermes-4-70b</td>
+          <td class="owner">NousResearch</td>
+          <td class="num">€0.116</td>
+          <td class="num">€0.358</td>
+        </tr>
+        
+        <tr>
+          <td>llama-3.3-70b-instruct</td>
+          <td class="owner">Meta</td>
+          <td class="num">€0.116</td>
+          <td class="num">€0.358</td>
+        </tr>
+        
+        <tr>
+          <td>mistral-small-2603</td>
+          <td class="owner">Mistral AI</td>
+          <td class="num">€0.128</td>
+          <td class="num">€0.510</td>
+        </tr>
+        
+        <tr>
+          <td>mistral-nemo-instruct-2407</td>
+          <td class="owner">Mistral AI</td>
+          <td class="num">€0.130</td>
+          <td class="num">€0.130</td>
+        </tr>
+        
+        <tr>
+          <td>deepseek-v4-flash</td>
+          <td class="owner">Deepseek</td>
+          <td class="num">€0.133</td>
+          <td class="num">€0.266</td>
+        </tr>
+        
+        <tr>
+          <td>qwen3-next-80b-a3b-thinking</td>
+          <td class="owner">Alibaba Cloud</td>
+          <td class="num">€0.134</td>
+          <td class="num">€1.073</td>
+        </tr>
+        
+        <tr>
+          <td>mistral-7b-instruct-v0.2</td>
+          <td class="owner">Mistral AI</td>
+          <td class="num">€0.143</td>
+          <td class="num">€0.197</td>
+        </tr>
+        
+        <tr>
+          <td>gpt-4o-mini</td>
+          <td class="owner">OpenAI</td>
+          <td class="num">€0.143</td>
+          <td class="num">€0.573</td>
+        </tr>
+        
+        <tr>
+          <td>llama-3.1-8b-instruct</td>
+          <td class="owner">Meta</td>
+          <td class="num">€0.150</td>
+          <td class="num">€0.150</td>
+        </tr>
+        
+        <tr>
+          <td>ministral-8b-2512</td>
+          <td class="owner">Mistral AI</td>
+          <td class="num">€0.150</td>
+          <td class="num">€0.150</td>
+        </tr>
+        
+        <tr>
+          <td>qwen3.6-35b-a3b</td>
+          <td class="owner">Alibaba Cloud</td>
+          <td class="num">€0.150</td>
+          <td class="num">€0.500</td>
+        </tr>
+        
+        <tr>
+          <td>qwen3-coder-next</td>
+          <td class="owner">Alibaba Cloud</td>
+          <td class="num">€0.150</td>
+          <td class="num">€0.800</td>
+        </tr>
+        
+        <tr>
+          <td>gpt-oss-safeguard-120b</td>
+          <td class="owner">OpenAI</td>
+          <td class="num">€0.161</td>
+          <td class="num">€0.626</td>
+        </tr>
+        
+        <tr>
+          <td>ministral-14b-2512</td>
+          <td class="owner">Mistral AI</td>
+          <td class="num">€0.200</td>
+          <td class="num">€0.200</td>
+        </tr>
+        
+        <tr>
+          <td>pixtral-12b-2409</td>
+          <td class="owner">Mistral AI</td>
+          <td class="num">€0.200</td>
+          <td class="num">€0.200</td>
+        </tr>
+        
+        <tr>
+          <td>gemma-4-31b-it</td>
+          <td class="owner">Google</td>
+          <td class="num">€0.200</td>
+          <td class="num">€0.350</td>
+        </tr>
+        
+        <tr>
+          <td>nemotron-nano-v2-12b</td>
+          <td class="owner">Nvidia</td>
+          <td class="num">€0.215</td>
+          <td class="num">€0.635</td>
+        </tr>
+        
+        <tr>
+          <td>deepseek-v4-flash-0731</td>
+          <td class="owner">Deepseek</td>
+          <td class="num">€0.224</td>
+          <td class="num">€0.269</td>
+        </tr>
+        
+        <tr>
+          <td>qwen2.5-vl-72b-instruct</td>
+          <td class="owner">Alibaba Cloud</td>
+          <td class="num">€0.224</td>
+          <td class="num">€0.671</td>
+        </tr>
+        
+        <tr>
+          <td>gemini-3.1-flash-lite</td>
+          <td class="owner">Google</td>
+          <td class="num">€0.244</td>
+          <td class="num">€1.464</td>
+        </tr>
+        
+        <tr>
+          <td>gpt-5-mini</td>
+          <td class="owner">OpenAI</td>
+          <td class="num">€0.250</td>
+          <td class="num">€1.968</td>
+        </tr>
+        
+        <tr>
+          <td>deepseek-v3.2</td>
+          <td class="owner">Deepseek</td>
+          <td class="num">€0.266</td>
+          <td class="num">€0.444</td>
+        </tr>
+        
+        <tr>
+          <td>minimax-m2.5</td>
+          <td class="owner">MiniMax AI</td>
+          <td class="num">€0.266</td>
+          <td class="num">€0.976</td>
+        </tr>
+        
+        <tr>
+          <td>gemini-2.5-flash</td>
+          <td class="owner">Google</td>
+          <td class="num">€0.268</td>
+          <td class="num">€2.236</td>
+        </tr>
+        
+        <tr>
+          <td>holo2-30b-a3b</td>
+          <td class="owner">H company</td>
+          <td class="num">€0.300</td>
+          <td class="num">€0.700</td>
+        </tr>
+        
+        <tr>
+          <td>codestral-2508</td>
+          <td class="owner">Mistral AI</td>
+          <td class="num">€0.300</td>
+          <td class="num">€0.900</td>
+        </tr>
+        
+        <tr>
+          <td>minimax-m2</td>
+          <td class="owner">MiniMax AI</td>
+          <td class="num">€0.313</td>
+          <td class="num">€1.261</td>
+        </tr>
+        
+        <tr>
+          <td>minimax-m2.1</td>
+          <td class="owner">MiniMax AI</td>
+          <td class="num">€0.322</td>
+          <td class="num">€1.288</td>
+        </tr>
+        
+        <tr>
+          <td>nova-2-lite</td>
+          <td class="owner">Amazon</td>
+          <td class="num">€0.335</td>
+          <td class="num">€2.822</td>
+        </tr>
+        
+        <tr>
+          <td>minimax-m3</td>
+          <td class="owner">MiniMax AI</td>
+          <td class="num">€0.355</td>
+          <td class="num">€1.775</td>
+        </tr>
+        
+        <tr>
+          <td>gpt-4.1-mini</td>
+          <td class="owner">OpenAI</td>
+          <td class="num">€0.390</td>
+          <td class="num">€1.530</td>
+        </tr>
+        
+        <tr>
+          <td>devstral-2512</td>
+          <td class="owner">Mistral AI</td>
+          <td class="num">€0.400</td>
+          <td class="num">€2.000</td>
+        </tr>
+        
+        <tr>
+          <td>mistral-medium-2508</td>
+          <td class="owner">Mistral AI</td>
+          <td class="num">€0.400</td>
+          <td class="num">€2.000</td>
+        </tr>
+        
+        <tr>
+          <td>qwen3.6-27b</td>
+          <td class="owner">Alibaba Cloud</td>
+          <td class="num">€0.400</td>
+          <td class="num">€2.700</td>
+        </tr>
+        
+        <tr>
+          <td>mixtral-8x7B-instruct-v0.1</td>
+          <td class="owner">Mistral AI</td>
+          <td class="num">€0.438</td>
+          <td class="num">€0.680</td>
+        </tr>
+        
+        <tr>
+          <td>kimi-k2.5</td>
+          <td class="owner">Moonshot AI</td>
+          <td class="num">€0.444</td>
+          <td class="num">€2.485</td>
+        </tr>
+        
+        <tr>
+          <td>qwen3.5-122b-a10b</td>
+          <td class="owner">Alibaba Cloud</td>
+          <td class="num">€0.444</td>
+          <td class="num">€3.106</td>
+        </tr>
+        
+        <tr>
+          <td>mistral-large-2512</td>
+          <td class="owner">Mistral AI</td>
+          <td class="num">€0.500</td>
+          <td class="num">€1.500</td>
+        </tr>
+        
+        <tr>
+          <td>llama-3.1-nemotron-ultra-253b-v1</td>
+          <td class="owner">Nvidia</td>
+          <td class="num">€0.537</td>
+          <td class="num">€1.610</td>
+        </tr>
+        
+        <tr>
+          <td>qwen3-vl-235b-a22b</td>
+          <td class="owner">Alibaba Cloud</td>
+          <td class="num">€0.554</td>
+          <td class="num">€2.800</td>
+        </tr>
+        
+        <tr>
+          <td>minicpm-v-4.5</td>
+          <td class="owner">OpenBMB</td>
+          <td class="num">€0.584</td>
+          <td class="num">€0.985</td>
+        </tr>
+        
+        <tr>
+          <td>deepseek-r1-0528</td>
+          <td class="owner">Deepseek</td>
+          <td class="num">€0.585</td>
+          <td class="num">€2.307</td>
+        </tr>
+        
+        <tr>
+          <td>minimax-m2.7</td>
+          <td class="owner">MiniMax AI</td>
+          <td class="num">€0.600</td>
+          <td class="num">€2.400</td>
+        </tr>
+        
+        <tr>
+          <td>qwen3.5-397b-a17b</td>
+          <td class="owner">Alibaba Cloud</td>
+          <td class="num">€0.600</td>
+          <td class="num">€3.600</td>
+        </tr>
+        
+        <tr>
+          <td>kimi-k2.7-code</td>
+          <td class="owner">Moonshot AI</td>
+          <td class="num">€0.673</td>
+          <td class="num">€3.142</td>
+        </tr>
+        
+        <tr>
+          <td>kimi-k2.6</td>
+          <td class="owner">Moonshot AI</td>
+          <td class="num">€0.694</td>
+          <td class="num">€3.034</td>
+        </tr>
+        
+        <tr>
+          <td>glm-4.7</td>
+          <td class="owner">Z.ai</td>
+          <td class="num">€0.700</td>
+          <td class="num">€2.500</td>
+        </tr>
+        
+        <tr>
+          <td>nova-pro-v1</td>
+          <td class="owner">Amazon</td>
+          <td class="num">€0.824</td>
+          <td class="num">€3.295</td>
+        </tr>
+        
+        <tr>
+          <td>glm-5</td>
+          <td class="owner">Z.ai</td>
+          <td class="num">€0.887</td>
+          <td class="num">€2.840</td>
+        </tr>
+        
+        <tr>
+          <td>hermes-4-405b</td>
+          <td class="owner">NousResearch</td>
+          <td class="num">€0.894</td>
+          <td class="num">€2.683</td>
+        </tr>
+        
+        <tr>
+          <td>claude-haiku-4-5</td>
+          <td class="owner">Anthropic</td>
+          <td class="num">€0.894</td>
+          <td class="num">€4.472</td>
+        </tr>
+        
+        <tr>
+          <td>gpt-5.6-luna</td>
+          <td class="owner">OpenAI</td>
+          <td class="num">€0.987</td>
+          <td class="num">€5.924</td>
+        </tr>
+        
+        <tr>
+          <td>glm-5-turbo</td>
+          <td class="owner">Z.ai</td>
+          <td class="num">€1.065</td>
+          <td class="num">€3.550</td>
+        </tr>
+        
+        <tr>
+          <td>glm-5v-turbo</td>
+          <td class="owner">Z.ai</td>
+          <td class="num">€1.065</td>
+          <td class="num">€3.550</td>
+        </tr>
+        
+        <tr>
+          <td>glm-5.2</td>
+          <td class="owner">Z.ai</td>
+          <td class="num">€1.077</td>
+          <td class="num">€3.770</td>
+        </tr>
+        
+        <tr>
+          <td>gpt-5</td>
+          <td class="owner">OpenAI</td>
+          <td class="num">€1.234</td>
+          <td class="num">€9.838</td>
+        </tr>
+        
+        <tr>
+          <td>gpt-5.1</td>
+          <td class="owner">OpenAI</td>
+          <td class="num">€1.234</td>
+          <td class="num">€9.838</td>
+        </tr>
+        
+        <tr>
+          <td>glm-5.1</td>
+          <td class="owner">Z.ai</td>
+          <td class="num">€1.242</td>
+          <td class="num">€3.903</td>
+        </tr>
+        
+        <tr>
+          <td>apertus-70b</td>
+          <td class="owner">Swiss AI Initiative</td>
+          <td class="num">€1.250</td>
+          <td class="num">€2.000</td>
+        </tr>
+        
+        <tr>
+          <td>gemini-3.5-flash</td>
+          <td class="owner">Google</td>
+          <td class="num">€1.331</td>
+          <td class="num">€7.987</td>
+        </tr>
+        
+        <tr>
+          <td>gemini-2.5-pro</td>
+          <td class="owner">Google</td>
+          <td class="num">€1.342</td>
+          <td class="num">€8.944</td>
+        </tr>
+        
+        <tr>
+          <td>mistral-medium-3.5</td>
+          <td class="owner">Mistral AI</td>
+          <td class="num">€1.500</td>
+          <td class="num">€5.000</td>
+        </tr>
+        
+        <tr>
+          <td>deepseek-v4-pro</td>
+          <td class="owner">Deepseek</td>
+          <td class="num">€1.553</td>
+          <td class="num">€3.106</td>
+        </tr>
+        
+        <tr>
+          <td>llama-3.1-405b-instruct</td>
+          <td class="owner">Meta</td>
+          <td class="num">€1.750</td>
+          <td class="num">€1.750</td>
+        </tr>
+        
+        <tr>
+          <td>pixtral-large-2502</td>
+          <td class="owner">Mistral AI</td>
+          <td class="num">€1.789</td>
+          <td class="num">€5.366</td>
+        </tr>
+        
+        <tr>
+          <td>gpt-4.1</td>
+          <td class="owner">OpenAI</td>
+          <td class="num">€1.968</td>
+          <td class="num">€7.872</td>
+        </tr>
+        
+        <tr>
+          <td>claude-sonnet-5</td>
+          <td class="owner">Anthropic</td>
+          <td class="num">€1.975</td>
+          <td class="num">€9.874</td>
+        </tr>
+        
+        <tr>
+          <td>gpt-4o</td>
+          <td class="owner">OpenAI</td>
+          <td class="num">€2.387</td>
+          <td class="num">€9.547</td>
+        </tr>
+        
+        <tr>
+          <td>gpt-5.6-terra</td>
+          <td class="owner">OpenAI</td>
+          <td class="num">€2.468</td>
+          <td class="num">€14.810</td>
+        </tr>
+        
+        <tr>
+          <td>claude-sonnet-4</td>
+          <td class="owner">Anthropic</td>
+          <td class="num">€2.601</td>
+          <td class="num">€13.010</td>
+        </tr>
+        
+        <tr>
+          <td>gpt-5.4</td>
+          <td class="owner">OpenAI</td>
+          <td class="num">€2.601</td>
+          <td class="num">€13.872</td>
+        </tr>
+        
+        <tr>
+          <td>claude-4-5-sonnet</td>
+          <td class="owner">Anthropic</td>
+          <td class="num">€2.683</td>
+          <td class="num">€13.416</td>
+        </tr>
+        
+        <tr>
+          <td>kimi-k3</td>
+          <td class="owner">Moonshot AI</td>
+          <td class="num">€2.693</td>
+          <td class="num">€13.464</td>
+        </tr>
+        
+        <tr>
+          <td>claude-4-6-sonnet</td>
+          <td class="owner">Anthropic</td>
+          <td class="num">€2.869</td>
+          <td class="num">€14.309</td>
+        </tr>
+        
+        <tr>
+          <td>mistral-large-2402</td>
+          <td class="owner">Mistral AI</td>
+          <td class="num">€3.846</td>
+          <td class="num">€11.627</td>
+        </tr>
+        
+        <tr>
+          <td>claude-opus4-6</td>
+          <td class="owner">Anthropic</td>
+          <td class="num">€4.769</td>
+          <td class="num">€23.843</td>
+        </tr>
+        
+        <tr>
+          <td>claude-opus4-5</td>
+          <td class="owner">Anthropic</td>
+          <td class="num">€4.769</td>
+          <td class="num">€23.849</td>
+        </tr>
+        
+        <tr>
+          <td>claude-opus4-7</td>
+          <td class="owner">Anthropic</td>
+          <td class="num">€4.881</td>
+          <td class="num">€24.404</td>
+        </tr>
+        
+        <tr>
+          <td>claude-opus4-8</td>
+          <td class="owner">Anthropic</td>
+          <td class="num">€4.881</td>
+          <td class="num">€24.404</td>
+        </tr>
+        
+        <tr>
+          <td>claude-opus-5</td>
+          <td class="owner">Anthropic</td>
+          <td class="num">€4.937</td>
+          <td class="num">€24.684</td>
+        </tr>
+        
+        <tr>
+          <td>gpt-5.6-sol</td>
+          <td class="owner">OpenAI</td>
+          <td class="num">€4.937</td>
+          <td class="num">€29.621</td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+
+  <p class="page-note">
+    Prices shown are the cheapest available provider for each model; Cortecs also offers fastest and balanced routing.
+  </p>
+</main>
+
+<footer class="page-footer">
+  <span>Cortecs · Model price calculator · Data sourced from the Cortecs models API</span>
+  <a href="https://api.cortecs.ai/v1/models?extended=true&currency=EUR" target="_blank">View source API →</a>
+</footer>
+
+</body>
+</html>

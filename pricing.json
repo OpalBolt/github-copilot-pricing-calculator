@@ -1,5 +1,5 @@
 {
-  "fetchDate": "2026-08-02",
+  "fetchDate": "2026-08-04",
   "models": [
     {
       "provider": "OpenAI",
@@ -10,6 +10,7 @@
       "Threshold (input tokens)": "Not applicable",
       "Input": 0.25,
       "Cached input": 0.025,
+      "Cache write": "Not applicable",
       "Output": 2.0
     },
     {
@@ -21,6 +22,7 @@
       "Threshold (input tokens)": "Not applicable",
       "Input": 1.75,
       "Cached input": 0.175,
+      "Cache write": "Not applicable",
       "Output": 14.0
     },
     {
@@ -32,6 +34,7 @@
       "Threshold (input tokens)": "\u2264 272K",
       "Input": 2.5,
       "Cached input": 0.25,
+      "Cache write": "Not applicable",
       "Output": 15.0
     },
     {
@@ -43,6 +46,7 @@
       "Threshold (input tokens)": "> 272K",
       "Input": 5.0,
       "Cached input": 0.5,
+      "Cache write": "Not applicable",
       "Output": 22.5
     },
     {
@@ -54,6 +58,7 @@
       "Threshold (input tokens)": "Not applicable",
       "Input": 0.75,
       "Cached input": 0.075,
+      "Cache write": "Not applicable",
       "Output": 4.5
     },
     {
@@ -65,6 +70,7 @@
       "Threshold (input tokens)": "Not applicable",
       "Input": 0.2,
       "Cached input": 0.02,
+      "Cache write": "Not applicable",
       "Output": 1.25
     },
     {
@@ -76,6 +82,7 @@
       "Threshold (input tokens)": "\u2264 272K",
       "Input": 5.0,
       "Cached input": 0.5,
+      "Cache write": "Not applicable",
       "Output": 30.0
     },
     {
@@ -87,6 +94,7 @@
       "Threshold (input tokens)": "> 272K",
       "Input": 10.0,
       "Cached input": 1.0,
+      "Cache write": "Not applicable",
       "Output": 45.0
     },
     {
@@ -98,6 +106,7 @@
       "Threshold (input tokens)": "\u2264 200K",
       "Input": 0.2,
       "Cached input": 0.02,
+      "Cache write": 0.25,
       "Output": 1.2
     },
     {
@@ -109,6 +118,7 @@
       "Threshold (input tokens)": "> 200K",
       "Input": 0.4,
       "Cached input": 0.04,
+      "Cache write": 0.5,
       "Output": 1.8
     },
     {
@@ -120,6 +130,7 @@
       "Threshold (input tokens)": "\u2264 272K",
       "Input": 5.0,
       "Cached input": 0.5,
+      "Cache write": 6.25,
       "Output": 30.0
     },
     {
@@ -131,6 +142,7 @@
       "Threshold (input tokens)": "> 272K",
       "Input": 10.0,
       "Cached input": 1.0,
+      "Cache write": 12.5,
       "Output": 45.0
     },
     {
@@ -142,6 +154,7 @@
       "Threshold (input tokens)": "\u2264 272K",
       "Input": 2.0,
       "Cached input": 0.2,
+      "Cache write": 2.5,
       "Output": 12.0
     },
     {
@@ -153,6 +166,7 @@
       "Threshold (input tokens)": "> 272K",
       "Input": 4.0,
       "Cached input": 0.4,
+      "Cache write": 5.0,
       "Output": 18.0
     },
     {
