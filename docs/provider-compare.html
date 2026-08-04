@@ -1165,26 +1165,24 @@
   #provider-table th:nth-child(4) { width: 220px; }
   #provider-table th:nth-child(n+5) { width: 110px; }
 
-  /* ── Subscription detail drill-down (Cortecs pattern) ── */
-  #provider-table tbody tr.sub-row { cursor: pointer; }
-  #provider-table tbody tr.sub-row:hover td { background: var(--slate-2); }
-  #provider-table tbody tr.sub-row.expanded td { border-bottom-style: dashed; }
-  #provider-table tbody tr.drilldown-row > td { padding: 0; background: var(--slate-2); }
-  .drill-toggle { font-size: 10px; color: var(--slate-5); margin-left: 6px; }
-  tr.sub-row.expanded .drill-toggle { color: var(--slate-8); }
-  .sub-detail {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-    padding: 12px 16px;
-    font-size: 13px;
+  /* Budget reference line */
+  #provider-table tbody tr.under-budget td.monthly-cost { color: #166534; font-weight: 600; }
+  #provider-table tbody tr.over-budget { opacity: 0.45; }
+
+  /* Limit status badges on subscription rows */
+  .limit-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 1px 6px;
+    border-radius: 999px;
+    margin-left: 6px;
+    vertical-align: middle;
   }
-  .sub-detail dl { display: grid; grid-template-columns: auto auto; gap: 4px 20px; margin: 0; }
-  .sub-detail dt { color: var(--slate-5); font-weight: 600; white-space: nowrap; }
-  .sub-detail dd { margin: 0; color: var(--slate-8); }
-  .sub-detail-note { max-width: 360px; margin: 0; color: var(--slate-5); font-size: 12px; }
-  </style>
+  .limit-badge.limit-green  { color: #166534; background: #DCFCE7; }
+  .limit-badge.limit-orange { color: #9A3412; background: #FED7AA; }
+  .limit-badge.limit-red    { color: #991B1B; background: #FEE2E2; }
+</style>
 </head>
 <body>
 
@@ -1192,7 +1190,7 @@
 <header class="page-header">
   <p class="eyebrow">Providers · Price comparison</p>
   <h1>Provider price comparison</h1>
-  <p>What does a budget buy you on each provider? Pay-per-token and subscription plans sit side by side, priced per 1M tokens and scaled to your token mix, run size, and budget.</p>
+  <p>Compare monthly API costs against fixed subscription plans at any token volume. Dial in your token mix and see which option costs less.</p>
   <p class="meta"><a href="index.html">← All tools</a> · All prices are per 1 million tokens · Baked from providers.json at generate time</p>
 </header>
 
@@ -1212,14 +1210,8 @@
     <div class="controls-grid">
       
 <div class="input-group">
-  <label for="budget-amount">Budget ($)</label>
-  <input type="number" id="budget-amount" value="10" min="0" step="0.01" />
-</div>
-
-      
-<div class="input-group">
-  <label for="tokens-per-run">Tokens per run</label>
-  <input type="number" id="tokens-per-run" value="1000000" min="1" step="100000" />
+  <label for="monthly-tokens">Monthly tokens (millions)</label>
+  <input type="number" id="monthly-tokens" value="50" min="0.001" step="1" />
 </div>
 
       
@@ -1292,6 +1284,10 @@
       <span class="filter-label">Search</span>
       <input type="search" id="model-search" placeholder="Filter by model or provider…" />
     </div>
+    <div style="margin-top: 16px; display: flex; align-items: center; gap: 10px;">
+      <label for="budget-ref" style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate-7); white-space: nowrap;">Budget reference ($)</label>
+      <input type="number" id="budget-ref" value="" placeholder="optional" min="0" step="1" style="font-family: 'Source Sans 3', sans-serif; font-size: 13px; font-weight: 500; color: var(--nordic-black); background: var(--canvas); border: 1px solid var(--slate-3); border-radius: 2px; padding: 6px 10px; width: 120px; outline: none;" />
+    </div>
   </div>
 
   <!-- Table -->
@@ -1306,9 +1302,7 @@
           <th class="sortable num" data-col="input">Input $/1M <span class="sort-icon">↕</span></th>
           <th class="sortable num" data-col="cached">Cached $/1M <span class="sort-icon">↕</span></th>
           <th class="sortable num" data-col="output">Output $/1M <span class="sort-icon">↕</span></th>
-          <th class="sortable num" data-col="cost">Est. cost <span class="sort-icon">↕</span></th>
-          <th class="sortable num" data-col="runs">Runs <span class="sort-icon">↕</span></th>
-          <th class="sortable num" data-col="tokens">Tokens <span class="sort-icon">↕</span></th>
+          <th class="sortable num" data-col="cost">Monthly cost <span class="sort-icon">↕</span></th>
           <th class="sortable bar-cell" data-col="relative">Relative cost <span class="sort-icon">↕</span></th>
         </tr>
       </thead>
@@ -1327,9 +1321,7 @@
               <td class="num" data-sort="0.14">$0.14</td>
               <td class="num" data-sort="0.0028">$0.0028</td>
               <td class="num" data-sort="0.28">$0.28</td>
-              <td class="num est-cost">—</td>
-              <td class="num runs">—</td>
-              <td class="num tokens">—</td>
+              <td class="num monthly-cost">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
             
@@ -1343,9 +1335,7 @@
               <td class="num" data-sort="0.435">$0.435</td>
               <td class="num" data-sort="0.003625">$0.003625</td>
               <td class="num" data-sort="0.87">$0.87</td>
-              <td class="num est-cost">—</td>
-              <td class="num runs">—</td>
-              <td class="num tokens">—</td>
+              <td class="num monthly-cost">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
             
@@ -1364,9 +1354,7 @@
               <td class="num" data-sort="1.4">$1.4</td>
               <td class="num" data-sort="0.26">$0.26</td>
               <td class="num" data-sort="4.4">$4.4</td>
-              <td class="num est-cost">—</td>
-              <td class="num runs">—</td>
-              <td class="num tokens">—</td>
+              <td class="num monthly-cost">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
             
@@ -1380,9 +1368,7 @@
               <td class="num" data-sort="1.4">$1.4</td>
               <td class="num" data-sort="0.26">$0.26</td>
               <td class="num" data-sort="4.4">$4.4</td>
-              <td class="num est-cost">—</td>
-              <td class="num runs">—</td>
-              <td class="num tokens">—</td>
+              <td class="num monthly-cost">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
             
@@ -1396,9 +1382,7 @@
               <td class="num" data-sort="1.0">$1</td>
               <td class="num" data-sort="0.2">$0.2</td>
               <td class="num" data-sort="3.2">$3.2</td>
-              <td class="num est-cost">—</td>
-              <td class="num runs">—</td>
-              <td class="num tokens">—</td>
+              <td class="num monthly-cost">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
             
@@ -1412,9 +1396,7 @@
               <td class="num" data-sort="1.2">$1.2</td>
               <td class="num" data-sort="0.24">$0.24</td>
               <td class="num" data-sort="4.0">$4</td>
-              <td class="num est-cost">—</td>
-              <td class="num runs">—</td>
-              <td class="num tokens">—</td>
+              <td class="num monthly-cost">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
             
@@ -1428,9 +1410,7 @@
               <td class="num" data-sort="0.6">$0.6</td>
               <td class="num" data-sort="0.11">$0.11</td>
               <td class="num" data-sort="2.2">$2.2</td>
-              <td class="num est-cost">—</td>
-              <td class="num runs">—</td>
-              <td class="num tokens">—</td>
+              <td class="num monthly-cost">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
             
@@ -1444,9 +1424,7 @@
               <td class="num" data-sort="0.07">$0.07</td>
               <td class="num" data-sort="0.01">$0.01</td>
               <td class="num" data-sort="0.4">$0.4</td>
-              <td class="num est-cost">—</td>
-              <td class="num runs">—</td>
-              <td class="num tokens">—</td>
+              <td class="num monthly-cost">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
             
@@ -1460,9 +1438,7 @@
               <td class="num" data-sort="0.6">$0.6</td>
               <td class="num" data-sort="0.11">$0.11</td>
               <td class="num" data-sort="2.2">$2.2</td>
-              <td class="num est-cost">—</td>
-              <td class="num runs">—</td>
-              <td class="num tokens">—</td>
+              <td class="num monthly-cost">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
             
@@ -1476,9 +1452,7 @@
               <td class="num" data-sort="0.6">$0.6</td>
               <td class="num" data-sort="0.11">$0.11</td>
               <td class="num" data-sort="2.2">$2.2</td>
-              <td class="num est-cost">—</td>
-              <td class="num runs">—</td>
-              <td class="num tokens">—</td>
+              <td class="num monthly-cost">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
             
@@ -1492,9 +1466,7 @@
               <td class="num" data-sort="2.2">$2.2</td>
               <td class="num" data-sort="0.45">$0.45</td>
               <td class="num" data-sort="8.9">$8.9</td>
-              <td class="num est-cost">—</td>
-              <td class="num runs">—</td>
-              <td class="num tokens">—</td>
+              <td class="num monthly-cost">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
             
@@ -1508,9 +1480,7 @@
               <td class="num" data-sort="0.2">$0.2</td>
               <td class="num" data-sort="0.03">$0.03</td>
               <td class="num" data-sort="1.1">$1.1</td>
-              <td class="num est-cost">—</td>
-              <td class="num runs">—</td>
-              <td class="num tokens">—</td>
+              <td class="num monthly-cost">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
             
@@ -1524,9 +1494,7 @@
               <td class="num" data-sort="1.1">$1.1</td>
               <td class="num" data-sort="0.22">$0.22</td>
               <td class="num" data-sort="4.5">$4.5</td>
-              <td class="num est-cost">—</td>
-              <td class="num runs">—</td>
-              <td class="num tokens">—</td>
+              <td class="num monthly-cost">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
             
@@ -1540,9 +1508,7 @@
               <td class="num" data-sort="0.1">$0.1</td>
               <td class="num" data-sort="0.0">$0</td>
               <td class="num" data-sort="0.1">$0.1</td>
-              <td class="num est-cost">—</td>
-              <td class="num runs">—</td>
-              <td class="num tokens">—</td>
+              <td class="num monthly-cost">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
             
@@ -1556,9 +1522,7 @@
               <td class="num" data-sort="0.0">$0</td>
               <td class="num" data-sort="0.0">$0</td>
               <td class="num" data-sort="0.0">$0</td>
-              <td class="num est-cost">—</td>
-              <td class="num runs">—</td>
-              <td class="num tokens">—</td>
+              <td class="num monthly-cost">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
             
@@ -1572,9 +1536,7 @@
               <td class="num" data-sort="0.0">$0</td>
               <td class="num" data-sort="0.0">$0</td>
               <td class="num" data-sort="0.0">$0</td>
-              <td class="num est-cost">—</td>
-              <td class="num runs">—</td>
-              <td class="num tokens">—</td>
+              <td class="num monthly-cost">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
             
@@ -1586,48 +1548,42 @@
             <tr class="sub-row" data-provider-id="zai-devpack" data-pricing-type="subscription" data-model-id="glm-5.2"
                 data-mult-input="6.9" data-mult-cached="1.7" data-mult-output="24.0"
                 data-default-visible="true" data-provider-name="z.ai Devpack">
-              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button><span class="drill-toggle">▸</span></td>
+              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
               <td><span class="provider-badge pb-2">z.ai Devpack</span></td>
               <td>Lite</td>
               <td>glm-5.2</td>
               <td class="num sub-price">—</td>
               <td class="num sub-price">—</td>
               <td class="num sub-price">—</td>
-              <td class="num est-cost">—</td>
-              <td class="num runs">—</td>
-              <td class="num tokens">—</td>
+              <td class="num monthly-cost">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
             
             <tr class="sub-row" data-provider-id="zai-devpack" data-pricing-type="subscription" data-model-id="glm-5-turbo"
                 data-mult-input="5.7" data-mult-cached="1.5" data-mult-output="21.0"
                 data-default-visible="true" data-provider-name="z.ai Devpack">
-              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button><span class="drill-toggle">▸</span></td>
+              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
               <td><span class="provider-badge pb-2">z.ai Devpack</span></td>
               <td>Lite</td>
               <td>glm-5-turbo</td>
               <td class="num sub-price">—</td>
               <td class="num sub-price">—</td>
               <td class="num sub-price">—</td>
-              <td class="num est-cost">—</td>
-              <td class="num runs">—</td>
-              <td class="num tokens">—</td>
+              <td class="num monthly-cost">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
             
             <tr class="sub-row" data-provider-id="zai-devpack" data-pricing-type="subscription" data-model-id="glm-4.7"
                 data-mult-input="4.6" data-mult-cached="1.2" data-mult-output="16.0"
                 data-default-visible="true" data-provider-name="z.ai Devpack">
-              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button><span class="drill-toggle">▸</span></td>
+              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
               <td><span class="provider-badge pb-2">z.ai Devpack</span></td>
               <td>Lite</td>
               <td>glm-4.7</td>
               <td class="num sub-price">—</td>
               <td class="num sub-price">—</td>
               <td class="num sub-price">—</td>
-              <td class="num est-cost">—</td>
-              <td class="num runs">—</td>
-              <td class="num tokens">—</td>
+              <td class="num monthly-cost">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
             
@@ -1638,12 +1594,9 @@
   </div>
 
   <p class="page-note">
-    Est. cost = blended $/1M × tokens per run ÷ 1M. Runs = Budget ÷ Est. cost. Tokens = Runs × tokens per run.
-    Subscription rows: Est. cost = effective $/1M × tokens per run (what one run costs at your mix — click a row
-    for the plan detail), Runs = months the budget buys, Tokens = months × monthly token cap (dimmed when the
-    budget exceeds one month — the pool is capped per period).
-    Relative cost = Est. cost ÷ the most expensive model currently visible. Subscription plans bill in credits —
-    their $/1M is derived from the credit math at your selected tier and token mix.
+    Monthly cost = total tokens × rate for each model at your mix. Subscription rows show the fixed plan price.
+    Effective $/1M for subscriptions = plan price ÷ total monthly tokens. Relative cost = monthly cost ÷ the most
+    expensive model currently visible. Hover a subscription row for credit details.
   </p>
 </main>
 
@@ -1682,124 +1635,117 @@
     if (abs >= 1_000) return `${(n / 1_000).toFixed(1)}K`;
     return `${n.toLocaleString('en-US', { maximumFractionDigits: 0 })}`;
   };
-  const fmtInt = n => Number.isFinite(n) ? Math.round(n).toLocaleString('en-US') : '—';
   const fmtPrice = n => {
     if (!Number.isFinite(n)) return '—';
     return n < 0.01 ? `$${n.toFixed(4)}` : `$${n.toFixed(2)}`;
   };
 
-
   // ── State ────────────────────────────────────────────────────
   const state = {
-    sortCol: 'relative',      // cheapest first on load
+    sortCol: 'cost',       // cheapest first on load
     sortDir: 'asc',
     search: '',
     hiddenProviders: new Set(),
     showAll: false,
-    compare: new Set(),       // row elements in the compare tray
+    compare: new Set(),
   };
 
   // ── Config & per-row compute ─────────────────────────────────
   function getConfig() {
-    const budget = Math.max(0, parseFloat(document.getElementById('budget-amount').value) || 0);
+    const monthlyTokens = Math.max(0, parseFloat(document.getElementById('monthly-tokens').value) || 0);
     const input  = parseFloat(document.getElementById('input-pct').value)  || 0;
     const cached = parseFloat(document.getElementById('cached-pct').value) || 0;
     const output = parseFloat(document.getElementById('output-pct').value) || 0;
-    const tokensPerRun = Math.max(0, parseFloat(document.getElementById('tokens-per-run').value) || 0);
+    const budgetRef = parseFloat(document.getElementById('budget-ref').value) || 0;
 
     const warning = document.getElementById('pct-warning');
     warning.style.display = Math.abs(input + cached + output - 100) > 0.1 ? 'block' : 'none';
 
     const tierSel = (document.querySelector('input[name="tier"]:checked') || {}).value || null;
     const offPeak = document.getElementById('off-peak-toggle')?.checked || false;
-    return { budget, input, cached, output, tokensPerRun, tierSel, offPeak };
+    return { monthlyTokens, input, cached, output, budgetRef, tierSel, offPeak };
   }
 
-  // Returns { cost, runs, tokens, ip, cp, op, plan, free, surplus, monthlyCost } for a row.
-  // Paygo: cost = USD per run, runs/tokens scale with budget. Subscription:
-  // cost = effective $/1M × tokens per run (same per-run semantics as paygo, so the
-  // relative-cost bar compares apples to apples); runs = months the budget buys,
-  // tokens = months × the monthly token cap; surplus set when the budget exceeds
-  // one month's price. monthlyCost keeps the raw plan price for the drill-down.
-  // null cost = uncomputable (e.g. subscription provider missing the selected tier).
+  // Returns { monthlyCost, ip, cp, op, free, plan, status } for a row.
+  // monthlyCost = total monthly cost at the given token volume.
+  // ip/cp/op = effective $/1M rates (actual for paygo, derived for subs).
   function computeRow(row, cfg) {
-    const out = { cost: null, runs: null, tokens: null, ip: null, cp: null, op: null, plan: null, free: false, monthlyCost: null };
+    const out = { monthlyCost: null, ip: null, cp: null, op: null, free: false, plan: null, status: null };
 
     if (row.dataset.pricingType === 'subscription') {
       if (!SUBS.length || !cfg.tierSel) return out;
       const prov = SUBS.find(p => p.id === row.dataset.providerId);
       const tier = prov && prov.tiers.find(t => t.name === cfg.tierSel);
       if (!prov || !tier) return out;
-      out.monthlyCost = tier.monthly_usd;
 
       const mi = parseFloat(row.dataset.multInput), mc = parseFloat(row.dataset.multCached), mo = parseFloat(row.dataset.multOutput);
+      out.plan = cfg.tierSel;
 
-      // Free model: all multipliers zero, skip math
-      if (mi === 0 && mc === 0 && mo === 0) { out.free = true; out.plan = cfg.tierSel; out.ip = out.cp = out.op = 0; out.cost = 0; return out; }
+      // Free model: all multipliers zero
+      if (mi === 0 && mc === 0 && mo === 0) { out.free = true; out.ip = out.cp = out.op = 0; out.monthlyCost = tier.monthly_usd; return out; }
 
+      // Effective $/1M for each rate band, derived from credit math
       const creditsPer1MFor = mix => {
         const weighted = mix.input / 100 * mi + mix.cached / 100 * mc + mix.output / 100 * mo;
         if (weighted === 0) return 0;
-        let creditsPer1M = weighted * 1_000_000 / 10_000;
-        if (cfg.offPeak) creditsPer1M *= prov.off_peak_multiplier || 1;
-        return creditsPer1M;
+        let c = weighted * 1_000_000 / 10_000;
+        if (cfg.offPeak) c *= prov.off_peak_multiplier || 1;
+        return c;
       };
       const priceFor = mix => {
-        const creditsPer1M = creditsPer1MFor(mix);
-        if (creditsPer1M === 0) return 0;
+        const cpm = creditsPer1MFor(mix);
+        if (cpm === 0) return 0;
         const weeklyCost = tier.monthly_usd / 4.33;
-        const tokensPerWeek = tier.weekly_credits / creditsPer1M * 1_000_000;
+        const tokensPerWeek = tier.weekly_credits / cpm * 1_000_000;
         return weeklyCost / (tokensPerWeek / 1_000_000);
       };
-      out.plan = cfg.tierSel;
       out.ip = priceFor({ input: 100, cached: 0, output: 0 });
       out.cp = priceFor({ input: 0, cached: 100, output: 0 });
       out.op = priceFor({ input: 0, cached: 0, output: 100 });
+      out.monthlyCost = tier.monthly_usd;
 
-      // Subscription: Est. cost = effective $/1M at the selected mix × tokens per run,
-      // so the bar and Est. cost column compare per-run cost across paygo + subs.
-      // Runs = months the budget buys; Tokens = months × one month's capped token pool.
-      out.cost = priceFor(cfg) * cfg.tokensPerRun / 1_000_000;
-      out.runs = cfg.budget / tier.monthly_usd;
-      const creditsPer1M = creditsPer1MFor(cfg);
-      if (creditsPer1M > 0) {
-        // ponytail: credits/week is binding constraint, tokens cap per subscription period
-        out.tokens = out.runs * tier.weekly_credits / creditsPer1M * 1_000_000 * 4.33;
+      // Limit check: compare weekly volume to the plan's weekly token cap
+      const cpm = creditsPer1MFor(cfg);
+      if (cpm > 0 && cfg.monthlyTokens > 0) {
+        const maxWeeklyTokens = tier.weekly_credits / cpm; // millions
+        const weeklyVol = cfg.monthlyTokens / 4.33;
+        if (weeklyVol > maxWeeklyTokens) {
+          out.status = { text: 'Likely to hit limits', cls: 'limit-red' };
+        } else if (weeklyVol > maxWeeklyTokens * 0.75) {
+          out.status = { text: 'Approaching limits', cls: 'limit-orange' };
+        } else {
+          out.status = { text: 'Within safe limits', cls: 'limit-green' };
+        }
       }
-      if (cfg.budget > tier.monthly_usd) out.surplus = tier.monthly_usd;
     } else {
       out.plan = 'Paygo';
       out.ip = parseFloat(row.dataset.inputPrice);
       out.cp = parseFloat(row.dataset.cachedPrice);
       out.op = parseFloat(row.dataset.outputPrice);
 
-      // Free model: all prices zero, skip math
-      if (out.ip === 0 && out.cp === 0 && out.op === 0) { out.free = true; out.cost = 0; return out; }
+      if (out.ip === 0 && out.cp === 0 && out.op === 0) { out.free = true; out.monthlyCost = 0; return out; }
 
-      const blended = (cfg.input * out.ip + cfg.cached * out.cp + cfg.output * out.op) / 100;
-      out.cost = blended * cfg.tokensPerRun / 1_000_000;
-      if (out.cost > 0) {
-        out.runs = cfg.budget / out.cost;
-        out.tokens = out.runs * cfg.tokensPerRun;
-      }
+      // Distribute total tokens across the three bands
+      const distInput  = cfg.input  / 100;
+      const distCached = cfg.cached / 100;
+      const distOutput = cfg.output / 100;
+      const uncachedVol = cfg.monthlyTokens * distInput;
+      const cachedVol   = cfg.monthlyTokens * distCached;
+      const outputVol   = cfg.monthlyTokens * distOutput;
+
+      out.monthlyCost = (uncachedVol * out.ip) + (cachedVol * out.cp) + (outputVol * out.op);
     }
     return out;
   }
 
   // ── Fill the table ───────────────────────────────────────────
-  // Cell order: 0 cmp btn · 1 provider · 2 plan · 3 model · 4-6 prices · 7 est · 8 runs · 9 tokens · 10 rel
-  // Only real rows carry data-pricing-type; drill-down rows are skipped everywhere.
+  // Cell order: 0 cmp btn · 1 provider · 2 plan · 3 model · 4-6 prices · 7 monthly cost · 8 relative
   function updateRows() {
     const cfg = getConfig();
     document.querySelectorAll('#provider-table tbody tr[data-pricing-type]').forEach(row => {
       const c = computeRow(row, cfg);
       row._computed = c;
       const cells = row.children;
-
-      // Surplus subscription: budget buys more than one month, Runs/Tokens are capped per period
-      const cappedSub = row.dataset.pricingType === 'subscription' && c.surplus != null;
-      row.classList.toggle('surplus', cappedSub);
-      const capNote = cappedSub ? 'Capped at one subscription period (monthly credit pool)' : '';
 
       if (row.dataset.pricingType === 'subscription') {
         cells[2].textContent = c.plan || '—';
@@ -1810,61 +1756,65 @@
         });
       }
 
-      const [costCell, runsCell, tokensCell] = [cells[7], cells[8], cells[9]];
-      runsCell.title = tokensCell.title = capNote;
-
+      const costCell = cells[7];
       if (c.free) {
-        costCell.textContent = 'Free';  costCell.dataset.sort = 0;
-        runsCell.textContent = '—';     runsCell.dataset.sort = '';
-        tokensCell.textContent = '—';   tokensCell.dataset.sort = '';
-      } else if (c.cost != null) {
-        costCell.textContent = fmtPrice(c.cost); costCell.dataset.sort = c.cost;
-        runsCell.textContent = c.runs != null ? fmtInt(c.runs) : '—';
-        runsCell.dataset.sort = c.runs != null ? c.runs : '';
-        tokensCell.textContent = c.tokens != null ? fmtCompact(c.tokens) : '—';
-        tokensCell.dataset.sort = c.tokens != null ? c.tokens : '';
+        costCell.innerHTML = 'Free'; costCell.dataset.sort = 0;
+      } else if (c.monthlyCost != null) {
+        let html = fmtPrice(c.monthlyCost);
+        if (c.status) {
+          html += ` <span class="limit-badge ${c.status.cls}">${c.status.text}</span>`;
+        }
+        costCell.innerHTML = html; costCell.dataset.sort = c.monthlyCost;
       } else {
-        costCell.textContent = '—'; costCell.dataset.sort = '';
-        runsCell.textContent = '—'; runsCell.dataset.sort = '';
-        tokensCell.textContent = '—'; tokensCell.dataset.sort = '';
+        costCell.innerHTML = '—'; costCell.dataset.sort = '';
       }
     });
     return cfg;
   }
 
-  // Relative cost bars: est_cost / max(visible est_cost) × 100%.
-  // Free models get a zero-width "Free" bar. Value shown is USD.
+  // Relative cost bars: monthlyCost / max(visible monthlyCost) × 100%.
   function updateBars() {
     let max = 0;
     document.querySelectorAll('#provider-table tbody tr[data-pricing-type]').forEach(row => {
       if (row.classList.contains('hidden-row')) return;
       const c = row._computed;
-      if (c && c.cost != null && c.cost > max) max = c.cost;
+      if (c && c.monthlyCost != null && c.monthlyCost > max) max = c.monthlyCost;
     });
     document.querySelectorAll('#provider-table tbody tr[data-pricing-type]').forEach(row => {
       const c = row._computed;
-      const cell = row.children[10];
-      if (!c || c.cost == null) { cell.innerHTML = '—'; cell.dataset.sort = ''; return; }
-      const w = max > 0 ? Math.round(c.cost / max * 100) : 0;
-      const val = c.free ? 'Free' : fmtPrice(c.cost);
+      const cell = row.children[8];
+      if (!c || c.monthlyCost == null) { cell.innerHTML = '—'; cell.dataset.sort = ''; return; }
+      const w = max > 0 ? Math.round(c.monthlyCost / max * 100) : 0;
+      const val = c.free ? 'Free' : fmtPrice(c.monthlyCost);
       cell.innerHTML =
         `<div class="credit-bar-wrap"><div class="credit-bar-bg"><div class="credit-bar-fill" style="width:${w}%"></div></div>` +
         `<span class="credit-val">${val}</span></div>`;
-      cell.dataset.sort = c.cost;
+      cell.dataset.sort = c.monthlyCost;
+    });
+  }
+
+  // Budget reference: highlight rows under budget
+  function updateBudgetRef(cfg) {
+    document.querySelectorAll('#provider-table tbody tr[data-pricing-type]').forEach(row => {
+      row.classList.remove('under-budget', 'over-budget');
+      if (!cfg.budgetRef || cfg.budgetRef <= 0) return;
+      const c = row._computed;
+      if (!c || c.monthlyCost == null) return;
+      row.classList.add(c.monthlyCost <= cfg.budgetRef ? 'under-budget' : 'over-budget');
     });
   }
 
   function recompute() {
-    updateRows();
+    const cfg = updateRows();
     applyFilters();
     updateBars();
+    updateBudgetRef(cfg);
     applySort();
     updateCompareUI();
+    updateSubTooltips();
   }
 
   // ── Filters & sort ───────────────────────────────────────────
-  // Raw numeric value of a cell for sorting; '' / missing = no value
-  // (sorts last, same as the copilot tool).
   const cellNum = td => {
     const v = td.dataset.sort;
     if (v === undefined || v === '') return null;
@@ -1878,13 +1828,9 @@
     cached:   tr => cellNum(tr.children[5]),
     output:   tr => cellNum(tr.children[6]),
     cost:     tr => cellNum(tr.children[7]),
-    runs:     tr => cellNum(tr.children[8]),
-    tokens:   tr => cellNum(tr.children[9]),
-    relative: tr => cellNum(tr.children[10]),
+    relative: tr => cellNum(tr.children[8]),
   };
 
-  // A row is visible only when: provider chip active AND model matches
-  // search AND (show-all toggle on OR default_visible).
   function applyFilters() {
     const q = state.search.toLowerCase();
     document.querySelectorAll('#provider-table tbody tr[data-pricing-type]').forEach(tr => {
@@ -1906,11 +1852,19 @@
     const tbody = document.querySelector('#provider-table tbody');
     Array.from(tbody.querySelectorAll('tr[data-pricing-type]')).sort((a, b) => {
       const av = get(a), bv = get(b);
-      if (typeof av === 'number' && typeof bv === 'number') return (av - bv) * dir;
-      if (av == null && bv == null) return 0;
-      if (av == null) return 1;
-      if (bv == null) return -1;
-      return String(av).localeCompare(String(bv)) * dir;
+      let cmp;
+      if (typeof av === 'number' && typeof bv === 'number') cmp = (av - bv) * dir;
+      else if (av == null && bv == null) cmp = 0;
+      else if (av == null) cmp = 1;
+      else if (bv == null) cmp = -1;
+      else cmp = String(av).localeCompare(String(bv)) * dir;
+      // Tiebreaker: model name ascending when primary values are equal
+      if (cmp === 0) {
+        const am = (a.dataset.modelId || '').toLowerCase();
+        const bm = (b.dataset.modelId || '').toLowerCase();
+        cmp = am.localeCompare(bm);
+      }
+      return cmp;
     }).forEach(tr => tbody.appendChild(tr));
   }
 
@@ -1980,12 +1934,12 @@
     const maxIP = Math.max(0, ...rows.map(r => r._computed?.ip ?? 0));
     const maxCP = Math.max(0, ...rows.map(r => r._computed?.cp ?? 0));
     const maxOP = Math.max(0, ...rows.map(r => r._computed?.op ?? 0));
-    const minCost = Math.min(...rows.map(r => r._computed?.cost ?? Infinity));
+    const minCost = Math.min(...rows.map(r => r._computed?.monthlyCost ?? Infinity));
     const barW = (v, max) => max > 0 ? Math.round(v / max * 100) : 0;
 
     cards.innerHTML = rows.map((row, i) => {
       const c = row._computed || {};
-      const isCheapest = rows.length > 1 && c.cost === minCost;
+      const isCheapest = rows.length > 1 && c.monthlyCost === minCost;
       const priceVal = p => p != null && Number.isFinite(p) ? fmtPrice(p) : '—';
       const hl = isCheapest ? ' highlight' : '';
       return `
@@ -2012,10 +1966,9 @@
         </div>
         <div class="cmp-card-cost">
           <div>
-            <div class="cmp-cost-label">Est. cost</div>
-            <div class="cmp-credits">${c.runs != null ? 'Runs: ' + fmtInt(c.runs) : (c.free ? 'Free' : '—')}</div>
+            <div class="cmp-cost-label">Monthly cost</div>
           </div>
-          <span class="cmp-cost-val${hl}">${c.cost != null ? fmtPrice(c.cost) : '—'}</span>
+          <span class="cmp-cost-val${hl}">${c.monthlyCost != null ? fmtPrice(c.monthlyCost) : '—'}</span>
         </div>
       </div>`;
     }).join('');
@@ -2025,61 +1978,32 @@
     });
   }
 
-  // ── Subscription detail drill-down (Cortecs pattern) ─────────────────
-  // Click a subscription row to expand its plan detail, click again to collapse.
-  // Row-set changes (sort/filter/search/tier) collapse open drills; plain
-  // recompute (budget/tokens/mix) leaves them open — Cortecs light-recompute
-  // behaviour, the detail doesn't depend on those inputs.
-  function collapseDrilldowns() {
-    document.querySelectorAll('#provider-table tbody tr.drilldown-row').forEach(d => {
-      const tr = d.previousElementSibling;
-      d.remove();
-      if (tr) tr.classList.remove('expanded');
-      const t = tr && tr.querySelector('.drill-toggle');
-      if (t) t.textContent = '▸';
+  // ── Subscription tooltip (replaces the old dl drill-down) ────
+  // ponytail: simple title tooltip instead of expandable dl; add back if users miss the detail
+  function updateSubTooltips() {
+    const cfg = getConfig();
+    document.querySelectorAll('#provider-table tbody tr[data-pricing-type="subscription"]').forEach(row => {
+      const prov = SUBS.find(p => p.id === row.dataset.providerId);
+      const tier = prov && (prov.tiers.find(t => t.name === cfg.tierSel) || prov.tiers[0]);
+      if (!prov || !tier) { row.title = ''; return; }
+      const mi = row.dataset.multInput, mc = row.dataset.multCached, mo = row.dataset.multOutput;
+      const offPct = Math.round((1 - (prov.off_peak_multiplier || 1)) * 100);
+
+      // Compute max weekly tokens at current mix for the tooltip
+      const weighted = cfg.input / 100 * mi + cfg.cached / 100 * mc + cfg.output / 100 * mo;
+      let maxWeekly = '—';
+      if (weighted > 0) {
+        let cpm = weighted * 1_000_000 / 10_000;
+        if (cfg.offPeak) cpm *= prov.off_peak_multiplier || 1;
+        maxWeekly = fmtCompact(tier.weekly_credits / cpm * 1_000_000);
+      }
+
+      row.title = [
+        `$${tier.monthly_usd}/mo · ${tier.weekly_credits.toLocaleString('en-US')} credits/wk`,
+        `Multipliers: Input ×${String(mi).replace(/\.0$/, '')} · Cached ×${String(mc).replace(/\.0$/, '')} · Output ×${String(mo).replace(/\.0$/, '')}`,
+        `Max tokens/wk at your mix: ${maxWeekly} · Off-peak: ${offPct}% discount (${prov.off_peak_label || 'Mon–Fri 07:00–11:00 CET'})`,
+      ].join('\n');
     });
-  }
-
-  // Detail reads the baked PROVIDERS table (single source of truth), not _computed.
-  function subDetailHtml(row, prov, tier) {
-    const mult = v => String(v).replace(/\.0$/, '');
-    const offPct = Math.round((1 - (prov.off_peak_multiplier || 1)) * 100);
-    const offWin = prov.off_peak_label || 'Mon–Fri 07:00–11:00 CET';
-    return `
-      <td colspan="11">
-        <div class="sub-detail">
-          <dl>
-            <dt>Monthly price</dt><dd>$${tier.monthly_usd}/mo</dd>
-            <dt>Weekly credits</dt><dd>${fmtInt(tier.weekly_credits)}</dd>
-            <dt>Credit multipliers</dt><dd>Input ×${mult(row.dataset.multInput)} · Cached ×${mult(row.dataset.multCached)} · Output ×${mult(row.dataset.multOutput)}</dd>
-            <dt>Off-peak</dt><dd>${offPct}% discount · ${offWin}</dd>
-          </dl>
-          <p class="sub-detail-note">Est. cost shown is effective $/1M at your token mix, not the monthly plan price.</p>
-        </div>
-      </td>`;
-  }
-
-  function onSubRowClick(e) {
-    if (e.target.closest('.cmp-btn')) return;   // compare toggle, never the drill-down
-    const tr = e.target.closest('tr.sub-row');
-    if (!tr) return;
-    const next = tr.nextElementSibling;
-    const toggle = tr.querySelector('.drill-toggle');
-    if (next && next.classList.contains('drilldown-row')) {
-      next.remove();
-      tr.classList.remove('expanded');
-      if (toggle) toggle.textContent = '▸';
-      return;
-    }
-    const prov = SUBS.find(p => p.id === tr.dataset.providerId);
-    const tier = prov && (prov.tiers.find(t => t.name === getConfig().tierSel) || prov.tiers[0]);
-    if (!prov || !tier) return;
-    const drill = document.createElement('tr');
-    drill.className = 'drilldown-row';
-    drill.innerHTML = subDetailHtml(tr, prov, tier);
-    tr.after(drill);
-    tr.classList.add('expanded');
-    if (toggle) toggle.textContent = '▼';
   }
 
   // ── Off-peak auto-detect ─────────────────────────────────────
@@ -2099,19 +2023,15 @@
   }
 
   // ── Event wiring ─────────────────────────────────────────────
-  ['budget-amount', 'input-pct', 'cached-pct', 'output-pct', 'tokens-per-run'].forEach(id => {
+  ['monthly-tokens', 'input-pct', 'cached-pct', 'output-pct', 'budget-ref'].forEach(id => {
     document.getElementById(id).addEventListener('input', () => {
       if (id.endsWith('-pct')) {
-        // Manual edits override the active preset
         document.querySelectorAll('.profile-btn').forEach(b => b.classList.remove('active'));
       }
       recompute();
     });
   });
-  document.querySelectorAll('input[name="tier"]').forEach(r => r.addEventListener('change', () => {
-    collapseDrilldowns();   // tier changes the monthly price / credits the drill shows
-    recompute();
-  }));
+  document.querySelectorAll('input[name="tier"]').forEach(r => r.addEventListener('change', recompute));
   const offPeakToggle = document.getElementById('off-peak-toggle');
   if (offPeakToggle) offPeakToggle.addEventListener('change', recompute);
 
@@ -2131,37 +2051,34 @@
   // Show-all toggle
   document.getElementById('show-all-models').addEventListener('change', e => {
     state.showAll = e.target.checked;
-    collapseDrilldowns();
     updateShowAllLabel();
     applyFilters();
     updateBars();
     applySort();
   });
 
-  // Search (real-time, static table → no debounce)
+  // Search
   document.getElementById('model-search').addEventListener('input', e => {
     state.search = e.target.value;
-    collapseDrilldowns();
     applyFilters();
     updateBars();
     applySort();
   });
 
-  // Provider chips: click toggles that provider's rows
+  // Provider chips
   document.querySelectorAll('#provider-chips .filter-chip').forEach(btn => {
     btn.addEventListener('click', () => {
       const id = btn.dataset.provider;
       if (state.hiddenProviders.has(id)) state.hiddenProviders.delete(id);
       else state.hiddenProviders.add(id);
       btn.classList.toggle('active', !state.hiddenProviders.has(id));
-      collapseDrilldowns();
       applyFilters();
       updateBars();
       applySort();
     });
   });
 
-  // Column headers: first click sorts ascending, second reverses
+  // Column headers
   document.querySelectorAll('#provider-table thead th[data-col]').forEach(th => {
     th.addEventListener('click', () => {
       const col = th.dataset.col;
@@ -2171,20 +2088,16 @@
         state.sortCol = col;
         state.sortDir = 'asc';
       }
-      collapseDrilldowns();   // reorder detaches open drills from their rows
       updateSortIndicators();
       applySort();
     });
   });
 
-  // Compare buttons on rows
+  // Compare buttons
   document.querySelectorAll('#provider-table tbody tr').forEach(row => {
     const btn = row.querySelector('.cmp-btn');
     if (btn) btn.addEventListener('click', () => toggleCompare(row));
   });
-
-  // Subscription rows: delegated click on <tbody> (Cortecs pattern)
-  document.querySelector('#provider-table tbody').addEventListener('click', onSubRowClick);
 
   // ── Initial render ───────────────────────────────────────────
   autoOffPeak();
@@ -2192,6 +2105,7 @@
   updateShowAllLabel();
   applyFilters();
   recompute();
+  updateSubTooltips();
 </script>
 
 </body>

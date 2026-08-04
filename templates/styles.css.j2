@@ -1144,23 +1144,21 @@
   #provider-table th:nth-child(4) { width: 220px; }
   #provider-table th:nth-child(n+5) { width: 110px; }
 
-  /* ── Subscription detail drill-down (Cortecs pattern) ── */
-  #provider-table tbody tr.sub-row { cursor: pointer; }
-  #provider-table tbody tr.sub-row:hover td { background: var(--slate-2); }
-  #provider-table tbody tr.sub-row.expanded td { border-bottom-style: dashed; }
-  #provider-table tbody tr.drilldown-row > td { padding: 0; background: var(--slate-2); }
-  .drill-toggle { font-size: 10px; color: var(--slate-5); margin-left: 6px; }
-  tr.sub-row.expanded .drill-toggle { color: var(--slate-8); }
-  .sub-detail {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-    padding: 12px 16px;
-    font-size: 13px;
+  /* Budget reference line */
+  #provider-table tbody tr.under-budget td.monthly-cost { color: #166534; font-weight: 600; }
+  #provider-table tbody tr.over-budget { opacity: 0.45; }
+
+  /* Limit status badges on subscription rows */
+  .limit-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 1px 6px;
+    border-radius: 999px;
+    margin-left: 6px;
+    vertical-align: middle;
   }
-  .sub-detail dl { display: grid; grid-template-columns: auto auto; gap: 4px 20px; margin: 0; }
-  .sub-detail dt { color: var(--slate-5); font-weight: 600; white-space: nowrap; }
-  .sub-detail dd { margin: 0; color: var(--slate-8); }
-  .sub-detail-note { max-width: 360px; margin: 0; color: var(--slate-5); font-size: 12px; }
-  </style>
+  .limit-badge.limit-green  { color: #166534; background: #DCFCE7; }
+  .limit-badge.limit-orange { color: #9A3412; background: #FED7AA; }
+  .limit-badge.limit-red    { color: #991B1B; background: #FEE2E2; }
+</style>
