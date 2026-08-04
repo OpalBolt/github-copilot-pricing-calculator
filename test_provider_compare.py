@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Self-check for slices 03-04 (budget, token mix, subscription credit math).
+Self-check for slices 03-05 (budget, token mix, subscription credit math, filters & sort).
 
 The compute lives in client JS (no JS runner here), so this pins the two
 things that CAN break silently and the JS depends on:
@@ -17,6 +17,7 @@ things that CAN break silently and the JS depends on:
 Run:  python3 test_provider_compare.py
 Expects docs/provider-compare.html already generated (python generate_html.py --no-fetch).
 """
+import json
 import math
 import re
 import sys
@@ -141,7 +142,31 @@ def main() -> int:
     assert free_sub["mult_input"] + free_sub["mult_cached"] + free_sub["mult_output"] == 0.0
     assert "Free" in HTML and "mi === 0" in HTML
 
+
+    # ── Filters & sort contract (slice 05) ──
+    # The behavior lives in client JS, so pin the template -> JS wiring:
+    # toggle/search/chips exist, every column header is sortable, and rows
+    # carry the default_visible + provider-name the filters read.
+    assert 'id="show-all-models"' in HTML and 'id="show-all-label"' in HTML
+    assert 'id="model-search"' in HTML
+    assert 'id="provider-chips"' in HTML
+    for col in ("provider", "plan", "model", "input", "cached", "output", "effective"):
+        assert re.search(rf'<th class="sortable(?: num)?" data-col="{col}"', HTML), f"missing sortable column {col}"
+    assert HTML.count('<span class="sort-icon">↕</span>') == 7
+
+    prov_data = json.loads((ROOT / "providers.json").read_text(encoding="utf-8"))["providers"]
+    for p in prov_data:
+        assert f'data-provider="{p["id"]}"' in HTML, f"missing chip for {p['id']}"
+    assert HTML.count('class="filter-chip active"') == len(prov_data)
+    expected_hidden = sum(1 for p in prov_data for m in p["models"] if not m.get("default_visible", True))
+    assert expected_hidden > 0, "providers.json should have hidden-by-default models for the toggle to matter"
+    # row attrs (the JS selector string also contains 'data-default-visible="false"', so match the full attr pair)
+    assert HTML.count('data-default-visible="false" data-provider-name="') == expected_hidden
+    assert HTML.count('data-provider-name="') == len(rows)
+
     print(f"OK: {len(paygo)} paygo rows, {len(subs)} subscription rows, formula constants verified")
+    print(f"OK: {expected_hidden} hidden-by-default models, filters/sort wiring present")
+
     return 0
 
 

@@ -17,6 +17,8 @@
   // ── Effective tokens/$ ───────────────────────────────────────
   // tokens_per_dollar = 1_000_000 / blended_price; the column shows
   // total tokens the budget buys (budget × tokens_per_dollar).
+  // Every value cell also stashes a raw number in data-sort so the
+  // column sort works on numbers, not formatted strings.
   function updateEffectiveTokens() {
     const budget = Math.max(0, parseFloat(document.getElementById('budget-amount').value) || 0);
     const input  = parseFloat(document.getElementById('input-pct').value)  || 0;
@@ -41,14 +43,19 @@
       const op = parseFloat(row.dataset.outputPrice);
 
       // Free model: all prices zero, skip math
-      if (ip === 0 && cp === 0 && op === 0) { cell.textContent = 'Free'; return; }
+      if (ip === 0 && cp === 0 && op === 0) { cell.textContent = 'Free'; cell.dataset.sort = Infinity; return; }
 
       const blended = (input * ip + cached * cp + output * op) / 100;
-      if (blended === 0) { cell.textContent = '—'; return; }
+      if (blended === 0) { cell.textContent = '—'; cell.dataset.sort = ''; return; }
 
       const tokensPerDollar = 1_000_000 / blended;
       cell.textContent = fmtCompact(budget * tokensPerDollar);
+      cell.dataset.sort = budget * tokensPerDollar;
     });
+
+    // Recompute done; keep the current sort order honest (tier/mix changes
+    // move effective tokens/$ non-uniformly).
+    applySort();
   }
 
   // ── Subscription rows: credit math ───────────────────────────
@@ -57,7 +64,11 @@
   // effective $/1M = weekly_cost / (tokens/week / 1M).
   function updateSubscriptionRow(row, cell, pct, budget, tierSel, offPeak) {
     const priceCells = row.querySelectorAll('.sub-price');
-    const dash = () => { cell.textContent = '—'; priceCells.forEach(c => c.textContent = '—'); };
+    const dash = () => {
+      cell.textContent = '—';
+      cell.dataset.sort = '';
+      priceCells.forEach(c => { c.textContent = '—'; c.dataset.sort = ''; });
+    };
 
     // Global tier selector: only rows for the selected tier compute.
     // Providers missing the selected tier (divergent tier sets) show —.
@@ -70,7 +81,7 @@
     const mi = parseFloat(row.dataset.multInput), mc = parseFloat(row.dataset.multCached), mo = parseFloat(row.dataset.multOutput);
 
     // Free model: all multipliers zero, skip math
-    if (mi === 0 && mc === 0 && mo === 0) { cell.textContent = 'Free'; return; }
+    if (mi === 0 && mc === 0 && mo === 0) { cell.textContent = 'Free'; cell.dataset.sort = Infinity; return; }
 
     const weightedMult = pct.input / 100 * mi + pct.cached / 100 * mc + pct.output / 100 * mo;
     if (weightedMult === 0) { dash(); return; } // all pct slots zero
@@ -83,8 +94,9 @@
     if (effectivePrice <= 0) { dash(); return; }
 
     cell.textContent = fmtCompact(budget / effectivePrice * 1_000_000);
+    cell.dataset.sort = budget / effectivePrice * 1_000_000;
     const price = fmtUSD(effectivePrice);
-    priceCells.forEach(c => c.textContent = price);
+    priceCells.forEach(c => { c.textContent = price; c.dataset.sort = effectivePrice; });
   }
 
   // ── Live recalc on inputs ────────────────────────────────────
@@ -95,5 +107,124 @@
   const offPeakToggle = document.getElementById('off-peak-toggle');
   if (offPeakToggle) offPeakToggle.addEventListener('change', updateEffectiveTokens);
 
+  // ── Filters & sort ───────────────────────────────────────────
+  const state = {
+    sortCol: null,          // data-col of the active sort column; null = baked order
+    sortDir: 'asc',
+    search: '',
+    hiddenProviders: new Set(),
+    showAll: false,
+  };
+
+  // Raw numeric value of a cell for sorting; '' / missing = no value
+  // (sorts last, same as the copilot tool), Infinity = Free row (best).
+  const cellNum = td => {
+    const v = td.dataset.sort;
+    if (v === undefined || v === '') return null;
+    if (v === 'Infinity') return Infinity;
+    return +v;
+  };
+  const COLUMN_GET = {
+    provider:  tr => tr.children[0].textContent.trim(),
+    plan:      tr => tr.children[1].textContent.trim(),
+    model:     tr => tr.children[2].textContent.trim(),
+    input:     tr => cellNum(tr.children[3]),
+    cached:    tr => cellNum(tr.children[4]),
+    output:    tr => cellNum(tr.children[5]),
+    effective: tr => cellNum(tr.children[6]),
+  };
+
+  // A row is visible only when: provider chip active AND model matches
+  // search AND (show-all toggle on OR default_visible).
+  function applyFilters() {
+    const q = state.search.toLowerCase();
+    document.querySelectorAll('#provider-table tbody tr').forEach(tr => {
+      const defaultOk  = state.showAll || tr.dataset.defaultVisible === 'true';
+      const providerOk = !state.hiddenProviders.has(tr.dataset.providerId);
+      const searchOk   = !q
+        || tr.dataset.modelId.toLowerCase().includes(q)
+        || tr.dataset.providerName.toLowerCase().includes(q);
+      const visible = defaultOk && providerOk && searchOk;
+      tr.classList.toggle('hidden-default', !defaultOk);
+      tr.classList.toggle('hidden-row', !visible);
+    });
+  }
+
+  function applySort() {
+    if (!state.sortCol) return;
+    const get = COLUMN_GET[state.sortCol];
+    const dir = state.sortDir === 'asc' ? 1 : -1;
+    const tbody = document.querySelector('#provider-table tbody');
+    [...tbody.children].sort((a, b) => {
+      const av = get(a), bv = get(b);
+      if (typeof av === 'number' && typeof bv === 'number') return (av - bv) * dir;
+      if (av == null && bv == null) return 0;
+      if (av == null) return 1;
+      if (bv == null) return -1;
+      return String(av).localeCompare(String(bv)) * dir;
+    }).forEach(tr => tbody.appendChild(tr));
+  }
+
+  function updateSortIndicators() {
+    document.querySelectorAll('#provider-table thead th[data-col]').forEach(th => {
+      th.classList.remove('sort-asc', 'sort-desc');
+      const icon = th.querySelector('.sort-icon');
+      if (th.dataset.col === state.sortCol) {
+        th.classList.add(state.sortDir === 'asc' ? 'sort-asc' : 'sort-desc');
+        if (icon) icon.textContent = state.sortDir === 'asc' ? '↑' : '↓';
+      } else if (icon) {
+        icon.textContent = '↕';
+      }
+    });
+  }
+
+  function updateShowAllLabel() {
+    const n = document.querySelectorAll('#provider-table tbody tr[data-default-visible="false"]').length;
+    document.getElementById('show-all-label').textContent =
+      state.showAll || n === 0 ? 'Show all models' : `Show ${n} more models`;
+  }
+
+  // Show-all toggle
+  document.getElementById('show-all-models').addEventListener('change', e => {
+    state.showAll = e.target.checked;
+    updateShowAllLabel();
+    applyFilters();
+  });
+
+  // Search (real-time, static table → no debounce)
+  document.getElementById('model-search').addEventListener('input', e => {
+    state.search = e.target.value;
+    applyFilters();
+  });
+
+  // Provider chips: click toggles that provider's rows
+  document.querySelectorAll('#provider-chips .filter-chip').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const id = btn.dataset.provider;
+      if (state.hiddenProviders.has(id)) state.hiddenProviders.delete(id);
+      else state.hiddenProviders.add(id);
+      btn.classList.toggle('active', !state.hiddenProviders.has(id));
+      applyFilters();
+    });
+  });
+
+  // Column headers: first click sorts ascending, second reverses
+  document.querySelectorAll('#provider-table thead th[data-col]').forEach(th => {
+    th.addEventListener('click', () => {
+      const col = th.dataset.col;
+      if (state.sortCol === col) {
+        state.sortDir = state.sortDir === 'asc' ? 'desc' : 'asc';
+      } else {
+        state.sortCol = col;
+        state.sortDir = 'asc';
+      }
+      updateSortIndicators();
+      applySort();
+    });
+  });
+
+  updateSortIndicators();
+  updateShowAllLabel();
+  applyFilters();
   updateEffectiveTokens();
 </script>
