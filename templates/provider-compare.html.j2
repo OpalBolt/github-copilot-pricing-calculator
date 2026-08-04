@@ -104,9 +104,9 @@
                 <td><span class="provider-badge pb-{{ prov_loop.index0 % 6 }}">{{ p.name }}</span></td>
                 <td>{{ tier.name }}</td>
                 <td>{{ model.id }}</td>
-                <td class="num">—</td>
-                <td class="num">—</td>
-                <td class="num">—</td>
+                <td class="num sub-price">—</td>
+                <td class="num sub-price">—</td>
+                <td class="num sub-price">—</td>
                 <td class="num effective-tokens">—</td>
               </tr>
               {% endfor %}
@@ -118,7 +118,7 @@
   </div>
 
   <p class="page-note">
-    Prices are per 1M tokens as published. Subscription plans bill in credits — their $/1M and the Effective tokens/$ column fill in once the budget, token mix, tier, and off-peak math are wired up.
+    Prices are per 1M tokens as published. Subscription plans bill in credits — their $/1M is derived from the credit math at your selected tier and token mix.
   </p>
 </main>
 

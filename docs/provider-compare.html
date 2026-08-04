@@ -1447,9 +1447,9 @@
                 <td><span class="provider-badge pb-2">z.ai Devpack</span></td>
                 <td>Lite</td>
                 <td>glm-5.2</td>
-                <td class="num">—</td>
-                <td class="num">—</td>
-                <td class="num">—</td>
+                <td class="num sub-price">—</td>
+                <td class="num sub-price">—</td>
+                <td class="num sub-price">—</td>
                 <td class="num effective-tokens">—</td>
               </tr>
               
@@ -1458,9 +1458,9 @@
                 <td><span class="provider-badge pb-2">z.ai Devpack</span></td>
                 <td>Lite</td>
                 <td>glm-5-turbo</td>
-                <td class="num">—</td>
-                <td class="num">—</td>
-                <td class="num">—</td>
+                <td class="num sub-price">—</td>
+                <td class="num sub-price">—</td>
+                <td class="num sub-price">—</td>
                 <td class="num effective-tokens">—</td>
               </tr>
               
@@ -1469,9 +1469,9 @@
                 <td><span class="provider-badge pb-2">z.ai Devpack</span></td>
                 <td>Lite</td>
                 <td>glm-4.7</td>
-                <td class="num">—</td>
-                <td class="num">—</td>
-                <td class="num">—</td>
+                <td class="num sub-price">—</td>
+                <td class="num sub-price">—</td>
+                <td class="num sub-price">—</td>
                 <td class="num effective-tokens">—</td>
               </tr>
               
@@ -1482,9 +1482,9 @@
                 <td><span class="provider-badge pb-2">z.ai Devpack</span></td>
                 <td>Pro</td>
                 <td>glm-5.2</td>
-                <td class="num">—</td>
-                <td class="num">—</td>
-                <td class="num">—</td>
+                <td class="num sub-price">—</td>
+                <td class="num sub-price">—</td>
+                <td class="num sub-price">—</td>
                 <td class="num effective-tokens">—</td>
               </tr>
               
@@ -1493,9 +1493,9 @@
                 <td><span class="provider-badge pb-2">z.ai Devpack</span></td>
                 <td>Pro</td>
                 <td>glm-5-turbo</td>
-                <td class="num">—</td>
-                <td class="num">—</td>
-                <td class="num">—</td>
+                <td class="num sub-price">—</td>
+                <td class="num sub-price">—</td>
+                <td class="num sub-price">—</td>
                 <td class="num effective-tokens">—</td>
               </tr>
               
@@ -1504,9 +1504,9 @@
                 <td><span class="provider-badge pb-2">z.ai Devpack</span></td>
                 <td>Pro</td>
                 <td>glm-4.7</td>
-                <td class="num">—</td>
-                <td class="num">—</td>
-                <td class="num">—</td>
+                <td class="num sub-price">—</td>
+                <td class="num sub-price">—</td>
+                <td class="num sub-price">—</td>
                 <td class="num effective-tokens">—</td>
               </tr>
               
@@ -1517,9 +1517,9 @@
                 <td><span class="provider-badge pb-2">z.ai Devpack</span></td>
                 <td>Max</td>
                 <td>glm-5.2</td>
-                <td class="num">—</td>
-                <td class="num">—</td>
-                <td class="num">—</td>
+                <td class="num sub-price">—</td>
+                <td class="num sub-price">—</td>
+                <td class="num sub-price">—</td>
                 <td class="num effective-tokens">—</td>
               </tr>
               
@@ -1528,9 +1528,9 @@
                 <td><span class="provider-badge pb-2">z.ai Devpack</span></td>
                 <td>Max</td>
                 <td>glm-5-turbo</td>
-                <td class="num">—</td>
-                <td class="num">—</td>
-                <td class="num">—</td>
+                <td class="num sub-price">—</td>
+                <td class="num sub-price">—</td>
+                <td class="num sub-price">—</td>
                 <td class="num effective-tokens">—</td>
               </tr>
               
@@ -1539,9 +1539,9 @@
                 <td><span class="provider-badge pb-2">z.ai Devpack</span></td>
                 <td>Max</td>
                 <td>glm-4.7</td>
-                <td class="num">—</td>
-                <td class="num">—</td>
-                <td class="num">—</td>
+                <td class="num sub-price">—</td>
+                <td class="num sub-price">—</td>
+                <td class="num sub-price">—</td>
                 <td class="num effective-tokens">—</td>
               </tr>
               
@@ -1553,7 +1553,7 @@
   </div>
 
   <p class="page-note">
-    Prices are per 1M tokens as published. Subscription plans bill in credits — their $/1M and the Effective tokens/$ column fill in once the budget, token mix, tier, and off-peak math are wired up.
+    Prices are per 1M tokens as published. Subscription plans bill in credits — their $/1M is derived from the credit math at your selected tier and token mix.
   </p>
 </main>
 
@@ -1565,7 +1565,7 @@
 <script>
   // ── Provider data (baked from providers.json at generate time) ──
   const PROVIDERS = [{"currency": "USD", "id": "deepseek", "models": [{"context": 1048576, "default_visible": true, "id": "deepseek-v4-flash", "input": 0.14, "input_cache": 0.0028, "output": 0.28}, {"context": 1048576, "default_visible": true, "id": "deepseek-v4-pro", "input": 0.435, "input_cache": 0.003625, "output": 0.87}], "name": "DeepSeek", "pricing_type": "paygo"}, {"currency": "USD", "id": "zai", "models": [{"default_visible": true, "id": "glm-5.2", "input": 1.4, "input_cache": 0.26, "output": 4.4}, {"default_visible": false, "id": "glm-5.1", "input": 1.4, "input_cache": 0.26, "output": 4.4}, {"default_visible": false, "id": "glm-5", "input": 1.0, "input_cache": 0.2, "output": 3.2}, {"default_visible": true, "id": "glm-5-turbo", "input": 1.2, "input_cache": 0.24, "output": 4.0}, {"default_visible": true, "id": "glm-4.7", "input": 0.6, "input_cache": 0.11, "output": 2.2}, {"default_visible": false, "id": "glm-4.7-flashx", "input": 0.07, "input_cache": 0.01, "output": 0.4}, {"default_visible": false, "id": "glm-4.6", "input": 0.6, "input_cache": 0.11, "output": 2.2}, {"default_visible": false, "id": "glm-4.5", "input": 0.6, "input_cache": 0.11, "output": 2.2}, {"default_visible": false, "id": "glm-4.5-x", "input": 2.2, "input_cache": 0.45, "output": 8.9}, {"default_visible": false, "id": "glm-4.5-air", "input": 0.2, "input_cache": 0.03, "output": 1.1}, {"default_visible": false, "id": "glm-4.5-airx", "input": 1.1, "input_cache": 0.22, "output": 4.5}, {"default_visible": false, "id": "glm-4-32b-0414-128k", "input": 0.1, "input_cache": 0.0, "output": 0.1}, {"default_visible": false, "id": "glm-4.7-flash", "input": 0.0, "input_cache": 0.0, "output": 0.0}, {"default_visible": false, "id": "glm-4.5-flash", "input": 0.0, "input_cache": 0.0, "output": 0.0}], "name": "z.ai", "pricing_type": "paygo"}, {"currency": "USD", "id": "zai-devpack", "models": [{"default_visible": true, "id": "glm-5.2", "mult_cached": 1.7, "mult_input": 6.9, "mult_output": 24.0}, {"default_visible": true, "id": "glm-5-turbo", "mult_cached": 1.5, "mult_input": 5.7, "mult_output": 21.0}, {"default_visible": true, "id": "glm-4.7", "mult_cached": 1.2, "mult_input": 4.6, "mult_output": 16.0}], "name": "z.ai Devpack", "off_peak_label": "Mon\u2013Fri 14:00\u201318:00 UTC+8", "off_peak_multiplier": 0.5, "pricing_type": "subscription", "tiers": [{"monthly_usd": 18, "name": "Lite", "weekly_credits": 10000}, {"monthly_usd": 80, "name": "Pro", "weekly_credits": 60000}, {"monthly_usd": 168, "name": "Max", "weekly_credits": 140000}]}];
-  // ponytail: used by slice 04 subscription math; paygo rows read prices from data-* attributes
+  const SUBS = PROVIDERS.filter(p => p.pricing_type === 'subscription');
 
   // ── Helpers ──────────────────────────────────────────────────
   const fmtCompact = n => {
@@ -1576,6 +1576,7 @@
     if (abs >= 1_000) return `${(n / 1_000).toFixed(1)}K`;
     return `${n.toLocaleString('en-US', { maximumFractionDigits: 0 })}`;
   };
+  const fmtUSD = n => Number.isFinite(n) ? `$${n.toFixed(2)}` : '—';
 
   // ── Effective tokens/$ ───────────────────────────────────────
   // tokens_per_dollar = 1_000_000 / blended_price; the column shows
@@ -1589,9 +1590,15 @@
     const warning = document.getElementById('pct-warning');
     warning.style.display = Math.abs(input + cached + output - 100) > 0.1 ? 'block' : 'none';
 
+    const tierSel = (document.querySelector('input[name="tier"]:checked') || {}).value || null;
+    const offPeak = document.getElementById('off-peak-toggle')?.checked || false;
+
     document.querySelectorAll('#provider-table tbody tr').forEach(row => {
       const cell = row.querySelector('.effective-tokens');
-      if (row.dataset.pricingType === 'subscription') return; // slice 04
+      if (row.dataset.pricingType === 'subscription') {
+        updateSubscriptionRow(row, cell, { input, cached, output }, budget, tierSel, offPeak);
+        return;
+      }
 
       const ip = parseFloat(row.dataset.inputPrice);
       const cp = parseFloat(row.dataset.cachedPrice);
@@ -1608,10 +1615,49 @@
     });
   }
 
+  // ── Subscription rows: credit math ───────────────────────────
+  // weekly_cost = monthly/4.33; credits/1M = weighted_mult × 100;
+  // tokens/week = weekly_credits / credits_per_1M × 1M;
+  // effective $/1M = weekly_cost / (tokens/week / 1M).
+  function updateSubscriptionRow(row, cell, pct, budget, tierSel, offPeak) {
+    const priceCells = row.querySelectorAll('.sub-price');
+    const dash = () => { cell.textContent = '—'; priceCells.forEach(c => c.textContent = '—'); };
+
+    // Global tier selector: only rows for the selected tier compute.
+    // Providers missing the selected tier (divergent tier sets) show —.
+    // ponytail: per-provider tier selectors if tiers diverge
+    if (!SUBS.length || !tierSel) { dash(); return; }
+    const prov = SUBS.find(p => p.id === row.dataset.providerId);
+    const tier = prov && prov.tiers.find(t => t.name === tierSel);
+    if (!prov || !tier) { dash(); return; }
+
+    const mi = parseFloat(row.dataset.multInput), mc = parseFloat(row.dataset.multCached), mo = parseFloat(row.dataset.multOutput);
+
+    // Free model: all multipliers zero, skip math
+    if (mi === 0 && mc === 0 && mo === 0) { cell.textContent = 'Free'; return; }
+
+    const weightedMult = pct.input / 100 * mi + pct.cached / 100 * mc + pct.output / 100 * mo;
+    if (weightedMult === 0) { dash(); return; } // all pct slots zero
+    let creditsPer1M = weightedMult * 1_000_000 / 10_000;
+    if (offPeak) creditsPer1M *= prov.off_peak_multiplier || 1;
+
+    const weeklyCost = tier.monthly_usd / 4.33;
+    const tokensPerWeek = tier.weekly_credits / creditsPer1M * 1_000_000;
+    const effectivePrice = weeklyCost / (tokensPerWeek / 1_000_000);
+    if (effectivePrice <= 0) { dash(); return; }
+
+    cell.textContent = fmtCompact(budget / effectivePrice * 1_000_000);
+    const price = fmtUSD(effectivePrice);
+    priceCells.forEach(c => c.textContent = price);
+  }
+
   // ── Live recalc on inputs ────────────────────────────────────
   ['budget-amount', 'input-pct', 'cached-pct', 'output-pct'].forEach(id => {
     document.getElementById(id).addEventListener('input', updateEffectiveTokens);
   });
+  document.querySelectorAll('input[name="tier"]').forEach(r => r.addEventListener('change', updateEffectiveTokens));
+  const offPeakToggle = document.getElementById('off-peak-toggle');
+  if (offPeakToggle) offPeakToggle.addEventListener('change', updateEffectiveTokens);
 
   updateEffectiveTokens();
 </script>

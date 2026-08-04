@@ -1,7 +1,7 @@
 <script>
   // ── Provider data (baked from providers.json at generate time) ──
   const PROVIDERS = {{ providers | tojson }};
-  // ponytail: used by slice 04 subscription math; paygo rows read prices from data-* attributes
+  const SUBS = PROVIDERS.filter(p => p.pricing_type === 'subscription');
 
   // ── Helpers ──────────────────────────────────────────────────
   const fmtCompact = n => {
@@ -12,6 +12,7 @@
     if (abs >= 1_000) return `${(n / 1_000).toFixed(1)}K`;
     return `${n.toLocaleString('en-US', { maximumFractionDigits: 0 })}`;
   };
+  const fmtUSD = n => Number.isFinite(n) ? `$${n.toFixed(2)}` : '—';
 
   // ── Effective tokens/$ ───────────────────────────────────────
   // tokens_per_dollar = 1_000_000 / blended_price; the column shows
@@ -25,9 +26,15 @@
     const warning = document.getElementById('pct-warning');
     warning.style.display = Math.abs(input + cached + output - 100) > 0.1 ? 'block' : 'none';
 
+    const tierSel = (document.querySelector('input[name="tier"]:checked') || {}).value || null;
+    const offPeak = document.getElementById('off-peak-toggle')?.checked || false;
+
     document.querySelectorAll('#provider-table tbody tr').forEach(row => {
       const cell = row.querySelector('.effective-tokens');
-      if (row.dataset.pricingType === 'subscription') return; // slice 04
+      if (row.dataset.pricingType === 'subscription') {
+        updateSubscriptionRow(row, cell, { input, cached, output }, budget, tierSel, offPeak);
+        return;
+      }
 
       const ip = parseFloat(row.dataset.inputPrice);
       const cp = parseFloat(row.dataset.cachedPrice);
@@ -44,10 +51,49 @@
     });
   }
 
+  // ── Subscription rows: credit math ───────────────────────────
+  // weekly_cost = monthly/4.33; credits/1M = weighted_mult × 100;
+  // tokens/week = weekly_credits / credits_per_1M × 1M;
+  // effective $/1M = weekly_cost / (tokens/week / 1M).
+  function updateSubscriptionRow(row, cell, pct, budget, tierSel, offPeak) {
+    const priceCells = row.querySelectorAll('.sub-price');
+    const dash = () => { cell.textContent = '—'; priceCells.forEach(c => c.textContent = '—'); };
+
+    // Global tier selector: only rows for the selected tier compute.
+    // Providers missing the selected tier (divergent tier sets) show —.
+    // ponytail: per-provider tier selectors if tiers diverge
+    if (!SUBS.length || !tierSel) { dash(); return; }
+    const prov = SUBS.find(p => p.id === row.dataset.providerId);
+    const tier = prov && prov.tiers.find(t => t.name === tierSel);
+    if (!prov || !tier) { dash(); return; }
+
+    const mi = parseFloat(row.dataset.multInput), mc = parseFloat(row.dataset.multCached), mo = parseFloat(row.dataset.multOutput);
+
+    // Free model: all multipliers zero, skip math
+    if (mi === 0 && mc === 0 && mo === 0) { cell.textContent = 'Free'; return; }
+
+    const weightedMult = pct.input / 100 * mi + pct.cached / 100 * mc + pct.output / 100 * mo;
+    if (weightedMult === 0) { dash(); return; } // all pct slots zero
+    let creditsPer1M = weightedMult * 1_000_000 / 10_000;
+    if (offPeak) creditsPer1M *= prov.off_peak_multiplier || 1;
+
+    const weeklyCost = tier.monthly_usd / 4.33;
+    const tokensPerWeek = tier.weekly_credits / creditsPer1M * 1_000_000;
+    const effectivePrice = weeklyCost / (tokensPerWeek / 1_000_000);
+    if (effectivePrice <= 0) { dash(); return; }
+
+    cell.textContent = fmtCompact(budget / effectivePrice * 1_000_000);
+    const price = fmtUSD(effectivePrice);
+    priceCells.forEach(c => c.textContent = price);
+  }
+
   // ── Live recalc on inputs ────────────────────────────────────
   ['budget-amount', 'input-pct', 'cached-pct', 'output-pct'].forEach(id => {
     document.getElementById(id).addEventListener('input', updateEffectiveTokens);
   });
+  document.querySelectorAll('input[name="tier"]').forEach(r => r.addEventListener('change', updateEffectiveTokens));
+  const offPeakToggle = document.getElementById('off-peak-toggle');
+  if (offPeakToggle) offPeakToggle.addEventListener('change', updateEffectiveTokens);
 
   updateEffectiveTokens();
 </script>
