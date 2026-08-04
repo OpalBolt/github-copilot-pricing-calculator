@@ -261,6 +261,39 @@ def main():
             crc = pr.get("cache_read_cost")
             return crc if crc is not None else pr.get("input_token", 0)
 
+        # Capability + cheapest-quant derivation for the row badges (slice 05).
+        # One consistent source per capability (plan.md "Edge cases"): vision/audio
+        # from input_modalities, reasoning/tools from supported_features.
+        def _capabilities(m):
+            mods = set(m.get("input_modalities", []))
+            feats = set(m.get("supported_features", []))
+            return {
+                "vision": "image" in mods,
+                "audio": "audio" in mods,
+                "reasoning": "reasoning" in feats,
+                "tools": "tools" in feats,
+            }
+
+        HEAVY_QUANTS = ("fp4", "int4")
+
+        # Cheapest provider = the one whose pricing matches the model's top-level
+        # `pricing`. When several tie at the cheapest price, prefer an aggressive
+        # quant so the honesty badge fires (the low price IS available compressed).
+        def _cheapest_quant(m):
+            top = m["pricing"]
+            tier = []
+            for pd in m.get("providers_details", {}).values():
+                pp = pd.get("pricing", {})
+                if (top.get("input_token") == pp.get("input_token")
+                        and top.get("output_token") == pp.get("output_token")):
+                    q = pd.get("quantization")
+                    if q:
+                        tier.append(q)
+            heavy = sorted(q for q in tier if q in HEAVY_QUANTS)
+            if heavy:
+                return heavy[0]
+            return sorted(tier)[0] if tier else None
+
         cortecs_js_models = []
         for m in cortecs_models:
             prov_rows = []
@@ -286,6 +319,8 @@ def main():
                 "input": m["pricing"]["input_token"],
                 "cached": _cached(m["pricing"]),
                 "output": m["pricing"]["output_token"],
+                "capabilities": _capabilities(m),
+                "quant": _cheapest_quant(m),
                 "providers": prov_rows,
             })
         cortecs_template = env.get_template("cortecs.html.j2")

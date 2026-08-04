@@ -1,15 +1,32 @@
 <script>
   // ── Pricing data (fetched {{ fetchDate }}) ──────────────────────────
-  // Each model: { id, owned_by, input, cached, output, providers: [...] } — all token
-  // rates are € per 1M. `providers` is the drill-down (per-provider price, quant,
-  // context, features, audio/speech cost where present).
-  // PROVIDERS is the fetch-derived sovereignty/ZDR table (slice 04); the client only
-  // reads it for badges, never recomputes it.
+  // Each model: { id, owned_by, input, cached, output, capabilities, quant,
+  //   providers: [...] } — all token rates are € per 1M. `capabilities` is the
+  //   derived reasoning/tools/vision/audio flags; `quant` is the cheapest
+  //   provider's quantization (badge only when fp4/int4). `providers` is the
+  //   drill-down (per-provider price, quant, context, features, audio/speech
+  //   cost where present).
+  // PROVIDERS is the fetch-derived sovereignty/ZDR table (slice 04); the client
+  // only reads it for badges/filters, never recomputes it.
   // ponytail: cached = cache_read_cost where the provider publishes one, else the
   // input rate (fallback baked in generate_html.py). Same / 1_000_000 division as
   // the GitHub tool; Cortecs rates are already €/1M, no further conversion.
   const ALL_MODELS = {{ models_json }};
   const PROVIDERS  = {{ providers_json }};
+
+  // ── State ─────────────────────────────────────────────────────────
+  // Filter chips are toggles that combine with AND; sort/search/toggles mirror
+  // the GitHub tool (templates/app.js.j2). Default sort is cheapest-input first,
+  // matching the server's pre-sort in generate_html.py.
+  const state = {
+    sortCol: 'input',
+    sortDir: 'asc',
+    search: '',
+    filters: { sovereign: false, zdr: false, reasoning: false, tools: false, vision: false, audio: false },
+    showInput: true,
+    showCached: true,
+    showOutput: true,
+  };
 
   // ── Helpers ─────────────────────────────────────────────────────────
   const fmt      = n => n.toLocaleString('en-US', { minimumFractionDigits: 3, maximumFractionDigits: 3 });
@@ -55,27 +72,148 @@
          + (p.zdr ? '<span class="badge-zdr" title="Zero data retention">🔒</span>' : '');
   }
 
-  // ── Build the table once ────────────────────────────────────────────
-  // Rows are created a single time so the expand/collapse state survives the
-  // budget recompute (recompute() only touches cost/runs/bar cells). A delegated
-  // click on <tbody> toggles the nested provider table — it never fires on the
-  // controls panel, so it can't fight the budget inputs.
-  function buildTable() {
-    const body = document.getElementById('table-body');
-    body.innerHTML = ALL_MODELS.map(m => `
+  // Capability badges for the model row (slice 05). Reasoning/Tools/Vision/Audio
+  // only when the model supports them; source baked in generate_html.py.
+  function capabilityBadges(m) {
+    const c = m.capabilities || {};
+    const chips = [];
+    if (c.reasoning) chips.push('<span class="cap" title="Reasoning">reasoning</span>');
+    if (c.tools)     chips.push('<span class="cap" title="Tool use">tools</span>');
+    if (c.vision)    chips.push('<span class="cap" title="Image input">vision</span>');
+    if (c.audio)     chips.push('<span class="cap" title="Audio input">audio</span>');
+    return chips.join('');
+  }
+
+  // Muted quant chip — only the heavy compressions that explain a low headline
+  // price (plan.md "Edge cases"). Full-quality quants (fp16/bf16/fp8) stay quiet;
+  // the drill-down still shows every provider's quant.
+  function quantChip(m) {
+    const q = m.quant;
+    if (q === 'fp4' || q === 'int4') {
+      return `<span class="quant-chip" title="Cheapest provider uses ${q} — heavy quantization explains the low price.">${q}</span>`;
+    }
+    return '';
+  }
+
+  // Does the model survive the active filter chips + free-text search?
+  function passesFilters(m) {
+    if (state.search) {
+      const q = state.search.toLowerCase();
+      if (!m.id.toLowerCase().includes(q) && !(m.owned_by || '').toLowerCase().includes(q)) return false;
+    }
+    const f = state.filters;
+    const c = m.capabilities || {};
+    if (f.reasoning && !c.reasoning) return false;
+    if (f.tools && !c.tools) return false;
+    if (f.vision && !c.vision) return false;
+    if (f.audio && !c.audio) return false;
+    if (f.sovereign || f.zdr) {
+      const attrs = (m.providers || []).map(p => PROVIDERS[p.name]).filter(Boolean);
+      if (f.sovereign && !attrs.some(a => a.eu_native)) return false;
+      if (f.zdr && !attrs.some(a => a.zdr)) return false;
+    }
+    return true;
+  }
+
+  // Mirror of app.js.j2's comparator: numeric columns by value, text by
+  // localeCompare, nulls sort last. Direction flips on repeat clicks (sort header).
+  function sortRows(rows) {
+    const col = state.sortCol, dir = state.sortDir === 'asc' ? 1 : -1;
+    rows.sort((a, b) => {
+      const av = a[col], bv = b[col];
+      if (typeof av === 'number' && typeof bv === 'number') return (av - bv) * dir;
+      if (av == null && bv == null) return 0;
+      if (av == null) return 1;
+      if (bv == null) return -1;
+      return String(av ?? '').localeCompare(String(bv ?? '')) * dir;
+    });
+    return rows;
+  }
+
+  function barHtml(cost, maxCost) {
+    return cost > 0
+      ? `<div class="credit-bar-wrap"><div class="credit-bar-bg">`
+        + `<div class="credit-bar-fill" style="width:${Math.round(cost / maxCost * 100)}%"></div>`
+        + `</div></div>`
+      : `<span class="dim">free</span>`;
+  }
+
+  function summaryChips(cfg) {
+    document.getElementById('summary-chips').innerHTML = `
+      <span class="chip">Total tokens: <strong>${cfg.total.toLocaleString()}</strong></span>
+      <span class="chip">Input: <strong>${Math.round(cfg.ip)}%</strong></span>
+      <span class="chip">Cached: <strong>${Math.round(cfg.cp)}%</strong></span>
+      <span class="chip">Output: <strong>${Math.round(cfg.op)}%</strong></span>
+      <span class="chip">Budget: <strong>€${fmtMoney(cfg.budget)}</strong></span>`;
+  }
+
+  // ── Full render: rebuilds rows (filters / search / sort changed) ──────
+  // Rebuilding innerHTML wipes any expanded drill-down (standard behaviour when
+  // the row set changes) but keeps the delegated click listener on <tbody>.
+  function render() {
+    const cfg = getConfig();
+    const rows = ALL_MODELS.filter(passesFilters).map(m => {
+      const cost = estimateCost(m, cfg);
+      const runs = cost > 0 ? cfg.budget / cost : null;   // free-model guard, no /0
+      return { ...m, cost, runs };
+    });
+    sortRows(rows);
+    const maxCost = rows.reduce((mx, r) => Math.max(mx, r.cost), 0) || 1;
+
+    document.getElementById('table-body').innerHTML = rows.map(m => `
       <tr class="model-row" data-id="${m.id}">
         <td>${m.id}</td>
         <td class="owner">${m.owned_by}</td>
-        <td class="num">${rate(m.input)}</td>
-        <td class="num">${rate(m.cached)}</td>
-        <td class="num">${rate(m.output)}</td>
-        <td class="num cost-cell">—</td>
-        <td class="num runs-cell">—</td>
-        <td class="bar-cell bar-fill-cell"></td>
+        <td class="caps">${capabilityBadges(m)}${quantChip(m)}</td>
+        <td class="num col-input">${rate(m.input)}</td>
+        <td class="num col-cached">${rate(m.cached)}</td>
+        <td class="num col-output">${rate(m.output)}</td>
+        <td class="num cost-cell">${m.cost > 0 ? `€${fmt(m.cost)}` : 'Free'}</td>
+        <td class="num runs-cell">${m.runs != null ? fmtRuns(m.runs) : '—'}</td>
+        <td class="bar-cell bar-fill-cell">${barHtml(m.cost, maxCost)}</td>
       </tr>`).join('');
-    body.addEventListener('click', onRowClick);
+
+    document.getElementById('no-results').style.display = rows.length ? 'none' : 'block';
+    document.getElementById('row-count').innerHTML =
+      `Showing <strong>${rows.length}</strong> of <strong>${ALL_MODELS.length}</strong> models`;
+
+    document.querySelectorAll('thead th[data-col]').forEach(th => {
+      th.classList.remove('sort-asc', 'sort-desc');
+      const icon = th.querySelector('.sort-icon');
+      if (th.dataset.col === state.sortCol) {
+        th.classList.add(state.sortDir === 'asc' ? 'sort-asc' : 'sort-desc');
+        if (icon) icon.textContent = state.sortDir === 'asc' ? '↑' : '↓';
+      } else if (icon) {
+        icon.textContent = '↕';
+      }
+    });
+
+    summaryChips(cfg);
+    applyColumnVisibility();
   }
 
+  // ── Light recompute: budget controls changed, keep rows + drills intact ──
+  // Only touches cost / runs / bar cells. The bar rescales to the most expensive
+  // model currently visible (the filtered set), per plan.md "Relative-cost bar".
+  function recompute() {
+    const cfg = getConfig();
+    const trs = Array.from(document.querySelectorAll('#table-body tr.model-row'));
+    const byId = id => ALL_MODELS.find(x => x.id === id);
+    const costs = trs.map(tr => estimateCost(byId(tr.dataset.id), cfg));
+    const maxCost = costs.reduce((mx, c) => Math.max(mx, c), 0) || 1;
+
+    trs.forEach((tr, i) => {
+      const cost = costs[i];
+      const runs = cost > 0 ? cfg.budget / cost : null;
+      tr.querySelector('.cost-cell').textContent = cost > 0 ? `€${fmt(cost)}` : 'Free';
+      tr.querySelector('.runs-cell').textContent = runs != null ? fmtRuns(runs) : '—';
+      tr.querySelector('.bar-fill-cell').innerHTML = barHtml(cost, maxCost);
+    });
+
+    summaryChips(cfg);
+  }
+
+  // ── Drill-down (click a model row to expand its providers) ───────────
   function onRowClick(e) {
     const tr = e.target.closest('tr.model-row');
     if (!tr) return;                       // ignore clicks inside a drill-down row
@@ -87,10 +225,10 @@
     }
     const m = ALL_MODELS.find(x => x.id === tr.dataset.id);
     const rows = (m.providers || []).map(providerRowHtml).join('')
-      || '<tr class="provider-row"><td colspan="8" class="dim">No provider detail</td></tr>';
+      || '<tr class="provider-row"><td colspan="9" class="dim">No provider detail</td></tr>';
     const drill = document.createElement('tr');
     drill.className = 'drilldown-row';
-    drill.innerHTML = `<td colspan="8">
+    drill.innerHTML = `<td colspan="9">
       <table class="provider-table">
         <thead><tr>
           <th>Provider</th>
@@ -131,38 +269,71 @@
       </tr>`;
   }
 
-  // ── Recompute cost / runs / bar on any control change ───────────────
-  function recompute() {
-    const cfg = getConfig();
-    const maxCost = ALL_MODELS.reduce((mx, m) => Math.max(mx, estimateCost(m, cfg)), 0) || 1;
-
-    document.querySelectorAll('#table-body tr.model-row').forEach(tr => {
-      const m = ALL_MODELS.find(x => x.id === tr.dataset.id);
-      const cost = estimateCost(m, cfg);
-      const runs = cost > 0 ? cfg.budget / cost : null;   // free-model guard, no /0
-      tr.querySelector('.cost-cell').textContent = cost > 0 ? `€${fmt(cost)}` : 'Free';
-      tr.querySelector('.runs-cell').textContent = runs != null ? fmtRuns(runs) : '—';
-      tr.querySelector('.bar-fill-cell').innerHTML = cost > 0
-        ? `<div class="credit-bar-wrap"><div class="credit-bar-bg">`
-          + `<div class="credit-bar-fill" style="width:${Math.round(cost / maxCost * 100)}%"></div>`
-          + `</div></div>`
-        : `<span class="dim">free</span>`;
+  // ── Column visibility (mirror app.js.j2) ────────────────────────────
+  function applyColumnVisibility() {
+    const t = document.getElementById('cortecs-table');
+    t.classList.toggle('hide-input', !state.showInput);
+    t.classList.toggle('hide-cached', !state.showCached);
+    t.classList.toggle('hide-output', !state.showOutput);
+    [['toggle-input-col', 'showInput'],
+     ['toggle-cached-col', 'showCached'],
+     ['toggle-output-col', 'showOutput']].forEach(([id, key]) => {
+      const el = document.getElementById(id);
+      if (el) el.checked = state[key];
     });
-
-    document.getElementById('summary-chips').innerHTML = `
-      <span class="chip">Total tokens: <strong>${cfg.total.toLocaleString()}</strong></span>
-      <span class="chip">Input: <strong>${Math.round(cfg.ip)}%</strong></span>
-      <span class="chip">Cached: <strong>${Math.round(cfg.cp)}%</strong></span>
-      <span class="chip">Output: <strong>${Math.round(cfg.op)}%</strong></span>
-      <span class="chip">Budget: <strong>€${fmtMoney(cfg.budget)}</strong></span>
-    `;
   }
 
-  // ── Live recalc on any control (never rebuilds rows, so drills stay open) ──
+  // ── Event wiring ───────────────────────────────────────────────────
+  // Sort: click a column header; repeat click flips direction (mirror GitHub tool).
+  document.querySelectorAll('thead th.sortable').forEach(th => {
+    th.addEventListener('click', () => {
+      const col = th.dataset.col;
+      if (state.sortCol === col) {
+        state.sortDir = state.sortDir === 'asc' ? 'desc' : 'asc';
+      } else {
+        state.sortCol = col;
+        state.sortDir = 'asc';
+      }
+      render();
+    });
+  });
+
+  // Filter chips: each is a toggle; multiple combine with AND.
+  document.getElementById('filter-chips').addEventListener('click', e => {
+    const btn = e.target.closest('.filter-chip');
+    if (!btn) return;
+    const key = btn.dataset.filter;
+    state.filters[key] = !state.filters[key];
+    btn.classList.toggle('active', state.filters[key]);
+    render();
+  });
+
+  // Free-text search by model name and owner.
+  document.getElementById('search-input').addEventListener('input', e => {
+    state.search = e.target.value;
+    render();
+  });
+
+  // Column show/hide toggles (CSS only — rows and drills stay put).
+  [['toggle-input-col', 'showInput'],
+   ['toggle-cached-col', 'showCached'],
+   ['toggle-output-col', 'showOutput']].forEach(([id, key]) => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('change', e => {
+      state[key] = e.target.checked;
+      applyColumnVisibility();
+    });
+  });
+
+  // Budget machinery: light recompute so expanded drill-downs survive keystrokes.
   ['total-tokens', 'input-pct', 'cached-pct', 'output-pct', 'budget-amount'].forEach(id => {
     document.getElementById(id).addEventListener('input', recompute);
   });
 
-  buildTable();
-  recompute();
+  // Delegated drill-down toggle — attached once on the <tbody>; survives the
+  // innerHTML rebuilds render() does because the listener lives on the element.
+  document.getElementById('table-body').addEventListener('click', onRowClick);
+
+  // ── Initial render ─────────────────────────────────────────────────
+  render();
 </script>

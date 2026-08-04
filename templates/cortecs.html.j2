@@ -16,6 +16,10 @@
     #cortecs-table td.owner { color: var(--slate-5); }
     /* bar cell needs to breathe despite the nowrap above */
     #cortecs-table td.bar-cell { white-space: normal; }
+    /* column show/hide (mirror the #main-table rules for the Cortecs table) */
+    #cortecs-table.hide-input .col-input,
+    #cortecs-table.hide-cached .col-cached,
+    #cortecs-table.hide-output .col-output { display: none; }
 
     /* ── Provider drill-down (slice 04) ── */
     #cortecs-table tr.model-row { cursor: pointer; }
@@ -30,6 +34,22 @@
     .provider-table td:last-child { white-space: normal; } /* features can wrap */
     .badge-eu, .badge-zdr { margin-left: 4px; font-size: 12px; white-space: nowrap; }
     .provider-table .dim { color: var(--slate-4, #94a3b8); }
+
+    /* ── Row badges (slice 05): capability + heavy-quant chips ── */
+    #cortecs-table td.caps { white-space: normal; }
+    .cap {
+      display: inline-block; font-size: 10px; font-weight: 600;
+      letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 2px 6px; margin: 0 3px 2px 0; border-radius: 3px;
+      background: var(--slate-2, #eef2f7); color: var(--slate-6, #475569);
+      border: 1px solid var(--slate-3, #dbe3ec);
+    }
+    .quant-chip {
+      display: inline-block; font-size: 10px; font-weight: 600;
+      padding: 2px 6px; margin: 0 0 2px 0; border-radius: 3px;
+      background: var(--slate-1, #f8fafc); color: var(--slate-5, #64748b);
+      border: 1px dashed var(--slate-3, #cbd5e1);
+    }
   </style>
 </head>
 <body>
@@ -60,26 +80,63 @@
     </div>
   </div>
 
+  <!-- Filters + search + column toggles (slice 05). Chips are toggles that AND together. -->
+  <div class="filters-bar">
+    <div class="filter-group">
+      <span class="filter-label">Filter</span>
+      <div class="filter-chips" id="filter-chips">
+        <button class="filter-chip" data-filter="sovereign" title="Only models with at least one EU-sovereign provider">🇪🇺 Sovereign-only</button>
+        <button class="filter-chip" data-filter="zdr" title="Only models with at least one zero-data-retention provider">🔒 ZDR</button>
+        <button class="filter-chip" data-filter="reasoning">Reasoning</button>
+        <button class="filter-chip" data-filter="tools">Tools</button>
+        <button class="filter-chip" data-filter="vision">Vision</button>
+        <button class="filter-chip" data-filter="audio">Audio</button>
+      </div>
+    </div>
+    <div class="search-wrap">
+      <input type="search" id="search-input" placeholder="Search model or owner…" />
+    </div>
+    <div class="column-toggle-group" aria-label="Table columns">
+      <span class="filter-label">Columns</span>
+      <div class="column-toggle-chips">
+        <label class="column-toggle-chip" for="toggle-input-col">
+          <input type="checkbox" id="toggle-input-col" checked />
+          <span>Input</span>
+        </label>
+        <label class="column-toggle-chip" for="toggle-cached-col">
+          <input type="checkbox" id="toggle-cached-col" checked />
+          <span>Cached</span>
+        </label>
+        <label class="column-toggle-chip" for="toggle-output-col">
+          <input type="checkbox" id="toggle-output-col" checked />
+          <span>Output</span>
+        </label>
+      </div>
+    </div>
+  </div>
+
   <div class="table-meta">
-    <span class="table-meta-count"><strong>{{ models|length }}</strong> models</span>
+    <span class="table-meta-count" id="row-count"></span>
   </div>
 
   <div class="table-wrapper">
     <table id="cortecs-table">
       <thead>
         <tr>
-          <th>Model</th>
-          <th>Owner</th>
-          <th class="num">Input €/1M</th>
-          <th class="num">Cached €/1M</th>
-          <th class="num">Output €/1M</th>
-          <th class="num" title="Estimated € cost for one run of your configured token mix (Total tokens × Input/Cached/Output %).">Est. cost</th>
+          <th class="sortable" data-col="id">Model <span class="sort-icon">↕</span></th>
+          <th class="sortable" data-col="owned_by">Owner <span class="sort-icon">↕</span></th>
+          <th>Capabilities</th>
+          <th class="sortable num col-input" data-col="input">Input €/1M <span class="sort-icon">↕</span></th>
+          <th class="sortable num col-cached" data-col="cached">Cached €/1M <span class="sort-icon">↕</span></th>
+          <th class="sortable num col-output" data-col="output">Output €/1M <span class="sort-icon">↕</span></th>
+          <th class="sortable num" data-col="cost" title="Estimated € cost for one run of your configured token mix (Total tokens × Input/Cached/Output %).">Est. cost <span class="sort-icon">↕</span></th>
           <th class="num" title="How many times you could repeat your token mix within your budget (Budget ÷ Est. cost).">Runs</th>
           <th class="bar-cell" title="Bar length is cost relative to the most expensive model in the current view.">Relative cost</th>
         </tr>
       </thead>
       <tbody id="table-body"></tbody>
     </table>
+    <div class="no-results" id="no-results">No models match your filters.</div>
   </div>
 
   <p class="page-note">
@@ -88,6 +145,7 @@
     Runs = Budget ÷ Est. cost. Free models (€0) show “Free” and never divide by zero.
     Prices shown are the cheapest available provider for each model; Cortecs also offers fastest and balanced routing.
     Click any model row to expand its providers — per-provider price, quantization, context size, features, and audio cost; 🇪🇺 marks EU-sovereign providers, 🔒 marks zero-data-retention.
+    A muted <strong>fp4</strong>/<strong>int4</strong> chip marks models whose cheapest provider uses heavy quantization — the detail behind every price is in the drill-down.
   </p>
 </main>
 
