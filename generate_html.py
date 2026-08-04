@@ -243,9 +243,16 @@ def main():
     )
 
     # Write output
-    output_path = Path(__file__).parent / "docs/index.html"
-    output_path.write_text(html, encoding="utf-8")
-    print(f"Generated {output_path} ({len(models)} models)")
+    copilot_out = Path(__file__).parent / "docs" / "copilot.html"
+    copilot_out.write_text(html, encoding="utf-8")
+    print(f"Generated {copilot_out} ({len(models)} models)")
+
+    # Render the landing hub to the site root.
+    landing_template = env.get_template("landing.html.j2")
+    landing_html = landing_template.render()
+    landing_out = Path(__file__).parent / "docs" / "index.html"
+    landing_out.write_text(landing_html, encoding="utf-8")
+    print(f"Generated {landing_out}")
 
     # Render the Cortecs page from cortecs.json (if present).
     # Server-side default order: cheapest input price first; client sort lands later.
