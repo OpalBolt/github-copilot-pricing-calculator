@@ -1,19 +1,19 @@
 <style>
   /* ── Design tokens ──────────────────────────────────────── */
   :root {
-    --efi-yellow:   #FFD100;
-    --nordic-black: #101820;
-    --canvas:       #F7FAFC;
-    --white:        #FFFFFF;
-    --slate-2:      #F1F5F9;
-    --slate-3:      #E2E8F0;
-    --slate-5:      #94A3B8;
-    --slate-6:      #64748B;
-    --slate-7:      #475569;
-    --slate-8:      #334155;
-    --slate-9:      #1E293B;
-    --link:         #007FA3;
-    --cta-hover:    #E6BC00;
+    --efi-yellow:   #E6C384;   /* Kanagawa carpYellow */
+    --nordic-black: #1F1F28;   /* Kanagawa sumiInk3 */
+    --canvas:       #181820;   /* Kanagawa sumiInk1 */
+    --white:        #2A2A37;   /* Kanagawa sumiInk4 */
+    --slate-2:      #363646;   /* Kanagawa sumiInk5 */
+    --slate-3:      #54546D;   /* Kanagawa sumiInk6 */
+    --slate-5:      #727169;   /* Kanagawa fujiGray */
+    --slate-6:      #C8C093;   /* Kanagawa oldWhite */
+    --slate-7:      #DCD7BA;   /* Kanagawa fujiWhite */
+    --slate-8:      #DCD7BA;   /* Kanagawa fujiWhite */
+    --slate-9:      #DCD7BA;   /* Kanagawa fujiWhite */
+    --link:         #7E9CD8;   /* Kanagawa crystalBlue */
+    --cta-hover:    #DCA561;   /* Kanagawa autumnYellow */
     --ease:         cubic-bezier(0.2, 0, 0, 1);
   }
 
@@ -626,8 +626,8 @@
     color: var(--nordic-black);
   }
 
-  tbody tr.in-compare { background: #FFFDE6; }
-  tbody tr.in-compare:hover { background: #FFF9C4; }
+  tbody tr.in-compare { background: #2E2C1F; }
+  tbody tr.in-compare:hover { background: #3D3B2C; }
 
   /* ── Compare tray ────────────────────────────────────────── */
   #compare-tray {
@@ -889,9 +889,9 @@
     line-height: 1.55;
     color: var(--slate-7);
   }
-  .explanation-card.explanation-input dt { color: #0F766E; }
-  .explanation-card.explanation-cached dt { color: #6B21A8; }
-  .explanation-card.explanation-output dt { color: #B45309; }
+  .explanation-card.explanation-input dt { color: #98BB6C; /* Kanagawa springGreen */ }
+  .explanation-card.explanation-cached dt { color: #D27E99; /* Kanagawa sakuraPink */ }
+  .explanation-card.explanation-output dt { color: #FFA066; /* Kanagawa surimiOrange */ }
   .explanation-note {
     margin-top: 12px;
   }
@@ -1067,7 +1067,6 @@
   }
   .hub-card:hover {
     border-color: var(--efi-yellow);
-    box-shadow: 0 6px 20px rgba(16, 24, 32, 0.07);
   }
   .hub-eyebrow {
     font-size: 12px;
