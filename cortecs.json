@@ -3214,8 +3214,7 @@
         "cache_read_cost": 0.01
       },
       "providers": [
-        "mistral",
-        "scaleway"
+        "mistral"
       ],
       "context_size": 32000,
       "tags": [
@@ -3244,19 +3243,6 @@
             "output_token": 0.3,
             "audio_cost": 6.7e-05,
             "cache_read_cost": 0.01
-          },
-          "quantization": null,
-          "context_size": 32000,
-          "supported_features": [
-            "json_mode",
-            "tools"
-          ]
-        },
-        "scaleway": {
-          "pricing": {
-            "currency": "EUR",
-            "input_token": 0.15,
-            "output_token": 0.35
           },
           "quantization": null,
           "context_size": 32000,
@@ -3597,7 +3583,6 @@
       },
       "providers": [
         "mistral",
-        "scaleway",
         "amazon_ireland"
       ],
       "context_size": 262000,
@@ -3629,19 +3614,6 @@
           },
           "quantization": null,
           "context_size": 262000,
-          "supported_features": [
-            "json_mode",
-            "tools"
-          ]
-        },
-        "scaleway": {
-          "pricing": {
-            "currency": "EUR",
-            "input_token": 0.4,
-            "output_token": 2.0
-          },
-          "quantization": null,
-          "context_size": 200000,
           "supported_features": [
             "json_mode",
             "tools"
@@ -5979,8 +5951,7 @@
         "output_token": 0.268
       },
       "providers": [
-        "nebius",
-        "scaleway"
+        "nebius"
       ],
       "context_size": 131000,
       "tags": [
@@ -6015,20 +5986,6 @@
           "supported_features": [
             "json_mode",
             "reasoning"
-          ]
-        },
-        "scaleway": {
-          "pricing": {
-            "currency": "EUR",
-            "input_token": 0.25,
-            "output_token": 0.5
-          },
-          "quantization": null,
-          "context_size": 40000,
-          "supported_features": [
-            "json_mode",
-            "reasoning",
-            "tools"
           ]
         }
       }
