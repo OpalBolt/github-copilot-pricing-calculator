@@ -1,192 +1,256 @@
-# Cortecs price calculator (sister site)
+# Provider price comparison
 
 ## Core idea
 
-A second price-comparison tool that mirrors the GitHub Copilot token calculator,
-but targets **Cortecs** models. Cortecs publishes a clean JSON API, so the data
-fetch is a single request instead of HTML scraping. The new wrinkle: every model
-can be served by several **providers**, each with its own price, quantization,
-context size, and features. The UI has to handle that.
+A price-comparison tool that puts model providers side by side. Providers
+have different pricing models — pay-per-token, subscription credits, or
+whatever comes next — so the page normalizes everything to one number:
+**effective tokens per dollar** at the user's own token mix.
 
-A small **landing page** lets a visitor pick the GitHub tool or the Cortecs tool.
+The first two providers are **DeepSeek** (paygo) and **z.ai** (paygo +
+Devpack subscription). The data model is designed so adding a third provider
+is a new entry in an array, not a code change.
+
+The tool is a new page in the existing token-calculator repo, linked from the
+landing hub.
 
 ## Problem it solves
 
-Finding the price of a Cortecs model today means clicking back and forth between
-models and providers. This puts every model and provider in one sortable,
-filterable, budget-aware table — the same job the Copilot calculator does, in €
-instead of AI credits.
+Comparing providers today means opening multiple pricing pages and doing
+mental math across incompatible pricing models. This tool puts every provider
+in one table and answers: *"I have $X. What does that get me on each?"*
 
 ## Decisions (locked during the jam)
 
 | Area | Decision |
 |---|---|
-| Purpose | Price calculator in the spirit of the Copilot tool, geared to Cortecs |
-| Entry point | Landing `index.html` that links to the GitHub tool and the Cortecs tool |
-| Headline price | **Cheapest** provider per model (the API already returns this) + a "N providers" badge |
-| Routing | One-line footnote: *prices are the cheapest available; Cortecs also offers fastest/balanced routing* (the API exposes no speed data, so cheapest is the only knowable headline) |
-| Provider drill-down | **Expandable inline row** — click a model to reveal a nested table of its providers |
-| Compare | A **"+"** on each model adds it to a compare tray (up to ~5), comparing models at cheapest price |
-| Sovereignty / ZDR | **Filter chips** + per-provider **badges**, derived once at fetch (see below) |
-| Capabilities | **Filter chips** (reasoning, tools, vision, audio) + small model badges |
-| Budget calc | The token-mix → est. cost / relative bar / runs machinery carries over, in € |
- Quant honesty | Badge the cheapest provider's quantization on the row **only when `fp4`/`int4`** (the heavy compressions that explain a low price); quiet for full-quality quants. Full detail in the drill-down
+| Purpose | Provider price comparison — "what does $X buy me?" |
+| Data model | A single `providers` array. Each entry has a `pricing_type` (`paygo` or `subscription`), a list of models, and provider-specific fields (tiers for subscriptions). Adding a provider = append to the array. |
+| Default visible models | Each model carries a `default_visible: true/false` flag. A "Show all models" chip reveals the rest. Providers set this flag in their scraper (e.g. DeepSeek marks both models visible; z.ai marks only devpack-eligible models visible). |
+| Core metric | **Effective tokens per dollar** — given a budget and token mix, how many tokens can you get? |
+| Controls | Same token-mix + budget panel as the Copilot/Cortecs tools, in USD. Subscription-tier selector and off-peak checkbox appear when any subscription provider is present. |
+| Subscription math | Credits = (input × mult_input + cached × mult_cached + output × mult_output) / 10,000. Effective $/1M derived from: monthly cost → weekly cost, credits/week → tokens/week at the user's mix. |
+| Off-peak | z.ai devpack charges 50% credits during off-peak (Mon–Fri 14:00–18:00 UTC+8). A checkbox toggles off-peak; defaults to peak. The off-peak multiplier is a field on the subscription provider entry, so other providers can set their own. |
+| Cache-hit ratio | User-adjustable via the token mix inputs (cached input %). No hardcoded default — the user sets it. |
+| Free models | Models with all-zero pricing show "Free" in the Effective tokens/$ column, skip math. |
+| Currency | USD (both initial providers price in USD). Currency is a field on each provider entry for future multi-currency support. |
 
 ## Data source
 
-Cortecs Models API — no key needed for the public list.
+Each provider publishes pricing as a static page — no APIs, HTML or markdown
+scraping. One fetch script per provider, all writing into a shared
+`providers.json`.
 
-```
-GET https://api.cortecs.ai/v1/models?extended=true&currency=EUR
-```
+### DeepSeek (paygo)
 
-- `extended=true` includes `providers_details` (per-provider price, quantization,
-  context size, features) — this is the field that makes the drill-down possible.
-- `currency=EUR` (default). The API accepts any ISO code; EUR-only for v1, a
-  currency toggle is a cheap later add.
-- Top-level `pricing` on each model is **already the cheapest provider's price**.
+`https://api-docs.deepseek.com/quick_start/pricing/` — Docusaurus site,
+pricing in an HTML `<table>`. Two models (v4-flash, v4-pro) with input (cache
+hit), input (cache miss), and output prices. Context: 1M for both.
 
-Shape (105 models, 15 providers) — one example:
+### z.ai paygo
+
+`https://docs.z.ai/guides/overview/pricing.md` — raw markdown. 14 text
+models, plus vision/image/video/audio/agent tables. We only scrape the text
+models table.
+
+### z.ai Devpack (subscription)
+
+`https://docs.z.ai/devpack/overview.md` — raw markdown. Contains:
+
+- Plan tiers: Lite (10K credits/week, $18/mo), Pro (60K credits/week,
+  $80/mo), Max (140K credits/week, $168/mo).
+- Credit multipliers per model: GLM-5.2 (6.9/1.7/24), GLM-5-Turbo
+  (5.7/1.5/21), GLM-4.7 (4.6/1.2/16), GLM-4.6V (1.2/0.3/2.7).
+- 5-hour credits in addition to weekly (2K/12K/28K) — ignore for v1, weekly
+  is the binding constraint.
+  `# ponytail: 5hr limit is burst protection, weekly is the real cap`
+
+### Unified JSON shape
+
+All scrapers write into one `providers.json` (checked in):
 
 ```json
 {
-  "id": "kimi-k3",
-  "owned_by": "Moonshot AI",
-  "description": "...",
-  "pricing": { "currency": "EUR", "input_token": 2.693, "output_token": 13.464 },  // = cheapest
-  "providers": ["nebius", "tensorix", "berget"],
-  "context_size": 1048576,
-  "input_modalities": ["text", "image"],
-  "supported_features": ["json_mode", "reasoning", "tools"],
-  "tags": ["Instruct", "Code", "Tools", "Reasoning", "Image"],
-  "providers_details": {
-    "nebius":  { "pricing": {...}, "quantization": "fp4", "context_size": 1024000, "supported_features": [...] },
-    "tensorix":{ "pricing": {..., "cache_read_cost": 0.673}, "quantization": "fp4", "context_size": 1048576, ... },
-    "berget":  { "pricing": {...}, "quantization": "int4", "context_size": 1000000, ... }
-  }
+  "providers": [
+    {
+      "id": "deepseek",
+      "name": "DeepSeek",
+      "pricing_type": "paygo",
+      "currency": "USD",
+      "models": [
+        { "id": "deepseek-v4-flash", "input": 0.14, "input_cache": 0.0028, "output": 0.28, "context": 1048576, "default_visible": true },
+        { "id": "deepseek-v4-pro", "input": 0.435, "input_cache": 0.003625, "output": 0.87, "context": 1048576, "default_visible": true }
+      ]
+    },
+    {
+      "id": "zai",
+      "name": "z.ai",
+      "pricing_type": "paygo",
+      "currency": "USD",
+      "models": [
+        { "id": "glm-5.2", "input": 1.4, "input_cache": 0.26, "output": 4.4, "default_visible": true },
+        { "id": "glm-4.7-flashx", "input": 0.07, "input_cache": 0.01, "output": 0.4, "default_visible": false },
+        "..."
+      ]
+    },
+    {
+      "id": "zai-devpack",
+      "name": "z.ai Devpack",
+      "pricing_type": "subscription",
+      "currency": "USD",
+      "off_peak_multiplier": 0.5,
+      "off_peak_label": "Mon–Fri 14:00–18:00 UTC+8",
+      "tiers": [
+        { "name": "Lite", "monthly_usd": 18, "weekly_credits": 10000 },
+        { "name": "Pro", "monthly_usd": 80, "weekly_credits": 60000 },
+        { "name": "Max", "monthly_usd": 168, "weekly_credits": 140000 }
+      ],
+      "models": [
+        { "id": "glm-5.2", "mult_input": 6.9, "mult_cached": 1.7, "mult_output": 24, "default_visible": true },
+        { "id": "glm-5-turbo", "mult_input": 5.7, "mult_cached": 1.5, "mult_output": 21, "default_visible": true },
+        { "id": "glm-4.7", "mult_input": 4.6, "mult_cached": 1.2, "mult_output": 16, "default_visible": true }
+      ]
+    }
+  ]
 }
 ```
 
-Available axes from the data:
-- **Capabilities**: `input_modalities` (text/image/audio), `supported_features`
-  (`json_mode`, `reasoning`, `tools`), `tags` (Code, Reasoning, Image, Audio, Tools, Safety-guard).
-- **Pricing**: `input_token`, `output_token`, `cache_read_cost` (53/105 models),
-  plus `audio_cost`/`speech_cost` on a few voice models.
-- **Per provider**: price, `quantization` (fp4/fp8/fp16/bf16/int4), `context_size`, features.
-- **Context size**: ranges 22K → 1.05M, and varies by provider.
+**Adding a provider** (e.g. Qwen) means:
 
-## Sovereignty & ZDR (derived, not a separate endpoint)
-
-There is no `/providers` endpoint, but the filter params let us derive a static
-provider-attribute table at fetch time. Diffing the API responses:
-
-| Set | Providers |
-|---|---|
-| All (15) | aki, amazon_ireland, amazon_paris, azure_sc, azure_spc, berget, google, inceptron, infercom, ionos, mistral, nebius, ovh, scaleway, tensorix |
-| EU-sovereign (`eu_native`) | aki, berget, inceptron, infercom, ionos, mistral, nebius, ovh, scaleway, tensorix |
-| Not EU-sovereign | amazon_ireland, amazon_paris, azure_sc, azure_spc, google (US hyperscalers) |
-| Zero-data-retention (`zdr`) | all except azure_sc, azure_spc |
-
-`fetch_cortecs.py` records these three calls' results into a small
-`providers` table baked into the JSON. Each provider in a drill-down then carries
-🇪🇺 (EU-sovereign) and/or 🔒 (ZDR) badges. A "Sovereign-only" chip filters the table.
+1. Write a scraper function in `fetch_providers.py`.
+2. Append its output to the `providers` array.
+3. Done. The UI iterates the array — no template changes needed.
 
 ## Architecture
 
-Same repo, restructured. Reuse the existing fetch → JSON → Jinja2 → static HTML
-pipeline. New/changed files:
+Same repo, same fetch → JSON → Jinja2 → static HTML pipeline. New/changed
+files:
 
 ```
-fetch_cortecs.py            # NEW — one curl to /v1/models?extended=true; derive provider table; write cortecs.json
-cortecs.json                # NEW — cached Cortecs data (checked in)
-generate_html.py            # extended — also render docs/cortecs.html and the landing docs/index.html
-pricing.json / model_comparison.json   # unchanged (GitHub tool data)
+fetch_providers.py             # NEW — runs all provider scrapers → providers.json
+providers.json                 # NEW — cached provider data (checked in)
+generate_html.py               # extended — also render docs/provider-compare.html
 templates/
-  landing.html.j2           # NEW — switcher hub (two links + short blurb each)
-  cortecs.html.j2           # NEW — Cortecs tool page structure
-  page.html.j2              # GitHub tool page (unchanged)
-  macros.html.j2            # extended with provider-row / badge macros
-  styles.css.j2             # shared base + provider/drill-down/landing styles
-  cortecs.app.js.j2         # NEW — Cortecs client JS (filters, sort, expand, +/compare, budget)
-  app.js.j2                 # GitHub tool JS (unchanged)
+  landing.html.j2              # extended — new card on the hub
+  provider-compare.html.j2     # NEW — provider comparison page
+  macros.html.j2               # extended with provider badge macros
+  styles.css.j2                # extended with provider comparison styles
+  provider-compare.app.js.j2   # NEW — budget, token mix, effective math, filters
 docs/
-  index.html                # NEW landing (was the GitHub tool)
-  cortecs.html              # NEW — Cortecs tool output
-  copilot.html              # GitHub tool output (moved from index.html)
+  index.html                   # landing (updated)
+  provider-compare.html        # NEW — provider comparison output
 ```
 
 Notes:
-- `page.html.j2` stays the GitHub tool; the Cortecs page gets its own template
-  because the provider drill-down + "+" column are new markup.
-- Separate JS per tool. Shared helpers (filter/sort/bar) can be pulled out if
-  duplication grows — not yet. `# ponytail: per-tool JS, extract shared if it spreads`
-- Existing deep links to the old `index.html` break. Fine for this project; the
-  landing page replaces it. `# ponytail: no redirects, personal project`
 
-### Landing page
+- One fetch script, one JSON file. Each provider is a function in
+  `fetch_providers.py` that returns a provider object; main() merges them.
+  Adding a provider = write a function + add it to the list.
+- UI iterates `providers` array. Rows, lanes, and filter chips are generated
+  dynamically. No provider-specific markup.
+- Subscription controls (tier selector, off-peak toggle) appear when
+  `providers` contains any entry with `pricing_type: "subscription"`. Labels
+  come from the data (`off_peak_label`).
+- `# ponytail: per-tool JS, extract shared helpers if they spread`
 
-Hub `index.html` with two cards (GitHub calculator + Cortecs calculator). Locked:
-this lets the GitHub calculator live as just another linked tool rather than a
-headline feature, so the page never has to advertise "we compare other tools."
-The lighter nav-link alternative is dropped.
+## UI
 
-## UI (Cortecs tool)
+A single table. Rows are provider × plan × model combinations. The key column
+is **Effective tokens/$**.
 
-Table, one row per model, columns adapted from the Copilot tool:
+Columns:
 
-`+ | Model | Owner | Capabilities | Context | Input €/1M | Cached €/1M | Output €/1M | Est. cost | Runs | Providers`
+`Provider | Plan | Model | Input $/1M | Cached $/1M | Output $/1M | Effective tokens/$`
 
-- **+** adds to the compare tray (up to ~5). Models compare at cheapest price.
-- **Providers** cell: the "N providers" badge; click the row to expand.
-- **Expand (drill-down)**: a nested table under the row, one line per provider —
-  provider name + 🇪🇺/🔒 badges, quantization, context size, input/cached/output,
-  supported features.
-- **Quant badge**: a muted `fp4`/`int4` chip on the row when the cheapest provider is heavily quantized (see Edge cases).
-- **Capabilities** badges on the model row (reasoning/tools/vision/audio).
-- **Controls panel** (carried over): Total tokens, Input/Cached/Output %, € budget.
-  Drives Est. cost and Runs columns.
-- **Filter chips**: Sovereign-only, ZDR, Reasoning, Tools, Vision, Audio, plus
-  free-text search by model/owner. Keep the show/hide toggles for Input/Cached/Output.
-- **Relative-cost bar**: scaled to the cheapest model in the current view, as today.
+- **Provider**: provider name badge (from `provider.name`).
+- **Plan**: "Paygo" for paygo providers, tier name for subscription providers
+  (Lite/Pro/Max).
+- **Model**: model id.
+- **$/1M columns**: raw prices as published. For subscription providers, show
+  the effective $/1M derived from the credit math.
+- **Effective tokens/$**: budget ÷ effective blended price at the user's token
+  mix.
 
-## Edge cases / open questions
+**Controls panel:**
 
-- **Free (€0.00) models** exist (min input price is 0.0). Guard the budget/runs
-  math against divide-by-zero; show "free" instead of a bar.
-- **Audio models** carry `audio_cost` (per second) and `speech_cost` (per 1M chars),
-  which don't fit a €/1M-tokens column. Show token prices in the table; surface
-  audio costs only in the drill-down.
-- **Quantization honesty (locked)**: badge the cheapest-provider quantization on
-  the row **only when `fp4` or `int4`** (the heavy compressions that explain a low
-  price). Stay quiet for `fp16`/`bf16`/`fp8`. Full detail still in the drill-down.
-  `# ponytail: badge only aggressive quants, avoid row noise`
-- **`model_series`** groups variants (e.g. claude-opus4-7/8). One row per model id
-  for v1; series grouping can come later.
-- **Currency toggle**: API supports `currency=`. EUR-only for v1.
-- **Compare granularity**: tray compares models at cheapest. Per-(model+provider)
-  compare is a future enhancement if you want to pit specific providers.
+- **Budget** + **Token mix** (Input/Cached/Output %) — carried over from
+  existing tools, in USD.
+- **Subscription tier**: Lite / Pro / Max radio (default: Lite). Only shown
+  when a subscription provider is present. Affects all subscription rows.
+  `# ponytail: single global tier selector; if multiple subscription providers diverge in tiers, make it per-provider`
+- **Off-peak toggle**: checkbox, off by default. Only shown when a
+  subscription provider is present. Uses `off_peak_multiplier` from the data.
+- **Show all models**: chip toggle. Default off — shows only models with
+  `default_visible: true`.
+
+Sortable columns, filter chips (search by model name), responsive table.
+
+## Effective token math (all client-side JS)
+
+**Paygo:**
+
+```
+blended_price = input_pct × input_price + cached_pct × cached_price + output_pct × output_price
+tokens_per_dollar = 1_000_000 / blended_price
+total_tokens = budget × tokens_per_dollar
+```
+
+**Subscription:**
+
+```
+weekly_cost = monthly_cost / 4.33
+weighted_mult = input_pct × mult_input + cached_pct × mult_cached + output_pct × mult_output
+credits_per_1M_tokens = weighted_mult × 1_000_000 / 10_000
+tokens_per_week = weekly_credits / credits_per_1M_tokens × 1_000_000
+effective_price_per_1M = weekly_cost / (tokens_per_week / 1_000_000)
+tokens_per_dollar = 1_000_000 / effective_price_per_1M
+```
+
+When off-peak is checked, `credits_per_1M_tokens` is multiplied by the
+provider's `off_peak_multiplier`.
+
+## Edge cases
+
+- **Free models** (all prices zero): show "Free" in the Effective tokens/$
+  column, skip math.
+- **Divide-by-zero**: token mix must sum to 100% with at least one slot >0%.
+  Guard against all-zero.
+- **Subscription tiers with different models**: currently all z.ai devpack
+  tiers support the same models. If tiers diverge, the tier selector filters
+  which models appear in subscription rows.
+- **Multiple subscription providers**: if a second subscription provider is
+  added and its tiers differ from z.ai's, the global tier selector gets
+  replaced with per-provider selectors.
+- **Scraping fragility**: pricing pages are static docs that change
+  infrequently. Fetch runs offline during `generate_html.py`. If scraping
+  breaks, cached JSON serves stale data.
+  `# ponytail: no runtime fetch, no API dependency`
 
 ## Build & run
 
-Same Nix flake; the existing commands extend naturally:
+Same Nix flake:
 
 ```bash
 nix develop
-python generate_html.py            # fetch both data sources, render landing + both tools
+python generate_html.py            # fetch all data sources, render landing + all tools
 python generate_html.py --no-fetch # regenerate HTML from cached JSON (template iteration)
 ```
 
-`fetch_cortecs.py` is standalone and safe to re-run (writes only `cortecs.json`),
-mirroring the existing fetch scripts.
+`fetch_providers.py` is standalone and safe to re-run (writes only
+`providers.json`).
 
 ## Implementation slices
 
-The work breaks into seven vertical slices, each a file in this folder. Build them in dependency order.
-
-1. `01-cortecs-model-table.md` — fetch the API and render the model table. No blockers.
-2. `02-landing-hub.md` — landing hub and tool relocation. Blocked by 01.
-3. `03-budget-columns.md` — budget and cost columns in euros. Blocked by 01.
-4. `04-provider-drilldown.md` — provider drill-down and sovereignty badges. Blocked by 01.
-5. `05-filters-badges.md` — filters, search, and row badges. Blocked by 04.
-6. `06-compare-tray.md` — compare tray. Blocked by 01.
-7. `07-readme.md` — README for the two-tool site. Blocked by 02.
+1. `01-provider-scrapers.md` — `fetch_providers.py` with DeepSeek and z.ai
+   scrapers, writes `providers.json`. No blockers.
+2. `02-provider-table.md` — static table from the `providers` array, all
+   lanes generated dynamically. Blocked by 01.
+3. `03-budget-token-mix.md` — budget + token mix inputs + effective
+   tokens/$ column. Blocked by 02.
+4. `04-subscription-math.md` — tier selector, credit math, off-peak toggle,
+   effective price derivation. Blocked by 02.
+5. `05-provider-filters.md` — "Show all models" toggle, model search, column
+   sort. Blocked by 02.
+6. `06-landing-card.md` — add provider comparison card to the landing hub.
+   Blocked by 02.
+7. `07-readme.md` — update README for the three-tool site. Blocked by 02.
