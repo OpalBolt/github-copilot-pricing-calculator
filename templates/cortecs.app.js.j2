@@ -16,10 +16,10 @@
 
   // ── State ─────────────────────────────────────────────────────────
   // Filter chips are toggles that combine with AND; sort/search/toggles mirror
-  // the GitHub tool (templates/app.js.j2). Default sort is cheapest-input first,
-  // matching the server's pre-sort in generate_html.py.
+  // the GitHub tool (templates/app.js.j2). Default sort is cheapest est. cost
+  // first — the relative-cost bar is proportional to it, so this ranks by value.
   const state = {
-    sortCol: 'input',
+    sortCol: 'cost',
     sortDir: 'asc',
     search: '',
     filters: { sovereign: false, zdr: false, reasoning: false, tools: false, vision: false, audio: false },
@@ -172,7 +172,7 @@
           <button class="${cmpCls}" title="${inCmp ? 'Remove from comparison' : 'Add to comparison'}"
             onclick="toggleCompare('${m.id}')">${cmpIcon}</button>
         </td>
-        <td>${m.id}</td>
+        <td class="model-name">${m.id}</td>
         <td class="owner">${m.owned_by}</td>
         <td class="caps">${capabilityBadges(m)}${quantChip(m)}</td>
         <td class="num col-input">${rate(m.input)}</td>

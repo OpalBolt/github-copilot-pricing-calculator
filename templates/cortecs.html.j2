@@ -13,6 +13,8 @@
   <style>
     #cortecs-table { table-layout: auto; }
     #cortecs-table th, #cortecs-table td { white-space: nowrap; }
+    /* model ids are long kebab-case; let them wrap instead of overflowing into Owner */
+    #cortecs-table td.model-name { white-space: normal; overflow-wrap: anywhere; }
     /* "+" column: narrow + centered (cmp-btn itself is shared) */
     #cortecs-table th.cmp-col, #cortecs-table td.cmp-cell { width: 40px; text-align: center; padding: 8px; }
     #cortecs-table td.owner { color: var(--slate-5); }
