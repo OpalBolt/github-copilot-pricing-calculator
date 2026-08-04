@@ -127,10 +127,10 @@
             {% endfor %}
           {% else %}
             {% for model in p.models %}
-            <tr data-provider-id="{{ p.id }}" data-pricing-type="subscription" data-model-id="{{ model.id }}"
+            <tr class="sub-row" data-provider-id="{{ p.id }}" data-pricing-type="subscription" data-model-id="{{ model.id }}"
                 data-mult-input="{{ model.mult_input }}" data-mult-cached="{{ model.mult_cached }}" data-mult-output="{{ model.mult_output }}"
                 data-default-visible="{{ model.default_visible | default(true) | lower }}" data-provider-name="{{ p.name }}">
-              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
+              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button><span class="drill-toggle">▸</span></td>
               <td><span class="provider-badge pb-{{ prov_loop.index0 % 6 }}">{{ p.name }}</span></td>
               <td>{{ tier_names[0] if tier_names else '—' }}</td>
               <td>{{ model.id }}</td>
@@ -151,8 +151,9 @@
 
   <p class="page-note">
     Est. cost = blended $/1M × tokens per run ÷ 1M. Runs = Budget ÷ Est. cost. Tokens = Runs × tokens per run.
-    Subscription rows: Est. cost = monthly plan price, Runs = months the budget buys, Tokens = months × monthly
-    token cap (dimmed when the budget exceeds one month — the pool is capped per period).
+    Subscription rows: Est. cost = effective $/1M × tokens per run (what one run costs at your mix — click a row
+    for the plan detail), Runs = months the budget buys, Tokens = months × monthly token cap (dimmed when the
+    budget exceeds one month — the pool is capped per period).
     Relative cost = Est. cost ÷ the most expensive model currently visible. Subscription plans bill in credits —
     their $/1M is derived from the credit math at your selected tier and token mix.
   </p>

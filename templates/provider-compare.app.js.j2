@@ -50,19 +50,22 @@
     return { budget, input, cached, output, tokensPerRun, tierSel, offPeak };
   }
 
-  // Returns { cost, runs, tokens, ip, cp, op, plan, free, surplus } for a row.
+  // Returns { cost, runs, tokens, ip, cp, op, plan, free, surplus, monthlyCost } for a row.
   // Paygo: cost = USD per run, runs/tokens scale with budget. Subscription:
-  // cost = tier.monthly_usd, runs = months the budget buys, tokens = months × the
-  // monthly token cap; surplus set when the budget exceeds one month's price.
+  // cost = effective $/1M × tokens per run (same per-run semantics as paygo, so the
+  // relative-cost bar compares apples to apples); runs = months the budget buys,
+  // tokens = months × the monthly token cap; surplus set when the budget exceeds
+  // one month's price. monthlyCost keeps the raw plan price for the drill-down.
   // null cost = uncomputable (e.g. subscription provider missing the selected tier).
   function computeRow(row, cfg) {
-    const out = { cost: null, runs: null, tokens: null, ip: null, cp: null, op: null, plan: null, free: false };
+    const out = { cost: null, runs: null, tokens: null, ip: null, cp: null, op: null, plan: null, free: false, monthlyCost: null };
 
     if (row.dataset.pricingType === 'subscription') {
       if (!SUBS.length || !cfg.tierSel) return out;
       const prov = SUBS.find(p => p.id === row.dataset.providerId);
       const tier = prov && prov.tiers.find(t => t.name === cfg.tierSel);
       if (!prov || !tier) return out;
+      out.monthlyCost = tier.monthly_usd;
 
       const mi = parseFloat(row.dataset.multInput), mc = parseFloat(row.dataset.multCached), mo = parseFloat(row.dataset.multOutput);
 
@@ -83,15 +86,15 @@
         const tokensPerWeek = tier.weekly_credits / creditsPer1M * 1_000_000;
         return weeklyCost / (tokensPerWeek / 1_000_000);
       };
-
       out.plan = cfg.tierSel;
       out.ip = priceFor({ input: 100, cached: 0, output: 0 });
       out.cp = priceFor({ input: 0, cached: 100, output: 0 });
       out.op = priceFor({ input: 0, cached: 0, output: 100 });
 
-      // Subscription: Est. cost = the actual monthly plan price. Runs = months the
-      // budget buys; Tokens = months × one month's capped token pool.
-      out.cost = tier.monthly_usd;
+      // Subscription: Est. cost = effective $/1M at the selected mix × tokens per run,
+      // so the bar and Est. cost column compare per-run cost across paygo + subs.
+      // Runs = months the budget buys; Tokens = months × one month's capped token pool.
+      out.cost = priceFor(cfg) * cfg.tokensPerRun / 1_000_000;
       out.runs = cfg.budget / tier.monthly_usd;
       const creditsPer1M = creditsPer1MFor(cfg);
       if (creditsPer1M > 0) {
@@ -120,9 +123,10 @@
 
   // ── Fill the table ───────────────────────────────────────────
   // Cell order: 0 cmp btn · 1 provider · 2 plan · 3 model · 4-6 prices · 7 est · 8 runs · 9 tokens · 10 rel
+  // Only real rows carry data-pricing-type; drill-down rows are skipped everywhere.
   function updateRows() {
     const cfg = getConfig();
-    document.querySelectorAll('#provider-table tbody tr').forEach(row => {
+    document.querySelectorAll('#provider-table tbody tr[data-pricing-type]').forEach(row => {
       const c = computeRow(row, cfg);
       row._computed = c;
       const cells = row.children;
@@ -167,12 +171,12 @@
   // Free models get a zero-width "Free" bar. Value shown is USD.
   function updateBars() {
     let max = 0;
-    document.querySelectorAll('#provider-table tbody tr').forEach(row => {
+    document.querySelectorAll('#provider-table tbody tr[data-pricing-type]').forEach(row => {
       if (row.classList.contains('hidden-row')) return;
       const c = row._computed;
       if (c && c.cost != null && c.cost > max) max = c.cost;
     });
-    document.querySelectorAll('#provider-table tbody tr').forEach(row => {
+    document.querySelectorAll('#provider-table tbody tr[data-pricing-type]').forEach(row => {
       const c = row._computed;
       const cell = row.children[10];
       if (!c || c.cost == null) { cell.innerHTML = '—'; cell.dataset.sort = ''; return; }
@@ -218,7 +222,7 @@
   // search AND (show-all toggle on OR default_visible).
   function applyFilters() {
     const q = state.search.toLowerCase();
-    document.querySelectorAll('#provider-table tbody tr').forEach(tr => {
+    document.querySelectorAll('#provider-table tbody tr[data-pricing-type]').forEach(tr => {
       const defaultOk  = state.showAll || tr.dataset.defaultVisible === 'true';
       const providerOk = !state.hiddenProviders.has(tr.dataset.providerId);
       const searchOk   = !q
@@ -235,7 +239,7 @@
     const get = COLUMN_GET[state.sortCol];
     const dir = state.sortDir === 'asc' ? 1 : -1;
     const tbody = document.querySelector('#provider-table tbody');
-    [...tbody.children].sort((a, b) => {
+    Array.from(tbody.querySelectorAll('tr[data-pricing-type]')).sort((a, b) => {
       const av = get(a), bv = get(b);
       if (typeof av === 'number' && typeof bv === 'number') return (av - bv) * dir;
       if (av == null && bv == null) return 0;
@@ -283,7 +287,7 @@
   }
 
   function updateCompareUI() {
-    document.querySelectorAll('#provider-table tbody tr').forEach(row => {
+    document.querySelectorAll('#provider-table tbody tr[data-pricing-type]').forEach(row => {
       const inCmp = state.compare.has(row);
       row.classList.toggle('in-compare', inCmp);
       const btn = row.querySelector('.cmp-btn');
@@ -356,6 +360,63 @@
     });
   }
 
+  // ── Subscription detail drill-down (Cortecs pattern) ─────────────────
+  // Click a subscription row to expand its plan detail, click again to collapse.
+  // Row-set changes (sort/filter/search/tier) collapse open drills; plain
+  // recompute (budget/tokens/mix) leaves them open — Cortecs light-recompute
+  // behaviour, the detail doesn't depend on those inputs.
+  function collapseDrilldowns() {
+    document.querySelectorAll('#provider-table tbody tr.drilldown-row').forEach(d => {
+      const tr = d.previousElementSibling;
+      d.remove();
+      if (tr) tr.classList.remove('expanded');
+      const t = tr && tr.querySelector('.drill-toggle');
+      if (t) t.textContent = '▸';
+    });
+  }
+
+  // Detail reads the baked PROVIDERS table (single source of truth), not _computed.
+  function subDetailHtml(row, prov, tier) {
+    const mult = v => String(v).replace(/\.0$/, '');
+    const offPct = Math.round((1 - (prov.off_peak_multiplier || 1)) * 100);
+    const offWin = prov.off_peak_label || 'Mon–Fri 07:00–11:00 CET';
+    return `
+      <td colspan="11">
+        <div class="sub-detail">
+          <dl>
+            <dt>Monthly price</dt><dd>$${tier.monthly_usd}/mo</dd>
+            <dt>Weekly credits</dt><dd>${fmtInt(tier.weekly_credits)}</dd>
+            <dt>Credit multipliers</dt><dd>Input ×${mult(row.dataset.multInput)} · Cached ×${mult(row.dataset.multCached)} · Output ×${mult(row.dataset.multOutput)}</dd>
+            <dt>Off-peak</dt><dd>${offPct}% discount · ${offWin}</dd>
+          </dl>
+          <p class="sub-detail-note">Est. cost shown is effective $/1M at your token mix, not the monthly plan price.</p>
+        </div>
+      </td>`;
+  }
+
+  function onSubRowClick(e) {
+    if (e.target.closest('.cmp-btn')) return;   // compare toggle, never the drill-down
+    const tr = e.target.closest('tr.sub-row');
+    if (!tr) return;
+    const next = tr.nextElementSibling;
+    const toggle = tr.querySelector('.drill-toggle');
+    if (next && next.classList.contains('drilldown-row')) {
+      next.remove();
+      tr.classList.remove('expanded');
+      if (toggle) toggle.textContent = '▸';
+      return;
+    }
+    const prov = SUBS.find(p => p.id === tr.dataset.providerId);
+    const tier = prov && (prov.tiers.find(t => t.name === getConfig().tierSel) || prov.tiers[0]);
+    if (!prov || !tier) return;
+    const drill = document.createElement('tr');
+    drill.className = 'drilldown-row';
+    drill.innerHTML = subDetailHtml(tr, prov, tier);
+    tr.after(drill);
+    tr.classList.add('expanded');
+    if (toggle) toggle.textContent = '▼';
+  }
+
   // ── Off-peak auto-detect ─────────────────────────────────────
   // z.ai off-peak: Mon–Fri 07:00–11:00 CET (their 14:00–18:00 UTC+8).
   // ponytail: Europe/Paris locale string covers CET/CEST; keep the fixed
@@ -382,7 +443,10 @@
       recompute();
     });
   });
-  document.querySelectorAll('input[name="tier"]').forEach(r => r.addEventListener('change', recompute));
+  document.querySelectorAll('input[name="tier"]').forEach(r => r.addEventListener('change', () => {
+    collapseDrilldowns();   // tier changes the monthly price / credits the drill shows
+    recompute();
+  }));
   const offPeakToggle = document.getElementById('off-peak-toggle');
   if (offPeakToggle) offPeakToggle.addEventListener('change', recompute);
 
@@ -402,6 +466,7 @@
   // Show-all toggle
   document.getElementById('show-all-models').addEventListener('change', e => {
     state.showAll = e.target.checked;
+    collapseDrilldowns();
     updateShowAllLabel();
     applyFilters();
     updateBars();
@@ -411,6 +476,7 @@
   // Search (real-time, static table → no debounce)
   document.getElementById('model-search').addEventListener('input', e => {
     state.search = e.target.value;
+    collapseDrilldowns();
     applyFilters();
     updateBars();
     applySort();
@@ -423,6 +489,7 @@
       if (state.hiddenProviders.has(id)) state.hiddenProviders.delete(id);
       else state.hiddenProviders.add(id);
       btn.classList.toggle('active', !state.hiddenProviders.has(id));
+      collapseDrilldowns();
       applyFilters();
       updateBars();
       applySort();
@@ -439,6 +506,7 @@
         state.sortCol = col;
         state.sortDir = 'asc';
       }
+      collapseDrilldowns();   // reorder detaches open drills from their rows
       updateSortIndicators();
       applySort();
     });
@@ -449,6 +517,9 @@
     const btn = row.querySelector('.cmp-btn');
     if (btn) btn.addEventListener('click', () => toggleCompare(row));
   });
+
+  // Subscription rows: delegated click on <tbody> (Cortecs pattern)
+  document.querySelector('#provider-table tbody').addEventListener('click', onSubRowClick);
 
   // ── Initial render ───────────────────────────────────────────
   autoOffPeak();
