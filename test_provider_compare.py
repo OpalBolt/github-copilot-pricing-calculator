@@ -12,9 +12,10 @@ things that CAN break silently and the JS depends on:
      the JS to fill, and both have .est-cost / .runs / .tokens cells plus a
      compare button. No row carries data-tier (tier is global from radios).
   2. The formulas as a Python reference: recompute blended price and
-     cost-per-run for paygo, and credits/tokens/effective-price for
-     subscription rows, against hand-derived constants; assert free models
-     short-circuit to "Free" and off-peak halves effective price.
+     cost-per-run for paygo, and credits/effective-price plus the monthly-cost /
+     token-cap / surplus math for subscription rows, against hand-derived
+     constants; assert free models short-circuit to "Free" and off-peak halves
+     effective price.
 
 Run:  python3 test_provider_compare.py
 Expects docs/provider-compare.html already generated (python generate_html.py --no-fetch).
@@ -113,8 +114,11 @@ def main() -> int:
     # ── Subscription math reference (mirrors the JS formula) ──
     # weekly_cost = monthly/4.33; weighted_mult = Σ pct/100 × mult;
     # credits_per_1M = weighted_mult × 100; tokens/week = credits / (credits_per_1M) × 1M;
-    # effective $/1M = weekly_cost / (tokens_per_week / 1M); cost/run = price × tokens/1M.
-    def sub_math(model, tier, mix=(INPUT_PCT, CACHED_PCT, OUTPUT_PCT), off_peak=False):
+    # effective $/1M = weekly_cost / (tokens_per_week / 1M) — unchanged, fills the price columns.
+    # Est. cost = tier.monthly_usd (the plan price, not derived); runs = months the budget buys;
+    # tokens = runs × monthly token cap (weekly credits × 4.33); surplus = monthly_usd when
+    # budget > monthly_usd (row dims Runs/Tokens: the pool is capped per subscription period).
+    def sub_math(model, tier, mix=(INPUT_PCT, CACHED_PCT, OUTPUT_PCT), off_peak=False, budget=BUDGET):
         ip, cp, op = mix
         weekly_cost = tier["monthly_usd"] / 4.33
         weighted = ip / 100 * model["mult_input"] + cp / 100 * model["mult_cached"] + op / 100 * model["mult_output"]
@@ -123,29 +127,43 @@ def main() -> int:
             credits_per_1m *= 0.5
         tokens_per_week = tier["weekly_credits"] / credits_per_1m * 1_000_000
         price_per_1m = weekly_cost / (tokens_per_week / 1_000_000)
-        return price_per_1m, price_per_1m * TOKENS_PER_RUN / 1_000_000
+        runs = budget / tier["monthly_usd"]
+        tokens = runs * tokens_per_week * 4.33
+        surplus = tier["monthly_usd"] if budget > tier["monthly_usd"] else None
+        return price_per_1m, tier["monthly_usd"], runs, tokens, surplus
 
-    # Hand-derived: Lite glm-5.2 @ 30/50/20 → 772 credits/1M, $0.32092/1M, $0.32092/run
+    # Hand-derived: Lite glm-5.2 @ 30/50/20 → 772 credits/1M, $0.32092/1M effective.
+    # Default budget $10 < $18/mo → no surplus: Est. cost $18, runs 0.56 mo, tokens = 0.56 × monthly cap.
     lite = {"monthly_usd": 18, "weekly_credits": 10000}
     glm52_sub = {"mult_input": 6.9, "mult_cached": 1.7, "mult_output": 24.0}
-    price, cost = sub_math(glm52_sub, lite)
+    price, cost, runs, tokens, surplus = sub_math(glm52_sub, lite)
     assert math.isclose(price, 0.3209237875, rel_tol=1e-9), price
-    assert math.isclose(cost, 0.3209237875, rel_tol=1e-9), cost
+    assert math.isclose(cost, 18.0, rel_tol=1e-9), cost
+    assert math.isclose(runs, BUDGET / 18, rel_tol=1e-9), runs
+    assert math.isclose(tokens, runs * 10000 / 772 * 1_000_000 * 4.33, rel_tol=1e-9), tokens
+    assert surplus is None
 
-    # Off-peak halves credit consumption → halves $/1M, halves cost/run
-    price_off, cost_off = sub_math(glm52_sub, lite, off_peak=True)
+    # Surplus: budget > monthly_usd → row flags surplus = monthly_usd; tokens still scale with months
+    _, cost_s, runs_s, tokens_s, surplus_s = sub_math(glm52_sub, lite, budget=100)
+    assert surplus_s == 18.0
+    assert math.isclose(runs_s, 100 / 18, rel_tol=1e-9)
+    assert math.isclose(tokens_s, runs_s * 10000 / 772 * 1_000_000 * 4.33, rel_tol=1e-9)
+
+    # Off-peak halves credit consumption → halves $/1M, doubles monthly token cap
+    price_off, _, _, tokens_off, _ = sub_math(glm52_sub, lite, off_peak=True)
     assert math.isclose(price_off, price / 2, rel_tol=1e-9)
-    assert math.isclose(cost_off, cost / 2, rel_tol=1e-9)
+    assert math.isclose(tokens_off, tokens * 2, rel_tol=1e-9)
 
-    # Tier scaling: Max (140K credits, $168) beats Lite on price/run
+    # Tier scaling: Max (140K credits, $168) beats Lite on effective price/1M
     max_tier = {"monthly_usd": 168, "weekly_credits": 140000}
-    price_max, _ = sub_math(glm52_sub, max_tier)
+    price_max, _, _, _, _ = sub_math(glm52_sub, max_tier)
     assert price_max < price
 
     # Free subscription model (all-zero multipliers) short-circuits before dividing
     free_sub = {"mult_input": 0.0, "mult_cached": 0.0, "mult_output": 0.0}
     assert free_sub["mult_input"] + free_sub["mult_cached"] + free_sub["mult_output"] == 0.0
     assert "Free" in HTML and "mi === 0" in HTML
+    assert "surplus" in HTML and "binding constraint" in HTML  # surplus flag + cap comment pinned
 
     # ── Filters & sort contract ──
     # The behavior lives in client JS, so pin the template -> JS wiring:
@@ -170,7 +188,7 @@ def main() -> int:
 
     # ── New controls (slice 08) ──
     assert 'id="tokens-per-run"' in HTML
-    assert 'data-profile="heavy-input"' in HTML and 'data-profile="heavy-cached"' in HTML
+    assert 'data-profile="superuser"' in HTML and 'data-profile="regular"' in HTML
     assert 'id="compare-tray"' in HTML and 'id="tray-cards"' in HTML and 'tray-clear' in HTML
     assert "(Mon–Fri 07:00–11:00 CET)" in HTML
     assert 'timeZone: \'Europe/Paris\'' in HTML or 'timeZone: "Europe/Paris"' in HTML

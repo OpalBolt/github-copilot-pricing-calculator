@@ -402,6 +402,11 @@
   }
   tbody tr:last-child { border-bottom: none; }
   tbody tr:hover { background: var(--slate-2); }
+  /* subscription rows with surplus budget: Runs/Tokens capped at one subscription period */
+  tbody tr.surplus { background: var(--slate-2); }
+  tbody tr.surplus:hover { background: var(--slate-3); }
+  tbody tr.surplus td.runs,
+  tbody tr.surplus td.tokens { color: var(--slate-5); }
   tbody tr.hidden { display: none; }
 
   tbody td {
