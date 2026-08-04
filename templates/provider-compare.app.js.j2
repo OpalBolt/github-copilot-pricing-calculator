@@ -1,4 +1,8 @@
 <script>
+  // ── Provider data (baked from providers.json at generate time) ──
+  const PROVIDERS = {{ providers | tojson }};
+  const SUBS = PROVIDERS.filter(p => p.pricing_type === 'subscription');
+
   const PRESETS = {
     superuser: { name: 'Superuser/Developer', input: 0.49, cached: 98.62, output: 0.89 },
     regular:  { name: 'Regular User', input: 5.45, cached: 86.36, output: 8.18 },
