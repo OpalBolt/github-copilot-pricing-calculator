@@ -349,6 +349,13 @@ def main():
     else:
         print("Warning: providers.json not found, skipping provider comparison page", file=sys.stderr)
 
+    # Render the AI strategies page.
+    strategies_template = env.get_template("strategies.html.j2")
+    strategies_html = strategies_template.render()
+    strategies_out = Path(__file__).parent / "docs" / "strategies.html"
+    strategies_out.write_text(strategies_html, encoding="utf-8")
+    print(f"Generated {strategies_out}")
+
 
 if __name__ == "__main__":
     main()

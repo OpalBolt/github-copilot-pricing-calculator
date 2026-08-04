@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Token &amp; price calculators</title>
+  <title>AI strategies · Token calculators</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&family=Source+Serif+4:ital,wght@1,500&display=swap" rel="stylesheet" />
@@ -1229,45 +1229,91 @@
 </head>
 <body>
 
-<!-- ── Header ──────────────────────────────────────────────── -->
 <header class="page-header">
-  <p class="eyebrow">Calculators</p>
-  <h1>Token &amp; price calculators</h1>
-  <p>Standalone calculators for token costs and model pricing. Pick one to open it.</p>
+  <p class="eyebrow">Calculators · AI strategies</p>
+  <h1>Get more from your tokens</h1>
+  <p>Practical habits for keeping token usage, and cost, under control across longer sessions and larger prompts.</p>
+  <p class="meta"><a href="index.html">← All tools</a></p>
 </header>
 
-<!-- ── Main ────────────────────────────────────────────────── -->
 <main>
-  <div class="hub-grid">
-    <a class="hub-card" href="copilot.html">
-      <p class="hub-eyebrow">GitHub Copilot</p>
-      <h2>Token cost calculator</h2>
-      <p>See what every Copilot model costs in AI credits. Sort and filter the table and estimate how far a budget goes per model.</p>
-      <span class="hub-cta">Open calculator →</span>
-    </a>
-    <a class="hub-card" href="cortecs.html">
-      <p class="hub-eyebrow">Cortecs</p>
-      <h2>Model price calculator</h2>
-      <p>Every Cortecs model at its cheapest available provider price, in euros per 1 million tokens.</p>
-      <span class="hub-cta">Open calculator →</span>
-    </a>
-    <a class="hub-card" href="provider-compare.html">
-      <p class="hub-eyebrow">Paygo vs subscription</p>
-      <h2>Provider cost comparison</h2>
-      <p>Compare pay-per-token API pricing against fixed subscription plans. See which costs less at your token volume.</p>
-      <span class="hub-cta">Open calculator →</span>
-    </a>
-    <a class="hub-card" href="strategies.html">
-      <p class="hub-eyebrow">AI strategies</p>
-      <h2>Get more from your tokens</h2>
-      <p>Practical habits for keeping token usage, and cost, under control across longer sessions and larger prompts.</p>
-      <span class="hub-cta">Read the guide →</span>
-    </a>
+
+  <section class="explanation-section" aria-labelledby="explanation-heading">
+    <h2 id="explanation-heading">Understanding token types</h2>
+    <p class="explanation-intro">
+      The same total token count can cost very differently depending on how much of it is fresh context, reused context, or model output.
+    </p>
+    <dl class="explanation-grid">
+      <div class="explanation-card explanation-input">
+        <dt>Input tokens</dt>
+        <dd>
+          New prompt/context tokens sent on a fresh request — like instructions, code, or chat history the model has to read from scratch.
+          They cost more than cached input because the model must process the full context again.
+        </dd>
+      </div>
+      <div class="explanation-card explanation-cached">
+        <dt>Cached tokens</dt>
+        <dd>
+          Reused input from the same session, such as repeated system text or unchanged file context.
+          Providers can reuse prior computation here, so cached input is much cheaper and often makes up most of a coding session's token mix.
+        </dd>
+      </div>
+      <div class="explanation-card explanation-output">
+        <dt>Output tokens</dt>
+        <dd>
+          Tokens the model generates in its reply.
+          Generation is sequential and compute-heavy, so output usually has the highest per-token rate even when it is a small share of total tokens.
+        </dd>
+      </div>
+    </dl>
+  </section>
+
+  <h2>Making the most of your tokens</h2>
+
+  <div class="task-card">
+    <h3>Long-running sessions &amp; coding harnesses</h3>
+    <ul>
+      <li>Summarize or compact conversation history periodically instead of letting a session's transcript grow indefinitely. Every additional turn re-sends the full history as input tokens unless it's cached, so unbounded history quietly compounds cost.</li>
+      <li>Break large bodies of work into smaller, focused sub-tasks (or sub-agents) rather than one continuous mega-session; each sub-task starts with a smaller, more relevant context instead of dragging along everything that came before.</li>
+      <li>Close out or clear context you no longer need (finished files, resolved errors, old tool output) so it doesn't keep getting resent turn after turn.</li>
+      <li>Match the model to the task: reserve your most capable (and often priciest) model for genuinely hard reasoning or debugging, and use a faster/cheaper model for repetitive, mechanical, or well-scoped steps.</li>
+    </ul>
   </div>
+
+  <div class="task-card">
+    <h3>Avoiding excessive context usage</h3>
+    <ul>
+      <li>Don't paste entire files, logs, or command output when only a specific snippet is relevant. Extract just the part that matters.</li>
+      <li>Use targeted search (grep/find) instead of dumping whole directories into a prompt; pull in only the files you actually need to reason about.</li>
+      <li>Keep an eye on how much of the model's context window you're using. Leaving headroom generally keeps responses more focused and avoids hitting hard context limits mid-task.</li>
+      <li>In long sessions, periodically ask for or trigger a summary/reset of history rather than letting every prior turn ride along forever.</li>
+    </ul>
+  </div>
+
+  <div class="task-card">
+    <h3>Put the most relevant information first</h3>
+    <ul>
+      <li>Models tend to attend most reliably to the start and end of a prompt, with information buried in the middle more likely to get lost. Lead with the most important instructions, constraints, or facts rather than burying them mid-prompt.</li>
+      <li>This also pairs naturally with prompt caching: stable content that doesn't change between requests (system prompts, reference docs, style guides) is what typically gets reused/cached when placed in a consistent prefix, while newer or frequently-changing details belong later in the prompt.</li>
+      <li>Structure prompts with clear sections or headings so critical information is easy for the model (and you) to find, instead of one unbroken wall of text.</li>
+      <li>Restate the actual task/question clearly right after any stable, cached prefix, and again at the end of a long prompt, so it doesn't get lost without disrupting what gets cached.</li>
+    </ul>
+  </div>
+
+  <div class="task-card">
+    <h3>Other tips</h3>
+    <ul>
+      <li>Batch related questions or steps into a single request instead of many small back-and-forth turns. Each new turn re-sends the accumulated context, so fewer, well-composed turns can be more efficient.</li>
+      <li>Only reach for long-context-tier models when you actually need the extra window: that tier is usually priced higher than the model's default tier.</li>
+      <li>Use the Runs / Tokens columns on the Pricing tab to sanity-check whether a workflow is affordable at scale before committing to it broadly.</li>
+    </ul>
+  </div>
+
 </main>
 
 <footer class="page-footer">
   <span>Token &amp; price calculators</span>
+  <a href="index.html">← All tools</a>
 </footer>
 
 </body>
