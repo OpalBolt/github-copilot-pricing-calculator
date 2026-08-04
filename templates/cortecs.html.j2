@@ -13,6 +13,8 @@
   <style>
     #cortecs-table { table-layout: auto; }
     #cortecs-table th, #cortecs-table td { white-space: nowrap; }
+    /* "+" column: narrow + centered (cmp-btn itself is shared) */
+    #cortecs-table th.cmp-col, #cortecs-table td.cmp-cell { width: 40px; text-align: center; padding: 8px; }
     #cortecs-table td.owner { color: var(--slate-5); }
     /* bar cell needs to breathe despite the nowrap above */
     #cortecs-table td.bar-cell { white-space: normal; }
@@ -123,6 +125,7 @@
     <table id="cortecs-table">
       <thead>
         <tr>
+          <th class="cmp-col" title="Add to compare tray"></th>
           <th class="sortable" data-col="id">Model <span class="sort-icon">↕</span></th>
           <th class="sortable" data-col="owned_by">Owner <span class="sort-icon">↕</span></th>
           <th>Capabilities</th>
@@ -154,6 +157,17 @@
   <a href="{{ source }}" target="_blank">View source API →</a>
 </footer>
 
+
+<!-- ── Compare tray ─────────────────────────────────────────── -->
+<div id="compare-tray" role="region" aria-label="Model comparison">
+  <div class="tray-header">
+    <span class="tray-title">Comparing <span id="tray-count">0</span> models</span>
+    <div class="tray-actions">
+      <button class="tray-clear" onclick="clearCompare()">Clear all</button>
+    </div>
+  </div>
+  <div class="tray-cards" id="tray-cards"></div>
+</div>
 {% include 'cortecs.app.js.j2' %}
 
 </body>

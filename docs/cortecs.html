@@ -1060,6 +1060,8 @@
   <style>
     #cortecs-table { table-layout: auto; }
     #cortecs-table th, #cortecs-table td { white-space: nowrap; }
+    /* "+" column: narrow + centered (cmp-btn itself is shared) */
+    #cortecs-table th.cmp-col, #cortecs-table td.cmp-cell { width: 40px; text-align: center; padding: 8px; }
     #cortecs-table td.owner { color: var(--slate-5); }
     /* bar cell needs to breathe despite the nowrap above */
     #cortecs-table td.bar-cell { white-space: normal; }
@@ -1195,6 +1197,7 @@
     <table id="cortecs-table">
       <thead>
         <tr>
+          <th class="cmp-col" title="Add to compare tray"></th>
           <th class="sortable" data-col="id">Model <span class="sort-icon">↕</span></th>
           <th class="sortable" data-col="owned_by">Owner <span class="sort-icon">↕</span></th>
           <th>Capabilities</th>
@@ -1226,6 +1229,17 @@
   <a href="https://api.cortecs.ai/v1/models?extended=true&currency=EUR" target="_blank">View source API →</a>
 </footer>
 
+
+<!-- ── Compare tray ─────────────────────────────────────────── -->
+<div id="compare-tray" role="region" aria-label="Model comparison">
+  <div class="tray-header">
+    <span class="tray-title">Comparing <span id="tray-count">0</span> models</span>
+    <div class="tray-actions">
+      <button class="tray-clear" onclick="clearCompare()">Clear all</button>
+    </div>
+  </div>
+  <div class="tray-cards" id="tray-cards"></div>
+</div>
 <script>
   // ── Pricing data (fetched 2026-08-04) ──────────────────────────
   // Each model: { id, owned_by, input, cached, output, capabilities, quant,
@@ -1254,6 +1268,7 @@
     showInput: true,
     showCached: true,
     showOutput: true,
+    compareIds: new Set(),
   };
 
   // ── Helpers ─────────────────────────────────────────────────────────
@@ -1388,8 +1403,17 @@
     sortRows(rows);
     const maxCost = rows.reduce((mx, r) => Math.max(mx, r.cost), 0) || 1;
 
-    document.getElementById('table-body').innerHTML = rows.map(m => `
-      <tr class="model-row" data-id="${m.id}">
+    document.getElementById('table-body').innerHTML = rows.map(m => {
+      const inCmp   = state.compareIds.has(m.id);
+      const cmpCls  = inCmp ? 'cmp-btn active' : 'cmp-btn';
+      const cmpIcon = inCmp ? '−' : '+';
+      const rowCls  = inCmp ? 'model-row in-compare' : 'model-row';
+      return `
+      <tr class="${rowCls}" data-id="${m.id}">
+        <td class="cmp-cell">
+          <button class="${cmpCls}" title="${inCmp ? 'Remove from comparison' : 'Add to comparison'}"
+            onclick="toggleCompare('${m.id}')">${cmpIcon}</button>
+        </td>
         <td>${m.id}</td>
         <td class="owner">${m.owned_by}</td>
         <td class="caps">${capabilityBadges(m)}${quantChip(m)}</td>
@@ -1399,7 +1423,8 @@
         <td class="num cost-cell">${m.cost > 0 ? `€${fmt(m.cost)}` : 'Free'}</td>
         <td class="num runs-cell">${m.runs != null ? fmtRuns(m.runs) : '—'}</td>
         <td class="bar-cell bar-fill-cell">${barHtml(m.cost, maxCost)}</td>
-      </tr>`).join('');
+      </tr>`;
+    }).join('');
 
     document.getElementById('no-results').style.display = rows.length ? 'none' : 'block';
     document.getElementById('row-count').innerHTML =
@@ -1418,6 +1443,7 @@
 
     summaryChips(cfg);
     applyColumnVisibility();
+    renderCompareTray(cfg);
   }
 
   // ── Light recompute: budget controls changed, keep rows + drills intact ──
@@ -1439,10 +1465,12 @@
     });
 
     summaryChips(cfg);
+    renderCompareTray(cfg);
   }
 
   // ── Drill-down (click a model row to expand its providers) ───────────
   function onRowClick(e) {
+    if (e.target.closest('.cmp-btn')) return;   // "+" toggles compare, never the drill-down
     const tr = e.target.closest('tr.model-row');
     if (!tr) return;                       // ignore clicks inside a drill-down row
     const next = tr.nextElementSibling;
@@ -1453,10 +1481,10 @@
     }
     const m = ALL_MODELS.find(x => x.id === tr.dataset.id);
     const rows = (m.providers || []).map(providerRowHtml).join('')
-      || '<tr class="provider-row"><td colspan="9" class="dim">No provider detail</td></tr>';
+      || '<tr class="provider-row"><td colspan="10" class="dim">No provider detail</td></tr>';
     const drill = document.createElement('tr');
     drill.className = 'drilldown-row';
-    drill.innerHTML = `<td colspan="9">
+    drill.innerHTML = `<td colspan="10">
       <table class="provider-table">
         <thead><tr>
           <th>Provider</th>
@@ -1509,6 +1537,106 @@
       const el = document.getElementById(id);
       if (el) el.checked = state[key];
     });
+  }
+
+  // ── Compare tray (mirror app.js.j2) ────────────────────────────────
+  // Pins models by id (string) rather than the GitHub tool's numeric _idx; the
+  // Cortecs rows already key everything on data-id. Cap = 5 (plan.md).
+  const MAX_COMPARE = 5;
+
+  function toggleCompare(id) {
+    if (state.compareIds.has(id)) {
+      state.compareIds.delete(id);
+    } else {
+      if (state.compareIds.size >= MAX_COMPARE) return;   // reject past cap
+      state.compareIds.add(id);
+    }
+    render();
+  }
+
+  function clearCompare() {
+    state.compareIds.clear();
+    render();
+  }
+
+  // Tray card: each pinned model's cheapest-provider prices + the budget
+  // figures (est. cost / run, runs the budget buys) side by side. Re-runs on
+  // every render() and recompute() so budget changes flow through.
+  function renderCompareTray(cfg) {
+    const tray  = document.getElementById('compare-tray');
+    const cards = document.getElementById('tray-cards');
+    const count = state.compareIds.size;
+
+    document.getElementById('tray-count').textContent = count;
+
+    if (count === 0) {
+      tray.classList.remove('visible');
+      document.body.classList.remove('tray-open');
+      return;
+    }
+
+    tray.classList.add('visible');
+    document.body.classList.add('tray-open');
+
+    const compared = [...state.compareIds]
+      .map(id => ALL_MODELS.find(x => x.id === id))
+      .filter(Boolean)
+      .map(m => {
+        const cost = estimateCost(m, cfg);
+        const runs = cost > 0 ? cfg.budget / cost : null;   // free-model guard
+        return { ...m, cost, runs };
+      });
+
+    const maxInput  = Math.max(1, ...compared.map(m => m.input));
+    const maxCached = Math.max(1, ...compared.map(m => m.cached));
+    const maxOutput = Math.max(1, ...compared.map(m => m.output));
+    const minCost   = Math.min(...compared.map(m => m.cost));
+
+    cards.innerHTML = compared.map(m => {
+      const isCheapest = compared.length > 1 && m.cost === minCost;
+      const inBarW  = m.input  > 0 ? Math.round((m.input  / maxInput)  * 100) : 0;
+      const caBarW  = m.cached > 0 ? Math.round((m.cached / maxCached) * 100) : 0;
+      const outBarW = m.output > 0 ? Math.round((m.output / maxOutput) * 100) : 0;
+      const runsLabel = m.runs != null ? fmtRuns(m.runs) : '—';
+      return `
+      <div class="cmp-card">
+        <button class="cmp-card-remove" title="Remove" onclick="toggleCompare('${m.id}')">✕</button>
+        <div class="cmp-card-name">${m.id}</div>
+        <div class="cmp-card-provider">${m.owned_by || ''}</div>
+        <div class="cmp-card-rows">
+          <div class="cmp-rate-row">
+            <span class="cmp-rate-label">Input</span>
+            <div class="cmp-rate-bar-bg"><div class="cmp-rate-bar-fill ${isCheapest ? 'highlight' : ''}" style="width:${inBarW}%"></div></div>
+            <span class="cmp-rate-val">${rate(m.input)}</span>
+          </div>
+          <div class="cmp-rate-row">
+            <span class="cmp-rate-label">Cached</span>
+            <div class="cmp-rate-bar-bg"><div class="cmp-rate-bar-fill ${isCheapest ? 'highlight' : ''}" style="width:${caBarW}%"></div></div>
+            <span class="cmp-rate-val">${rate(m.cached)}</span>
+          </div>
+          <div class="cmp-rate-row">
+            <span class="cmp-rate-label">Output</span>
+            <div class="cmp-rate-bar-bg"><div class="cmp-rate-bar-fill ${isCheapest ? 'highlight' : ''}" style="width:${outBarW}%"></div></div>
+            <span class="cmp-rate-val">${rate(m.output)}</span>
+          </div>
+        </div>
+        <div class="cmp-card-cost">
+          <div>
+            <div class="cmp-cost-label">Est. cost / run</div>
+            <div class="cmp-credits">${runsLabel} runs in budget</div>
+          </div>
+          <span class="cmp-cost-val ${isCheapest ? 'cheapest' : ''}">${m.cost > 0 ? '€' + fmt(m.cost) : 'Free'}</span>
+        </div>
+      </div>`;
+    }).join('');
+
+    if (count < MAX_COMPARE) {
+      cards.innerHTML += `
+      <div class="cmp-card cmp-card-add">
+        <span class="cmp-card-add-icon">+</span>
+        Click <strong>+</strong> on any row to add
+      </div>`;
+    }
   }
 
   // ── Event wiring ───────────────────────────────────────────────────
