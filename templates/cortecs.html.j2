@@ -14,6 +14,8 @@
     #cortecs-table { table-layout: auto; }
     #cortecs-table th, #cortecs-table td { white-space: nowrap; }
     #cortecs-table td.owner { color: var(--slate-5); }
+    /* bar cell needs to breathe despite the nowrap above */
+    #cortecs-table td.bar-cell { white-space: normal; }
   </style>
 </head>
 <body>
@@ -28,6 +30,22 @@
 
 <!-- ── Main ────────────────────────────────────────────────── -->
 <main>
+  <!-- Controls (budget machinery, mirrored from the GitHub tool, in €) -->
+  <div class="controls">
+    <h2>Configure your estimate</h2>
+    <div class="controls-grid">
+      {{ m.input_group('total-tokens', 'Total tokens', 1000000, 1, none, 100000) }}
+      {{ m.input_group('input-pct', 'Input %', 20, 0, 100, 0.1) }}
+      {{ m.input_group('cached-pct', 'Cached %', 60, 0, 100, 0.1) }}
+      {{ m.input_group('output-pct', 'Output %', 20, 0, 100, 0.1) }}
+      {{ m.input_group('budget-amount', 'Budget (€)', 50, 0, none, 0.01) }}
+    </div>
+    <div class="summary-chips" id="summary-chips"></div>
+    <div id="pct-warning" style="display: none; margin-top: 12px; padding: 8px 12px; background: #FEF9C3; border: 1px solid #EAB308; border-radius: 4px; font-size: 13px; color: #854D0E;">
+      ⚠️ Input, Cached, and Output percentages must sum to 100%
+    </div>
+  </div>
+
   <div class="table-meta">
     <span class="table-meta-count"><strong>{{ models|length }}</strong> models</span>
   </div>
@@ -39,23 +57,21 @@
           <th>Model</th>
           <th>Owner</th>
           <th class="num">Input €/1M</th>
+          <th class="num">Cached €/1M</th>
           <th class="num">Output €/1M</th>
+          <th class="num" title="Estimated € cost for one run of your configured token mix (Total tokens × Input/Cached/Output %).">Est. cost</th>
+          <th class="num" title="How many times you could repeat your token mix within your budget (Budget ÷ Est. cost).">Runs</th>
+          <th class="bar-cell" title="Bar length is cost relative to the most expensive model in the current view.">Relative cost</th>
         </tr>
       </thead>
-      <tbody>
-        {% for m in models %}
-        <tr>
-          <td>{{ m.id }}</td>
-          <td class="owner">{{ m.owned_by }}</td>
-          <td class="num">{% if m.pricing.input_token == 0 %}Free{% else %}€{{ '{:.3f}'.format(m.pricing.input_token) }}{% endif %}</td>
-          <td class="num">{% if m.pricing.output_token == 0 %}Free{% else %}€{{ '{:.3f}'.format(m.pricing.output_token) }}{% endif %}</td>
-        </tr>
-        {% endfor %}
-      </tbody>
+      <tbody id="table-body"></tbody>
     </table>
   </div>
 
   <p class="page-note">
+    Est. cost = (input tokens × input rate + cached tokens × cached rate + output tokens × output rate) ÷ 1M, from your token split above.
+    Rates are € per 1M tokens. Cached reuses the provider's cache-read rate where published, otherwise the input rate.
+    Runs = Budget ÷ Est. cost. Free models (€0) show “Free” and never divide by zero.
     Prices shown are the cheapest available provider for each model; Cortecs also offers fastest and balanced routing.
   </p>
 </main>
@@ -64,6 +80,8 @@
   <span>Cortecs · Model price calculator · Data sourced from the Cortecs models API</span>
   <a href="{{ source }}" target="_blank">View source API →</a>
 </footer>
+
+{% include 'cortecs.app.js.j2' %}
 
 </body>
 </html>

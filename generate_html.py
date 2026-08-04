@@ -262,11 +262,27 @@ def main():
             cortecs_data.get("models", []),
             key=lambda m: (m["pricing"]["input_token"], m["pricing"]["output_token"], m["id"]),
         )
+        # Flat shape for the client JS: id/owner + €/1M rates. Cached reuses the
+        # provider's cache_read_cost where published, else the input rate (prompt
+        # caching reuses input computation). is-not-None keeps an explicit 0 intact.
+        cortecs_js_models = [
+            {
+                "id": m["id"],
+                "owned_by": m.get("owned_by", ""),
+                "input": m["pricing"]["input_token"],
+                "cached": m["pricing"]["cache_read_cost"]
+                    if m["pricing"].get("cache_read_cost") is not None
+                    else m["pricing"]["input_token"],
+                "output": m["pricing"]["output_token"],
+            }
+            for m in cortecs_models
+        ]
         cortecs_template = env.get_template("cortecs.html.j2")
         cortecs_html = cortecs_template.render(
             fetchDate=cortecs_data.get("fetchDate", "unknown"),
             source=cortecs_data.get("source", CORTECS_URL),
             models=cortecs_models,
+            models_json=json.dumps(cortecs_js_models),
         )
         cortecs_out = Path(__file__).parent / "docs" / "cortecs.html"
         cortecs_out.write_text(cortecs_html, encoding="utf-8")

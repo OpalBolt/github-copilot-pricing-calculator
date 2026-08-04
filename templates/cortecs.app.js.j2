@@ -1,0 +1,91 @@
+<script>
+  // ── Pricing data (fetched {{ fetchDate }}) ──────────────────────────
+  // Each model: { id, owned_by, input, cached, output } — all rates € per 1M tokens.
+  // ponytail: cached = cache_read_cost where the provider publishes one, else the
+  // input rate (fallback baked in generate_html.py). Same / 1_000_000 division as
+  // the GitHub tool; Cortecs rates are already €/1M, no further conversion.
+  const ALL_MODELS = {{ models_json }};
+
+  // ── Helpers ─────────────────────────────────────────────────────────
+  const fmt      = n => n.toLocaleString('en-US', { minimumFractionDigits: 3, maximumFractionDigits: 3 });
+  const fmtMoney = n => n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const fmtRuns  = n => n.toLocaleString('en-US', { maximumFractionDigits: 1 });
+
+  // Reads the controls panel. Mirrors app.js.j2 getConfig(): the three percentages
+  // are normalized to 100 so an off-sum mix still computes a sane cost.
+  function getConfig() {
+    const total  = parseFloat(document.getElementById('total-tokens').value) || 1_000_000;
+    let ip = parseFloat(document.getElementById('input-pct').value)  || 0;
+    let cp = parseFloat(document.getElementById('cached-pct').value) || 0;
+    let op = parseFloat(document.getElementById('output-pct').value) || 0;
+    const budget = Math.max(0, parseFloat(document.getElementById('budget-amount').value) || 0);
+    const sum = ip + cp + op;
+
+    const warning = document.getElementById('pct-warning');
+    if (warning) warning.style.display = Math.abs(sum - 100) > 0.1 ? 'block' : 'none';
+
+    if (sum > 0) { ip = ip / sum * 100; cp = cp / sum * 100; op = op / sum * 100; }
+    return {
+      total,
+      inputTokens:  total * ip / 100,
+      cachedTokens: total * cp / 100,
+      outputTokens: total * op / 100,
+      ip, cp, op, budget,
+    };
+  }
+
+  // Per-run cost in euros. Same shape as the GitHub tool's estimateCost().
+  function estimateCost(m, cfg) {
+    return (cfg.inputTokens  / 1_000_000) * m.input
+         + (cfg.cachedTokens / 1_000_000) * m.cached
+         + (cfg.outputTokens / 1_000_000) * (m.output || 0);
+  }
+
+  // ── Render ──────────────────────────────────────────────────────────
+  function render() {
+    const cfg = getConfig();
+    const rows = ALL_MODELS.map(m => ({ ...m, cost: estimateCost(m, cfg) }));
+    // Relative-cost bar scaled over the current view; most expensive row fills the
+    // bar, cheapest is the floor (same scale as the GitHub tool, recomputed per view).
+    const maxCost = rows.reduce((mx, r) => Math.max(mx, r.cost), 0) || 1;
+
+    document.getElementById('table-body').innerHTML = rows.map(m => {
+      // Free-model guard: cost > 0 ? budget / cost : null — never divide by zero.
+      const runs    = m.cost > 0 ? cfg.budget / m.cost : null;
+      const runsLbl = runs != null ? fmtRuns(runs) : '—';
+      const costLbl = m.cost > 0 ? `€${fmt(m.cost)}` : 'Free';
+      const bar     = m.cost > 0
+        ? `<div class="credit-bar-wrap"><div class="credit-bar-bg">`
+          + `<div class="credit-bar-fill" style="width:${Math.round(m.cost / maxCost * 100)}%"></div>`
+          + `</div></div>`
+        : `<span class="dim">free</span>`;
+      const rate = v => v > 0 ? `€${fmt(v)}` : 'Free';
+      return `
+      <tr>
+        <td>${m.id}</td>
+        <td class="owner">${m.owned_by}</td>
+        <td class="num">${rate(m.input)}</td>
+        <td class="num">${rate(m.cached)}</td>
+        <td class="num">${rate(m.output)}</td>
+        <td class="num"><span class="cost-usd">${costLbl}</span></td>
+        <td class="num">${runsLbl}</td>
+        <td class="bar-cell">${bar}</td>
+      </tr>`;
+    }).join('');
+
+    document.getElementById('summary-chips').innerHTML = `
+      <span class="chip">Total tokens: <strong>${cfg.total.toLocaleString()}</strong></span>
+      <span class="chip">Input: <strong>${Math.round(cfg.ip)}%</strong></span>
+      <span class="chip">Cached: <strong>${Math.round(cfg.cp)}%</strong></span>
+      <span class="chip">Output: <strong>${Math.round(cfg.op)}%</strong></span>
+      <span class="chip">Budget: <strong>€${fmtMoney(cfg.budget)}</strong></span>
+    `;
+  }
+
+  // ── Live recalc on any control ──────────────────────────────────────
+  ['total-tokens', 'input-pct', 'cached-pct', 'output-pct', 'budget-amount'].forEach(id => {
+    document.getElementById(id).addEventListener('input', render);
+  });
+
+  render();
+</script>
