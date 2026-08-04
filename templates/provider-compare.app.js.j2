@@ -1,0 +1,53 @@
+<script>
+  // ── Provider data (baked from providers.json at generate time) ──
+  const PROVIDERS = {{ providers | tojson }};
+  // ponytail: used by slice 04 subscription math; paygo rows read prices from data-* attributes
+
+  // ── Helpers ──────────────────────────────────────────────────
+  const fmtCompact = n => {
+    const abs = Math.abs(n);
+    if (!Number.isFinite(n)) return '—';
+    if (abs >= 1_000_000_000) return `${(n / 1_000_000_000).toFixed(1)}B`;
+    if (abs >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M`;
+    if (abs >= 1_000) return `${(n / 1_000).toFixed(1)}K`;
+    return `${n.toLocaleString('en-US', { maximumFractionDigits: 0 })}`;
+  };
+
+  // ── Effective tokens/$ ───────────────────────────────────────
+  // tokens_per_dollar = 1_000_000 / blended_price; the column shows
+  // total tokens the budget buys (budget × tokens_per_dollar).
+  function updateEffectiveTokens() {
+    const budget = Math.max(0, parseFloat(document.getElementById('budget-amount').value) || 0);
+    const input  = parseFloat(document.getElementById('input-pct').value)  || 0;
+    const cached = parseFloat(document.getElementById('cached-pct').value) || 0;
+    const output = parseFloat(document.getElementById('output-pct').value) || 0;
+
+    const warning = document.getElementById('pct-warning');
+    warning.style.display = Math.abs(input + cached + output - 100) > 0.1 ? 'block' : 'none';
+
+    document.querySelectorAll('#provider-table tbody tr').forEach(row => {
+      const cell = row.querySelector('.effective-tokens');
+      if (row.dataset.pricingType === 'subscription') return; // slice 04
+
+      const ip = parseFloat(row.dataset.inputPrice);
+      const cp = parseFloat(row.dataset.cachedPrice);
+      const op = parseFloat(row.dataset.outputPrice);
+
+      // Free model: all prices zero, skip math
+      if (ip === 0 && cp === 0 && op === 0) { cell.textContent = 'Free'; return; }
+
+      const blended = (input * ip + cached * cp + output * op) / 100;
+      if (blended === 0) { cell.textContent = '—'; return; }
+
+      const tokensPerDollar = 1_000_000 / blended;
+      cell.textContent = fmtCompact(budget * tokensPerDollar);
+    });
+  }
+
+  // ── Live recalc on inputs ────────────────────────────────────
+  ['budget-amount', 'input-pct', 'cached-pct', 'output-pct'].forEach(id => {
+    document.getElementById(id).addEventListener('input', updateEffectiveTokens);
+  });
+
+  updateEffectiveTokens();
+</script>
