@@ -1,18 +1,20 @@
 #!/usr/bin/env python3
 """
-Self-check for slices 03-05 (budget, token mix, subscription credit math, filters & sort).
+Self-check for the provider comparison tool (budget, token mix, subscription
+credit math, filters & sort, compare tray, relative cost bars).
 
-The compute lives in client JS (no JS runner here), so this pins the two
+The compute lives in client JS (no JS runner here), so this pins the
 things that CAN break silently and the JS depends on:
 
   1. The template -> JS data contract: every paygo row carries numeric
      data-input-price / data-cached-price / data-output-price, every
      subscription row carries data-mult-* plus three .sub-price cells for
-     the JS to fill, and both have an .effective-tokens cell.
+     the JS to fill, and both have .est-cost / .runs / .tokens cells plus a
+     compare button. No row carries data-tier (tier is global from radios).
   2. The formulas as a Python reference: recompute blended price and
-     tokens-per-budget for paygo, and credits/tokens/effective-price for
+     cost-per-run for paygo, and credits/tokens/effective-price for
      subscription rows, against hand-derived constants; assert free models
-     short-circuit to "Free" and off-peak doubles effective tokens.
+     short-circuit to "Free" and off-peak halves effective price.
 
 Run:  python3 test_provider_compare.py
 Expects docs/provider-compare.html already generated (python generate_html.py --no-fetch).
@@ -26,8 +28,8 @@ from pathlib import Path
 ROOT = Path(__file__).parent
 HTML = (ROOT / "docs" / "provider-compare.html").read_text(encoding="utf-8")
 
-# Default controls from the template: budget $10, mix 30/50/20, Lite tier, peak
-BUDGET, INPUT_PCT, CACHED_PCT, OUTPUT_PCT = 10, 30, 50, 20
+# Default controls from the template: budget $10, 1M tokens/run, mix 30/50/20, Lite tier, peak
+BUDGET, TOKENS_PER_RUN, INPUT_PCT, CACHED_PCT, OUTPUT_PCT = 10, 1_000_000, 30, 50, 20
 
 
 def extract_rows(html: str) -> list[dict]:
@@ -47,8 +49,9 @@ def extract_rows(html: str) -> list[dict]:
             "mult_input": attr("data-mult-input"),
             "mult_cached": attr("data-mult-cached"),
             "mult_output": attr("data-mult-output"),
-            "effective": "effective-tokens" in tr,
+            "est_cost": 'class="num est-cost"' in tr,
             "sub_prices": len(re.findall(r'class="num sub-price"', tr)),
+            "cmp_btn": 'class="cmp-btn"' in tr,
         })
     return rows
 
@@ -61,43 +64,45 @@ def blended(row, ip=INPUT_PCT, cp=CACHED_PCT, op=OUTPUT_PCT):
 
 def main() -> int:
     rows = extract_rows(HTML)
-    assert len(rows) == 25, f"expected 25 rows, got {len(rows)}"  # 16 paygo + 3 tiers × 3 models
+    assert len(rows) == 19, f"expected 19 rows (16 paygo + 3 subscription), got {len(rows)}"
 
     paygo = [r for r in rows if r["pricing_type"] == "paygo"]
     subs = [r for r in rows if r["pricing_type"] == "subscription"]
-    assert len(paygo) == 16 and len(subs) == 9
+    assert len(paygo) == 16 and len(subs) == 3
 
     for r in paygo:
-        assert r["tier"] == "", "paygo rows must carry an empty data-tier"
+        assert r["tier"] is None, "no row may carry data-tier (tier is global from radios)"
         assert all(r[k] is not None for k in ("input_price", "cached_price", "output_price")), r["model"]
         assert float(r["input_price"]) >= 0 and float(r["cached_price"]) >= 0 and float(r["output_price"]) >= 0
-        assert r["effective"], f"{r['model']} missing .effective-tokens cell"
+        assert r["est_cost"], f"{r['model']} missing .est-cost cell"
+        assert r["cmp_btn"], f"{r['model']} missing compare button"
 
     for r in subs:
-        assert r["tier"] != "", "subscription rows must carry a data-tier"
+        assert r["tier"] is None, "subscription rows carry no data-tier"
         assert r["provider_id"] == "zai-devpack"
         assert all(r[k] is not None for k in ("mult_input", "mult_cached", "mult_output")), r["model"]
         assert all(r[k] is None for k in ("input_price", "cached_price", "output_price")), r["model"]
-        assert r["effective"]
-        assert r["sub_prices"] == 3, f"{r['model']} tier {r['tier']} must have 3 .sub-price cells for the JS to fill"
+        assert r["est_cost"]
+        assert r["sub_prices"] == 3, f"{r['model']} must have 3 .sub-price cells for the JS to fill"
+        assert r["cmp_btn"]
 
     by_model = {r["model"]: r for r in rows if r["pricing_type"] == "paygo"}
 
-    # Paygo reference: blended_price = Σ pct×price; tokens = budget × 1M / blended
-    def tokens_per_budget(r):
+    # Paygo reference: blended_price = Σ pct×price; cost/run = blended × tokens/1M
+    def cost_per_run(r):
         b = blended(r)
         assert b > 0
-        return BUDGET * 1_000_000 / b
+        return b * TOKENS_PER_RUN / 1_000_000
 
-    # Hand-derived: deepseek-v4-flash @ 30/50/20 → blended 0.0994
+    # Hand-derived: deepseek-v4-flash @ 30/50/20 → blended 0.0994 → $0.0994/run
     flash = by_model["deepseek-v4-flash"]
     assert math.isclose(blended(flash), 0.0994, rel_tol=1e-9)
-    assert math.isclose(tokens_per_budget(flash), 100_603_621.7, rel_tol=1e-6)
+    assert math.isclose(cost_per_run(flash), 0.0994, rel_tol=1e-9)
 
-    # glm-5.2 (expensive) @ 30/50/20 → blended 1.43
+    # glm-5.2 (expensive) @ 30/50/20 → blended 1.43 → $1.43/run
     glm52 = by_model["glm-5.2"]
     assert math.isclose(blended(glm52), 1.43, rel_tol=1e-9)
-    assert math.isclose(tokens_per_budget(glm52), 6_993_006.99, rel_tol=1e-6)
+    assert math.isclose(cost_per_run(glm52), 1.43, rel_tol=1e-9)
 
     # Free model: all-zero prices must short-circuit (JS shows "Free", never divides)
     for name in ("glm-4.7-flash", "glm-4.5-flash"):
@@ -108,8 +113,8 @@ def main() -> int:
     # ── Subscription math reference (mirrors the JS formula) ──
     # weekly_cost = monthly/4.33; weighted_mult = Σ pct/100 × mult;
     # credits_per_1M = weighted_mult × 100; tokens/week = credits / (credits_per_1M) × 1M;
-    # effective $/1M = weekly_cost / (tokens_per_week / 1M); tokens = budget / price × 1M.
-    def sub_math(model, tier, budget=BUDGET, mix=(INPUT_PCT, CACHED_PCT, OUTPUT_PCT), off_peak=False):
+    # effective $/1M = weekly_cost / (tokens_per_week / 1M); cost/run = price × tokens/1M.
+    def sub_math(model, tier, mix=(INPUT_PCT, CACHED_PCT, OUTPUT_PCT), off_peak=False):
         ip, cp, op = mix
         weekly_cost = tier["monthly_usd"] / 4.33
         weighted = ip / 100 * model["mult_input"] + cp / 100 * model["mult_cached"] + op / 100 * model["mult_output"]
@@ -118,41 +123,40 @@ def main() -> int:
             credits_per_1m *= 0.5
         tokens_per_week = tier["weekly_credits"] / credits_per_1m * 1_000_000
         price_per_1m = weekly_cost / (tokens_per_week / 1_000_000)
-        return price_per_1m, budget / price_per_1m * 1_000_000
+        return price_per_1m, price_per_1m * TOKENS_PER_RUN / 1_000_000
 
-    # Hand-derived: Lite glm-5.2 @ 30/50/20 → 772 credits/1M, $0.32092/1M, 31.16M tokens
+    # Hand-derived: Lite glm-5.2 @ 30/50/20 → 772 credits/1M, $0.32092/1M, $0.32092/run
     lite = {"monthly_usd": 18, "weekly_credits": 10000}
     glm52_sub = {"mult_input": 6.9, "mult_cached": 1.7, "mult_output": 24.0}
-    price, tokens = sub_math(glm52_sub, lite)
+    price, cost = sub_math(glm52_sub, lite)
     assert math.isclose(price, 0.3209237875, rel_tol=1e-9), price
-    assert math.isclose(tokens, 31_160_046.06, rel_tol=1e-6), tokens
+    assert math.isclose(cost, 0.3209237875, rel_tol=1e-9), cost
 
-    # Off-peak halves credit consumption → halves $/1M, doubles effective tokens
-    price_off, tokens_off = sub_math(glm52_sub, lite, off_peak=True)
+    # Off-peak halves credit consumption → halves $/1M, halves cost/run
+    price_off, cost_off = sub_math(glm52_sub, lite, off_peak=True)
     assert math.isclose(price_off, price / 2, rel_tol=1e-9)
-    assert math.isclose(tokens_off, 2 * tokens, rel_tol=1e-9)
+    assert math.isclose(cost_off, cost / 2, rel_tol=1e-9)
 
-    # Tier scaling: Max (140K credits, $168) beats Lite on tokens/$
+    # Tier scaling: Max (140K credits, $168) beats Lite on price/run
     max_tier = {"monthly_usd": 168, "weekly_credits": 140000}
-    _, tokens_max = sub_math(glm52_sub, max_tier)
-    assert tokens_max > tokens
+    price_max, _ = sub_math(glm52_sub, max_tier)
+    assert price_max < price
 
     # Free subscription model (all-zero multipliers) short-circuits before dividing
     free_sub = {"mult_input": 0.0, "mult_cached": 0.0, "mult_output": 0.0}
     assert free_sub["mult_input"] + free_sub["mult_cached"] + free_sub["mult_output"] == 0.0
     assert "Free" in HTML and "mi === 0" in HTML
 
-
-    # ── Filters & sort contract (slice 05) ──
+    # ── Filters & sort contract ──
     # The behavior lives in client JS, so pin the template -> JS wiring:
     # toggle/search/chips exist, every column header is sortable, and rows
     # carry the default_visible + provider-name the filters read.
     assert 'id="show-all-models"' in HTML and 'id="show-all-label"' in HTML
     assert 'id="model-search"' in HTML
     assert 'id="provider-chips"' in HTML
-    for col in ("provider", "plan", "model", "input", "cached", "output", "effective"):
-        assert re.search(rf'<th class="sortable(?: num)?" data-col="{col}"', HTML), f"missing sortable column {col}"
-    assert HTML.count('<span class="sort-icon">↕</span>') == 7
+    for col in ("provider", "plan", "model", "input", "cached", "output", "cost", "runs", "tokens", "relative"):
+        assert re.search(rf'<th class="sortable[^"]*" data-col="{col}"', HTML), f"missing sortable column {col}"
+    assert HTML.count('<span class="sort-icon">↕</span>') == 10
 
     prov_data = json.loads((ROOT / "providers.json").read_text(encoding="utf-8"))["providers"]
     for p in prov_data:
@@ -164,8 +168,16 @@ def main() -> int:
     assert HTML.count('data-default-visible="false" data-provider-name="') == expected_hidden
     assert HTML.count('data-provider-name="') == len(rows)
 
+    # ── New controls (slice 08) ──
+    assert 'id="tokens-per-run"' in HTML
+    assert 'data-profile="heavy-input"' in HTML and 'data-profile="heavy-cached"' in HTML
+    assert 'id="compare-tray"' in HTML and 'id="tray-cards"' in HTML and 'tray-clear' in HTML
+    assert "(Mon–Fri 07:00–11:00 CET)" in HTML
+    assert 'timeZone: \'Europe/Paris\'' in HTML or 'timeZone: "Europe/Paris"' in HTML
+    assert 'sortCol: \'relative\'' in HTML or 'sortCol: "relative"' in HTML
+
     print(f"OK: {len(paygo)} paygo rows, {len(subs)} subscription rows, formula constants verified")
-    print(f"OK: {expected_hidden} hidden-by-default models, filters/sort wiring present")
+    print(f"OK: {expected_hidden} hidden-by-default models, filters/sort/compare wiring present")
 
     return 0
 

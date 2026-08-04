@@ -12,126 +12,183 @@
     if (abs >= 1_000) return `${(n / 1_000).toFixed(1)}K`;
     return `${n.toLocaleString('en-US', { maximumFractionDigits: 0 })}`;
   };
-  const fmtUSD = n => Number.isFinite(n) ? `$${n.toFixed(2)}` : '—';
+  const fmtInt = n => Number.isFinite(n) ? Math.round(n).toLocaleString('en-US') : '—';
+  const fmtPrice = n => {
+    if (!Number.isFinite(n)) return '—';
+    return n < 0.01 ? `$${n.toFixed(4)}` : `$${n.toFixed(2)}`;
+  };
 
-  // ── Effective tokens/$ ───────────────────────────────────────
-  // tokens_per_dollar = 1_000_000 / blended_price; the column shows
-  // total tokens the budget buys (budget × tokens_per_dollar).
-  // Every value cell also stashes a raw number in data-sort so the
-  // column sort works on numbers, not formatted strings.
-  function updateEffectiveTokens() {
+  // ── Presets ──────────────────────────────────────────────────
+  const PRESETS = {
+    'heavy-input':  { input: 70, cached: 10, output: 20 },
+    'heavy-cached': { input: 30, cached: 60, output: 10 },
+  };
+
+  // ── State ────────────────────────────────────────────────────
+  const state = {
+    sortCol: 'relative',      // cheapest first on load
+    sortDir: 'asc',
+    search: '',
+    hiddenProviders: new Set(),
+    showAll: false,
+    compare: new Set(),       // row elements in the compare tray
+  };
+
+  // ── Config & per-row compute ─────────────────────────────────
+  function getConfig() {
     const budget = Math.max(0, parseFloat(document.getElementById('budget-amount').value) || 0);
     const input  = parseFloat(document.getElementById('input-pct').value)  || 0;
     const cached = parseFloat(document.getElementById('cached-pct').value) || 0;
     const output = parseFloat(document.getElementById('output-pct').value) || 0;
+    const tokensPerRun = Math.max(0, parseFloat(document.getElementById('tokens-per-run').value) || 0);
 
     const warning = document.getElementById('pct-warning');
     warning.style.display = Math.abs(input + cached + output - 100) > 0.1 ? 'block' : 'none';
 
     const tierSel = (document.querySelector('input[name="tier"]:checked') || {}).value || null;
     const offPeak = document.getElementById('off-peak-toggle')?.checked || false;
+    return { budget, input, cached, output, tokensPerRun, tierSel, offPeak };
+  }
 
-    document.querySelectorAll('#provider-table tbody tr').forEach(row => {
-      const cell = row.querySelector('.effective-tokens');
-      if (row.dataset.pricingType === 'subscription') {
-        updateSubscriptionRow(row, cell, { input, cached, output }, budget, tierSel, offPeak);
-        return;
-      }
+  // Returns { cost, runs, tokens, ip, cp, op, plan, free } for a row.
+  // cost = USD for one run; ip/cp/op = $ per 1M tokens in the row's context.
+  // null cost = uncomputable (e.g. subscription provider missing the selected tier).
+  function computeRow(row, cfg) {
+    const out = { cost: null, runs: null, tokens: null, ip: null, cp: null, op: null, plan: null, free: false };
 
-      const ip = parseFloat(row.dataset.inputPrice);
-      const cp = parseFloat(row.dataset.cachedPrice);
-      const op = parseFloat(row.dataset.outputPrice);
+    if (row.dataset.pricingType === 'subscription') {
+      if (!SUBS.length || !cfg.tierSel) return out;
+      const prov = SUBS.find(p => p.id === row.dataset.providerId);
+      const tier = prov && prov.tiers.find(t => t.name === cfg.tierSel);
+      if (!prov || !tier) return out;
+
+      const mi = parseFloat(row.dataset.multInput), mc = parseFloat(row.dataset.multCached), mo = parseFloat(row.dataset.multOutput);
+
+      // Free model: all multipliers zero, skip math
+      if (mi === 0 && mc === 0 && mo === 0) { out.free = true; out.plan = cfg.tierSel; out.ip = out.cp = out.op = 0; out.cost = 0; return out; }
+
+      const priceFor = mix => {
+        const weighted = mix.input / 100 * mi + mix.cached / 100 * mc + mix.output / 100 * mo;
+        if (weighted === 0) return 0;
+        let creditsPer1M = weighted * 1_000_000 / 10_000;
+        if (cfg.offPeak) creditsPer1M *= prov.off_peak_multiplier || 1;
+        const weeklyCost = tier.monthly_usd / 4.33;
+        const tokensPerWeek = tier.weekly_credits / creditsPer1M * 1_000_000;
+        return weeklyCost / (tokensPerWeek / 1_000_000);
+      };
+
+      out.plan = cfg.tierSel;
+      out.ip = priceFor({ input: 100, cached: 0, output: 0 });
+      out.cp = priceFor({ input: 0, cached: 100, output: 0 });
+      out.op = priceFor({ input: 0, cached: 0, output: 100 });
+      out.cost = priceFor(cfg) * cfg.tokensPerRun / 1_000_000;
+    } else {
+      out.plan = 'Paygo';
+      out.ip = parseFloat(row.dataset.inputPrice);
+      out.cp = parseFloat(row.dataset.cachedPrice);
+      out.op = parseFloat(row.dataset.outputPrice);
 
       // Free model: all prices zero, skip math
-      if (ip === 0 && cp === 0 && op === 0) { cell.textContent = 'Free'; cell.dataset.sort = Infinity; return; }
+      if (out.ip === 0 && out.cp === 0 && out.op === 0) { out.free = true; out.cost = 0; return out; }
 
-      const blended = (input * ip + cached * cp + output * op) / 100;
-      if (blended === 0) { cell.textContent = '—'; cell.dataset.sort = ''; return; }
+      const blended = (cfg.input * out.ip + cfg.cached * out.cp + cfg.output * out.op) / 100;
+      out.cost = blended * cfg.tokensPerRun / 1_000_000;
+    }
 
-      const tokensPerDollar = 1_000_000 / blended;
-      cell.textContent = fmtCompact(budget * tokensPerDollar);
-      cell.dataset.sort = budget * tokensPerDollar;
+    if (out.cost > 0) {
+      out.runs = cfg.budget / out.cost;
+      out.tokens = out.runs * cfg.tokensPerRun;
+    }
+    return out;
+  }
+
+  // ── Fill the table ───────────────────────────────────────────
+  // Cell order: 0 cmp btn · 1 provider · 2 plan · 3 model · 4-6 prices · 7 est · 8 runs · 9 tokens · 10 rel
+  function updateRows() {
+    const cfg = getConfig();
+    document.querySelectorAll('#provider-table tbody tr').forEach(row => {
+      const c = computeRow(row, cfg);
+      row._computed = c;
+      const cells = row.children;
+
+      if (row.dataset.pricingType === 'subscription') {
+        cells[2].textContent = c.plan || '—';
+        [cells[4], cells[5], cells[6]].forEach((cell, i) => {
+          const p = [c.ip, c.cp, c.op][i];
+          if (p == null || !Number.isFinite(p)) { cell.textContent = '—'; cell.dataset.sort = ''; }
+          else { cell.textContent = fmtPrice(p); cell.dataset.sort = p; }
+        });
+      }
+
+      const [costCell, runsCell, tokensCell] = [cells[7], cells[8], cells[9]];
+      if (c.free) {
+        costCell.textContent = 'Free';  costCell.dataset.sort = 0;
+        runsCell.textContent = '—';     runsCell.dataset.sort = '';
+        tokensCell.textContent = '—';   tokensCell.dataset.sort = '';
+      } else if (c.cost != null) {
+        costCell.textContent = fmtPrice(c.cost); costCell.dataset.sort = c.cost;
+        runsCell.textContent = c.runs != null ? fmtInt(c.runs) : '—';
+        runsCell.dataset.sort = c.runs != null ? c.runs : '';
+        tokensCell.textContent = c.tokens != null ? fmtCompact(c.tokens) : '—';
+        tokensCell.dataset.sort = c.tokens != null ? c.tokens : '';
+      } else {
+        costCell.textContent = '—'; costCell.dataset.sort = '';
+        runsCell.textContent = '—'; runsCell.dataset.sort = '';
+        tokensCell.textContent = '—'; tokensCell.dataset.sort = '';
+      }
     });
+    return cfg;
+  }
 
-    // Recompute done; keep the current sort order honest (tier/mix changes
-    // move effective tokens/$ non-uniformly).
+  // Relative cost bars: est_cost / max(visible est_cost) × 100%.
+  // Free models get a zero-width "Free" bar. Value shown is USD.
+  function updateBars() {
+    let max = 0;
+    document.querySelectorAll('#provider-table tbody tr').forEach(row => {
+      if (row.classList.contains('hidden-row')) return;
+      const c = row._computed;
+      if (c && c.cost != null && c.cost > max) max = c.cost;
+    });
+    document.querySelectorAll('#provider-table tbody tr').forEach(row => {
+      const c = row._computed;
+      const cell = row.children[10];
+      if (!c || c.cost == null) { cell.innerHTML = '—'; cell.dataset.sort = ''; return; }
+      const w = max > 0 ? Math.round(c.cost / max * 100) : 0;
+      const val = c.free ? 'Free' : fmtPrice(c.cost);
+      cell.innerHTML =
+        `<div class="credit-bar-wrap"><div class="credit-bar-bg"><div class="credit-bar-fill" style="width:${w}%"></div></div>` +
+        `<span class="credit-val">${val}</span></div>`;
+      cell.dataset.sort = c.cost;
+    });
+  }
+
+  function recompute() {
+    updateRows();
+    applyFilters();
+    updateBars();
     applySort();
+    updateCompareUI();
   }
-
-  // ── Subscription rows: credit math ───────────────────────────
-  // weekly_cost = monthly/4.33; credits/1M = weighted_mult × 100;
-  // tokens/week = weekly_credits / credits_per_1M × 1M;
-  // effective $/1M = weekly_cost / (tokens/week / 1M).
-  function updateSubscriptionRow(row, cell, pct, budget, tierSel, offPeak) {
-    const priceCells = row.querySelectorAll('.sub-price');
-    const dash = () => {
-      cell.textContent = '—';
-      cell.dataset.sort = '';
-      priceCells.forEach(c => { c.textContent = '—'; c.dataset.sort = ''; });
-    };
-
-    // Global tier selector: only rows for the selected tier compute.
-    // Providers missing the selected tier (divergent tier sets) show —.
-    // ponytail: per-provider tier selectors if tiers diverge
-    if (!SUBS.length || !tierSel) { dash(); return; }
-    const prov = SUBS.find(p => p.id === row.dataset.providerId);
-    const tier = prov && prov.tiers.find(t => t.name === tierSel);
-    if (!prov || !tier) { dash(); return; }
-
-    const mi = parseFloat(row.dataset.multInput), mc = parseFloat(row.dataset.multCached), mo = parseFloat(row.dataset.multOutput);
-
-    // Free model: all multipliers zero, skip math
-    if (mi === 0 && mc === 0 && mo === 0) { cell.textContent = 'Free'; cell.dataset.sort = Infinity; return; }
-
-    const weightedMult = pct.input / 100 * mi + pct.cached / 100 * mc + pct.output / 100 * mo;
-    if (weightedMult === 0) { dash(); return; } // all pct slots zero
-    let creditsPer1M = weightedMult * 1_000_000 / 10_000;
-    if (offPeak) creditsPer1M *= prov.off_peak_multiplier || 1;
-
-    const weeklyCost = tier.monthly_usd / 4.33;
-    const tokensPerWeek = tier.weekly_credits / creditsPer1M * 1_000_000;
-    const effectivePrice = weeklyCost / (tokensPerWeek / 1_000_000);
-    if (effectivePrice <= 0) { dash(); return; }
-
-    cell.textContent = fmtCompact(budget / effectivePrice * 1_000_000);
-    cell.dataset.sort = budget / effectivePrice * 1_000_000;
-    const price = fmtUSD(effectivePrice);
-    priceCells.forEach(c => { c.textContent = price; c.dataset.sort = effectivePrice; });
-  }
-
-  // ── Live recalc on inputs ────────────────────────────────────
-  ['budget-amount', 'input-pct', 'cached-pct', 'output-pct'].forEach(id => {
-    document.getElementById(id).addEventListener('input', updateEffectiveTokens);
-  });
-  document.querySelectorAll('input[name="tier"]').forEach(r => r.addEventListener('change', updateEffectiveTokens));
-  const offPeakToggle = document.getElementById('off-peak-toggle');
-  if (offPeakToggle) offPeakToggle.addEventListener('change', updateEffectiveTokens);
 
   // ── Filters & sort ───────────────────────────────────────────
-  const state = {
-    sortCol: null,          // data-col of the active sort column; null = baked order
-    sortDir: 'asc',
-    search: '',
-    hiddenProviders: new Set(),
-    showAll: false,
-  };
-
   // Raw numeric value of a cell for sorting; '' / missing = no value
-  // (sorts last, same as the copilot tool), Infinity = Free row (best).
+  // (sorts last, same as the copilot tool).
   const cellNum = td => {
     const v = td.dataset.sort;
     if (v === undefined || v === '') return null;
-    if (v === 'Infinity') return Infinity;
     return +v;
   };
   const COLUMN_GET = {
-    provider:  tr => tr.children[0].textContent.trim(),
-    plan:      tr => tr.children[1].textContent.trim(),
-    model:     tr => tr.children[2].textContent.trim(),
-    input:     tr => cellNum(tr.children[3]),
-    cached:    tr => cellNum(tr.children[4]),
-    output:    tr => cellNum(tr.children[5]),
-    effective: tr => cellNum(tr.children[6]),
+    provider: tr => tr.children[1].textContent.trim(),
+    plan:     tr => tr.children[2].textContent.trim(),
+    model:    tr => tr.children[3].textContent.trim(),
+    input:    tr => cellNum(tr.children[4]),
+    cached:   tr => cellNum(tr.children[5]),
+    output:   tr => cellNum(tr.children[6]),
+    cost:     tr => cellNum(tr.children[7]),
+    runs:     tr => cellNum(tr.children[8]),
+    tokens:   tr => cellNum(tr.children[9]),
+    relative: tr => cellNum(tr.children[10]),
   };
 
   // A row is visible only when: provider chip active AND model matches
@@ -184,17 +241,156 @@
       state.showAll || n === 0 ? 'Show all models' : `Show ${n} more models`;
   }
 
+  // ── Compare tray ─────────────────────────────────────────────
+  const MAX_COMPARE = 5;
+
+  function toggleCompare(row) {
+    if (state.compare.has(row)) {
+      state.compare.delete(row);
+    } else {
+      if (state.compare.size >= MAX_COMPARE) return;
+      state.compare.add(row);
+    }
+    updateCompareUI();
+  }
+
+  function clearCompare() {
+    state.compare.clear();
+    updateCompareUI();
+  }
+
+  function updateCompareUI() {
+    document.querySelectorAll('#provider-table tbody tr').forEach(row => {
+      const inCmp = state.compare.has(row);
+      row.classList.toggle('in-compare', inCmp);
+      const btn = row.querySelector('.cmp-btn');
+      if (btn) {
+        btn.classList.toggle('active', inCmp);
+        btn.textContent = inCmp ? '−' : '+';
+        btn.title = inCmp ? 'Remove from comparison' : 'Add to comparison';
+      }
+    });
+
+    const tray = document.getElementById('compare-tray');
+    const cards = document.getElementById('tray-cards');
+    document.getElementById('tray-count').textContent = state.compare.size;
+
+    if (state.compare.size === 0) {
+      tray.classList.remove('visible');
+      document.body.classList.remove('tray-open');
+      cards.innerHTML = '';
+      return;
+    }
+    tray.classList.add('visible');
+    document.body.classList.add('tray-open');
+
+    const rows = [...state.compare];
+    const maxIP = Math.max(0, ...rows.map(r => r._computed?.ip ?? 0));
+    const maxCP = Math.max(0, ...rows.map(r => r._computed?.cp ?? 0));
+    const maxOP = Math.max(0, ...rows.map(r => r._computed?.op ?? 0));
+    const minCost = Math.min(...rows.map(r => r._computed?.cost ?? Infinity));
+    const barW = (v, max) => max > 0 ? Math.round(v / max * 100) : 0;
+
+    cards.innerHTML = rows.map((row, i) => {
+      const c = row._computed || {};
+      const isCheapest = rows.length > 1 && c.cost === minCost;
+      const priceVal = p => p != null && Number.isFinite(p) ? fmtPrice(p) : '—';
+      const hl = isCheapest ? ' highlight' : '';
+      return `
+      <div class="cmp-card">
+        <button class="cmp-card-remove" title="Remove" data-i="${i}">✕</button>
+        <div class="cmp-card-name">${row.dataset.modelId}</div>
+        <div class="cmp-card-provider">${row.dataset.providerName} · ${c.plan || '—'}</div>
+        <div class="cmp-card-rows">
+          <div class="cmp-rate-row">
+            <span class="cmp-rate-label">Input</span>
+            <div class="cmp-rate-bar-bg"><div class="cmp-rate-bar-fill${hl}" style="width:${barW(c.ip, maxIP)}%"></div></div>
+            <span class="cmp-rate-val">${priceVal(c.ip)}</span>
+          </div>
+          <div class="cmp-rate-row">
+            <span class="cmp-rate-label">Cached</span>
+            <div class="cmp-rate-bar-bg"><div class="cmp-rate-bar-fill${hl}" style="width:${barW(c.cp, maxCP)}%"></div></div>
+            <span class="cmp-rate-val">${priceVal(c.cp)}</span>
+          </div>
+          <div class="cmp-rate-row">
+            <span class="cmp-rate-label">Output</span>
+            <div class="cmp-rate-bar-bg"><div class="cmp-rate-bar-fill${hl}" style="width:${barW(c.op, maxOP)}%"></div></div>
+            <span class="cmp-rate-val">${priceVal(c.op)}</span>
+          </div>
+        </div>
+        <div class="cmp-card-cost">
+          <div>
+            <div class="cmp-cost-label">Est. cost</div>
+            <div class="cmp-credits">${c.runs != null ? 'Runs: ' + fmtInt(c.runs) : (c.free ? 'Free' : '—')}</div>
+          </div>
+          <span class="cmp-cost-val${hl}">${c.cost != null ? fmtPrice(c.cost) : '—'}</span>
+        </div>
+      </div>`;
+    }).join('');
+
+    cards.querySelectorAll('.cmp-card-remove').forEach(btn => {
+      btn.addEventListener('click', () => toggleCompare(rows[+btn.dataset.i]));
+    });
+  }
+
+  // ── Off-peak auto-detect ─────────────────────────────────────
+  // z.ai off-peak: Mon–Fri 07:00–11:00 CET (their 14:00–18:00 UTC+8).
+  // ponytail: Europe/Paris locale string covers CET/CEST; keep the fixed
+  // 07:00–11:00 window as published, upgrade to per-season offsets if it matters.
+  function autoOffPeak() {
+    const toggle = document.getElementById('off-peak-toggle');
+    if (!toggle) return;
+    const parts = new Date().toLocaleString('en-US',
+      { timeZone: 'Europe/Paris', weekday: 'short', hour: '2-digit', hourCycle: 'h23' }
+    ).split(/[\s,]+/).filter(Boolean);
+    const day = (parts[0] || '').toLowerCase();
+    const hour = parseInt(parts[1], 10);
+    const weekday = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'].indexOf(day);
+    if (weekday >= 0 && weekday <= 4 && hour >= 7 && hour < 11) toggle.checked = true;
+  }
+
+  // ── Event wiring ─────────────────────────────────────────────
+  ['budget-amount', 'input-pct', 'cached-pct', 'output-pct', 'tokens-per-run'].forEach(id => {
+    document.getElementById(id).addEventListener('input', () => {
+      if (id.endsWith('-pct')) {
+        // Manual edits override the active preset
+        document.querySelectorAll('.profile-btn').forEach(b => b.classList.remove('active'));
+      }
+      recompute();
+    });
+  });
+  document.querySelectorAll('input[name="tier"]').forEach(r => r.addEventListener('change', recompute));
+  const offPeakToggle = document.getElementById('off-peak-toggle');
+  if (offPeakToggle) offPeakToggle.addEventListener('change', recompute);
+
+  // Preset buttons
+  document.querySelectorAll('.profile-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const p = PRESETS[btn.dataset.profile];
+      if (!p) return;
+      document.getElementById('input-pct').value = p.input;
+      document.getElementById('cached-pct').value = p.cached;
+      document.getElementById('output-pct').value = p.output;
+      document.querySelectorAll('.profile-btn').forEach(b => b.classList.toggle('active', b.dataset.profile === btn.dataset.profile));
+      recompute();
+    });
+  });
+
   // Show-all toggle
   document.getElementById('show-all-models').addEventListener('change', e => {
     state.showAll = e.target.checked;
     updateShowAllLabel();
     applyFilters();
+    updateBars();
+    applySort();
   });
 
   // Search (real-time, static table → no debounce)
   document.getElementById('model-search').addEventListener('input', e => {
     state.search = e.target.value;
     applyFilters();
+    updateBars();
+    applySort();
   });
 
   // Provider chips: click toggles that provider's rows
@@ -205,6 +401,8 @@
       else state.hiddenProviders.add(id);
       btn.classList.toggle('active', !state.hiddenProviders.has(id));
       applyFilters();
+      updateBars();
+      applySort();
     });
   });
 
@@ -223,8 +421,16 @@
     });
   });
 
+  // Compare buttons on rows
+  document.querySelectorAll('#provider-table tbody tr').forEach(row => {
+    const btn = row.querySelector('.cmp-btn');
+    if (btn) btn.addEventListener('click', () => toggleCompare(row));
+  });
+
+  // ── Initial render ───────────────────────────────────────────
+  autoOffPeak();
   updateSortIndicators();
   updateShowAllLabel();
   applyFilters();
-  updateEffectiveTokens();
+  recompute();
 </script>
