@@ -1203,6 +1203,7 @@
     border-radius: 999px;
     margin-left: 6px;
     vertical-align: middle;
+    white-space: nowrap;
   }
   .limit-badge.limit-green  { color: #166534; background: #DCFCE7; }
   .limit-badge.limit-orange { color: #9A3412; background: #FED7AA; }
@@ -1346,7 +1347,7 @@
     </div>
     <div style="margin-top: 16px; display: flex; align-items: center; gap: 10px;">
       <label for="budget-ref" style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate-7); white-space: nowrap;">Budget reference ($)</label>
-      <input type="number" id="budget-ref" value="" placeholder="optional" min="0" step="1" style="font-family: 'Source Sans 3', sans-serif; font-size: 13px; font-weight: 500; color: var(--nordic-black); background: var(--canvas); border: 1px solid var(--slate-3); border-radius: 2px; padding: 6px 10px; width: 120px; outline: none;" />
+      <input type="number" id="budget-ref" value="10" min="0" step="1" style="font-family: 'Source Sans 3', sans-serif; font-size: 13px; font-weight: 500; color: var(--nordic-black); background: var(--canvas); border: 1px solid var(--slate-3); border-radius: 2px; padding: 6px 10px; width: 120px; outline: none;" />
     </div>
   </div>
 
@@ -1363,6 +1364,7 @@
           <th class="sortable num" data-col="cached">Cached $/1M <span class="sort-icon">↕</span></th>
           <th class="sortable num" data-col="output">Output $/1M <span class="sort-icon">↕</span></th>
           <th class="sortable num" data-col="cost">Monthly cost <span class="sort-icon">↕</span></th>
+          <th class="sortable num" data-col="runs">Runs <span class="sort-icon">↕</span></th>
           <th class="sortable bar-cell" data-col="relative">Relative cost <span class="sort-icon">↕</span></th>
         </tr>
       </thead>
@@ -1382,6 +1384,7 @@
               <td class="num" data-sort="0.0028">$0.0028</td>
               <td class="num" data-sort="0.28">$0.28</td>
               <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
             
@@ -1396,6 +1399,7 @@
               <td class="num" data-sort="0.003625">$0.003625</td>
               <td class="num" data-sort="0.87">$0.87</td>
               <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
             
@@ -1415,6 +1419,7 @@
               <td class="num" data-sort="0.26">$0.26</td>
               <td class="num" data-sort="4.4">$4.4</td>
               <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
             
@@ -1429,6 +1434,7 @@
               <td class="num" data-sort="0.26">$0.26</td>
               <td class="num" data-sort="4.4">$4.4</td>
               <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
             
@@ -1443,6 +1449,7 @@
               <td class="num" data-sort="0.2">$0.2</td>
               <td class="num" data-sort="3.2">$3.2</td>
               <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
             
@@ -1457,6 +1464,7 @@
               <td class="num" data-sort="0.24">$0.24</td>
               <td class="num" data-sort="4.0">$4</td>
               <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
             
@@ -1471,6 +1479,7 @@
               <td class="num" data-sort="0.11">$0.11</td>
               <td class="num" data-sort="2.2">$2.2</td>
               <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
             
@@ -1485,6 +1494,7 @@
               <td class="num" data-sort="0.01">$0.01</td>
               <td class="num" data-sort="0.4">$0.4</td>
               <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
             
@@ -1499,6 +1509,7 @@
               <td class="num" data-sort="0.11">$0.11</td>
               <td class="num" data-sort="2.2">$2.2</td>
               <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
             
@@ -1513,6 +1524,7 @@
               <td class="num" data-sort="0.11">$0.11</td>
               <td class="num" data-sort="2.2">$2.2</td>
               <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
             
@@ -1527,6 +1539,7 @@
               <td class="num" data-sort="0.45">$0.45</td>
               <td class="num" data-sort="8.9">$8.9</td>
               <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
             
@@ -1541,6 +1554,7 @@
               <td class="num" data-sort="0.03">$0.03</td>
               <td class="num" data-sort="1.1">$1.1</td>
               <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
             
@@ -1555,6 +1569,7 @@
               <td class="num" data-sort="0.22">$0.22</td>
               <td class="num" data-sort="4.5">$4.5</td>
               <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
             
@@ -1569,6 +1584,7 @@
               <td class="num" data-sort="0.0">$0</td>
               <td class="num" data-sort="0.1">$0.1</td>
               <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
             
@@ -1583,6 +1599,7 @@
               <td class="num" data-sort="0.0">$0</td>
               <td class="num" data-sort="0.0">$0</td>
               <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
             
@@ -1597,6 +1614,7 @@
               <td class="num" data-sort="0.0">$0</td>
               <td class="num" data-sort="0.0">$0</td>
               <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
             
@@ -1616,6 +1634,7 @@
               <td class="num sub-price">—</td>
               <td class="num sub-price">—</td>
               <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
             
@@ -1630,6 +1649,7 @@
               <td class="num sub-price">—</td>
               <td class="num sub-price">—</td>
               <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
             
@@ -1644,6 +1664,7 @@
               <td class="num sub-price">—</td>
               <td class="num sub-price">—</td>
               <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
             
@@ -1730,7 +1751,7 @@
   // monthlyCost = total monthly cost at the given token volume.
   // ip/cp/op = effective $/1M rates (actual for paygo, derived for subs).
   function computeRow(row, cfg) {
-    const out = { monthlyCost: null, ip: null, cp: null, op: null, free: false, plan: null, status: null };
+    const out = { monthlyCost: null, runs: null, ip: null, cp: null, op: null, free: false, plan: null, status: null };
 
     if (row.dataset.pricingType === 'subscription') {
       if (!SUBS.length || !cfg.tierSel) return out;
@@ -1795,12 +1816,13 @@
 
       out.monthlyCost = (uncachedVol * out.ip) + (cachedVol * out.cp) + (outputVol * out.op);
     }
+    if (cfg.budgetRef > 0 && out.monthlyCost > 0) out.runs = cfg.budgetRef / out.monthlyCost;
     return out;
   }
 
-  // ── Fill the table ───────────────────────────────────────────
-  // Cell order: 0 cmp btn · 1 provider · 2 plan · 3 model · 4-6 prices · 7 monthly cost · 8 relative
+  // Cell order: 0 cmp btn · 1 provider · 2 plan · 3 model · 4-6 prices · 7 monthly cost · 8 runs · 9 relative
   function updateRows() {
+
     const cfg = getConfig();
     document.querySelectorAll('#provider-table tbody tr[data-pricing-type]').forEach(row => {
       const c = computeRow(row, cfg);
@@ -1828,6 +1850,11 @@
       } else {
         costCell.innerHTML = '—'; costCell.dataset.sort = '';
       }
+
+      const runsCell = cells[8];
+      if (c.free) { runsCell.textContent = '—'; runsCell.dataset.sort = ''; }
+      else if (c.runs != null && Number.isFinite(c.runs)) { runsCell.textContent = c.runs.toFixed(1); runsCell.dataset.sort = c.runs; }
+      else { runsCell.textContent = '—'; runsCell.dataset.sort = ''; }
     });
     return cfg;
   }
@@ -1842,7 +1869,7 @@
     });
     document.querySelectorAll('#provider-table tbody tr[data-pricing-type]').forEach(row => {
       const c = row._computed;
-      const cell = row.children[8];
+      const cell = row.children[9];
       if (!c || c.monthlyCost == null) { cell.innerHTML = '—'; cell.dataset.sort = ''; return; }
       const w = max > 0 ? Math.round(c.monthlyCost / max * 100) : 0;
       const val = c.free ? 'Free' : fmtPrice(c.monthlyCost);
@@ -1888,7 +1915,8 @@
     cached:   tr => cellNum(tr.children[5]),
     output:   tr => cellNum(tr.children[6]),
     cost:     tr => cellNum(tr.children[7]),
-    relative: tr => cellNum(tr.children[8]),
+    runs:     tr => cellNum(tr.children[8]),
+    relative: tr => cellNum(tr.children[9]),
   };
 
   function applyFilters() {

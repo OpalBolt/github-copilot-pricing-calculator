@@ -52,7 +52,7 @@
   // monthlyCost = total monthly cost at the given token volume.
   // ip/cp/op = effective $/1M rates (actual for paygo, derived for subs).
   function computeRow(row, cfg) {
-    const out = { monthlyCost: null, ip: null, cp: null, op: null, free: false, plan: null, status: null };
+    const out = { monthlyCost: null, runs: null, ip: null, cp: null, op: null, free: false, plan: null, status: null };
 
     if (row.dataset.pricingType === 'subscription') {
       if (!SUBS.length || !cfg.tierSel) return out;
@@ -117,12 +117,13 @@
 
       out.monthlyCost = (uncachedVol * out.ip) + (cachedVol * out.cp) + (outputVol * out.op);
     }
+    if (cfg.budgetRef > 0 && out.monthlyCost > 0) out.runs = cfg.budgetRef / out.monthlyCost;
     return out;
   }
 
-  // ── Fill the table ───────────────────────────────────────────
-  // Cell order: 0 cmp btn · 1 provider · 2 plan · 3 model · 4-6 prices · 7 monthly cost · 8 relative
+  // Cell order: 0 cmp btn · 1 provider · 2 plan · 3 model · 4-6 prices · 7 monthly cost · 8 runs · 9 relative
   function updateRows() {
+
     const cfg = getConfig();
     document.querySelectorAll('#provider-table tbody tr[data-pricing-type]').forEach(row => {
       const c = computeRow(row, cfg);
@@ -150,6 +151,11 @@
       } else {
         costCell.innerHTML = '—'; costCell.dataset.sort = '';
       }
+
+      const runsCell = cells[8];
+      if (c.free) { runsCell.textContent = '—'; runsCell.dataset.sort = ''; }
+      else if (c.runs != null && Number.isFinite(c.runs)) { runsCell.textContent = c.runs.toFixed(1); runsCell.dataset.sort = c.runs; }
+      else { runsCell.textContent = '—'; runsCell.dataset.sort = ''; }
     });
     return cfg;
   }
@@ -164,7 +170,7 @@
     });
     document.querySelectorAll('#provider-table tbody tr[data-pricing-type]').forEach(row => {
       const c = row._computed;
-      const cell = row.children[8];
+      const cell = row.children[9];
       if (!c || c.monthlyCost == null) { cell.innerHTML = '—'; cell.dataset.sort = ''; return; }
       const w = max > 0 ? Math.round(c.monthlyCost / max * 100) : 0;
       const val = c.free ? 'Free' : fmtPrice(c.monthlyCost);
@@ -210,7 +216,8 @@
     cached:   tr => cellNum(tr.children[5]),
     output:   tr => cellNum(tr.children[6]),
     cost:     tr => cellNum(tr.children[7]),
-    relative: tr => cellNum(tr.children[8]),
+    runs:     tr => cellNum(tr.children[8]),
+    relative: tr => cellNum(tr.children[9]),
   };
 
   function applyFilters() {
