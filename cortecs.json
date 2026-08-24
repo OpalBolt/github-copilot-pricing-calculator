@@ -1,5 +1,5 @@
 {
-  "fetchDate": "2026-08-04",
+  "fetchDate": "2026-08-24",
   "currency": "EUR",
   "source": "https://api.cortecs.ai/v1/models?extended=true&currency=EUR",
   "providers": {
@@ -66,6 +66,393 @@
   },
   "models": [
     {
+      "id": "qwen3.8-27b",
+      "object": "model",
+      "created": 1786966562,
+      "owned_by": "Alibaba Cloud",
+      "description": "Qwen3.8 27B is a compact open-weight multimodal model optimized for efficient reasoning, coding, and agentic workflows on local hardware.",
+      "pricing": {
+        "currency": "EUR",
+        "input_token": 0.3,
+        "output_token": 2.2,
+        "cache_read_cost": 0.1
+      },
+      "providers": [
+        "tensorix",
+        "berget",
+        "aki"
+      ],
+      "context_size": 262144,
+      "max_output_tokens": 262144,
+      "tags": [
+        "Instruct",
+        "Reasoning",
+        "Tools",
+        "Code",
+        "Image"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "supported_features": [
+        "json_mode",
+        "reasoning",
+        "tools"
+      ],
+      "model_series": [
+        "qwen-3-27b"
+      ],
+      "providers_details": {
+        "tensorix": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 0.359,
+            "output_token": 2.154,
+            "cache_read_cost": 0.09
+          },
+          "quantization": "fp8",
+          "context_size": 262144,
+          "max_output_tokens": 262144,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 42.98,
+            "latency": 26.12,
+            "ttft": 2.6,
+            "cache_hit_rate": 0.83,
+            "uptime": 1.0
+          }
+        },
+        "berget": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 0.4,
+            "output_token": 3.0
+          },
+          "quantization": "fp8",
+          "context_size": 262000,
+          "max_output_tokens": 262000,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 47.74,
+            "latency": 28.96,
+            "ttft": 0.93,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
+        },
+        "aki": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 0.3,
+            "output_token": 2.2,
+            "cache_read_cost": 0.1
+          },
+          "quantization": "fp16",
+          "context_size": 262144,
+          "max_output_tokens": 262144,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 57.6,
+            "latency": 66.97,
+            "ttft": 28.28,
+            "cache_hit_rate": 0.74,
+            "uptime": 1.0
+          }
+        }
+      }
+    },
+    {
+      "id": "gemini-3.7-flash",
+      "object": "model",
+      "created": 1786693082,
+      "owned_by": "Google",
+      "description": "Gemini 3.7 Flash is a high-efficiency model delivering strong agentic capabilities, improved coding performance, and reliable multi-step execution.",
+      "pricing": {
+        "currency": "EUR",
+        "input_token": 0.673,
+        "output_token": 3.366,
+        "audio_cost": 1.683e-05,
+        "cache_read_cost": 0.067,
+        "cache_write_cost": 0.034
+      },
+      "providers": [
+        "google"
+      ],
+      "context_size": 1048576,
+      "max_output_tokens": 65535,
+      "tags": [
+        "Instruct",
+        "Tools",
+        "Image",
+        "Reasoning",
+        "Audio",
+        "Document"
+      ],
+      "input_modalities": [
+        "text",
+        "image",
+        "audio",
+        "file"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "supported_features": [
+        "json_mode",
+        "reasoning",
+        "tools"
+      ],
+      "model_series": [
+        "gemini-3-flash"
+      ],
+      "providers_details": {
+        "google": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 0.673,
+            "output_token": 3.366,
+            "audio_cost": 1.683e-05,
+            "cache_read_cost": 0.067,
+            "cache_write_cost": 0.034
+          },
+          "quantization": null,
+          "context_size": 1048576,
+          "max_output_tokens": 65535,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 384.66,
+            "latency": 8.43,
+            "ttft": 3.39,
+            "cache_hit_rate": 0.39,
+            "uptime": 1.0
+          }
+        }
+      }
+    },
+    {
+      "id": "gemini-3.6-flash",
+      "object": "model",
+      "created": 1786689482,
+      "owned_by": "Google",
+      "description": "Gemini 3.6 Flash is a high-efficiency model optimized for multi-step workflows, coding, and improved reasoning performance.",
+      "pricing": {
+        "currency": "EUR",
+        "input_token": 0.673,
+        "output_token": 3.366,
+        "audio_cost": 1.683e-05,
+        "cache_read_cost": 0.067,
+        "cache_write_cost": 0.034
+      },
+      "providers": [
+        "google"
+      ],
+      "context_size": 1048576,
+      "max_output_tokens": 65535,
+      "tags": [
+        "Instruct",
+        "Tools",
+        "Image",
+        "Reasoning",
+        "Audio"
+      ],
+      "input_modalities": [
+        "text",
+        "image",
+        "audio"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "supported_features": [
+        "json_mode",
+        "reasoning",
+        "tools"
+      ],
+      "model_series": [
+        "gemini-3-flash"
+      ],
+      "providers_details": {
+        "google": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 0.673,
+            "output_token": 3.366,
+            "audio_cost": 1.683e-05,
+            "cache_read_cost": 0.067,
+            "cache_write_cost": 0.034
+          },
+          "quantization": null,
+          "context_size": 1048576,
+          "max_output_tokens": 65535,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 2118.43,
+            "latency": 8.95,
+            "ttft": 6.35,
+            "cache_hit_rate": 0.09,
+            "uptime": 1.0
+          }
+        }
+      }
+    },
+    {
+      "id": "qwen3.8-2.4t-a95b",
+      "object": "model",
+      "created": 1786685762,
+      "owned_by": "Alibaba Cloud",
+      "description": "Qwen3.8-2.4T-A95B is an open-weight flagship MoE model built for advanced reasoning, coding, and long-horizon agentic workflows.",
+      "pricing": {
+        "currency": "EUR",
+        "input_token": 2.244,
+        "output_token": 5.386,
+        "cache_read_cost": 0.561
+      },
+      "providers": [
+        "tensorix"
+      ],
+      "context_size": 262144,
+      "max_output_tokens": 262144,
+      "tags": [
+        "Instruct",
+        "Reasoning",
+        "Tools",
+        "Code"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "supported_features": [
+        "json_mode",
+        "reasoning",
+        "tools"
+      ],
+      "model_series": [
+        "qwen-3-2.4t"
+      ],
+      "providers_details": {
+        "tensorix": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 2.244,
+            "output_token": 5.386,
+            "cache_read_cost": 0.561
+          },
+          "quantization": "fp4",
+          "context_size": 262144,
+          "max_output_tokens": 262144,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 256.28,
+            "latency": 6.84,
+            "ttft": 1.21,
+            "cache_hit_rate": 0.94,
+            "uptime": 1.0
+          }
+        }
+      }
+    },
+    {
+      "id": "gemini-3.5-flash-lite",
+      "object": "model",
+      "created": 1786084682,
+      "owned_by": "Google",
+      "description": "Gemini 3.5 Flash Lite is a fast, low-cost multimodal model optimized for high-volume, low-latency workloads.",
+      "pricing": {
+        "currency": "EUR",
+        "input_token": 0.296,
+        "output_token": 2.468,
+        "audio_cost": 6.73e-06,
+        "cache_read_cost": 0.03
+      },
+      "providers": [
+        "google"
+      ],
+      "context_size": 1048576,
+      "max_output_tokens": 65535,
+      "tags": [
+        "Instruct",
+        "Tools",
+        "Image",
+        "Reasoning",
+        "Audio",
+        "Document"
+      ],
+      "input_modalities": [
+        "text",
+        "image",
+        "audio",
+        "file"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "supported_features": [
+        "json_mode",
+        "reasoning",
+        "tools"
+      ],
+      "model_series": [
+        "gemini-3-flash-lite"
+      ],
+      "providers_details": {
+        "google": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 0.296,
+            "output_token": 2.468,
+            "audio_cost": 6.73e-06,
+            "cache_read_cost": 0.03
+          },
+          "quantization": null,
+          "context_size": 1048576,
+          "max_output_tokens": 65535,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 251.53,
+            "latency": 2.27,
+            "ttft": 0.67,
+            "cache_hit_rate": 0.14,
+            "uptime": 1.0
+          }
+        }
+      }
+    },
+    {
       "id": "deepseek-v4-flash-0731",
       "object": "model",
       "created": 1785566282,
@@ -73,14 +460,18 @@
       "description": "DeepSeek V4 Flash 0731 is an efficient MoE model optimized for fast reasoning, coding, and enhanced agentic workflows.",
       "pricing": {
         "currency": "EUR",
-        "input_token": 0.224,
-        "output_token": 0.269,
-        "cache_read_cost": 0.056
+        "input_token": 0.117,
+        "output_token": 0.251,
+        "cache_read_cost": 0.027
       },
       "providers": [
-        "tensorix"
+        "tensorix",
+        "inceptron",
+        "scaleway",
+        "aki"
       ],
       "context_size": 1048576,
+      "max_output_tokens": 1048576,
       "tags": [
         "Instruct",
         "Tools",
@@ -110,11 +501,88 @@
           },
           "quantization": "fp4",
           "context_size": 1048576,
+          "max_output_tokens": 64000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 124.94,
+            "latency": 6.56,
+            "ttft": 1.86,
+            "cache_hit_rate": 0.83,
+            "uptime": 1.0
+          }
+        },
+        "inceptron": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 0.117,
+            "output_token": 0.251,
+            "cache_read_cost": 0.027
+          },
+          "quantization": "fp4",
+          "context_size": 1048576,
+          "max_output_tokens": 1048576,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 136.31,
+            "latency": 4.89,
+            "ttft": 1.45,
+            "cache_hit_rate": 0.91,
+            "uptime": 0.94
+          }
+        },
+        "scaleway": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 0.4,
+            "output_token": 0.8,
+            "cache_read_cost": 0.08
+          },
+          "quantization": null,
+          "context_size": 256000,
+          "max_output_tokens": 32768,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 369.47,
+            "latency": 3.53,
+            "ttft": 1.34,
+            "cache_hit_rate": 0.83,
+            "uptime": 1.0
+          }
+        },
+        "aki": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 0.2,
+            "output_token": 0.5,
+            "cache_read_cost": 0.1
+          },
+          "quantization": "fp16",
+          "context_size": 1048576,
+          "max_output_tokens": 81920,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 92.37,
+            "latency": 25.85,
+            "ttft": 1.35,
+            "cache_hit_rate": 0.74,
+            "uptime": 0.99
+          }
         }
       }
     },
@@ -135,6 +603,7 @@
         "berget"
       ],
       "context_size": 1048576,
+      "max_output_tokens": 1048576,
       "tags": [
         "Instruct",
         "Code",
@@ -166,11 +635,19 @@
           },
           "quantization": "fp4",
           "context_size": 1024000,
+          "max_output_tokens": 1024000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 45.06,
+            "latency": 91.8,
+            "ttft": 33.93,
+            "cache_hit_rate": 0.82,
+            "uptime": 1.0
+          }
         },
         "tensorix": {
           "pricing": {
@@ -181,11 +658,19 @@
           },
           "quantization": "fp4",
           "context_size": 1048576,
+          "max_output_tokens": 1048576,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 60.84,
+            "latency": 13.15,
+            "ttft": 2.26,
+            "cache_hit_rate": 0.84,
+            "uptime": 0.99
+          }
         },
         "berget": {
           "pricing": {
@@ -195,11 +680,19 @@
           },
           "quantization": "int4",
           "context_size": 1000000,
+          "max_output_tokens": 327000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 90.72,
+            "latency": 29.83,
+            "ttft": 2.17,
+            "cache_hit_rate": 0.77,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -218,19 +711,23 @@
       },
       "providers": [
         "amazon_ireland",
-        "amazon_paris"
+        "amazon_paris",
+        "google"
       ],
       "context_size": 1000000,
+      "max_output_tokens": 128000,
       "tags": [
         "Instruct",
         "Tools",
         "Image",
         "Code",
-        "Reasoning"
+        "Reasoning",
+        "Document"
       ],
       "input_modalities": [
         "text",
-        "image"
+        "image",
+        "file"
       ],
       "output_modalities": [
         "text"
@@ -254,11 +751,19 @@
           },
           "quantization": null,
           "context_size": 1000000,
+          "max_output_tokens": 128000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 480.3,
+            "latency": 31.33,
+            "ttft": 20.86,
+            "cache_hit_rate": 0.53,
+            "uptime": 0.99
+          }
         },
         "amazon_paris": {
           "pricing": {
@@ -270,11 +775,43 @@
           },
           "quantization": null,
           "context_size": 1000000,
+          "max_output_tokens": 128000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 84.09,
+            "latency": 17.59,
+            "ttft": 1.92,
+            "cache_hit_rate": 0.08,
+            "uptime": 0.41
+          }
+        },
+        "google": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 4.937,
+            "output_token": 24.684,
+            "cache_read_cost": 0.494,
+            "cache_write_cost": 6.171
+          },
+          "quantization": null,
+          "context_size": 1000000,
+          "max_output_tokens": 128000,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 73.05,
+            "latency": 10.4,
+            "ttft": 3.58,
+            "cache_hit_rate": 0.39,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -288,21 +825,25 @@
         "currency": "EUR",
         "input_token": 4.937,
         "output_token": 29.621,
-        "cache_read_cost": 0.494
+        "cache_read_cost": 0.494,
+        "cache_write_cost": 6.175
       },
       "providers": [
         "azure_sc"
       ],
       "context_size": 1050000,
+      "max_output_tokens": 128000,
       "tags": [
         "Instruct",
         "Reasoning",
         "Tools",
-        "Image"
+        "Image",
+        "Document"
       ],
       "input_modalities": [
         "text",
-        "image"
+        "image",
+        "file"
       ],
       "output_modalities": [
         "text"
@@ -321,15 +862,24 @@
             "currency": "EUR",
             "input_token": 4.937,
             "output_token": 29.621,
-            "cache_read_cost": 0.494
+            "cache_read_cost": 0.494,
+            "cache_write_cost": 6.175
           },
           "quantization": null,
           "context_size": 1050000,
+          "max_output_tokens": 128000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 140.88,
+            "latency": 7.95,
+            "ttft": 16.31,
+            "cache_hit_rate": 0.66,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -341,23 +891,27 @@
       "description": "GPT-5.6 Terra is a balanced mid-tier model optimized for professional work, combining strong reasoning, coding ability, and efficiency.",
       "pricing": {
         "currency": "EUR",
-        "input_token": 2.468,
-        "output_token": 14.81,
-        "cache_read_cost": 0.247
+        "input_token": 1.975,
+        "output_token": 11.848,
+        "cache_read_cost": 0.197,
+        "cache_write_cost": 2.468
       },
       "providers": [
         "azure_sc"
       ],
       "context_size": 1050000,
+      "max_output_tokens": 128000,
       "tags": [
         "Instruct",
         "Reasoning",
         "Tools",
-        "Image"
+        "Image",
+        "Document"
       ],
       "input_modalities": [
         "text",
-        "image"
+        "image",
+        "file"
       ],
       "output_modalities": [
         "text"
@@ -374,17 +928,26 @@
         "azure_sc": {
           "pricing": {
             "currency": "EUR",
-            "input_token": 2.468,
-            "output_token": 14.81,
-            "cache_read_cost": 0.247
+            "input_token": 1.975,
+            "output_token": 11.848,
+            "cache_read_cost": 0.197,
+            "cache_write_cost": 2.468
           },
           "quantization": null,
           "context_size": 1050000,
+          "max_output_tokens": 128000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 116.68,
+            "latency": 3.58,
+            "ttft": 1.56,
+            "cache_hit_rate": 0.81,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -396,23 +959,27 @@
       "description": "GPT-5.6 Luna is a fast, cost-efficient model optimized for high-volume tasks, real-time interactions, and lightweight reasoning.",
       "pricing": {
         "currency": "EUR",
-        "input_token": 0.987,
-        "output_token": 5.924,
-        "cache_read_cost": 0.099
+        "input_token": 0.197,
+        "output_token": 1.185,
+        "cache_read_cost": 0.02,
+        "cache_write_cost": 0.247
       },
       "providers": [
         "azure_sc"
       ],
       "context_size": 1050000,
+      "max_output_tokens": 128000,
       "tags": [
         "Instruct",
         "Reasoning",
         "Tools",
-        "Image"
+        "Image",
+        "Document"
       ],
       "input_modalities": [
         "text",
-        "image"
+        "image",
+        "file"
       ],
       "output_modalities": [
         "text"
@@ -429,17 +996,26 @@
         "azure_sc": {
           "pricing": {
             "currency": "EUR",
-            "input_token": 0.987,
-            "output_token": 5.924,
-            "cache_read_cost": 0.099
+            "input_token": 0.197,
+            "output_token": 1.185,
+            "cache_read_cost": 0.02,
+            "cache_write_cost": 0.247
           },
           "quantization": null,
           "context_size": 1050000,
+          "max_output_tokens": 128000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 228.77,
+            "latency": 13.67,
+            "ttft": 2.95,
+            "cache_hit_rate": 0.9,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -458,6 +1034,7 @@
         "aki"
       ],
       "context_size": 65536,
+      "max_output_tokens": 16384,
       "tags": [
         "Instruct",
         "Reasoning",
@@ -485,10 +1062,18 @@
           },
           "quantization": "fp8",
           "context_size": 65536,
+          "max_output_tokens": 16384,
           "supported_features": [
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 22.44,
+            "latency": 22.09,
+            "ttft": 0.5,
+            "cache_hit_rate": 0.41,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -511,16 +1096,19 @@
         "amazon_paris"
       ],
       "context_size": 1000000,
+      "max_output_tokens": 128000,
       "tags": [
         "Instruct",
         "Tools",
         "Image",
         "Code",
-        "Reasoning"
+        "Reasoning",
+        "Document"
       ],
       "input_modalities": [
         "text",
-        "image"
+        "image",
+        "file"
       ],
       "output_modalities": [
         "text"
@@ -544,11 +1132,19 @@
           },
           "quantization": null,
           "context_size": 1000000,
+          "max_output_tokens": 128000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 161.86,
+            "latency": 9.81,
+            "ttft": 4.33,
+            "cache_hit_rate": 0.89,
+            "uptime": 1.0
+          }
         },
         "amazon_ireland": {
           "pricing": {
@@ -560,11 +1156,19 @@
           },
           "quantization": null,
           "context_size": 1000000,
+          "max_output_tokens": 128000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 148.2,
+            "latency": 9.14,
+            "ttft": 3.14,
+            "cache_hit_rate": 0.61,
+            "uptime": 0.68
+          }
         },
         "amazon_paris": {
           "pricing": {
@@ -576,11 +1180,19 @@
           },
           "quantization": null,
           "context_size": 1000000,
+          "max_output_tokens": 128000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 167.39,
+            "latency": 11.98,
+            "ttft": 3.06,
+            "cache_hit_rate": 0.86,
+            "uptime": 0.97
+          }
         }
       }
     },
@@ -600,6 +1212,7 @@
         "berget"
       ],
       "context_size": 262000,
+      "max_output_tokens": 262000,
       "tags": [
         "Instruct",
         "Image",
@@ -630,11 +1243,19 @@
           },
           "quantization": null,
           "context_size": 128000,
+          "max_output_tokens": 128000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 110.69,
+            "latency": 3.39,
+            "ttft": 1.34,
+            "cache_hit_rate": null,
+            "uptime": 0.99
+          }
         },
         "berget": {
           "pricing": {
@@ -644,11 +1265,19 @@
           },
           "quantization": "fp16",
           "context_size": 262000,
+          "max_output_tokens": 262000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 38.64,
+            "latency": 6.71,
+            "ttft": 1.46,
+            "cache_hit_rate": null,
+            "uptime": 0.99
+          }
         }
       }
     },
@@ -668,9 +1297,11 @@
         "tensorix",
         "scaleway",
         "inceptron",
-        "berget"
+        "berget",
+        "mistral"
       ],
       "context_size": 1048576,
+      "max_output_tokens": 1000000,
       "tags": [
         "Instruct",
         "Code",
@@ -701,11 +1332,19 @@
           },
           "quantization": "fp8",
           "context_size": 1048576,
+          "max_output_tokens": 131072,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 196.37,
+            "latency": 6.1,
+            "ttft": 3.56,
+            "cache_hit_rate": 0.82,
+            "uptime": 0.99
+          }
         },
         "scaleway": {
           "pricing": {
@@ -715,11 +1354,19 @@
           },
           "quantization": null,
           "context_size": 256000,
+          "max_output_tokens": 16384,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 96.17,
+            "latency": 21.04,
+            "ttft": 0.5,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         },
         "inceptron": {
           "pricing": {
@@ -728,13 +1375,21 @@
             "output_token": 3.77,
             "cache_read_cost": 0.233
           },
-          "quantization": "fp8",
+          "quantization": "fp4",
           "context_size": 1000000,
+          "max_output_tokens": 1000000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 239.29,
+            "latency": 2.91,
+            "ttft": 1.72,
+            "cache_hit_rate": 0.94,
+            "uptime": 0.85
+          }
         },
         "berget": {
           "pricing": {
@@ -744,11 +1399,42 @@
           },
           "quantization": "fp8",
           "context_size": 1048576,
+          "max_output_tokens": 327680,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 27.41,
+            "latency": 23.47,
+            "ttft": 5.08,
+            "cache_hit_rate": 0.41,
+            "uptime": 1.0
+          }
+        },
+        "mistral": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 1.19,
+            "output_token": 3.74,
+            "cache_read_cost": 0.119
+          },
+          "quantization": null,
+          "context_size": 1000000,
+          "max_output_tokens": 128000,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 255.31,
+            "latency": 3.73,
+            "ttft": 1.59,
+            "cache_hit_rate": 0.91,
+            "uptime": 0.99
+          }
         }
       }
     },
@@ -770,16 +1456,19 @@
         "aki"
       ],
       "context_size": 262144,
+      "max_output_tokens": 262144,
       "tags": [
         "Instruct",
         "Code",
         "Tools",
         "Reasoning",
-        "Image"
+        "Image",
+        "Document"
       ],
       "input_modalities": [
         "text",
-        "image"
+        "image",
+        "file"
       ],
       "output_modalities": [
         "text"
@@ -802,11 +1491,19 @@
           },
           "quantization": "int4",
           "context_size": 262144,
+          "max_output_tokens": 262144,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 173.69,
+            "latency": 9.16,
+            "ttft": 1.15,
+            "cache_hit_rate": 0.78,
+            "uptime": 1.0
+          }
         },
         "inceptron": {
           "pricing": {
@@ -815,27 +1512,44 @@
             "output_token": 3.142,
             "cache_read_cost": 0.18
           },
-          "quantization": "fp8",
+          "quantization": "int4",
           "context_size": 256000,
+          "max_output_tokens": 256000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 139.46,
+            "latency": 11.48,
+            "ttft": 3.14,
+            "cache_hit_rate": 0.75,
+            "uptime": 0.97
+          }
         },
         "aki": {
           "pricing": {
             "currency": "EUR",
             "input_token": 0.86,
-            "output_token": 3.0
+            "output_token": 3.0,
+            "cache_read_cost": 0.18
           },
           "quantization": "fp4",
           "context_size": 262144,
+          "max_output_tokens": 81920,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 91.9,
+            "latency": 27.92,
+            "ttft": 9.59,
+            "cache_hit_rate": 0.77,
+            "uptime": 0.98
+          }
         }
       }
     },
@@ -855,6 +1569,7 @@
         "tensorix"
       ],
       "context_size": 1048576,
+      "max_output_tokens": 1048576,
       "tags": [
         "Instruct",
         "Code",
@@ -887,11 +1602,19 @@
           },
           "quantization": "fp8",
           "context_size": 1048576,
+          "max_output_tokens": 1048576,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 83.86,
+            "latency": 11.74,
+            "ttft": 2.28,
+            "cache_hit_rate": 0.92,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -910,6 +1633,7 @@
         "ovh"
       ],
       "context_size": 262000,
+      "max_output_tokens": 262000,
       "tags": [
         "Instruct",
         "Reasoning",
@@ -941,11 +1665,19 @@
           },
           "quantization": "fp8",
           "context_size": 262000,
+          "max_output_tokens": 262000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 79.58,
+            "latency": 16.18,
+            "ttft": 1.01,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -964,6 +1696,7 @@
         "nebius"
       ],
       "context_size": 256000,
+      "max_output_tokens": 256000,
       "tags": [
         "Instruct",
         "Tools",
@@ -992,11 +1725,19 @@
           },
           "quantization": "fp16",
           "context_size": 256000,
+          "max_output_tokens": 256000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 71.87,
+            "latency": 20.41,
+            "ttft": 0.76,
+            "cache_hit_rate": 0.66,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -1015,6 +1756,7 @@
         "nebius"
       ],
       "context_size": 32000,
+      "max_output_tokens": 32000,
       "tags": [
         "Instruct"
       ],
@@ -1040,10 +1782,18 @@
           },
           "quantization": "fp16",
           "context_size": 32000,
+          "max_output_tokens": 32000,
           "supported_features": [
             "json_mode",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 159.66,
+            "latency": 4.06,
+            "ttft": 0.27,
+            "cache_hit_rate": 0.94,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -1066,16 +1816,19 @@
         "google"
       ],
       "context_size": 1000000,
+      "max_output_tokens": 128000,
       "tags": [
         "Instruct",
         "Tools",
         "Image",
         "Code",
-        "Reasoning"
+        "Reasoning",
+        "Document"
       ],
       "input_modalities": [
         "text",
-        "image"
+        "image",
+        "file"
       ],
       "output_modalities": [
         "text"
@@ -1099,11 +1852,19 @@
           },
           "quantization": null,
           "context_size": 1000000,
+          "max_output_tokens": 128000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 106.42,
+            "latency": 7.65,
+            "ttft": 1.72,
+            "cache_hit_rate": 0.8,
+            "uptime": 1.0
+          }
         },
         "amazon_paris": {
           "pricing": {
@@ -1115,11 +1876,19 @@
           },
           "quantization": null,
           "context_size": 1000000,
+          "max_output_tokens": 128000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 87.69,
+            "latency": 7.74,
+            "ttft": 1.56,
+            "cache_hit_rate": 0.28,
+            "uptime": 1.0
+          }
         },
         "google": {
           "pricing": {
@@ -1131,11 +1900,19 @@
           },
           "quantization": null,
           "context_size": 1000000,
+          "max_output_tokens": 128000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 112.31,
+            "latency": 4.12,
+            "ttft": 1.71,
+            "cache_hit_rate": 0.22,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -1147,16 +1924,17 @@
       "description": "Gemini 3.5 Flash is a high-speed frontier model delivering near-Pro intelligence for agent workflows, coding, and large-scale tasks.",
       "pricing": {
         "currency": "EUR",
-        "input_token": 1.331,
-        "output_token": 7.987,
-        "audio_cost": 3.328e-05,
-        "cache_read_cost": 0.133,
-        "cache_write_cost": 0.887
+        "input_token": 1.48,
+        "output_token": 8.886,
+        "audio_cost": 3.366e-05,
+        "cache_read_cost": 0.148,
+        "cache_write_cost": 0.898
       },
       "providers": [
         "google"
       ],
       "context_size": 1048576,
+      "max_output_tokens": 65535,
       "tags": [
         "Instruct",
         "Tools",
@@ -1184,19 +1962,27 @@
         "google": {
           "pricing": {
             "currency": "EUR",
-            "input_token": 1.331,
-            "output_token": 7.987,
-            "audio_cost": 3.328e-05,
-            "cache_read_cost": 0.133,
-            "cache_write_cost": 0.887
+            "input_token": 1.48,
+            "output_token": 8.886,
+            "audio_cost": 3.366e-05,
+            "cache_read_cost": 0.148,
+            "cache_write_cost": 0.898
           },
           "quantization": null,
           "context_size": 1048576,
+          "max_output_tokens": 65535,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 340.04,
+            "latency": 6.69,
+            "ttft": 5.11,
+            "cache_hit_rate": 0.1,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -1218,17 +2004,20 @@
         "google"
       ],
       "context_size": 1048576,
+      "max_output_tokens": 65535,
       "tags": [
         "Instruct",
         "Tools",
         "Image",
         "Reasoning",
-        "Audio"
+        "Audio",
+        "Document"
       ],
       "input_modalities": [
         "text",
         "image",
-        "audio"
+        "audio",
+        "file"
       ],
       "output_modalities": [
         "text"
@@ -1253,11 +2042,19 @@
           },
           "quantization": null,
           "context_size": 1048576,
+          "max_output_tokens": 65535,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 124.58,
+            "latency": 1.17,
+            "ttft": 0.66,
+            "cache_hit_rate": 0.27,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -1277,6 +2074,7 @@
         "aki"
       ],
       "context_size": 262000,
+      "max_output_tokens": 32768,
       "tags": [
         "Instruct",
         "Reasoning",
@@ -1308,11 +2106,19 @@
           },
           "quantization": null,
           "context_size": 262000,
+          "max_output_tokens": 32768,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 226.82,
+            "latency": 9.79,
+            "ttft": 0.18,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         },
         "aki": {
           "pricing": {
@@ -1322,11 +2128,19 @@
           },
           "quantization": "fp8",
           "context_size": 256000,
+          "max_output_tokens": 32768,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 212.05,
+            "latency": 10.01,
+            "ttft": 1.4,
+            "cache_hit_rate": 0.54,
+            "uptime": 0.98
+          }
         }
       }
     },
@@ -1346,6 +2160,7 @@
         "tensorix"
       ],
       "context_size": 202752,
+      "max_output_tokens": 202752,
       "tags": [
         "Instruct",
         "Code",
@@ -1378,11 +2193,19 @@
           },
           "quantization": "fp8",
           "context_size": 202752,
+          "max_output_tokens": 202752,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 162.56,
+            "latency": 7.35,
+            "ttft": 0.35,
+            "cache_hit_rate": null,
+            "uptime": 0.98
+          }
         }
       }
     },
@@ -1402,6 +2225,7 @@
         "tensorix"
       ],
       "context_size": 202752,
+      "max_output_tokens": 202752,
       "tags": [
         "Instruct",
         "Code",
@@ -1432,11 +2256,19 @@
           },
           "quantization": "fp8",
           "context_size": 202752,
+          "max_output_tokens": 202752,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 189.52,
+            "latency": 7.23,
+            "ttft": 0.77,
+            "cache_hit_rate": 0.67,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -1456,6 +2288,7 @@
         "aki"
       ],
       "context_size": 262000,
+      "max_output_tokens": 81920,
       "tags": [
         "Instruct",
         "Image",
@@ -1486,11 +2319,19 @@
           },
           "quantization": null,
           "context_size": 262000,
+          "max_output_tokens": 32768,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 173.17,
+            "latency": 2.01,
+            "ttft": 0.34,
+            "cache_hit_rate": null,
+            "uptime": 0.93
+          }
         },
         "aki": {
           "pricing": {
@@ -1500,11 +2341,19 @@
           },
           "quantization": "fp4",
           "context_size": 256000,
+          "max_output_tokens": 81920,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 298.81,
+            "latency": 9.84,
+            "ttft": 0.53,
+            "cache_hit_rate": 0.16,
+            "uptime": 0.88
+          }
         }
       }
     },
@@ -1524,6 +2373,7 @@
         "tensorix"
       ],
       "context_size": 1048576,
+      "max_output_tokens": 1048576,
       "tags": [
         "Instruct",
         "Tools",
@@ -1553,64 +2403,19 @@
           },
           "quantization": "fp8",
           "context_size": 1048576,
+          "max_output_tokens": 1048576,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
-        }
-      }
-    },
-    {
-      "id": "deepseek-v4-flash",
-      "object": "model",
-      "created": 1777617482,
-      "owned_by": "Deepseek",
-      "description": "DeepSeek-V4-Flash is an efficiency-optimized Mixture-of-Experts model designed for fast, low-cost long-context reasoning and agentic workflows.",
-      "pricing": {
-        "currency": "EUR",
-        "input_token": 0.133,
-        "output_token": 0.266,
-        "cache_read_cost": 0.033
-      },
-      "providers": [
-        "tensorix"
-      ],
-      "context_size": 1048576,
-      "tags": [
-        "Instruct",
-        "Tools",
-        "Reasoning"
-      ],
-      "input_modalities": [
-        "text"
-      ],
-      "output_modalities": [
-        "text"
-      ],
-      "supported_features": [
-        "json_mode",
-        "reasoning",
-        "tools"
-      ],
-      "model_series": [
-        "deepseek-v4-flash"
-      ],
-      "providers_details": {
-        "tensorix": {
-          "pricing": {
-            "currency": "EUR",
-            "input_token": 0.133,
-            "output_token": 0.266,
-            "cache_read_cost": 0.033
-          },
-          "quantization": "fp4",
-          "context_size": 1048576,
-          "supported_features": [
-            "json_mode",
-            "reasoning",
-            "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 341.34,
+            "latency": 3.42,
+            "ttft": 1.68,
+            "cache_hit_rate": 0.91,
+            "uptime": 0.99
+          }
         }
       }
     },
@@ -1631,6 +2436,7 @@
         "berget"
       ],
       "context_size": 256000,
+      "max_output_tokens": 256000,
       "tags": [
         "Instruct",
         "Reasoning",
@@ -1662,11 +2468,19 @@
           },
           "quantization": null,
           "context_size": 256000,
+          "max_output_tokens": 256000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 149.05,
+            "latency": 1.31,
+            "ttft": 0.45,
+            "cache_hit_rate": 0.0,
+            "uptime": 1.0
+          }
         },
         "scaleway": {
           "pricing": {
@@ -1676,11 +2490,19 @@
           },
           "quantization": null,
           "context_size": 256000,
+          "max_output_tokens": 16384,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 73.15,
+            "latency": 5.84,
+            "ttft": 0.21,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         },
         "berget": {
           "pricing": {
@@ -1690,11 +2512,19 @@
           },
           "quantization": "fp8",
           "context_size": 131000,
+          "max_output_tokens": 131000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 30.8,
+            "latency": 16.04,
+            "ttft": 0.57,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -1713,6 +2543,7 @@
         "nebius"
       ],
       "context_size": 300000,
+      "max_output_tokens": 65536,
       "tags": [
         "Instruct",
         "Tools",
@@ -1741,11 +2572,19 @@
           },
           "quantization": "fp8",
           "context_size": 300000,
+          "max_output_tokens": 65536,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 337.75,
+            "latency": 2.82,
+            "ttft": 0.33,
+            "cache_hit_rate": 0.29,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -1766,15 +2605,18 @@
         "azure_spc"
       ],
       "context_size": 1050000,
+      "max_output_tokens": 128000,
       "tags": [
         "Instruct",
         "Tools",
         "Image",
-        "Reasoning"
+        "Reasoning",
+        "Document"
       ],
       "input_modalities": [
         "text",
-        "image"
+        "image",
+        "file"
       ],
       "output_modalities": [
         "text"
@@ -1797,11 +2639,19 @@
           },
           "quantization": null,
           "context_size": 1050000,
+          "max_output_tokens": 128000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 80.76,
+            "latency": 3.42,
+            "ttft": 1.73,
+            "cache_hit_rate": 0.67,
+            "uptime": 1.0
+          }
         },
         "azure_spc": {
           "pricing": {
@@ -1812,11 +2662,19 @@
           },
           "quantization": null,
           "context_size": 1050000,
+          "max_output_tokens": 128000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 96.0,
+            "latency": 6.82,
+            "ttft": 1.12,
+            "cache_hit_rate": 0.79,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -1838,16 +2696,19 @@
         "berget"
       ],
       "context_size": 262144,
+      "max_output_tokens": 262144,
       "tags": [
         "Instruct",
         "Code",
         "Tools",
         "Reasoning",
-        "Image"
+        "Image",
+        "Document"
       ],
       "input_modalities": [
         "text",
-        "image"
+        "image",
+        "file"
       ],
       "output_modalities": [
         "text"
@@ -1870,11 +2731,19 @@
           },
           "quantization": "int4",
           "context_size": 262144,
+          "max_output_tokens": 262144,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 146.63,
+            "latency": 19.45,
+            "ttft": 2.55,
+            "cache_hit_rate": 0.74,
+            "uptime": 1.0
+          }
         },
         "inceptron": {
           "pricing": {
@@ -1883,13 +2752,21 @@
             "output_token": 3.034,
             "cache_read_cost": 0.173
           },
-          "quantization": "fp8",
+          "quantization": "int4",
           "context_size": 256000,
+          "max_output_tokens": 256000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 132.08,
+            "latency": 30.31,
+            "ttft": 1.33,
+            "cache_hit_rate": 0.68,
+            "uptime": 0.99
+          }
         },
         "berget": {
           "pricing": {
@@ -1899,11 +2776,19 @@
           },
           "quantization": "bf16",
           "context_size": 262144,
+          "max_output_tokens": 262144,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 110.03,
+            "latency": 15.74,
+            "ttft": 0.56,
+            "cache_hit_rate": 0.58,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -1926,16 +2811,19 @@
         "google"
       ],
       "context_size": 1000000,
+      "max_output_tokens": 128000,
       "tags": [
         "Instruct",
         "Tools",
         "Image",
         "Code",
-        "Reasoning"
+        "Reasoning",
+        "Document"
       ],
       "input_modalities": [
         "text",
-        "image"
+        "image",
+        "file"
       ],
       "output_modalities": [
         "text"
@@ -1959,11 +2847,19 @@
           },
           "quantization": null,
           "context_size": 1000000,
+          "max_output_tokens": 128000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 107.99,
+            "latency": 13.06,
+            "ttft": 1.0,
+            "cache_hit_rate": 0.64,
+            "uptime": 0.89
+          }
         },
         "amazon_paris": {
           "pricing": {
@@ -1975,11 +2871,19 @@
           },
           "quantization": null,
           "context_size": 1000000,
+          "max_output_tokens": 128000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 163.28,
+            "latency": 12.17,
+            "ttft": 0.91,
+            "cache_hit_rate": 0.96,
+            "uptime": 0.86
+          }
         },
         "google": {
           "pricing": {
@@ -1991,11 +2895,19 @@
           },
           "quantization": null,
           "context_size": 1000000,
+          "max_output_tokens": 128000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 101.46,
+            "latency": 10.01,
+            "ttft": 1.33,
+            "cache_hit_rate": 0.78,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -2014,6 +2926,7 @@
         "infercom"
       ],
       "context_size": 196608,
+      "max_output_tokens": 196608,
       "tags": [
         "Instruct",
         "Code",
@@ -2043,11 +2956,19 @@
           },
           "quantization": null,
           "context_size": 196608,
+          "max_output_tokens": 196608,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 330.64,
+            "latency": 2.78,
+            "ttft": 1.32,
+            "cache_hit_rate": 0.4,
+            "uptime": 0.99
+          }
         }
       }
     },
@@ -2068,6 +2989,7 @@
         "nebius"
       ],
       "context_size": 202752,
+      "max_output_tokens": 202752,
       "tags": [
         "Instruct",
         "Code",
@@ -2098,11 +3020,19 @@
           },
           "quantization": "fp8",
           "context_size": 202752,
+          "max_output_tokens": 202752,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 214.75,
+            "latency": 44.65,
+            "ttft": 2.25,
+            "cache_hit_rate": 0.47,
+            "uptime": 0.98
+          }
         },
         "nebius": {
           "pricing": {
@@ -2112,11 +3042,19 @@
           },
           "quantization": "fp8",
           "context_size": 202752,
+          "max_output_tokens": 202752,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 37.63,
+            "latency": 252.2,
+            "ttft": 2.51,
+            "cache_hit_rate": 0.05,
+            "uptime": 0.98
+          }
         }
       }
     },
@@ -2136,6 +3074,7 @@
         "tensorix"
       ],
       "context_size": 262144,
+      "max_output_tokens": 262144,
       "tags": [
         "Instruct",
         "Reasoning",
@@ -2166,11 +3105,19 @@
           },
           "quantization": "fp8",
           "context_size": 262144,
+          "max_output_tokens": 262144,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 122.62,
+            "latency": 33.82,
+            "ttft": 1.19,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -2191,6 +3138,7 @@
         "ionos"
       ],
       "context_size": 262144,
+      "max_output_tokens": 262144,
       "tags": [
         "Instruct",
         "Reasoning",
@@ -2223,11 +3171,19 @@
           },
           "quantization": "fp8",
           "context_size": 262144,
+          "max_output_tokens": 262144,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 47.67,
+            "latency": 59.9,
+            "ttft": 3.62,
+            "cache_hit_rate": 0.0,
+            "uptime": 0.99
+          }
         },
         "ovh": {
           "pricing": {
@@ -2237,11 +3193,19 @@
           },
           "quantization": "bf16",
           "context_size": 262000,
+          "max_output_tokens": 262000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 294200.66,
+            "latency": 86.85,
+            "ttft": 0.22,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         },
         "ionos": {
           "pricing": {
@@ -2251,11 +3215,19 @@
           },
           "quantization": "fp8",
           "context_size": 262000,
+          "max_output_tokens": 262000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 60.72,
+            "latency": 53.14,
+            "ttft": 0.29,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -2274,6 +3246,7 @@
         "ionos"
       ],
       "context_size": 256000,
+      "max_output_tokens": 256000,
       "tags": [
         "Instruct",
         "Reasoning",
@@ -2303,11 +3276,19 @@
           },
           "quantization": "int4",
           "context_size": 256000,
+          "max_output_tokens": 256000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 126.93,
+            "latency": 5.41,
+            "ttft": 0.58,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -2327,6 +3308,7 @@
         "tensorix"
       ],
       "context_size": 202752,
+      "max_output_tokens": 202752,
       "tags": [
         "Instruct",
         "Code",
@@ -2357,11 +3339,19 @@
           },
           "quantization": "fp8",
           "context_size": 202752,
+          "max_output_tokens": 202752,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 85.02,
+            "latency": 25.43,
+            "ttft": 4.66,
+            "cache_hit_rate": 0.92,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -2382,6 +3372,7 @@
         "ionos"
       ],
       "context_size": 262000,
+      "max_output_tokens": 262000,
       "tags": [
         "Instruct",
         "Reasoning",
@@ -2411,11 +3402,19 @@
           },
           "quantization": null,
           "context_size": 250000,
+          "max_output_tokens": 16384,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 115.96,
+            "latency": 43.83,
+            "ttft": 0.94,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         },
         "ovh": {
           "pricing": {
@@ -2425,11 +3424,19 @@
           },
           "quantization": "fp8",
           "context_size": 262000,
+          "max_output_tokens": 262000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 122.7,
+            "latency": 448.35,
+            "ttft": 0.86,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         },
         "ionos": {
           "pricing": {
@@ -2439,11 +3446,19 @@
           },
           "quantization": "fp8",
           "context_size": 262000,
+          "max_output_tokens": 262000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 86.52,
+            "latency": 18.77,
+            "ttft": 0.29,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -2463,6 +3478,7 @@
         "tensorix"
       ],
       "context_size": 163840,
+      "max_output_tokens": 163840,
       "tags": [
         "Instruct",
         "Tools",
@@ -2492,11 +3508,19 @@
           },
           "quantization": "fp8",
           "context_size": 163840,
+          "max_output_tokens": 163840,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 48.72,
+            "latency": 13.95,
+            "ttft": 2.92,
+            "cache_hit_rate": 0.73,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -2517,6 +3541,7 @@
         "aki"
       ],
       "context_size": 262144,
+      "max_output_tokens": 256000,
       "tags": [
         "Instruct",
         "Code",
@@ -2549,11 +3574,19 @@
           },
           "quantization": null,
           "context_size": 256000,
+          "max_output_tokens": 256000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 99.64,
+            "latency": 0.97,
+            "ttft": 0.75,
+            "cache_hit_rate": 0.18,
+            "uptime": 1.0
+          }
         },
         "aki": {
           "pricing": {
@@ -2563,11 +3596,19 @@
           },
           "quantization": "fp8",
           "context_size": 262144,
+          "max_output_tokens": 81920,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 153.84,
+            "latency": 8.14,
+            "ttft": 0.43,
+            "cache_hit_rate": 0.31,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -2580,16 +3621,16 @@
       "pricing": {
         "currency": "EUR",
         "input_token": 0.266,
-        "output_token": 0.976,
-        "cache_read_cost": 0.027
+        "output_token": 1.065,
+        "cache_read_cost": 0.067
       },
       "providers": [
-        "inceptron",
         "tensorix",
         "amazon_ireland",
         "aki"
       ],
       "context_size": 196680,
+      "max_output_tokens": 196000,
       "tags": [
         "Instruct",
         "Code",
@@ -2611,21 +3652,6 @@
         "minimax-m2"
       ],
       "providers_details": {
-        "inceptron": {
-          "pricing": {
-            "currency": "EUR",
-            "input_token": 0.266,
-            "output_token": 0.976,
-            "cache_read_cost": 0.027
-          },
-          "quantization": "fp8",
-          "context_size": 196608,
-          "supported_features": [
-            "json_mode",
-            "reasoning",
-            "tools"
-          ]
-        },
         "tensorix": {
           "pricing": {
             "currency": "EUR",
@@ -2635,11 +3661,19 @@
           },
           "quantization": "fp8",
           "context_size": 65536,
+          "max_output_tokens": 65536,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 97.96,
+            "latency": 19.16,
+            "ttft": 3.84,
+            "cache_hit_rate": 0.73,
+            "uptime": 0.99
+          }
         },
         "amazon_ireland": {
           "pricing": {
@@ -2649,11 +3683,19 @@
           },
           "quantization": null,
           "context_size": 196000,
+          "max_output_tokens": 196000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 108.85,
+            "latency": 16.19,
+            "ttft": 2.06,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         },
         "aki": {
           "pricing": {
@@ -2663,11 +3705,19 @@
           },
           "quantization": "fp4",
           "context_size": 196680,
+          "max_output_tokens": 81920,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 126.63,
+            "latency": 8.51,
+            "ttft": 0.28,
+            "cache_hit_rate": 0.61,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -2690,16 +3740,19 @@
         "google"
       ],
       "context_size": 1000000,
+      "max_output_tokens": 128000,
       "tags": [
         "Instruct",
         "Tools",
         "Image",
         "Code",
-        "Reasoning"
+        "Reasoning",
+        "Document"
       ],
       "input_modalities": [
         "text",
-        "image"
+        "image",
+        "file"
       ],
       "output_modalities": [
         "text"
@@ -2723,11 +3776,19 @@
           },
           "quantization": null,
           "context_size": 1000000,
+          "max_output_tokens": 128000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 63.62,
+            "latency": 8.97,
+            "ttft": 0.95,
+            "cache_hit_rate": 0.65,
+            "uptime": 1.0
+          }
         },
         "amazon_paris": {
           "pricing": {
@@ -2739,11 +3800,19 @@
           },
           "quantization": null,
           "context_size": 1000000,
+          "max_output_tokens": 128000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 87.91,
+            "latency": 23.17,
+            "ttft": 1.25,
+            "cache_hit_rate": 0.06,
+            "uptime": 1.0
+          }
         },
         "google": {
           "pricing": {
@@ -2755,11 +3824,19 @@
           },
           "quantization": null,
           "context_size": 1000000,
+          "max_output_tokens": 128000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 68.35,
+            "latency": 8.74,
+            "ttft": 2.4,
+            "cache_hit_rate": 0.44,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -2778,6 +3855,7 @@
         "amazon_ireland"
       ],
       "context_size": 203000,
+      "max_output_tokens": 203000,
       "tags": [
         "Instruct",
         "Code",
@@ -2805,10 +3883,18 @@
           },
           "quantization": null,
           "context_size": 203000,
+          "max_output_tokens": 203000,
           "supported_features": [
             "json_mode",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 175.06,
+            "latency": 5.24,
+            "ttft": 1.78,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -2828,6 +3914,7 @@
         "tensorix"
       ],
       "context_size": 262144,
+      "max_output_tokens": 262144,
       "tags": [
         "Instruct",
         "Code",
@@ -2860,11 +3947,19 @@
           },
           "quantization": "int4",
           "context_size": 262144,
+          "max_output_tokens": 262144,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 49.47,
+            "latency": 21.42,
+            "ttft": 3.49,
+            "cache_hit_rate": 0.83,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -2887,16 +3982,19 @@
         "google"
       ],
       "context_size": 1000000,
+      "max_output_tokens": 128000,
       "tags": [
         "Instruct",
         "Tools",
         "Image",
         "Code",
-        "Reasoning"
+        "Reasoning",
+        "Document"
       ],
       "input_modalities": [
         "text",
-        "image"
+        "image",
+        "file"
       ],
       "output_modalities": [
         "text"
@@ -2920,11 +4018,19 @@
           },
           "quantization": null,
           "context_size": 1000000,
+          "max_output_tokens": 128000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 83.42,
+            "latency": 15.38,
+            "ttft": 1.22,
+            "cache_hit_rate": 0.7,
+            "uptime": 1.0
+          }
         },
         "amazon_paris": {
           "pricing": {
@@ -2936,11 +4042,19 @@
           },
           "quantization": null,
           "context_size": 1000000,
+          "max_output_tokens": 128000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 102.14,
+            "latency": 18.45,
+            "ttft": 1.32,
+            "cache_hit_rate": 0.66,
+            "uptime": 1.0
+          }
         },
         "google": {
           "pricing": {
@@ -2952,11 +4066,19 @@
           },
           "quantization": null,
           "context_size": 1000000,
+          "max_output_tokens": 128000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 78.89,
+            "latency": 39.83,
+            "ttft": 2.65,
+            "cache_hit_rate": 0.47,
+            "uptime": 0.99
+          }
         }
       }
     },
@@ -2975,6 +4097,7 @@
         "amazon_ireland"
       ],
       "context_size": 400000,
+      "max_output_tokens": 196000,
       "tags": [
         "Instruct",
         "Code",
@@ -3004,11 +4127,19 @@
           },
           "quantization": null,
           "context_size": 400000,
+          "max_output_tokens": 196000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 159.14,
+            "latency": 7.55,
+            "ttft": 0.5,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -3027,6 +4158,7 @@
         "berget"
       ],
       "context_size": 202752,
+      "max_output_tokens": 202752,
       "tags": [
         "Instruct",
         "Code",
@@ -3056,11 +4188,19 @@
           },
           "quantization": "fp8",
           "context_size": 202752,
+          "max_output_tokens": 202752,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 88.07,
+            "latency": 8.94,
+            "ttft": 0.36,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -3079,6 +4219,7 @@
         "amazon_ireland"
       ],
       "context_size": 196000,
+      "max_output_tokens": 196000,
       "tags": [
         "Instruct",
         "Code",
@@ -3108,11 +4249,19 @@
           },
           "quantization": null,
           "context_size": 196000,
+          "max_output_tokens": 196000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 213.43,
+            "latency": 7.47,
+            "ttft": 1.34,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -3131,6 +4280,7 @@
         "ovh"
       ],
       "context_size": 32000,
+      "max_output_tokens": 32000,
       "tags": [
         "Instruct",
         "Safety-guard"
@@ -3154,7 +4304,15 @@
           },
           "quantization": "fp16",
           "context_size": 32000,
-          "supported_features": []
+          "max_output_tokens": 32000,
+          "supported_features": [],
+          "metrics": {
+            "throughput": 31.24,
+            "latency": 2.61,
+            "ttft": 0.28,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -3173,6 +4331,7 @@
         "ovh"
       ],
       "context_size": 32000,
+      "max_output_tokens": 32000,
       "tags": [
         "Instruct",
         "Safety-guard"
@@ -3196,7 +4355,15 @@
           },
           "quantization": "fp16",
           "context_size": 32000,
-          "supported_features": []
+          "max_output_tokens": 32000,
+          "supported_features": [],
+          "metrics": {
+            "throughput": 27.63,
+            "latency": 5.98,
+            "ttft": 0.18,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -3217,6 +4384,7 @@
         "mistral"
       ],
       "context_size": 32000,
+      "max_output_tokens": 32000,
       "tags": [
         "Instruct",
         "Audio"
@@ -3246,10 +4414,18 @@
           },
           "quantization": null,
           "context_size": 32000,
+          "max_output_tokens": 32000,
           "supported_features": [
             "json_mode",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 62.52,
+            "latency": 1.22,
+            "ttft": 0.27,
+            "cache_hit_rate": 0.0,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -3268,6 +4444,7 @@
         "amazon_ireland"
       ],
       "context_size": 256000,
+      "max_output_tokens": 256000,
       "tags": [
         "Instruct",
         "Reasoning",
@@ -3298,11 +4475,19 @@
           },
           "quantization": null,
           "context_size": 256000,
+          "max_output_tokens": 256000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 56.42,
+            "latency": 4.06,
+            "ttft": 1.16,
+            "cache_hit_rate": null,
+            "uptime": 0.99
+          }
         }
       }
     },
@@ -3322,6 +4507,7 @@
         "amazon_ireland"
       ],
       "context_size": 256000,
+      "max_output_tokens": 256000,
       "tags": [
         "Instruct",
         "Tools",
@@ -3350,11 +4536,19 @@
           },
           "quantization": "fp8",
           "context_size": 128000,
+          "max_output_tokens": 128000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 315.69,
+            "latency": 4.82,
+            "ttft": 0.32,
+            "cache_hit_rate": 0.08,
+            "uptime": 1.0
+          }
         },
         "amazon_ireland": {
           "pricing": {
@@ -3364,11 +4558,19 @@
           },
           "quantization": null,
           "context_size": 256000,
+          "max_output_tokens": 256000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 306.37,
+            "latency": 1.97,
+            "ttft": 0.39,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -3391,16 +4593,19 @@
         "google"
       ],
       "context_size": 200000,
+      "max_output_tokens": 64000,
       "tags": [
         "Instruct",
         "Tools",
         "Image",
         "Code",
-        "Reasoning"
+        "Reasoning",
+        "Document"
       ],
       "input_modalities": [
         "text",
-        "image"
+        "image",
+        "file"
       ],
       "output_modalities": [
         "text"
@@ -3424,11 +4629,19 @@
           },
           "quantization": null,
           "context_size": 200000,
+          "max_output_tokens": 64000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 94.05,
+            "latency": 12.24,
+            "ttft": 1.22,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         },
         "amazon_paris": {
           "pricing": {
@@ -3440,11 +4653,19 @@
           },
           "quantization": null,
           "context_size": 200000,
+          "max_output_tokens": 64000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 110.59,
+            "latency": 11.53,
+            "ttft": 1.65,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         },
         "google": {
           "pricing": {
@@ -3456,11 +4677,19 @@
           },
           "quantization": null,
           "context_size": 200000,
+          "max_output_tokens": 64000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 79.44,
+            "latency": 11.64,
+            "ttft": 0.75,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -3479,6 +4708,7 @@
         "nebius"
       ],
       "context_size": 128000,
+      "max_output_tokens": 128000,
       "tags": [
         "Instruct",
         "Reasoning",
@@ -3508,64 +4738,19 @@
           },
           "quantization": "fp8",
           "context_size": 128000,
+          "max_output_tokens": 128000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
-        }
-      }
-    },
-    {
-      "id": "holo2-30b-a3b",
-      "object": "model",
-      "created": 1765367099,
-      "owned_by": "H company",
-      "description": "Holo2 30B A3B is a text-and-vision model optimized for analyzing graphical user interfaces, including web, desktop, and mobile, and enabling agents to interpret interfaces, reason over content, and take actions.",
-      "pricing": {
-        "currency": "EUR",
-        "input_token": 0.3,
-        "output_token": 0.7
-      },
-      "providers": [
-        "scaleway"
-      ],
-      "context_size": 22000,
-      "tags": [
-        "Instruct",
-        "Tools",
-        "Reasoning",
-        "Image"
-      ],
-      "input_modalities": [
-        "text",
-        "image"
-      ],
-      "output_modalities": [
-        "text"
-      ],
-      "supported_features": [
-        "json_mode",
-        "reasoning",
-        "tools"
-      ],
-      "model_series": [
-        "holo-2-30b"
-      ],
-      "providers_details": {
-        "scaleway": {
-          "pricing": {
-            "currency": "EUR",
-            "input_token": 0.3,
-            "output_token": 0.7
-          },
-          "quantization": null,
-          "context_size": 22000,
-          "supported_features": [
-            "json_mode",
-            "reasoning",
-            "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 101.92,
+            "latency": 21.85,
+            "ttft": 0.46,
+            "cache_hit_rate": 0.43,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -3586,6 +4771,7 @@
         "amazon_ireland"
       ],
       "context_size": 262000,
+      "max_output_tokens": 262000,
       "tags": [
         "Instruct",
         "Code",
@@ -3614,10 +4800,18 @@
           },
           "quantization": null,
           "context_size": 262000,
+          "max_output_tokens": 262000,
           "supported_features": [
             "json_mode",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 50.55,
+            "latency": 6.5,
+            "ttft": 2.73,
+            "cache_hit_rate": 0.04,
+            "uptime": 1.0
+          }
         },
         "amazon_ireland": {
           "pricing": {
@@ -3627,10 +4821,18 @@
           },
           "quantization": null,
           "context_size": 256000,
+          "max_output_tokens": 256000,
           "supported_features": [
             "json_mode",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 81.27,
+            "latency": 7.05,
+            "ttft": 0.45,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -3650,15 +4852,18 @@
         "amazon_paris"
       ],
       "context_size": 1000000,
+      "max_output_tokens": 65535,
       "tags": [
         "Instruct",
         "Tools",
         "Image",
-        "Reasoning"
+        "Reasoning",
+        "Document"
       ],
       "input_modalities": [
         "text",
-        "image"
+        "image",
+        "file"
       ],
       "output_modalities": [
         "text"
@@ -3680,11 +4885,19 @@
           },
           "quantization": null,
           "context_size": 1000000,
+          "max_output_tokens": 65535,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 170.67,
+            "latency": 2.69,
+            "ttft": 0.38,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         },
         "amazon_paris": {
           "pricing": {
@@ -3694,11 +4907,19 @@
           },
           "quantization": null,
           "context_size": 1000000,
+          "max_output_tokens": 65535,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 200.23,
+            "latency": 2.74,
+            "ttft": 0.59,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -3717,6 +4938,7 @@
         "amazon_ireland"
       ],
       "context_size": 128000,
+      "max_output_tokens": 128000,
       "tags": [
         "Instruct",
         "Reasoning",
@@ -3746,11 +4968,19 @@
           },
           "quantization": null,
           "context_size": 128000,
+          "max_output_tokens": 128000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 139.72,
+            "latency": 0.91,
+            "ttft": 0.43,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -3770,6 +5000,7 @@
         "mistral"
       ],
       "context_size": 256000,
+      "max_output_tokens": 256000,
       "tags": [
         "Instruct",
         "Code",
@@ -3800,10 +5031,18 @@
           },
           "quantization": null,
           "context_size": 256000,
+          "max_output_tokens": 256000,
           "supported_features": [
             "json_mode",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 60.9,
+            "latency": 7.0,
+            "ttft": 7.68,
+            "cache_hit_rate": 0.05,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -3824,6 +5063,7 @@
         "amazon_ireland"
       ],
       "context_size": 256000,
+      "max_output_tokens": 256000,
       "tags": [
         "Instruct",
         "Code",
@@ -3854,10 +5094,18 @@
           },
           "quantization": null,
           "context_size": 256000,
+          "max_output_tokens": 256000,
           "supported_features": [
             "json_mode",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 110.04,
+            "latency": 1.17,
+            "ttft": 0.24,
+            "cache_hit_rate": 0.18,
+            "uptime": 1.0
+          }
         },
         "amazon_ireland": {
           "pricing": {
@@ -3867,10 +5115,18 @@
           },
           "quantization": null,
           "context_size": 256000,
+          "max_output_tokens": 131072,
           "supported_features": [
             "json_mode",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 233.34,
+            "latency": 3.47,
+            "ttft": 0.38,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -3890,6 +5146,7 @@
         "mistral"
       ],
       "context_size": 256000,
+      "max_output_tokens": 256000,
       "tags": [
         "Instruct",
         "Code",
@@ -3920,10 +5177,18 @@
           },
           "quantization": null,
           "context_size": 256000,
+          "max_output_tokens": 256000,
           "supported_features": [
             "json_mode",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 229.16,
+            "latency": 2.91,
+            "ttft": 0.3,
+            "cache_hit_rate": 0.04,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -3944,6 +5209,7 @@
         "amazon_ireland"
       ],
       "context_size": 256000,
+      "max_output_tokens": 256000,
       "tags": [
         "Instruct",
         "Code",
@@ -3974,10 +5240,18 @@
           },
           "quantization": null,
           "context_size": 256000,
+          "max_output_tokens": 256000,
           "supported_features": [
             "json_mode",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 115.22,
+            "latency": 8.08,
+            "ttft": 0.23,
+            "cache_hit_rate": 0.3,
+            "uptime": 1.0
+          }
         },
         "amazon_ireland": {
           "pricing": {
@@ -3987,10 +5261,18 @@
           },
           "quantization": null,
           "context_size": 256000,
+          "max_output_tokens": 131072,
           "supported_features": [
             "json_mode",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 266.65,
+            "latency": 5.28,
+            "ttft": 0.45,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -4010,15 +5292,18 @@
         "azure_sc"
       ],
       "context_size": 400000,
+      "max_output_tokens": 128000,
       "tags": [
         "Instruct",
         "Reasoning",
         "Tools",
-        "Image"
+        "Image",
+        "Document"
       ],
       "input_modalities": [
         "text",
-        "image"
+        "image",
+        "file"
       ],
       "output_modalities": [
         "text"
@@ -4040,10 +5325,18 @@
           },
           "quantization": null,
           "context_size": 400000,
+          "max_output_tokens": 128000,
           "supported_features": [
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 130.64,
+            "latency": 5.48,
+            "ttft": 1.08,
+            "cache_hit_rate": 0.45,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -4062,6 +5355,7 @@
         "amazon_ireland"
       ],
       "context_size": 128000,
+      "max_output_tokens": 128000,
       "tags": [
         "Instruct",
         "Tools",
@@ -4092,11 +5386,19 @@
           },
           "quantization": "bf16",
           "context_size": 128000,
+          "max_output_tokens": 128000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 208.56,
+            "latency": 2.1,
+            "ttft": 0.42,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -4119,16 +5421,19 @@
         "google"
       ],
       "context_size": 200000,
+      "max_output_tokens": 64000,
       "tags": [
         "Instruct",
         "Tools",
         "Image",
         "Code",
-        "Reasoning"
+        "Reasoning",
+        "Document"
       ],
       "input_modalities": [
         "text",
-        "image"
+        "image",
+        "file"
       ],
       "output_modalities": [
         "text"
@@ -4152,11 +5457,19 @@
           },
           "quantization": null,
           "context_size": 200000,
+          "max_output_tokens": 64000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 138.89,
+            "latency": 4.81,
+            "ttft": 1.07,
+            "cache_hit_rate": 0.82,
+            "uptime": 0.99
+          }
         },
         "amazon_paris": {
           "pricing": {
@@ -4168,11 +5481,19 @@
           },
           "quantization": null,
           "context_size": 200000,
+          "max_output_tokens": 64000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 143.07,
+            "latency": 5.53,
+            "ttft": 0.93,
+            "cache_hit_rate": 0.94,
+            "uptime": 0.98
+          }
         },
         "google": {
           "pricing": {
@@ -4184,11 +5505,19 @@
           },
           "quantization": null,
           "context_size": 200000,
+          "max_output_tokens": 64000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 103.65,
+            "latency": 9.82,
+            "ttft": 0.52,
+            "cache_hit_rate": null,
+            "uptime": 0.86
+          }
         }
       }
     },
@@ -4211,16 +5540,19 @@
         "google"
       ],
       "context_size": 200000,
+      "max_output_tokens": 64000,
       "tags": [
         "Instruct",
         "Tools",
         "Image",
         "Code",
-        "Reasoning"
+        "Reasoning",
+        "Document"
       ],
       "input_modalities": [
         "text",
-        "image"
+        "image",
+        "file"
       ],
       "output_modalities": [
         "text"
@@ -4244,11 +5576,19 @@
           },
           "quantization": null,
           "context_size": 200000,
+          "max_output_tokens": 64000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 89.99,
+            "latency": 17.23,
+            "ttft": 2.91,
+            "cache_hit_rate": 0.03,
+            "uptime": 1.0
+          }
         },
         "amazon_paris": {
           "pricing": {
@@ -4260,11 +5600,19 @@
           },
           "quantization": null,
           "context_size": 200000,
+          "max_output_tokens": 64000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 76.12,
+            "latency": 13.48,
+            "ttft": 1.23,
+            "cache_hit_rate": 0.68,
+            "uptime": 1.0
+          }
         },
         "google": {
           "pricing": {
@@ -4276,11 +5624,19 @@
           },
           "quantization": null,
           "context_size": 200000,
+          "max_output_tokens": 64000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 48.49,
+            "latency": 13.78,
+            "ttft": 1.64,
+            "cache_hit_rate": 0.7,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -4299,6 +5655,7 @@
         "nebius"
       ],
       "context_size": 128000,
+      "max_output_tokens": 128000,
       "tags": [
         "Instruct",
         "Tools"
@@ -4325,10 +5682,18 @@
           },
           "quantization": "fp8",
           "context_size": 128000,
+          "max_output_tokens": 128000,
           "supported_features": [
             "json_mode",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 93.12,
+            "latency": 1.37,
+            "ttft": 0.33,
+            "cache_hit_rate": 0.95,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -4348,6 +5713,7 @@
         "azure_sc"
       ],
       "context_size": 400000,
+      "max_output_tokens": 128000,
       "tags": [
         "Instruct",
         "Reasoning",
@@ -4378,10 +5744,18 @@
           },
           "quantization": null,
           "context_size": 400000,
+          "max_output_tokens": 128000,
           "supported_features": [
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 1179.06,
+            "latency": 12.74,
+            "ttft": 10.14,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -4407,6 +5781,7 @@
         "berget"
       ],
       "context_size": 131000,
+      "max_output_tokens": 131000,
       "tags": [
         "Instruct",
         "Reasoning",
@@ -4435,11 +5810,19 @@
           },
           "quantization": null,
           "context_size": 128000,
+          "max_output_tokens": 8192,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 168.09,
+            "latency": 12.89,
+            "ttft": 0.69,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         },
         "nebius": {
           "pricing": {
@@ -4449,11 +5832,19 @@
           },
           "quantization": "fp4",
           "context_size": 131000,
+          "max_output_tokens": 131000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 331.3,
+            "latency": 1.14,
+            "ttft": 0.29,
+            "cache_hit_rate": 0.85,
+            "uptime": 1.0
+          }
         },
         "ionos": {
           "pricing": {
@@ -4463,11 +5854,19 @@
           },
           "quantization": "fp8",
           "context_size": 128000,
+          "max_output_tokens": 128000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 229.58,
+            "latency": 2.8,
+            "ttft": 0.23,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         },
         "ovh": {
           "pricing": {
@@ -4477,11 +5876,19 @@
           },
           "quantization": "fp4",
           "context_size": 131000,
+          "max_output_tokens": 131000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 115.7,
+            "latency": 11.27,
+            "ttft": 1.65,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         },
         "amazon_ireland": {
           "pricing": {
@@ -4491,11 +5898,19 @@
           },
           "quantization": null,
           "context_size": 128000,
+          "max_output_tokens": 128000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 279.98,
+            "latency": 3.58,
+            "ttft": 0.46,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         },
         "infercom": {
           "pricing": {
@@ -4505,11 +5920,19 @@
           },
           "quantization": null,
           "context_size": 128000,
+          "max_output_tokens": 128000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 342.82,
+            "latency": 0.64,
+            "ttft": 0.54,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         },
         "aki": {
           "pricing": {
@@ -4519,11 +5942,19 @@
           },
           "quantization": "fp4",
           "context_size": 128000,
+          "max_output_tokens": 32768,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 227.64,
+            "latency": 2.79,
+            "ttft": 0.49,
+            "cache_hit_rate": 0.28,
+            "uptime": 1.0
+          }
         },
         "berget": {
           "pricing": {
@@ -4533,11 +5964,19 @@
           },
           "quantization": "int4",
           "context_size": 128000,
+          "max_output_tokens": 128000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 118.65,
+            "latency": 7.01,
+            "ttft": 0.69,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -4556,6 +5995,7 @@
         "nebius"
       ],
       "context_size": 262000,
+      "max_output_tokens": 262000,
       "tags": [
         "Instruct",
         "Tools",
@@ -4584,11 +6024,19 @@
           },
           "quantization": "fp8",
           "context_size": 262000,
+          "max_output_tokens": 262000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 52.38,
+            "latency": 13.25,
+            "ttft": 0.44,
+            "cache_hit_rate": 0.66,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -4608,6 +6056,7 @@
         "amazon_ireland"
       ],
       "context_size": 131000,
+      "max_output_tokens": 131000,
       "tags": [
         "Instruct",
         "Reasoning",
@@ -4636,11 +6085,19 @@
           },
           "quantization": "fp4",
           "context_size": 131000,
+          "max_output_tokens": 131000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 88.3,
+            "latency": 6.28,
+            "ttft": 0.09,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         },
         "amazon_ireland": {
           "pricing": {
@@ -4650,11 +6107,19 @@
           },
           "quantization": null,
           "context_size": 128000,
+          "max_output_tokens": 128000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 188.46,
+            "latency": 3.08,
+            "ttft": 0.41,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -4673,6 +6138,7 @@
         "ovh"
       ],
       "context_size": 127000,
+      "max_output_tokens": 127000,
       "tags": [
         "Instruct",
         "Tools"
@@ -4699,10 +6165,18 @@
           },
           "quantization": null,
           "context_size": 127000,
+          "max_output_tokens": 127000,
           "supported_features": [
             "json_mode",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 27.58,
+            "latency": 21.41,
+            "ttft": 0.48,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -4722,11 +6196,14 @@
         "amazon_paris"
       ],
       "context_size": 32000,
+      "max_output_tokens": 8192,
       "tags": [
-        "Instruct"
+        "Instruct",
+        "Document"
       ],
       "input_modalities": [
-        "text"
+        "text",
+        "file"
       ],
       "output_modalities": [
         "text"
@@ -4744,7 +6221,15 @@
           },
           "quantization": null,
           "context_size": 32000,
-          "supported_features": []
+          "max_output_tokens": 8192,
+          "supported_features": [],
+          "metrics": {
+            "throughput": 130.29,
+            "latency": 2.11,
+            "ttft": 0.19,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         },
         "amazon_paris": {
           "pricing": {
@@ -4754,141 +6239,15 @@
           },
           "quantization": null,
           "context_size": 32000,
-          "supported_features": []
-        }
-      }
-    },
-    {
-      "id": "mistral-large-2402",
-      "object": "model",
-      "created": 1748252162,
-      "owned_by": "Mistral AI",
-      "description": "Mistral Large (24.02) is Mistral AI\u2019s most advanced language model, built for complex multilingual reasoning, code generation, and deep text understanding.",
-      "pricing": {
-        "currency": "EUR",
-        "input_token": 3.846,
-        "output_token": 11.627
-      },
-      "providers": [
-        "amazon_ireland",
-        "amazon_paris"
-      ],
-      "context_size": 32000,
-      "tags": [
-        "Instruct",
-        "Tools",
-        "Reasoning"
-      ],
-      "input_modalities": [
-        "text"
-      ],
-      "output_modalities": [
-        "text"
-      ],
-      "supported_features": [
-        "json_mode",
-        "reasoning",
-        "tools"
-      ],
-      "model_series": [
-        "mistral-large"
-      ],
-      "providers_details": {
-        "amazon_ireland": {
-          "pricing": {
-            "currency": "EUR",
-            "input_token": 3.846,
-            "output_token": 11.627
-          },
-          "quantization": null,
-          "context_size": 32000,
-          "supported_features": [
-            "json_mode",
-            "reasoning",
-            "tools"
-          ]
-        },
-        "amazon_paris": {
-          "pricing": {
-            "currency": "EUR",
-            "input_token": 4.648,
-            "output_token": 13.951
-          },
-          "quantization": null,
-          "context_size": 32000,
-          "supported_features": [
-            "json_mode",
-            "reasoning",
-            "tools"
-          ]
-        }
-      }
-    },
-    {
-      "id": "pixtral-large-2502",
-      "object": "model",
-      "created": 1748252162,
-      "owned_by": "Mistral AI",
-      "description": "Pixtral Large (25.02) is a 124B open-weight multimodal model built on Mistral Large 2, offering advanced image understanding and strong performance across text and code tasks.",
-      "pricing": {
-        "currency": "EUR",
-        "input_token": 1.789,
-        "output_token": 5.366
-      },
-      "providers": [
-        "amazon_ireland",
-        "amazon_paris"
-      ],
-      "context_size": 128000,
-      "tags": [
-        "Instruct",
-        "Image",
-        "Tools",
-        "Reasoning"
-      ],
-      "input_modalities": [
-        "text",
-        "image"
-      ],
-      "output_modalities": [
-        "text"
-      ],
-      "supported_features": [
-        "json_mode",
-        "reasoning",
-        "tools"
-      ],
-      "model_series": [
-        "pixtral-large"
-      ],
-      "providers_details": {
-        "amazon_ireland": {
-          "pricing": {
-            "currency": "EUR",
-            "input_token": 1.789,
-            "output_token": 5.366
-          },
-          "quantization": null,
-          "context_size": 128000,
-          "supported_features": [
-            "json_mode",
-            "reasoning",
-            "tools"
-          ]
-        },
-        "amazon_paris": {
-          "pricing": {
-            "currency": "EUR",
-            "input_token": 1.789,
-            "output_token": 5.366
-          },
-          "quantization": null,
-          "context_size": 128000,
-          "supported_features": [
-            "json_mode",
-            "reasoning",
-            "tools"
-          ]
+          "max_output_tokens": 8192,
+          "supported_features": [],
+          "metrics": {
+            "throughput": 132.47,
+            "latency": 2.4,
+            "ttft": 0.17,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -4909,6 +6268,7 @@
         "berget"
       ],
       "context_size": 131000,
+      "max_output_tokens": 131000,
       "tags": [
         "Instruct",
         "Tools",
@@ -4937,10 +6297,18 @@
           },
           "quantization": "fp8",
           "context_size": 128000,
+          "max_output_tokens": 128000,
           "supported_features": [
             "json_mode",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 56.77,
+            "latency": 2.25,
+            "ttft": 0.3,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         },
         "scaleway": {
           "pricing": {
@@ -4950,10 +6318,18 @@
           },
           "quantization": null,
           "context_size": 128000,
+          "max_output_tokens": 8192,
           "supported_features": [
             "json_mode",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 175.62,
+            "latency": 2.38,
+            "ttft": 0.19,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         },
         "berget": {
           "pricing": {
@@ -4963,37 +6339,47 @@
           },
           "quantization": "bf16",
           "context_size": 131000,
+          "max_output_tokens": 131000,
           "supported_features": [
             "json_mode",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 84.65,
+            "latency": 4.81,
+            "ttft": 0.46,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         }
       }
     },
     {
-      "id": "qwen3-32b",
+      "id": "mistral-large-2402",
       "object": "model",
-      "created": 1745840282,
-      "owned_by": "Alibaba Cloud",
-      "description": "Qwen3 delivers cutting-edge advancements in reasoning, agent capabilities, and multilingual support, with seamless mode switching for optimized performance across tasks.",
+      "created": 1748252162,
+      "owned_by": "Mistral AI",
+      "description": "Mistral Large (24.02) is Mistral AI\u2019s most advanced language model, built for complex multilingual reasoning, code generation, and deep text understanding.",
       "pricing": {
         "currency": "EUR",
-        "input_token": 0.089,
-        "output_token": 0.268
+        "input_token": 3.846,
+        "output_token": 11.627
       },
       "providers": [
-        "nebius",
-        "ovh",
-        "amazon_ireland"
+        "amazon_ireland",
+        "amazon_paris"
       ],
-      "context_size": 40000,
+      "context_size": 32000,
+      "max_output_tokens": 8192,
       "tags": [
         "Instruct",
+        "Tools",
         "Reasoning",
-        "Tools"
+        "Document"
       ],
       "input_modalities": [
-        "text"
+        "text",
+        "file"
       ],
       "output_modalities": [
         "text"
@@ -5004,50 +6390,139 @@
         "tools"
       ],
       "model_series": [
-        "qwen-3-32b"
+        "mistral-large"
       ],
       "providers_details": {
-        "nebius": {
-          "pricing": {
-            "currency": "EUR",
-            "input_token": 0.089,
-            "output_token": 0.268
-          },
-          "quantization": "fp8",
-          "context_size": 40000,
-          "supported_features": [
-            "json_mode",
-            "reasoning",
-            "tools"
-          ]
-        },
-        "ovh": {
-          "pricing": {
-            "currency": "EUR",
-            "input_token": 0.08,
-            "output_token": 0.28
-          },
-          "quantization": "fp8",
-          "context_size": 32000,
-          "supported_features": [
-            "json_mode",
-            "reasoning",
-            "tools"
-          ]
-        },
         "amazon_ireland": {
           "pricing": {
             "currency": "EUR",
-            "input_token": 0.161,
-            "output_token": 0.626
+            "input_token": 3.846,
+            "output_token": 11.627
           },
           "quantization": null,
-          "context_size": 16384,
+          "context_size": 32000,
+          "max_output_tokens": 8192,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 52.64,
+            "latency": 6.66,
+            "ttft": 0.22,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
+        },
+        "amazon_paris": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 4.648,
+            "output_token": 13.951
+          },
+          "quantization": null,
+          "context_size": 32000,
+          "max_output_tokens": 8192,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 52.28,
+            "latency": 8.02,
+            "ttft": 0.23,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
+        }
+      }
+    },
+    {
+      "id": "pixtral-large-2502",
+      "object": "model",
+      "created": 1748252162,
+      "owned_by": "Mistral AI",
+      "description": "Pixtral Large (25.02) is a 124B open-weight multimodal model built on Mistral Large 2, offering advanced image understanding and strong performance across text and code tasks.",
+      "pricing": {
+        "currency": "EUR",
+        "input_token": 1.789,
+        "output_token": 5.366
+      },
+      "providers": [
+        "amazon_ireland",
+        "amazon_paris"
+      ],
+      "context_size": 128000,
+      "max_output_tokens": 128000,
+      "tags": [
+        "Instruct",
+        "Image",
+        "Tools",
+        "Reasoning",
+        "Document"
+      ],
+      "input_modalities": [
+        "text",
+        "image",
+        "file"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "supported_features": [
+        "json_mode",
+        "reasoning",
+        "tools"
+      ],
+      "model_series": [
+        "pixtral-large"
+      ],
+      "providers_details": {
+        "amazon_ireland": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 1.789,
+            "output_token": 5.366
+          },
+          "quantization": null,
+          "context_size": 128000,
+          "max_output_tokens": 128000,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 84.34,
+            "latency": 7.17,
+            "ttft": 0.3,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
+        },
+        "amazon_paris": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 1.789,
+            "output_token": 5.366
+          },
+          "quantization": null,
+          "context_size": 128000,
+          "max_output_tokens": 128000,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 90.47,
+            "latency": 5.91,
+            "ttft": 0.34,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -5069,6 +6544,7 @@
         "tensorix"
       ],
       "context_size": 262000,
+      "max_output_tokens": 262000,
       "tags": [
         "Instruct",
         "Tools",
@@ -5097,11 +6573,19 @@
           },
           "quantization": null,
           "context_size": 250000,
+          "max_output_tokens": 8192,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 97.23,
+            "latency": 3.15,
+            "ttft": 0.37,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         },
         "nebius": {
           "pricing": {
@@ -5111,11 +6595,19 @@
           },
           "quantization": "fp4",
           "context_size": 262000,
+          "max_output_tokens": 262000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 62.66,
+            "latency": 5.11,
+            "ttft": 1.35,
+            "cache_hit_rate": 0.16,
+            "uptime": 1.0
+          }
         },
         "tensorix": {
           "pricing": {
@@ -5126,11 +6618,19 @@
           },
           "quantization": "fp8",
           "context_size": 131000,
+          "max_output_tokens": 131000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 20.25,
+            "latency": 2.61,
+            "ttft": 1.28,
+            "cache_hit_rate": 0.35,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -5151,6 +6651,7 @@
         "ovh"
       ],
       "context_size": 262144,
+      "max_output_tokens": 262144,
       "tags": [
         "Instruct",
         "Code",
@@ -5180,11 +6681,19 @@
           },
           "quantization": null,
           "context_size": 128000,
+          "max_output_tokens": 32000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 157.1,
+            "latency": 1.07,
+            "ttft": 0.14,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         },
         "amazon_ireland": {
           "pricing": {
@@ -5194,11 +6703,19 @@
           },
           "quantization": null,
           "context_size": 262144,
+          "max_output_tokens": 262144,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 231.29,
+            "latency": 1.76,
+            "ttft": 0.34,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         },
         "ovh": {
           "pricing": {
@@ -5208,79 +6725,331 @@
           },
           "quantization": "fp8",
           "context_size": 32000,
+          "max_output_tokens": 32000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 60.74,
+            "latency": 5.67,
+            "ttft": 0.43,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         }
       }
     },
     {
-      "id": "gpt-4.1",
+      "id": "qwen3-32b",
       "object": "model",
-      "created": 1744630682,
-      "owned_by": "OpenAI",
-      "description": "GPT-4.1 is the latest evolution of the GPT-4o model family, offering superior coding, instruction following, and support for up to 1 million input tokens with enhanced multimodal capabilities.",
+      "created": 1745840282,
+      "owned_by": "Alibaba Cloud",
+      "description": "Qwen3 delivers cutting-edge advancements in reasoning, agent capabilities, and multilingual support, with seamless mode switching for optimized performance across tasks.",
       "pricing": {
         "currency": "EUR",
-        "input_token": 1.968,
-        "output_token": 7.872,
-        "cache_read_cost": 0.49
+        "input_token": 0.089,
+        "output_token": 0.268
       },
       "providers": [
-        "azure_sc",
-        "azure_spc"
+        "nebius",
+        "ovh",
+        "amazon_ireland"
       ],
-      "context_size": 1047576,
+      "context_size": 40000,
+      "max_output_tokens": 40000,
       "tags": [
         "Instruct",
-        "Tools",
-        "Image",
-        "Reasoning"
+        "Reasoning",
+        "Tools"
       ],
       "input_modalities": [
-        "text",
-        "image"
+        "text"
       ],
       "output_modalities": [
         "text"
       ],
       "supported_features": [
+        "json_mode",
         "reasoning",
         "tools"
       ],
       "model_series": [
-        "gpt-4"
+        "qwen-3-32b"
       ],
       "providers_details": {
-        "azure_sc": {
+        "nebius": {
           "pricing": {
             "currency": "EUR",
-            "input_token": 1.968,
-            "output_token": 7.872,
-            "cache_read_cost": 0.49
+            "input_token": 0.089,
+            "output_token": 0.268
           },
-          "quantization": null,
-          "context_size": 1047576,
+          "quantization": "fp8",
+          "context_size": 40000,
+          "max_output_tokens": 40000,
           "supported_features": [
+            "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 30.67,
+            "latency": 26.69,
+            "ttft": 0.56,
+            "cache_hit_rate": 0.07,
+            "uptime": 1.0
+          }
         },
-        "azure_spc": {
+        "ovh": {
           "pricing": {
             "currency": "EUR",
-            "input_token": 1.968,
-            "output_token": 7.872,
-            "cache_read_cost": 0.49
+            "input_token": 0.08,
+            "output_token": 0.28
           },
-          "quantization": null,
-          "context_size": 1047576,
+          "quantization": "fp8",
+          "context_size": 32000,
+          "max_output_tokens": 32000,
           "supported_features": [
+            "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 34.83,
+            "latency": 18.5,
+            "ttft": 0.16,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
+        },
+        "amazon_ireland": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 0.161,
+            "output_token": 0.626
+          },
+          "quantization": null,
+          "context_size": 16384,
+          "max_output_tokens": 16384,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 265.69,
+            "latency": 1.82,
+            "ttft": 0.44,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
+        }
+      }
+    },
+    {
+      "id": "nova-lite-v1",
+      "object": "model",
+      "created": 1744630682,
+      "owned_by": "Amazon",
+      "description": "Nova Lite is a fast, low-cost multimodal foundation model capable of reasoning over text, images, and video in 200+ languages.",
+      "pricing": {
+        "currency": "EUR",
+        "input_token": 0.062,
+        "output_token": 0.247
+      },
+      "providers": [
+        "amazon_ireland",
+        "amazon_paris"
+      ],
+      "context_size": 300000,
+      "max_output_tokens": 10000,
+      "tags": [
+        "Instruct",
+        "Tools",
+        "Image",
+        "Reasoning",
+        "Document"
+      ],
+      "input_modalities": [
+        "text",
+        "image",
+        "file"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "supported_features": [
+        "json_mode",
+        "reasoning",
+        "tools"
+      ],
+      "model_series": [
+        "nova-1-lite"
+      ],
+      "providers_details": {
+        "amazon_ireland": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 0.062,
+            "output_token": 0.247
+          },
+          "quantization": null,
+          "context_size": 300000,
+          "max_output_tokens": 10000,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 185.63,
+            "latency": 1.68,
+            "ttft": 0.34,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
+        },
+        "amazon_paris": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 0.079,
+            "output_token": 0.315
+          },
+          "quantization": null,
+          "context_size": 300000,
+          "max_output_tokens": 10000,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 287.98,
+            "latency": 1.96,
+            "ttft": 0.36,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
+        }
+      }
+    },
+    {
+      "id": "claude-sonnet-4",
+      "object": "model",
+      "created": 1744630682,
+      "owned_by": "Anthropic",
+      "description": "Claude Sonnet 4 is a versatile, mid-sized model optimized for coding, real-time AI assistants, and large-scale content tasks with strong cost-performance balance.",
+      "pricing": {
+        "currency": "EUR",
+        "input_token": 2.601,
+        "output_token": 13.01,
+        "cache_read_cost": 0.26,
+        "cache_write_cost": 3.253
+      },
+      "providers": [
+        "amazon_ireland",
+        "amazon_paris",
+        "google"
+      ],
+      "context_size": 200000,
+      "max_output_tokens": 65000,
+      "tags": [
+        "Instruct",
+        "Tools",
+        "Image",
+        "Code",
+        "Reasoning",
+        "Document"
+      ],
+      "input_modalities": [
+        "text",
+        "image",
+        "file"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "supported_features": [
+        "json_mode",
+        "reasoning",
+        "tools"
+      ],
+      "model_series": [
+        "claude-sonnet-4"
+      ],
+      "providers_details": {
+        "amazon_ireland": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 2.683,
+            "output_token": 13.416,
+            "cache_read_cost": 0.266,
+            "cache_write_cost": 3.328
+          },
+          "quantization": null,
+          "context_size": 200000,
+          "max_output_tokens": 65000,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 103.4,
+            "latency": 10.14,
+            "ttft": 1.78,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
+        },
+        "amazon_paris": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 2.683,
+            "output_token": 13.416,
+            "cache_read_cost": 0.266,
+            "cache_write_cost": 3.328
+          },
+          "quantization": null,
+          "context_size": 200000,
+          "max_output_tokens": 65000,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 99.66,
+            "latency": 9.32,
+            "ttft": 1.48,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
+        },
+        "google": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 2.601,
+            "output_token": 13.01,
+            "cache_read_cost": 0.26,
+            "cache_write_cost": 3.253
+          },
+          "quantization": null,
+          "context_size": 200000,
+          "max_output_tokens": 64000,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 113.37,
+            "latency": 10.99,
+            "ttft": 0.77,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -5301,15 +7070,18 @@
         "azure_spc"
       ],
       "context_size": 1047576,
+      "max_output_tokens": 32768,
       "tags": [
         "Instruct",
         "Tools",
         "Image",
-        "Reasoning"
+        "Reasoning",
+        "Document"
       ],
       "input_modalities": [
         "text",
-        "image"
+        "image",
+        "file"
       ],
       "output_modalities": [
         "text"
@@ -5331,10 +7103,18 @@
           },
           "quantization": null,
           "context_size": 1047576,
+          "max_output_tokens": 32768,
           "supported_features": [
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 101.03,
+            "latency": 4.17,
+            "ttft": 0.59,
+            "cache_hit_rate": 0.23,
+            "uptime": 1.0
+          }
         },
         "azure_spc": {
           "pricing": {
@@ -5345,10 +7125,18 @@
           },
           "quantization": null,
           "context_size": 1047576,
+          "max_output_tokens": 32768,
           "supported_features": [
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 128.84,
+            "latency": 2.93,
+            "ttft": 0.79,
+            "cache_hit_rate": 0.46,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -5369,15 +7157,18 @@
         "azure_spc"
       ],
       "context_size": 1047576,
+      "max_output_tokens": 32768,
       "tags": [
         "Instruct",
         "Tools",
         "Image",
-        "Reasoning"
+        "Reasoning",
+        "Document"
       ],
       "input_modalities": [
         "text",
-        "image"
+        "image",
+        "file"
       ],
       "output_modalities": [
         "text"
@@ -5399,10 +7190,18 @@
           },
           "quantization": null,
           "context_size": 1047576,
+          "max_output_tokens": 32768,
           "supported_features": [
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 226.31,
+            "latency": 1.78,
+            "ttft": 0.46,
+            "cache_hit_rate": 0.12,
+            "uptime": 1.0
+          }
         },
         "azure_spc": {
           "pricing": {
@@ -5413,10 +7212,18 @@
           },
           "quantization": null,
           "context_size": 1047576,
+          "max_output_tokens": 32768,
           "supported_features": [
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 271.79,
+            "latency": 1.54,
+            "ttft": 0.61,
+            "cache_hit_rate": 0.41,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -5436,6 +7243,7 @@
         "amazon_paris"
       ],
       "context_size": 128000,
+      "max_output_tokens": 10000,
       "tags": [
         "Instruct",
         "Tools",
@@ -5466,11 +7274,19 @@
           },
           "quantization": null,
           "context_size": 128000,
+          "max_output_tokens": 10000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 20.43,
+            "latency": 0.45,
+            "ttft": 0.45,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         },
         "amazon_paris": {
           "pricing": {
@@ -5480,79 +7296,106 @@
           },
           "quantization": null,
           "context_size": 128000,
+          "max_output_tokens": 10000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 326.6,
+            "latency": 1.4,
+            "ttft": 0.55,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         }
       }
     },
     {
-      "id": "nova-lite-v1",
+      "id": "gpt-4.1",
       "object": "model",
       "created": 1744630682,
-      "owned_by": "Amazon",
-      "description": "Nova Lite is a fast, low-cost multimodal foundation model capable of reasoning over text, images, and video in 200+ languages.",
+      "owned_by": "OpenAI",
+      "description": "GPT-4.1 is the latest evolution of the GPT-4o model family, offering superior coding, instruction following, and support for up to 1 million input tokens with enhanced multimodal capabilities.",
       "pricing": {
         "currency": "EUR",
-        "input_token": 0.062,
-        "output_token": 0.247
+        "input_token": 1.968,
+        "output_token": 7.872,
+        "cache_read_cost": 0.49
       },
       "providers": [
-        "amazon_ireland",
-        "amazon_paris"
+        "azure_sc",
+        "azure_spc"
       ],
-      "context_size": 300000,
+      "context_size": 1047576,
+      "max_output_tokens": 32768,
       "tags": [
         "Instruct",
         "Tools",
         "Image",
-        "Reasoning"
+        "Reasoning",
+        "Document"
       ],
       "input_modalities": [
         "text",
-        "image"
+        "image",
+        "file"
       ],
       "output_modalities": [
         "text"
       ],
       "supported_features": [
-        "json_mode",
         "reasoning",
         "tools"
       ],
       "model_series": [
-        "nova-1-lite"
+        "gpt-4"
       ],
       "providers_details": {
-        "amazon_ireland": {
+        "azure_sc": {
           "pricing": {
             "currency": "EUR",
-            "input_token": 0.062,
-            "output_token": 0.247
+            "input_token": 1.968,
+            "output_token": 7.872,
+            "cache_read_cost": 0.49
           },
           "quantization": null,
-          "context_size": 300000,
+          "context_size": 1047576,
+          "max_output_tokens": 32768,
           "supported_features": [
-            "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 144.56,
+            "latency": 2.39,
+            "ttft": 0.45,
+            "cache_hit_rate": 0.15,
+            "uptime": 1.0
+          }
         },
-        "amazon_paris": {
+        "azure_spc": {
           "pricing": {
             "currency": "EUR",
-            "input_token": 0.079,
-            "output_token": 0.315
+            "input_token": 1.968,
+            "output_token": 7.872,
+            "cache_read_cost": 0.49
           },
           "quantization": null,
-          "context_size": 300000,
+          "context_size": 1047576,
+          "max_output_tokens": 32768,
           "supported_features": [
-            "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 113.03,
+            "latency": 3.32,
+            "ttft": 0.44,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -5572,15 +7415,18 @@
         "amazon_paris"
       ],
       "context_size": 300000,
+      "max_output_tokens": 10000,
       "tags": [
         "Instruct",
         "Tools",
         "Image",
-        "Reasoning"
+        "Reasoning",
+        "Document"
       ],
       "input_modalities": [
         "text",
-        "image"
+        "image",
+        "file"
       ],
       "output_modalities": [
         "text"
@@ -5602,11 +7448,19 @@
           },
           "quantization": null,
           "context_size": 300000,
+          "max_output_tokens": 10000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 189.0,
+            "latency": 2.17,
+            "ttft": 0.39,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         },
         "amazon_paris": {
           "pricing": {
@@ -5616,103 +7470,19 @@
           },
           "quantization": null,
           "context_size": 300000,
+          "max_output_tokens": 10000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
-        }
-      }
-    },
-    {
-      "id": "claude-sonnet-4",
-      "object": "model",
-      "created": 1744630682,
-      "owned_by": "Anthropic",
-      "description": "Claude Sonnet 4 is a versatile, mid-sized model optimized for coding, real-time AI assistants, and large-scale content tasks with strong cost-performance balance.",
-      "pricing": {
-        "currency": "EUR",
-        "input_token": 2.601,
-        "output_token": 13.01,
-        "cache_read_cost": 0.26,
-        "cache_write_cost": 3.253
-      },
-      "providers": [
-        "amazon_ireland",
-        "amazon_paris",
-        "google"
-      ],
-      "context_size": 200000,
-      "tags": [
-        "Instruct",
-        "Tools",
-        "Image",
-        "Code",
-        "Reasoning"
-      ],
-      "input_modalities": [
-        "text",
-        "image"
-      ],
-      "output_modalities": [
-        "text"
-      ],
-      "supported_features": [
-        "json_mode",
-        "reasoning",
-        "tools"
-      ],
-      "model_series": [
-        "claude-sonnet-4"
-      ],
-      "providers_details": {
-        "amazon_ireland": {
-          "pricing": {
-            "currency": "EUR",
-            "input_token": 2.683,
-            "output_token": 13.416,
-            "cache_read_cost": 0.266,
-            "cache_write_cost": 3.328
-          },
-          "quantization": null,
-          "context_size": 200000,
-          "supported_features": [
-            "json_mode",
-            "reasoning",
-            "tools"
-          ]
-        },
-        "amazon_paris": {
-          "pricing": {
-            "currency": "EUR",
-            "input_token": 2.683,
-            "output_token": 13.416,
-            "cache_read_cost": 0.266,
-            "cache_write_cost": 3.328
-          },
-          "quantization": null,
-          "context_size": 200000,
-          "supported_features": [
-            "json_mode",
-            "reasoning",
-            "tools"
-          ]
-        },
-        "google": {
-          "pricing": {
-            "currency": "EUR",
-            "input_token": 2.601,
-            "output_token": 13.01,
-            "cache_read_cost": 0.26,
-            "cache_write_cost": 3.253
-          },
-          "quantization": null,
-          "context_size": 200000,
-          "supported_features": [
-            "json_mode",
-            "reasoning",
-            "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 165.27,
+            "latency": 2.22,
+            "ttft": 0.39,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -5731,6 +7501,7 @@
         "nebius"
       ],
       "context_size": 128000,
+      "max_output_tokens": 128000,
       "tags": [
         "Instruct",
         "Tools",
@@ -5759,11 +7530,19 @@
           },
           "quantization": "fp8",
           "context_size": 128000,
+          "max_output_tokens": 128000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 75.05,
+            "latency": 13.1,
+            "ttft": 0.85,
+            "cache_hit_rate": 0.65,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -5782,6 +7561,7 @@
         "ionos"
       ],
       "context_size": 128000,
+      "max_output_tokens": 128000,
       "tags": [
         "Instruct",
         "Image",
@@ -5810,10 +7590,18 @@
           },
           "quantization": "fp8",
           "context_size": 128000,
+          "max_output_tokens": 128000,
           "supported_features": [
             "json_mode",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 41.12,
+            "latency": 9.68,
+            "ttft": 0.67,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -5835,17 +7623,20 @@
         "google"
       ],
       "context_size": 1048576,
+      "max_output_tokens": 65535,
       "tags": [
         "Instruct",
         "Tools",
         "Image",
         "Reasoning",
-        "Audio"
+        "Audio",
+        "Document"
       ],
       "input_modalities": [
         "text",
         "image",
-        "audio"
+        "audio",
+        "file"
       ],
       "output_modalities": [
         "text"
@@ -5870,11 +7661,19 @@
           },
           "quantization": null,
           "context_size": 1048576,
+          "max_output_tokens": 65535,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 555.83,
+            "latency": 3.23,
+            "ttft": 3.06,
+            "cache_hit_rate": 0.81,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -5896,6 +7695,7 @@
         "google"
       ],
       "context_size": 1048576,
+      "max_output_tokens": 65535,
       "tags": [
         "Instruct",
         "Tools",
@@ -5931,11 +7731,19 @@
           },
           "quantization": null,
           "context_size": 1048576,
+          "max_output_tokens": 65535,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 156.91,
+            "latency": 28.55,
+            "ttft": 18.09,
+            "cache_hit_rate": 0.21,
+            "uptime": 0.98
+          }
         }
       }
     },
@@ -5954,6 +7762,7 @@
         "nebius"
       ],
       "context_size": 131000,
+      "max_output_tokens": 110000,
       "tags": [
         "Instruct",
         "Image",
@@ -5983,10 +7792,18 @@
           },
           "quantization": "fp8",
           "context_size": 131000,
+          "max_output_tokens": 110000,
           "supported_features": [
             "json_mode",
             "reasoning"
-          ]
+          ],
+          "metrics": {
+            "throughput": 64.67,
+            "latency": 5.92,
+            "ttft": 0.83,
+            "cache_hit_rate": null,
+            "uptime": 0.98
+          }
         }
       }
     },
@@ -6006,6 +7823,7 @@
         "ovh"
       ],
       "context_size": 32000,
+      "max_output_tokens": 32000,
       "tags": [
         "Instruct",
         "Image",
@@ -6034,10 +7852,18 @@
           },
           "quantization": "fp8",
           "context_size": 32000,
+          "max_output_tokens": 32000,
           "supported_features": [
             "json_mode",
             "reasoning"
-          ]
+          ],
+          "metrics": {
+            "throughput": 23.9,
+            "latency": 9.76,
+            "ttft": 0.36,
+            "cache_hit_rate": 0.37,
+            "uptime": 1.0
+          }
         },
         "ovh": {
           "pricing": {
@@ -6047,10 +7873,18 @@
           },
           "quantization": "fp8",
           "context_size": 32000,
+          "max_output_tokens": 32000,
           "supported_features": [
             "json_mode",
             "reasoning"
-          ]
+          ],
+          "metrics": {
+            "throughput": 37.13,
+            "latency": 9.52,
+            "ttft": 0.2,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -6070,6 +7904,7 @@
         "tensorix"
       ],
       "context_size": 164000,
+      "max_output_tokens": 164000,
       "tags": [
         "Instruct",
         "Tools",
@@ -6099,11 +7934,19 @@
           },
           "quantization": "fp8",
           "context_size": 164000,
+          "max_output_tokens": 164000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 22.32,
+            "latency": 37.93,
+            "ttft": 3.19,
+            "cache_hit_rate": 0.02,
+            "uptime": 0.83
+          }
         }
       }
     },
@@ -6123,6 +7966,7 @@
         "mistral"
       ],
       "context_size": 256000,
+      "max_output_tokens": 256000,
       "tags": [
         "Instruct",
         "Code",
@@ -6151,10 +7995,18 @@
           },
           "quantization": null,
           "context_size": 256000,
+          "max_output_tokens": 256000,
           "supported_features": [
             "json_mode",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 225.93,
+            "latency": 2.01,
+            "ttft": 0.3,
+            "cache_hit_rate": 0.34,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -6178,6 +8030,7 @@
         "berget"
       ],
       "context_size": 131000,
+      "max_output_tokens": 131000,
       "tags": [
         "Instruct",
         "Tools",
@@ -6206,11 +8059,19 @@
           },
           "quantization": null,
           "context_size": 131000,
+          "max_output_tokens": 16384,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 94.83,
+            "latency": 4.62,
+            "ttft": 0.8,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         },
         "nebius": {
           "pricing": {
@@ -6220,11 +8081,19 @@
           },
           "quantization": "fp8",
           "context_size": 128000,
+          "max_output_tokens": 128000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 23.48,
+            "latency": 33.62,
+            "ttft": 12.18,
+            "cache_hit_rate": 0.63,
+            "uptime": 1.0
+          }
         },
         "ovh": {
           "pricing": {
@@ -6234,11 +8103,19 @@
           },
           "quantization": "fp8",
           "context_size": 131000,
+          "max_output_tokens": 131000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 30.99,
+            "latency": 12.91,
+            "ttft": 0.68,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         },
         "ionos": {
           "pricing": {
@@ -6248,11 +8125,19 @@
           },
           "quantization": "fp8",
           "context_size": 128000,
+          "max_output_tokens": 128000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 121.7,
+            "latency": 8.22,
+            "ttft": 1.71,
+            "cache_hit_rate": null,
+            "uptime": 0.86
+          }
         },
         "aki": {
           "pricing": {
@@ -6262,11 +8147,19 @@
           },
           "quantization": "fp8",
           "context_size": 128000,
+          "max_output_tokens": 32000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 49.76,
+            "latency": 5.71,
+            "ttft": 0.35,
+            "cache_hit_rate": 0.66,
+            "uptime": 1.0
+          }
         },
         "berget": {
           "pricing": {
@@ -6276,11 +8169,19 @@
           },
           "quantization": "fp16",
           "context_size": 131000,
+          "max_output_tokens": 131000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 108.86,
+            "latency": 9.49,
+            "ttft": 1.26,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -6301,15 +8202,18 @@
         "azure_spc"
       ],
       "context_size": 128000,
+      "max_output_tokens": 16000,
       "tags": [
         "Instruct",
         "Tools",
         "Image",
-        "Reasoning"
+        "Reasoning",
+        "Document"
       ],
       "input_modalities": [
         "text",
-        "image"
+        "image",
+        "file"
       ],
       "output_modalities": [
         "text"
@@ -6331,10 +8235,18 @@
           },
           "quantization": null,
           "context_size": 128000,
+          "max_output_tokens": 16000,
           "supported_features": [
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 61.03,
+            "latency": 1.68,
+            "ttft": 0.58,
+            "cache_hit_rate": 0.59,
+            "uptime": 1.0
+          }
         },
         "azure_spc": {
           "pricing": {
@@ -6345,10 +8257,18 @@
           },
           "quantization": null,
           "context_size": 128000,
+          "max_output_tokens": 16000,
           "supported_features": [
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 130.49,
+            "latency": 3.96,
+            "ttft": 0.51,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -6368,6 +8288,7 @@
         "azure_sc"
       ],
       "context_size": 400000,
+      "max_output_tokens": 128000,
       "tags": [
         "Instruct",
         "Tools",
@@ -6398,10 +8319,18 @@
           },
           "quantization": null,
           "context_size": 400000,
+          "max_output_tokens": 128000,
           "supported_features": [
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 985.68,
+            "latency": 5.93,
+            "ttft": 4.04,
+            "cache_hit_rate": 0.5,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -6421,6 +8350,7 @@
         "azure_sc"
       ],
       "context_size": 400000,
+      "max_output_tokens": 128000,
       "tags": [
         "Instruct",
         "Tools",
@@ -6451,10 +8381,18 @@
           },
           "quantization": null,
           "context_size": 400000,
+          "max_output_tokens": 128000,
           "supported_features": [
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 1640.6,
+            "latency": 9.52,
+            "ttft": 5.35,
+            "cache_hit_rate": 0.05,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -6473,6 +8411,7 @@
         "scaleway"
       ],
       "context_size": 128000,
+      "max_output_tokens": 4096,
       "tags": [
         "Instruct",
         "Image",
@@ -6502,11 +8441,19 @@
           },
           "quantization": null,
           "context_size": 128000,
+          "max_output_tokens": 4096,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 106.34,
+            "latency": 2.45,
+            "ttft": 0.21,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -6525,6 +8472,7 @@
         "nebius"
       ],
       "context_size": 128000,
+      "max_output_tokens": 128000,
       "tags": [
         "Instruct",
         "Tools"
@@ -6551,72 +8499,18 @@
           },
           "quantization": "fp8",
           "context_size": 128000,
+          "max_output_tokens": 128000,
           "supported_features": [
             "json_mode",
             "tools"
-          ]
-        }
-      }
-    },
-    {
-      "id": "mistral-nemo-instruct-2407",
-      "object": "model",
-      "created": 1723020793,
-      "owned_by": "Mistral AI",
-      "description": "A 12B parameter, instruct-tuned language model by Mistral AI and NVIDIA, designed for advanced instruction following, multi-turn conversations, and generating text and code across multiple languages.",
-      "pricing": {
-        "currency": "EUR",
-        "input_token": 0.13,
-        "output_token": 0.13
-      },
-      "providers": [
-        "ovh",
-        "ionos"
-      ],
-      "context_size": 128000,
-      "tags": [
-        "Instruct",
-        "Tools"
-      ],
-      "input_modalities": [
-        "text"
-      ],
-      "output_modalities": [
-        "text"
-      ],
-      "supported_features": [
-        "json_mode",
-        "tools"
-      ],
-      "model_series": [
-        "mistral-nemo"
-      ],
-      "providers_details": {
-        "ovh": {
-          "pricing": {
-            "currency": "EUR",
-            "input_token": 0.13,
-            "output_token": 0.13
-          },
-          "quantization": null,
-          "context_size": 118000,
-          "supported_features": [
-            "json_mode",
-            "tools"
-          ]
-        },
-        "ionos": {
-          "pricing": {
-            "currency": "EUR",
-            "input_token": 0.15,
-            "output_token": 0.15
-          },
-          "quantization": "fp8",
-          "context_size": 128000,
-          "supported_features": [
-            "json_mode",
-            "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 48.21,
+            "latency": 8.27,
+            "ttft": 0.39,
+            "cache_hit_rate": 0.06,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -6636,6 +8530,7 @@
         "mistral"
       ],
       "context_size": 128000,
+      "max_output_tokens": 128000,
       "tags": [
         "Instruct",
         "Reasoning",
@@ -6667,11 +8562,98 @@
           },
           "quantization": null,
           "context_size": 128000,
+          "max_output_tokens": 128000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 48.74,
+            "latency": 2.09,
+            "ttft": 0.55,
+            "cache_hit_rate": 0.06,
+            "uptime": 1.0
+          }
+        }
+      }
+    },
+    {
+      "id": "mistral-nemo-instruct-2407",
+      "object": "model",
+      "created": 1723020793,
+      "owned_by": "Mistral AI",
+      "description": "A 12B parameter, instruct-tuned language model by Mistral AI and NVIDIA, designed for advanced instruction following, multi-turn conversations, and generating text and code across multiple languages.",
+      "pricing": {
+        "currency": "EUR",
+        "input_token": 0.13,
+        "output_token": 0.13
+      },
+      "providers": [
+        "ovh",
+        "ionos"
+      ],
+      "context_size": 128000,
+      "max_output_tokens": 128000,
+      "tags": [
+        "Instruct",
+        "Tools"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "supported_features": [
+        "json_mode",
+        "tools"
+      ],
+      "model_series": [
+        "mistral-nemo"
+      ],
+      "providers_details": {
+        "ovh": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 0.13,
+            "output_token": 0.13
+          },
+          "quantization": null,
+          "context_size": 118000,
+          "max_output_tokens": 118000,
+          "supported_features": [
+            "json_mode",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 43.35,
+            "latency": 6.91,
+            "ttft": 0.12,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
+        },
+        "ionos": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 0.15,
+            "output_token": 0.15
+          },
+          "quantization": "fp8",
+          "context_size": 128000,
+          "max_output_tokens": 128000,
+          "supported_features": [
+            "json_mode",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 50.49,
+            "latency": 6.64,
+            "ttft": 0.26,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -6690,6 +8672,7 @@
         "ionos"
       ],
       "context_size": 128000,
+      "max_output_tokens": 128000,
       "tags": [
         "Instruct",
         "Tools",
@@ -6718,11 +8701,19 @@
           },
           "quantization": "int4",
           "context_size": 128000,
+          "max_output_tokens": 128000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 18.37,
+            "latency": 531.63,
+            "ttft": 0.95,
+            "cache_hit_rate": null,
+            "uptime": 0.8
+          }
         }
       }
     },
@@ -6743,15 +8734,18 @@
         "azure_spc"
       ],
       "context_size": 128000,
+      "max_output_tokens": 16000,
       "tags": [
         "Instruct",
         "Tools",
         "Image",
-        "Reasoning"
+        "Reasoning",
+        "Document"
       ],
       "input_modalities": [
         "text",
-        "image"
+        "image",
+        "file"
       ],
       "output_modalities": [
         "text"
@@ -6773,10 +8767,18 @@
           },
           "quantization": null,
           "context_size": 128000,
+          "max_output_tokens": 16000,
           "supported_features": [
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 57.04,
+            "latency": 1.23,
+            "ttft": 0.63,
+            "cache_hit_rate": 0.36,
+            "uptime": 1.0
+          }
         },
         "azure_spc": {
           "pricing": {
@@ -6787,10 +8789,18 @@
           },
           "quantization": null,
           "context_size": 128000,
+          "max_output_tokens": 16000,
           "supported_features": [
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 105.87,
+            "latency": 2.65,
+            "ttft": 1.3,
+            "cache_hit_rate": 0.49,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -6810,6 +8820,7 @@
         "aki"
       ],
       "context_size": 128000,
+      "max_output_tokens": 128000,
       "tags": [
         "Instruct",
         "Tools",
@@ -6838,11 +8849,19 @@
           },
           "quantization": "fp8",
           "context_size": 128000,
+          "max_output_tokens": 128000,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 81.55,
+            "latency": 3.5,
+            "ttft": 0.79,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         },
         "aki": {
           "pricing": {
@@ -6852,11 +8871,19 @@
           },
           "quantization": "fp8",
           "context_size": 65536,
+          "max_output_tokens": 16384,
           "supported_features": [
             "json_mode",
             "reasoning",
             "tools"
-          ]
+          ],
+          "metrics": {
+            "throughput": 97.94,
+            "latency": 4.23,
+            "ttft": 0.32,
+            "cache_hit_rate": 0.71,
+            "uptime": 1.0
+          }
         }
       }
     },
@@ -6876,12 +8903,15 @@
         "amazon_paris"
       ],
       "context_size": 32000,
+      "max_output_tokens": 4096,
       "tags": [
         "Instruct",
-        "Reasoning"
+        "Reasoning",
+        "Document"
       ],
       "input_modalities": [
-        "text"
+        "text",
+        "file"
       ],
       "output_modalities": [
         "text"
@@ -6902,10 +8932,18 @@
           },
           "quantization": null,
           "context_size": 32000,
+          "max_output_tokens": 4096,
           "supported_features": [
             "json_mode",
             "reasoning"
-          ]
+          ],
+          "metrics": {
+            "throughput": 111.47,
+            "latency": 4.13,
+            "ttft": 0.23,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         },
         "amazon_paris": {
           "pricing": {
@@ -6915,10 +8953,18 @@
           },
           "quantization": null,
           "context_size": 32000,
+          "max_output_tokens": 4096,
           "supported_features": [
             "json_mode",
             "reasoning"
-          ]
+          ],
+          "metrics": {
+            "throughput": 112.14,
+            "latency": 3.72,
+            "ttft": 0.21,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
         }
       }
     }

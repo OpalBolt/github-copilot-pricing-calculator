@@ -1,5 +1,5 @@
 {
-  "fetchDate": "2026-08-04",
+  "fetchDate": "2026-08-24",
   "summary": [
     {
       "model": "GPT-5 mini",
@@ -124,8 +124,8 @@
       "model": "Gemini 3.1 Pro",
       "taskArea": "Deep reasoning and debugging",
       "excelsAt": "Effective and efficient edit-then-test loops with high tool precision",
-      "furtherReadingText": "",
-      "furtherReadingUrl": ""
+      "furtherReadingText": "Gemini 3.1 Pro model card",
+      "furtherReadingUrl": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-1-Pro-Model-Card.pdf"
     },
     {
       "model": "Gemini 3.5 Flash",
@@ -142,6 +142,13 @@
       "furtherReadingUrl": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-6-Flash-Model-Card.pdf"
     },
     {
+      "model": "Gemini 3.7 Flash",
+      "taskArea": "Fast help with simple or repetitive tasks",
+      "excelsAt": "Fast, reliable answers to lightweight coding questions",
+      "furtherReadingText": "Gemini 3.7 Flash model card",
+      "furtherReadingUrl": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-7-Flash-Model-Card.pdf"
+    },
+    {
       "model": "MAI-Code-1-Flash[^mai-code-1-flash]",
       "taskArea": "General-purpose coding and writing",
       "excelsAt": "Fast, accurate code completions and explanations",
@@ -149,11 +156,25 @@
       "furtherReadingUrl": "https://aka.ms/mai-code-1-flash-modelcard"
     },
     {
+      "model": "MAI-Code-1.1-Flash[^mai-code-1-flash]",
+      "taskArea": "General-purpose coding and writing, image understanding",
+      "excelsAt": "Fast code completions and explanations, instruction following, tool use",
+      "furtherReadingText": "MAI-Code-1.1-Flash model card",
+      "furtherReadingUrl": "https://microsoft.ai/pdf/MAI-Code-1.1-Flash-Model-Card.PDF"
+    },
+    {
       "model": "Grok 4.5",
       "taskArea": "General-purpose coding and agent tasks",
       "excelsAt": "Complex problem-solving challenges, sophisticated reasoning",
       "furtherReadingText": "Grok 4.5 model card",
       "furtherReadingUrl": "https://media.x.ai/v1/website/card-7f81d41b.pdf"
+    },
+    {
+      "model": "Grok 4.6",
+      "taskArea": "General-purpose coding and agent tasks",
+      "excelsAt": "Complex problem-solving challenges, sophisticated reasoning",
+      "furtherReadingText": "Grok 4.6 model card",
+      "furtherReadingUrl": "https://media.x.ai/v1/website/card-4p6-4cd2dc57.pdf"
     },
     {
       "model": "Qwen2.5",
@@ -175,6 +196,13 @@
       "excelsAt": "Fast, reliable answers to lightweight coding questions",
       "furtherReadingText": "Kimi K2.7 Code model card",
       "furtherReadingUrl": "https://huggingface.co/moonshotai/Kimi-K2.7-Code"
+    },
+    {
+      "model": "Kimi K3[^kimi-k3]",
+      "taskArea": "Agentic coding and long-context work",
+      "excelsAt": "Multi-step agent tasks across large codebases",
+      "furtherReadingText": "Kimi K3 model card",
+      "furtherReadingUrl": "https://huggingface.co/moonshotai/Kimi-K3"
     }
   ],
   "tasks": [
