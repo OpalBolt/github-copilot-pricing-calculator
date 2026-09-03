@@ -1,5 +1,5 @@
 {
-  "fetchDate": "2026-08-24",
+  "fetchDate": "2026-09-03",
   "currency": "EUR",
   "source": "https://api.cortecs.ai/v1/models?extended=true&currency=EUR",
   "providers": {
@@ -66,6 +66,308 @@
   },
   "models": [
     {
+      "id": "deepseek-v4-pro-0813",
+      "object": "model",
+      "created": 1788161882,
+      "owned_by": "Deepseek",
+      "description": "DeepSeek V4 Pro 0813 is a flagship MoE model delivering efficient long-context reasoning, coding, and agentic performance.",
+      "pricing": {
+        "currency": "EUR",
+        "input_token": 1.795,
+        "output_token": 3.59,
+        "cache_read_cost": 0.449
+      },
+      "providers": [
+        "tensorix"
+      ],
+      "context_size": 1048576,
+      "max_output_tokens": 64000,
+      "tags": [
+        "Instruct",
+        "Tools",
+        "Reasoning"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "supported_features": [
+        "json_mode",
+        "reasoning",
+        "tools"
+      ],
+      "model_series": [
+        "deepseek-v4-pro"
+      ],
+      "providers_details": {
+        "tensorix": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 1.795,
+            "output_token": 3.59,
+            "cache_read_cost": 0.449
+          },
+          "quantization": "fp8",
+          "context_size": 1048576,
+          "max_output_tokens": 64000,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 330.99,
+            "latency": 4.17,
+            "ttft": 1.26,
+            "cache_hit_rate": 0.93,
+            "uptime": 1.0
+          }
+        }
+      }
+    },
+    {
+      "id": "glm-5.3",
+      "object": "model",
+      "created": 1787936282,
+      "owned_by": "Z.ai",
+      "description": "GLM-5.3 is a flagship open-weight model optimized for advanced coding, agentic workflows, and long-context reasoning.",
+      "pricing": {
+        "currency": "EUR",
+        "input_token": 1.257,
+        "output_token": 3.949,
+        "cache_read_cost": 0.233
+      },
+      "providers": [
+        "tensorix",
+        "inceptron"
+      ],
+      "context_size": 1048576,
+      "max_output_tokens": 1048576,
+      "tags": [
+        "Instruct",
+        "Code",
+        "Reasoning",
+        "Tools"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "supported_features": [
+        "json_mode",
+        "reasoning",
+        "tools"
+      ],
+      "model_series": [
+        "glm-5"
+      ],
+      "providers_details": {
+        "tensorix": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 1.571,
+            "output_token": 4.039,
+            "cache_read_cost": 0.393
+          },
+          "quantization": "fp8",
+          "context_size": 1048576,
+          "max_output_tokens": 64000,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 282.42,
+            "latency": 6.42,
+            "ttft": 2.4,
+            "cache_hit_rate": 0.9,
+            "uptime": 1.0
+          }
+        },
+        "inceptron": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 1.257,
+            "output_token": 3.949,
+            "cache_read_cost": 0.233
+          },
+          "quantization": "fp4",
+          "context_size": 1048576,
+          "max_output_tokens": 1048576,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 83.28,
+            "latency": 8.98,
+            "ttft": 1.61,
+            "cache_hit_rate": 0.96,
+            "uptime": 0.99
+          }
+        }
+      }
+    },
+    {
+      "id": "qwen3.8-flash-next",
+      "object": "model",
+      "created": 1787909762,
+      "owned_by": "Alibaba Cloud",
+      "description": "Qwen3.8 Flash Next is an efficient multimodal MoE model designed for low-cost inference and strong coding performance.",
+      "pricing": {
+        "currency": "EUR",
+        "input_token": 0.18,
+        "output_token": 0.449,
+        "cache_read_cost": 0.045
+      },
+      "providers": [
+        "tensorix"
+      ],
+      "context_size": 262144,
+      "max_output_tokens": 64000,
+      "tags": [
+        "Instruct",
+        "Reasoning",
+        "Tools",
+        "Code",
+        "Image"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "supported_features": [
+        "json_mode",
+        "reasoning",
+        "tools"
+      ],
+      "model_series": [
+        "qwen-3-flash"
+      ],
+      "providers_details": {
+        "tensorix": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 0.18,
+            "output_token": 0.449,
+            "cache_read_cost": 0.045
+          },
+          "quantization": "fp8",
+          "context_size": 262144,
+          "max_output_tokens": 64000,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 192.51,
+            "latency": 26.95,
+            "ttft": 2.64,
+            "cache_hit_rate": 0.78,
+            "uptime": 0.98
+          }
+        }
+      }
+    },
+    {
+      "id": "glm-5.3-flash",
+      "object": "model",
+      "created": 1787907482,
+      "owned_by": "Z.ai",
+      "description": "GLM 5.3 Flash is a fast, cost-efficient multimodal model built for long-context reasoning and scalable workflows.",
+      "pricing": {
+        "currency": "EUR",
+        "input_token": 0.18,
+        "output_token": 0.449,
+        "cache_read_cost": 0.045
+      },
+      "providers": [
+        "tensorix",
+        "berget"
+      ],
+      "context_size": 1048576,
+      "max_output_tokens": 1048576,
+      "tags": [
+        "Instruct",
+        "Code",
+        "Reasoning",
+        "Tools",
+        "Image"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "supported_features": [
+        "json_mode",
+        "reasoning",
+        "tools"
+      ],
+      "model_series": [
+        "glm-5-flash"
+      ],
+      "providers_details": {
+        "tensorix": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 0.18,
+            "output_token": 0.449,
+            "cache_read_cost": 0.045
+          },
+          "quantization": "fp8",
+          "context_size": 1048576,
+          "max_output_tokens": 64000,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 236.35,
+            "latency": 11.33,
+            "ttft": 3.92,
+            "cache_hit_rate": 0.65,
+            "uptime": 0.99
+          }
+        },
+        "berget": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 0.25,
+            "output_token": 0.5
+          },
+          "quantization": "fp8",
+          "context_size": 1048576,
+          "max_output_tokens": 1048576,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 224.22,
+            "latency": 6.81,
+            "ttft": 3.02,
+            "cache_hit_rate": 0.92,
+            "uptime": 0.97
+          }
+        }
+      }
+    },
+    {
       "id": "qwen3.8-27b",
       "object": "model",
       "created": 1786966562,
@@ -80,7 +382,8 @@
       "providers": [
         "tensorix",
         "berget",
-        "aki"
+        "aki",
+        "ionos"
       ],
       "context_size": 262144,
       "max_output_tokens": 262144,
@@ -123,11 +426,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 42.98,
-            "latency": 26.12,
-            "ttft": 2.6,
-            "cache_hit_rate": 0.83,
-            "uptime": 1.0
+            "throughput": 42.3,
+            "latency": 22.19,
+            "ttft": 2.59,
+            "cache_hit_rate": 0.68,
+            "uptime": 0.95
           }
         },
         "berget": {
@@ -145,11 +448,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 47.74,
-            "latency": 28.96,
-            "ttft": 0.93,
-            "cache_hit_rate": null,
-            "uptime": 1.0
+            "throughput": 49.79,
+            "latency": 32.5,
+            "ttft": 2.44,
+            "cache_hit_rate": 0.32,
+            "uptime": 0.32
           }
         },
         "aki": {
@@ -168,11 +471,33 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 57.6,
-            "latency": 66.97,
-            "ttft": 28.28,
-            "cache_hit_rate": 0.74,
-            "uptime": 1.0
+            "throughput": 59.36,
+            "latency": 27.01,
+            "ttft": 2.95,
+            "cache_hit_rate": 0.87,
+            "uptime": 0.85
+          }
+        },
+        "ionos": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 0.4,
+            "output_token": 2.7
+          },
+          "quantization": "fp8",
+          "context_size": 262000,
+          "max_output_tokens": 262000,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 31.14,
+            "latency": 39.91,
+            "ttft": 4.92,
+            "cache_hit_rate": 0.46,
+            "uptime": 0.94
           }
         }
       }
@@ -240,10 +565,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 384.66,
-            "latency": 8.43,
-            "ttft": 3.39,
-            "cache_hit_rate": 0.39,
+            "throughput": 150.36,
+            "latency": 10.62,
+            "ttft": 3.92,
+            "cache_hit_rate": 0.53,
             "uptime": 1.0
           }
         }
@@ -310,9 +635,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 2118.43,
-            "latency": 8.95,
-            "ttft": 6.35,
+            "throughput": 228.52,
+            "latency": 4.18,
+            "ttft": 6.76,
             "cache_hit_rate": 0.09,
             "uptime": 1.0
           }
@@ -373,10 +698,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 256.28,
-            "latency": 6.84,
-            "ttft": 1.21,
-            "cache_hit_rate": 0.94,
+            "throughput": 247.97,
+            "latency": 12.13,
+            "ttft": 2.3,
+            "cache_hit_rate": 0.76,
             "uptime": 1.0
           }
         }
@@ -443,10 +768,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 251.53,
-            "latency": 2.27,
-            "ttft": 0.67,
-            "cache_hit_rate": 0.14,
+            "throughput": 383.9,
+            "latency": 3.74,
+            "ttft": 0.58,
+            "cache_hit_rate": 0.01,
             "uptime": 1.0
           }
         }
@@ -508,10 +833,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 124.94,
-            "latency": 6.56,
-            "ttft": 1.86,
-            "cache_hit_rate": 0.83,
+            "throughput": 86.36,
+            "latency": 8.73,
+            "ttft": 2.28,
+            "cache_hit_rate": 0.58,
             "uptime": 1.0
           }
         },
@@ -531,11 +856,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 136.31,
-            "latency": 4.89,
-            "ttft": 1.45,
-            "cache_hit_rate": 0.91,
-            "uptime": 0.94
+            "throughput": 71.94,
+            "latency": 13.64,
+            "ttft": 2.19,
+            "cache_hit_rate": 0.9,
+            "uptime": 0.98
           }
         },
         "scaleway": {
@@ -554,10 +879,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 369.47,
-            "latency": 3.53,
-            "ttft": 1.34,
-            "cache_hit_rate": 0.83,
+            "throughput": 275.7,
+            "latency": 3.89,
+            "ttft": 1.73,
+            "cache_hit_rate": 0.41,
             "uptime": 1.0
           }
         },
@@ -577,11 +902,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 92.37,
-            "latency": 25.85,
-            "ttft": 1.35,
-            "cache_hit_rate": 0.74,
-            "uptime": 0.99
+            "throughput": 93.02,
+            "latency": 18.45,
+            "ttft": 4.74,
+            "cache_hit_rate": 0.71,
+            "uptime": 0.98
           }
         }
       }
@@ -642,10 +967,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 45.06,
-            "latency": 91.8,
-            "ttft": 33.93,
-            "cache_hit_rate": 0.82,
+            "throughput": 34.62,
+            "latency": 209.72,
+            "ttft": 76.37,
+            "cache_hit_rate": 0.86,
             "uptime": 1.0
           }
         },
@@ -665,11 +990,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 60.84,
-            "latency": 13.15,
-            "ttft": 2.26,
+            "throughput": 57.97,
+            "latency": 23.33,
+            "ttft": 2.71,
             "cache_hit_rate": 0.84,
-            "uptime": 0.99
+            "uptime": 1.0
           }
         },
         "berget": {
@@ -687,10 +1012,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 90.72,
-            "latency": 29.83,
-            "ttft": 2.17,
-            "cache_hit_rate": 0.77,
+            "throughput": 134.77,
+            "latency": 6.79,
+            "ttft": 1.62,
+            "cache_hit_rate": 0.95,
             "uptime": 1.0
           }
         }
@@ -758,11 +1083,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 480.3,
-            "latency": 31.33,
-            "ttft": 20.86,
-            "cache_hit_rate": 0.53,
-            "uptime": 0.99
+            "throughput": 183.17,
+            "latency": 23.95,
+            "ttft": 14.65,
+            "cache_hit_rate": 0.76,
+            "uptime": 1.0
           }
         },
         "amazon_paris": {
@@ -782,11 +1107,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 84.09,
-            "latency": 17.59,
-            "ttft": 1.92,
-            "cache_hit_rate": 0.08,
-            "uptime": 0.41
+            "throughput": 203.4,
+            "latency": 14.29,
+            "ttft": 4.29,
+            "cache_hit_rate": 0.01,
+            "uptime": 0.98
           }
         },
         "google": {
@@ -806,10 +1131,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 73.05,
-            "latency": 10.4,
-            "ttft": 3.58,
-            "cache_hit_rate": 0.39,
+            "throughput": 182.09,
+            "latency": 11.89,
+            "ttft": 5.45,
+            "cache_hit_rate": 0.76,
             "uptime": 1.0
           }
         }
@@ -874,10 +1199,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 140.88,
-            "latency": 7.95,
-            "ttft": 16.31,
-            "cache_hit_rate": 0.66,
+            "throughput": 175.26,
+            "latency": 10.42,
+            "ttft": 3.83,
+            "cache_hit_rate": 0.56,
             "uptime": 1.0
           }
         }
@@ -942,10 +1267,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 116.68,
-            "latency": 3.58,
-            "ttft": 1.56,
-            "cache_hit_rate": 0.81,
+            "throughput": 103.84,
+            "latency": 13.76,
+            "ttft": 3.08,
+            "cache_hit_rate": 0.56,
             "uptime": 1.0
           }
         }
@@ -1010,10 +1335,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 228.77,
-            "latency": 13.67,
-            "ttft": 2.95,
-            "cache_hit_rate": 0.9,
+            "throughput": 155.99,
+            "latency": 6.39,
+            "ttft": 3.42,
+            "cache_hit_rate": 0.83,
             "uptime": 1.0
           }
         }
@@ -1068,10 +1393,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 22.44,
-            "latency": 22.09,
-            "ttft": 0.5,
-            "cache_hit_rate": 0.41,
+            "throughput": 22.76,
+            "latency": 18.09,
+            "ttft": 0.44,
+            "cache_hit_rate": 0.4,
             "uptime": 1.0
           }
         }
@@ -1139,10 +1464,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 161.86,
-            "latency": 9.81,
-            "ttft": 4.33,
-            "cache_hit_rate": 0.89,
+            "throughput": 327.47,
+            "latency": 14.85,
+            "ttft": 7.17,
+            "cache_hit_rate": 0.75,
             "uptime": 1.0
           }
         },
@@ -1163,11 +1488,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 148.2,
-            "latency": 9.14,
-            "ttft": 3.14,
-            "cache_hit_rate": 0.61,
-            "uptime": 0.68
+            "throughput": 334.32,
+            "latency": 10.46,
+            "ttft": 5.73,
+            "cache_hit_rate": 0.76,
+            "uptime": 0.99
           }
         },
         "amazon_paris": {
@@ -1187,11 +1512,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 167.39,
-            "latency": 11.98,
-            "ttft": 3.06,
-            "cache_hit_rate": 0.86,
-            "uptime": 0.97
+            "throughput": 230.16,
+            "latency": 10.15,
+            "ttft": 4.19,
+            "cache_hit_rate": 0.84,
+            "uptime": 0.99
           }
         }
       }
@@ -1250,11 +1575,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 110.69,
-            "latency": 3.39,
-            "ttft": 1.34,
+            "throughput": 153.75,
+            "latency": 9.56,
+            "ttft": 3.6,
             "cache_hit_rate": null,
-            "uptime": 0.99
+            "uptime": 0.93
           }
         },
         "berget": {
@@ -1272,11 +1597,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 38.64,
-            "latency": 6.71,
-            "ttft": 1.46,
-            "cache_hit_rate": null,
-            "uptime": 0.99
+            "throughput": 62.57,
+            "latency": 20.43,
+            "ttft": 1.43,
+            "cache_hit_rate": 0.36,
+            "uptime": 0.97
           }
         }
       }
@@ -1286,7 +1611,7 @@
       "object": "model",
       "created": 1781686682,
       "owned_by": "Z.ai",
-      "description": "GLM-5.2 is a flagship multimodal model built for long-horizon agentic tasks with stable 1M-token context and advanced coding capabilities.",
+      "description": "GLM-5.2 is a flagship model built for long-horizon agentic tasks with stable 1M-token context and advanced coding capabilities.",
       "pricing": {
         "currency": "EUR",
         "input_token": 1.077,
@@ -1339,11 +1664,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 196.37,
-            "latency": 6.1,
-            "ttft": 3.56,
+            "throughput": 222.12,
+            "latency": 4.94,
+            "ttft": 2.78,
             "cache_hit_rate": 0.82,
-            "uptime": 0.99
+            "uptime": 1.0
           }
         },
         "scaleway": {
@@ -1361,11 +1686,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 96.17,
-            "latency": 21.04,
-            "ttft": 0.5,
+            "throughput": 132.36,
+            "latency": 13.41,
+            "ttft": 1.5,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.92
           }
         },
         "inceptron": {
@@ -1384,11 +1709,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 239.29,
-            "latency": 2.91,
-            "ttft": 1.72,
-            "cache_hit_rate": 0.94,
-            "uptime": 0.85
+            "throughput": 87.83,
+            "latency": 9.09,
+            "ttft": 1.15,
+            "cache_hit_rate": 0.89,
+            "uptime": 0.86
           }
         },
         "berget": {
@@ -1406,10 +1731,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 27.41,
-            "latency": 23.47,
-            "ttft": 5.08,
-            "cache_hit_rate": 0.41,
+            "throughput": 21.76,
+            "latency": 71.4,
+            "ttft": 5.43,
+            "cache_hit_rate": 0.33,
             "uptime": 1.0
           }
         },
@@ -1429,11 +1754,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 255.31,
-            "latency": 3.73,
-            "ttft": 1.59,
-            "cache_hit_rate": 0.91,
-            "uptime": 0.99
+            "throughput": 270.86,
+            "latency": 5.3,
+            "ttft": 2.58,
+            "cache_hit_rate": 0.7,
+            "uptime": 1.0
           }
         }
       }
@@ -1498,10 +1823,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 173.69,
-            "latency": 9.16,
-            "ttft": 1.15,
-            "cache_hit_rate": 0.78,
+            "throughput": 247.84,
+            "latency": 5.51,
+            "ttft": 1.21,
+            "cache_hit_rate": 0.92,
             "uptime": 1.0
           }
         },
@@ -1521,11 +1846,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 139.46,
-            "latency": 11.48,
-            "ttft": 3.14,
+            "throughput": 88.9,
+            "latency": 18.51,
+            "ttft": 3.45,
             "cache_hit_rate": 0.75,
-            "uptime": 0.97
+            "uptime": 0.86
           }
         },
         "aki": {
@@ -1544,11 +1869,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 91.9,
-            "latency": 27.92,
-            "ttft": 9.59,
-            "cache_hit_rate": 0.77,
-            "uptime": 0.98
+            "throughput": 119.93,
+            "latency": 8.45,
+            "ttft": 2.59,
+            "cache_hit_rate": 0.95,
+            "uptime": 0.99
           }
         }
       }
@@ -1609,11 +1934,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 83.86,
-            "latency": 11.74,
-            "ttft": 2.28,
+            "throughput": 78.45,
+            "latency": 15.74,
+            "ttft": 2.11,
             "cache_hit_rate": 0.92,
-            "uptime": 1.0
+            "uptime": 0.99
           }
         }
       }
@@ -1672,11 +1997,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 79.58,
-            "latency": 16.18,
-            "ttft": 1.01,
+            "throughput": 82.97,
+            "latency": 35.54,
+            "ttft": 6.51,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.97
           }
         }
       }
@@ -1732,10 +2057,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 71.87,
-            "latency": 20.41,
-            "ttft": 0.76,
-            "cache_hit_rate": 0.66,
+            "throughput": 73.24,
+            "latency": 12.0,
+            "ttft": 0.29,
+            "cache_hit_rate": 0.18,
             "uptime": 1.0
           }
         }
@@ -1788,10 +2113,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 159.66,
-            "latency": 4.06,
-            "ttft": 0.27,
-            "cache_hit_rate": 0.94,
+            "throughput": 96.94,
+            "latency": 1.75,
+            "ttft": 0.29,
+            "cache_hit_rate": 0.3,
             "uptime": 1.0
           }
         }
@@ -1859,11 +2184,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 106.42,
-            "latency": 7.65,
-            "ttft": 1.72,
-            "cache_hit_rate": 0.8,
-            "uptime": 1.0
+            "throughput": 101.72,
+            "latency": 7.29,
+            "ttft": 2.65,
+            "cache_hit_rate": 0.72,
+            "uptime": 0.99
           }
         },
         "amazon_paris": {
@@ -1883,11 +2208,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 87.69,
-            "latency": 7.74,
-            "ttft": 1.56,
-            "cache_hit_rate": 0.28,
-            "uptime": 1.0
+            "throughput": 88.43,
+            "latency": 8.91,
+            "ttft": 3.06,
+            "cache_hit_rate": 0.49,
+            "uptime": 0.86
           }
         },
         "google": {
@@ -1907,10 +2232,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 112.31,
-            "latency": 4.12,
-            "ttft": 1.71,
-            "cache_hit_rate": 0.22,
+            "throughput": 103.6,
+            "latency": 6.43,
+            "ttft": 3.05,
+            "cache_hit_rate": 0.38,
             "uptime": 1.0
           }
         }
@@ -1977,10 +2302,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 340.04,
-            "latency": 6.69,
-            "ttft": 5.11,
-            "cache_hit_rate": 0.1,
+            "throughput": 156.23,
+            "latency": 7.42,
+            "ttft": 7.75,
+            "cache_hit_rate": 0.0,
             "uptime": 1.0
           }
         }
@@ -2049,10 +2374,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 124.58,
-            "latency": 1.17,
-            "ttft": 0.66,
-            "cache_hit_rate": 0.27,
+            "throughput": 132.94,
+            "latency": 1.36,
+            "ttft": 0.94,
+            "cache_hit_rate": 0.3,
             "uptime": 1.0
           }
         }
@@ -2113,11 +2438,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 226.82,
-            "latency": 9.79,
-            "ttft": 0.18,
+            "throughput": 169.68,
+            "latency": 20.21,
+            "ttft": 0.36,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.99
           }
         },
         "aki": {
@@ -2135,11 +2460,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 212.05,
-            "latency": 10.01,
-            "ttft": 1.4,
-            "cache_hit_rate": 0.54,
-            "uptime": 0.98
+            "throughput": 214.08,
+            "latency": 10.77,
+            "ttft": 1.61,
+            "cache_hit_rate": 0.47,
+            "uptime": 0.99
           }
         }
       }
@@ -2200,11 +2525,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 162.56,
-            "latency": 7.35,
-            "ttft": 0.35,
+            "throughput": 150.31,
+            "latency": 6.56,
+            "ttft": 0.45,
             "cache_hit_rate": null,
-            "uptime": 0.98
+            "uptime": 0.0
           }
         }
       }
@@ -2263,11 +2588,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 189.52,
-            "latency": 7.23,
-            "ttft": 0.77,
-            "cache_hit_rate": 0.67,
-            "uptime": 1.0
+            "throughput": 177.96,
+            "latency": 3.31,
+            "ttft": 0.42,
+            "cache_hit_rate": 0.26,
+            "uptime": 0.0
           }
         }
       }
@@ -2326,11 +2651,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 173.17,
-            "latency": 2.01,
-            "ttft": 0.34,
+            "throughput": 129.05,
+            "latency": 7.09,
+            "ttft": 0.46,
             "cache_hit_rate": null,
-            "uptime": 0.93
+            "uptime": 0.97
           }
         },
         "aki": {
@@ -2348,11 +2673,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 298.81,
-            "latency": 9.84,
-            "ttft": 0.53,
-            "cache_hit_rate": 0.16,
-            "uptime": 0.88
+            "throughput": 299.36,
+            "latency": 31.11,
+            "ttft": 0.57,
+            "cache_hit_rate": 0.24,
+            "uptime": 0.92
           }
         }
       }
@@ -2410,10 +2735,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 341.34,
-            "latency": 3.42,
-            "ttft": 1.68,
-            "cache_hit_rate": 0.91,
+            "throughput": 335.27,
+            "latency": 5.89,
+            "ttft": 1.72,
+            "cache_hit_rate": 0.82,
             "uptime": 0.99
           }
         }
@@ -2427,13 +2752,13 @@
       "description": "Mistral Medium 3.5 is a frontier multimodal 128B model combining reasoning, coding, and instruction-following with strong agentic performance and efficient deployment.",
       "pricing": {
         "currency": "EUR",
-        "input_token": 1.5,
-        "output_token": 5.0
+        "input_token": 1.25,
+        "output_token": 6.4,
+        "cache_read_cost": 0.125
       },
       "providers": [
         "mistral",
-        "scaleway",
-        "berget"
+        "scaleway"
       ],
       "context_size": 256000,
       "max_output_tokens": 256000,
@@ -2475,10 +2800,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 149.05,
-            "latency": 1.31,
-            "ttft": 0.45,
-            "cache_hit_rate": 0.0,
+            "throughput": 150.77,
+            "latency": 3.87,
+            "ttft": 2.7,
+            "cache_hit_rate": 0.01,
             "uptime": 1.0
           }
         },
@@ -2497,31 +2822,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 73.15,
-            "latency": 5.84,
-            "ttft": 0.21,
-            "cache_hit_rate": null,
-            "uptime": 1.0
-          }
-        },
-        "berget": {
-          "pricing": {
-            "currency": "EUR",
-            "input_token": 1.5,
-            "output_token": 5.0
-          },
-          "quantization": "fp8",
-          "context_size": 131000,
-          "max_output_tokens": 131000,
-          "supported_features": [
-            "json_mode",
-            "reasoning",
-            "tools"
-          ],
-          "metrics": {
-            "throughput": 30.8,
-            "latency": 16.04,
-            "ttft": 0.57,
+            "throughput": 72.87,
+            "latency": 3.43,
+            "ttft": 0.36,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -2579,9 +2882,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 337.75,
-            "latency": 2.82,
-            "ttft": 0.33,
+            "throughput": 327.8,
+            "latency": 3.02,
+            "ttft": 0.34,
             "cache_hit_rate": 0.29,
             "uptime": 1.0
           }
@@ -2646,11 +2949,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 80.76,
-            "latency": 3.42,
-            "ttft": 1.73,
-            "cache_hit_rate": 0.67,
-            "uptime": 1.0
+            "throughput": 106.54,
+            "latency": 33.11,
+            "ttft": 3.22,
+            "cache_hit_rate": 0.47,
+            "uptime": 0.98
           }
         },
         "azure_spc": {
@@ -2669,11 +2972,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 96.0,
-            "latency": 6.82,
-            "ttft": 1.12,
-            "cache_hit_rate": 0.79,
-            "uptime": 1.0
+            "throughput": 87.88,
+            "latency": 6.69,
+            "ttft": 0.83,
+            "cache_hit_rate": null,
+            "uptime": 0.5
           }
         }
       }
@@ -2692,8 +2995,7 @@
       },
       "providers": [
         "tensorix",
-        "inceptron",
-        "berget"
+        "inceptron"
       ],
       "context_size": 262144,
       "max_output_tokens": 262144,
@@ -2738,11 +3040,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 146.63,
-            "latency": 19.45,
-            "ttft": 2.55,
-            "cache_hit_rate": 0.74,
-            "uptime": 1.0
+            "throughput": 63.73,
+            "latency": 58.74,
+            "ttft": 2.97,
+            "cache_hit_rate": 0.58,
+            "uptime": 0.93
           }
         },
         "inceptron": {
@@ -2761,33 +3063,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 132.08,
-            "latency": 30.31,
-            "ttft": 1.33,
-            "cache_hit_rate": 0.68,
-            "uptime": 0.99
-          }
-        },
-        "berget": {
-          "pricing": {
-            "currency": "EUR",
-            "input_token": 0.75,
-            "output_token": 3.5
-          },
-          "quantization": "bf16",
-          "context_size": 262144,
-          "max_output_tokens": 262144,
-          "supported_features": [
-            "json_mode",
-            "reasoning",
-            "tools"
-          ],
-          "metrics": {
-            "throughput": 110.03,
-            "latency": 15.74,
-            "ttft": 0.56,
-            "cache_hit_rate": 0.58,
-            "uptime": 1.0
+            "throughput": 83.12,
+            "latency": 44.93,
+            "ttft": 1.43,
+            "cache_hit_rate": 0.7,
+            "uptime": 0.95
           }
         }
       }
@@ -2854,11 +3134,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 107.99,
-            "latency": 13.06,
-            "ttft": 1.0,
-            "cache_hit_rate": 0.64,
-            "uptime": 0.89
+            "throughput": 282.76,
+            "latency": 14.42,
+            "ttft": 2.07,
+            "cache_hit_rate": null,
+            "uptime": 0.98
           }
         },
         "amazon_paris": {
@@ -2878,10 +3158,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 163.28,
-            "latency": 12.17,
-            "ttft": 0.91,
-            "cache_hit_rate": 0.96,
+            "throughput": 107.51,
+            "latency": 12.12,
+            "ttft": 1.06,
+            "cache_hit_rate": null,
             "uptime": 0.86
           }
         },
@@ -2902,10 +3182,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 101.46,
-            "latency": 10.01,
-            "ttft": 1.33,
-            "cache_hit_rate": 0.78,
+            "throughput": 115.82,
+            "latency": 12.29,
+            "ttft": 2.3,
+            "cache_hit_rate": null,
             "uptime": 1.0
           }
         }
@@ -2963,11 +3243,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 330.64,
-            "latency": 2.78,
-            "ttft": 1.32,
-            "cache_hit_rate": 0.4,
-            "uptime": 0.99
+            "throughput": 220.92,
+            "latency": 222.96,
+            "ttft": 40.26,
+            "cache_hit_rate": 0.38,
+            "uptime": 0.29
           }
         }
       }
@@ -3027,11 +3307,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 214.75,
-            "latency": 44.65,
-            "ttft": 2.25,
-            "cache_hit_rate": 0.47,
-            "uptime": 0.98
+            "throughput": 232.62,
+            "latency": 9.55,
+            "ttft": 1.52,
+            "cache_hit_rate": 0.73,
+            "uptime": 1.0
           }
         },
         "nebius": {
@@ -3049,11 +3329,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 37.63,
-            "latency": 252.2,
-            "ttft": 2.51,
-            "cache_hit_rate": 0.05,
-            "uptime": 0.98
+            "throughput": 27.83,
+            "latency": 67.96,
+            "ttft": 8.7,
+            "cache_hit_rate": 0.03,
+            "uptime": 1.0
           }
         }
       }
@@ -3112,9 +3392,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 122.62,
-            "latency": 33.82,
-            "ttft": 1.19,
+            "throughput": 97.99,
+            "latency": 21.99,
+            "ttft": 1.26,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -3178,11 +3458,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 47.67,
-            "latency": 59.9,
-            "ttft": 3.62,
+            "throughput": 119.81,
+            "latency": 41.75,
+            "ttft": 1.29,
             "cache_hit_rate": 0.0,
-            "uptime": 0.99
+            "uptime": 1.0
           }
         },
         "ovh": {
@@ -3200,9 +3480,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 294200.66,
-            "latency": 86.85,
-            "ttft": 0.22,
+            "throughput": 40.44,
+            "latency": 110.01,
+            "ttft": 0.15,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -3222,11 +3502,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 60.72,
-            "latency": 53.14,
+            "throughput": 60.11,
+            "latency": 77.56,
             "ttft": 0.29,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.69
           }
         }
       }
@@ -3283,9 +3563,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 126.93,
-            "latency": 5.41,
-            "ttft": 0.58,
+            "throughput": 85.0,
+            "latency": 2.42,
+            "ttft": 0.42,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -3346,10 +3626,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 85.02,
-            "latency": 25.43,
-            "ttft": 4.66,
-            "cache_hit_rate": 0.92,
+            "throughput": 75.22,
+            "latency": 13.59,
+            "ttft": 6.72,
+            "cache_hit_rate": 0.82,
             "uptime": 1.0
           }
         }
@@ -3409,11 +3689,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 115.96,
-            "latency": 43.83,
-            "ttft": 0.94,
+            "throughput": 111.89,
+            "latency": 36.66,
+            "ttft": 0.82,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.99
           }
         },
         "ovh": {
@@ -3431,9 +3711,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 122.7,
-            "latency": 448.35,
-            "ttft": 0.86,
+            "throughput": 155.35,
+            "latency": 13.06,
+            "ttft": 0.29,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -3453,9 +3733,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 86.52,
-            "latency": 18.77,
-            "ttft": 0.29,
+            "throughput": 95.84,
+            "latency": 17.06,
+            "ttft": 0.39,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -3515,11 +3795,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 48.72,
-            "latency": 13.95,
-            "ttft": 2.92,
-            "cache_hit_rate": 0.73,
-            "uptime": 1.0
+            "throughput": 54.09,
+            "latency": 9.92,
+            "ttft": 4.58,
+            "cache_hit_rate": 0.82,
+            "uptime": 0.99
           }
         }
       }
@@ -3581,10 +3861,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 99.64,
-            "latency": 0.97,
-            "ttft": 0.75,
-            "cache_hit_rate": 0.18,
+            "throughput": 173.62,
+            "latency": 4.7,
+            "ttft": 0.97,
+            "cache_hit_rate": 0.83,
             "uptime": 1.0
           }
         },
@@ -3603,10 +3883,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 153.84,
-            "latency": 8.14,
-            "ttft": 0.43,
-            "cache_hit_rate": 0.31,
+            "throughput": 149.93,
+            "latency": 11.54,
+            "ttft": 0.67,
+            "cache_hit_rate": 0.56,
             "uptime": 1.0
           }
         }
@@ -3626,10 +3906,9 @@
       },
       "providers": [
         "tensorix",
-        "amazon_ireland",
-        "aki"
+        "amazon_ireland"
       ],
-      "context_size": 196680,
+      "context_size": 196000,
       "max_output_tokens": 196000,
       "tags": [
         "Instruct",
@@ -3668,11 +3947,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 97.96,
-            "latency": 19.16,
-            "ttft": 3.84,
-            "cache_hit_rate": 0.73,
-            "uptime": 0.99
+            "throughput": 71.86,
+            "latency": 14.8,
+            "ttft": 3.38,
+            "cache_hit_rate": 0.72,
+            "uptime": 0.98
           }
         },
         "amazon_ireland": {
@@ -3690,32 +3969,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 108.85,
-            "latency": 16.19,
-            "ttft": 2.06,
+            "throughput": 119.66,
+            "latency": 15.85,
+            "ttft": 0.53,
             "cache_hit_rate": null,
-            "uptime": 1.0
-          }
-        },
-        "aki": {
-          "pricing": {
-            "currency": "EUR",
-            "input_token": 0.25,
-            "output_token": 1.2
-          },
-          "quantization": "fp4",
-          "context_size": 196680,
-          "max_output_tokens": 81920,
-          "supported_features": [
-            "json_mode",
-            "reasoning",
-            "tools"
-          ],
-          "metrics": {
-            "throughput": 126.63,
-            "latency": 8.51,
-            "ttft": 0.28,
-            "cache_hit_rate": 0.61,
             "uptime": 1.0
           }
         }
@@ -3783,10 +4040,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 63.62,
-            "latency": 8.97,
-            "ttft": 0.95,
-            "cache_hit_rate": 0.65,
+            "throughput": 135.99,
+            "latency": 7.63,
+            "ttft": 1.52,
+            "cache_hit_rate": 0.67,
             "uptime": 1.0
           }
         },
@@ -3807,11 +4064,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 87.91,
-            "latency": 23.17,
-            "ttft": 1.25,
-            "cache_hit_rate": 0.06,
-            "uptime": 1.0
+            "throughput": 94.68,
+            "latency": 22.88,
+            "ttft": 0.92,
+            "cache_hit_rate": 0.82,
+            "uptime": 0.93
           }
         },
         "google": {
@@ -3831,10 +4088,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 68.35,
-            "latency": 8.74,
-            "ttft": 2.4,
-            "cache_hit_rate": 0.44,
+            "throughput": 80.07,
+            "latency": 15.57,
+            "ttft": 3.11,
+            "cache_hit_rate": 0.31,
             "uptime": 1.0
           }
         }
@@ -3889,11 +4146,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 175.06,
-            "latency": 5.24,
-            "ttft": 1.78,
+            "throughput": 463.63,
+            "latency": 1.52,
+            "ttft": 0.88,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.97
           }
         }
       }
@@ -3954,11 +4211,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 49.47,
-            "latency": 21.42,
-            "ttft": 3.49,
-            "cache_hit_rate": 0.83,
-            "uptime": 1.0
+            "throughput": 46.82,
+            "latency": 67.29,
+            "ttft": 4.22,
+            "cache_hit_rate": 0.59,
+            "uptime": 0.99
           }
         }
       }
@@ -4025,11 +4282,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 83.42,
-            "latency": 15.38,
-            "ttft": 1.22,
-            "cache_hit_rate": 0.7,
-            "uptime": 1.0
+            "throughput": 93.51,
+            "latency": 21.23,
+            "ttft": 1.18,
+            "cache_hit_rate": null,
+            "uptime": 0.86
           }
         },
         "amazon_paris": {
@@ -4049,11 +4306,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 102.14,
-            "latency": 18.45,
-            "ttft": 1.32,
-            "cache_hit_rate": 0.66,
-            "uptime": 1.0
+            "throughput": 92.05,
+            "latency": 20.74,
+            "ttft": 1.24,
+            "cache_hit_rate": null,
+            "uptime": 0.86
           }
         },
         "google": {
@@ -4073,11 +4330,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 78.89,
-            "latency": 39.83,
-            "ttft": 2.65,
-            "cache_hit_rate": 0.47,
-            "uptime": 0.99
+            "throughput": 74.87,
+            "latency": 32.74,
+            "ttft": 3.35,
+            "cache_hit_rate": 0.05,
+            "uptime": 1.0
           }
         }
       }
@@ -4134,11 +4391,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 159.14,
-            "latency": 7.55,
-            "ttft": 0.5,
+            "throughput": 149.94,
+            "latency": 8.06,
+            "ttft": 0.68,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.86
           }
         }
       }
@@ -4195,11 +4452,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 88.07,
-            "latency": 8.94,
-            "ttft": 0.36,
+            "throughput": 87.52,
+            "latency": 8.17,
+            "ttft": 0.3,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.88
           }
         }
       }
@@ -4256,11 +4513,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 213.43,
-            "latency": 7.47,
-            "ttft": 1.34,
+            "throughput": 224.53,
+            "latency": 7.88,
+            "ttft": 0.51,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.86
           }
         }
       }
@@ -4307,11 +4564,11 @@
           "max_output_tokens": 32000,
           "supported_features": [],
           "metrics": {
-            "throughput": 31.24,
-            "latency": 2.61,
-            "ttft": 0.28,
+            "throughput": 26.57,
+            "latency": 106.31,
+            "ttft": 0.21,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.88
           }
         }
       }
@@ -4358,11 +4615,11 @@
           "max_output_tokens": 32000,
           "supported_features": [],
           "metrics": {
-            "throughput": 27.63,
-            "latency": 5.98,
-            "ttft": 0.18,
+            "throughput": 7.32,
+            "latency": 80.74,
+            "ttft": 2.01,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.9
           }
         }
       }
@@ -4420,10 +4677,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 62.52,
-            "latency": 1.22,
-            "ttft": 0.27,
-            "cache_hit_rate": 0.0,
+            "throughput": 159.13,
+            "latency": 4.92,
+            "ttft": 0.25,
+            "cache_hit_rate": 0.08,
             "uptime": 1.0
           }
         }
@@ -4482,11 +4739,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 56.42,
-            "latency": 4.06,
-            "ttft": 1.16,
+            "throughput": 16.1,
+            "latency": 3.73,
+            "ttft": 1.35,
             "cache_hit_rate": null,
-            "uptime": 0.99
+            "uptime": 1.0
           }
         }
       }
@@ -4543,10 +4800,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 315.69,
-            "latency": 4.82,
-            "ttft": 0.32,
-            "cache_hit_rate": 0.08,
+            "throughput": 284.02,
+            "latency": 2.93,
+            "ttft": 0.35,
+            "cache_hit_rate": 0.32,
             "uptime": 1.0
           }
         },
@@ -4565,11 +4822,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 306.37,
-            "latency": 1.97,
-            "ttft": 0.39,
+            "throughput": 254.1,
+            "latency": 2.18,
+            "ttft": 0.6,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.67
           }
         }
       }
@@ -4636,11 +4893,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 94.05,
-            "latency": 12.24,
+            "throughput": 73.66,
+            "latency": 11.79,
             "ttft": 1.22,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.86
           }
         },
         "amazon_paris": {
@@ -4660,11 +4917,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 110.59,
-            "latency": 11.53,
-            "ttft": 1.65,
+            "throughput": 106.81,
+            "latency": 12.1,
+            "ttft": 1.29,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.86
           }
         },
         "google": {
@@ -4684,9 +4941,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 79.44,
-            "latency": 11.64,
-            "ttft": 0.75,
+            "throughput": 76.23,
+            "latency": 9.59,
+            "ttft": 1.27,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -4745,10 +5002,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 101.92,
-            "latency": 21.85,
-            "ttft": 0.46,
-            "cache_hit_rate": 0.43,
+            "throughput": 101.53,
+            "latency": 14.61,
+            "ttft": 0.42,
+            "cache_hit_rate": 0.83,
             "uptime": 1.0
           }
         }
@@ -4762,16 +5019,14 @@
       "description": "Devstral 2 2512 is an enterprise-grade text model designed for advanced coding agents and software engineering workflows.",
       "pricing": {
         "currency": "EUR",
-        "input_token": 0.4,
-        "output_token": 2.0,
-        "cache_read_cost": 0.04
+        "input_token": 0.429,
+        "output_token": 2.147
       },
       "providers": [
-        "mistral",
         "amazon_ireland"
       ],
-      "context_size": 262000,
-      "max_output_tokens": 262000,
+      "context_size": 256000,
+      "max_output_tokens": 256000,
       "tags": [
         "Instruct",
         "Code",
@@ -4791,28 +5046,6 @@
         "devstral"
       ],
       "providers_details": {
-        "mistral": {
-          "pricing": {
-            "currency": "EUR",
-            "input_token": 0.4,
-            "output_token": 2.0,
-            "cache_read_cost": 0.04
-          },
-          "quantization": null,
-          "context_size": 262000,
-          "max_output_tokens": 262000,
-          "supported_features": [
-            "json_mode",
-            "tools"
-          ],
-          "metrics": {
-            "throughput": 50.55,
-            "latency": 6.5,
-            "ttft": 2.73,
-            "cache_hit_rate": 0.04,
-            "uptime": 1.0
-          }
-        },
         "amazon_ireland": {
           "pricing": {
             "currency": "EUR",
@@ -4827,11 +5060,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 81.27,
-            "latency": 7.05,
-            "ttft": 0.45,
+            "throughput": 101.98,
+            "latency": 6.91,
+            "ttft": 0.42,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.86
           }
         }
       }
@@ -4892,11 +5125,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 170.67,
-            "latency": 2.69,
-            "ttft": 0.38,
+            "throughput": 162.46,
+            "latency": 3.18,
+            "ttft": 0.51,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.86
           }
         },
         "amazon_paris": {
@@ -4914,11 +5147,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 200.23,
-            "latency": 2.74,
-            "ttft": 0.59,
+            "throughput": 168.16,
+            "latency": 3.71,
+            "ttft": 0.67,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.86
           }
         }
       }
@@ -4975,9 +5208,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 139.72,
-            "latency": 0.91,
-            "ttft": 0.43,
+            "throughput": 157.81,
+            "latency": 1.2,
+            "ttft": 0.38,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -5037,10 +5270,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 60.9,
-            "latency": 7.0,
-            "ttft": 7.68,
-            "cache_hit_rate": 0.05,
+            "throughput": 72.45,
+            "latency": 10.62,
+            "ttft": 2.66,
+            "cache_hit_rate": 0.06,
             "uptime": 1.0
           }
         }
@@ -5100,9 +5333,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 110.04,
-            "latency": 1.17,
-            "ttft": 0.24,
+            "throughput": 103.25,
+            "latency": 1.33,
+            "ttft": 0.27,
             "cache_hit_rate": 0.18,
             "uptime": 1.0
           }
@@ -5121,11 +5354,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 233.34,
-            "latency": 3.47,
-            "ttft": 0.38,
+            "throughput": 212.79,
+            "latency": 5.55,
+            "ttft": 0.39,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.86
           }
         }
       }
@@ -5183,10 +5416,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 229.16,
-            "latency": 2.91,
-            "ttft": 0.3,
-            "cache_hit_rate": 0.04,
+            "throughput": 216.06,
+            "latency": 2.92,
+            "ttft": 0.26,
+            "cache_hit_rate": 0.32,
             "uptime": 1.0
           }
         }
@@ -5246,10 +5479,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 115.22,
-            "latency": 8.08,
-            "ttft": 0.23,
-            "cache_hit_rate": 0.3,
+            "throughput": 110.51,
+            "latency": 11.43,
+            "ttft": 0.32,
+            "cache_hit_rate": 0.6,
             "uptime": 1.0
           }
         },
@@ -5267,11 +5500,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 266.65,
-            "latency": 5.28,
-            "ttft": 0.45,
+            "throughput": 229.25,
+            "latency": 6.44,
+            "ttft": 0.4,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.86
           }
         }
       }
@@ -5331,10 +5564,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 130.64,
-            "latency": 5.48,
-            "ttft": 1.08,
-            "cache_hit_rate": 0.45,
+            "throughput": 147.96,
+            "latency": 12.24,
+            "ttft": 1.84,
+            "cache_hit_rate": 0.74,
             "uptime": 1.0
           }
         }
@@ -5393,11 +5626,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 208.56,
-            "latency": 2.1,
-            "ttft": 0.42,
+            "throughput": 230.71,
+            "latency": 1.46,
+            "ttft": 0.46,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.94
           }
         }
       }
@@ -5464,11 +5697,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 138.89,
-            "latency": 4.81,
-            "ttft": 1.07,
-            "cache_hit_rate": 0.82,
-            "uptime": 0.99
+            "throughput": 100.74,
+            "latency": 2.51,
+            "ttft": 0.92,
+            "cache_hit_rate": 0.63,
+            "uptime": 1.0
           }
         },
         "amazon_paris": {
@@ -5488,11 +5721,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 143.07,
-            "latency": 5.53,
-            "ttft": 0.93,
-            "cache_hit_rate": 0.94,
-            "uptime": 0.98
+            "throughput": 84.66,
+            "latency": 3.32,
+            "ttft": 1.1,
+            "cache_hit_rate": 0.95,
+            "uptime": 1.0
           }
         },
         "google": {
@@ -5512,11 +5745,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 103.65,
-            "latency": 9.82,
-            "ttft": 0.52,
-            "cache_hit_rate": null,
-            "uptime": 0.86
+            "throughput": 134.76,
+            "latency": 6.22,
+            "ttft": 1.08,
+            "cache_hit_rate": 0.05,
+            "uptime": 1.0
           }
         }
       }
@@ -5583,11 +5816,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 89.99,
-            "latency": 17.23,
-            "ttft": 2.91,
-            "cache_hit_rate": 0.03,
-            "uptime": 1.0
+            "throughput": 118.25,
+            "latency": 12.17,
+            "ttft": 1.59,
+            "cache_hit_rate": 0.12,
+            "uptime": 0.99
           }
         },
         "amazon_paris": {
@@ -5607,11 +5840,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 76.12,
-            "latency": 13.48,
-            "ttft": 1.23,
-            "cache_hit_rate": 0.68,
-            "uptime": 1.0
+            "throughput": 61.33,
+            "latency": 13.23,
+            "ttft": 1.42,
+            "cache_hit_rate": null,
+            "uptime": 0.86
           }
         },
         "google": {
@@ -5631,10 +5864,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 48.49,
-            "latency": 13.78,
-            "ttft": 1.64,
-            "cache_hit_rate": 0.7,
+            "throughput": 41.1,
+            "latency": 13.6,
+            "ttft": 1.01,
+            "cache_hit_rate": null,
             "uptime": 1.0
           }
         }
@@ -5688,10 +5921,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 93.12,
-            "latency": 1.37,
+            "throughput": 87.13,
+            "latency": 2.39,
             "ttft": 0.33,
-            "cache_hit_rate": 0.95,
+            "cache_hit_rate": 0.23,
             "uptime": 1.0
           }
         }
@@ -5750,9 +5983,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 1179.06,
-            "latency": 12.74,
-            "ttft": 10.14,
+            "throughput": 922.78,
+            "latency": 13.96,
+            "ttft": 10.57,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -5817,9 +6050,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 168.09,
-            "latency": 12.89,
-            "ttft": 0.69,
+            "throughput": 156.43,
+            "latency": 3.18,
+            "ttft": 0.41,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -5839,10 +6072,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 331.3,
-            "latency": 1.14,
-            "ttft": 0.29,
-            "cache_hit_rate": 0.85,
+            "throughput": 272.07,
+            "latency": 1.47,
+            "ttft": 0.48,
+            "cache_hit_rate": 0.44,
             "uptime": 1.0
           }
         },
@@ -5861,9 +6094,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 229.58,
-            "latency": 2.8,
-            "ttft": 0.23,
+            "throughput": 221.01,
+            "latency": 4.89,
+            "ttft": 2.89,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -5883,9 +6116,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 115.7,
-            "latency": 11.27,
-            "ttft": 1.65,
+            "throughput": 69.43,
+            "latency": 30.79,
+            "ttft": 1.24,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -5905,11 +6138,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 279.98,
-            "latency": 3.58,
-            "ttft": 0.46,
+            "throughput": 225.27,
+            "latency": 3.19,
+            "ttft": 0.64,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.55
           }
         },
         "infercom": {
@@ -5927,9 +6160,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 342.82,
-            "latency": 0.64,
-            "ttft": 0.54,
+            "throughput": 499.04,
+            "latency": 1.23,
+            "ttft": 1.27,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -5949,11 +6182,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 227.64,
-            "latency": 2.79,
-            "ttft": 0.49,
+            "throughput": 221.73,
+            "latency": 2.86,
+            "ttft": 0.47,
             "cache_hit_rate": 0.28,
-            "uptime": 1.0
+            "uptime": 0.67
           }
         },
         "berget": {
@@ -5971,9 +6204,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 118.65,
-            "latency": 7.01,
-            "ttft": 0.69,
+            "throughput": 118.16,
+            "latency": 7.14,
+            "ttft": 0.58,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -6031,10 +6264,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 52.38,
-            "latency": 13.25,
-            "ttft": 0.44,
-            "cache_hit_rate": 0.66,
+            "throughput": 36.34,
+            "latency": 7.83,
+            "ttft": 0.53,
+            "cache_hit_rate": 0.25,
             "uptime": 1.0
           }
         }
@@ -6092,9 +6325,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 88.3,
-            "latency": 6.28,
-            "ttft": 0.09,
+            "throughput": 76.52,
+            "latency": 7.22,
+            "ttft": 1.11,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -6114,11 +6347,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 188.46,
-            "latency": 3.08,
-            "ttft": 0.41,
+            "throughput": 297.26,
+            "latency": 4.83,
+            "ttft": 0.43,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.86
           }
         }
       }
@@ -6171,9 +6404,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 27.58,
-            "latency": 21.41,
-            "ttft": 0.48,
+            "throughput": 41.43,
+            "latency": 5.56,
+            "ttft": 0.22,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -6224,11 +6457,11 @@
           "max_output_tokens": 8192,
           "supported_features": [],
           "metrics": {
-            "throughput": 130.29,
-            "latency": 2.11,
-            "ttft": 0.19,
+            "throughput": 132.18,
+            "latency": 2.24,
+            "ttft": 0.18,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.75
           }
         },
         "amazon_paris": {
@@ -6242,114 +6475,11 @@
           "max_output_tokens": 8192,
           "supported_features": [],
           "metrics": {
-            "throughput": 132.47,
-            "latency": 2.4,
-            "ttft": 0.17,
+            "throughput": 132.5,
+            "latency": 2.36,
+            "ttft": 0.18,
             "cache_hit_rate": null,
-            "uptime": 1.0
-          }
-        }
-      }
-    },
-    {
-      "id": "mistral-small-3.2-24b-instruct-2506",
-      "object": "model",
-      "created": 1748252162,
-      "owned_by": "Mistral AI",
-      "description": "Mistral-Small-3.2-24B-Instruct-2506 is a 24B parameter instruction-tuned model with enhanced long-context support (128k) and state-of-the-art vision understanding.",
-      "pricing": {
-        "currency": "EUR",
-        "input_token": 0.09,
-        "output_token": 0.28
-      },
-      "providers": [
-        "ovh",
-        "scaleway",
-        "berget"
-      ],
-      "context_size": 131000,
-      "max_output_tokens": 131000,
-      "tags": [
-        "Instruct",
-        "Tools",
-        "Image"
-      ],
-      "input_modalities": [
-        "text",
-        "image"
-      ],
-      "output_modalities": [
-        "text"
-      ],
-      "supported_features": [
-        "json_mode",
-        "tools"
-      ],
-      "model_series": [
-        "mistral-small"
-      ],
-      "providers_details": {
-        "ovh": {
-          "pricing": {
-            "currency": "EUR",
-            "input_token": 0.09,
-            "output_token": 0.28
-          },
-          "quantization": "fp8",
-          "context_size": 128000,
-          "max_output_tokens": 128000,
-          "supported_features": [
-            "json_mode",
-            "tools"
-          ],
-          "metrics": {
-            "throughput": 56.77,
-            "latency": 2.25,
-            "ttft": 0.3,
-            "cache_hit_rate": null,
-            "uptime": 1.0
-          }
-        },
-        "scaleway": {
-          "pricing": {
-            "currency": "EUR",
-            "input_token": 0.15,
-            "output_token": 0.35
-          },
-          "quantization": null,
-          "context_size": 128000,
-          "max_output_tokens": 8192,
-          "supported_features": [
-            "json_mode",
-            "tools"
-          ],
-          "metrics": {
-            "throughput": 175.62,
-            "latency": 2.38,
-            "ttft": 0.19,
-            "cache_hit_rate": null,
-            "uptime": 1.0
-          }
-        },
-        "berget": {
-          "pricing": {
-            "currency": "EUR",
-            "input_token": 0.3,
-            "output_token": 0.3
-          },
-          "quantization": "bf16",
-          "context_size": 131000,
-          "max_output_tokens": 131000,
-          "supported_features": [
-            "json_mode",
-            "tools"
-          ],
-          "metrics": {
-            "throughput": 84.65,
-            "latency": 4.81,
-            "ttft": 0.46,
-            "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.75
           }
         }
       }
@@ -6408,9 +6538,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 52.64,
-            "latency": 6.66,
-            "ttft": 0.22,
+            "throughput": 48.81,
+            "latency": 7.44,
+            "ttft": 0.27,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -6430,11 +6560,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 52.28,
-            "latency": 8.02,
-            "ttft": 0.23,
+            "throughput": 42.07,
+            "latency": 9.24,
+            "ttft": 0.19,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.86
           }
         }
       }
@@ -6495,11 +6625,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 84.34,
-            "latency": 7.17,
-            "ttft": 0.3,
+            "throughput": 86.43,
+            "latency": 5.75,
+            "ttft": 0.37,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.86
           }
         },
         "amazon_paris": {
@@ -6517,224 +6647,112 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 90.47,
-            "latency": 5.91,
+            "throughput": 81.54,
+            "latency": 6.04,
             "ttft": 0.34,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.86
           }
         }
       }
     },
     {
-      "id": "qwen3-235b-a22b-instruct-2507",
+      "id": "mistral-small-3.2-24b-instruct-2506",
       "object": "model",
-      "created": 1745840282,
-      "owned_by": "Alibaba Cloud",
-      "description": "Qwen3-235B-A22B-Instruct-2507 is a large non-thinking mode model with major improvements in reasoning, instruction following, knowledge coverage, and long-context understanding up to 256K tokens.",
+      "created": 1748252162,
+      "owned_by": "Mistral AI",
+      "description": "Mistral-Small-3.2-24B-Instruct-2506 is a 24B parameter instruction-tuned model with enhanced long-context support (128k) and state-of-the-art vision understanding.",
       "pricing": {
         "currency": "EUR",
-        "input_token": 0.062,
-        "output_token": 0.408,
-        "cache_read_cost": 0.016
+        "input_token": 0.09,
+        "output_token": 0.28
       },
       "providers": [
+        "ovh",
         "scaleway",
-        "nebius",
-        "tensorix"
+        "berget"
       ],
-      "context_size": 262000,
-      "max_output_tokens": 262000,
+      "context_size": 131000,
+      "max_output_tokens": 131000,
       "tags": [
         "Instruct",
         "Tools",
-        "Reasoning"
+        "Image"
       ],
       "input_modalities": [
-        "text"
+        "text",
+        "image"
       ],
       "output_modalities": [
         "text"
       ],
       "supported_features": [
         "json_mode",
-        "reasoning",
         "tools"
       ],
       "model_series": [
-        "qwen-3-235b"
+        "mistral-small"
       ],
       "providers_details": {
-        "scaleway": {
+        "ovh": {
           "pricing": {
             "currency": "EUR",
-            "input_token": 0.75,
-            "output_token": 2.25
+            "input_token": 0.09,
+            "output_token": 0.28
           },
-          "quantization": null,
-          "context_size": 250000,
-          "max_output_tokens": 8192,
+          "quantization": "fp8",
+          "context_size": 128000,
+          "max_output_tokens": 128000,
           "supported_features": [
             "json_mode",
-            "reasoning",
             "tools"
           ],
           "metrics": {
-            "throughput": 97.23,
-            "latency": 3.15,
-            "ttft": 0.37,
+            "throughput": 46.6,
+            "latency": 3.53,
+            "ttft": 0.3,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
         },
-        "nebius": {
+        "scaleway": {
           "pricing": {
             "currency": "EUR",
-            "input_token": 0.179,
-            "output_token": 0.537
+            "input_token": 0.15,
+            "output_token": 0.35
           },
-          "quantization": "fp4",
-          "context_size": 262000,
-          "max_output_tokens": 262000,
+          "quantization": null,
+          "context_size": 128000,
+          "max_output_tokens": 8192,
           "supported_features": [
             "json_mode",
-            "reasoning",
             "tools"
           ],
           "metrics": {
-            "throughput": 62.66,
-            "latency": 5.11,
-            "ttft": 1.35,
-            "cache_hit_rate": 0.16,
+            "throughput": 126.97,
+            "latency": 1.64,
+            "ttft": 0.24,
+            "cache_hit_rate": null,
             "uptime": 1.0
           }
         },
-        "tensorix": {
+        "berget": {
           "pricing": {
             "currency": "EUR",
-            "input_token": 0.062,
-            "output_token": 0.408,
-            "cache_read_cost": 0.016
+            "input_token": 0.3,
+            "output_token": 0.3
           },
-          "quantization": "fp8",
+          "quantization": "bf16",
           "context_size": 131000,
           "max_output_tokens": 131000,
           "supported_features": [
             "json_mode",
-            "reasoning",
             "tools"
           ],
           "metrics": {
-            "throughput": 20.25,
-            "latency": 2.61,
-            "ttft": 1.28,
-            "cache_hit_rate": 0.35,
-            "uptime": 1.0
-          }
-        }
-      }
-    },
-    {
-      "id": "qwen3-coder-30b-a3b-instruct",
-      "object": "model",
-      "created": 1745840282,
-      "owned_by": "Alibaba Cloud",
-      "description": "Qwen3 Coder 30b a3b Instruct is a 30.5B parameter open-source Mixture-of-Experts model specialized for coding, tool use, and complex multi-step programming workflows.",
-      "pricing": {
-        "currency": "EUR",
-        "input_token": 0.06,
-        "output_token": 0.22
-      },
-      "providers": [
-        "scaleway",
-        "amazon_ireland",
-        "ovh"
-      ],
-      "context_size": 262144,
-      "max_output_tokens": 262144,
-      "tags": [
-        "Instruct",
-        "Code",
-        "Tools",
-        "Reasoning"
-      ],
-      "input_modalities": [
-        "text"
-      ],
-      "output_modalities": [
-        "text"
-      ],
-      "supported_features": [
-        "json_mode",
-        "reasoning",
-        "tools"
-      ],
-      "model_series": [
-        "qwen-3-coder-30b"
-      ],
-      "providers_details": {
-        "scaleway": {
-          "pricing": {
-            "currency": "EUR",
-            "input_token": 0.2,
-            "output_token": 0.8
-          },
-          "quantization": null,
-          "context_size": 128000,
-          "max_output_tokens": 32000,
-          "supported_features": [
-            "json_mode",
-            "reasoning",
-            "tools"
-          ],
-          "metrics": {
-            "throughput": 157.1,
-            "latency": 1.07,
-            "ttft": 0.14,
-            "cache_hit_rate": null,
-            "uptime": 1.0
-          }
-        },
-        "amazon_ireland": {
-          "pricing": {
-            "currency": "EUR",
-            "input_token": 0.161,
-            "output_token": 0.626
-          },
-          "quantization": null,
-          "context_size": 262144,
-          "max_output_tokens": 262144,
-          "supported_features": [
-            "json_mode",
-            "reasoning",
-            "tools"
-          ],
-          "metrics": {
-            "throughput": 231.29,
-            "latency": 1.76,
-            "ttft": 0.34,
-            "cache_hit_rate": null,
-            "uptime": 1.0
-          }
-        },
-        "ovh": {
-          "pricing": {
-            "currency": "EUR",
-            "input_token": 0.06,
-            "output_token": 0.22
-          },
-          "quantization": "fp8",
-          "context_size": 32000,
-          "max_output_tokens": 32000,
-          "supported_features": [
-            "json_mode",
-            "reasoning",
-            "tools"
-          ],
-          "metrics": {
-            "throughput": 60.74,
-            "latency": 5.67,
-            "ttft": 0.43,
+            "throughput": 57.09,
+            "latency": 2.29,
+            "ttft": 0.26,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -6794,9 +6812,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 30.67,
-            "latency": 26.69,
-            "ttft": 0.56,
+            "throughput": 38.91,
+            "latency": 15.77,
+            "ttft": 0.36,
             "cache_hit_rate": 0.07,
             "uptime": 1.0
           }
@@ -6816,9 +6834,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 34.83,
-            "latency": 18.5,
-            "ttft": 0.16,
+            "throughput": 43.37,
+            "latency": 17.14,
+            "ttft": 0.12,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -6838,11 +6856,572 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 265.69,
-            "latency": 1.82,
-            "ttft": 0.44,
+            "throughput": 256.76,
+            "latency": 1.89,
+            "ttft": 0.4,
+            "cache_hit_rate": null,
+            "uptime": 0.86
+          }
+        }
+      }
+    },
+    {
+      "id": "qwen3-235b-a22b-instruct-2507",
+      "object": "model",
+      "created": 1745840282,
+      "owned_by": "Alibaba Cloud",
+      "description": "Qwen3-235B-A22B-Instruct-2507 is a large non-thinking mode model with major improvements in reasoning, instruction following, knowledge coverage, and long-context understanding up to 256K tokens.",
+      "pricing": {
+        "currency": "EUR",
+        "input_token": 0.062,
+        "output_token": 0.408,
+        "cache_read_cost": 0.016
+      },
+      "providers": [
+        "scaleway",
+        "nebius",
+        "tensorix"
+      ],
+      "context_size": 262000,
+      "max_output_tokens": 262000,
+      "tags": [
+        "Instruct",
+        "Tools",
+        "Reasoning"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "supported_features": [
+        "json_mode",
+        "reasoning",
+        "tools"
+      ],
+      "model_series": [
+        "qwen-3-235b"
+      ],
+      "providers_details": {
+        "scaleway": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 0.75,
+            "output_token": 2.25
+          },
+          "quantization": null,
+          "context_size": 250000,
+          "max_output_tokens": 8192,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 127.94,
+            "latency": 4.63,
+            "ttft": 0.31,
             "cache_hit_rate": null,
             "uptime": 1.0
+          }
+        },
+        "nebius": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 0.179,
+            "output_token": 0.537
+          },
+          "quantization": "fp4",
+          "context_size": 262000,
+          "max_output_tokens": 262000,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 106.42,
+            "latency": 4.35,
+            "ttft": 0.59,
+            "cache_hit_rate": 0.78,
+            "uptime": 1.0
+          }
+        },
+        "tensorix": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 0.062,
+            "output_token": 0.408,
+            "cache_read_cost": 0.016
+          },
+          "quantization": "fp8",
+          "context_size": 131000,
+          "max_output_tokens": 131000,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 31.49,
+            "latency": 9.43,
+            "ttft": 1.23,
+            "cache_hit_rate": 0.2,
+            "uptime": 1.0
+          }
+        }
+      }
+    },
+    {
+      "id": "qwen3-coder-30b-a3b-instruct",
+      "object": "model",
+      "created": 1745840282,
+      "owned_by": "Alibaba Cloud",
+      "description": "Qwen3 Coder 30b a3b Instruct is a 30.5B parameter open-source Mixture-of-Experts model specialized for coding, tool use, and complex multi-step programming workflows.",
+      "pricing": {
+        "currency": "EUR",
+        "input_token": 0.06,
+        "output_token": 0.22
+      },
+      "providers": [
+        "scaleway",
+        "amazon_ireland",
+        "ovh"
+      ],
+      "context_size": 262144,
+      "max_output_tokens": 262144,
+      "tags": [
+        "Instruct",
+        "Code",
+        "Tools",
+        "Reasoning"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "supported_features": [
+        "json_mode",
+        "reasoning",
+        "tools"
+      ],
+      "model_series": [
+        "qwen-3-coder-30b"
+      ],
+      "providers_details": {
+        "scaleway": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 0.2,
+            "output_token": 0.8
+          },
+          "quantization": null,
+          "context_size": 128000,
+          "max_output_tokens": 32000,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 174.15,
+            "latency": 1.87,
+            "ttft": 0.13,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
+        },
+        "amazon_ireland": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 0.161,
+            "output_token": 0.626
+          },
+          "quantization": null,
+          "context_size": 262144,
+          "max_output_tokens": 262144,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 277.2,
+            "latency": 1.56,
+            "ttft": 0.38,
+            "cache_hit_rate": null,
+            "uptime": 0.75
+          }
+        },
+        "ovh": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 0.06,
+            "output_token": 0.22
+          },
+          "quantization": "fp8",
+          "context_size": 32000,
+          "max_output_tokens": 32000,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 24.09,
+            "latency": 16.15,
+            "ttft": 0.57,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
+        }
+      }
+    },
+    {
+      "id": "gpt-4.1",
+      "object": "model",
+      "created": 1744630682,
+      "owned_by": "OpenAI",
+      "description": "GPT-4.1 is the latest evolution of the GPT-4o model family, offering superior coding, instruction following, and support for up to 1 million input tokens with enhanced multimodal capabilities.",
+      "pricing": {
+        "currency": "EUR",
+        "input_token": 1.968,
+        "output_token": 7.872,
+        "cache_read_cost": 0.49
+      },
+      "providers": [
+        "azure_sc",
+        "azure_spc"
+      ],
+      "context_size": 1047576,
+      "max_output_tokens": 32768,
+      "tags": [
+        "Instruct",
+        "Tools",
+        "Image",
+        "Reasoning",
+        "Document"
+      ],
+      "input_modalities": [
+        "text",
+        "image",
+        "file"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "supported_features": [
+        "reasoning",
+        "tools"
+      ],
+      "model_series": [
+        "gpt-4"
+      ],
+      "providers_details": {
+        "azure_sc": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 1.968,
+            "output_token": 7.872,
+            "cache_read_cost": 0.49
+          },
+          "quantization": null,
+          "context_size": 1047576,
+          "max_output_tokens": 32768,
+          "supported_features": [
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 123.98,
+            "latency": 2.74,
+            "ttft": 0.72,
+            "cache_hit_rate": 0.21,
+            "uptime": 1.0
+          }
+        },
+        "azure_spc": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 1.968,
+            "output_token": 7.872,
+            "cache_read_cost": 0.49
+          },
+          "quantization": null,
+          "context_size": 1047576,
+          "max_output_tokens": 32768,
+          "supported_features": [
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 110.58,
+            "latency": 3.63,
+            "ttft": 0.89,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
+        }
+      }
+    },
+    {
+      "id": "gpt-4.1-mini",
+      "object": "model",
+      "created": 1744630682,
+      "owned_by": "OpenAI",
+      "description": "gpt-4.1-mini is a cost-effective, low-latency model in the GPT-4.1 series, optimized for coding, instruction following, and multimodal tasks with large-context support.",
+      "pricing": {
+        "currency": "EUR",
+        "input_token": 0.39,
+        "output_token": 1.53,
+        "cache_read_cost": 0.12
+      },
+      "providers": [
+        "azure_sc",
+        "azure_spc"
+      ],
+      "context_size": 1047576,
+      "max_output_tokens": 32768,
+      "tags": [
+        "Instruct",
+        "Tools",
+        "Image",
+        "Reasoning",
+        "Document"
+      ],
+      "input_modalities": [
+        "text",
+        "image",
+        "file"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "supported_features": [
+        "reasoning",
+        "tools"
+      ],
+      "model_series": [
+        "gpt-4-mini"
+      ],
+      "providers_details": {
+        "azure_sc": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 0.39,
+            "output_token": 1.53,
+            "cache_read_cost": 0.12
+          },
+          "quantization": null,
+          "context_size": 1047576,
+          "max_output_tokens": 32768,
+          "supported_features": [
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 48.24,
+            "latency": 2.51,
+            "ttft": 0.88,
+            "cache_hit_rate": 0.32,
+            "uptime": 1.0
+          }
+        },
+        "azure_spc": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 0.39,
+            "output_token": 1.53,
+            "cache_read_cost": 0.12
+          },
+          "quantization": null,
+          "context_size": 1047576,
+          "max_output_tokens": 32768,
+          "supported_features": [
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 94.71,
+            "latency": 3.84,
+            "ttft": 0.48,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
+        }
+      }
+    },
+    {
+      "id": "gpt-4.1-nano",
+      "object": "model",
+      "created": 1744630682,
+      "owned_by": "OpenAI",
+      "description": "gpt-4.1-nano is an ultra-efficient model in the GPT-4.1 series, offering powerful coding and instruction capabilities with support for text and vision at the lowest cost and latency.",
+      "pricing": {
+        "currency": "EUR",
+        "input_token": 0.1,
+        "output_token": 0.39,
+        "cache_read_cost": 0.05
+      },
+      "providers": [
+        "azure_sc",
+        "azure_spc"
+      ],
+      "context_size": 1047576,
+      "max_output_tokens": 32768,
+      "tags": [
+        "Instruct",
+        "Tools",
+        "Image",
+        "Reasoning",
+        "Document"
+      ],
+      "input_modalities": [
+        "text",
+        "image",
+        "file"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "supported_features": [
+        "reasoning",
+        "tools"
+      ],
+      "model_series": [
+        "gpt-4-nano"
+      ],
+      "providers_details": {
+        "azure_sc": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 0.1,
+            "output_token": 0.39,
+            "cache_read_cost": 0.05
+          },
+          "quantization": null,
+          "context_size": 1047576,
+          "max_output_tokens": 32768,
+          "supported_features": [
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 199.57,
+            "latency": 1.44,
+            "ttft": 0.42,
+            "cache_hit_rate": 0.63,
+            "uptime": 1.0
+          }
+        },
+        "azure_spc": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 0.1,
+            "output_token": 0.39,
+            "cache_read_cost": 0.05
+          },
+          "quantization": null,
+          "context_size": 1047576,
+          "max_output_tokens": 32768,
+          "supported_features": [
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 250.39,
+            "latency": 1.53,
+            "ttft": 0.46,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
+        }
+      }
+    },
+    {
+      "id": "nova-micro-v1",
+      "object": "model",
+      "created": 1744630682,
+      "owned_by": "Amazon",
+      "description": "Nova Micro is a multilingual text-to-text foundation model with strong reasoning capabilities and broad language coverage across 200+ languages.",
+      "pricing": {
+        "currency": "EUR",
+        "input_token": 0.036,
+        "output_token": 0.143
+      },
+      "providers": [
+        "amazon_ireland",
+        "amazon_paris"
+      ],
+      "context_size": 128000,
+      "max_output_tokens": 10000,
+      "tags": [
+        "Instruct",
+        "Tools",
+        "Image",
+        "Reasoning"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "supported_features": [
+        "json_mode",
+        "reasoning",
+        "tools"
+      ],
+      "model_series": [
+        "nova-1-micro"
+      ],
+      "providers_details": {
+        "amazon_ireland": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 0.036,
+            "output_token": 0.143
+          },
+          "quantization": null,
+          "context_size": 128000,
+          "max_output_tokens": 10000,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 96.35,
+            "latency": 0.54,
+            "ttft": 0.74,
+            "cache_hit_rate": null,
+            "uptime": 0.99
+          }
+        },
+        "amazon_paris": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 0.047,
+            "output_token": 0.185
+          },
+          "quantization": null,
+          "context_size": 128000,
+          "max_output_tokens": 10000,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 329.92,
+            "latency": 1.23,
+            "ttft": 0.39,
+            "cache_hit_rate": null,
+            "uptime": 0.86
           }
         }
       }
@@ -6903,11 +7482,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 185.63,
-            "latency": 1.68,
-            "ttft": 0.34,
+            "throughput": 270.2,
+            "latency": 2.11,
+            "ttft": 0.31,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.86
           }
         },
         "amazon_paris": {
@@ -6925,11 +7504,98 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 287.98,
-            "latency": 1.96,
-            "ttft": 0.36,
+            "throughput": 194.24,
+            "latency": 2.14,
+            "ttft": 0.38,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.86
+          }
+        }
+      }
+    },
+    {
+      "id": "nova-pro-v1",
+      "object": "model",
+      "created": 1744630682,
+      "owned_by": "Amazon",
+      "description": "Nova Pro is a powerful, multilingual multimodal foundation model that excels at reasoning over text, images, and video across 200+ languages.",
+      "pricing": {
+        "currency": "EUR",
+        "input_token": 0.824,
+        "output_token": 3.295
+      },
+      "providers": [
+        "amazon_ireland",
+        "amazon_paris"
+      ],
+      "context_size": 300000,
+      "max_output_tokens": 10000,
+      "tags": [
+        "Instruct",
+        "Tools",
+        "Image",
+        "Reasoning",
+        "Document"
+      ],
+      "input_modalities": [
+        "text",
+        "image",
+        "file"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "supported_features": [
+        "json_mode",
+        "reasoning",
+        "tools"
+      ],
+      "model_series": [
+        "nova-1-pro"
+      ],
+      "providers_details": {
+        "amazon_ireland": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 0.824,
+            "output_token": 3.295
+          },
+          "quantization": null,
+          "context_size": 300000,
+          "max_output_tokens": 10000,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 176.21,
+            "latency": 2.7,
+            "ttft": 0.42,
+            "cache_hit_rate": null,
+            "uptime": 0.86
+          }
+        },
+        "amazon_paris": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 1.055,
+            "output_token": 4.221
+          },
+          "quantization": null,
+          "context_size": 300000,
+          "max_output_tokens": 10000,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 169.05,
+            "latency": 2.61,
+            "ttft": 0.43,
+            "cache_hit_rate": null,
+            "uptime": 0.86
           }
         }
       }
@@ -6996,11 +7662,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 103.4,
-            "latency": 10.14,
-            "ttft": 1.78,
+            "throughput": 91.64,
+            "latency": 9.85,
+            "ttft": 1.56,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.86
           }
         },
         "amazon_paris": {
@@ -7020,11 +7686,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 99.66,
-            "latency": 9.32,
-            "ttft": 1.48,
+            "throughput": 98.6,
+            "latency": 11.61,
+            "ttft": 2.8,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.86
           }
         },
         "google": {
@@ -7044,442 +7710,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 113.37,
-            "latency": 10.99,
-            "ttft": 0.77,
-            "cache_hit_rate": null,
-            "uptime": 1.0
-          }
-        }
-      }
-    },
-    {
-      "id": "gpt-4.1-mini",
-      "object": "model",
-      "created": 1744630682,
-      "owned_by": "OpenAI",
-      "description": "gpt-4.1-mini is a cost-effective, low-latency model in the GPT-4.1 series, optimized for coding, instruction following, and multimodal tasks with large-context support.",
-      "pricing": {
-        "currency": "EUR",
-        "input_token": 0.39,
-        "output_token": 1.53,
-        "cache_read_cost": 0.12
-      },
-      "providers": [
-        "azure_sc",
-        "azure_spc"
-      ],
-      "context_size": 1047576,
-      "max_output_tokens": 32768,
-      "tags": [
-        "Instruct",
-        "Tools",
-        "Image",
-        "Reasoning",
-        "Document"
-      ],
-      "input_modalities": [
-        "text",
-        "image",
-        "file"
-      ],
-      "output_modalities": [
-        "text"
-      ],
-      "supported_features": [
-        "reasoning",
-        "tools"
-      ],
-      "model_series": [
-        "gpt-4-mini"
-      ],
-      "providers_details": {
-        "azure_sc": {
-          "pricing": {
-            "currency": "EUR",
-            "input_token": 0.39,
-            "output_token": 1.53,
-            "cache_read_cost": 0.12
-          },
-          "quantization": null,
-          "context_size": 1047576,
-          "max_output_tokens": 32768,
-          "supported_features": [
-            "reasoning",
-            "tools"
-          ],
-          "metrics": {
-            "throughput": 101.03,
-            "latency": 4.17,
-            "ttft": 0.59,
-            "cache_hit_rate": 0.23,
-            "uptime": 1.0
-          }
-        },
-        "azure_spc": {
-          "pricing": {
-            "currency": "EUR",
-            "input_token": 0.39,
-            "output_token": 1.53,
-            "cache_read_cost": 0.12
-          },
-          "quantization": null,
-          "context_size": 1047576,
-          "max_output_tokens": 32768,
-          "supported_features": [
-            "reasoning",
-            "tools"
-          ],
-          "metrics": {
-            "throughput": 128.84,
-            "latency": 2.93,
-            "ttft": 0.79,
-            "cache_hit_rate": 0.46,
-            "uptime": 1.0
-          }
-        }
-      }
-    },
-    {
-      "id": "gpt-4.1-nano",
-      "object": "model",
-      "created": 1744630682,
-      "owned_by": "OpenAI",
-      "description": "gpt-4.1-nano is an ultra-efficient model in the GPT-4.1 series, offering powerful coding and instruction capabilities with support for text and vision at the lowest cost and latency.",
-      "pricing": {
-        "currency": "EUR",
-        "input_token": 0.1,
-        "output_token": 0.39,
-        "cache_read_cost": 0.05
-      },
-      "providers": [
-        "azure_sc",
-        "azure_spc"
-      ],
-      "context_size": 1047576,
-      "max_output_tokens": 32768,
-      "tags": [
-        "Instruct",
-        "Tools",
-        "Image",
-        "Reasoning",
-        "Document"
-      ],
-      "input_modalities": [
-        "text",
-        "image",
-        "file"
-      ],
-      "output_modalities": [
-        "text"
-      ],
-      "supported_features": [
-        "reasoning",
-        "tools"
-      ],
-      "model_series": [
-        "gpt-4-nano"
-      ],
-      "providers_details": {
-        "azure_sc": {
-          "pricing": {
-            "currency": "EUR",
-            "input_token": 0.1,
-            "output_token": 0.39,
-            "cache_read_cost": 0.05
-          },
-          "quantization": null,
-          "context_size": 1047576,
-          "max_output_tokens": 32768,
-          "supported_features": [
-            "reasoning",
-            "tools"
-          ],
-          "metrics": {
-            "throughput": 226.31,
-            "latency": 1.78,
-            "ttft": 0.46,
-            "cache_hit_rate": 0.12,
-            "uptime": 1.0
-          }
-        },
-        "azure_spc": {
-          "pricing": {
-            "currency": "EUR",
-            "input_token": 0.1,
-            "output_token": 0.39,
-            "cache_read_cost": 0.05
-          },
-          "quantization": null,
-          "context_size": 1047576,
-          "max_output_tokens": 32768,
-          "supported_features": [
-            "reasoning",
-            "tools"
-          ],
-          "metrics": {
-            "throughput": 271.79,
-            "latency": 1.54,
-            "ttft": 0.61,
-            "cache_hit_rate": 0.41,
-            "uptime": 1.0
-          }
-        }
-      }
-    },
-    {
-      "id": "nova-micro-v1",
-      "object": "model",
-      "created": 1744630682,
-      "owned_by": "Amazon",
-      "description": "Nova Micro is a multilingual text-to-text foundation model with strong reasoning capabilities and broad language coverage across 200+ languages.",
-      "pricing": {
-        "currency": "EUR",
-        "input_token": 0.036,
-        "output_token": 0.143
-      },
-      "providers": [
-        "amazon_ireland",
-        "amazon_paris"
-      ],
-      "context_size": 128000,
-      "max_output_tokens": 10000,
-      "tags": [
-        "Instruct",
-        "Tools",
-        "Image",
-        "Reasoning"
-      ],
-      "input_modalities": [
-        "text",
-        "image"
-      ],
-      "output_modalities": [
-        "text"
-      ],
-      "supported_features": [
-        "json_mode",
-        "reasoning",
-        "tools"
-      ],
-      "model_series": [
-        "nova-1-micro"
-      ],
-      "providers_details": {
-        "amazon_ireland": {
-          "pricing": {
-            "currency": "EUR",
-            "input_token": 0.036,
-            "output_token": 0.143
-          },
-          "quantization": null,
-          "context_size": 128000,
-          "max_output_tokens": 10000,
-          "supported_features": [
-            "json_mode",
-            "reasoning",
-            "tools"
-          ],
-          "metrics": {
-            "throughput": 20.43,
-            "latency": 0.45,
-            "ttft": 0.45,
-            "cache_hit_rate": null,
-            "uptime": 1.0
-          }
-        },
-        "amazon_paris": {
-          "pricing": {
-            "currency": "EUR",
-            "input_token": 0.047,
-            "output_token": 0.185
-          },
-          "quantization": null,
-          "context_size": 128000,
-          "max_output_tokens": 10000,
-          "supported_features": [
-            "json_mode",
-            "reasoning",
-            "tools"
-          ],
-          "metrics": {
-            "throughput": 326.6,
-            "latency": 1.4,
-            "ttft": 0.55,
-            "cache_hit_rate": null,
-            "uptime": 1.0
-          }
-        }
-      }
-    },
-    {
-      "id": "gpt-4.1",
-      "object": "model",
-      "created": 1744630682,
-      "owned_by": "OpenAI",
-      "description": "GPT-4.1 is the latest evolution of the GPT-4o model family, offering superior coding, instruction following, and support for up to 1 million input tokens with enhanced multimodal capabilities.",
-      "pricing": {
-        "currency": "EUR",
-        "input_token": 1.968,
-        "output_token": 7.872,
-        "cache_read_cost": 0.49
-      },
-      "providers": [
-        "azure_sc",
-        "azure_spc"
-      ],
-      "context_size": 1047576,
-      "max_output_tokens": 32768,
-      "tags": [
-        "Instruct",
-        "Tools",
-        "Image",
-        "Reasoning",
-        "Document"
-      ],
-      "input_modalities": [
-        "text",
-        "image",
-        "file"
-      ],
-      "output_modalities": [
-        "text"
-      ],
-      "supported_features": [
-        "reasoning",
-        "tools"
-      ],
-      "model_series": [
-        "gpt-4"
-      ],
-      "providers_details": {
-        "azure_sc": {
-          "pricing": {
-            "currency": "EUR",
-            "input_token": 1.968,
-            "output_token": 7.872,
-            "cache_read_cost": 0.49
-          },
-          "quantization": null,
-          "context_size": 1047576,
-          "max_output_tokens": 32768,
-          "supported_features": [
-            "reasoning",
-            "tools"
-          ],
-          "metrics": {
-            "throughput": 144.56,
-            "latency": 2.39,
-            "ttft": 0.45,
-            "cache_hit_rate": 0.15,
-            "uptime": 1.0
-          }
-        },
-        "azure_spc": {
-          "pricing": {
-            "currency": "EUR",
-            "input_token": 1.968,
-            "output_token": 7.872,
-            "cache_read_cost": 0.49
-          },
-          "quantization": null,
-          "context_size": 1047576,
-          "max_output_tokens": 32768,
-          "supported_features": [
-            "reasoning",
-            "tools"
-          ],
-          "metrics": {
-            "throughput": 113.03,
-            "latency": 3.32,
-            "ttft": 0.44,
-            "cache_hit_rate": null,
-            "uptime": 1.0
-          }
-        }
-      }
-    },
-    {
-      "id": "nova-pro-v1",
-      "object": "model",
-      "created": 1744630682,
-      "owned_by": "Amazon",
-      "description": "Nova Pro is a powerful, multilingual multimodal foundation model that excels at reasoning over text, images, and video across 200+ languages.",
-      "pricing": {
-        "currency": "EUR",
-        "input_token": 0.824,
-        "output_token": 3.295
-      },
-      "providers": [
-        "amazon_ireland",
-        "amazon_paris"
-      ],
-      "context_size": 300000,
-      "max_output_tokens": 10000,
-      "tags": [
-        "Instruct",
-        "Tools",
-        "Image",
-        "Reasoning",
-        "Document"
-      ],
-      "input_modalities": [
-        "text",
-        "image",
-        "file"
-      ],
-      "output_modalities": [
-        "text"
-      ],
-      "supported_features": [
-        "json_mode",
-        "reasoning",
-        "tools"
-      ],
-      "model_series": [
-        "nova-1-pro"
-      ],
-      "providers_details": {
-        "amazon_ireland": {
-          "pricing": {
-            "currency": "EUR",
-            "input_token": 0.824,
-            "output_token": 3.295
-          },
-          "quantization": null,
-          "context_size": 300000,
-          "max_output_tokens": 10000,
-          "supported_features": [
-            "json_mode",
-            "reasoning",
-            "tools"
-          ],
-          "metrics": {
-            "throughput": 189.0,
-            "latency": 2.17,
-            "ttft": 0.39,
-            "cache_hit_rate": null,
-            "uptime": 1.0
-          }
-        },
-        "amazon_paris": {
-          "pricing": {
-            "currency": "EUR",
-            "input_token": 1.055,
-            "output_token": 4.221
-          },
-          "quantization": null,
-          "context_size": 300000,
-          "max_output_tokens": 10000,
-          "supported_features": [
-            "json_mode",
-            "reasoning",
-            "tools"
-          ],
-          "metrics": {
-            "throughput": 165.27,
-            "latency": 2.22,
-            "ttft": 0.39,
+            "throughput": 62.09,
+            "latency": 9.25,
+            "ttft": 1.03,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -7537,9 +7770,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 75.05,
-            "latency": 13.1,
-            "ttft": 0.85,
+            "throughput": 60.16,
+            "latency": 11.98,
+            "ttft": 0.93,
             "cache_hit_rate": 0.65,
             "uptime": 1.0
           }
@@ -7596,9 +7829,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 41.12,
-            "latency": 9.68,
-            "ttft": 0.67,
+            "throughput": 42.9,
+            "latency": 7.03,
+            "ttft": 0.5,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -7668,10 +7901,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 555.83,
-            "latency": 3.23,
-            "ttft": 3.06,
-            "cache_hit_rate": 0.81,
+            "throughput": 200.48,
+            "latency": 4.27,
+            "ttft": 2.1,
+            "cache_hit_rate": 0.61,
             "uptime": 1.0
           }
         }
@@ -7738,11 +7971,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 156.91,
-            "latency": 28.55,
-            "ttft": 18.09,
-            "cache_hit_rate": 0.21,
-            "uptime": 0.98
+            "throughput": 139.66,
+            "latency": 28.32,
+            "ttft": 14.38,
+            "cache_hit_rate": 0.41,
+            "uptime": 1.0
           }
         }
       }
@@ -7798,11 +8031,11 @@
             "reasoning"
           ],
           "metrics": {
-            "throughput": 64.67,
-            "latency": 5.92,
-            "ttft": 0.83,
+            "throughput": 64.51,
+            "latency": 24.56,
+            "ttft": 6.01,
             "cache_hit_rate": null,
-            "uptime": 0.98
+            "uptime": 0.97
           }
         }
       }
@@ -7858,11 +8091,11 @@
             "reasoning"
           ],
           "metrics": {
-            "throughput": 23.9,
-            "latency": 9.76,
-            "ttft": 0.36,
-            "cache_hit_rate": 0.37,
-            "uptime": 1.0
+            "throughput": 12.85,
+            "latency": 21.92,
+            "ttft": 2.98,
+            "cache_hit_rate": 0.21,
+            "uptime": 0.94
           }
         },
         "ovh": {
@@ -7879,11 +8112,11 @@
             "reasoning"
           ],
           "metrics": {
-            "throughput": 37.13,
-            "latency": 9.52,
-            "ttft": 0.2,
+            "throughput": 28.07,
+            "latency": 8.86,
+            "ttft": 0.17,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.77
           }
         }
       }
@@ -7941,11 +8174,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 22.32,
-            "latency": 37.93,
-            "ttft": 3.19,
+            "throughput": 19.05,
+            "latency": 58.94,
+            "ttft": 1.3,
             "cache_hit_rate": 0.02,
-            "uptime": 0.83
+            "uptime": 1.0
           }
         }
       }
@@ -8001,10 +8234,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 225.93,
-            "latency": 2.01,
-            "ttft": 0.3,
-            "cache_hit_rate": 0.34,
+            "throughput": 171.03,
+            "latency": 1.63,
+            "ttft": 0.26,
+            "cache_hit_rate": 0.21,
             "uptime": 1.0
           }
         }
@@ -8066,9 +8299,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 94.83,
-            "latency": 4.62,
-            "ttft": 0.8,
+            "throughput": 112.08,
+            "latency": 3.5,
+            "ttft": 0.84,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -8088,10 +8321,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 23.48,
-            "latency": 33.62,
-            "ttft": 12.18,
-            "cache_hit_rate": 0.63,
+            "throughput": 34.78,
+            "latency": 31.83,
+            "ttft": 10.18,
+            "cache_hit_rate": 0.17,
             "uptime": 1.0
           }
         },
@@ -8110,9 +8343,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 30.99,
-            "latency": 12.91,
-            "ttft": 0.68,
+            "throughput": 38.91,
+            "latency": 10.11,
+            "ttft": 0.77,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -8132,11 +8365,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 121.7,
-            "latency": 8.22,
-            "ttft": 1.71,
+            "throughput": 49.25,
+            "latency": 6.86,
+            "ttft": 1.08,
             "cache_hit_rate": null,
-            "uptime": 0.86
+            "uptime": 1.0
           }
         },
         "aki": {
@@ -8154,10 +8387,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 49.76,
-            "latency": 5.71,
-            "ttft": 0.35,
-            "cache_hit_rate": 0.66,
+            "throughput": 51.83,
+            "latency": 5.81,
+            "ttft": 0.36,
+            "cache_hit_rate": 0.94,
             "uptime": 1.0
           }
         },
@@ -8176,9 +8409,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 108.86,
-            "latency": 9.49,
-            "ttft": 1.26,
+            "throughput": 114.29,
+            "latency": 7.55,
+            "ttft": 1.09,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -8241,10 +8474,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 61.03,
-            "latency": 1.68,
-            "ttft": 0.58,
-            "cache_hit_rate": 0.59,
+            "throughput": 107.4,
+            "latency": 3.46,
+            "ttft": 0.47,
+            "cache_hit_rate": 0.4,
             "uptime": 1.0
           }
         },
@@ -8263,9 +8496,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 130.49,
-            "latency": 3.96,
-            "ttft": 0.51,
+            "throughput": 129.97,
+            "latency": 3.58,
+            "ttft": 0.47,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -8325,9 +8558,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 985.68,
-            "latency": 5.93,
-            "ttft": 4.04,
+            "throughput": 300.34,
+            "latency": 12.17,
+            "ttft": 9.26,
             "cache_hit_rate": 0.5,
             "uptime": 1.0
           }
@@ -8387,10 +8620,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 1640.6,
-            "latency": 9.52,
-            "ttft": 5.35,
-            "cache_hit_rate": 0.05,
+            "throughput": 1495.13,
+            "latency": 10.2,
+            "ttft": 10.79,
+            "cache_hit_rate": 0.64,
             "uptime": 1.0
           }
         }
@@ -8448,11 +8681,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 106.34,
-            "latency": 2.45,
-            "ttft": 0.21,
+            "throughput": 110.75,
+            "latency": 3.24,
+            "ttft": 0.15,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.92
           }
         }
       }
@@ -8505,74 +8738,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 48.21,
-            "latency": 8.27,
-            "ttft": 0.39,
-            "cache_hit_rate": 0.06,
-            "uptime": 1.0
-          }
-        }
-      }
-    },
-    {
-      "id": "mistral-medium-2508",
-      "object": "model",
-      "created": 1723020793,
-      "owned_by": "Mistral AI",
-      "description": "Mistral Medium 2508 is a frontier-class multimodal LLM with a 128,000 token context window, optimized for reasoning, coding, and multimodal tasks.",
-      "pricing": {
-        "currency": "EUR",
-        "input_token": 0.4,
-        "output_token": 2.0,
-        "cache_read_cost": 0.04
-      },
-      "providers": [
-        "mistral"
-      ],
-      "context_size": 128000,
-      "max_output_tokens": 128000,
-      "tags": [
-        "Instruct",
-        "Reasoning",
-        "Tools",
-        "Image"
-      ],
-      "input_modalities": [
-        "text",
-        "image"
-      ],
-      "output_modalities": [
-        "text"
-      ],
-      "supported_features": [
-        "json_mode",
-        "reasoning",
-        "tools"
-      ],
-      "model_series": [
-        "mistral-medium"
-      ],
-      "providers_details": {
-        "mistral": {
-          "pricing": {
-            "currency": "EUR",
-            "input_token": 0.4,
-            "output_token": 2.0,
-            "cache_read_cost": 0.04
-          },
-          "quantization": null,
-          "context_size": 128000,
-          "max_output_tokens": 128000,
-          "supported_features": [
-            "json_mode",
-            "reasoning",
-            "tools"
-          ],
-          "metrics": {
-            "throughput": 48.74,
-            "latency": 2.09,
-            "ttft": 0.55,
-            "cache_hit_rate": 0.06,
+            "throughput": 44.05,
+            "latency": 6.44,
+            "ttft": 1.17,
+            "cache_hit_rate": 0.81,
             "uptime": 1.0
           }
         }
@@ -8627,9 +8796,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 43.35,
-            "latency": 6.91,
-            "ttft": 0.12,
+            "throughput": 47.6,
+            "latency": 8.29,
+            "ttft": 0.1,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -8648,9 +8817,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 50.49,
-            "latency": 6.64,
-            "ttft": 0.26,
+            "throughput": 49.89,
+            "latency": 5.86,
+            "ttft": 0.25,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -8708,11 +8877,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 18.37,
-            "latency": 531.63,
-            "ttft": 0.95,
+            "throughput": 18.33,
+            "latency": 602.06,
+            "ttft": 1.85,
             "cache_hit_rate": null,
-            "uptime": 0.8
+            "uptime": 1.0
           }
         }
       }
@@ -8773,10 +8942,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 57.04,
-            "latency": 1.23,
+            "throughput": 40.76,
+            "latency": 1.57,
             "ttft": 0.63,
-            "cache_hit_rate": 0.36,
+            "cache_hit_rate": 0.35,
             "uptime": 1.0
           }
         },
@@ -8795,10 +8964,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 105.87,
-            "latency": 2.65,
-            "ttft": 1.3,
-            "cache_hit_rate": 0.49,
+            "throughput": 100.9,
+            "latency": 3.18,
+            "ttft": 0.72,
+            "cache_hit_rate": 0.47,
             "uptime": 1.0
           }
         }
@@ -8856,9 +9025,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 81.55,
-            "latency": 3.5,
-            "ttft": 0.79,
+            "throughput": 59.66,
+            "latency": 1.84,
+            "ttft": 0.93,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -8878,10 +9047,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 97.94,
-            "latency": 4.23,
-            "ttft": 0.32,
-            "cache_hit_rate": 0.71,
+            "throughput": 98.62,
+            "latency": 4.53,
+            "ttft": 0.26,
+            "cache_hit_rate": 0.99,
             "uptime": 1.0
           }
         }
@@ -8938,11 +9107,11 @@
             "reasoning"
           ],
           "metrics": {
-            "throughput": 111.47,
-            "latency": 4.13,
-            "ttft": 0.23,
+            "throughput": 112.39,
+            "latency": 3.3,
+            "ttft": 0.21,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.86
           }
         },
         "amazon_paris": {
@@ -8959,11 +9128,11 @@
             "reasoning"
           ],
           "metrics": {
-            "throughput": 112.14,
-            "latency": 3.72,
-            "ttft": 0.21,
+            "throughput": 112.59,
+            "latency": 3.57,
+            "ttft": 0.2,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.86
           }
         }
       }

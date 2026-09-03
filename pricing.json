@@ -1,5 +1,5 @@
 {
-  "fetchDate": "2026-08-24",
+  "fetchDate": "2026-09-03",
   "models": [
     {
       "provider": "OpenAI",
@@ -292,6 +292,16 @@
       "Category": "Powerful",
       "Input": 10.0,
       "Cached input": 1.0,
+      "Cache write": 12.5,
+      "Output": 50.0
+    },
+    {
+      "provider": "Anthropic",
+      "Model": "Claude Fable 5.1",
+      "Release status": "GA",
+      "Category": "Powerful",
+      "Input": 10.0,
+      "Cached input": 0.25,
       "Cache write": 12.5,
       "Output": 50.0
     },
