@@ -35,11 +35,11 @@ DEEPSEEK_CONTEXT = 1_048_576  # both models: page says CONTEXT LENGTH 1M
 # ponytail: pinned values; update here + the self-check if z.ai ships new tiers.
 DEVPACK_MONTHLY_USD = {"Lite": 18, "Pro": 80, "Max": 168}
 
-# Models the devpack supports ("All plans support GLM-5.2, GLM-5-Turbo and GLM-4.7").
-# z.ai paygo marks exactly these default-visible; the devpack multiplier table
-# also lists GLM-4.6V (vision) and MCP servers, which we skip.
+# Models the devpack supports. The paygo catalog no longer contains the same
+# model IDs, so its latest model is selected separately below.
 # ponytail: pinned set; update here if the devpack adds a model.
-DEV_PACK_MODEL_IDS = {"glm-5.2", "glm-5-turbo", "glm-4.7"}
+DEV_PACK_MODEL_IDS = {"glm-5.3", "glm-5.3-flash"}
+ZAI_PAYGO_DEFAULT_MODEL_IDS = {"glm-5.1"}
 
 PRICE_RE = re.compile(r"([0-9]+(?:\.[0-9]+)?)")
 
@@ -108,21 +108,40 @@ def scrape_deepseek() -> dict:
 
     model_rows = [r for r in rows if r and r[0] == "MODEL"]
     assert model_rows, "no MODEL row on DeepSeek pricing page"
-    assert model_rows[0][1:] == ["deepseek-v4-flash", "deepseek-v4-pro"], model_rows[0]
+    model_ids = model_rows[0][1:]
+    assert model_ids == [
+        "deepseek-v4-flash",
+        "deepseek-v4-pro",
+        "deepseek-v4-flash-vision-exp",
+    ], model_rows[0]
     assert any(
         r and r[0] == "CONTEXT LENGTH" and "1M" in r[1] for r in rows
     ), "expected CONTEXT LENGTH = 1M"
 
     prices = {}
+    metric = None
     for r in rows:
-        if len(r) >= 3 and r[-3].startswith("1M "):
-            prices[r[-3]] = [parse_price(c) for c in r[-2:]]
+        metric_i = next((i for i, cell in enumerate(r) if cell.startswith("1M ")), None)
+        if metric_i is not None:
+            metric = re.sub(r"\s*\(", " (", r[metric_i])
+            assert r[metric_i + 1] == "OFF-PEAK", r
+            prices[metric] = {
+                "off_peak": [parse_price(c) for c in r[metric_i + 2:]]
+            }
+        elif metric and r and r[0] == "PEAK":
+            prices[metric]["peak"] = [parse_price(c) for c in r[1:]]
+            metric = None
     need = {
         "1M INPUT TOKENS (CACHE HIT)",
         "1M INPUT TOKENS (CACHE MISS)",
         "1M OUTPUT TOKENS",
     }
     assert need <= set(prices), f"missing pricing rows: {need - set(prices)}"
+    assert all(
+        len(band) == len(model_ids)
+        for price in prices.values()
+        for band in price.values()
+    ), prices
 
     hit = prices["1M INPUT TOKENS (CACHE HIT)"]
     miss = prices["1M INPUT TOKENS (CACHE MISS)"]
@@ -131,23 +150,33 @@ def scrape_deepseek() -> dict:
     models = [
         {
             "id": mid,
-            "input": miss[i],
-            "input_cache": hit[i],
-            "output": out[i],
+            "input": miss["peak"][i],
+            "input_cache": hit["peak"][i],
+            "output": out["peak"][i],
+            "off_peak_input": miss["off_peak"][i],
+            "off_peak_input_cache": hit["off_peak"][i],
+            "off_peak_output": out["off_peak"][i],
             "context": DEEPSEEK_CONTEXT,
-            "default_visible": True,
+            "default_visible": not mid.endswith("-exp"),
         }
-        for i, mid in enumerate(model_rows[0][1:])
+        for i, mid in enumerate(model_ids)
     ]
     # ponytail: exact prices pinned from plan.md — fails loudly if the page changes.
     assert models == [
-        {"id": "deepseek-v4-flash", "input": 0.14, "input_cache": 0.0028,
-         "output": 0.28, "context": DEEPSEEK_CONTEXT, "default_visible": True},
-        {"id": "deepseek-v4-pro", "input": 0.435, "input_cache": 0.003625,
-         "output": 0.87, "context": DEEPSEEK_CONTEXT, "default_visible": True},
+        {"id": "deepseek-v4-flash", "input": 0.44, "input_cache": 0.014,
+         "output": 1.32, "off_peak_input": 0.22, "off_peak_input_cache": 0.007,
+         "off_peak_output": 0.66, "context": DEEPSEEK_CONTEXT, "default_visible": True},
+        {"id": "deepseek-v4-pro", "input": 1.32, "input_cache": 0.044,
+         "output": 3.96, "off_peak_input": 0.66, "off_peak_input_cache": 0.022,
+         "off_peak_output": 1.98, "context": DEEPSEEK_CONTEXT, "default_visible": True},
+        {"id": "deepseek-v4-flash-vision-exp", "input": 0.44, "input_cache": 0.014,
+         "output": 1.32, "off_peak_input": 0.22, "off_peak_input_cache": 0.007,
+         "off_peak_output": 0.66, "context": DEEPSEEK_CONTEXT, "default_visible": False},
     ], models
     return {"id": "deepseek", "name": "DeepSeek", "pricing_type": "paygo",
-            "currency": "USD", "models": models}
+            "currency": "USD", "off_peak_multiplier": 0.5,
+            "off_peak_label": "Outside Mon–Fri 01:00–04:00 and 06:00–10:00 UTC",
+            "models": models}
 
 
 def scrape_zai_paygo() -> dict:
@@ -174,16 +203,16 @@ def scrape_zai_paygo() -> dict:
                 "input": parse_price(row[i_input]),
                 "input_cache": parse_price(row[i_cached]),
                 "output": parse_price(row[i_output]),
-                "default_visible": mid in DEV_PACK_MODEL_IDS,
+                "default_visible": mid in ZAI_PAYGO_DEFAULT_MODEL_IDS,
             }
         )
-    # ponytail: plan.md says 14 text models — fails loudly if z.ai adds/removes one.
-    assert len(models) == 14, f"expected 14 text models, got {len(models)}"
+    # ponytail: fails loudly if z.ai adds or removes a text model.
+    assert len(models) == 12, f"expected 12 text models, got {len(models)}"
     by_id = {m["id"]: m for m in models}
-    assert by_id["glm-5.2"] == {"id": "glm-5.2", "input": 1.4, "input_cache": 0.26,
-                                "output": 4.4, "default_visible": True}, by_id["glm-5.2"]
+    assert by_id["glm-5.1"] == {"id": "glm-5.1", "input": 1.4, "input_cache": 0.26,
+                                "output": 4.4, "default_visible": True}, by_id["glm-5.1"]
     visible = {m["id"] for m in models if m["default_visible"]}
-    assert visible == DEV_PACK_MODEL_IDS, visible
+    assert visible == ZAI_PAYGO_DEFAULT_MODEL_IDS, visible
     return {"id": "zai", "name": "z.ai", "pricing_type": "paygo",
             "currency": "USD", "models": models}
 
@@ -219,7 +248,7 @@ def scrape_zai_devpack() -> dict:
     for cells in html_table_rows(html_table.group(0)):
         if len(cells) < 4 or not cells[-4].startswith("GLM-"):
             continue
-        mid = cells[-4].lower()
+        mid = re.split(r"\\|\n|\s+\(", cells[-4], maxsplit=1)[0].lower()
         if mid not in DEV_PACK_MODEL_IDS:
             continue  # GLM-4.6V (vision) — not a devpack-supported coding model
         models.append(
@@ -232,12 +261,10 @@ def scrape_zai_devpack() -> dict:
             }
         )
     assert models == [
-        {"id": "glm-5.2", "mult_input": 6.9, "mult_cached": 1.7,
+        {"id": "glm-5.3", "mult_input": 6.9, "mult_cached": 1.7,
          "mult_output": 24, "default_visible": True},
-        {"id": "glm-5-turbo", "mult_input": 5.7, "mult_cached": 1.5,
-         "mult_output": 21, "default_visible": True},
-        {"id": "glm-4.7", "mult_input": 4.6, "mult_cached": 1.2,
-         "mult_output": 16, "default_visible": True},
+        {"id": "glm-5.3-flash", "mult_input": 2.3, "mult_cached": 0.56,
+         "mult_output": 8, "default_visible": True},
     ], models
 
     pct = re.search(r"off-peak hours[^.]*?(\d+)%", md, re.I)

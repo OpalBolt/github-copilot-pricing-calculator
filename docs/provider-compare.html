@@ -2,13 +2,14 @@
 
 
 
-  
-    
-  
-    
-  
-    
-  
+
+
+
+
+
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -1014,7 +1015,7 @@
     line-height: 1.6;
     color: var(--slate-7);
   }
-  
+
   .task-model-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -1269,25 +1270,25 @@
       </div>
     </div>
     <div class="controls-grid">
-      
+
 <div class="input-group">
   <label for="monthly-tokens">Monthly tokens (millions)</label>
   <input type="number" id="monthly-tokens" value="50" min="0.001" step="1" />
 </div>
 
-      
+
 <div class="input-group">
   <label for="input-pct">Input %</label>
   <input type="number" id="input-pct" value="30" min="0" max="100" step="0.1" />
 </div>
 
-      
+
 <div class="input-group">
   <label for="cached-pct">Cached input %</label>
   <input type="number" id="cached-pct" value="50" min="0" max="100" step="0.1" />
 </div>
 
-      
+
 <div class="input-group">
   <label for="output-pct">Output %</label>
   <input type="number" id="output-pct" value="20" min="0" max="100" step="0.1" />
@@ -1297,31 +1298,33 @@
     <div id="pct-warning" style="display: none; margin-top: 12px; padding: 8px 12px; background: #FEF9C3; border: 1px solid #EAB308; border-radius: 4px; font-size: 13px; color: #854D0E;">
       ⚠️ Input, Cached, and Output percentages must sum to 100%
     </div>
-    
+
     <div class="column-toggle-chips">
       <span class="filter-label">Subscription tier</span>
-      
+
       <label class="column-toggle-chip" for="tier-lite">
         <input type="radio" name="tier" id="tier-lite" value="Lite" checked />
         <span>Lite</span>
       </label>
-      
+
       <label class="column-toggle-chip" for="tier-pro">
         <input type="radio" name="tier" id="tier-pro" value="Pro" />
         <span>Pro</span>
       </label>
-      
+
       <label class="column-toggle-chip" for="tier-max">
         <input type="radio" name="tier" id="tier-max" value="Max" />
         <span>Max</span>
       </label>
-      
+
     </div>
-    <label class="off-peak-toggle" for="off-peak-toggle">
+
+
+    <label class="off-peak-toggle" for="off-peak-toggle" title="DeepSeek: Outside Mon–Fri 01:00–04:00 and 06:00–10:00 UTC&#10;z.ai Devpack: Mon–Fri 14:00–18:00 UTC+8">
       <input type="checkbox" id="off-peak-toggle" />
-      <span>Off-peak pricing <span class="dim">(Mon–Fri 07:00–11:00 CET)</span></span>
+      <span>Use off-peak rates <span class="dim">(provider-specific schedules)</span></span>
     </label>
-    
+
     <div class="column-toggle-chips">
       <span class="filter-label">Models</span>
       <label class="column-toggle-chip" for="show-all-models">
@@ -1332,13 +1335,13 @@
     <div class="column-toggle-chips">
       <span class="filter-label">Providers</span>
       <div class="filter-chips" id="provider-chips">
-        
+
         <button type="button" class="filter-chip active" data-provider="deepseek">DeepSeek</button>
-        
+
         <button type="button" class="filter-chip active" data-provider="zai">z.ai</button>
-        
+
         <button type="button" class="filter-chip active" data-provider="zai-devpack">z.ai Devpack</button>
-        
+
       </div>
     </div>
     <div class="search-wrap">
@@ -1369,63 +1372,67 @@
         </tr>
       </thead>
       <tbody>
-        
-          
-          
-            
+
+
+
+
             <tr data-provider-id="deepseek" data-pricing-type="paygo" data-model-id="deepseek-v4-flash"
-                data-input-price="0.14" data-cached-price="0.0028" data-output-price="0.28"
+                data-input-price="0.44" data-cached-price="0.014" data-output-price="1.32"
+                data-off-peak-input-price="0.22" data-off-peak-cached-price="0.007" data-off-peak-output-price="0.66"
                 data-default-visible="true" data-provider-name="DeepSeek">
               <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
               <td><span class="provider-badge pb-0">DeepSeek</span></td>
               <td>Paygo</td>
               <td>deepseek-v4-flash</td>
-              <td class="num" data-sort="0.14">$0.14</td>
-              <td class="num" data-sort="0.0028">$0.0028</td>
-              <td class="num" data-sort="0.28">$0.28</td>
+              <td class="num" data-sort="0.44">$0.44</td>
+              <td class="num" data-sort="0.014">$0.014</td>
+              <td class="num" data-sort="1.32">$1.32</td>
               <td class="num monthly-cost">—</td>
               <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
-            
+
             <tr data-provider-id="deepseek" data-pricing-type="paygo" data-model-id="deepseek-v4-pro"
-                data-input-price="0.435" data-cached-price="0.003625" data-output-price="0.87"
+                data-input-price="1.32" data-cached-price="0.044" data-output-price="3.96"
+                data-off-peak-input-price="0.66" data-off-peak-cached-price="0.022" data-off-peak-output-price="1.98"
                 data-default-visible="true" data-provider-name="DeepSeek">
               <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
               <td><span class="provider-badge pb-0">DeepSeek</span></td>
               <td>Paygo</td>
               <td>deepseek-v4-pro</td>
-              <td class="num" data-sort="0.435">$0.435</td>
-              <td class="num" data-sort="0.003625">$0.003625</td>
-              <td class="num" data-sort="0.87">$0.87</td>
+              <td class="num" data-sort="1.32">$1.32</td>
+              <td class="num" data-sort="0.044">$0.044</td>
+              <td class="num" data-sort="3.96">$3.96</td>
               <td class="num monthly-cost">—</td>
               <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
-            
-          
-        
-          
-          
-            
-            <tr data-provider-id="zai" data-pricing-type="paygo" data-model-id="glm-5.2"
-                data-input-price="1.4" data-cached-price="0.26" data-output-price="4.4"
-                data-default-visible="true" data-provider-name="z.ai">
+
+            <tr data-provider-id="deepseek" data-pricing-type="paygo" data-model-id="deepseek-v4-flash-vision-exp"
+                data-input-price="0.44" data-cached-price="0.014" data-output-price="1.32"
+                data-off-peak-input-price="0.22" data-off-peak-cached-price="0.007" data-off-peak-output-price="0.66"
+                data-default-visible="false" data-provider-name="DeepSeek">
               <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
-              <td><span class="provider-badge pb-1">z.ai</span></td>
+              <td><span class="provider-badge pb-0">DeepSeek</span></td>
               <td>Paygo</td>
-              <td>glm-5.2</td>
-              <td class="num" data-sort="1.4">$1.4</td>
-              <td class="num" data-sort="0.26">$0.26</td>
-              <td class="num" data-sort="4.4">$4.4</td>
+              <td>deepseek-v4-flash-vision-exp</td>
+              <td class="num" data-sort="0.44">$0.44</td>
+              <td class="num" data-sort="0.014">$0.014</td>
+              <td class="num" data-sort="1.32">$1.32</td>
               <td class="num monthly-cost">—</td>
               <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
-            
+
+
+
+
+
+
             <tr data-provider-id="zai" data-pricing-type="paygo" data-model-id="glm-5.1"
                 data-input-price="1.4" data-cached-price="0.26" data-output-price="4.4"
-                data-default-visible="false" data-provider-name="z.ai">
+
+                data-default-visible="true" data-provider-name="z.ai">
               <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
               <td><span class="provider-badge pb-1">z.ai</span></td>
               <td>Paygo</td>
@@ -1437,9 +1444,10 @@
               <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
-            
+
             <tr data-provider-id="zai" data-pricing-type="paygo" data-model-id="glm-5"
                 data-input-price="1.0" data-cached-price="0.2" data-output-price="3.2"
+
                 data-default-visible="false" data-provider-name="z.ai">
               <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
               <td><span class="provider-badge pb-1">z.ai</span></td>
@@ -1452,25 +1460,11 @@
               <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
-            
-            <tr data-provider-id="zai" data-pricing-type="paygo" data-model-id="glm-5-turbo"
-                data-input-price="1.2" data-cached-price="0.24" data-output-price="4.0"
-                data-default-visible="true" data-provider-name="z.ai">
-              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
-              <td><span class="provider-badge pb-1">z.ai</span></td>
-              <td>Paygo</td>
-              <td>glm-5-turbo</td>
-              <td class="num" data-sort="1.2">$1.2</td>
-              <td class="num" data-sort="0.24">$0.24</td>
-              <td class="num" data-sort="4.0">$4</td>
-              <td class="num monthly-cost">—</td>
-              <td class="num runs">—</td>
-              <td class="bar-cell rel-cost">—</td>
-            </tr>
-            
+
             <tr data-provider-id="zai" data-pricing-type="paygo" data-model-id="glm-4.7"
                 data-input-price="0.6" data-cached-price="0.11" data-output-price="2.2"
-                data-default-visible="true" data-provider-name="z.ai">
+
+                data-default-visible="false" data-provider-name="z.ai">
               <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
               <td><span class="provider-badge pb-1">z.ai</span></td>
               <td>Paygo</td>
@@ -1482,9 +1476,10 @@
               <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
-            
+
             <tr data-provider-id="zai" data-pricing-type="paygo" data-model-id="glm-4.7-flashx"
                 data-input-price="0.07" data-cached-price="0.01" data-output-price="0.4"
+
                 data-default-visible="false" data-provider-name="z.ai">
               <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
               <td><span class="provider-badge pb-1">z.ai</span></td>
@@ -1497,9 +1492,10 @@
               <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
-            
+
             <tr data-provider-id="zai" data-pricing-type="paygo" data-model-id="glm-4.6"
                 data-input-price="0.6" data-cached-price="0.11" data-output-price="2.2"
+
                 data-default-visible="false" data-provider-name="z.ai">
               <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
               <td><span class="provider-badge pb-1">z.ai</span></td>
@@ -1512,9 +1508,10 @@
               <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
-            
+
             <tr data-provider-id="zai" data-pricing-type="paygo" data-model-id="glm-4.5"
                 data-input-price="0.6" data-cached-price="0.11" data-output-price="2.2"
+
                 data-default-visible="false" data-provider-name="z.ai">
               <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
               <td><span class="provider-badge pb-1">z.ai</span></td>
@@ -1527,9 +1524,10 @@
               <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
-            
+
             <tr data-provider-id="zai" data-pricing-type="paygo" data-model-id="glm-4.5-x"
                 data-input-price="2.2" data-cached-price="0.45" data-output-price="8.9"
+
                 data-default-visible="false" data-provider-name="z.ai">
               <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
               <td><span class="provider-badge pb-1">z.ai</span></td>
@@ -1542,9 +1540,10 @@
               <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
-            
+
             <tr data-provider-id="zai" data-pricing-type="paygo" data-model-id="glm-4.5-air"
                 data-input-price="0.2" data-cached-price="0.03" data-output-price="1.1"
+
                 data-default-visible="false" data-provider-name="z.ai">
               <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
               <td><span class="provider-badge pb-1">z.ai</span></td>
@@ -1557,9 +1556,10 @@
               <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
-            
+
             <tr data-provider-id="zai" data-pricing-type="paygo" data-model-id="glm-4.5-airx"
                 data-input-price="1.1" data-cached-price="0.22" data-output-price="4.5"
+
                 data-default-visible="false" data-provider-name="z.ai">
               <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
               <td><span class="provider-badge pb-1">z.ai</span></td>
@@ -1572,9 +1572,10 @@
               <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
-            
+
             <tr data-provider-id="zai" data-pricing-type="paygo" data-model-id="glm-4-32b-0414-128k"
                 data-input-price="0.1" data-cached-price="0.0" data-output-price="0.1"
+
                 data-default-visible="false" data-provider-name="z.ai">
               <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
               <td><span class="provider-badge pb-1">z.ai</span></td>
@@ -1587,9 +1588,10 @@
               <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
-            
+
             <tr data-provider-id="zai" data-pricing-type="paygo" data-model-id="glm-4.7-flash"
                 data-input-price="0.0" data-cached-price="0.0" data-output-price="0.0"
+
                 data-default-visible="false" data-provider-name="z.ai">
               <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
               <td><span class="provider-badge pb-1">z.ai</span></td>
@@ -1602,9 +1604,10 @@
               <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
-            
+
             <tr data-provider-id="zai" data-pricing-type="paygo" data-model-id="glm-4.5-flash"
                 data-input-price="0.0" data-cached-price="0.0" data-output-price="0.0"
+
                 data-default-visible="false" data-provider-name="z.ai">
               <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
               <td><span class="provider-badge pb-1">z.ai</span></td>
@@ -1617,19 +1620,19 @@
               <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
-            
-          
-        
-          
-          
-            
-            <tr class="sub-row" data-provider-id="zai-devpack" data-pricing-type="subscription" data-model-id="glm-5.2"
+
+
+
+
+
+
+            <tr class="sub-row" data-provider-id="zai-devpack" data-pricing-type="subscription" data-model-id="glm-5.3"
                 data-mult-input="6.9" data-mult-cached="1.7" data-mult-output="24.0"
                 data-default-visible="true" data-provider-name="z.ai Devpack">
               <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
               <td><span class="provider-badge pb-2">z.ai Devpack</span></td>
               <td>Lite</td>
-              <td>glm-5.2</td>
+              <td>glm-5.3</td>
               <td class="num sub-price">—</td>
               <td class="num sub-price">—</td>
               <td class="num sub-price">—</td>
@@ -1637,14 +1640,14 @@
               <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
-            
-            <tr class="sub-row" data-provider-id="zai-devpack" data-pricing-type="subscription" data-model-id="glm-5-turbo"
-                data-mult-input="5.7" data-mult-cached="1.5" data-mult-output="21.0"
+
+            <tr class="sub-row" data-provider-id="zai-devpack" data-pricing-type="subscription" data-model-id="glm-5.3-flash"
+                data-mult-input="2.3" data-mult-cached="0.56" data-mult-output="8.0"
                 data-default-visible="true" data-provider-name="z.ai Devpack">
               <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
               <td><span class="provider-badge pb-2">z.ai Devpack</span></td>
               <td>Lite</td>
-              <td>glm-5-turbo</td>
+              <td>glm-5.3-flash</td>
               <td class="num sub-price">—</td>
               <td class="num sub-price">—</td>
               <td class="num sub-price">—</td>
@@ -1652,24 +1655,9 @@
               <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
-            
-            <tr class="sub-row" data-provider-id="zai-devpack" data-pricing-type="subscription" data-model-id="glm-4.7"
-                data-mult-input="4.6" data-mult-cached="1.2" data-mult-output="16.0"
-                data-default-visible="true" data-provider-name="z.ai Devpack">
-              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
-              <td><span class="provider-badge pb-2">z.ai Devpack</span></td>
-              <td>Lite</td>
-              <td>glm-4.7</td>
-              <td class="num sub-price">—</td>
-              <td class="num sub-price">—</td>
-              <td class="num sub-price">—</td>
-              <td class="num monthly-cost">—</td>
-              <td class="num runs">—</td>
-              <td class="bar-cell rel-cost">—</td>
-            </tr>
-            
-          
-        
+
+
+
       </tbody>
     </table>
   </div>
@@ -1677,7 +1665,8 @@
   <p class="page-note">
     Monthly cost = total tokens × rate for each model at your mix. Subscription rows show the fixed plan price.
     Effective $/1M for subscriptions = plan price ÷ total monthly tokens. Relative cost = monthly cost ÷ the most
-    expensive model currently visible. Hover a subscription row for credit details.
+    expensive model currently visible. Off-peak uses each provider's published schedule; hover the toggle for details.
+    Hover a subscription row for credit details.
   </p>
 </main>
 
@@ -1699,7 +1688,7 @@
 
 <script>
   // ── Provider data (baked from providers.json at generate time) ──
-  const PROVIDERS = [{"currency": "USD", "id": "deepseek", "models": [{"context": 1048576, "default_visible": true, "id": "deepseek-v4-flash", "input": 0.14, "input_cache": 0.0028, "output": 0.28}, {"context": 1048576, "default_visible": true, "id": "deepseek-v4-pro", "input": 0.435, "input_cache": 0.003625, "output": 0.87}], "name": "DeepSeek", "pricing_type": "paygo"}, {"currency": "USD", "id": "zai", "models": [{"default_visible": true, "id": "glm-5.2", "input": 1.4, "input_cache": 0.26, "output": 4.4}, {"default_visible": false, "id": "glm-5.1", "input": 1.4, "input_cache": 0.26, "output": 4.4}, {"default_visible": false, "id": "glm-5", "input": 1.0, "input_cache": 0.2, "output": 3.2}, {"default_visible": true, "id": "glm-5-turbo", "input": 1.2, "input_cache": 0.24, "output": 4.0}, {"default_visible": true, "id": "glm-4.7", "input": 0.6, "input_cache": 0.11, "output": 2.2}, {"default_visible": false, "id": "glm-4.7-flashx", "input": 0.07, "input_cache": 0.01, "output": 0.4}, {"default_visible": false, "id": "glm-4.6", "input": 0.6, "input_cache": 0.11, "output": 2.2}, {"default_visible": false, "id": "glm-4.5", "input": 0.6, "input_cache": 0.11, "output": 2.2}, {"default_visible": false, "id": "glm-4.5-x", "input": 2.2, "input_cache": 0.45, "output": 8.9}, {"default_visible": false, "id": "glm-4.5-air", "input": 0.2, "input_cache": 0.03, "output": 1.1}, {"default_visible": false, "id": "glm-4.5-airx", "input": 1.1, "input_cache": 0.22, "output": 4.5}, {"default_visible": false, "id": "glm-4-32b-0414-128k", "input": 0.1, "input_cache": 0.0, "output": 0.1}, {"default_visible": false, "id": "glm-4.7-flash", "input": 0.0, "input_cache": 0.0, "output": 0.0}, {"default_visible": false, "id": "glm-4.5-flash", "input": 0.0, "input_cache": 0.0, "output": 0.0}], "name": "z.ai", "pricing_type": "paygo"}, {"currency": "USD", "id": "zai-devpack", "models": [{"default_visible": true, "id": "glm-5.2", "mult_cached": 1.7, "mult_input": 6.9, "mult_output": 24.0}, {"default_visible": true, "id": "glm-5-turbo", "mult_cached": 1.5, "mult_input": 5.7, "mult_output": 21.0}, {"default_visible": true, "id": "glm-4.7", "mult_cached": 1.2, "mult_input": 4.6, "mult_output": 16.0}], "name": "z.ai Devpack", "off_peak_label": "Mon\u2013Fri 14:00\u201318:00 UTC+8", "off_peak_multiplier": 0.5, "pricing_type": "subscription", "tiers": [{"monthly_usd": 18, "name": "Lite", "weekly_credits": 10000}, {"monthly_usd": 80, "name": "Pro", "weekly_credits": 60000}, {"monthly_usd": 168, "name": "Max", "weekly_credits": 140000}]}];
+  const PROVIDERS = [{"currency": "USD", "id": "deepseek", "models": [{"context": 1048576, "default_visible": true, "id": "deepseek-v4-flash", "input": 0.44, "input_cache": 0.014, "off_peak_input": 0.22, "off_peak_input_cache": 0.007, "off_peak_output": 0.66, "output": 1.32}, {"context": 1048576, "default_visible": true, "id": "deepseek-v4-pro", "input": 1.32, "input_cache": 0.044, "off_peak_input": 0.66, "off_peak_input_cache": 0.022, "off_peak_output": 1.98, "output": 3.96}, {"context": 1048576, "default_visible": false, "id": "deepseek-v4-flash-vision-exp", "input": 0.44, "input_cache": 0.014, "off_peak_input": 0.22, "off_peak_input_cache": 0.007, "off_peak_output": 0.66, "output": 1.32}], "name": "DeepSeek", "off_peak_label": "Outside Mon\u2013Fri 01:00\u201304:00 and 06:00\u201310:00 UTC", "off_peak_multiplier": 0.5, "pricing_type": "paygo"}, {"currency": "USD", "id": "zai", "models": [{"default_visible": true, "id": "glm-5.1", "input": 1.4, "input_cache": 0.26, "output": 4.4}, {"default_visible": false, "id": "glm-5", "input": 1.0, "input_cache": 0.2, "output": 3.2}, {"default_visible": false, "id": "glm-4.7", "input": 0.6, "input_cache": 0.11, "output": 2.2}, {"default_visible": false, "id": "glm-4.7-flashx", "input": 0.07, "input_cache": 0.01, "output": 0.4}, {"default_visible": false, "id": "glm-4.6", "input": 0.6, "input_cache": 0.11, "output": 2.2}, {"default_visible": false, "id": "glm-4.5", "input": 0.6, "input_cache": 0.11, "output": 2.2}, {"default_visible": false, "id": "glm-4.5-x", "input": 2.2, "input_cache": 0.45, "output": 8.9}, {"default_visible": false, "id": "glm-4.5-air", "input": 0.2, "input_cache": 0.03, "output": 1.1}, {"default_visible": false, "id": "glm-4.5-airx", "input": 1.1, "input_cache": 0.22, "output": 4.5}, {"default_visible": false, "id": "glm-4-32b-0414-128k", "input": 0.1, "input_cache": 0.0, "output": 0.1}, {"default_visible": false, "id": "glm-4.7-flash", "input": 0.0, "input_cache": 0.0, "output": 0.0}, {"default_visible": false, "id": "glm-4.5-flash", "input": 0.0, "input_cache": 0.0, "output": 0.0}], "name": "z.ai", "pricing_type": "paygo"}, {"currency": "USD", "id": "zai-devpack", "models": [{"default_visible": true, "id": "glm-5.3", "mult_cached": 1.7, "mult_input": 6.9, "mult_output": 24.0}, {"default_visible": true, "id": "glm-5.3-flash", "mult_cached": 0.56, "mult_input": 2.3, "mult_output": 8.0}], "name": "z.ai Devpack", "off_peak_label": "Mon\u2013Fri 14:00\u201318:00 UTC+8", "off_peak_multiplier": 0.5, "pricing_type": "subscription", "tiers": [{"monthly_usd": 18, "name": "Lite", "weekly_credits": 10000}, {"monthly_usd": 80, "name": "Pro", "weekly_credits": 60000}, {"monthly_usd": 168, "name": "Max", "weekly_credits": 140000}]}];
   const SUBS = PROVIDERS.filter(p => p.pricing_type === 'subscription');
 
   const PRESETS = {
@@ -1800,9 +1789,10 @@
       }
     } else {
       out.plan = 'Paygo';
-      out.ip = parseFloat(row.dataset.inputPrice);
-      out.cp = parseFloat(row.dataset.cachedPrice);
-      out.op = parseFloat(row.dataset.outputPrice);
+      const useOffPeak = cfg.offPeak && row.dataset.offPeakInputPrice !== undefined;
+      out.ip = parseFloat(useOffPeak ? row.dataset.offPeakInputPrice : row.dataset.inputPrice);
+      out.cp = parseFloat(useOffPeak ? row.dataset.offPeakCachedPrice : row.dataset.cachedPrice);
+      out.op = parseFloat(useOffPeak ? row.dataset.offPeakOutputPrice : row.dataset.outputPrice);
 
       if (out.ip === 0 && out.cp === 0 && out.op === 0) { out.free = true; out.monthlyCost = 0; return out; }
 
@@ -1829,7 +1819,7 @@
       row._computed = c;
       const cells = row.children;
 
-      if (row.dataset.pricingType === 'subscription') {
+      if (row.dataset.pricingType === 'subscription' || row.dataset.offPeakInputPrice !== undefined) {
         cells[2].textContent = c.plan || '—';
         [cells[4], cells[5], cells[6]].forEach((cell, i) => {
           const p = [c.ip, c.cp, c.op][i];
@@ -2094,22 +2084,6 @@
     });
   }
 
-  // ── Off-peak auto-detect ─────────────────────────────────────
-  // z.ai off-peak: Mon–Fri 07:00–11:00 CET (their 14:00–18:00 UTC+8).
-  // ponytail: Europe/Paris locale string covers CET/CEST; keep the fixed
-  // 07:00–11:00 window as published, upgrade to per-season offsets if it matters.
-  function autoOffPeak() {
-    const toggle = document.getElementById('off-peak-toggle');
-    if (!toggle) return;
-    const parts = new Date().toLocaleString('en-US',
-      { timeZone: 'Europe/Paris', weekday: 'short', hour: '2-digit', hourCycle: 'h23' }
-    ).split(/[\s,]+/).filter(Boolean);
-    const day = (parts[0] || '').toLowerCase();
-    const hour = parseInt(parts[1], 10);
-    const weekday = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'].indexOf(day);
-    if (weekday >= 0 && weekday <= 4 && hour >= 7 && hour < 11) toggle.checked = true;
-  }
-
   // ── Event wiring ─────────────────────────────────────────────
   ['monthly-tokens', 'input-pct', 'cached-pct', 'output-pct', 'budget-ref'].forEach(id => {
     document.getElementById(id).addEventListener('input', () => {
@@ -2188,7 +2162,6 @@
   });
 
   // ── Initial render ───────────────────────────────────────────
-  autoOffPeak();
   updateSortIndicators();
   updateShowAllLabel();
   applyFilters();

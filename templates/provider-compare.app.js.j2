@@ -101,9 +101,10 @@
       }
     } else {
       out.plan = 'Paygo';
-      out.ip = parseFloat(row.dataset.inputPrice);
-      out.cp = parseFloat(row.dataset.cachedPrice);
-      out.op = parseFloat(row.dataset.outputPrice);
+      const useOffPeak = cfg.offPeak && row.dataset.offPeakInputPrice !== undefined;
+      out.ip = parseFloat(useOffPeak ? row.dataset.offPeakInputPrice : row.dataset.inputPrice);
+      out.cp = parseFloat(useOffPeak ? row.dataset.offPeakCachedPrice : row.dataset.cachedPrice);
+      out.op = parseFloat(useOffPeak ? row.dataset.offPeakOutputPrice : row.dataset.outputPrice);
 
       if (out.ip === 0 && out.cp === 0 && out.op === 0) { out.free = true; out.monthlyCost = 0; return out; }
 
@@ -130,7 +131,7 @@
       row._computed = c;
       const cells = row.children;
 
-      if (row.dataset.pricingType === 'subscription') {
+      if (row.dataset.pricingType === 'subscription' || row.dataset.offPeakInputPrice !== undefined) {
         cells[2].textContent = c.plan || '—';
         [cells[4], cells[5], cells[6]].forEach((cell, i) => {
           const p = [c.ip, c.cp, c.op][i];
@@ -395,22 +396,6 @@
     });
   }
 
-  // ── Off-peak auto-detect ─────────────────────────────────────
-  // z.ai off-peak: Mon–Fri 07:00–11:00 CET (their 14:00–18:00 UTC+8).
-  // ponytail: Europe/Paris locale string covers CET/CEST; keep the fixed
-  // 07:00–11:00 window as published, upgrade to per-season offsets if it matters.
-  function autoOffPeak() {
-    const toggle = document.getElementById('off-peak-toggle');
-    if (!toggle) return;
-    const parts = new Date().toLocaleString('en-US',
-      { timeZone: 'Europe/Paris', weekday: 'short', hour: '2-digit', hourCycle: 'h23' }
-    ).split(/[\s,]+/).filter(Boolean);
-    const day = (parts[0] || '').toLowerCase();
-    const hour = parseInt(parts[1], 10);
-    const weekday = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'].indexOf(day);
-    if (weekday >= 0 && weekday <= 4 && hour >= 7 && hour < 11) toggle.checked = true;
-  }
-
   // ── Event wiring ─────────────────────────────────────────────
   ['monthly-tokens', 'input-pct', 'cached-pct', 'output-pct', 'budget-ref'].forEach(id => {
     document.getElementById(id).addEventListener('input', () => {
@@ -489,7 +474,6 @@
   });
 
   // ── Initial render ───────────────────────────────────────────
-  autoOffPeak();
   updateSortIndicators();
   updateShowAllLabel();
   applyFilters();

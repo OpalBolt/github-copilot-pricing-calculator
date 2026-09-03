@@ -5,22 +5,41 @@
       "name": "DeepSeek",
       "pricing_type": "paygo",
       "currency": "USD",
+      "off_peak_multiplier": 0.5,
+      "off_peak_label": "Outside Mon\u2013Fri 01:00\u201304:00 and 06:00\u201310:00 UTC",
       "models": [
         {
           "id": "deepseek-v4-flash",
-          "input": 0.14,
-          "input_cache": 0.0028,
-          "output": 0.28,
+          "input": 0.44,
+          "input_cache": 0.014,
+          "output": 1.32,
+          "off_peak_input": 0.22,
+          "off_peak_input_cache": 0.007,
+          "off_peak_output": 0.66,
           "context": 1048576,
           "default_visible": true
         },
         {
           "id": "deepseek-v4-pro",
-          "input": 0.435,
-          "input_cache": 0.003625,
-          "output": 0.87,
+          "input": 1.32,
+          "input_cache": 0.044,
+          "output": 3.96,
+          "off_peak_input": 0.66,
+          "off_peak_input_cache": 0.022,
+          "off_peak_output": 1.98,
           "context": 1048576,
           "default_visible": true
+        },
+        {
+          "id": "deepseek-v4-flash-vision-exp",
+          "input": 0.44,
+          "input_cache": 0.014,
+          "output": 1.32,
+          "off_peak_input": 0.22,
+          "off_peak_input_cache": 0.007,
+          "off_peak_output": 0.66,
+          "context": 1048576,
+          "default_visible": false
         }
       ]
     },
@@ -31,18 +50,11 @@
       "currency": "USD",
       "models": [
         {
-          "id": "glm-5.2",
-          "input": 1.4,
-          "input_cache": 0.26,
-          "output": 4.4,
-          "default_visible": true
-        },
-        {
           "id": "glm-5.1",
           "input": 1.4,
           "input_cache": 0.26,
           "output": 4.4,
-          "default_visible": false
+          "default_visible": true
         },
         {
           "id": "glm-5",
@@ -52,18 +64,11 @@
           "default_visible": false
         },
         {
-          "id": "glm-5-turbo",
-          "input": 1.2,
-          "input_cache": 0.24,
-          "output": 4.0,
-          "default_visible": true
-        },
-        {
           "id": "glm-4.7",
           "input": 0.6,
           "input_cache": 0.11,
           "output": 2.2,
-          "default_visible": true
+          "default_visible": false
         },
         {
           "id": "glm-4.7-flashx",
@@ -156,24 +161,17 @@
       ],
       "models": [
         {
-          "id": "glm-5.2",
+          "id": "glm-5.3",
           "mult_input": 6.9,
           "mult_cached": 1.7,
           "mult_output": 24.0,
           "default_visible": true
         },
         {
-          "id": "glm-5-turbo",
-          "mult_input": 5.7,
-          "mult_cached": 1.5,
-          "mult_output": 21.0,
-          "default_visible": true
-        },
-        {
-          "id": "glm-4.7",
-          "mult_input": 4.6,
-          "mult_cached": 1.2,
-          "mult_output": 16.0,
+          "id": "glm-5.3-flash",
+          "mult_input": 2.3,
+          "mult_cached": 0.56,
+          "mult_output": 8.0,
           "default_visible": true
         }
       ]
