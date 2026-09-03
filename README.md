@@ -68,37 +68,49 @@ docs/
   copilot.html              # GitHub Copilot calculator
   cortecs.html              # Cortecs calculator
   provider-compare.html     # Provider comparison
-flake.nix                   # Nix dev shell + build/serve/fetch commands
+mise.toml                   # Tool versions and project tasks
+requirements.txt            # Python dependencies
 ```
 
 ## Building
 
-The repo uses a Nix flake to pin Python and Jinja2, so the build is reproducible
-without a manual `pip install`.
+The repo uses [mise](https://mise.jdx.dev/) to install Python, create `.venv`,
+install dependencies, and run project tasks.
 
 ```bash
-nix develop
-python generate_html.py            # fetch all data sources, render the hub + all tools
-python generate_html.py --no-fetch # regenerate from the cached JSON files
+mise install
+mise run build          # refresh all data sources and render the site
+mise run build-cached   # render the site from the checked-in JSON files
 ```
 
-Or, without a dev shell:
+Run the generated site at `http://localhost:8080`:
 
 ```bash
-nix run .#build -- --no-fetch   # fetch + generate, or pass --no-fetch to skip fetching
-nix run .#fetch                 # fetch pricing.json only
-nix run .#serve                 # serve the repo root at http://localhost:8080
+mise run serve
+```
+
+List all available tasks:
+
+```bash
+mise tasks
 ```
 
 ## Updating data
 
-The fetch scripts are safe to re-run. Each writes only its own JSON file.
+The fetch scripts are safe to re-run. Each script writes only its own JSON file.
+Run all four through mise:
 
 ```bash
-python fetch_pricing.py
-python fetch_model_comparison.py
-python fetch_cortecs.py
-python fetch_providers.py
+mise run fetch
 ```
 
-Then rebuild with `python generate_html.py --no-fetch`.
+Then render the site with `mise run build-cached`. `mise run build` combines
+both steps.
+
+## Checks
+
+Check the Python code with Ruff:
+
+```bash
+mise run lint
+```

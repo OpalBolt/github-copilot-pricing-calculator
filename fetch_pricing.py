@@ -141,7 +141,7 @@ def print_summary(models: list[dict]) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Fetch GitHub Copilot model pricing.")
-    args = parser.parse_args()
+    parser.parse_args()
 
     print("Fetching pricing data from GitHub docs...")
     markdown = fetch_markdown(API_URL)

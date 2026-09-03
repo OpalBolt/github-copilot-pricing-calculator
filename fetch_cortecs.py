@@ -143,7 +143,7 @@ def print_summary(models: list[dict]) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Fetch Cortecs models data.")
-    args = parser.parse_args()
+    parser.parse_args()
 
     print("Fetching Cortecs models data (3 calls: full, eu_native, zdr)...")
     output = build()

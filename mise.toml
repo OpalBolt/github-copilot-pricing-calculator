@@ -1,0 +1,42 @@
+[tools]
+python = "3.12.11"
+
+[env]
+_.python.venv = { path = ".venv", create = true, uv_create_args = ["--seed"] }
+
+[tasks.install]
+description = "Install Python dependencies"
+run = "python -m pip install --disable-pip-version-check -r requirements.txt"
+
+[tasks.fetch]
+description = "Refresh all pricing data"
+depends = ["install"]
+run = [
+  "python fetch_pricing.py",
+  "python fetch_model_comparison.py",
+  "python fetch_cortecs.py",
+  "python fetch_providers.py",
+]
+
+[tasks.build]
+description = "Refresh data and render the site"
+depends = ["fetch"]
+run = "python generate_html.py --no-fetch"
+
+[tasks.build-cached]
+description = "Render the site from cached data"
+depends = ["install"]
+run = "python generate_html.py --no-fetch"
+
+[tasks.lint]
+description = "Check Python code"
+depends = ["install"]
+run = "ruff check ."
+
+[tasks.serve]
+description = "Serve the generated site at http://localhost:8080"
+run = "python -m http.server 8080 --directory docs"
+
+[tasks.default]
+description = "Refresh data and render the site"
+depends = ["build"]

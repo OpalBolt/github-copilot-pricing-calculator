@@ -232,7 +232,7 @@ def parse_model_comparison(markdown: str) -> dict:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Fetch GitHub Copilot model comparison data.")
-    args = parser.parse_args()
+    parser.parse_args()
 
     print("Fetching model comparison data from GitHub docs...")
     markdown = fetch_markdown(API_URL)

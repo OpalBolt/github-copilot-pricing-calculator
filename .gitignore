@@ -1,1 +1,6 @@
 .agent
+.venv/
+__pycache__/
+*.py[cod]
+mise.local.toml
+mise.local.lock

@@ -228,12 +228,11 @@ provider's `off_peak_multiplier`.
 
 ## Build & run
 
-Same Nix flake:
+Use the mise tasks:
 
 ```bash
-nix develop
-python generate_html.py            # fetch all data sources, render landing + all tools
-python generate_html.py --no-fetch # regenerate HTML from cached JSON (template iteration)
+mise run build        # fetch all data sources, render landing + all tools
+mise run build-cached # regenerate HTML from cached JSON (template iteration)
 ```
 
 `fetch_providers.py` is standalone and safe to re-run (writes only
