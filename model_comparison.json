@@ -1,5 +1,5 @@
 {
-  "fetchDate": "2026-09-03",
+  "fetchDate": "2026-09-04",
   "summary": [
     {
       "model": "GPT-5 mini",
@@ -154,6 +154,13 @@
       "excelsAt": "Fast, reliable answers to lightweight coding questions",
       "furtherReadingText": "Gemini 3.7 Flash model card",
       "furtherReadingUrl": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-7-Flash-Model-Card.pdf"
+    },
+    {
+      "model": "Gemini 3.8 Flash",
+      "taskArea": "Fast help with simple or repetitive tasks",
+      "excelsAt": "Fast, reliable answers to lightweight coding questions",
+      "furtherReadingText": "Gemini 3.8 Flash model card",
+      "furtherReadingUrl": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-8-Flash-Model-Card.pdf"
     },
     {
       "model": "MAI-Code-1-Flash[^mai-code-1-flash]",

@@ -1,5 +1,5 @@
 {
-  "fetchDate": "2026-09-03",
+  "fetchDate": "2026-09-04",
   "models": [
     {
       "provider": "OpenAI",
@@ -124,32 +124,26 @@
     {
       "provider": "OpenAI",
       "Model": "GPT-5.6 Sol",
-      "_footnotes": [
-        "gpt-56-sol-promo"
-      ],
       "Release status": "GA",
       "Category": "Powerful",
       "Tier": "Default",
       "Threshold (input tokens)": "\u2264 272K",
-      "Input": 2.0,
-      "Cached input": 0.2,
-      "Cache write": 2.5,
-      "Output": 10.0
+      "Input": 4.0,
+      "Cached input": 0.4,
+      "Cache write": 5.0,
+      "Output": 20.0
     },
     {
       "provider": "OpenAI",
       "Model": "GPT-5.6 Sol",
-      "_footnotes": [
-        "gpt-56-sol-promo"
-      ],
       "Release status": "GA",
       "Category": "Powerful",
       "Tier": "Long context",
       "Threshold (input tokens)": "> 272K",
-      "Input": 4.0,
-      "Cached input": 0.4,
-      "Cache write": 5.0,
-      "Output": 15.0
+      "Input": 8.0,
+      "Cached input": 0.8,
+      "Cache write": 10.0,
+      "Output": 30.0
     },
     {
       "provider": "OpenAI",
@@ -367,6 +361,20 @@
       "Output": 3.75
     },
     {
+      "provider": "Google",
+      "Model": "Gemini 3.8 Flash",
+      "_footnotes": [
+        "gemini-flash-promo"
+      ],
+      "Release status": "GA",
+      "Category": "Versatile",
+      "Tier": "Default",
+      "Threshold (input tokens)": "Not applicable",
+      "Input": 0.75,
+      "Cached input": 0.075,
+      "Output": 3.75
+    },
+    {
       "provider": "Fine-tuned (GitHub)",
       "Model": "Raptor mini",
       "Release status": "GA",
@@ -457,7 +465,6 @@
     }
   ],
   "footnotes": {
-    "gemini-flash-promo": "Gemini 3.6 Flash and Gemini 3.7 Flash are available at the promotional pricing of $0.75 per 1M input tokens, $0.075 per 1M cached input tokens, and $3.75 per 1M output tokens through December 31, 2026.",
-    "gpt-56-sol-promo": "GPT-5.6 Sol is available at promotional pricing, 50% off standard rates, through September 3, 2026. The default tier is $2.00 per 1M input tokens, $0.20 per 1M cached input tokens, $2.50 per 1M cache write tokens, and $10.00 per 1M output tokens. The long context tier is $4.00 per 1M input tokens, $0.40 per 1M cached input tokens, $5.00 per 1M cache write tokens, and $15.00 per 1M output tokens."
+    "gemini-flash-promo": "Gemini 3.6 Flash, Gemini 3.7 Flash, and Gemini 3.8 Flash are available at the promotional pricing of $0.75 per 1M input tokens, $0.075 per 1M cached input tokens, and $3.75 per 1M output tokens through December 31, 2026."
   }
 }
