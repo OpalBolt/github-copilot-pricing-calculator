@@ -1,5 +1,5 @@
 {
-  "fetchDate": "2026-09-04",
+  "fetchDate": "2026-09-05",
   "summary": [
     {
       "model": "GPT-5 mini",
@@ -58,6 +58,13 @@
       "furtherReadingUrl": "https://deploymentsafety.openai.com/gpt-5-6/gpt-5-6.pdf"
     },
     {
+      "model": "GPT-6 Astra",
+      "taskArea": "Long-horizon, autonomous coding and agentic tasks",
+      "excelsAt": "Long-horizon coding tasks with continuous planning, batched diagnosis and verification, and independent result confirmation",
+      "furtherReadingText": "GPT-6 Astra model card",
+      "furtherReadingUrl": "https://deploymentsafety.openai.com/gpt-6-astra/gpt-6-astra.pdf"
+    },
+    {
       "model": "Claude Fable 5",
       "taskArea": "Long-horizon, autonomous coding and knowledge-work",
       "excelsAt": "First-attempt correctness through upfront reasoning, aggressive parallel tool batching, and proactive verification of pre-existing test state before debugging",
@@ -107,13 +114,6 @@
       "furtherReadingUrl": "https://www-cdn.anthropic.com/c5fbac3f0b1280a933ebd26d3cb8bb9f5bdeaf48/Claude%20Opus%205%20System%20Card.pdf"
     },
     {
-      "model": "Claude Sonnet 4.5",
-      "taskArea": "General-purpose coding and agent tasks",
-      "excelsAt": "Complex problem-solving challenges, sophisticated reasoning",
-      "furtherReadingText": "Claude Sonnet 4.5 model card",
-      "furtherReadingUrl": "https://assets.anthropic.com/m/12f214efcc2f457a/original/Claude-Sonnet-4-5-System-Card.pdf"
-    },
-    {
       "model": "Claude Sonnet 4.6",
       "taskArea": "General-purpose coding and agent tasks",
       "excelsAt": "Complex problem-solving challenges, sophisticated reasoning",
@@ -126,13 +126,6 @@
       "excelsAt": "Complex problem-solving challenges, sophisticated reasoning",
       "furtherReadingText": "Claude Sonnet 5 model card",
       "furtherReadingUrl": "https://www-cdn.anthropic.com/9e6a1044980d8c4ed85669faf9c2a8342e2e9f1e/Claude%20Sonnet%205%20System%20Card.pdf"
-    },
-    {
-      "model": "Gemini 3.1 Pro",
-      "taskArea": "Deep reasoning and debugging",
-      "excelsAt": "Effective and efficient edit-then-test loops with high tool precision",
-      "furtherReadingText": "Gemini 3.1 Pro model card",
-      "furtherReadingUrl": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-1-Pro-Model-Card.pdf"
     },
     {
       "model": "Gemini 3.5 Flash",
@@ -198,13 +191,6 @@
       "furtherReadingUrl": "https://arxiv.org/pdf/2409.12186"
     },
     {
-      "model": "Raptor mini",
-      "taskArea": "General-purpose coding and writing",
-      "excelsAt": "Fast, accurate code completions and explanations",
-      "furtherReadingText": "",
-      "furtherReadingUrl": ""
-    },
-    {
       "model": "Kimi K2.7 Code",
       "taskArea": "General-purpose coding and agent tasks",
       "excelsAt": "Fast, reliable answers to lightweight coding questions",
@@ -236,10 +222,6 @@
         {
           "model": "GPT-5.6 Terra",
           "reason": "Balanced all-round choice for everyday interactive and agentic coding."
-        },
-        {
-          "model": "Raptor mini",
-          "reason": "Specialized for fast, accurate inline suggestions and explanations."
         },
         {
           "model": "MAI-Code-1-Flash",
@@ -295,15 +277,11 @@
         },
         {
           "model": "Claude Sonnet 4.6",
-          "reason": "Improves on Sonnet 4.5 with more reliable completions and smarter reasoning under pressure."
+          "reason": "Reliable completions and smarter reasoning under pressure."
         },
         {
           "model": "Claude Opus 4.7",
-          "reason": "Anthropic\u2019s most powerful model. Improves on Claude Opus 4.6."
-        },
-        {
-          "model": "Gemini 3.1 Pro",
-          "reason": "Advanced reasoning across long contexts and scientific or technical analysis."
+          "reason": "Anthropic\u2019s most powerful model. Strong at deep reasoning over large, complex codebases."
         }
       ],
       "useCases": [
@@ -323,11 +301,7 @@
         },
         {
           "model": "Claude Sonnet 4.6",
-          "reason": "Improves on Sonnet 4.5 with more reliable completions and smarter reasoning under pressure."
-        },
-        {
-          "model": "Gemini 3.1 Pro",
-          "reason": "Deep reasoning and debugging, ideal for complex code generation, debugging, and research workflows."
+          "reason": "Reliable completions and smarter reasoning under pressure."
         }
       ],
       "useCases": [

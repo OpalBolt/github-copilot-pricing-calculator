@@ -1573,8 +1573,8 @@
 </div>
 
 <script>
-  // ── Pricing data (fetched 2026-09-04) ──
-  const FETCH_DATE = '2026-09-04';
+  // ── Pricing data (fetched 2026-09-05) ──
+  const FETCH_DATE = '2026-09-05';
   document.getElementById('fetch-date').textContent = FETCH_DATE;
 
   // All rates $ per 1M tokens
@@ -1790,6 +1790,36 @@
     "furtherReadingUrl": "https://deploymentsafety.openai.com/gpt-5-6/gpt-5-6.pdf"
   },
   {
+    "name": "GPT-6 Astra",
+    "provider": "OpenAI",
+    "category": "Powerful",
+    "status": "GA",
+    "tier": "Default",
+    "input": 10.0,
+    "cached": 1.0,
+    "cacheWrite": 12.5,
+    "output": 50.0,
+    "footnote": null,
+    "taskArea": "Long-horizon, autonomous coding and agentic tasks",
+    "excelsAt": "Long-horizon coding tasks with continuous planning, batched diagnosis and verification, and independent result confirmation",
+    "furtherReadingUrl": "https://deploymentsafety.openai.com/gpt-6-astra/gpt-6-astra.pdf"
+  },
+  {
+    "name": "GPT-6 Astra",
+    "provider": "OpenAI",
+    "category": "Powerful",
+    "status": "GA",
+    "tier": "Long context",
+    "input": 20.0,
+    "cached": 2.0,
+    "cacheWrite": 25.0,
+    "output": 75.0,
+    "footnote": null,
+    "taskArea": "Long-horizon, autonomous coding and agentic tasks",
+    "excelsAt": "Long-horizon coding tasks with continuous planning, batched diagnosis and verification, and independent result confirmation",
+    "furtherReadingUrl": "https://deploymentsafety.openai.com/gpt-6-astra/gpt-6-astra.pdf"
+  },
+  {
     "name": "Claude Haiku 4.5",
     "provider": "Anthropic",
     "category": "Versatile",
@@ -1820,21 +1850,6 @@
     "furtherReadingUrl": null
   },
   {
-    "name": "Claude Sonnet 4.5",
-    "provider": "Anthropic",
-    "category": "Versatile",
-    "status": "GA",
-    "tier": "Default",
-    "input": 3.0,
-    "cached": 0.3,
-    "cacheWrite": 3.75,
-    "output": 15.0,
-    "footnote": null,
-    "taskArea": "General-purpose coding and agent tasks",
-    "excelsAt": "Complex problem-solving challenges, sophisticated reasoning",
-    "furtherReadingUrl": "https://assets.anthropic.com/m/12f214efcc2f457a/original/Claude-Sonnet-4-5-System-Card.pdf"
-  },
-  {
     "name": "Claude Sonnet 4.6",
     "provider": "Anthropic",
     "category": "Versatile",
@@ -1848,36 +1863,6 @@
     "taskArea": "General-purpose coding and agent tasks",
     "excelsAt": "Complex problem-solving challenges, sophisticated reasoning",
     "furtherReadingUrl": "https://www-cdn.anthropic.com/78073f739564e986ff3e28522761a7a0b4484f84.pdf"
-  },
-  {
-    "name": "Claude Opus 4.5",
-    "provider": "Anthropic",
-    "category": "Powerful",
-    "status": "GA",
-    "tier": "Default",
-    "input": 5.0,
-    "cached": 0.5,
-    "cacheWrite": 6.25,
-    "output": 25.0,
-    "footnote": null,
-    "taskArea": null,
-    "excelsAt": null,
-    "furtherReadingUrl": null
-  },
-  {
-    "name": "Claude Opus 4.6",
-    "provider": "Anthropic",
-    "category": "Powerful",
-    "status": "GA",
-    "tier": "Default",
-    "input": 5.0,
-    "cached": 0.5,
-    "cacheWrite": 6.25,
-    "output": 25.0,
-    "footnote": null,
-    "taskArea": null,
-    "excelsAt": null,
-    "furtherReadingUrl": null
   },
   {
     "name": "Claude Opus 4.7",
@@ -1985,36 +1970,6 @@
     "furtherReadingUrl": "https://www-cdn.anthropic.com/0339e6a7c5c7b87f5c07798616dc32c215d14235/Claude%20Fable%205.1%20&%20Claude%20Mythos%205.1%20System%20Card.pdf"
   },
   {
-    "name": "Gemini 3.1 Pro",
-    "provider": "Google",
-    "category": "Powerful",
-    "status": "preview",
-    "tier": "Default",
-    "input": 2.0,
-    "cached": 0.2,
-    "cacheWrite": null,
-    "output": 12.0,
-    "footnote": null,
-    "taskArea": "Deep reasoning and debugging",
-    "excelsAt": "Effective and efficient edit-then-test loops with high tool precision",
-    "furtherReadingUrl": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-1-Pro-Model-Card.pdf"
-  },
-  {
-    "name": "Gemini 3.1 Pro",
-    "provider": "Google",
-    "category": "Powerful",
-    "status": "preview",
-    "tier": "Long context",
-    "input": 4.0,
-    "cached": 0.4,
-    "cacheWrite": null,
-    "output": 18.0,
-    "footnote": null,
-    "taskArea": "Deep reasoning and debugging",
-    "excelsAt": "Effective and efficient edit-then-test loops with high tool precision",
-    "furtherReadingUrl": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-1-Pro-Model-Card.pdf"
-  },
-  {
     "name": "Gemini 3.5 Flash",
     "provider": "Google",
     "category": "Lightweight",
@@ -2073,21 +2028,6 @@
     "taskArea": "Fast help with simple or repetitive tasks",
     "excelsAt": "Fast, reliable answers to lightweight coding questions",
     "furtherReadingUrl": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-8-Flash-Model-Card.pdf"
-  },
-  {
-    "name": "Raptor mini",
-    "provider": "Fine-tuned (GitHub)",
-    "category": "Versatile",
-    "status": "GA",
-    "tier": "Default",
-    "input": 0.25,
-    "cached": 0.025,
-    "cacheWrite": null,
-    "output": 2.0,
-    "footnote": null,
-    "taskArea": "General-purpose coding and writing",
-    "excelsAt": "Fast, accurate code completions and explanations",
-    "furtherReadingUrl": ""
   },
   {
     "name": "MAI-Code-1-Flash",
@@ -2231,10 +2171,6 @@
         "reason": "Balanced all-round choice for everyday interactive and agentic coding."
       },
       {
-        "model": "Raptor mini",
-        "reason": "Specialized for fast, accurate inline suggestions and explanations."
-      },
-      {
         "model": "MAI-Code-1-Flash",
         "reason": "Strong instruction-following and adaptive reasoning make it a reliable default for everyday coding tasks, writing, and multi-turn development workflows."
       }
@@ -2288,15 +2224,11 @@
       },
       {
         "model": "Claude Sonnet 4.6",
-        "reason": "Improves on Sonnet 4.5 with more reliable completions and smarter reasoning under pressure."
+        "reason": "Reliable completions and smarter reasoning under pressure."
       },
       {
         "model": "Claude Opus 4.7",
-        "reason": "Anthropic\u2019s most powerful model. Improves on Claude Opus 4.6."
-      },
-      {
-        "model": "Gemini 3.1 Pro",
-        "reason": "Advanced reasoning across long contexts and scientific or technical analysis."
+        "reason": "Anthropic\u2019s most powerful model. Strong at deep reasoning over large, complex codebases."
       }
     ],
     "useCases": [
@@ -2316,11 +2248,7 @@
       },
       {
         "model": "Claude Sonnet 4.6",
-        "reason": "Improves on Sonnet 4.5 with more reliable completions and smarter reasoning under pressure."
-      },
-      {
-        "model": "Gemini 3.1 Pro",
-        "reason": "Deep reasoning and debugging, ideal for complex code generation, debugging, and research workflows."
+        "reason": "Reliable completions and smarter reasoning under pressure."
       }
     ],
     "useCases": [

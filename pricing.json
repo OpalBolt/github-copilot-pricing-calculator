@@ -1,5 +1,5 @@
 {
-  "fetchDate": "2026-09-04",
+  "fetchDate": "2026-09-05",
   "models": [
     {
       "provider": "OpenAI",
@@ -170,6 +170,30 @@
       "Output": 18.0
     },
     {
+      "provider": "OpenAI",
+      "Model": "GPT-6 Astra",
+      "Release status": "GA",
+      "Category": "Powerful",
+      "Tier": "Default",
+      "Threshold (input tokens)": "\u2264 272K",
+      "Input": 10.0,
+      "Cached input": 1.0,
+      "Cache write": 12.5,
+      "Output": 50.0
+    },
+    {
+      "provider": "OpenAI",
+      "Model": "GPT-6 Astra",
+      "Release status": "GA",
+      "Category": "Powerful",
+      "Tier": "Long context",
+      "Threshold (input tokens)": "> 272K",
+      "Input": 20.0,
+      "Cached input": 2.0,
+      "Cache write": 25.0,
+      "Output": 75.0
+    },
+    {
       "provider": "Anthropic",
       "Model": "Claude Haiku 4.5",
       "Release status": "GA",
@@ -191,16 +215,6 @@
     },
     {
       "provider": "Anthropic",
-      "Model": "Claude Sonnet 4.5",
-      "Release status": "GA",
-      "Category": "Versatile",
-      "Input": 3.0,
-      "Cached input": 0.3,
-      "Cache write": 3.75,
-      "Output": 15.0
-    },
-    {
-      "provider": "Anthropic",
       "Model": "Claude Sonnet 4.6",
       "Release status": "GA",
       "Category": "Versatile",
@@ -208,26 +222,6 @@
       "Cached input": 0.3,
       "Cache write": 3.75,
       "Output": 15.0
-    },
-    {
-      "provider": "Anthropic",
-      "Model": "Claude Opus 4.5",
-      "Release status": "GA",
-      "Category": "Powerful",
-      "Input": 5.0,
-      "Cached input": 0.5,
-      "Cache write": 6.25,
-      "Output": 25.0
-    },
-    {
-      "provider": "Anthropic",
-      "Model": "Claude Opus 4.6",
-      "Release status": "GA",
-      "Category": "Powerful",
-      "Input": 5.0,
-      "Cached input": 0.5,
-      "Cache write": 6.25,
-      "Output": 25.0
     },
     {
       "provider": "Anthropic",
@@ -301,28 +295,6 @@
     },
     {
       "provider": "Google",
-      "Model": "Gemini 3.1 Pro",
-      "Release status": "Public preview",
-      "Category": "Powerful",
-      "Tier": "Default",
-      "Threshold (input tokens)": "\u2264 200K",
-      "Input": 2.0,
-      "Cached input": 0.2,
-      "Output": 12.0
-    },
-    {
-      "provider": "Google",
-      "Model": "Gemini 3.1 Pro",
-      "Release status": "Public preview",
-      "Category": "Powerful",
-      "Tier": "Long context",
-      "Threshold (input tokens)": "> 200K",
-      "Input": 4.0,
-      "Cached input": 0.4,
-      "Output": 18.0
-    },
-    {
-      "provider": "Google",
       "Model": "Gemini 3.5 Flash",
       "Release status": "GA",
       "Category": "Lightweight",
@@ -373,15 +345,6 @@
       "Input": 0.75,
       "Cached input": 0.075,
       "Output": 3.75
-    },
-    {
-      "provider": "Fine-tuned (GitHub)",
-      "Model": "Raptor mini",
-      "Release status": "GA",
-      "Category": "Versatile",
-      "Input": 0.25,
-      "Cached input": 0.025,
-      "Output": 2.0
     },
     {
       "provider": "Microsoft",
