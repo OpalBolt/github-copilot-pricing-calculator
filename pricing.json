@@ -1,5 +1,5 @@
 {
-  "fetchDate": "2026-09-09",
+  "fetchDate": "2026-09-16",
   "models": [
     {
       "provider": "OpenAI",
@@ -345,15 +345,6 @@
       "Input": 0.75,
       "Cached input": 0.075,
       "Output": 3.75
-    },
-    {
-      "provider": "Microsoft",
-      "Model": "MAI-Code-1-Flash",
-      "Release status": "GA",
-      "Category": "Lightweight",
-      "Input": 0.75,
-      "Cached input": 0.075,
-      "Output": 4.5
     },
     {
       "provider": "Microsoft",

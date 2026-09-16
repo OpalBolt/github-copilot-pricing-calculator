@@ -9,13 +9,13 @@
       "off_peak_label": "Outside Mon\u2013Fri 01:00\u201304:00 and 06:00\u201310:00 UTC",
       "models": [
         {
-          "id": "deepseek-v4-flash",
-          "input": 0.44,
-          "input_cache": 0.014,
-          "output": 1.32,
-          "off_peak_input": 0.22,
-          "off_peak_input_cache": 0.007,
-          "off_peak_output": 0.66,
+          "id": "deepseek-flash",
+          "input": 0.3,
+          "input_cache": 0.006,
+          "output": 1.2,
+          "off_peak_input": 0.15,
+          "off_peak_input_cache": 0.003,
+          "off_peak_output": 0.6,
           "context": 1048576,
           "default_visible": true
         },
@@ -29,17 +29,6 @@
           "off_peak_output": 1.98,
           "context": 1048576,
           "default_visible": true
-        },
-        {
-          "id": "deepseek-v4-flash-vision-exp",
-          "input": 0.44,
-          "input_cache": 0.014,
-          "output": 1.32,
-          "off_peak_input": 0.22,
-          "off_peak_input_cache": 0.007,
-          "off_peak_output": 0.66,
-          "context": 1048576,
-          "default_visible": false
         }
       ]
     },

@@ -1,5 +1,5 @@
 {
-  "fetchDate": "2026-09-09",
+  "fetchDate": "2026-09-16",
   "summary": [
     {
       "model": "GPT-5 mini",
@@ -156,14 +156,7 @@
       "furtherReadingUrl": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-8-Flash-Model-Card.pdf"
     },
     {
-      "model": "MAI-Code-1-Flash[^mai-code-1-flash]",
-      "taskArea": "General-purpose coding and writing",
-      "excelsAt": "Fast, accurate code completions and explanations",
-      "furtherReadingText": "MAI-Code-1-Flash model card",
-      "furtherReadingUrl": "https://aka.ms/mai-code-1-flash-modelcard"
-    },
-    {
-      "model": "MAI-Code-1.1-Flash[^mai-code-1-flash]",
+      "model": "MAI-Code-1.1-Flash[^mai-models]",
       "taskArea": "General-purpose coding and writing, image understanding",
       "excelsAt": "Fast code completions and explanations, instruction following, tool use",
       "furtherReadingText": "MAI-Code-1.1-Flash model card",
@@ -222,10 +215,6 @@
         {
           "model": "GPT-5.6 Terra",
           "reason": "Balanced all-round choice for everyday interactive and agentic coding."
-        },
-        {
-          "model": "MAI-Code-1-Flash",
-          "reason": "Strong instruction-following and adaptive reasoning make it a reliable default for everyday coding tasks, writing, and multi-turn development workflows."
         }
       ],
       "useCases": [
@@ -246,10 +235,6 @@
         {
           "model": "Claude Haiku 4.5",
           "reason": "Balances fast responses with quality output. Ideal for small tasks and lightweight code explanations."
-        },
-        {
-          "model": "MAI-Code-1-Flash",
-          "reason": "Handles quick coding tasks with adaptive efficiency, stays concise for simple requests and delivers fast, accurate responses without unnecessary depth."
         }
       ],
       "useCases": [
