@@ -29,19 +29,9 @@ API_URL = "https://api.cortecs.ai/v1/models?extended=true&currency=EUR"
 EU_NATIVE_URL = API_URL + "&eu_native=true"
 ZDR_URL = API_URL + "&allow_zero_data_retention=true"
 
-# Known provider sets the derived table must match (plan.md "Sovereignty & ZDR").
-# ponytail: pinned against the live API; if the provider roster changes, the
-# self-check fails loudly here and these three sets get updated together.
-KNOWN_PROVIDERS = {
-    "aki", "amazon_ireland", "amazon_paris", "azure_sc", "azure_spc",
-    "berget", "google", "inceptron", "infercom", "ionos", "mistral",
-    "nebius", "ovh", "scaleway", "tensorix",
-}
-KNOWN_EU_NATIVE = {
-    "aki", "berget", "inceptron", "infercom", "ionos", "mistral",
-    "nebius", "ovh", "scaleway", "tensorix",
-}
-KNOWN_ZDR = KNOWN_PROVIDERS - {"azure_sc", "azure_spc"}
+# No pinned provider roster: the table is derived from the live API, and new or
+# removed providers must flow through without a code change. self_check below
+# asserts only structural invariants and prints a diff vs the previous run.
 
 # The page and every later slice depend on these being present on each model.
 REQUIRED_FIELDS = ("id", "owned_by", "pricing", "providers_details")
@@ -87,26 +77,33 @@ def derive_providers(
     all_p = union_providers(models_full)
     eu = union_providers(models_eu)
     zdr = union_providers(models_zdr)
+    # A flagged provider missing from the full list means the responses disagree.
+    assert eu <= all_p, f"eu_native-only providers absent from full list: {sorted(eu - all_p)}"
+    assert zdr <= all_p, f"zdr-only providers absent from full list: {sorted(zdr - all_p)}"
     return {
         p: {"eu_native": p in eu, "zdr": p in zdr}
         for p in sorted(all_p)
     }
 
 
-def self_check(providers: dict[str, dict[str, bool]]) -> None:
-    """Assert the derived table matches the known sovereignty/ZDR sets (plan.md)."""
-    all_p = set(providers)
-    assert all_p == KNOWN_PROVIDERS, (
-        f"provider set mismatch:\n  got      {sorted(all_p)}\n  expected {sorted(KNOWN_PROVIDERS)}"
-    )
-    eu = {p for p, a in providers.items() if a["eu_native"]}
-    zdr = {p for p, a in providers.items() if a["zdr"]}
-    assert eu == KNOWN_EU_NATIVE, (
-        f"EU-native mismatch:\n  got      {sorted(eu)}\n  expected {sorted(KNOWN_EU_NATIVE)}"
-    )
-    assert zdr == KNOWN_ZDR, (
-        f"ZDR mismatch:\n  got      {sorted(zdr)}\n  expected {sorted(KNOWN_ZDR)}"
-    )
+def self_check(providers: dict[str, dict[str, bool]], prev: dict | None = None) -> None:
+    """Structural invariants only — the roster itself is whatever the API says.
+
+    Roster changes vs the previous cortecs.json are printed as a notice so a
+    human still sees them in CI logs, but they never fail the pipeline.
+    """
+    assert providers, "derived provider table is empty"
+    for p, a in providers.items():
+        assert set(a) == {"eu_native", "zdr"}, f"provider {p!r} flags: {sorted(a)}"
+        assert all(isinstance(v, bool) for v in a.values()), f"provider {p!r} flags not bools"
+    if prev is not None:
+        added = set(providers) - set(prev)
+        removed = set(prev) - set(providers)
+        flipped = {p for p in set(providers) & set(prev)
+                   if providers[p] != prev[p]}
+        if added or removed or flipped:
+            print(f"Note: provider table changed vs previous cortecs.json: "
+                  f"+{sorted(added)} -{sorted(removed)} ~{sorted(flipped)}")
 
 
 def build() -> dict:
@@ -120,7 +117,14 @@ def build() -> dict:
     models_eu = validate(fetch_json(EU_NATIVE_URL))
     models_zdr = validate(fetch_json(ZDR_URL))
     providers = derive_providers(models_full, models_eu, models_zdr)
-    self_check(providers)
+    prev_path = Path(__file__).parent / "cortecs.json"
+    prev = None
+    if prev_path.exists():
+        try:
+            prev = json.loads(prev_path.read_text(encoding="utf-8")).get("providers")
+        except (ValueError, OSError):
+            pass  # unreadable previous file -> skip the change notice
+    self_check(providers, prev)
     return {
         "fetchDate": date.today().isoformat(),
         "currency": "EUR",
@@ -176,4 +180,13 @@ if __name__ == "__main__":
     )
     assert got == {"aki": {"eu_native": True, "zdr": True},
                    "azure_sc": {"eu_native": False, "zdr": True}}, got
+    # derive_providers must reject flagged providers missing from the full list.
+    try:
+        derive_providers([], [{"providers": ["ghost"]}], [])
+        raise SystemExit("self-check failed: ghost provider accepted")
+    except AssertionError:
+        pass
+    # self_check: structure only; roster diff prints, never raises.
+    self_check({"aki": {"eu_native": True, "zdr": False}},
+               prev={"aki": {"eu_native": False, "zdr": False}})
     main()

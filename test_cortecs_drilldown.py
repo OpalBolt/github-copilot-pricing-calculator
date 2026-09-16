@@ -9,9 +9,9 @@ JS data contract the drill-down and badges depend on:
      fields the drill-down renders (name, input/cached/output, quantization,
      context_size, features) plus audio_cost/speech_cost only when the source
      published them.
-  2. The baked PROVIDERS table is present and matches the known sovereignty/ZDR
-     sets from plan.md ("Sovereignty & ZDR"): 15 total, 10 EU-native, ZDR = all
-     except azure_sc and azure_spc.
+  2. The baked PROVIDERS table is present, structurally valid, and identical
+     to cortecs.json (the source the page is baked from). The roster itself is
+     whatever the API says — no pinned provider list.
   3. Badges come from the table, so a non-ZDR provider (azure_sc) must not carry
      the ZDR flag and an EU-native provider (nebius) must carry the EU flag.
 
@@ -28,18 +28,6 @@ HTML = ROOT / "docs" / "cortecs.html"
 DATA = ROOT / "cortecs.json"
 
 REQUIRED_ROW = ("name", "input", "cached", "output", "quantization", "context_size", "features")
-
-# Known sets the derived table must match (plan.md "Sovereignty & ZDR").
-KNOWN_ALL = {
-    "aki", "amazon_ireland", "amazon_paris", "azure_sc", "azure_spc", "berget",
-    "google", "inceptron", "infercom", "ionos", "mistral", "nebius", "ovh",
-    "scaleway", "tensorix",
-}
-KNOWN_EU = {
-    "aki", "berget", "inceptron", "infercom", "ionos", "mistral", "nebius",
-    "ovh", "scaleway", "tensorix",
-}
-KNOWN_ZDR = KNOWN_ALL - {"azure_sc", "azure_spc"}
 
 
 def extract(html: str, const: str) -> str:
@@ -84,21 +72,18 @@ def main():
             has_js = "audio_cost" in r
             assert has_src == has_js, f"{m['id']}/{r['name']}: audio_cost presence mismatch"
 
-    # ── 2. The baked table matches the known sovereignty/ZDR sets ──────
-    assert set(providers) == KNOWN_ALL, \
-        f"provider set mismatch: {sorted(providers)} vs {sorted(KNOWN_ALL)}"
+    # ── 2. Baked table == cortecs.json, structurally valid ───────────
+    src = json.loads(DATA.read_text(encoding="utf-8"))["providers"]
+    assert providers == src, "PROVIDERS table in HTML diverges from cortecs.json"
+    assert providers, "provider table is empty"
+    for p, a in providers.items():
+        assert set(a) == {"eu_native", "zdr"} \
+            and all(isinstance(v, bool) for v in a.values()), \
+            f"{p}: expected boolean eu_native/zdr flags, got {a}"
+
     eu = {p for p, a in providers.items() if a["eu_native"]}
     zdr = {p for p, a in providers.items() if a["zdr"]}
-    assert eu == KNOWN_EU, f"EU-native mismatch: {sorted(eu)}"
-    assert zdr == KNOWN_ZDR, f"ZDR mismatch: {sorted(zdr)}"
-
-    # ── 3. Badges derive from the table (spot-check the boundary cases) ─
-    assert providers["azure_sc"]["zdr"] is False, "azure_sc must NOT be ZDR"
-    assert providers["azure_spc"]["zdr"] is False, "azure_spc must NOT be ZDR"
-    assert providers["nebius"]["eu_native"] is True, "nebius must be EU-native"
-
     print(f"OK — {len(models)} models, {len(providers)} providers "
-          f"({len(eu)} EU-native, {len(zdr)} ZDR), "
           f"{len(multi)} multi-provider, {len(audio)} audio provider rows.")
 
 

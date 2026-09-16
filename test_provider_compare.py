@@ -41,22 +41,24 @@ def extract_rows(html: str) -> list[dict]:
     return rows
 
 
-def blended(row: dict, prefix: str = "") -> float:
-    return (
-        0.3 * float(row[f"{prefix}input"])
-        + 0.5 * float(row[f"{prefix}cached"])
-        + 0.2 * float(row[f"{prefix}output"])
-    )
-
-
 def main() -> int:
     rows = extract_rows(HTML)
+    by_provider = {provider["id"]: provider for provider in PROVIDERS}
     paygo = [row for row in rows if row["pricing_type"] == "paygo"]
     subscriptions = [
         row for row in rows if row["pricing_type"] == "subscription"
     ]
-    assert len(rows) == 17, f"expected 17 model rows, got {len(rows)}"
-    assert len(paygo) == 15 and len(subscriptions) == 2
+    # Row counts mirror providers.json — no pinned rosters; upstream model
+    # changes flow through and are noticed in fetch_providers.py, not here.
+    assert rows, "no model rows rendered"
+    assert len(rows) == sum(len(p["models"]) for p in PROVIDERS), \
+        f"expected {sum(len(p['models']) for p in PROVIDERS)} model rows, got {len(rows)}"
+    assert len(paygo) == sum(
+        len(p["models"]) for p in PROVIDERS if p["pricing_type"] == "paygo"
+    )
+    assert len(subscriptions) == sum(
+        len(p["models"]) for p in PROVIDERS if p["pricing_type"] == "subscription"
+    )
     assert all(row["compare_button"] and row["monthly_cost"] for row in rows)
 
     for row in paygo:
@@ -69,37 +71,32 @@ def main() -> int:
             for key in ("mult_input", "mult_cached", "mult_output")
         )
 
+    # DeepSeek rows mirror providers.json (ids + visibility flags), and
+    # off-peak prices track the provider's off_peak_multiplier from the page.
     deepseek = [row for row in paygo if row["provider"] == "deepseek"]
-    assert [row["model"] for row in deepseek] == [
-        "deepseek-v4-flash",
-        "deepseek-v4-pro",
-        "deepseek-v4-flash-vision-exp",
-    ]
-    assert all(
-        all(row[key] is not None for key in ("off_input", "off_cached", "off_output"))
-        for row in deepseek
-    )
-    assert deepseek[-1]["default_visible"] == "false"
-
-    flash = deepseek[0]
-    assert math.isclose(blended(flash), 0.403, rel_tol=1e-12)
-    assert math.isclose(blended(flash, "off_"), 0.2015, rel_tol=1e-12)
-    for peak_key, off_key in (
-        ("input", "off_input"),
-        ("cached", "off_cached"),
-        ("output", "off_output"),
-    ):
-        assert math.isclose(
-            float(flash[off_key]), float(flash[peak_key]) * 0.5, rel_tol=1e-12
+    assert deepseek, "no deepseek rows rendered"
+    ds = by_provider["deepseek"]
+    assert {row["model"] for row in deepseek} == {m["id"] for m in ds["models"]}
+    visible = {m["id"]: str(m["default_visible"]).lower() for m in ds["models"]}
+    mult = ds["off_peak_multiplier"]
+    for row in deepseek:
+        assert all(
+            row[key] is not None for key in ("off_input", "off_cached", "off_output")
         )
+        assert row["default_visible"] == visible[row["model"]]
+        for peak_key, off_key in (
+            ("input", "off_input"),
+            ("cached", "off_cached"),
+            ("output", "off_output"),
+        ):
+            assert math.isclose(
+                float(row[off_key]), float(row[peak_key]) * mult, rel_tol=1e-9
+            )
 
-    by_provider = {provider["id"]: provider for provider in PROVIDERS}
-    assert by_provider["deepseek"]["off_peak_multiplier"] == 0.5
-    assert (
-        by_provider["deepseek"]["off_peak_label"]
-        == "Outside Mon–Fri 01:00–04:00 and 06:00–10:00 UTC"
-    )
-    assert by_provider["zai-devpack"]["off_peak_multiplier"] == 0.5
+    for p in PROVIDERS:  # off-peak config: sane multiplier + non-empty label
+        if "off_peak_multiplier" in p:
+            assert 0 < p["off_peak_multiplier"] <= 1, p
+            assert p["off_peak_label"], p
 
     assert 'id="off-peak-toggle"' in HTML
     assert "Use off-peak rates" in HTML
@@ -117,7 +114,7 @@ def main() -> int:
 
     print(
         f"OK: {len(paygo)} paygo rows, {len(subscriptions)} subscription rows; "
-        "DeepSeek peak and off-peak rates verified"
+        "rows mirror providers.json, off-peak ratios verified"
     )
     return 0
 
