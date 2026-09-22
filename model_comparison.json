@@ -1,5 +1,5 @@
 {
-  "fetchDate": "2026-09-21",
+  "fetchDate": "2026-09-22",
   "summary": [
     {
       "model": "GPT-5 mini",
@@ -175,6 +175,13 @@
       "excelsAt": "Complex problem-solving challenges, sophisticated reasoning",
       "furtherReadingText": "Grok 4.6 model card",
       "furtherReadingUrl": "https://media.x.ai/v1/website/card-4p6-4cd2dc57.pdf"
+    },
+    {
+      "model": "Grok 4.7",
+      "taskArea": "Agentic coding and complex, multistep workflows",
+      "excelsAt": "Complex problem-solving challenges, sophisticated reasoning",
+      "furtherReadingText": "",
+      "furtherReadingUrl": ""
     },
     {
       "model": "Qwen2.5",

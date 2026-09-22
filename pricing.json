@@ -1,5 +1,5 @@
 {
-  "fetchDate": "2026-09-21",
+  "fetchDate": "2026-09-22",
   "models": [
     {
       "provider": "OpenAI",
@@ -391,6 +391,28 @@
     {
       "provider": "xAI",
       "Model": "Grok 4.6",
+      "Release status": "GA",
+      "Category": "Versatile",
+      "Tier": "Long context",
+      "Threshold (input tokens)": "> 200K",
+      "Input": 4.0,
+      "Cached input": 1.0,
+      "Output": 12.0
+    },
+    {
+      "provider": "xAI",
+      "Model": "Grok 4.7",
+      "Release status": "GA",
+      "Category": "Versatile",
+      "Tier": "Default",
+      "Threshold (input tokens)": "\u2264 200K",
+      "Input": 2.0,
+      "Cached input": 0.5,
+      "Output": 6.0
+    },
+    {
+      "provider": "xAI",
+      "Model": "Grok 4.7",
       "Release status": "GA",
       "Category": "Versatile",
       "Tier": "Long context",
