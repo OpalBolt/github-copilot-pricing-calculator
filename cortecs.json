@@ -1,5 +1,5 @@
 {
-  "fetchDate": "2026-09-22",
+  "fetchDate": "2026-09-23",
   "currency": "EUR",
   "source": "https://api.cortecs.ai/v1/models?extended=true&currency=EUR",
   "providers": {
@@ -70,6 +70,125 @@
   },
   "models": [
     {
+      "id": "claude-opus-5.5",
+      "object": "model",
+      "created": 1790145000,
+      "owned_by": "Anthropic",
+      "description": "Claude Opus 5.5 is Anthropic\u2019s most capable Opus model, built for high-end coding and long-running agent workflows.",
+      "pricing": {
+        "currency": "EUR",
+        "input_token": 3.949,
+        "output_token": 19.747,
+        "cache_read_cost": 0.197,
+        "cache_write_cost": 4.937
+      },
+      "providers": [
+        "amazon_ireland",
+        "amazon_paris",
+        "google"
+      ],
+      "context_size": 1000000,
+      "max_output_tokens": 128000,
+      "tags": [
+        "Instruct",
+        "Tools",
+        "Image",
+        "Code",
+        "Reasoning",
+        "Document"
+      ],
+      "input_modalities": [
+        "text",
+        "image",
+        "file"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "supported_features": [
+        "json_mode",
+        "reasoning",
+        "tools"
+      ],
+      "model_series": [
+        "claude-opus-5"
+      ],
+      "providers_details": {
+        "amazon_ireland": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 3.949,
+            "output_token": 19.747,
+            "cache_read_cost": 0.197,
+            "cache_write_cost": 4.937
+          },
+          "quantization": null,
+          "context_size": 1000000,
+          "max_output_tokens": 128000,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": null,
+            "latency": null,
+            "ttft": null,
+            "cache_hit_rate": null,
+            "uptime": null
+          }
+        },
+        "amazon_paris": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 3.949,
+            "output_token": 19.747,
+            "cache_read_cost": 0.197,
+            "cache_write_cost": 4.937
+          },
+          "quantization": null,
+          "context_size": 1000000,
+          "max_output_tokens": 128000,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": null,
+            "latency": null,
+            "ttft": null,
+            "cache_hit_rate": null,
+            "uptime": null
+          }
+        },
+        "google": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 3.949,
+            "output_token": 19.747,
+            "cache_read_cost": 0.197,
+            "cache_write_cost": 4.937
+          },
+          "quantization": null,
+          "context_size": 1000000,
+          "max_output_tokens": 128000,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": null,
+            "latency": 1.02,
+            "ttft": 0.93,
+            "cache_hit_rate": null,
+            "uptime": 1.0
+          }
+        }
+      }
+    },
+    {
       "id": "deepseek-v4.1-flash",
       "object": "model",
       "created": 1789372111,
@@ -124,10 +243,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 457.76,
-            "latency": 6.6,
-            "ttft": 2.78,
-            "cache_hit_rate": 0.78,
+            "throughput": 404.28,
+            "latency": 7.93,
+            "ttft": 2.99,
+            "cache_hit_rate": 0.75,
             "uptime": 1.0
           }
         }
@@ -196,11 +315,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 499.2,
-            "latency": 10.24,
-            "ttft": 6.95,
-            "cache_hit_rate": 0.62,
-            "uptime": 0.97
+            "throughput": 363.39,
+            "latency": 24.39,
+            "ttft": 9.12,
+            "cache_hit_rate": 0.6,
+            "uptime": 0.96
           }
         }
       }
@@ -258,10 +377,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 102.58,
-            "latency": 2.39,
-            "ttft": 1.5,
-            "cache_hit_rate": 0.63,
+            "throughput": 116.87,
+            "latency": 2.49,
+            "ttft": 1.37,
+            "cache_hit_rate": 0.69,
             "uptime": 1.0
           }
         }
@@ -324,10 +443,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 283.0,
-            "latency": 13.09,
-            "ttft": 4.73,
-            "cache_hit_rate": 0.87,
+            "throughput": 269.98,
+            "latency": 12.47,
+            "ttft": 5.48,
+            "cache_hit_rate": 0.81,
             "uptime": 1.0
           }
         },
@@ -347,10 +466,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 106.1,
-            "latency": 16.98,
-            "ttft": 1.37,
-            "cache_hit_rate": 0.93,
+            "throughput": 103.77,
+            "latency": 14.56,
+            "ttft": 1.13,
+            "cache_hit_rate": 0.91,
             "uptime": 0.99
           }
         },
@@ -370,10 +489,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 149.24,
-            "latency": 44.17,
-            "ttft": 17.44,
-            "cache_hit_rate": 0.56,
+            "throughput": 147.14,
+            "latency": 52.14,
+            "ttft": 36.3,
+            "cache_hit_rate": 0.54,
             "uptime": 0.96
           }
         },
@@ -393,11 +512,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 321.87,
-            "latency": 5.81,
-            "ttft": 3.68,
+            "throughput": 311.5,
+            "latency": 5.77,
+            "ttft": 3.11,
             "cache_hit_rate": 0.85,
-            "uptime": 1.0
+            "uptime": 0.99
           }
         }
       }
@@ -458,11 +577,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 128.65,
-            "latency": 13.73,
-            "ttft": 2.65,
-            "cache_hit_rate": 0.94,
-            "uptime": 0.98
+            "throughput": 142.12,
+            "latency": 25.5,
+            "ttft": 4.46,
+            "cache_hit_rate": 0.91,
+            "uptime": 0.99
           }
         }
       }
@@ -526,11 +645,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 220.37,
-            "latency": 27.38,
-            "ttft": 4.35,
-            "cache_hit_rate": 0.75,
-            "uptime": 0.99
+            "throughput": 196.86,
+            "latency": 31.35,
+            "ttft": 5.22,
+            "cache_hit_rate": 0.72,
+            "uptime": 0.98
           }
         },
         "berget": {
@@ -548,11 +667,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 191.07,
-            "latency": 9.6,
-            "ttft": 4.24,
-            "cache_hit_rate": 0.89,
-            "uptime": 0.99
+            "throughput": 190.89,
+            "latency": 11.22,
+            "ttft": 5.1,
+            "cache_hit_rate": 0.91,
+            "uptime": 1.0
           }
         },
         "entrim": {
@@ -571,11 +690,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 133.7,
-            "latency": 36.85,
-            "ttft": 2.63,
-            "cache_hit_rate": 0.97,
-            "uptime": 0.98
+            "throughput": 118.17,
+            "latency": 18.2,
+            "ttft": 2.56,
+            "cache_hit_rate": 0.96,
+            "uptime": 0.97
           }
         },
         "inceptron": {
@@ -594,11 +713,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 166.76,
-            "latency": 12.32,
-            "ttft": 3.38,
-            "cache_hit_rate": 0.94,
-            "uptime": 0.97
+            "throughput": 121.55,
+            "latency": 18.76,
+            "ttft": 3.42,
+            "cache_hit_rate": 0.88,
+            "uptime": 0.95
           }
         }
       }
@@ -665,11 +784,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 43.06,
-            "latency": 47.26,
-            "ttft": 4.05,
-            "cache_hit_rate": 0.57,
-            "uptime": 1.0
+            "throughput": 42.38,
+            "latency": 27.83,
+            "ttft": 10.76,
+            "cache_hit_rate": 0.44,
+            "uptime": 0.98
           }
         },
         "berget": {
@@ -687,11 +806,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 49.06,
-            "latency": 27.79,
-            "ttft": 0.42,
+            "throughput": 45.21,
+            "latency": 43.97,
+            "ttft": 19.96,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.71
           }
         },
         "aki": {
@@ -710,11 +829,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 48.23,
-            "latency": 234.29,
-            "ttft": 6.48,
-            "cache_hit_rate": 0.71,
-            "uptime": 1.0
+            "throughput": 44.97,
+            "latency": 75.81,
+            "ttft": 11.28,
+            "cache_hit_rate": 0.65,
+            "uptime": 0.95
           }
         },
         "ionos": {
@@ -732,11 +851,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 31.68,
-            "latency": 76.91,
-            "ttft": 19.42,
+            "throughput": 36.66,
+            "latency": 60.84,
+            "ttft": 34.66,
             "cache_hit_rate": 0.01,
-            "uptime": 1.0
+            "uptime": 0.85
           }
         },
         "ovh": {
@@ -754,11 +873,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 83.43,
-            "latency": 83.52,
-            "ttft": 13.64,
+            "throughput": 109.33,
+            "latency": 13.66,
+            "ttft": 4.83,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.99
           }
         },
         "entrim": {
@@ -777,11 +896,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 73.58,
-            "latency": 10.65,
-            "ttft": 2.64,
-            "cache_hit_rate": 0.88,
-            "uptime": 0.98
+            "throughput": 76.09,
+            "latency": 12.81,
+            "ttft": 3.46,
+            "cache_hit_rate": 0.82,
+            "uptime": 0.92
           }
         },
         "scaleway": {
@@ -800,10 +919,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 160.02,
-            "latency": 13.56,
-            "ttft": 2.71,
-            "cache_hit_rate": 0.94,
+            "throughput": 174.0,
+            "latency": 9.22,
+            "ttft": 4.81,
+            "cache_hit_rate": 0.92,
             "uptime": 0.99
           }
         }
@@ -872,10 +991,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 320.17,
-            "latency": 9.61,
-            "ttft": 4.59,
-            "cache_hit_rate": 0.51,
+            "throughput": 326.19,
+            "latency": 9.28,
+            "ttft": 4.62,
+            "cache_hit_rate": 0.56,
             "uptime": 0.99
           }
         }
@@ -942,10 +1061,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 1766.5,
-            "latency": 6.8,
-            "ttft": 5.15,
-            "cache_hit_rate": 0.25,
+            "throughput": 824.43,
+            "latency": 5.34,
+            "ttft": 5.08,
+            "cache_hit_rate": 0.56,
             "uptime": 1.0
           }
         }
@@ -1005,10 +1124,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 276.6,
-            "latency": 15.94,
-            "ttft": 1.43,
-            "cache_hit_rate": 0.8,
+            "throughput": 249.22,
+            "latency": 16.13,
+            "ttft": 2.07,
+            "cache_hit_rate": 0.7,
             "uptime": 1.0
           }
         }
@@ -1075,10 +1194,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 182.26,
-            "latency": 1.5,
-            "ttft": 0.53,
-            "cache_hit_rate": 0.03,
+            "throughput": 224.38,
+            "latency": 1.27,
+            "ttft": 0.55,
+            "cache_hit_rate": 0.0,
             "uptime": 1.0
           }
         }
@@ -1141,10 +1260,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 117.45,
-            "latency": 11.36,
-            "ttft": 1.91,
-            "cache_hit_rate": 0.51,
+            "throughput": 105.2,
+            "latency": 11.93,
+            "ttft": 1.81,
+            "cache_hit_rate": 0.47,
             "uptime": 1.0
           }
         },
@@ -1164,11 +1283,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 55.76,
-            "latency": 24.28,
-            "ttft": 2.22,
-            "cache_hit_rate": 0.82,
-            "uptime": 0.97
+            "throughput": 116.39,
+            "latency": 11.15,
+            "ttft": 1.8,
+            "cache_hit_rate": 0.83,
+            "uptime": 0.98
           }
         },
         "scaleway": {
@@ -1187,10 +1306,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 256.67,
-            "latency": 4.41,
-            "ttft": 1.92,
-            "cache_hit_rate": 0.52,
+            "throughput": 221.96,
+            "latency": 4.39,
+            "ttft": 1.99,
+            "cache_hit_rate": 0.34,
             "uptime": 1.0
           }
         },
@@ -1210,11 +1329,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 84.82,
-            "latency": 9.32,
-            "ttft": 3.82,
-            "cache_hit_rate": 0.29,
-            "uptime": 0.88
+            "throughput": 89.05,
+            "latency": 9.66,
+            "ttft": 1.73,
+            "cache_hit_rate": 0.75,
+            "uptime": 0.81
           }
         },
         "entrim": {
@@ -1233,10 +1352,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 194.63,
-            "latency": 7.88,
-            "ttft": 1.94,
-            "cache_hit_rate": 0.84,
+            "throughput": 202.26,
+            "latency": 8.93,
+            "ttft": 2.03,
+            "cache_hit_rate": 0.85,
             "uptime": 0.99
           }
         }
@@ -1298,10 +1417,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 149.41,
-            "latency": 10.88,
-            "ttft": 4.11,
-            "cache_hit_rate": 0.94,
+            "throughput": 145.66,
+            "latency": 17.56,
+            "ttft": 26.11,
+            "cache_hit_rate": 0.93,
             "uptime": 1.0
           }
         },
@@ -1321,10 +1440,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 59.54,
-            "latency": 21.27,
-            "ttft": 2.68,
-            "cache_hit_rate": 0.83,
+            "throughput": 54.17,
+            "latency": 23.44,
+            "ttft": 3.33,
+            "cache_hit_rate": 0.81,
             "uptime": 1.0
           }
         },
@@ -1343,11 +1462,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 114.88,
-            "latency": 10.2,
+            "throughput": 120.9,
+            "latency": 11.72,
             "ttft": 2.0,
             "cache_hit_rate": 0.9,
-            "uptime": 0.97
+            "uptime": 0.98
           }
         }
       }
@@ -1414,10 +1533,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 245.87,
-            "latency": 23.35,
-            "ttft": 11.17,
-            "cache_hit_rate": 0.85,
+            "throughput": 213.12,
+            "latency": 22.16,
+            "ttft": 8.74,
+            "cache_hit_rate": 0.76,
             "uptime": 0.99
           }
         },
@@ -1438,11 +1557,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 128.75,
-            "latency": 21.17,
-            "ttft": 3.46,
-            "cache_hit_rate": 0.68,
-            "uptime": 0.73
+            "throughput": 214.53,
+            "latency": 30.83,
+            "ttft": 8.84,
+            "cache_hit_rate": 0.53,
+            "uptime": 0.92
           }
         },
         "google": {
@@ -1462,11 +1581,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 153.93,
-            "latency": 27.08,
-            "ttft": 14.82,
-            "cache_hit_rate": 0.55,
-            "uptime": 0.98
+            "throughput": 166.18,
+            "latency": 28.29,
+            "ttft": 9.94,
+            "cache_hit_rate": 0.57,
+            "uptime": 0.96
           }
         }
       }
@@ -1530,10 +1649,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 89.18,
-            "latency": 12.25,
-            "ttft": 1.68,
-            "cache_hit_rate": 0.83,
+            "throughput": 88.72,
+            "latency": 12.76,
+            "ttft": 2.62,
+            "cache_hit_rate": 0.81,
             "uptime": 1.0
           }
         }
@@ -1598,11 +1717,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 178.7,
-            "latency": 7.83,
-            "ttft": 4.23,
-            "cache_hit_rate": 0.74,
-            "uptime": 1.0
+            "throughput": 159.15,
+            "latency": 15.87,
+            "ttft": 7.31,
+            "cache_hit_rate": 0.72,
+            "uptime": 0.99
           }
         }
       }
@@ -1666,10 +1785,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 126.13,
-            "latency": 13.43,
-            "ttft": 0.88,
-            "cache_hit_rate": 0.6,
+            "throughput": 103.06,
+            "latency": 15.1,
+            "ttft": 0.94,
+            "cache_hit_rate": 0.62,
             "uptime": 1.0
           }
         }
@@ -1724,11 +1843,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 14.66,
-            "latency": 12.98,
-            "ttft": 0.36,
-            "cache_hit_rate": 0.5,
-            "uptime": 0.43
+            "throughput": 14.73,
+            "latency": 9.62,
+            "ttft": 0.49,
+            "cache_hit_rate": 0.16,
+            "uptime": 0.5
           }
         }
       }
@@ -1795,10 +1914,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 122.4,
-            "latency": 7.45,
-            "ttft": 6.04,
-            "cache_hit_rate": 0.8,
+            "throughput": 134.47,
+            "latency": 9.22,
+            "ttft": 3.59,
+            "cache_hit_rate": 0.82,
             "uptime": 1.0
           }
         },
@@ -1819,10 +1938,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 108.81,
-            "latency": 9.6,
-            "ttft": 2.65,
-            "cache_hit_rate": 0.89,
+            "throughput": 136.85,
+            "latency": 9.72,
+            "ttft": 3.68,
+            "cache_hit_rate": 0.88,
             "uptime": 0.99
           }
         },
@@ -1843,11 +1962,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 151.75,
-            "latency": 7.34,
-            "ttft": 4.17,
-            "cache_hit_rate": 0.92,
-            "uptime": 0.99
+            "throughput": 171.83,
+            "latency": 8.39,
+            "ttft": 4.74,
+            "cache_hit_rate": 0.85,
+            "uptime": 0.98
           }
         }
       }
@@ -1906,9 +2025,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 108.36,
-            "latency": 6.81,
-            "ttft": 3.77,
+            "throughput": 139.87,
+            "latency": 7.42,
+            "ttft": 4.09,
             "cache_hit_rate": null,
             "uptime": 0.98
           }
@@ -1928,11 +2047,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 55.16,
-            "latency": 11.41,
-            "ttft": 1.71,
-            "cache_hit_rate": 0.85,
-            "uptime": 0.95
+            "throughput": 53.73,
+            "latency": 12.62,
+            "ttft": 2.01,
+            "cache_hit_rate": 0.79,
+            "uptime": 0.97
           }
         }
       }
@@ -1994,10 +2113,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 175.52,
-            "latency": 3.23,
-            "ttft": 2.1,
-            "cache_hit_rate": 0.6,
+            "throughput": 204.98,
+            "latency": 3.69,
+            "ttft": 2.2,
+            "cache_hit_rate": 0.68,
             "uptime": 1.0
           }
         },
@@ -2017,11 +2136,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 140.17,
-            "latency": 5.8,
-            "ttft": 1.21,
+            "throughput": 129.48,
+            "latency": 25.61,
+            "ttft": 1.32,
             "cache_hit_rate": null,
-            "uptime": 0.89
+            "uptime": 0.93
           }
         },
         "inceptron": {
@@ -2040,10 +2159,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 75.94,
-            "latency": 6.61,
-            "ttft": 1.07,
-            "cache_hit_rate": 0.91,
+            "throughput": 67.79,
+            "latency": 8.69,
+            "ttft": 1.18,
+            "cache_hit_rate": 0.86,
             "uptime": 0.86
           }
         },
@@ -2063,11 +2182,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 188.93,
-            "latency": 2.04,
-            "ttft": 1.61,
-            "cache_hit_rate": 0.66,
-            "uptime": 0.97
+            "throughput": 228.36,
+            "latency": 3.38,
+            "ttft": 2.09,
+            "cache_hit_rate": 0.71,
+            "uptime": 0.98
           }
         }
       }
@@ -2131,9 +2250,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 272.21,
-            "latency": 7.27,
-            "ttft": 1.71,
+            "throughput": 274.77,
+            "latency": 6.35,
+            "ttft": 1.55,
             "cache_hit_rate": 0.95,
             "uptime": 1.0
           }
@@ -2154,11 +2273,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 102.14,
-            "latency": 19.06,
-            "ttft": 1.31,
-            "cache_hit_rate": 0.76,
-            "uptime": 0.96
+            "throughput": 105.26,
+            "latency": 16.37,
+            "ttft": 1.48,
+            "cache_hit_rate": 0.85,
+            "uptime": 0.95
           }
         }
       }
@@ -2219,11 +2338,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 81.82,
-            "latency": 14.33,
-            "ttft": 1.52,
-            "cache_hit_rate": 0.85,
-            "uptime": 0.99
+            "throughput": 79.66,
+            "latency": 11.94,
+            "ttft": 1.81,
+            "cache_hit_rate": 0.86,
+            "uptime": 1.0
           }
         }
       }
@@ -2282,11 +2401,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 123.5,
-            "latency": 22.23,
-            "ttft": 5.79,
+            "throughput": 112.09,
+            "latency": 12.56,
+            "ttft": 7.62,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.99
           }
         }
       }
@@ -2338,10 +2457,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 104.86,
-            "latency": 2.68,
-            "ttft": 0.26,
-            "cache_hit_rate": 0.35,
+            "throughput": 71.35,
+            "latency": 1.19,
+            "ttft": 0.25,
+            "cache_hit_rate": 0.27,
             "uptime": 1.0
           }
         }
@@ -2409,11 +2528,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 92.77,
-            "latency": 9.28,
-            "ttft": 1.79,
-            "cache_hit_rate": 0.31,
-            "uptime": 1.0
+            "throughput": 90.37,
+            "latency": 16.02,
+            "ttft": 2.34,
+            "cache_hit_rate": 0.55,
+            "uptime": 0.99
           }
         },
         "amazon_paris": {
@@ -2433,11 +2552,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 107.18,
-            "latency": 12.71,
-            "ttft": 1.28,
-            "cache_hit_rate": 0.69,
-            "uptime": 0.86
+            "throughput": 101.92,
+            "latency": 18.55,
+            "ttft": 1.84,
+            "cache_hit_rate": 0.74,
+            "uptime": 0.93
           }
         },
         "google": {
@@ -2457,10 +2576,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 92.12,
-            "latency": 24.72,
-            "ttft": 2.1,
-            "cache_hit_rate": 0.86,
+            "throughput": 90.84,
+            "latency": 18.52,
+            "ttft": 2.06,
+            "cache_hit_rate": 0.72,
             "uptime": 1.0
           }
         }
@@ -2527,9 +2646,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 252.48,
-            "latency": 6.81,
-            "ttft": 7.78,
+            "throughput": 173.9,
+            "latency": 8.37,
+            "ttft": 7.68,
             "cache_hit_rate": 0.0,
             "uptime": 1.0
           }
@@ -2599,10 +2718,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 118.84,
-            "latency": 1.84,
-            "ttft": 1.44,
-            "cache_hit_rate": 0.46,
+            "throughput": 158.49,
+            "latency": 2.08,
+            "ttft": 2.85,
+            "cache_hit_rate": 0.1,
             "uptime": 1.0
           }
         }
@@ -2663,11 +2782,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 226.53,
-            "latency": 8.16,
-            "ttft": 0.83,
+            "throughput": 219.26,
+            "latency": 2.29,
+            "ttft": 0.88,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.92
           }
         },
         "aki": {
@@ -2685,10 +2804,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 171.19,
-            "latency": 3.17,
-            "ttft": 1.0,
-            "cache_hit_rate": 0.97,
+            "throughput": 190.12,
+            "latency": 3.03,
+            "ttft": 1.08,
+            "cache_hit_rate": 0.96,
             "uptime": 0.99
           }
         }
@@ -2750,10 +2869,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 40.64,
-            "latency": 56.42,
-            "ttft": 5.84,
-            "cache_hit_rate": 0.01,
+            "throughput": 43.35,
+            "latency": 36.48,
+            "ttft": 6.89,
+            "cache_hit_rate": 0.55,
             "uptime": 1.0
           }
         }
@@ -2813,11 +2932,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 58.71,
-            "latency": 143.98,
-            "ttft": 9.77,
-            "cache_hit_rate": 0.68,
-            "uptime": 0.94
+            "throughput": 138.15,
+            "latency": 155.97,
+            "ttft": 10.05,
+            "cache_hit_rate": 0.01,
+            "uptime": 0.83
           }
         }
       }
@@ -2876,11 +2995,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 200.01,
-            "latency": 1.96,
-            "ttft": 0.28,
+            "throughput": 171.08,
+            "latency": 2.23,
+            "ttft": 0.31,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.96
           }
         },
         "aki": {
@@ -2898,10 +3017,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 155.11,
-            "latency": 3.29,
-            "ttft": 2.57,
-            "cache_hit_rate": 0.26,
+            "throughput": 138.18,
+            "latency": 3.13,
+            "ttft": 3.48,
+            "cache_hit_rate": 0.56,
             "uptime": 0.99
           }
         }
@@ -2960,10 +3079,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 215.55,
-            "latency": 5.93,
-            "ttft": 1.99,
-            "cache_hit_rate": 0.77,
+            "throughput": 265.23,
+            "latency": 5.8,
+            "ttft": 1.97,
+            "cache_hit_rate": 0.89,
             "uptime": 1.0
           }
         }
@@ -3025,10 +3144,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 165.78,
-            "latency": 5.46,
-            "ttft": 4.81,
-            "cache_hit_rate": 0.01,
+            "throughput": 168.14,
+            "latency": 1.39,
+            "ttft": 0.7,
+            "cache_hit_rate": 0.02,
             "uptime": 1.0
           }
         },
@@ -3047,8 +3166,8 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 70.11,
-            "latency": 9.26,
+            "throughput": 73.34,
+            "latency": 9.0,
             "ttft": 4.8,
             "cache_hit_rate": null,
             "uptime": 0.88
@@ -3114,10 +3233,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 79.32,
-            "latency": 2.73,
-            "ttft": 2.87,
-            "cache_hit_rate": 0.65,
+            "throughput": 102.59,
+            "latency": 7.08,
+            "ttft": 3.8,
+            "cache_hit_rate": 0.72,
             "uptime": 1.0
           }
         },
@@ -3137,11 +3256,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 88.6,
-            "latency": 5.8,
-            "ttft": 0.96,
-            "cache_hit_rate": 0.57,
-            "uptime": 1.0
+            "throughput": 97.5,
+            "latency": 8.37,
+            "ttft": 1.9,
+            "cache_hit_rate": 0.9,
+            "uptime": 0.93
           }
         }
       }
@@ -3205,11 +3324,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 141.56,
-            "latency": 41.04,
-            "ttft": 7.65,
-            "cache_hit_rate": 0.2,
-            "uptime": 0.9
+            "throughput": 68.6,
+            "latency": 157.8,
+            "ttft": 9.13,
+            "cache_hit_rate": 0.28,
+            "uptime": 0.96
           }
         },
         "inceptron": {
@@ -3228,11 +3347,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 115.56,
-            "latency": 18.83,
-            "ttft": 2.14,
-            "cache_hit_rate": 0.64,
-            "uptime": 0.82
+            "throughput": 88.57,
+            "latency": 27.23,
+            "ttft": 3.09,
+            "cache_hit_rate": 0.7,
+            "uptime": 0.87
           }
         }
       }
@@ -3299,10 +3418,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 145.41,
-            "latency": 16.56,
-            "ttft": 1.46,
-            "cache_hit_rate": 0.87,
+            "throughput": 147.54,
+            "latency": 15.09,
+            "ttft": 1.21,
+            "cache_hit_rate": 0.93,
             "uptime": 1.0
           }
         },
@@ -3323,9 +3442,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 101.37,
-            "latency": 11.46,
-            "ttft": 1.0,
+            "throughput": 108.67,
+            "latency": 10.69,
+            "ttft": 1.07,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -3347,10 +3466,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 132.7,
-            "latency": 22.21,
-            "ttft": 1.6,
-            "cache_hit_rate": 0.27,
+            "throughput": 115.45,
+            "latency": 16.86,
+            "ttft": 2.47,
+            "cache_hit_rate": 0.25,
             "uptime": 1.0
           }
         }
@@ -3408,10 +3527,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 324.76,
-            "latency": 11.44,
-            "ttft": 1.27,
-            "cache_hit_rate": 0.85,
+            "throughput": 325.33,
+            "latency": 35.24,
+            "ttft": 1.28,
+            "cache_hit_rate": 0.86,
             "uptime": 1.0
           }
         }
@@ -3472,11 +3591,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 234.56,
-            "latency": 5.19,
-            "ttft": 1.95,
-            "cache_hit_rate": 0.71,
-            "uptime": 1.0
+            "throughput": 238.91,
+            "latency": 7.37,
+            "ttft": 2.62,
+            "cache_hit_rate": 0.86,
+            "uptime": 0.99
           }
         },
         "nebius": {
@@ -3494,10 +3613,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 31.73,
-            "latency": 55.43,
-            "ttft": 0.57,
-            "cache_hit_rate": 0.12,
+            "throughput": 34.35,
+            "latency": 33.67,
+            "ttft": 2.91,
+            "cache_hit_rate": 0.21,
             "uptime": 1.0
           }
         }
@@ -3557,9 +3676,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 108.39,
-            "latency": 38.54,
-            "ttft": 5.98,
+            "throughput": 85.94,
+            "latency": 42.06,
+            "ttft": 4.97,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -3623,9 +3742,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 30.93,
-            "latency": 20.45,
-            "ttft": 2.23,
+            "throughput": 43.3,
+            "latency": 23.03,
+            "ttft": 2.34,
             "cache_hit_rate": 0.24,
             "uptime": 1.0
           }
@@ -3645,9 +3764,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 37.38,
-            "latency": 65.74,
-            "ttft": 0.19,
+            "throughput": 39.74,
+            "latency": 64.59,
+            "ttft": 0.2,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -3667,9 +3786,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 61.62,
-            "latency": 54.62,
-            "ttft": 0.36,
+            "throughput": 59.84,
+            "latency": 45.81,
+            "ttft": 0.4,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -3728,9 +3847,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 45.86,
-            "latency": 2.86,
-            "ttft": 0.73,
+            "throughput": 48.25,
+            "latency": 2.74,
+            "ttft": 0.74,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -3791,11 +3910,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 113.92,
-            "latency": 15.2,
-            "ttft": 5.25,
-            "cache_hit_rate": 0.01,
-            "uptime": 0.87
+            "throughput": 137.11,
+            "latency": 9.58,
+            "ttft": 5.3,
+            "cache_hit_rate": 0.1,
+            "uptime": 0.89
           }
         }
       }
@@ -3854,11 +3973,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 87.78,
-            "latency": 27.39,
-            "ttft": 1.3,
+            "throughput": 86.68,
+            "latency": 16.64,
+            "ttft": 1.21,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.97
           }
         },
         "ovh": {
@@ -3876,11 +3995,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 219.68,
-            "latency": 17.31,
-            "ttft": 0.66,
+            "throughput": 787811.79,
+            "latency": 13.2,
+            "ttft": 1.0,
             "cache_hit_rate": null,
-            "uptime": 0.99
+            "uptime": 0.97
           }
         },
         "ionos": {
@@ -3898,9 +4017,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 74.8,
-            "latency": 108.17,
-            "ttft": 0.36,
+            "throughput": 66.48,
+            "latency": 33.05,
+            "ttft": 0.33,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -3960,11 +4079,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 24.2,
-            "latency": 27.11,
-            "ttft": 3.55,
-            "cache_hit_rate": 0.6,
-            "uptime": 0.7
+            "throughput": 20.07,
+            "latency": 34.57,
+            "ttft": 4.53,
+            "cache_hit_rate": 0.8,
+            "uptime": 0.86
           }
         }
       }
@@ -4026,10 +4145,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 127.38,
-            "latency": 1.66,
-            "ttft": 0.89,
-            "cache_hit_rate": 0.24,
+            "throughput": 124.18,
+            "latency": 1.14,
+            "ttft": 0.78,
+            "cache_hit_rate": 0.29,
             "uptime": 1.0
           }
         },
@@ -4048,11 +4167,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 154.92,
-            "latency": 9.65,
-            "ttft": 0.54,
+            "throughput": 155.8,
+            "latency": 7.41,
+            "ttft": 0.48,
             "cache_hit_rate": 0.11,
-            "uptime": 0.86
+            "uptime": 0.88
           }
         }
       }
@@ -4112,10 +4231,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 93.88,
-            "latency": 12.99,
-            "ttft": 4.42,
-            "cache_hit_rate": 0.61,
+            "throughput": 80.1,
+            "latency": 17.67,
+            "ttft": 4.43,
+            "cache_hit_rate": 0.55,
             "uptime": 1.0
           }
         },
@@ -4134,9 +4253,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 108.57,
-            "latency": 19.39,
-            "ttft": 7.45,
+            "throughput": 76.99,
+            "latency": 34.35,
+            "ttft": 11.66,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -4205,10 +4324,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 94.77,
-            "latency": 18.45,
-            "ttft": 4.56,
-            "cache_hit_rate": 0.32,
+            "throughput": 95.09,
+            "latency": 20.54,
+            "ttft": 2.09,
+            "cache_hit_rate": 0.33,
             "uptime": 1.0
           }
         },
@@ -4229,11 +4348,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 88.04,
-            "latency": 21.02,
-            "ttft": 0.72,
-            "cache_hit_rate": 0.72,
-            "uptime": 1.0
+            "throughput": 112.3,
+            "latency": 17.04,
+            "ttft": 1.28,
+            "cache_hit_rate": 0.82,
+            "uptime": 0.98
           }
         },
         "google": {
@@ -4253,11 +4372,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 48.45,
-            "latency": 6.59,
-            "ttft": 2.19,
-            "cache_hit_rate": 0.5,
-            "uptime": 1.0
+            "throughput": 78.63,
+            "latency": 12.38,
+            "ttft": 2.61,
+            "cache_hit_rate": 0.36,
+            "uptime": 0.99
           }
         }
       }
@@ -4311,9 +4430,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 248.93,
-            "latency": 1.18,
-            "ttft": 0.59,
+            "throughput": 331.32,
+            "latency": 0.99,
+            "ttft": 0.67,
             "cache_hit_rate": null,
             "uptime": 0.97
           }
@@ -4376,11 +4495,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 64.29,
-            "latency": 30.18,
-            "ttft": 3.54,
-            "cache_hit_rate": 0.64,
-            "uptime": 1.0
+            "throughput": 53.08,
+            "latency": 38.09,
+            "ttft": 4.8,
+            "cache_hit_rate": 0.87,
+            "uptime": 0.94
           }
         }
       }
@@ -4447,10 +4566,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 78.99,
-            "latency": 74.4,
-            "ttft": 1.25,
-            "cache_hit_rate": 0.15,
+            "throughput": 79.22,
+            "latency": 72.28,
+            "ttft": 1.56,
+            "cache_hit_rate": 0.2,
             "uptime": 1.0
           }
         },
@@ -4471,9 +4590,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 84.18,
-            "latency": 25.08,
-            "ttft": 1.27,
+            "throughput": 81.4,
+            "latency": 24.43,
+            "ttft": 1.36,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -4495,11 +4614,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 59.96,
-            "latency": 42.07,
-            "ttft": 2.55,
+            "throughput": 74.91,
+            "latency": 31.26,
+            "ttft": 3.31,
             "cache_hit_rate": 0.27,
-            "uptime": 1.0
+            "uptime": 0.99
           }
         }
       }
@@ -4556,9 +4675,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 144.03,
-            "latency": 8.52,
-            "ttft": 0.46,
+            "throughput": 143.56,
+            "latency": 9.25,
+            "ttft": 0.66,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -4617,9 +4736,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 131.92,
-            "latency": 11.75,
-            "ttft": 1.72,
+            "throughput": 174.29,
+            "latency": 12.47,
+            "ttft": 1.89,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -4668,9 +4787,9 @@
           "max_output_tokens": 32000,
           "supported_features": [],
           "metrics": {
-            "throughput": 30.51,
-            "latency": 1.09,
-            "ttft": 0.19,
+            "throughput": 30.22,
+            "latency": 1.05,
+            "ttft": 0.21,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -4719,8 +4838,8 @@
           "max_output_tokens": 32000,
           "supported_features": [],
           "metrics": {
-            "throughput": 26.97,
-            "latency": 0.18,
+            "throughput": 42.63,
+            "latency": 0.22,
             "ttft": 0.11,
             "cache_hit_rate": null,
             "uptime": 1.0
@@ -4781,9 +4900,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 175.04,
+            "throughput": 172.74,
             "latency": 2.76,
-            "ttft": 0.38,
+            "ttft": 0.36,
             "cache_hit_rate": 0.29,
             "uptime": 1.0
           }
@@ -4843,11 +4962,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 58.2,
-            "latency": 12.98,
-            "ttft": 0.68,
+            "throughput": 34.96,
+            "latency": 11.37,
+            "ttft": 1.47,
             "cache_hit_rate": null,
-            "uptime": 0.98
+            "uptime": 0.99
           }
         }
       }
@@ -4904,9 +5023,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 149.7,
-            "latency": 5.66,
-            "ttft": 0.29,
+            "throughput": 196.2,
+            "latency": 3.4,
+            "ttft": 0.31,
             "cache_hit_rate": 0.42,
             "uptime": 1.0
           }
@@ -4926,9 +5045,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 419.41,
-            "latency": 1.98,
-            "ttft": 0.52,
+            "throughput": 485.21,
+            "latency": 1.95,
+            "ttft": 0.55,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -4997,9 +5116,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 95.01,
-            "latency": 11.6,
-            "ttft": 1.25,
+            "throughput": 108.77,
+            "latency": 12.0,
+            "ttft": 1.21,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -5021,11 +5140,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 72.33,
-            "latency": 12.08,
+            "throughput": 94.59,
+            "latency": 8.61,
             "ttft": 1.27,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.83
           }
         },
         "google": {
@@ -5045,9 +5164,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 83.25,
-            "latency": 11.21,
-            "ttft": 1.0,
+            "throughput": 84.19,
+            "latency": 12.39,
+            "ttft": 1.04,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -5103,9 +5222,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 93.82,
-            "latency": 6.01,
-            "ttft": 0.39,
+            "throughput": 90.54,
+            "latency": 5.83,
+            "ttft": 0.41,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -5168,9 +5287,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 164.5,
-            "latency": 2.41,
-            "ttft": 0.4,
+            "throughput": 160.82,
+            "latency": 2.34,
+            "ttft": 0.39,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -5190,9 +5309,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 183.64,
-            "latency": 3.24,
-            "ttft": 0.48,
+            "throughput": 185.48,
+            "latency": 3.34,
+            "ttft": 0.47,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -5251,8 +5370,8 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 140.25,
-            "latency": 1.73,
+            "throughput": 136.39,
+            "latency": 3.38,
             "ttft": 0.38,
             "cache_hit_rate": null,
             "uptime": 1.0
@@ -5313,11 +5432,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 87.75,
-            "latency": 4.54,
-            "ttft": 0.95,
-            "cache_hit_rate": 0.09,
-            "uptime": 0.97
+            "throughput": 89.34,
+            "latency": 4.6,
+            "ttft": 0.66,
+            "cache_hit_rate": 0.07,
+            "uptime": 0.95
           }
         }
       }
@@ -5375,10 +5494,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 94.11,
-            "latency": 1.53,
-            "ttft": 0.28,
-            "cache_hit_rate": 0.19,
+            "throughput": 92.57,
+            "latency": 1.45,
+            "ttft": 0.27,
+            "cache_hit_rate": 0.2,
             "uptime": 1.0
           }
         },
@@ -5396,9 +5515,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 243.27,
-            "latency": 4.51,
-            "ttft": 0.34,
+            "throughput": 304.36,
+            "latency": 3.48,
+            "ttft": 0.54,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -5458,10 +5577,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 175.47,
-            "latency": 0.93,
-            "ttft": 0.28,
-            "cache_hit_rate": 0.01,
+            "throughput": 172.23,
+            "latency": 0.79,
+            "ttft": 0.47,
+            "cache_hit_rate": 0.07,
             "uptime": 1.0
           }
         }
@@ -5520,10 +5639,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 114.87,
-            "latency": 3.84,
-            "ttft": 0.6,
-            "cache_hit_rate": 0.14,
+            "throughput": 96.07,
+            "latency": 4.87,
+            "ttft": 0.7,
+            "cache_hit_rate": 0.08,
             "uptime": 1.0
           }
         },
@@ -5541,8 +5660,8 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 302.45,
-            "latency": 5.6,
+            "throughput": 256.57,
+            "latency": 5.14,
             "ttft": 0.35,
             "cache_hit_rate": null,
             "uptime": 1.0
@@ -5605,10 +5724,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 120.46,
-            "latency": 7.47,
-            "ttft": 1.01,
-            "cache_hit_rate": 0.48,
+            "throughput": 108.8,
+            "latency": 9.74,
+            "ttft": 1.14,
+            "cache_hit_rate": 0.55,
             "uptime": 1.0
           }
         }
@@ -5667,9 +5786,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 229.32,
-            "latency": 1.81,
-            "ttft": 0.42,
+            "throughput": 211.61,
+            "latency": 1.4,
+            "ttft": 0.4,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -5738,11 +5857,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 190.85,
-            "latency": 7.7,
-            "ttft": 1.28,
-            "cache_hit_rate": 0.58,
-            "uptime": 0.97
+            "throughput": 203.58,
+            "latency": 2.61,
+            "ttft": 1.38,
+            "cache_hit_rate": 0.79,
+            "uptime": 0.99
           }
         },
         "amazon_paris": {
@@ -5762,10 +5881,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 189.88,
-            "latency": 2.16,
-            "ttft": 0.83,
-            "cache_hit_rate": 0.88,
+            "throughput": 151.87,
+            "latency": 2.37,
+            "ttft": 0.87,
+            "cache_hit_rate": 0.79,
             "uptime": 1.0
           }
         },
@@ -5786,10 +5905,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 155.04,
-            "latency": 3.57,
-            "ttft": 0.95,
-            "cache_hit_rate": 0.61,
+            "throughput": 180.7,
+            "latency": 2.14,
+            "ttft": 0.92,
+            "cache_hit_rate": 0.59,
             "uptime": 1.0
           }
         }
@@ -5857,11 +5976,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 76.51,
-            "latency": 11.7,
-            "ttft": 1.34,
+            "throughput": 88.98,
+            "latency": 11.3,
+            "ttft": 1.52,
             "cache_hit_rate": 0.66,
-            "uptime": 1.0
+            "uptime": 0.73
           }
         },
         "amazon_paris": {
@@ -5881,11 +6000,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 102.42,
-            "latency": 12.28,
-            "ttft": 1.21,
+            "throughput": 94.75,
+            "latency": 12.64,
+            "ttft": 1.24,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.6
           }
         },
         "google": {
@@ -5905,8 +6024,8 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 73.0,
-            "latency": 13.28,
+            "throughput": 50.61,
+            "latency": 13.69,
             "ttft": 0.7,
             "cache_hit_rate": null,
             "uptime": 1.0
@@ -5967,9 +6086,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 490.66,
-            "latency": 14.25,
-            "ttft": 11.0,
+            "throughput": 464.1,
+            "latency": 13.48,
+            "ttft": 10.2,
             "cache_hit_rate": 0.14,
             "uptime": 1.0
           }
@@ -6033,11 +6152,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 223.85,
-            "latency": 1.81,
-            "ttft": 0.55,
+            "throughput": 231.76,
+            "latency": 2.31,
+            "ttft": 0.95,
             "cache_hit_rate": null,
-            "uptime": 0.51
+            "uptime": 0.5
           }
         },
         "nebius": {
@@ -6055,10 +6174,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 300.55,
-            "latency": 2.8,
-            "ttft": 0.37,
-            "cache_hit_rate": 0.33,
+            "throughput": 303.68,
+            "latency": 8.24,
+            "ttft": 3.69,
+            "cache_hit_rate": 0.32,
             "uptime": 1.0
           }
         },
@@ -6077,9 +6196,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 206.38,
-            "latency": 3.4,
-            "ttft": 0.28,
+            "throughput": 187.38,
+            "latency": 3.49,
+            "ttft": 0.23,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -6099,9 +6218,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 103.52,
-            "latency": 10.86,
-            "ttft": 0.27,
+            "throughput": 89.7,
+            "latency": 11.32,
+            "ttft": 0.36,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -6121,11 +6240,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 340.63,
-            "latency": 3.38,
-            "ttft": 0.58,
+            "throughput": 387.69,
+            "latency": 3.73,
+            "ttft": 0.61,
             "cache_hit_rate": null,
-            "uptime": 0.02
+            "uptime": 0.75
           }
         },
         "infercom": {
@@ -6143,11 +6262,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 531.15,
-            "latency": 3.34,
-            "ttft": 1.37,
+            "throughput": 577.69,
+            "latency": 2.8,
+            "ttft": 1.38,
             "cache_hit_rate": null,
-            "uptime": 0.99
+            "uptime": 1.0
           }
         },
         "aki": {
@@ -6165,11 +6284,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 216.28,
-            "latency": 2.35,
+            "throughput": 203.4,
+            "latency": 2.93,
             "ttft": 0.77,
-            "cache_hit_rate": 0.06,
-            "uptime": 0.95
+            "cache_hit_rate": 0.29,
+            "uptime": 0.87
           }
         }
       }
@@ -6225,9 +6344,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 61.0,
-            "latency": 4.81,
-            "ttft": 0.81,
+            "throughput": 65.66,
+            "latency": 2.04,
+            "ttft": 1.14,
             "cache_hit_rate": 0.97,
             "uptime": 1.0
           }
@@ -6286,11 +6405,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 87.98,
-            "latency": 29.41,
-            "ttft": 0.19,
+            "throughput": 82.85,
+            "latency": 23.29,
+            "ttft": 0.63,
             "cache_hit_rate": null,
-            "uptime": 0.98
+            "uptime": 0.99
           }
         },
         "amazon_ireland": {
@@ -6308,11 +6427,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 221.67,
-            "latency": 78.54,
-            "ttft": 0.51,
+            "throughput": 277.72,
+            "latency": 79.31,
+            "ttft": 0.5,
             "cache_hit_rate": null,
-            "uptime": 0.08
+            "uptime": 0.93
           }
         }
       }
@@ -6365,11 +6484,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 21.96,
-            "latency": 19.99,
-            "ttft": 0.31,
+            "throughput": 22.25,
+            "latency": 14.97,
+            "ttft": 0.46,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.89
           }
         }
       }
@@ -6418,9 +6537,9 @@
           "max_output_tokens": 8192,
           "supported_features": [],
           "metrics": {
-            "throughput": 135.06,
-            "latency": 2.25,
-            "ttft": 0.17,
+            "throughput": 133.23,
+            "latency": 2.33,
+            "ttft": 0.18,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -6436,9 +6555,9 @@
           "max_output_tokens": 8192,
           "supported_features": [],
           "metrics": {
-            "throughput": 137.24,
-            "latency": 2.38,
-            "ttft": 0.17,
+            "throughput": 135.03,
+            "latency": 2.28,
+            "ttft": 0.18,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -6499,9 +6618,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 51.46,
-            "latency": 7.74,
-            "ttft": 0.21,
+            "throughput": 50.75,
+            "latency": 8.06,
+            "ttft": 0.22,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -6521,8 +6640,8 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 52.21,
-            "latency": 7.4,
+            "throughput": 50.96,
+            "latency": 7.18,
             "ttft": 0.2,
             "cache_hit_rate": null,
             "uptime": 1.0
@@ -6586,9 +6705,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 82.94,
-            "latency": 6.64,
-            "ttft": 0.33,
+            "throughput": 82.33,
+            "latency": 6.74,
+            "ttft": 0.32,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -6608,8 +6727,8 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 82.19,
-            "latency": 5.93,
+            "throughput": 84.58,
+            "latency": 5.73,
             "ttft": 0.37,
             "cache_hit_rate": null,
             "uptime": 1.0
@@ -6669,8 +6788,8 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 42.98,
-            "latency": 18.91,
+            "throughput": 41.72,
+            "latency": 15.29,
             "ttft": 0.63,
             "cache_hit_rate": null,
             "uptime": 1.0
@@ -6690,9 +6809,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 131.48,
-            "latency": 7.45,
-            "ttft": 0.2,
+            "throughput": 119.64,
+            "latency": 6.87,
+            "ttft": 0.21,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -6711,9 +6830,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 76.52,
-            "latency": 3.74,
-            "ttft": 0.59,
+            "throughput": 70.09,
+            "latency": 3.25,
+            "ttft": 0.73,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -6771,9 +6890,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 206.38,
-            "latency": 2.01,
-            "ttft": 0.38,
+            "throughput": 234.93,
+            "latency": 1.73,
+            "ttft": 0.39,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -6834,9 +6953,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 132.67,
-            "latency": 2.55,
-            "ttft": 0.25,
+            "throughput": 122.28,
+            "latency": 2.6,
+            "ttft": 0.27,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -6856,10 +6975,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 68.61,
-            "latency": 6.71,
-            "ttft": 1.63,
-            "cache_hit_rate": 0.58,
+            "throughput": 56.17,
+            "latency": 9.01,
+            "ttft": 1.57,
+            "cache_hit_rate": 0.55,
             "uptime": 1.0
           }
         },
@@ -6879,10 +6998,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 37.95,
-            "latency": 9.76,
-            "ttft": 2.85,
-            "cache_hit_rate": 0.37,
+            "throughput": 40.56,
+            "latency": 6.11,
+            "ttft": 3.12,
+            "cache_hit_rate": 0.16,
             "uptime": 1.0
           }
         }
@@ -6942,8 +7061,8 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 168.59,
-            "latency": 1.83,
+            "throughput": 166.6,
+            "latency": 1.94,
             "ttft": 0.12,
             "cache_hit_rate": null,
             "uptime": 1.0
@@ -6964,9 +7083,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 204.04,
-            "latency": 5.47,
-            "ttft": 0.41,
+            "throughput": 290.53,
+            "latency": 1.74,
+            "ttft": 0.43,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -6986,9 +7105,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 81.34,
-            "latency": 2.79,
-            "ttft": 0.11,
+            "throughput": 90.06,
+            "latency": 3.27,
+            "ttft": 0.24,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -7051,10 +7170,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 112.16,
-            "latency": 2.23,
-            "ttft": 0.55,
-            "cache_hit_rate": 0.48,
+            "throughput": 102.83,
+            "latency": 2.79,
+            "ttft": 0.65,
+            "cache_hit_rate": 0.47,
             "uptime": 1.0
           }
         },
@@ -7073,9 +7192,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 147.17,
-            "latency": 2.9,
-            "ttft": 0.57,
+            "throughput": 146.06,
+            "latency": 2.77,
+            "ttft": 0.67,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -7138,9 +7257,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 84.37,
-            "latency": 2.51,
-            "ttft": 0.43,
+            "throughput": 60.55,
+            "latency": 2.94,
+            "ttft": 0.54,
             "cache_hit_rate": 0.04,
             "uptime": 1.0
           }
@@ -7160,9 +7279,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 125.33,
-            "latency": 16.58,
-            "ttft": 14.44,
+            "throughput": 112.12,
+            "latency": 16.77,
+            "ttft": 14.48,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -7225,9 +7344,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 231.87,
-            "latency": 1.35,
-            "ttft": 0.37,
+            "throughput": 235.57,
+            "latency": 1.38,
+            "ttft": 0.42,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -7247,9 +7366,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 241.28,
-            "latency": 1.39,
-            "ttft": 0.44,
+            "throughput": 237.52,
+            "latency": 1.34,
+            "ttft": 0.4,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -7310,9 +7429,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 290.39,
+            "throughput": 264.93,
             "latency": 1.2,
-            "ttft": 0.36,
+            "ttft": 0.54,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -7332,8 +7451,8 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 327.88,
-            "latency": 1.32,
+            "throughput": 312.44,
+            "latency": 1.29,
             "ttft": 0.34,
             "cache_hit_rate": null,
             "uptime": 1.0
@@ -7397,11 +7516,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 204.66,
-            "latency": 1.19,
-            "ttft": 0.33,
+            "throughput": 203.35,
+            "latency": 1.72,
+            "ttft": 0.34,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.98
           }
         },
         "amazon_paris": {
@@ -7419,11 +7538,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 284.19,
-            "latency": 2.04,
-            "ttft": 0.38,
+            "throughput": 251.25,
+            "latency": 2.11,
+            "ttft": 0.37,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.75
           }
         }
       }
@@ -7484,9 +7603,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 232.99,
-            "latency": 1.98,
-            "ttft": 0.37,
+            "throughput": 249.44,
+            "latency": 2.0,
+            "ttft": 0.38,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -7506,9 +7625,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 269.01,
-            "latency": 1.99,
-            "ttft": 0.41,
+            "throughput": 226.66,
+            "latency": 2.17,
+            "ttft": 0.42,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -7577,11 +7696,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 110.55,
-            "latency": 10.36,
-            "ttft": 1.66,
-            "cache_hit_rate": 0.42,
-            "uptime": 1.0
+            "throughput": 98.8,
+            "latency": 11.03,
+            "ttft": 1.7,
+            "cache_hit_rate": 0.28,
+            "uptime": 0.69
           }
         },
         "amazon_paris": {
@@ -7601,11 +7720,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 126.11,
-            "latency": 9.44,
-            "ttft": 1.65,
+            "throughput": 111.77,
+            "latency": 10.2,
+            "ttft": 1.66,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.6
           }
         },
         "google": {
@@ -7684,9 +7803,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 42.85,
-            "latency": 12.01,
-            "ttft": 0.4,
+            "throughput": 41.79,
+            "latency": 9.68,
+            "ttft": 0.32,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -7756,10 +7875,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 449.96,
-            "latency": 4.23,
-            "ttft": 2.61,
-            "cache_hit_rate": 0.44,
+            "throughput": 264.23,
+            "latency": 7.57,
+            "ttft": 2.46,
+            "cache_hit_rate": 0.15,
             "uptime": 1.0
           }
         }
@@ -7826,10 +7945,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 5125.79,
-            "latency": 27.16,
-            "ttft": 20.53,
-            "cache_hit_rate": 0.01,
+            "throughput": 2270.6,
+            "latency": 23.05,
+            "ttft": 20.64,
+            "cache_hit_rate": 0.23,
             "uptime": 1.0
           }
         }
@@ -7886,11 +8005,11 @@
             "reasoning"
           ],
           "metrics": {
-            "throughput": 59.92,
-            "latency": 1.31,
-            "ttft": 0.4,
+            "throughput": 43.11,
+            "latency": 2.33,
+            "ttft": 0.35,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.99
           }
         }
       }
@@ -7945,9 +8064,9 @@
             "reasoning"
           ],
           "metrics": {
-            "throughput": 23.65,
-            "latency": 18.28,
-            "ttft": 0.22,
+            "throughput": 20.42,
+            "latency": 17.57,
+            "ttft": 0.23,
             "cache_hit_rate": null,
             "uptime": 0.99
           }
@@ -8007,9 +8126,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 18.21,
-            "latency": 50.97,
-            "ttft": 5.53,
+            "throughput": 18.05,
+            "latency": 51.81,
+            "ttft": 5.7,
             "cache_hit_rate": 0.83,
             "uptime": 1.0
           }
@@ -8067,10 +8186,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 140.49,
-            "latency": 2.09,
-            "ttft": 0.45,
-            "cache_hit_rate": 0.53,
+            "throughput": 141.63,
+            "latency": 1.27,
+            "ttft": 0.42,
+            "cache_hit_rate": 0.1,
             "uptime": 1.0
           }
         }
@@ -8130,9 +8249,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 132.53,
-            "latency": 2.61,
-            "ttft": 0.66,
+            "throughput": 133.99,
+            "latency": 2.54,
+            "ttft": 0.71,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -8152,9 +8271,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 28.81,
-            "latency": 13.49,
-            "ttft": 0.67,
+            "throughput": 26.96,
+            "latency": 14.72,
+            "ttft": 0.71,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -8174,9 +8293,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 47.3,
-            "latency": 11.76,
-            "ttft": 1.77,
+            "throughput": 46.59,
+            "latency": 10.46,
+            "ttft": 2.28,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -8196,8 +8315,8 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 49.86,
-            "latency": 5.6,
+            "throughput": 51.61,
+            "latency": 5.39,
             "ttft": 0.3,
             "cache_hit_rate": 0.94,
             "uptime": 1.0
@@ -8261,10 +8380,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 98.5,
-            "latency": 3.17,
-            "ttft": 0.43,
-            "cache_hit_rate": 0.73,
+            "throughput": 66.94,
+            "latency": 3.83,
+            "ttft": 0.45,
+            "cache_hit_rate": 0.71,
             "uptime": 1.0
           }
         },
@@ -8283,8 +8402,8 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 144.76,
-            "latency": 2.91,
+            "throughput": 139.37,
+            "latency": 2.94,
             "ttft": 0.44,
             "cache_hit_rate": 0.11,
             "uptime": 1.0
@@ -8345,9 +8464,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 313.24,
-            "latency": 6.8,
-            "ttft": 5.08,
+            "throughput": 184.58,
+            "latency": 7.43,
+            "ttft": 4.81,
             "cache_hit_rate": 0.51,
             "uptime": 1.0
           }
@@ -8407,9 +8526,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 892.79,
-            "latency": 7.12,
-            "ttft": 8.34,
+            "throughput": 1818.31,
+            "latency": 7.87,
+            "ttft": 7.42,
             "cache_hit_rate": 0.9,
             "uptime": 1.0
           }
@@ -8468,9 +8587,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 105.35,
-            "latency": 5.09,
-            "ttft": 0.13,
+            "throughput": 98.75,
+            "latency": 15.96,
+            "ttft": 0.15,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -8525,10 +8644,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 47.34,
-            "latency": 3.04,
-            "ttft": 0.42,
-            "cache_hit_rate": 0.95,
+            "throughput": 41.82,
+            "latency": 9.17,
+            "ttft": 0.61,
+            "cache_hit_rate": 0.82,
             "uptime": 1.0
           }
         }
@@ -8583,9 +8702,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 50.49,
-            "latency": 6.93,
-            "ttft": 0.12,
+            "throughput": 51.09,
+            "latency": 4.62,
+            "ttft": 0.11,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -8604,9 +8723,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 50.62,
-            "latency": 6.28,
-            "ttft": 0.29,
+            "throughput": 55.45,
+            "latency": 4.71,
+            "ttft": 0.45,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -8669,10 +8788,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 66.67,
-            "latency": 3.92,
-            "ttft": 0.44,
-            "cache_hit_rate": 0.11,
+            "throughput": 53.68,
+            "latency": 3.84,
+            "ttft": 0.45,
+            "cache_hit_rate": 0.09,
             "uptime": 1.0
           }
         },
@@ -8691,10 +8810,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 68.82,
-            "latency": 3.63,
-            "ttft": 0.54,
-            "cache_hit_rate": 0.28,
+            "throughput": 60.88,
+            "latency": 4.0,
+            "ttft": 0.57,
+            "cache_hit_rate": 0.27,
             "uptime": 1.0
           }
         }
@@ -8752,9 +8871,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 83.45,
-            "latency": 3.12,
-            "ttft": 0.66,
+            "throughput": 58.33,
+            "latency": 1.78,
+            "ttft": 0.7,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -8774,9 +8893,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 98.99,
-            "latency": 4.59,
-            "ttft": 0.27,
+            "throughput": 99.61,
+            "latency": 4.42,
+            "ttft": 0.3,
             "cache_hit_rate": 0.99,
             "uptime": 1.0
           }
@@ -8834,9 +8953,9 @@
             "reasoning"
           ],
           "metrics": {
-            "throughput": 112.83,
-            "latency": 3.36,
-            "ttft": 0.22,
+            "throughput": 112.42,
+            "latency": 3.58,
+            "ttft": 0.23,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -8855,9 +8974,9 @@
             "reasoning"
           ],
           "metrics": {
-            "throughput": 112.95,
-            "latency": 3.78,
-            "ttft": 0.21,
+            "throughput": 113.09,
+            "latency": 3.66,
+            "ttft": 0.2,
             "cache_hit_rate": null,
             "uptime": 1.0
           }

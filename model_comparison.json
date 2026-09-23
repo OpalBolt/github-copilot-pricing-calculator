@@ -1,5 +1,5 @@
 {
-  "fetchDate": "2026-09-22",
+  "fetchDate": "2026-09-23",
   "summary": [
     {
       "model": "GPT-5 mini",
@@ -65,6 +65,20 @@
       "furtherReadingUrl": "https://deploymentsafety.openai.com/gpt-6-astra/gpt-6-astra.pdf"
     },
     {
+      "model": "GPT-6 Luna",
+      "taskArea": "Fast help with simple or repetitive tasks",
+      "excelsAt": "Quick, cost-efficient responses for smaller, faster tasks",
+      "furtherReadingText": "",
+      "furtherReadingUrl": ""
+    },
+    {
+      "model": "GPT-6 Sol",
+      "taskArea": "Interactive and agentic coding",
+      "excelsAt": "All-round development tasks that benefit from careful, multistep validation",
+      "furtherReadingText": "",
+      "furtherReadingUrl": ""
+    },
+    {
       "model": "Claude Fable 5",
       "taskArea": "Long-horizon, autonomous coding and knowledge-work",
       "excelsAt": "First-attempt correctness through upfront reasoning, aggressive parallel tool batching, and proactive verification of pre-existing test state before debugging",
@@ -112,6 +126,13 @@
       "excelsAt": "Complex problem-solving challenges, sophisticated reasoning",
       "furtherReadingText": "Claude Opus 5 model card",
       "furtherReadingUrl": "https://www-cdn.anthropic.com/c5fbac3f0b1280a933ebd26d3cb8bb9f5bdeaf48/Claude%20Opus%205%20System%20Card.pdf"
+    },
+    {
+      "model": "Claude Opus 5.5",
+      "taskArea": "Long-running agentic coding and knowledge work",
+      "excelsAt": "Efficient multistep tasks, error recovery, and collaboration",
+      "furtherReadingText": "Claude Opus 5.5 model card",
+      "furtherReadingUrl": "https://www-cdn.anthropic.com/fc1b44717c85dc068bc6ba5024219938094694bd/Claude%20Opus%205.5%20System%20Card.pdf"
     },
     {
       "model": "Claude Sonnet 4.6",
@@ -180,8 +201,8 @@
       "model": "Grok 4.7",
       "taskArea": "Agentic coding and complex, multistep workflows",
       "excelsAt": "Complex problem-solving challenges, sophisticated reasoning",
-      "furtherReadingText": "",
-      "furtherReadingUrl": ""
+      "furtherReadingText": "Grok 4.7 model card",
+      "furtherReadingUrl": "https://media.x.ai/v1/website/4p7card-5eccc980.pdf"
     },
     {
       "model": "Qwen2.5",

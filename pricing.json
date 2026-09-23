@@ -1,5 +1,5 @@
 {
-  "fetchDate": "2026-09-22",
+  "fetchDate": "2026-09-23",
   "models": [
     {
       "provider": "OpenAI",
@@ -194,6 +194,54 @@
       "Output": 75.0
     },
     {
+      "provider": "OpenAI",
+      "Model": "GPT-6 Luna",
+      "Release status": "GA",
+      "Category": "Lightweight",
+      "Tier": "Default",
+      "Threshold (input tokens)": "\u2264 272K",
+      "Input": 0.1,
+      "Cached input": 0.01,
+      "Cache write": 0.125,
+      "Output": 0.5
+    },
+    {
+      "provider": "OpenAI",
+      "Model": "GPT-6 Luna",
+      "Release status": "GA",
+      "Category": "Lightweight",
+      "Tier": "Long context",
+      "Threshold (input tokens)": "> 272K",
+      "Input": 0.2,
+      "Cached input": 0.02,
+      "Cache write": 0.25,
+      "Output": 0.75
+    },
+    {
+      "provider": "OpenAI",
+      "Model": "GPT-6 Sol",
+      "Release status": "GA",
+      "Category": "Powerful",
+      "Tier": "Default",
+      "Threshold (input tokens)": "\u2264 272K",
+      "Input": 2.0,
+      "Cached input": 0.2,
+      "Cache write": 2.5,
+      "Output": 10.0
+    },
+    {
+      "provider": "OpenAI",
+      "Model": "GPT-6 Sol",
+      "Release status": "GA",
+      "Category": "Powerful",
+      "Tier": "Long context",
+      "Threshold (input tokens)": "> 272K",
+      "Input": 4.0,
+      "Cached input": 0.4,
+      "Cache write": 5.0,
+      "Output": 15.0
+    },
+    {
       "provider": "Anthropic",
       "Model": "Claude Haiku 4.5",
       "Release status": "GA",
@@ -252,6 +300,16 @@
       "Cached input": 0.5,
       "Cache write": 6.25,
       "Output": 25.0
+    },
+    {
+      "provider": "Anthropic",
+      "Model": "Claude Opus 5.5",
+      "Release status": "GA",
+      "Category": "Powerful",
+      "Input": 4.0,
+      "Cached input": 0.2,
+      "Cache write": 5.0,
+      "Output": 20.0
     },
     {
       "provider": "Anthropic",
