@@ -36,11 +36,19 @@ ECB_URL = (
 )
 
 OWNER_ALIASES = {
+    "alibaba": "Alibaba",
+    "alibabacloud": "Alibaba",
+    "alibabaqwen": "Alibaba",
     "amazon": "Amazon",
+    "amazonwebservices": "Amazon",
     "anthropic": "Anthropic",
+    "bytedance": "ByteDance",
+    "bytedanceseed": "ByteDance",
     "deepseek": "DeepSeek",
     "google": "Google",
     "meta": "Meta",
+    "metaai": "Meta",
+    "metallama": "Meta",
     "minimax": "MiniMax AI",
     "minimaxai": "MiniMax AI",
     "mistralai": "Mistral AI",
@@ -48,9 +56,12 @@ OWNER_ALIASES = {
     "nousresearch": "Nous Research",
     "nvidia": "NVIDIA",
     "openai": "OpenAI",
+    "qwen": "Alibaba",
     "xiaomi": "Xiaomi",
     "xai": "xAI",
     "zai": "Z.ai",
+    "zhipu": "Z.ai",
+    "zhipuai": "Z.ai",
 }
 
 PROVIDER_ALIASES = {
@@ -59,6 +70,19 @@ PROVIDER_ALIASES = {
     "nebius": "Nebius",
     "scaleway": "Scaleway",
     "tensorix": "Tensorix",
+}
+
+GLM_5_2_DESCRIPTION = (
+    "GLM 5.2 is Z.ai's flagship model for long-horizon tasks. It supports text "
+    "input and output with a 1M-token context window, advanced coding with "
+    "configurable reasoning effort, and project-scale agent workflows. Its "
+    "IndexShare architecture reduces per-token computation at long context "
+    "lengths, and the model is released under the MIT license."
+)
+
+OPENROUTER_DESCRIPTION_OVERRIDES = {
+    "z-ai/glm-5.2": GLM_5_2_DESCRIPTION,
+    "z-ai/glm-5.2:free": GLM_5_2_DESCRIPTION,
 }
 
 
@@ -422,7 +446,9 @@ def fetch_openrouter(exchange_rate: dict) -> list[dict]:
                 "owner": _creator(
                     model["id"].split("/", 1)[0] if "/" in model["id"] else ""
                 ),
-                "description": model.get("description", ""),
+                "description": OPENROUTER_DESCRIPTION_OVERRIDES.get(
+                    model["id"], model.get("description", "")
+                ),
                 "releaseDate": model.get("release_date"),
                 "contextSize": model.get("context_length"),
                 "capabilities": _capabilities(model),

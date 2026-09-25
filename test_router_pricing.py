@@ -57,6 +57,15 @@ def test_openrouter_conversion():
     assert converted["cached"] == 1
 
 
+def test_openrouter_description_overrides():
+    description = fetch_router_pricing.OPENROUTER_DESCRIPTION_OVERRIDES[
+        "z-ai/glm-5.2:free"
+    ]
+    assert description.endswith("released under the MIT license.")
+    assert "project-scale agent workflows" in description
+    assert not description.endswith("...")
+
+
 def test_opencode_tier_conversion():
     tiers = _opencode_tiers(
         {
@@ -98,12 +107,25 @@ def test_direct_api_offer():
 
 
 def test_organization_name_normalization():
+    assert _creator("alibaba") == "Alibaba"
+    assert _creator("Alibaba Cloud") == "Alibaba"
+    assert _creator("Alibaba (Qwen)") == "Alibaba"
+    assert _creator("qwen") == "Alibaba"
+    assert _creator("amazon") == "Amazon"
+    assert _creator("Amazon Web Services") == "Amazon"
+    assert _creator("bytedance") == "ByteDance"
+    assert _creator("bytedance-seed") == "ByteDance"
+    assert _creator("meta") == "Meta"
+    assert _creator("Meta AI") == "Meta"
+    assert _creator("meta-llama") == "Meta"
     assert _creator("moonshotai") == "Moonshot AI"
     assert _creator("Moonshot AI") == "Moonshot AI"
     assert _creator("mistralai") == "Mistral AI"
     assert _creator("Mistral AI") == "Mistral AI"
     assert _creator("z-ai") == "Z.ai"
     assert _creator("z.ai") == "Z.ai"
+    assert _creator("zhipu") == "Z.ai"
+    assert _creator("Zhipu AI") == "Z.ai"
     assert _creator("~google") == "Google"
     assert _creator("openai") == "OpenAI"
     assert _creator("Nvidia") == "NVIDIA"
@@ -358,6 +380,7 @@ def test_generated_pages():
 def main():
     test_rate_helpers()
     test_openrouter_conversion()
+    test_openrouter_description_overrides()
     test_opencode_tier_conversion()
     test_opencode_owner()
     test_direct_api_offer()
