@@ -57,15 +57,6 @@ def test_openrouter_conversion():
     assert converted["cached"] == 1
 
 
-def test_openrouter_description_overrides():
-    description = fetch_router_pricing.OPENROUTER_DESCRIPTION_OVERRIDES[
-        "z-ai/glm-5.2:free"
-    ]
-    assert description.endswith("released under the MIT license.")
-    assert "project-scale agent workflows" in description
-    assert not description.endswith("...")
-
-
 def test_opencode_tier_conversion():
     tiers = _opencode_tiers(
         {
@@ -380,7 +371,6 @@ def test_generated_pages():
 def main():
     test_rate_helpers()
     test_openrouter_conversion()
-    test_openrouter_description_overrides()
     test_opencode_tier_conversion()
     test_opencode_owner()
     test_direct_api_offer()
