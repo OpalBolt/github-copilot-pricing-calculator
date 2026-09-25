@@ -307,6 +307,9 @@ def main():
         providers = providers_data.get("providers", [])
         providers_template = env.get_template("provider-compare.html.j2")
         providers_html = providers_template.render(providers=providers)
+        providers_html = (
+            "\n".join(line.rstrip() for line in providers_html.splitlines()) + "\n"
+        )
         providers_out = Path(__file__).parent / "docs" / "provider-compare.html"
         providers_out.write_text(providers_html, encoding="utf-8")
         print(f"Generated {providers_out} ({len(providers)} providers)")

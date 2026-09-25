@@ -18,8 +18,9 @@ compare in a bottom tray. A task guide recommends models for each kind of work.
 
 ### AI Router Price Calculator
 
-Compares Router Prices from Cortecs, EUrouter, and OpenRouter in euros. Each row
-is one router model offer. The EU routing filter uses each router's published
+Compares Router Prices from Cortecs, EUrouter, OpenCode Zen, and OpenRouter in
+euros, with direct DeepSeek and z.ai API prices as marked baselines. Router rows
+are router model offers. The EU routing filter uses each router's published
 EU price and hides offers without one.
 
 The calculator keeps search, sorting, capability filters, budget presets,
@@ -28,7 +29,7 @@ source, named providers, currency conversion, and cached-input estimates.
 
 ### Provider comparison
 
-Compares DeepSeek and z.ai side by side. Enter a budget and a token mix. The
+Compares DeepSeek, z.ai, and OpenCode Go side by side. Enter a budget and a token mix. The
 table shows the effective tokens per dollar for every model across pay-per-token
 and subscription plans. A tier selector and off-peak toggle adjust the devpack
 math. Filter by provider or show all models.
@@ -40,10 +41,13 @@ The three tools fetch data differently.
 - **GitHub Copilot** — scrapes the GitHub Copilot docs into `pricing.json` and
   `model_comparison.json`.
 - **AI routers** — reads the public bulk model catalogs from Cortecs, EUrouter,
-  and OpenRouter. It also reads the Cortecs and OpenRouter EU catalogs.
+  OpenCode Zen, and OpenRouter. It also reads the Cortecs and OpenRouter EU
+  catalogs. OpenCode Zen model IDs are joined with OpenCode's `models.dev`
+  metadata for prices and capabilities. The same build scrapes direct DeepSeek
+  and z.ai API prices as non-router comparison baselines.
 - **ECB exchange rate** — reads series `EXR.D.USD.EUR.SP00.A`. The build divides
-  OpenRouter USD prices by the latest USD-per-EUR observation.
-- **Provider comparison** — scrapes DeepSeek and z.ai pricing pages into
+  USD prices by the latest USD-per-EUR observation.
+- **Provider comparison** — scrapes DeepSeek, z.ai, and OpenCode Go pricing pages into
   `providers.json`.
 
 `fetch_router_pricing.py` writes `router-pricing.json`. If one router fails,
@@ -63,6 +67,10 @@ The router build uses these bulk endpoints:
 | EUrouter | `https://api.eurouter.ai/api/v1/models` |
 | OpenRouter unrestricted | `https://openrouter.ai/api/v1/models` |
 | OpenRouter EU routing | `https://eu.openrouter.ai/api/v1/models` |
+| OpenCode Zen availability | `https://opencode.ai/zen/v1/models` |
+| OpenCode model metadata | `https://models.dev/api.json` |
+| DeepSeek direct API | `https://api-docs.deepseek.com/quick_start/pricing/` |
+| z.ai direct API | `https://docs.z.ai/guides/overview/pricing.md` |
 | ECB USD per EUR | `https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A` |
 
 The build uses EUrouter offers that publish EUR or USD prices. It converts USD

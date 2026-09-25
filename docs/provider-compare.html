@@ -3,13 +3,13 @@
 
 
 
-  
-    
-  
-    
-  
-    
-  
+
+
+
+
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -1015,7 +1015,7 @@
     line-height: 1.6;
     color: var(--slate-7);
   }
-  
+
   .task-model-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -1270,25 +1270,25 @@
       </div>
     </div>
     <div class="controls-grid">
-      
+
 <div class="input-group">
   <label for="monthly-tokens">Monthly tokens (millions)</label>
   <input type="number" id="monthly-tokens" value="50" min="0.001" step="1" />
 </div>
 
-      
+
 <div class="input-group">
   <label for="input-pct">Input %</label>
   <input type="number" id="input-pct" value="30" min="0" max="100" step="0.1" />
 </div>
 
-      
+
 <div class="input-group">
   <label for="cached-pct">Cached input %</label>
   <input type="number" id="cached-pct" value="50" min="0" max="100" step="0.1" />
 </div>
 
-      
+
 <div class="input-group">
   <label for="output-pct">Output %</label>
   <input type="number" id="output-pct" value="20" min="0" max="100" step="0.1" />
@@ -1298,33 +1298,33 @@
     <div id="pct-warning" style="display: none; margin-top: 12px; padding: 8px 12px; background: #FEF9C3; border: 1px solid #EAB308; border-radius: 4px; font-size: 13px; color: #854D0E;">
       ⚠️ Input, Cached, and Output percentages must sum to 100%
     </div>
-    
+
     <div class="column-toggle-chips">
       <span class="filter-label">Subscription tier</span>
-      
+
       <label class="column-toggle-chip" for="tier-lite">
         <input type="radio" name="tier" id="tier-lite" value="Lite" checked />
         <span>Lite</span>
       </label>
-      
+
       <label class="column-toggle-chip" for="tier-pro">
         <input type="radio" name="tier" id="tier-pro" value="Pro" />
         <span>Pro</span>
       </label>
-      
+
       <label class="column-toggle-chip" for="tier-max">
         <input type="radio" name="tier" id="tier-max" value="Max" />
         <span>Max</span>
       </label>
-      
+
     </div>
-    
-    
+
+
     <label class="off-peak-toggle" for="off-peak-toggle" title="DeepSeek: Outside Mon–Fri 01:00–04:00 and 06:00–10:00 UTC&#10;z.ai Devpack: Mon–Fri 14:00–18:00 UTC+8">
       <input type="checkbox" id="off-peak-toggle" />
       <span>Use off-peak rates <span class="dim">(provider-specific schedules)</span></span>
     </label>
-    
+
     <div class="column-toggle-chips">
       <span class="filter-label">Models</span>
       <label class="column-toggle-chip" for="show-all-models">
@@ -1335,13 +1335,15 @@
     <div class="column-toggle-chips">
       <span class="filter-label">Providers</span>
       <div class="filter-chips" id="provider-chips">
-        
+
         <button type="button" class="filter-chip active" data-provider="deepseek">DeepSeek</button>
-        
+
         <button type="button" class="filter-chip active" data-provider="zai">z.ai</button>
-        
+
         <button type="button" class="filter-chip active" data-provider="zai-devpack">z.ai Devpack</button>
-        
+
+        <button type="button" class="filter-chip active" data-provider="opencode-go">OpenCode Go</button>
+
       </div>
     </div>
     <div class="search-wrap">
@@ -1372,10 +1374,10 @@
         </tr>
       </thead>
       <tbody>
-        
-          
-          
-            
+
+
+
+
             <tr data-provider-id="deepseek" data-pricing-type="paygo" data-model-id="deepseek-flash"
                 data-input-price="0.3" data-cached-price="0.006" data-output-price="1.2"
                 data-off-peak-input-price="0.15" data-off-peak-cached-price="0.003" data-off-peak-output-price="0.6"
@@ -1391,7 +1393,7 @@
               <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
-            
+
             <tr data-provider-id="deepseek" data-pricing-type="paygo" data-model-id="deepseek-v4-pro"
                 data-input-price="1.32" data-cached-price="0.044" data-output-price="3.96"
                 data-off-peak-input-price="0.66" data-off-peak-cached-price="0.022" data-off-peak-output-price="1.98"
@@ -1407,15 +1409,15 @@
               <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
-            
-          
-        
-          
-          
-            
+
+
+
+
+
+
             <tr data-provider-id="zai" data-pricing-type="paygo" data-model-id="glm-5.1"
                 data-input-price="1.4" data-cached-price="0.26" data-output-price="4.4"
-                
+
                 data-default-visible="true" data-provider-name="z.ai">
               <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
               <td><span class="provider-badge pb-1">z.ai</span></td>
@@ -1428,10 +1430,10 @@
               <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
-            
+
             <tr data-provider-id="zai" data-pricing-type="paygo" data-model-id="glm-5"
                 data-input-price="1.0" data-cached-price="0.2" data-output-price="3.2"
-                
+
                 data-default-visible="false" data-provider-name="z.ai">
               <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
               <td><span class="provider-badge pb-1">z.ai</span></td>
@@ -1444,10 +1446,10 @@
               <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
-            
+
             <tr data-provider-id="zai" data-pricing-type="paygo" data-model-id="glm-4.7"
                 data-input-price="0.6" data-cached-price="0.11" data-output-price="2.2"
-                
+
                 data-default-visible="false" data-provider-name="z.ai">
               <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
               <td><span class="provider-badge pb-1">z.ai</span></td>
@@ -1460,10 +1462,10 @@
               <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
-            
+
             <tr data-provider-id="zai" data-pricing-type="paygo" data-model-id="glm-4.7-flashx"
                 data-input-price="0.07" data-cached-price="0.01" data-output-price="0.4"
-                
+
                 data-default-visible="false" data-provider-name="z.ai">
               <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
               <td><span class="provider-badge pb-1">z.ai</span></td>
@@ -1476,10 +1478,10 @@
               <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
-            
+
             <tr data-provider-id="zai" data-pricing-type="paygo" data-model-id="glm-4.6"
                 data-input-price="0.6" data-cached-price="0.11" data-output-price="2.2"
-                
+
                 data-default-visible="false" data-provider-name="z.ai">
               <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
               <td><span class="provider-badge pb-1">z.ai</span></td>
@@ -1492,10 +1494,10 @@
               <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
-            
+
             <tr data-provider-id="zai" data-pricing-type="paygo" data-model-id="glm-4.5"
                 data-input-price="0.6" data-cached-price="0.11" data-output-price="2.2"
-                
+
                 data-default-visible="false" data-provider-name="z.ai">
               <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
               <td><span class="provider-badge pb-1">z.ai</span></td>
@@ -1508,10 +1510,10 @@
               <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
-            
+
             <tr data-provider-id="zai" data-pricing-type="paygo" data-model-id="glm-4.5-x"
                 data-input-price="2.2" data-cached-price="0.45" data-output-price="8.9"
-                
+
                 data-default-visible="false" data-provider-name="z.ai">
               <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
               <td><span class="provider-badge pb-1">z.ai</span></td>
@@ -1524,10 +1526,10 @@
               <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
-            
+
             <tr data-provider-id="zai" data-pricing-type="paygo" data-model-id="glm-4.5-air"
                 data-input-price="0.2" data-cached-price="0.03" data-output-price="1.1"
-                
+
                 data-default-visible="false" data-provider-name="z.ai">
               <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
               <td><span class="provider-badge pb-1">z.ai</span></td>
@@ -1540,10 +1542,10 @@
               <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
-            
+
             <tr data-provider-id="zai" data-pricing-type="paygo" data-model-id="glm-4.5-airx"
                 data-input-price="1.1" data-cached-price="0.22" data-output-price="4.5"
-                
+
                 data-default-visible="false" data-provider-name="z.ai">
               <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
               <td><span class="provider-badge pb-1">z.ai</span></td>
@@ -1556,10 +1558,10 @@
               <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
-            
+
             <tr data-provider-id="zai" data-pricing-type="paygo" data-model-id="glm-4-32b-0414-128k"
                 data-input-price="0.1" data-cached-price="0.0" data-output-price="0.1"
-                
+
                 data-default-visible="false" data-provider-name="z.ai">
               <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
               <td><span class="provider-badge pb-1">z.ai</span></td>
@@ -1572,10 +1574,10 @@
               <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
-            
+
             <tr data-provider-id="zai" data-pricing-type="paygo" data-model-id="glm-4.7-flash"
                 data-input-price="0.0" data-cached-price="0.0" data-output-price="0.0"
-                
+
                 data-default-visible="false" data-provider-name="z.ai">
               <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
               <td><span class="provider-badge pb-1">z.ai</span></td>
@@ -1588,10 +1590,10 @@
               <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
-            
+
             <tr data-provider-id="zai" data-pricing-type="paygo" data-model-id="glm-4.5-flash"
                 data-input-price="0.0" data-cached-price="0.0" data-output-price="0.0"
-                
+
                 data-default-visible="false" data-provider-name="z.ai">
               <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
               <td><span class="provider-badge pb-1">z.ai</span></td>
@@ -1604,12 +1606,12 @@
               <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
-            
-          
-        
-          
-          
-            
+
+
+
+
+
+
             <tr class="sub-row" data-provider-id="zai-devpack" data-pricing-type="subscription" data-model-id="glm-5.3"
                 data-mult-input="6.9" data-mult-cached="1.7" data-mult-output="24.0"
                 data-default-visible="true" data-provider-name="z.ai Devpack">
@@ -1624,7 +1626,7 @@
               <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
-            
+
             <tr class="sub-row" data-provider-id="zai-devpack" data-pricing-type="subscription" data-model-id="glm-5.3-flash"
                 data-mult-input="2.3" data-mult-cached="0.56" data-mult-output="8.0"
                 data-default-visible="true" data-provider-name="z.ai Devpack">
@@ -1639,18 +1641,712 @@
               <td class="num runs">—</td>
               <td class="bar-cell rel-cost">—</td>
             </tr>
-            
-          
-        
+
+
+
+
+
+
+            <tr class="sub-row" data-provider-id="opencode-go" data-pricing-type="subscription_limit" data-model-id="glm-5-3-flash"
+                data-input-price="0.15" data-cached-price="0.03" data-output-price="0.5"
+                data-monthly-price="10" data-monthly-limit="60.0"
+                data-default-visible="true" data-provider-name="OpenCode Go">
+              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
+              <td><span class="provider-badge pb-3">OpenCode Go</span></td>
+              <td>Go</td>
+              <td>GLM-5.3-Flash</td>
+              <td class="num" data-sort="0.15">$0.15</td>
+              <td class="num" data-sort="0.03">$0.03</td>
+              <td class="num" data-sort="0.5">$0.5</td>
+              <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
+              <td class="bar-cell rel-cost">—</td>
+            </tr>
+
+            <tr class="sub-row" data-provider-id="opencode-go" data-pricing-type="subscription_limit" data-model-id="glm-5-3"
+                data-input-price="1.4" data-cached-price="0.26" data-output-price="4.4"
+                data-monthly-price="10" data-monthly-limit="15.0"
+                data-default-visible="false" data-provider-name="OpenCode Go">
+              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
+              <td><span class="provider-badge pb-3">OpenCode Go</span></td>
+              <td>Go</td>
+              <td>GLM-5.3</td>
+              <td class="num" data-sort="1.4">$1.4</td>
+              <td class="num" data-sort="0.26">$0.26</td>
+              <td class="num" data-sort="4.4">$4.4</td>
+              <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
+              <td class="bar-cell rel-cost">—</td>
+            </tr>
+
+            <tr class="sub-row" data-provider-id="opencode-go" data-pricing-type="subscription_limit" data-model-id="glm-5-2"
+                data-input-price="1.4" data-cached-price="0.26" data-output-price="4.4"
+                data-monthly-price="10" data-monthly-limit="60.0"
+                data-default-visible="false" data-provider-name="OpenCode Go">
+              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
+              <td><span class="provider-badge pb-3">OpenCode Go</span></td>
+              <td>Go</td>
+              <td>GLM-5.2</td>
+              <td class="num" data-sort="1.4">$1.4</td>
+              <td class="num" data-sort="0.26">$0.26</td>
+              <td class="num" data-sort="4.4">$4.4</td>
+              <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
+              <td class="bar-cell rel-cost">—</td>
+            </tr>
+
+            <tr class="sub-row" data-provider-id="opencode-go" data-pricing-type="subscription_limit" data-model-id="glm-5-1"
+                data-input-price="1.4" data-cached-price="0.26" data-output-price="4.4"
+                data-monthly-price="10" data-monthly-limit="60.0"
+                data-default-visible="false" data-provider-name="OpenCode Go">
+              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
+              <td><span class="provider-badge pb-3">OpenCode Go</span></td>
+              <td>Go</td>
+              <td>GLM-5.1</td>
+              <td class="num" data-sort="1.4">$1.4</td>
+              <td class="num" data-sort="0.26">$0.26</td>
+              <td class="num" data-sort="4.4">$4.4</td>
+              <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
+              <td class="bar-cell rel-cost">—</td>
+            </tr>
+
+            <tr class="sub-row" data-provider-id="opencode-go" data-pricing-type="subscription_limit" data-model-id="kimi-k3"
+                data-input-price="3.0" data-cached-price="0.3" data-output-price="15.0"
+                data-monthly-price="10" data-monthly-limit="15.0"
+                data-default-visible="false" data-provider-name="OpenCode Go">
+              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
+              <td><span class="provider-badge pb-3">OpenCode Go</span></td>
+              <td>Go</td>
+              <td>Kimi K3</td>
+              <td class="num" data-sort="3.0">$3</td>
+              <td class="num" data-sort="0.3">$0.3</td>
+              <td class="num" data-sort="15.0">$15</td>
+              <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
+              <td class="bar-cell rel-cost">—</td>
+            </tr>
+
+            <tr class="sub-row" data-provider-id="opencode-go" data-pricing-type="subscription_limit" data-model-id="kimi-k2-7-code"
+                data-input-price="0.95" data-cached-price="0.19" data-output-price="4.0"
+                data-monthly-price="10" data-monthly-limit="60.0"
+                data-default-visible="true" data-provider-name="OpenCode Go">
+              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
+              <td><span class="provider-badge pb-3">OpenCode Go</span></td>
+              <td>Go</td>
+              <td>Kimi K2.7 Code</td>
+              <td class="num" data-sort="0.95">$0.95</td>
+              <td class="num" data-sort="0.19">$0.19</td>
+              <td class="num" data-sort="4.0">$4</td>
+              <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
+              <td class="bar-cell rel-cost">—</td>
+            </tr>
+
+            <tr class="sub-row" data-provider-id="opencode-go" data-pricing-type="subscription_limit" data-model-id="kimi-k2-6"
+                data-input-price="0.95" data-cached-price="0.16" data-output-price="4.0"
+                data-monthly-price="10" data-monthly-limit="60.0"
+                data-default-visible="false" data-provider-name="OpenCode Go">
+              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
+              <td><span class="provider-badge pb-3">OpenCode Go</span></td>
+              <td>Go</td>
+              <td>Kimi K2.6</td>
+              <td class="num" data-sort="0.95">$0.95</td>
+              <td class="num" data-sort="0.16">$0.16</td>
+              <td class="num" data-sort="4.0">$4</td>
+              <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
+              <td class="bar-cell rel-cost">—</td>
+            </tr>
+
+            <tr class="sub-row" data-provider-id="opencode-go" data-pricing-type="subscription_limit" data-model-id="longcat-2-0"
+                data-input-price="0.3" data-cached-price="0.006" data-output-price="1.2"
+                data-monthly-price="10" data-monthly-limit="60.0"
+                data-default-visible="false" data-provider-name="OpenCode Go">
+              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
+              <td><span class="provider-badge pb-3">OpenCode Go</span></td>
+              <td>Go</td>
+              <td>LongCat-2.0</td>
+              <td class="num" data-sort="0.3">$0.3</td>
+              <td class="num" data-sort="0.006">$0.006</td>
+              <td class="num" data-sort="1.2">$1.2</td>
+              <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
+              <td class="bar-cell rel-cost">—</td>
+            </tr>
+
+            <tr class="sub-row" data-provider-id="opencode-go" data-pricing-type="subscription_limit" data-model-id="mimo-v2-6-flash"
+                data-input-price="0.14" data-cached-price="0.0028" data-output-price="0.28"
+                data-monthly-price="10" data-monthly-limit="60.0"
+                data-default-visible="false" data-provider-name="OpenCode Go">
+              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
+              <td><span class="provider-badge pb-3">OpenCode Go</span></td>
+              <td>Go</td>
+              <td>MiMo-V2.6-Flash</td>
+              <td class="num" data-sort="0.14">$0.14</td>
+              <td class="num" data-sort="0.0028">$0.0028</td>
+              <td class="num" data-sort="0.28">$0.28</td>
+              <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
+              <td class="bar-cell rel-cost">—</td>
+            </tr>
+
+            <tr class="sub-row" data-provider-id="opencode-go" data-pricing-type="subscription_limit" data-model-id="mimo-v2-6-pro"
+                data-input-price="0.435" data-cached-price="0.003625" data-output-price="0.87"
+                data-monthly-price="10" data-monthly-limit="15.0"
+                data-default-visible="false" data-provider-name="OpenCode Go">
+              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
+              <td><span class="provider-badge pb-3">OpenCode Go</span></td>
+              <td>Go</td>
+              <td>MiMo-V2.6-Pro</td>
+              <td class="num" data-sort="0.435">$0.435</td>
+              <td class="num" data-sort="0.003625">$0.003625</td>
+              <td class="num" data-sort="0.87">$0.87</td>
+              <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
+              <td class="bar-cell rel-cost">—</td>
+            </tr>
+
+            <tr class="sub-row" data-provider-id="opencode-go" data-pricing-type="subscription_limit" data-model-id="mimo-v2-5"
+                data-input-price="0.14" data-cached-price="0.0028" data-output-price="0.28"
+                data-monthly-price="10" data-monthly-limit="60.0"
+                data-default-visible="false" data-provider-name="OpenCode Go">
+              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
+              <td><span class="provider-badge pb-3">OpenCode Go</span></td>
+              <td>Go</td>
+              <td>MiMo-V2.5</td>
+              <td class="num" data-sort="0.14">$0.14</td>
+              <td class="num" data-sort="0.0028">$0.0028</td>
+              <td class="num" data-sort="0.28">$0.28</td>
+              <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
+              <td class="bar-cell rel-cost">—</td>
+            </tr>
+
+            <tr class="sub-row" data-provider-id="opencode-go" data-pricing-type="subscription_limit" data-model-id="mimo-v2-5-pro"
+                data-input-price="0.435" data-cached-price="0.003625" data-output-price="0.87"
+                data-monthly-price="10" data-monthly-limit="15.0"
+                data-default-visible="false" data-provider-name="OpenCode Go">
+              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
+              <td><span class="provider-badge pb-3">OpenCode Go</span></td>
+              <td>Go</td>
+              <td>MiMo-V2.5-Pro</td>
+              <td class="num" data-sort="0.435">$0.435</td>
+              <td class="num" data-sort="0.003625">$0.003625</td>
+              <td class="num" data-sort="0.87">$0.87</td>
+              <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
+              <td class="bar-cell rel-cost">—</td>
+            </tr>
+
+            <tr class="sub-row" data-provider-id="opencode-go" data-pricing-type="subscription_limit" data-model-id="minimax-m3"
+                data-input-price="0.3" data-cached-price="0.06" data-output-price="1.2"
+                data-monthly-price="10" data-monthly-limit="60.0"
+                data-default-visible="true" data-provider-name="OpenCode Go">
+              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
+              <td><span class="provider-badge pb-3">OpenCode Go</span></td>
+              <td>Go</td>
+              <td>MiniMax M3</td>
+              <td class="num" data-sort="0.3">$0.3</td>
+              <td class="num" data-sort="0.06">$0.06</td>
+              <td class="num" data-sort="1.2">$1.2</td>
+              <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
+              <td class="bar-cell rel-cost">—</td>
+            </tr>
+
+            <tr class="sub-row" data-provider-id="opencode-go" data-pricing-type="subscription_limit" data-model-id="minimax-m2-7"
+                data-input-price="0.3" data-cached-price="0.06" data-output-price="1.2"
+                data-monthly-price="10" data-monthly-limit="60.0"
+                data-default-visible="false" data-provider-name="OpenCode Go">
+              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
+              <td><span class="provider-badge pb-3">OpenCode Go</span></td>
+              <td>Go</td>
+              <td>MiniMax M2.7</td>
+              <td class="num" data-sort="0.3">$0.3</td>
+              <td class="num" data-sort="0.06">$0.06</td>
+              <td class="num" data-sort="1.2">$1.2</td>
+              <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
+              <td class="bar-cell rel-cost">—</td>
+            </tr>
+
+            <tr class="sub-row" data-provider-id="opencode-go" data-pricing-type="subscription_limit" data-model-id="minimax-m2-5"
+                data-input-price="0.3" data-cached-price="0.06" data-output-price="1.2"
+                data-monthly-price="10" data-monthly-limit="60.0"
+                data-default-visible="false" data-provider-name="OpenCode Go">
+              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
+              <td><span class="provider-badge pb-3">OpenCode Go</span></td>
+              <td>Go</td>
+              <td>MiniMax M2.5</td>
+              <td class="num" data-sort="0.3">$0.3</td>
+              <td class="num" data-sort="0.06">$0.06</td>
+              <td class="num" data-sort="1.2">$1.2</td>
+              <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
+              <td class="bar-cell rel-cost">—</td>
+            </tr>
+
+            <tr class="sub-row" data-provider-id="opencode-go" data-pricing-type="subscription_limit" data-model-id="muse-spark-1-3-contributor"
+                data-input-price="0.1" data-cached-price="0.002" data-output-price="0.2"
+                data-monthly-price="10" data-monthly-limit="60.0"
+                data-default-visible="false" data-provider-name="OpenCode Go">
+              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
+              <td><span class="provider-badge pb-3">OpenCode Go</span></td>
+              <td>Go</td>
+              <td>Muse Spark 1.3 Contributor</td>
+              <td class="num" data-sort="0.1">$0.1</td>
+              <td class="num" data-sort="0.002">$0.002</td>
+              <td class="num" data-sort="0.2">$0.2</td>
+              <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
+              <td class="bar-cell rel-cost">—</td>
+            </tr>
+
+            <tr class="sub-row" data-provider-id="opencode-go" data-pricing-type="subscription_limit" data-model-id="muse-spark-1-2-contributor"
+                data-input-price="0.1" data-cached-price="0.002" data-output-price="0.2"
+                data-monthly-price="10" data-monthly-limit="60.0"
+                data-default-visible="false" data-provider-name="OpenCode Go">
+              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
+              <td><span class="provider-badge pb-3">OpenCode Go</span></td>
+              <td>Go</td>
+              <td>Muse Spark 1.2 Contributor</td>
+              <td class="num" data-sort="0.1">$0.1</td>
+              <td class="num" data-sort="0.002">$0.002</td>
+              <td class="num" data-sort="0.2">$0.2</td>
+              <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
+              <td class="bar-cell rel-cost">—</td>
+            </tr>
+
+            <tr class="sub-row" data-provider-id="opencode-go" data-pricing-type="subscription_limit" data-model-id="qwen3-8-max"
+                data-input-price="2.0" data-cached-price="0.25" data-output-price="6.0"
+                data-monthly-price="10" data-monthly-limit="15.0"
+                data-default-visible="false" data-provider-name="OpenCode Go">
+              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
+              <td><span class="provider-badge pb-3">OpenCode Go</span></td>
+              <td>Go</td>
+              <td>Qwen3.8 Max</td>
+              <td class="num" data-sort="2.0">$2</td>
+              <td class="num" data-sort="0.25">$0.25</td>
+              <td class="num" data-sort="6.0">$6</td>
+              <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
+              <td class="bar-cell rel-cost">—</td>
+            </tr>
+
+            <tr class="sub-row" data-provider-id="opencode-go" data-pricing-type="subscription_limit" data-model-id="qwen3-8-flash"
+                data-input-price="0.15" data-cached-price="0.016" data-output-price="0.47"
+                data-monthly-price="10" data-monthly-limit="30.0"
+                data-default-visible="false" data-provider-name="OpenCode Go">
+              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
+              <td><span class="provider-badge pb-3">OpenCode Go</span></td>
+              <td>Go</td>
+              <td>Qwen3.8 Flash</td>
+              <td class="num" data-sort="0.15">$0.15</td>
+              <td class="num" data-sort="0.016">$0.016</td>
+              <td class="num" data-sort="0.47">$0.47</td>
+              <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
+              <td class="bar-cell rel-cost">—</td>
+            </tr>
+
+            <tr class="sub-row" data-provider-id="opencode-go" data-pricing-type="subscription_limit" data-model-id="qwen3-7-max"
+                data-input-price="2.5" data-cached-price="0.5" data-output-price="7.5"
+                data-monthly-price="10" data-monthly-limit="30.0"
+                data-default-visible="false" data-provider-name="OpenCode Go">
+              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
+              <td><span class="provider-badge pb-3">OpenCode Go</span></td>
+              <td>Go</td>
+              <td>Qwen3.7 Max</td>
+              <td class="num" data-sort="2.5">$2.5</td>
+              <td class="num" data-sort="0.5">$0.5</td>
+              <td class="num" data-sort="7.5">$7.5</td>
+              <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
+              <td class="bar-cell rel-cost">—</td>
+            </tr>
+
+            <tr class="sub-row" data-provider-id="opencode-go" data-pricing-type="subscription_limit" data-model-id="qwen3-7-plus-256k-tokens"
+                data-input-price="0.4" data-cached-price="0.04" data-output-price="1.6"
+                data-monthly-price="10" data-monthly-limit="60.0"
+                data-default-visible="false" data-provider-name="OpenCode Go">
+              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
+              <td><span class="provider-badge pb-3">OpenCode Go</span></td>
+              <td>Go</td>
+              <td>Qwen3.7 Plus (≤ 256K tokens)</td>
+              <td class="num" data-sort="0.4">$0.4</td>
+              <td class="num" data-sort="0.04">$0.04</td>
+              <td class="num" data-sort="1.6">$1.6</td>
+              <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
+              <td class="bar-cell rel-cost">—</td>
+            </tr>
+
+            <tr class="sub-row" data-provider-id="opencode-go" data-pricing-type="subscription_limit" data-model-id="qwen3-7-plus-256k-tokens"
+                data-input-price="1.2" data-cached-price="0.12" data-output-price="4.8"
+                data-monthly-price="10" data-monthly-limit="60.0"
+                data-default-visible="false" data-provider-name="OpenCode Go">
+              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
+              <td><span class="provider-badge pb-3">OpenCode Go</span></td>
+              <td>Go</td>
+              <td>Qwen3.7 Plus (> 256K tokens)</td>
+              <td class="num" data-sort="1.2">$1.2</td>
+              <td class="num" data-sort="0.12">$0.12</td>
+              <td class="num" data-sort="4.8">$4.8</td>
+              <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
+              <td class="bar-cell rel-cost">—</td>
+            </tr>
+
+            <tr class="sub-row" data-provider-id="opencode-go" data-pricing-type="subscription_limit" data-model-id="qwen3-6-plus-256k-tokens"
+                data-input-price="0.5" data-cached-price="0.05" data-output-price="3.0"
+                data-monthly-price="10" data-monthly-limit="60.0"
+                data-default-visible="false" data-provider-name="OpenCode Go">
+              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
+              <td><span class="provider-badge pb-3">OpenCode Go</span></td>
+              <td>Go</td>
+              <td>Qwen3.6 Plus (≤ 256K tokens)</td>
+              <td class="num" data-sort="0.5">$0.5</td>
+              <td class="num" data-sort="0.05">$0.05</td>
+              <td class="num" data-sort="3.0">$3</td>
+              <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
+              <td class="bar-cell rel-cost">—</td>
+            </tr>
+
+            <tr class="sub-row" data-provider-id="opencode-go" data-pricing-type="subscription_limit" data-model-id="qwen3-6-plus-256k-tokens"
+                data-input-price="2.0" data-cached-price="0.2" data-output-price="6.0"
+                data-monthly-price="10" data-monthly-limit="60.0"
+                data-default-visible="false" data-provider-name="OpenCode Go">
+              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
+              <td><span class="provider-badge pb-3">OpenCode Go</span></td>
+              <td>Go</td>
+              <td>Qwen3.6 Plus (> 256K tokens)</td>
+              <td class="num" data-sort="2.0">$2</td>
+              <td class="num" data-sort="0.2">$0.2</td>
+              <td class="num" data-sort="6.0">$6</td>
+              <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
+              <td class="bar-cell rel-cost">—</td>
+            </tr>
+
+            <tr class="sub-row" data-provider-id="opencode-go" data-pricing-type="subscription_limit" data-model-id="deepseek-v4-1-flash-off-peak"
+                data-input-price="0.15" data-cached-price="0.003" data-output-price="0.6"
+                data-monthly-price="10" data-monthly-limit="60.0"
+                data-default-visible="false" data-provider-name="OpenCode Go">
+              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
+              <td><span class="provider-badge pb-3">OpenCode Go</span></td>
+              <td>Go</td>
+              <td>DeepSeek V4.1 Flash (Off-Peak)</td>
+              <td class="num" data-sort="0.15">$0.15</td>
+              <td class="num" data-sort="0.003">$0.003</td>
+              <td class="num" data-sort="0.6">$0.6</td>
+              <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
+              <td class="bar-cell rel-cost">—</td>
+            </tr>
+
+            <tr class="sub-row" data-provider-id="opencode-go" data-pricing-type="subscription_limit" data-model-id="deepseek-v4-1-flash-peak"
+                data-input-price="0.3" data-cached-price="0.006" data-output-price="1.2"
+                data-monthly-price="10" data-monthly-limit="60.0"
+                data-default-visible="false" data-provider-name="OpenCode Go">
+              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
+              <td><span class="provider-badge pb-3">OpenCode Go</span></td>
+              <td>Go</td>
+              <td>DeepSeek V4.1 Flash (Peak)</td>
+              <td class="num" data-sort="0.3">$0.3</td>
+              <td class="num" data-sort="0.006">$0.006</td>
+              <td class="num" data-sort="1.2">$1.2</td>
+              <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
+              <td class="bar-cell rel-cost">—</td>
+            </tr>
+
+            <tr class="sub-row" data-provider-id="opencode-go" data-pricing-type="subscription_limit" data-model-id="deepseek-v4-pro-off-peak"
+                data-input-price="0.66" data-cached-price="0.022" data-output-price="1.98"
+                data-monthly-price="10" data-monthly-limit="15.0"
+                data-default-visible="false" data-provider-name="OpenCode Go">
+              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
+              <td><span class="provider-badge pb-3">OpenCode Go</span></td>
+              <td>Go</td>
+              <td>DeepSeek V4 Pro (Off-Peak)</td>
+              <td class="num" data-sort="0.66">$0.66</td>
+              <td class="num" data-sort="0.022">$0.022</td>
+              <td class="num" data-sort="1.98">$1.98</td>
+              <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
+              <td class="bar-cell rel-cost">—</td>
+            </tr>
+
+            <tr class="sub-row" data-provider-id="opencode-go" data-pricing-type="subscription_limit" data-model-id="deepseek-v4-pro-peak"
+                data-input-price="1.32" data-cached-price="0.044" data-output-price="3.96"
+                data-monthly-price="10" data-monthly-limit="15.0"
+                data-default-visible="false" data-provider-name="OpenCode Go">
+              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
+              <td><span class="provider-badge pb-3">OpenCode Go</span></td>
+              <td>Go</td>
+              <td>DeepSeek V4 Pro (Peak)</td>
+              <td class="num" data-sort="1.32">$1.32</td>
+              <td class="num" data-sort="0.044">$0.044</td>
+              <td class="num" data-sort="3.96">$3.96</td>
+              <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
+              <td class="bar-cell rel-cost">—</td>
+            </tr>
+
+            <tr class="sub-row" data-provider-id="opencode-go" data-pricing-type="subscription_limit" data-model-id="deepseek-v4-flash-off-peak"
+                data-input-price="0.15" data-cached-price="0.003" data-output-price="0.6"
+                data-monthly-price="10" data-monthly-limit="30.0"
+                data-default-visible="false" data-provider-name="OpenCode Go">
+              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
+              <td><span class="provider-badge pb-3">OpenCode Go</span></td>
+              <td>Go</td>
+              <td>DeepSeek V4 Flash (Off-Peak)</td>
+              <td class="num" data-sort="0.15">$0.15</td>
+              <td class="num" data-sort="0.003">$0.003</td>
+              <td class="num" data-sort="0.6">$0.6</td>
+              <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
+              <td class="bar-cell rel-cost">—</td>
+            </tr>
+
+            <tr class="sub-row" data-provider-id="opencode-go" data-pricing-type="subscription_limit" data-model-id="deepseek-v4-flash-peak"
+                data-input-price="0.3" data-cached-price="0.006" data-output-price="1.2"
+                data-monthly-price="10" data-monthly-limit="30.0"
+                data-default-visible="false" data-provider-name="OpenCode Go">
+              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
+              <td><span class="provider-badge pb-3">OpenCode Go</span></td>
+              <td>Go</td>
+              <td>DeepSeek V4 Flash (Peak)</td>
+              <td class="num" data-sort="0.3">$0.3</td>
+              <td class="num" data-sort="0.006">$0.006</td>
+              <td class="num" data-sort="1.2">$1.2</td>
+              <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
+              <td class="bar-cell rel-cost">—</td>
+            </tr>
+
+            <tr class="sub-row" data-provider-id="opencode-go" data-pricing-type="subscription_limit" data-model-id="deepseek-v4-flash-vision-exp-off-peak"
+                data-input-price="0.15" data-cached-price="0.003" data-output-price="0.6"
+                data-monthly-price="10" data-monthly-limit="15.0"
+                data-default-visible="false" data-provider-name="OpenCode Go">
+              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
+              <td><span class="provider-badge pb-3">OpenCode Go</span></td>
+              <td>Go</td>
+              <td>DeepSeek V4 Flash Vision Exp (Off-Peak)</td>
+              <td class="num" data-sort="0.15">$0.15</td>
+              <td class="num" data-sort="0.003">$0.003</td>
+              <td class="num" data-sort="0.6">$0.6</td>
+              <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
+              <td class="bar-cell rel-cost">—</td>
+            </tr>
+
+            <tr class="sub-row" data-provider-id="opencode-go" data-pricing-type="subscription_limit" data-model-id="deepseek-v4-flash-vision-exp-peak"
+                data-input-price="0.3" data-cached-price="0.006" data-output-price="1.2"
+                data-monthly-price="10" data-monthly-limit="15.0"
+                data-default-visible="false" data-provider-name="OpenCode Go">
+              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
+              <td><span class="provider-badge pb-3">OpenCode Go</span></td>
+              <td>Go</td>
+              <td>DeepSeek V4 Flash Vision Exp (Peak)</td>
+              <td class="num" data-sort="0.3">$0.3</td>
+              <td class="num" data-sort="0.006">$0.006</td>
+              <td class="num" data-sort="1.2">$1.2</td>
+              <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
+              <td class="bar-cell rel-cost">—</td>
+            </tr>
+
+            <tr class="sub-row" data-provider-id="opencode-go" data-pricing-type="subscription_limit" data-model-id="hy4-preview"
+                data-input-price="0.834" data-cached-price="0.042" data-output-price="2.501"
+                data-monthly-price="10" data-monthly-limit="30.0"
+                data-default-visible="false" data-provider-name="OpenCode Go">
+              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
+              <td><span class="provider-badge pb-3">OpenCode Go</span></td>
+              <td>Go</td>
+              <td>Hy4 preview</td>
+              <td class="num" data-sort="0.834">$0.834</td>
+              <td class="num" data-sort="0.042">$0.042</td>
+              <td class="num" data-sort="2.501">$2.501</td>
+              <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
+              <td class="bar-cell rel-cost">—</td>
+            </tr>
+
+            <tr class="sub-row" data-provider-id="opencode-go" data-pricing-type="subscription_limit" data-model-id="hy3"
+                data-input-price="0.14" data-cached-price="0.035" data-output-price="0.58"
+                data-monthly-price="10" data-monthly-limit="60.0"
+                data-default-visible="false" data-provider-name="OpenCode Go">
+              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
+              <td><span class="provider-badge pb-3">OpenCode Go</span></td>
+              <td>Go</td>
+              <td>Hy3</td>
+              <td class="num" data-sort="0.14">$0.14</td>
+              <td class="num" data-sort="0.035">$0.035</td>
+              <td class="num" data-sort="0.58">$0.58</td>
+              <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
+              <td class="bar-cell rel-cost">—</td>
+            </tr>
+
+            <tr class="sub-row" data-provider-id="opencode-go" data-pricing-type="subscription_limit" data-model-id="space-bunny-free"
+                data-input-price="0.0" data-cached-price="0.0" data-output-price="0.0"
+                data-monthly-price="10"
+                data-default-visible="false" data-provider-name="OpenCode Go">
+              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
+              <td><span class="provider-badge pb-3">OpenCode Go</span></td>
+              <td>Go</td>
+              <td>Space Bunny Free</td>
+              <td class="num" data-sort="0.0">$0</td>
+              <td class="num" data-sort="0.0">$0</td>
+              <td class="num" data-sort="0.0">$0</td>
+              <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
+              <td class="bar-cell rel-cost">—</td>
+            </tr>
+
+            <tr class="sub-row" data-provider-id="opencode-go" data-pricing-type="subscription_limit" data-model-id="grok-4-7-200k-tokens"
+                data-input-price="2.0" data-cached-price="0.5" data-output-price="6.0"
+                data-monthly-price="10" data-monthly-limit="15.0"
+                data-default-visible="false" data-provider-name="OpenCode Go">
+              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
+              <td><span class="provider-badge pb-3">OpenCode Go</span></td>
+              <td>Go</td>
+              <td>Grok 4.7 (≤ 200K tokens)</td>
+              <td class="num" data-sort="2.0">$2</td>
+              <td class="num" data-sort="0.5">$0.5</td>
+              <td class="num" data-sort="6.0">$6</td>
+              <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
+              <td class="bar-cell rel-cost">—</td>
+            </tr>
+
+            <tr class="sub-row" data-provider-id="opencode-go" data-pricing-type="subscription_limit" data-model-id="grok-4-7-200k-tokens"
+                data-input-price="4.0" data-cached-price="1.0" data-output-price="12.0"
+                data-monthly-price="10" data-monthly-limit="15.0"
+                data-default-visible="false" data-provider-name="OpenCode Go">
+              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
+              <td><span class="provider-badge pb-3">OpenCode Go</span></td>
+              <td>Go</td>
+              <td>Grok 4.7 (> 200K tokens)</td>
+              <td class="num" data-sort="4.0">$4</td>
+              <td class="num" data-sort="1.0">$1</td>
+              <td class="num" data-sort="12.0">$12</td>
+              <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
+              <td class="bar-cell rel-cost">—</td>
+            </tr>
+
+            <tr class="sub-row" data-provider-id="opencode-go" data-pricing-type="subscription_limit" data-model-id="grok-4-6-200k-tokens"
+                data-input-price="2.0" data-cached-price="0.5" data-output-price="6.0"
+                data-monthly-price="10" data-monthly-limit="15.0"
+                data-default-visible="false" data-provider-name="OpenCode Go">
+              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
+              <td><span class="provider-badge pb-3">OpenCode Go</span></td>
+              <td>Go</td>
+              <td>Grok 4.6 (≤ 200K tokens)</td>
+              <td class="num" data-sort="2.0">$2</td>
+              <td class="num" data-sort="0.5">$0.5</td>
+              <td class="num" data-sort="6.0">$6</td>
+              <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
+              <td class="bar-cell rel-cost">—</td>
+            </tr>
+
+            <tr class="sub-row" data-provider-id="opencode-go" data-pricing-type="subscription_limit" data-model-id="grok-4-6-200k-tokens"
+                data-input-price="4.0" data-cached-price="1.0" data-output-price="12.0"
+                data-monthly-price="10" data-monthly-limit="15.0"
+                data-default-visible="false" data-provider-name="OpenCode Go">
+              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
+              <td><span class="provider-badge pb-3">OpenCode Go</span></td>
+              <td>Go</td>
+              <td>Grok 4.6 (> 200K tokens)</td>
+              <td class="num" data-sort="4.0">$4</td>
+              <td class="num" data-sort="1.0">$1</td>
+              <td class="num" data-sort="12.0">$12</td>
+              <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
+              <td class="bar-cell rel-cost">—</td>
+            </tr>
+
+            <tr class="sub-row" data-provider-id="opencode-go" data-pricing-type="subscription_limit" data-model-id="gpt-6-luna-272k-tokens"
+                data-input-price="0.1" data-cached-price="0.01" data-output-price="0.5"
+                data-monthly-price="10" data-monthly-limit="15.0"
+                data-default-visible="false" data-provider-name="OpenCode Go">
+              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
+              <td><span class="provider-badge pb-3">OpenCode Go</span></td>
+              <td>Go</td>
+              <td>GPT 6 Luna (≤ 272K tokens)</td>
+              <td class="num" data-sort="0.1">$0.1</td>
+              <td class="num" data-sort="0.01">$0.01</td>
+              <td class="num" data-sort="0.5">$0.5</td>
+              <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
+              <td class="bar-cell rel-cost">—</td>
+            </tr>
+
+            <tr class="sub-row" data-provider-id="opencode-go" data-pricing-type="subscription_limit" data-model-id="gpt-6-luna-272k-tokens"
+                data-input-price="0.2" data-cached-price="0.02" data-output-price="0.75"
+                data-monthly-price="10" data-monthly-limit="15.0"
+                data-default-visible="false" data-provider-name="OpenCode Go">
+              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
+              <td><span class="provider-badge pb-3">OpenCode Go</span></td>
+              <td>Go</td>
+              <td>GPT 6 Luna (> 272K tokens)</td>
+              <td class="num" data-sort="0.2">$0.2</td>
+              <td class="num" data-sort="0.02">$0.02</td>
+              <td class="num" data-sort="0.75">$0.75</td>
+              <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
+              <td class="bar-cell rel-cost">—</td>
+            </tr>
+
+            <tr class="sub-row" data-provider-id="opencode-go" data-pricing-type="subscription_limit" data-model-id="gpt-5-6-luna-272k-tokens"
+                data-input-price="0.2" data-cached-price="0.02" data-output-price="1.2"
+                data-monthly-price="10" data-monthly-limit="15.0"
+                data-default-visible="false" data-provider-name="OpenCode Go">
+              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
+              <td><span class="provider-badge pb-3">OpenCode Go</span></td>
+              <td>Go</td>
+              <td>GPT 5.6 Luna (≤ 272K tokens)</td>
+              <td class="num" data-sort="0.2">$0.2</td>
+              <td class="num" data-sort="0.02">$0.02</td>
+              <td class="num" data-sort="1.2">$1.2</td>
+              <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
+              <td class="bar-cell rel-cost">—</td>
+            </tr>
+
+            <tr class="sub-row" data-provider-id="opencode-go" data-pricing-type="subscription_limit" data-model-id="gpt-5-6-luna-272k-tokens"
+                data-input-price="0.4" data-cached-price="0.04" data-output-price="1.8"
+                data-monthly-price="10" data-monthly-limit="15.0"
+                data-default-visible="false" data-provider-name="OpenCode Go">
+              <td><button type="button" class="cmp-btn" title="Add to comparison">+</button></td>
+              <td><span class="provider-badge pb-3">OpenCode Go</span></td>
+              <td>Go</td>
+              <td>GPT 5.6 Luna (> 272K tokens)</td>
+              <td class="num" data-sort="0.4">$0.4</td>
+              <td class="num" data-sort="0.04">$0.04</td>
+              <td class="num" data-sort="1.8">$1.8</td>
+              <td class="num monthly-cost">—</td>
+              <td class="num runs">—</td>
+              <td class="bar-cell rel-cost">—</td>
+            </tr>
+
+
+
       </tbody>
     </table>
   </div>
 
   <p class="page-note">
     Monthly cost = total tokens × rate for each model at your mix. Subscription rows show the fixed plan price.
+    OpenCode Go rates determine how usage counts against each model's published monthly dollar limit.
     Effective $/1M for subscriptions = plan price ÷ total monthly tokens. Relative cost = monthly cost ÷ the most
     expensive model currently visible. Off-peak uses each provider's published schedule; hover the toggle for details.
-    Hover a subscription row for credit details.
+    Hover a subscription row for plan and usage-limit details.
   </p>
 </main>
 
@@ -1672,7 +2368,7 @@
 
 <script>
   // ── Provider data (baked from providers.json at generate time) ──
-  const PROVIDERS = [{"currency": "USD", "id": "deepseek", "models": [{"context": 1048576, "default_visible": true, "id": "deepseek-flash", "input": 0.3, "input_cache": 0.006, "off_peak_input": 0.15, "off_peak_input_cache": 0.003, "off_peak_output": 0.6, "output": 1.2}, {"context": 1048576, "default_visible": true, "id": "deepseek-v4-pro", "input": 1.32, "input_cache": 0.044, "off_peak_input": 0.66, "off_peak_input_cache": 0.022, "off_peak_output": 1.98, "output": 3.96}], "name": "DeepSeek", "off_peak_label": "Outside Mon\u2013Fri 01:00\u201304:00 and 06:00\u201310:00 UTC", "off_peak_multiplier": 0.5, "pricing_type": "paygo"}, {"currency": "USD", "id": "zai", "models": [{"default_visible": true, "id": "glm-5.1", "input": 1.4, "input_cache": 0.26, "output": 4.4}, {"default_visible": false, "id": "glm-5", "input": 1.0, "input_cache": 0.2, "output": 3.2}, {"default_visible": false, "id": "glm-4.7", "input": 0.6, "input_cache": 0.11, "output": 2.2}, {"default_visible": false, "id": "glm-4.7-flashx", "input": 0.07, "input_cache": 0.01, "output": 0.4}, {"default_visible": false, "id": "glm-4.6", "input": 0.6, "input_cache": 0.11, "output": 2.2}, {"default_visible": false, "id": "glm-4.5", "input": 0.6, "input_cache": 0.11, "output": 2.2}, {"default_visible": false, "id": "glm-4.5-x", "input": 2.2, "input_cache": 0.45, "output": 8.9}, {"default_visible": false, "id": "glm-4.5-air", "input": 0.2, "input_cache": 0.03, "output": 1.1}, {"default_visible": false, "id": "glm-4.5-airx", "input": 1.1, "input_cache": 0.22, "output": 4.5}, {"default_visible": false, "id": "glm-4-32b-0414-128k", "input": 0.1, "input_cache": 0.0, "output": 0.1}, {"default_visible": false, "id": "glm-4.7-flash", "input": 0.0, "input_cache": 0.0, "output": 0.0}, {"default_visible": false, "id": "glm-4.5-flash", "input": 0.0, "input_cache": 0.0, "output": 0.0}], "name": "z.ai", "pricing_type": "paygo"}, {"currency": "USD", "id": "zai-devpack", "models": [{"default_visible": true, "id": "glm-5.3", "mult_cached": 1.7, "mult_input": 6.9, "mult_output": 24.0}, {"default_visible": true, "id": "glm-5.3-flash", "mult_cached": 0.56, "mult_input": 2.3, "mult_output": 8.0}], "name": "z.ai Devpack", "off_peak_label": "Mon\u2013Fri 14:00\u201318:00 UTC+8", "off_peak_multiplier": 0.5, "pricing_type": "subscription", "tiers": [{"monthly_usd": 18, "name": "Lite", "weekly_credits": 10000}, {"monthly_usd": 80, "name": "Pro", "weekly_credits": 60000}, {"monthly_usd": 168, "name": "Max", "weekly_credits": 140000}]}];
+  const PROVIDERS = [{"currency": "USD", "id": "deepseek", "models": [{"context": 1048576, "default_visible": true, "id": "deepseek-flash", "input": 0.3, "input_cache": 0.006, "off_peak_input": 0.15, "off_peak_input_cache": 0.003, "off_peak_output": 0.6, "output": 1.2}, {"context": 1048576, "default_visible": true, "id": "deepseek-v4-pro", "input": 1.32, "input_cache": 0.044, "off_peak_input": 0.66, "off_peak_input_cache": 0.022, "off_peak_output": 1.98, "output": 3.96}], "name": "DeepSeek", "off_peak_label": "Outside Mon\u2013Fri 01:00\u201304:00 and 06:00\u201310:00 UTC", "off_peak_multiplier": 0.5, "pricing_type": "paygo"}, {"currency": "USD", "id": "zai", "models": [{"default_visible": true, "id": "glm-5.1", "input": 1.4, "input_cache": 0.26, "output": 4.4}, {"default_visible": false, "id": "glm-5", "input": 1.0, "input_cache": 0.2, "output": 3.2}, {"default_visible": false, "id": "glm-4.7", "input": 0.6, "input_cache": 0.11, "output": 2.2}, {"default_visible": false, "id": "glm-4.7-flashx", "input": 0.07, "input_cache": 0.01, "output": 0.4}, {"default_visible": false, "id": "glm-4.6", "input": 0.6, "input_cache": 0.11, "output": 2.2}, {"default_visible": false, "id": "glm-4.5", "input": 0.6, "input_cache": 0.11, "output": 2.2}, {"default_visible": false, "id": "glm-4.5-x", "input": 2.2, "input_cache": 0.45, "output": 8.9}, {"default_visible": false, "id": "glm-4.5-air", "input": 0.2, "input_cache": 0.03, "output": 1.1}, {"default_visible": false, "id": "glm-4.5-airx", "input": 1.1, "input_cache": 0.22, "output": 4.5}, {"default_visible": false, "id": "glm-4-32b-0414-128k", "input": 0.1, "input_cache": 0.0, "output": 0.1}, {"default_visible": false, "id": "glm-4.7-flash", "input": 0.0, "input_cache": 0.0, "output": 0.0}, {"default_visible": false, "id": "glm-4.5-flash", "input": 0.0, "input_cache": 0.0, "output": 0.0}], "name": "z.ai", "pricing_type": "paygo"}, {"currency": "USD", "id": "zai-devpack", "models": [{"default_visible": true, "id": "glm-5.3", "mult_cached": 1.7, "mult_input": 6.9, "mult_output": 24.0}, {"default_visible": true, "id": "glm-5.3-flash", "mult_cached": 0.56, "mult_input": 2.3, "mult_output": 8.0}], "name": "z.ai Devpack", "off_peak_label": "Mon\u2013Fri 14:00\u201318:00 UTC+8", "off_peak_multiplier": 0.5, "pricing_type": "subscription", "tiers": [{"monthly_usd": 18, "name": "Lite", "weekly_credits": 10000}, {"monthly_usd": 80, "name": "Pro", "weekly_credits": 60000}, {"monthly_usd": 168, "name": "Max", "weekly_credits": 140000}]}, {"currency": "USD", "id": "opencode-go", "models": [{"default_visible": true, "id": "glm-5-3-flash", "input": 0.15, "input_cache": 0.03, "monthly_limit_usd": 60.0, "name": "GLM-5.3-Flash", "output": 0.5}, {"default_visible": false, "id": "glm-5-3", "input": 1.4, "input_cache": 0.26, "monthly_limit_usd": 15.0, "name": "GLM-5.3", "output": 4.4}, {"default_visible": false, "id": "glm-5-2", "input": 1.4, "input_cache": 0.26, "monthly_limit_usd": 60.0, "name": "GLM-5.2", "output": 4.4}, {"default_visible": false, "id": "glm-5-1", "input": 1.4, "input_cache": 0.26, "monthly_limit_usd": 60.0, "name": "GLM-5.1", "output": 4.4}, {"default_visible": false, "id": "kimi-k3", "input": 3.0, "input_cache": 0.3, "monthly_limit_usd": 15.0, "name": "Kimi K3", "output": 15.0}, {"default_visible": true, "id": "kimi-k2-7-code", "input": 0.95, "input_cache": 0.19, "monthly_limit_usd": 60.0, "name": "Kimi K2.7 Code", "output": 4.0}, {"default_visible": false, "id": "kimi-k2-6", "input": 0.95, "input_cache": 0.16, "monthly_limit_usd": 60.0, "name": "Kimi K2.6", "output": 4.0}, {"default_visible": false, "id": "longcat-2-0", "input": 0.3, "input_cache": 0.006, "monthly_limit_usd": 60.0, "name": "LongCat-2.0", "output": 1.2}, {"default_visible": false, "id": "mimo-v2-6-flash", "input": 0.14, "input_cache": 0.0028, "monthly_limit_usd": 60.0, "name": "MiMo-V2.6-Flash", "output": 0.28}, {"default_visible": false, "id": "mimo-v2-6-pro", "input": 0.435, "input_cache": 0.003625, "monthly_limit_usd": 15.0, "name": "MiMo-V2.6-Pro", "output": 0.87}, {"default_visible": false, "id": "mimo-v2-5", "input": 0.14, "input_cache": 0.0028, "monthly_limit_usd": 60.0, "name": "MiMo-V2.5", "output": 0.28}, {"default_visible": false, "id": "mimo-v2-5-pro", "input": 0.435, "input_cache": 0.003625, "monthly_limit_usd": 15.0, "name": "MiMo-V2.5-Pro", "output": 0.87}, {"default_visible": true, "id": "minimax-m3", "input": 0.3, "input_cache": 0.06, "monthly_limit_usd": 60.0, "name": "MiniMax M3", "output": 1.2}, {"default_visible": false, "id": "minimax-m2-7", "input": 0.3, "input_cache": 0.06, "monthly_limit_usd": 60.0, "name": "MiniMax M2.7", "output": 1.2}, {"default_visible": false, "id": "minimax-m2-5", "input": 0.3, "input_cache": 0.06, "monthly_limit_usd": 60.0, "name": "MiniMax M2.5", "output": 1.2}, {"default_visible": false, "id": "muse-spark-1-3-contributor", "input": 0.1, "input_cache": 0.002, "monthly_limit_usd": 60.0, "name": "Muse Spark 1.3 Contributor", "output": 0.2}, {"default_visible": false, "id": "muse-spark-1-2-contributor", "input": 0.1, "input_cache": 0.002, "monthly_limit_usd": 60.0, "name": "Muse Spark 1.2 Contributor", "output": 0.2}, {"default_visible": false, "id": "qwen3-8-max", "input": 2.0, "input_cache": 0.25, "monthly_limit_usd": 15.0, "name": "Qwen3.8 Max", "output": 6.0}, {"default_visible": false, "id": "qwen3-8-flash", "input": 0.15, "input_cache": 0.016, "monthly_limit_usd": 30.0, "name": "Qwen3.8 Flash", "output": 0.47}, {"default_visible": false, "id": "qwen3-7-max", "input": 2.5, "input_cache": 0.5, "monthly_limit_usd": 30.0, "name": "Qwen3.7 Max", "output": 7.5}, {"default_visible": false, "id": "qwen3-7-plus-256k-tokens", "input": 0.4, "input_cache": 0.04, "monthly_limit_usd": 60.0, "name": "Qwen3.7 Plus (\u2264 256K tokens)", "output": 1.6}, {"default_visible": false, "id": "qwen3-7-plus-256k-tokens", "input": 1.2, "input_cache": 0.12, "monthly_limit_usd": 60.0, "name": "Qwen3.7 Plus (\u003e 256K tokens)", "output": 4.8}, {"default_visible": false, "id": "qwen3-6-plus-256k-tokens", "input": 0.5, "input_cache": 0.05, "monthly_limit_usd": 60.0, "name": "Qwen3.6 Plus (\u2264 256K tokens)", "output": 3.0}, {"default_visible": false, "id": "qwen3-6-plus-256k-tokens", "input": 2.0, "input_cache": 0.2, "monthly_limit_usd": 60.0, "name": "Qwen3.6 Plus (\u003e 256K tokens)", "output": 6.0}, {"default_visible": false, "id": "deepseek-v4-1-flash-off-peak", "input": 0.15, "input_cache": 0.003, "monthly_limit_usd": 60.0, "name": "DeepSeek V4.1 Flash (Off-Peak)", "output": 0.6}, {"default_visible": false, "id": "deepseek-v4-1-flash-peak", "input": 0.3, "input_cache": 0.006, "monthly_limit_usd": 60.0, "name": "DeepSeek V4.1 Flash (Peak)", "output": 1.2}, {"default_visible": false, "id": "deepseek-v4-pro-off-peak", "input": 0.66, "input_cache": 0.022, "monthly_limit_usd": 15.0, "name": "DeepSeek V4 Pro (Off-Peak)", "output": 1.98}, {"default_visible": false, "id": "deepseek-v4-pro-peak", "input": 1.32, "input_cache": 0.044, "monthly_limit_usd": 15.0, "name": "DeepSeek V4 Pro (Peak)", "output": 3.96}, {"default_visible": false, "id": "deepseek-v4-flash-off-peak", "input": 0.15, "input_cache": 0.003, "monthly_limit_usd": 30.0, "name": "DeepSeek V4 Flash (Off-Peak)", "output": 0.6}, {"default_visible": false, "id": "deepseek-v4-flash-peak", "input": 0.3, "input_cache": 0.006, "monthly_limit_usd": 30.0, "name": "DeepSeek V4 Flash (Peak)", "output": 1.2}, {"default_visible": false, "id": "deepseek-v4-flash-vision-exp-off-peak", "input": 0.15, "input_cache": 0.003, "monthly_limit_usd": 15.0, "name": "DeepSeek V4 Flash Vision Exp (Off-Peak)", "output": 0.6}, {"default_visible": false, "id": "deepseek-v4-flash-vision-exp-peak", "input": 0.3, "input_cache": 0.006, "monthly_limit_usd": 15.0, "name": "DeepSeek V4 Flash Vision Exp (Peak)", "output": 1.2}, {"default_visible": false, "id": "hy4-preview", "input": 0.834, "input_cache": 0.042, "monthly_limit_usd": 30.0, "name": "Hy4 preview", "output": 2.501}, {"default_visible": false, "id": "hy3", "input": 0.14, "input_cache": 0.035, "monthly_limit_usd": 60.0, "name": "Hy3", "output": 0.58}, {"default_visible": false, "id": "space-bunny-free", "input": 0.0, "input_cache": 0.0, "monthly_limit_usd": null, "name": "Space Bunny Free", "output": 0.0}, {"default_visible": false, "id": "grok-4-7-200k-tokens", "input": 2.0, "input_cache": 0.5, "monthly_limit_usd": 15.0, "name": "Grok 4.7 (\u2264 200K tokens)", "output": 6.0}, {"default_visible": false, "id": "grok-4-7-200k-tokens", "input": 4.0, "input_cache": 1.0, "monthly_limit_usd": 15.0, "name": "Grok 4.7 (\u003e 200K tokens)", "output": 12.0}, {"default_visible": false, "id": "grok-4-6-200k-tokens", "input": 2.0, "input_cache": 0.5, "monthly_limit_usd": 15.0, "name": "Grok 4.6 (\u2264 200K tokens)", "output": 6.0}, {"default_visible": false, "id": "grok-4-6-200k-tokens", "input": 4.0, "input_cache": 1.0, "monthly_limit_usd": 15.0, "name": "Grok 4.6 (\u003e 200K tokens)", "output": 12.0}, {"default_visible": false, "id": "gpt-6-luna-272k-tokens", "input": 0.1, "input_cache": 0.01, "monthly_limit_usd": 15.0, "name": "GPT 6 Luna (\u2264 272K tokens)", "output": 0.5}, {"default_visible": false, "id": "gpt-6-luna-272k-tokens", "input": 0.2, "input_cache": 0.02, "monthly_limit_usd": 15.0, "name": "GPT 6 Luna (\u003e 272K tokens)", "output": 0.75}, {"default_visible": false, "id": "gpt-5-6-luna-272k-tokens", "input": 0.2, "input_cache": 0.02, "monthly_limit_usd": 15.0, "name": "GPT 5.6 Luna (\u2264 272K tokens)", "output": 1.2}, {"default_visible": false, "id": "gpt-5-6-luna-272k-tokens", "input": 0.4, "input_cache": 0.04, "monthly_limit_usd": 15.0, "name": "GPT 5.6 Luna (\u003e 272K tokens)", "output": 1.8}], "monthly_usd": 10, "name": "OpenCode Go", "pricing_type": "subscription_limit"}];
   const SUBS = PROVIDERS.filter(p => p.pricing_type === 'subscription');
 
   const PRESETS = {
@@ -1726,7 +2422,28 @@
   function computeRow(row, cfg) {
     const out = { monthlyCost: null, runs: null, ip: null, cp: null, op: null, free: false, plan: null, status: null };
 
-    if (row.dataset.pricingType === 'subscription') {
+    if (row.dataset.pricingType === 'subscription_limit') {
+      out.plan = 'Go';
+      out.ip = parseFloat(row.dataset.inputPrice);
+      out.cp = parseFloat(row.dataset.cachedPrice);
+      out.op = parseFloat(row.dataset.outputPrice);
+      out.monthlyCost = parseFloat(row.dataset.monthlyPrice);
+      const usageCost = cfg.monthlyTokens * (
+        cfg.input / 100 * out.ip
+        + cfg.cached / 100 * out.cp
+        + cfg.output / 100 * out.op
+      );
+      const limit = parseFloat(row.dataset.monthlyLimit);
+      if (Number.isFinite(limit) && limit > 0) {
+        if (usageCost > limit) {
+          out.status = { text: 'Likely to hit limits', cls: 'limit-red' };
+        } else if (usageCost > limit * 0.75) {
+          out.status = { text: 'Approaching limits', cls: 'limit-orange' };
+        } else {
+          out.status = { text: 'Within safe limits', cls: 'limit-green' };
+        }
+      }
+    } else if (row.dataset.pricingType === 'subscription') {
       if (!SUBS.length || !cfg.tierSel) return out;
       const prov = SUBS.find(p => p.id === row.dataset.providerId);
       const tier = prov && prov.tiers.find(t => t.name === cfg.tierSel);
@@ -1881,6 +2598,11 @@
     if (v === undefined || v === '') return null;
     return +v;
   };
+  const compareText = (a, b) => String(a ?? '').localeCompare(
+    String(b ?? ''),
+    'en',
+    { numeric: true, sensitivity: 'base' },
+  );
   const COLUMN_GET = {
     provider: tr => tr.children[1].textContent.trim(),
     plan:     tr => tr.children[2].textContent.trim(),
@@ -1919,12 +2641,13 @@
       else if (av == null && bv == null) cmp = 0;
       else if (av == null) cmp = 1;
       else if (bv == null) cmp = -1;
-      else cmp = String(av).localeCompare(String(bv)) * dir;
+      else cmp = compareText(av, bv) * dir;
       // Tiebreaker: model name ascending when primary values are equal
       if (cmp === 0) {
-        const am = (a.dataset.modelId || '').toLowerCase();
-        const bm = (b.dataset.modelId || '').toLowerCase();
-        cmp = am.localeCompare(bm);
+        cmp = compareText(
+          a.children[3].textContent.trim(),
+          b.children[3].textContent.trim(),
+        );
       }
       return cmp;
     }).forEach(tr => tbody.appendChild(tr));
@@ -2044,6 +2767,12 @@
   // ponytail: simple title tooltip instead of expandable dl; add back if users miss the detail
   function updateSubTooltips() {
     const cfg = getConfig();
+    document.querySelectorAll('#provider-table tbody tr[data-pricing-type="subscription_limit"]').forEach(row => {
+      const limit = parseFloat(row.dataset.monthlyLimit);
+      row.title = Number.isFinite(limit)
+        ? `$${row.dataset.monthlyPrice}/mo · $${limit} monthly usage limit for this model`
+        : `$${row.dataset.monthlyPrice}/mo · Unlimited usage for this model`;
+    });
     document.querySelectorAll('#provider-table tbody tr[data-pricing-type="subscription"]').forEach(row => {
       const prov = SUBS.find(p => p.id === row.dataset.providerId);
       const tier = prov && (prov.tiers.find(t => t.name === cfg.tierSel) || prov.tiers[0]);

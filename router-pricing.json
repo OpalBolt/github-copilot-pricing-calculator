@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-25T15:58:34.075582+00:00",
+  "generatedAt": "2026-09-25T16:17:38.203631+00:00",
   "currency": "EUR",
   "exchangeRate": {
     "series": "EXR.D.USD.EUR.SP00.A",
@@ -14,7 +14,7 @@
       "source": "https://api.cortecs.ai/v1/models?extended=true&currency=EUR",
       "euClaim": "EU catalog: providers based and regulated within the EU.",
       "id": "cortecs",
-      "fetchedAt": "2026-09-25T15:58:34.075582+00:00",
+      "fetchedAt": "2026-09-25T16:17:38.203631+00:00",
       "stale": false
     },
     {
@@ -22,7 +22,7 @@
       "source": "https://api.eurouter.ai/api/v1/models",
       "euClaim": "EU handling is EUrouter's baseline routing guarantee.",
       "id": "eurouter",
-      "fetchedAt": "2026-09-25T15:58:34.075582+00:00",
+      "fetchedAt": "2026-09-25T16:17:38.203631+00:00",
       "stale": false
     },
     {
@@ -30,7 +30,33 @@
       "source": "https://openrouter.ai/api/v1/models",
       "euClaim": "EU regional routing; Business or Enterprise plan required.",
       "id": "openrouter",
-      "fetchedAt": "2026-09-25T15:58:34.075582+00:00",
+      "fetchedAt": "2026-09-25T16:17:38.203631+00:00",
+      "stale": false
+    },
+    {
+      "name": "OpenCode Zen",
+      "source": "https://opencode.ai/zen/v1/models",
+      "euClaim": "No EU routing catalog is published.",
+      "id": "opencode",
+      "fetchedAt": "2026-09-25T16:17:38.203631+00:00",
+      "stale": false
+    },
+    {
+      "name": "DeepSeek API",
+      "source": "https://api-docs.deepseek.com/quick_start/pricing/",
+      "kind": "direct",
+      "euClaim": "Direct API baseline; no router or EU routing mode.",
+      "id": "deepseek-direct",
+      "fetchedAt": "2026-09-25T16:17:38.203631+00:00",
+      "stale": false
+    },
+    {
+      "name": "z.ai API",
+      "source": "https://docs.z.ai/guides/overview/pricing.md",
+      "kind": "direct",
+      "euClaim": "Direct API baseline; no router or EU routing mode.",
+      "id": "zai-direct",
+      "fetchedAt": "2026-09-25T16:17:38.203631+00:00",
       "stale": false
     }
   ],
@@ -4046,6 +4072,76 @@
       },
       "quantization": null,
       "priceNote": "Model-level minimum price published by Cortecs."
+    },
+    {
+      "key": "deepseek-direct:deepseek-flash",
+      "router": "deepseek-direct",
+      "routerName": "DeepSeek API",
+      "modelId": "deepseek-flash",
+      "name": "deepseek-flash",
+      "owner": "DeepSeek",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.2630886608787161,
+        "cached": 0.005261773217574322,
+        "output": 1.0523546435148643,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3,
+          "cached": 0.006,
+          "output": 1.2
+        }
+      },
+      "eu": null,
+      "quantization": null,
+      "direct": true,
+      "priceNote": "Direct USD API peak price published by DeepSeek and converted with the listed ECB rate. This is not a routed offer."
+    },
+    {
+      "key": "deepseek-direct:deepseek-v4-pro",
+      "router": "deepseek-direct",
+      "routerName": "DeepSeek API",
+      "modelId": "deepseek-v4-pro",
+      "name": "deepseek-v4-pro",
+      "owner": "DeepSeek",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 1.1575901078663509,
+        "cached": 0.03858633692887836,
+        "output": 3.4727703235990526,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.32,
+          "cached": 0.044,
+          "output": 3.96
+        }
+      },
+      "eu": null,
+      "quantization": null,
+      "direct": true,
+      "priceNote": "Direct USD API peak price published by DeepSeek and converted with the listed ECB rate. This is not a routed offer."
     },
     {
       "key": "eurouter:alibaba/qwen3.6-35b-instruct",
@@ -9330,6 +9426,2967 @@
       "priceNote": "EUR Router Price published by EUrouter."
     },
     {
+      "key": "opencode:big-pickle",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "big-pickle",
+      "name": "Big Pickle",
+      "owner": "OpenCode",
+      "description": "Reasoning model for deliberate analysis, multi-step problem solving, and tool use",
+      "releaseDate": "2025-10-17",
+      "contextSize": 200000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.0,
+        "cached": 0.0,
+        "output": 0.0,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.0,
+          "cached": 0.0,
+          "output": 0.0
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:claude-fable-5",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "claude-fable-5",
+      "name": "Claude Fable 5",
+      "owner": "Anthropic",
+      "description": "Claude model for creative writing, analysis, and controlled agent workflows",
+      "releaseDate": "2026-06-09",
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 8.769622029290536,
+        "cached": 0.8769622029290537,
+        "output": 43.84811014645268,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 10.0,
+          "cached": 1.0,
+          "output": 50.0
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:claude-fable-5-1",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "claude-fable-5-1",
+      "name": "Claude Fable 5.1",
+      "owner": "Anthropic",
+      "description": "Claude model for demanding reasoning and long-horizon agentic work",
+      "releaseDate": "2026-09-01",
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 8.769622029290536,
+        "cached": 0.21924055073226342,
+        "output": 43.84811014645268,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 10.0,
+          "cached": 0.25,
+          "output": 50.0
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:claude-haiku-4-5",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "claude-haiku-4-5",
+      "name": "Claude Haiku 4.5",
+      "owner": "Anthropic",
+      "description": "Fast Claude model for responsive assistance, classification, and lightweight agents",
+      "releaseDate": "2025-10-15",
+      "contextSize": 200000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.8769622029290537,
+        "cached": 0.08769622029290537,
+        "output": 4.384811014645268,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.0,
+          "cached": 0.1,
+          "output": 5.0
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:claude-opus-4-5",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "claude-opus-4-5",
+      "name": "Claude Opus 4.5",
+      "owner": "Anthropic",
+      "description": "Flagship Claude model for deep reasoning, coding, and long-horizon agents",
+      "releaseDate": "2025-11-24",
+      "contextSize": 200000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 4.384811014645268,
+        "cached": 0.43848110146452685,
+        "output": 21.92405507322634,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 5.0,
+          "cached": 0.5,
+          "output": 25.0
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:claude-opus-4-6",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "claude-opus-4-6",
+      "name": "Claude Opus 4.6",
+      "owner": "Anthropic",
+      "description": "High-end Claude for difficult coding, planning, and slower expert reasoning",
+      "releaseDate": "2026-02-05",
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 4.384811014645268,
+        "cached": 0.43848110146452685,
+        "output": 21.92405507322634,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 5.0,
+          "cached": 0.5,
+          "output": 25.0
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:claude-opus-4-7",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "claude-opus-4-7",
+      "name": "Claude Opus 4.7",
+      "owner": "Anthropic",
+      "description": "Flagship Claude model for deep reasoning, coding, and long-horizon agents",
+      "releaseDate": "2026-04-16",
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 4.384811014645268,
+        "cached": 0.43848110146452685,
+        "output": 21.92405507322634,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 5.0,
+          "cached": 0.5,
+          "output": 25.0
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:claude-opus-4-8",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "claude-opus-4-8",
+      "name": "Claude Opus 4.8",
+      "owner": "Anthropic",
+      "description": "Top Claude Opus tier for the hardest reasoning, coding, and long-horizon agents",
+      "releaseDate": "2026-05-28",
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 4.384811014645268,
+        "cached": 0.43848110146452685,
+        "output": 21.92405507322634,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 5.0,
+          "cached": 0.5,
+          "output": 25.0
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:claude-opus-5",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "claude-opus-5",
+      "name": "Claude Opus 5",
+      "owner": "Anthropic",
+      "description": "Strongest Claude Opus model for coding, agents, and professional work",
+      "releaseDate": "2026-07-24",
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 4.384811014645268,
+        "cached": 0.43848110146452685,
+        "output": 21.92405507322634,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 5.0,
+          "cached": 0.5,
+          "output": 25.0
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:claude-opus-5-5",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "claude-opus-5-5",
+      "name": "Claude Opus 5.5",
+      "owner": "Anthropic",
+      "description": "Claude model for long-running agentic coding and knowledge work",
+      "releaseDate": "2026-09-22",
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 3.5078488117162148,
+        "cached": 0.17539244058581074,
+        "output": 17.539244058581072,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 4.0,
+          "cached": 0.2,
+          "output": 20.0
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:claude-sonnet-4",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "claude-sonnet-4",
+      "name": "Claude Sonnet 4",
+      "owner": "Anthropic",
+      "description": "Balanced Claude model for coding, analysis, agent workflows, and cost control",
+      "releaseDate": "2025-05-22",
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 2.630886608787161,
+        "cached": 0.2630886608787161,
+        "output": 13.154433043935805,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 3.0,
+          "cached": 0.3,
+          "output": 15.0
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 200000,
+          "input": 5.261773217574322,
+          "cached": 0.5261773217574321,
+          "output": 19.73164956590371,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 6.0,
+            "cached": 0.6,
+            "output": 22.5
+          }
+        }
+      ],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:claude-sonnet-4-5",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "claude-sonnet-4-5",
+      "name": "Claude Sonnet 4.5",
+      "owner": "Anthropic",
+      "description": "Balanced Claude model for coding, analysis, agent workflows, and cost control",
+      "releaseDate": "2025-09-29",
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 2.630886608787161,
+        "cached": 0.2630886608787161,
+        "output": 13.154433043935805,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 3.0,
+          "cached": 0.3,
+          "output": 15.0
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 200000,
+          "input": 5.261773217574322,
+          "cached": 0.5261773217574321,
+          "output": 19.73164956590371,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 6.0,
+            "cached": 0.6,
+            "output": 22.5
+          }
+        }
+      ],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:claude-sonnet-4-6",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "claude-sonnet-4-6",
+      "name": "Claude Sonnet 4.6",
+      "owner": "Anthropic",
+      "description": "Balanced Claude model for coding, analysis, agent workflows, and cost control",
+      "releaseDate": "2026-02-17",
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 2.630886608787161,
+        "cached": 0.2630886608787161,
+        "output": 13.154433043935805,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 3.0,
+          "cached": 0.3,
+          "output": 15.0
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:claude-sonnet-5",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "claude-sonnet-5",
+      "name": "Claude Sonnet 5",
+      "owner": "Anthropic",
+      "description": "Everyday Claude agent model for coding, planning, browsing, and general work",
+      "releaseDate": "2026-06-30",
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 1.7539244058581074,
+        "cached": 0.17539244058581074,
+        "output": 8.769622029290536,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 0.2,
+          "output": 10.0
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:deepseek-v4-flash",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "deepseek-v4-flash",
+      "name": "DeepSeek V4 Flash",
+      "owner": "DeepSeek",
+      "description": "Official DeepSeek V4 Flash release with enhanced agentic capabilities and integrated DSpark speculative decoding",
+      "releaseDate": "2026-07-31",
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.12277470841006753,
+        "cached": 0.024554941682013505,
+        "output": 0.24554941682013506,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.14,
+          "cached": 0.028,
+          "output": 0.28
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:deepseek-v4-flash-free",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "deepseek-v4-flash-free",
+      "name": "DeepSeek V4 Flash Free",
+      "owner": "DeepSeek",
+      "description": "Official DeepSeek V4 Flash release with enhanced agentic capabilities and integrated DSpark speculative decoding",
+      "releaseDate": "2026-07-31",
+      "contextSize": 200000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.0,
+        "cached": 0.0,
+        "output": 0.0,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.0,
+          "cached": 0.0,
+          "output": 0.0
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:deepseek-v4-flash-vision-exp",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "deepseek-v4-flash-vision-exp",
+      "name": "DeepSeek V4 Flash Vision Exp",
+      "owner": "DeepSeek",
+      "description": "Experimental multimodal DeepSeek V4 Flash model for image understanding, coding, and agentic work",
+      "releaseDate": "2026-08-21",
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.12277470841006753,
+        "cached": 0.024554941682013505,
+        "output": 0.24554941682013506,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.14,
+          "cached": 0.028,
+          "output": 0.28
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:deepseek-v4-pro",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "deepseek-v4-pro",
+      "name": "DeepSeek V4 Pro",
+      "owner": "DeepSeek",
+      "description": "Open MoE flagship with million-token context for coding and long agent runs",
+      "releaseDate": "2026-04-24",
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 1.5259142330965534,
+        "cached": 0.12715951942471276,
+        "output": 3.367534859247566,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.74,
+          "cached": 0.145,
+          "output": 3.84
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:deepseek-v4.1-flash",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "deepseek-v4.1-flash",
+      "name": "DeepSeek V4.1 Flash",
+      "owner": "DeepSeek",
+      "description": "DeepSeek V4.1 Flash model for reasoning and agentic coding",
+      "releaseDate": "2026-09-10",
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.2630886608787161,
+        "cached": 0.005261773217574322,
+        "output": 1.0523546435148643,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3,
+          "cached": 0.006,
+          "output": 1.2
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:gemini-3-flash",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "gemini-3-flash",
+      "name": "Gemini 3 Flash",
+      "owner": "Google",
+      "description": "Fast Gemini model balancing multimodal reasoning, tool use, and cost",
+      "releaseDate": "2025-12-17",
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.43848110146452685,
+        "cached": 0.043848110146452686,
+        "output": 2.630886608787161,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.5,
+          "cached": 0.05,
+          "output": 3.0
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:gemini-3.1-pro",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "gemini-3.1-pro",
+      "name": "Gemini 3.1 Pro Preview",
+      "owner": "Google",
+      "description": "Advanced Gemini model for complex reasoning, coding, and multimodal analysis",
+      "releaseDate": "2026-02-19",
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 1.7539244058581074,
+        "cached": 0.17539244058581074,
+        "output": 10.523546435148644,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 0.2,
+          "output": 12.0
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 200000,
+          "input": 3.5078488117162148,
+          "cached": 0.3507848811716215,
+          "output": 15.785319652722967,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 4.0,
+            "cached": 0.4,
+            "output": 18.0
+          }
+        }
+      ],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:gemini-3.5-flash",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "gemini-3.5-flash",
+      "name": "Gemini 3.5 Flash",
+      "owner": "Google",
+      "description": "Fast Gemini model balancing multimodal reasoning, tool use, and cost",
+      "releaseDate": "2026-05-19",
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 1.3154433043935805,
+        "cached": 0.13154433043935804,
+        "output": 7.892659826361483,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.5,
+          "cached": 0.15,
+          "output": 9.0
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:gemini-3.5-flash-lite",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "gemini-3.5-flash-lite",
+      "name": "Gemini 3.5 Flash Lite",
+      "owner": "Google",
+      "description": "Fast Gemini model balancing multimodal reasoning, tool use, and cost",
+      "releaseDate": "2026-07-21",
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.2630886608787161,
+        "cached": 0.02630886608787161,
+        "output": 2.192405507322634,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3,
+          "cached": 0.03,
+          "output": 2.5
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:gemini-3.6-flash",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "gemini-3.6-flash",
+      "name": "Gemini 3.6 Flash",
+      "owner": "Google",
+      "description": "Fast Gemini model balancing multimodal reasoning, tool use, and cost",
+      "releaseDate": "2026-07-21",
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 1.3154433043935805,
+        "cached": 0.13154433043935804,
+        "output": 6.577216521967903,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.5,
+          "cached": 0.15,
+          "output": 7.5
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:gemini-3.7-flash",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "gemini-3.7-flash",
+      "name": "Gemini 3.7 Flash",
+      "owner": "Google",
+      "description": "High-efficiency Gemini model for agentic workflows, coding, and multimodal reasoning",
+      "releaseDate": "2026-08-13",
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 1.3154433043935805,
+        "cached": 0.13154433043935804,
+        "output": 6.577216521967903,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.5,
+          "cached": 0.15,
+          "output": 7.5
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:gemini-3.8-flash",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "gemini-3.8-flash",
+      "name": "Gemini 3.8 Flash",
+      "owner": "Google",
+      "description": "Google's most intelligent Flash model, engineered for long-horizon software engineering, autonomous agents, and complex enterprise workflows",
+      "releaseDate": "2026-09-02",
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 1.3154433043935805,
+        "cached": 0.13154433043935804,
+        "output": 6.577216521967903,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.5,
+          "cached": 0.15,
+          "output": 7.5
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:glm-5",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "glm-5",
+      "name": "GLM-5",
+      "owner": "Z.ai",
+      "description": "Flagship GLM model for hybrid reasoning, coding, and agentic engineering",
+      "releaseDate": "2026-02-11",
+      "contextSize": 204800,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.8769622029290537,
+        "cached": 0.17539244058581074,
+        "output": 2.806279049372972,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.0,
+          "cached": 0.2,
+          "output": 3.2
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:glm-5.1",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "glm-5.1",
+      "name": "GLM-5.1",
+      "owner": "Z.ai",
+      "description": "Flagship GLM model for hybrid reasoning, coding, and agentic engineering",
+      "releaseDate": "2026-04-07",
+      "contextSize": 204800,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 1.227747084100675,
+        "cached": 0.22801017276155397,
+        "output": 3.8586336928878366,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.4,
+          "cached": 0.26,
+          "output": 4.4
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:glm-5.2",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "glm-5.2",
+      "name": "GLM-5.2",
+      "owner": "Z.ai",
+      "description": "Open flagship GLM for long-horizon coding agents and million-token context work",
+      "releaseDate": "2026-06-13",
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 1.227747084100675,
+        "cached": 0.22801017276155397,
+        "output": 3.8586336928878366,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.4,
+          "cached": 0.26,
+          "output": 4.4
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:glm-5.3",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "glm-5.3",
+      "name": "GLM-5.3",
+      "owner": "Z.ai",
+      "description": "Flagship GLM model for long-horizon coding, agents, and complex project delivery",
+      "releaseDate": "2026-08-14",
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 1.227747084100675,
+        "cached": 0.22801017276155397,
+        "output": 3.8586336928878366,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.4,
+          "cached": 0.26,
+          "output": 4.4
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:glm-5.3-flash",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "glm-5.3-flash",
+      "name": "GLM-5.3-Flash",
+      "owner": "Z.ai",
+      "description": "Native multimodal GLM model for efficient coding and long-horizon agent tasks",
+      "releaseDate": "2026-08-26",
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.13154433043935804,
+        "cached": 0.02630886608787161,
+        "output": 0.43848110146452685,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.15,
+          "cached": 0.03,
+          "output": 0.5
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:gpt-5",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "gpt-5",
+      "name": "GPT-5",
+      "owner": "OpenAI",
+      "description": "GPT model for general reasoning, writing, coding, and tool-assisted tasks",
+      "releaseDate": "2025-08-07",
+      "contextSize": 400000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.9383495571340875,
+        "cached": 0.09383495571340875,
+        "output": 7.454178724896956,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.07,
+          "cached": 0.107,
+          "output": 8.5
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:gpt-5-codex",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "gpt-5-codex",
+      "name": "GPT-5 Codex",
+      "owner": "OpenAI",
+      "description": "Coding-optimized GPT model for repository edits, reviews, and agentic software work",
+      "releaseDate": "2025-09-15",
+      "contextSize": 400000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.9383495571340875,
+        "cached": 0.09383495571340875,
+        "output": 7.454178724896956,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.07,
+          "cached": 0.107,
+          "output": 8.5
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:gpt-5-nano",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "gpt-5-nano",
+      "name": "GPT-5 Nano",
+      "owner": "OpenAI",
+      "description": "Compact GPT model for low-latency assistance and high-volume workloads",
+      "releaseDate": "2025-08-07",
+      "contextSize": 400000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.043848110146452686,
+        "cached": 0.004384811014645268,
+        "output": 0.3507848811716215,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.05,
+          "cached": 0.005,
+          "output": 0.4
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:gpt-5.1",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "gpt-5.1",
+      "name": "GPT-5.1",
+      "owner": "OpenAI",
+      "description": "GPT model for general reasoning, writing, coding, and tool-assisted tasks",
+      "releaseDate": "2025-11-13",
+      "contextSize": 400000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.9383495571340875,
+        "cached": 0.09383495571340875,
+        "output": 7.454178724896956,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.07,
+          "cached": 0.107,
+          "output": 8.5
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:gpt-5.1-codex",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "gpt-5.1-codex",
+      "name": "GPT-5.1 Codex",
+      "owner": "OpenAI",
+      "description": "Coding-optimized GPT model for repository edits, reviews, and agentic software work",
+      "releaseDate": "2025-11-13",
+      "contextSize": 400000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.9383495571340875,
+        "cached": 0.09383495571340875,
+        "output": 7.454178724896956,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.07,
+          "cached": 0.107,
+          "output": 8.5
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:gpt-5.1-codex-max",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "gpt-5.1-codex-max",
+      "name": "GPT-5.1 Codex Max",
+      "owner": "OpenAI",
+      "description": "Coding-optimized GPT model for repository edits, reviews, and agentic software work",
+      "releaseDate": "2025-11-13",
+      "contextSize": 400000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 1.096202753661317,
+        "cached": 0.10962027536613171,
+        "output": 8.769622029290536,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.25,
+          "cached": 0.125,
+          "output": 10.0
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:gpt-5.1-codex-mini",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "gpt-5.1-codex-mini",
+      "name": "GPT-5.1 Codex Mini",
+      "owner": "OpenAI",
+      "description": "Coding-optimized GPT model for repository edits, reviews, and agentic software work",
+      "releaseDate": "2025-11-13",
+      "contextSize": 400000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.21924055073226342,
+        "cached": 0.021924055073226343,
+        "output": 1.7539244058581074,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.25,
+          "cached": 0.025,
+          "output": 2.0
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:gpt-5.2",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "gpt-5.2",
+      "name": "GPT-5.2",
+      "owner": "OpenAI",
+      "description": "GPT model for general reasoning, writing, coding, and tool-assisted tasks",
+      "releaseDate": "2025-12-11",
+      "contextSize": 400000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 1.534683855125844,
+        "cached": 0.15346838551258438,
+        "output": 12.277470841006751,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.75,
+          "cached": 0.175,
+          "output": 14.0
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:gpt-5.2-codex",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "gpt-5.2-codex",
+      "name": "GPT-5.2 Codex",
+      "owner": "OpenAI",
+      "description": "Coding-optimized GPT model for repository edits, reviews, and agentic software work",
+      "releaseDate": "2026-01-14",
+      "contextSize": 400000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 1.534683855125844,
+        "cached": 0.15346838551258438,
+        "output": 12.277470841006751,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.75,
+          "cached": 0.175,
+          "output": 14.0
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:gpt-5.3-codex",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "gpt-5.3-codex",
+      "name": "GPT-5.3 Codex",
+      "owner": "OpenAI",
+      "description": "Coding-optimized GPT model for repository edits, reviews, and agentic software work",
+      "releaseDate": "2026-02-24",
+      "contextSize": 400000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 1.534683855125844,
+        "cached": 0.15346838551258438,
+        "output": 12.277470841006751,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.75,
+          "cached": 0.175,
+          "output": 14.0
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:gpt-5.3-codex-spark",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "gpt-5.3-codex-spark",
+      "name": "GPT-5.3 Codex Spark",
+      "owner": "OpenAI",
+      "description": "Coding-optimized GPT model for repository edits, reviews, and agentic software work",
+      "releaseDate": "2026-02-12",
+      "contextSize": 128000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 1.534683855125844,
+        "cached": 0.15346838551258438,
+        "output": 12.277470841006751,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.75,
+          "cached": 0.175,
+          "output": 14.0
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:gpt-5.4",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "gpt-5.4",
+      "name": "GPT-5.4",
+      "owner": "OpenAI",
+      "description": "Agent-ready GPT for coding and computer-use workflows at a lower cost",
+      "releaseDate": "2026-03-05",
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 2.192405507322634,
+        "cached": 0.21924055073226342,
+        "output": 13.154433043935805,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.5,
+          "cached": 0.25,
+          "output": 15.0
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 272000,
+          "input": 4.384811014645268,
+          "cached": 0.43848110146452685,
+          "output": 19.73164956590371,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 5.0,
+            "cached": 0.5,
+            "output": 22.5
+          }
+        }
+      ],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:gpt-5.4-mini",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "gpt-5.4-mini",
+      "name": "GPT-5.4 Mini",
+      "owner": "OpenAI",
+      "description": "Compact GPT model for low-latency assistance and high-volume workloads",
+      "releaseDate": "2026-03-17",
+      "contextSize": 400000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.6577216521967902,
+        "cached": 0.06577216521967902,
+        "output": 3.9463299131807417,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.75,
+          "cached": 0.075,
+          "output": 4.5
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:gpt-5.4-nano",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "gpt-5.4-nano",
+      "name": "GPT-5.4 Nano",
+      "owner": "OpenAI",
+      "description": "Compact GPT model for low-latency assistance and high-volume workloads",
+      "releaseDate": "2026-03-17",
+      "contextSize": 400000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.17539244058581074,
+        "cached": 0.017539244058581073,
+        "output": 1.096202753661317,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.2,
+          "cached": 0.02,
+          "output": 1.25
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:gpt-5.4-pro",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "gpt-5.4-pro",
+      "name": "GPT-5.4 Pro",
+      "owner": "OpenAI",
+      "description": "Frontier GPT model for professional reasoning, coding, and multimodal work",
+      "releaseDate": "2026-03-05",
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 26.30886608787161,
+        "cached": 26.30886608787161,
+        "output": 157.85319652722967,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 30.0,
+          "cached": 30.0,
+          "output": 180.0
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:gpt-5.5",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "gpt-5.5",
+      "name": "GPT-5.5",
+      "owner": "OpenAI",
+      "description": "Default frontier GPT for coding, computer use, research, and knowledge work",
+      "releaseDate": "2026-04-23",
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 4.384811014645268,
+        "cached": 0.43848110146452685,
+        "output": 26.30886608787161,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 5.0,
+          "cached": 0.5,
+          "output": 30.0
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 272000,
+          "input": 8.769622029290536,
+          "cached": 0.8769622029290537,
+          "output": 39.46329913180742,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 10.0,
+            "cached": 1.0,
+            "output": 45.0
+          }
+        }
+      ],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:gpt-5.5-pro",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "gpt-5.5-pro",
+      "name": "GPT-5.5 Pro",
+      "owner": "OpenAI",
+      "description": "Frontier GPT model for professional reasoning, coding, and multimodal work",
+      "releaseDate": "2026-04-24",
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 26.30886608787161,
+        "cached": 26.30886608787161,
+        "output": 157.85319652722967,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 30.0,
+          "cached": 30.0,
+          "output": 180.0
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:gpt-5.6-luna",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "gpt-5.6-luna",
+      "name": "GPT-5.6 Luna",
+      "owner": "OpenAI",
+      "description": "Cost-efficient GPT-5.6 model for fast, high-volume workloads",
+      "releaseDate": "2026-07-09",
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.17539244058581074,
+        "cached": 0.017539244058581073,
+        "output": 1.0523546435148643,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.2,
+          "cached": 0.02,
+          "output": 1.2
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 272000,
+          "input": 0.3507848811716215,
+          "cached": 0.035078488117162146,
+          "output": 1.5785319652722967,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 0.4,
+            "cached": 0.04,
+            "output": 1.8
+          }
+        }
+      ],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:gpt-5.6-sol",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "gpt-5.6-sol",
+      "name": "GPT-5.6 Sol",
+      "owner": "OpenAI",
+      "description": "Frontier GPT-5.6 model for complex professional work, coding, and agentic workflows",
+      "releaseDate": "2026-07-09",
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 3.5078488117162148,
+        "cached": 0.3507848811716215,
+        "output": 17.539244058581072,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 4.0,
+          "cached": 0.4,
+          "output": 20.0
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 272000,
+          "input": 7.0156976234324295,
+          "cached": 0.701569762343243,
+          "output": 26.30886608787161,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 8.0,
+            "cached": 0.8,
+            "output": 30.0
+          }
+        }
+      ],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:gpt-5.6-terra",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "gpt-5.6-terra",
+      "name": "GPT-5.6 Terra",
+      "owner": "OpenAI",
+      "description": "Balanced GPT-5.6 model for capable, cost-efficient everyday work",
+      "releaseDate": "2026-07-09",
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 2.192405507322634,
+        "cached": 0.21924055073226342,
+        "output": 13.154433043935805,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.5,
+          "cached": 0.25,
+          "output": 15.0
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 272000,
+          "input": 4.384811014645268,
+          "cached": 0.43848110146452685,
+          "output": 19.73164956590371,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 5.0,
+            "cached": 0.5,
+            "output": 22.5
+          }
+        }
+      ],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:gpt-6-astra",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "gpt-6-astra",
+      "name": "GPT-6 Astra",
+      "owner": "OpenAI",
+      "description": "GPT-6 Astra is OpenAI's most capable model for complex reasoning, coding, computer use, research, and document creation.",
+      "releaseDate": "2026-09-04",
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 8.769622029290536,
+        "cached": 0.8769622029290537,
+        "output": 43.84811014645268,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 10.0,
+          "cached": 1.0,
+          "output": 50.0
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 272000,
+          "input": 17.539244058581072,
+          "cached": 1.7539244058581074,
+          "output": 65.77216521967902,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 20.0,
+            "cached": 2.0,
+            "output": 75.0
+          }
+        }
+      ],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:gpt-6-luna",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "gpt-6-luna",
+      "name": "GPT-6 Luna",
+      "owner": "OpenAI",
+      "description": "OpenAI's most efficient model for focused, high-volume tasks",
+      "releaseDate": "2026-09-22",
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.08769622029290537,
+        "cached": 0.008769622029290536,
+        "output": 0.43848110146452685,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.1,
+          "cached": 0.01,
+          "output": 0.5
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 272000,
+          "input": 0.17539244058581074,
+          "cached": 0.017539244058581073,
+          "output": 0.6577216521967902,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 0.2,
+            "cached": 0.02,
+            "output": 0.75
+          }
+        }
+      ],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:gpt-6-sol",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "gpt-6-sol",
+      "name": "GPT-6 Sol",
+      "owner": "OpenAI",
+      "description": "OpenAI model for complex coding and agentic workflows",
+      "releaseDate": "2026-09-22",
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 1.7539244058581074,
+        "cached": 0.17539244058581074,
+        "output": 8.769622029290536,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 0.2,
+          "output": 10.0
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 272000,
+          "input": 3.5078488117162148,
+          "cached": 0.3507848811716215,
+          "output": 13.154433043935805,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 4.0,
+            "cached": 0.4,
+            "output": 15.0
+          }
+        }
+      ],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:grok-4.5",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "grok-4.5",
+      "name": "Grok 4.5",
+      "owner": "xAI",
+      "description": "xAI's Grok model for chat, coding, agentic tools, and lower hallucination risk",
+      "releaseDate": "2026-07-08",
+      "contextSize": 500000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 1.7539244058581074,
+        "cached": 0.2630886608787161,
+        "output": 5.261773217574322,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 0.3,
+          "output": 6.0
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 200000,
+          "input": 3.5078488117162148,
+          "cached": 0.5261773217574321,
+          "output": 10.523546435148644,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 4.0,
+            "cached": 0.6,
+            "output": 12.0
+          }
+        }
+      ],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:grok-4.6",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "grok-4.6",
+      "name": "Grok 4.6",
+      "owner": "xAI",
+      "description": "xAI's frontier model for long-running agents, coding, knowledge work, and visual projects",
+      "releaseDate": "2026-08-12",
+      "contextSize": 500000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 1.7539244058581074,
+        "cached": 0.43848110146452685,
+        "output": 5.261773217574322,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 0.5,
+          "output": 6.0
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 200000,
+          "input": 3.5078488117162148,
+          "cached": 0.8769622029290537,
+          "output": 10.523546435148644,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 4.0,
+            "cached": 1.0,
+            "output": 12.0
+          }
+        }
+      ],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:grok-4.7",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "grok-4.7",
+      "name": "Grok 4.7 (30% Off)",
+      "owner": "xAI",
+      "description": "xAI's frontier model for long-running agents, coding, knowledge work, and visual projects",
+      "releaseDate": "2026-09-21",
+      "contextSize": 500000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 1.227747084100675,
+        "cached": 0.30693677102516875,
+        "output": 3.6832412523020257,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.4,
+          "cached": 0.35,
+          "output": 4.2
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 200000,
+          "input": 2.45549416820135,
+          "cached": 0.6138735420503375,
+          "output": 7.366482504604051,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 2.8,
+            "cached": 0.7,
+            "output": 8.4
+          }
+        }
+      ],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:grok-build-0.1",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "grok-build-0.1",
+      "name": "Grok Build 0.1",
+      "owner": "xAI",
+      "description": "Fast Grok coding model tuned for agentic engineering and iterative edits",
+      "releaseDate": "2026-04-16",
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.8769622029290537,
+        "cached": 0.17539244058581074,
+        "output": 1.7539244058581074,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.0,
+          "cached": 0.2,
+          "output": 2.0
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:kimi-k2.5",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "kimi-k2.5",
+      "name": "Kimi K2.5",
+      "owner": "Moonshot AI",
+      "description": "Kimi multimodal agent model for visual understanding, coding, and planning",
+      "releaseDate": "2026-01-27",
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.5261773217574321,
+        "cached": 0.07015697623432429,
+        "output": 2.630886608787161,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.6,
+          "cached": 0.08,
+          "output": 3.0
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:kimi-k2.6",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "kimi-k2.6",
+      "name": "Kimi K2.6",
+      "owner": "Moonshot AI",
+      "description": "Kimi multimodal agent model for visual understanding, coding, and planning",
+      "releaseDate": "2026-04-21",
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.833114092782601,
+        "cached": 0.14031395246864858,
+        "output": 3.5078488117162148,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.95,
+          "cached": 0.16,
+          "output": 4.0
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:kimi-k2.7-code",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "kimi-k2.7-code",
+      "name": "Kimi K2.7 Code",
+      "owner": "Moonshot AI",
+      "description": "Coding-focused Kimi model, stronger on long-horizon repo work with less overthinking",
+      "releaseDate": "2026-06-12",
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.833114092782601,
+        "cached": 0.1666228185565202,
+        "output": 3.5078488117162148,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.95,
+          "cached": 0.19,
+          "output": 4.0
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:kimi-k3",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "kimi-k3",
+      "name": "Kimi K3",
+      "owner": "Moonshot AI",
+      "description": "Multimodal Kimi model with 1M context and toggleable max-effort thinking for long-horizon agent work",
+      "releaseDate": "2026-07-16",
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 2.630886608787161,
+        "cached": 0.2630886608787161,
+        "output": 13.154433043935805,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 3.0,
+          "cached": 0.3,
+          "output": 15.0
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:ling-3.0-flash-fin-free",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "ling-3.0-flash-fin-free",
+      "name": "Ling 3.0 Flash Fin Free",
+      "owner": "OpenCode",
+      "description": "Finance-enhanced model for financial research, multi-step investment workflows, and long-horizon planning and execution",
+      "releaseDate": "2026-08-27",
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.0,
+        "cached": 0.0,
+        "output": 0.0,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.0,
+          "cached": 0.0,
+          "output": 0.0
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:mimo-v2.5-free",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "mimo-v2.5-free",
+      "name": "MiMo V2.5 Free",
+      "owner": "Xiaomi",
+      "description": "MiMo omni model for text, image, video, audio, and agents",
+      "releaseDate": "2026-04-24",
+      "contextSize": 200000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.0,
+        "cached": 0.0,
+        "output": 0.0,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.0,
+          "cached": 0.0,
+          "output": 0.0
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:mimo-v2.6-flash-free",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "mimo-v2.6-flash-free",
+      "name": "MiMo-V2.6-Flash Free",
+      "owner": "Xiaomi",
+      "description": "MiMo Flash model for multimodal coding agents and long-context automation",
+      "releaseDate": "2026-09-22",
+      "contextSize": 200000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.0,
+        "cached": 0.0,
+        "output": 0.0,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.0,
+          "cached": 0.0,
+          "output": 0.0
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:minimax-m2.5",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "minimax-m2.5",
+      "name": "MiniMax-M2.5",
+      "owner": "MiniMax AI",
+      "description": "MiniMax model for chat, coding, office work, and agentic tasks",
+      "releaseDate": "2026-02-12",
+      "contextSize": 204800,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.2630886608787161,
+        "cached": 0.05261773217574322,
+        "output": 1.0523546435148643,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3,
+          "cached": 0.06,
+          "output": 1.2
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:minimax-m2.7",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "minimax-m2.7",
+      "name": "MiniMax-M2.7",
+      "owner": "MiniMax AI",
+      "description": "MiniMax model for chat, coding, office work, and agentic tasks",
+      "releaseDate": "2026-03-18",
+      "contextSize": 204800,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.2630886608787161,
+        "cached": 0.05261773217574322,
+        "output": 1.0523546435148643,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3,
+          "cached": 0.06,
+          "output": 1.2
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:minimax-m3",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "minimax-m3",
+      "name": "MiniMax-M3",
+      "owner": "MiniMax AI",
+      "description": "MiniMax multimodal model for long-context coding, perception, and agent planning",
+      "releaseDate": "2026-06-01",
+      "contextSize": 512000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.2630886608787161,
+        "cached": 0.05261773217574322,
+        "output": 1.0523546435148643,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3,
+          "cached": 0.06,
+          "output": 1.2
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:muse-spark-1.2",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "muse-spark-1.2",
+      "name": "Muse Spark 1.2",
+      "owner": "Meta",
+      "description": "Muse Spark 1.2 is a coding-focused update to Muse Spark 1.1 with improvements in code generation, complex debugging, codebase understanding, and end-to-end developer workflows.",
+      "releaseDate": "2026-08-05",
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 1.096202753661317,
+        "cached": 0.13154433043935804,
+        "output": 3.727089362448478,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.25,
+          "cached": 0.15,
+          "output": 4.25
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:muse-spark-1.2-contributor-free",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "muse-spark-1.2-contributor-free",
+      "name": "Muse Spark 1.2 Free",
+      "owner": "Meta",
+      "description": "Muse Spark 1.2 is a coding-focused update to Muse Spark 1.1 with improvements in code generation, complex debugging, codebase understanding, and end-to-end developer workflows.",
+      "releaseDate": "2026-08-05",
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.0,
+        "cached": 0.0,
+        "output": 0.0,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.0,
+          "cached": 0.0,
+          "output": 0.0
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:muse-spark-1.3",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "muse-spark-1.3",
+      "name": "Muse Spark 1.3",
+      "owner": "Meta",
+      "description": "Muse Spark 1.3 is a multimodal reasoning model from Meta for long-running agentic, multi-agent, and coding workflows. It improves long-horizon agent collaboration, instruction following, and coding efficiency relative to Muse Spark 1.2.",
+      "releaseDate": "2026-09-02",
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 1.096202753661317,
+        "cached": 0.13154433043935804,
+        "output": 3.727089362448478,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.25,
+          "cached": 0.15,
+          "output": 4.25
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:muse-spark-1.3-contributor-free",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "muse-spark-1.3-contributor-free",
+      "name": "Muse Spark 1.3 Free",
+      "owner": "Meta",
+      "description": "Muse Spark 1.3 is a multimodal reasoning model from Meta for coding and agentic workflows.",
+      "releaseDate": "2026-09-02",
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.0,
+        "cached": 0.0,
+        "output": 0.0,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.0,
+          "cached": 0.0,
+          "output": 0.0
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:nemotron-3-ultra-free",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "nemotron-3-ultra-free",
+      "name": "Nemotron 3 Ultra Free",
+      "owner": "NVIDIA",
+      "description": "Largest Nemotron 3 model for maximum open-weight reasoning and agent accuracy",
+      "releaseDate": "2026-06-04",
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.0,
+        "cached": 0.0,
+        "output": 0.0,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.0,
+          "cached": 0.0,
+          "output": 0.0
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:nemotron-3.5-lightning-free",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "nemotron-3.5-lightning-free",
+      "name": "Nemotron 3.5 Lightning Free",
+      "owner": "NVIDIA",
+      "description": "Fast NVIDIA Nemotron MoE for reliable agentic tasks across enterprise workloads",
+      "releaseDate": "2026-08-11",
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.0,
+        "cached": 0.0,
+        "output": 0.0,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.0,
+          "cached": 0.0,
+          "output": 0.0
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:qwen3.5-plus",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "qwen3.5-plus",
+      "name": "Qwen3.5 Plus",
+      "owner": "Alibaba",
+      "description": "Multimodal reasoning model for visual analysis, planning, and tool use",
+      "releaseDate": "2026-02-16",
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.17539244058581074,
+        "cached": 0.017539244058581073,
+        "output": 1.0523546435148643,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.2,
+          "cached": 0.02,
+          "output": 1.2
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:qwen3.6-plus",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "qwen3.6-plus",
+      "name": "Qwen3.6 Plus",
+      "owner": "Alibaba",
+      "description": "Multimodal reasoning model for visual analysis, planning, and tool use",
+      "releaseDate": "2026-04-02",
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.43848110146452685,
+        "cached": 0.043848110146452686,
+        "output": 2.630886608787161,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.5,
+          "cached": 0.05,
+          "output": 3.0
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:qwen3.8-flash",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "qwen3.8-flash",
+      "name": "Qwen3.8 Flash",
+      "owner": "Alibaba",
+      "description": "Qwen vision-language model for visual reasoning, documents, and agent tasks",
+      "releaseDate": "2026-08-26",
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.13154433043935804,
+        "cached": 0.014031395246864859,
+        "output": 0.4121722353766552,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.15,
+          "cached": 0.016,
+          "output": 0.47
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:qwen3.8-max",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "qwen3.8-max",
+      "name": "Qwen3.8 Max",
+      "owner": "Alibaba",
+      "description": "2.4-trillion-parameter MoE flagship for coding, professional work, multimodal understanding, and long-horizon agentic workflows",
+      "releaseDate": "2026-08-03",
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 1.7539244058581074,
+        "cached": 0.21924055073226342,
+        "output": 5.261773217574322,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 0.25,
+          "output": 6.0
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "opencode:space-bunny-free",
+      "router": "opencode",
+      "routerName": "OpenCode Zen",
+      "modelId": "space-bunny-free",
+      "name": "Space Bunny Free",
+      "owner": "OpenCode",
+      "description": "Anonymous preview reasoning model for coding, agentic tasks, tool use, and multimodal input",
+      "releaseDate": "2026-09-23",
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.0,
+        "cached": 0.0,
+        "output": 0.0,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.0,
+          "cached": 0.0,
+          "output": 0.0
+        }
+      },
+      "pricingTiers": [],
+      "eu": null,
+      "quantization": null,
+      "priceNote": "USD Router Price published in OpenCode's model catalog and converted with the listed ECB rate."
+    },
+    {
       "key": "openrouter:aion-labs/aion-2.0",
       "router": "openrouter",
       "routerName": "OpenRouter",
@@ -11799,15 +14856,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.0427255985267035,
-        "cached": 0.008545119705340698,
-        "output": 0.085451197053407,
+        "input": 0.04248004910988336,
+        "cached": 0.008496009821976673,
+        "output": 0.08496009821976672,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.04872,
-          "cached": 0.009744,
-          "output": 0.09744
+          "input": 0.04844,
+          "cached": 0.009688,
+          "output": 0.09688
         }
       },
       "eu": null,
@@ -11915,15 +14972,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.6518705603788476,
-        "cached": 0.0543225466982373,
-        "output": 1.3037411207576952,
+        "input": 0.6430202578268877,
+        "cached": 0.053585021485573966,
+        "output": 1.2860405156537753,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.743328,
-          "cached": 0.061944,
-          "output": 1.486656
+          "input": 0.733236,
+          "cached": 0.061103,
+          "output": 1.466472
         }
       },
       "eu": null,
@@ -16240,14 +19297,14 @@
         }
       },
       "eu": {
-        "input": 0.388318863456985,
-        "cached": 0.09401034815399456,
+        "input": 0.38446022976409716,
+        "cached": 0.09287029729018678,
         "output": 2.0959396650004383,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.4428,
-          "cached": 0.1072,
+          "input": 0.4384,
+          "cached": 0.1059,
           "output": 2.39
         }
       },
@@ -23597,15 +26654,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.11575901078663509,
-        "cached": 0.02893975269665877,
-        "output": 0.46303604314654034,
+        "input": 0.07234938174164693,
+        "cached": 0.018087345435411732,
+        "output": 0.2893975269665877,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.132,
-          "cached": 0.033,
-          "output": 0.528
+          "input": 0.0825,
+          "cached": 0.020625,
+          "output": 0.33
         }
       },
       "eu": null,
@@ -24144,7 +27201,7 @@
       "routerName": "OpenRouter",
       "modelId": "x-ai/grok-4.20",
       "name": "SpaceXAI: Grok 4.20",
-      "owner": "x-ai",
+      "owner": "xAI",
       "description": "Grok 4.20 is a reasoning model from SpaceXAI with industry-leading speed and agentic tool calling capabilities. It combines the lowest hallucination rate on the market with strict prompt adherance, delivering...",
       "releaseDate": null,
       "contextSize": 2000000,
@@ -24179,7 +27236,7 @@
       "routerName": "OpenRouter",
       "modelId": "x-ai/grok-4.20-multi-agent",
       "name": "SpaceXAI: Grok 4.20 Multi-Agent",
-      "owner": "x-ai",
+      "owner": "xAI",
       "description": "Grok 4.20 Multi-Agent is a variant of SpaceXAI\u2019s Grok 4.20 designed for collaborative, agent-based workflows. Multiple agents operate in parallel to conduct deep research, coordinate tool use, and synthesize information...",
       "releaseDate": null,
       "contextSize": 2000000,
@@ -24214,7 +27271,7 @@
       "routerName": "OpenRouter",
       "modelId": "x-ai/grok-4.3",
       "name": "SpaceXAI: Grok 4.3",
-      "owner": "x-ai",
+      "owner": "xAI",
       "description": "Grok 4.3 is a reasoning model from SpaceXAI. It accepts text and image inputs with text output, and is suited for agentic workflows, instruction-following tasks, and applications requiring high factual...",
       "releaseDate": null,
       "contextSize": 1000000,
@@ -24249,7 +27306,7 @@
       "routerName": "OpenRouter",
       "modelId": "x-ai/grok-4.3:batch",
       "name": "SpaceXAI: Grok 4.3 (batch)",
-      "owner": "x-ai",
+      "owner": "xAI",
       "description": "Grok 4.3 is a reasoning model from SpaceXAI. It accepts text and image inputs with text output, and is suited for agentic workflows, instruction-following tasks, and applications requiring high factual...",
       "releaseDate": null,
       "contextSize": 1000000,
@@ -24284,7 +27341,7 @@
       "routerName": "OpenRouter",
       "modelId": "x-ai/grok-4.5",
       "name": "SpaceXAI: Grok 4.5",
-      "owner": "x-ai",
+      "owner": "xAI",
       "description": "Grok 4.5 is a model from SpaceXAI with frontier performance on coding, knowledge work, and STEM.",
       "releaseDate": null,
       "contextSize": 500000,
@@ -24319,7 +27376,7 @@
       "routerName": "OpenRouter",
       "modelId": "x-ai/grok-4.6",
       "name": "SpaceXAI: Grok 4.6",
-      "owner": "x-ai",
+      "owner": "xAI",
       "description": "Grok 4.6 is a model from SpaceXAI with frontier performance on coding, knowledge work, and STEM. It is succeeded by [Grok 4.7](/x-ai/grok-4.7).",
       "releaseDate": null,
       "contextSize": 500000,
@@ -24354,7 +27411,7 @@
       "routerName": "OpenRouter",
       "modelId": "x-ai/grok-4.7",
       "name": "SpaceXAI: Grok 4.7",
-      "owner": "x-ai",
+      "owner": "xAI",
       "description": "Grok 4.7 is SpaceXAI's flagship model for coding, agentic tasks, and knowledge work, succeeding Grok 4.6. It is particularly strong at long-running software engineering tasks, verifying its own work, and...",
       "releaseDate": null,
       "contextSize": 500000,
@@ -24389,7 +27446,7 @@
       "routerName": "OpenRouter",
       "modelId": "x-ai/grok-build-0.1",
       "name": "SpaceXAI: Grok Build 0.1",
-      "owner": "x-ai",
+      "owner": "xAI",
       "description": "Grok Build 0.1 is SpaceXAI\u2019s fast coding model trained specifically for agentic software engineering workflows. It supports text and image inputs with text output, and is optimized for interactive coding...",
       "releaseDate": null,
       "contextSize": 256000,
@@ -24424,7 +27481,7 @@
       "routerName": "OpenRouter",
       "modelId": "xiaomi/mimo-v2.5",
       "name": "Xiaomi: MiMo-V2.5",
-      "owner": "xiaomi",
+      "owner": "Xiaomi",
       "description": "MiMo-V2.5 is a native omnimodal model by Xiaomi. It delivers Pro-level agentic performance at roughly half the inference cost, while surpassing MiMo-V2-Omni in multimodal perception across image and video understanding...",
       "releaseDate": null,
       "contextSize": 1050000,
@@ -24459,7 +27516,7 @@
       "routerName": "OpenRouter",
       "modelId": "xiaomi/mimo-v2.5-pro",
       "name": "Xiaomi: MiMo-V2.5-Pro",
-      "owner": "xiaomi",
+      "owner": "Xiaomi",
       "description": "MiMo-V2.5-Pro is Xiaomi\u2019s flagship model, delivering strong performance in general agentic capabilities, complex software engineering, and long-horizon tasks, with top rankings on benchmarks such as ClawEval, GDPVal, and SWE-bench Pro....",
       "releaseDate": null,
       "contextSize": 1050000,
@@ -24494,7 +27551,7 @@
       "routerName": "OpenRouter",
       "modelId": "xiaomi/mimo-v2.6-flash",
       "name": "Xiaomi: MiMo-V2.6-Flash",
-      "owner": "xiaomi",
+      "owner": "Xiaomi",
       "description": "MiMo-V2.6-Flash is an open-source foundation model developed by Xiaomi. Built on a Mixture-of-Experts architecture with 309B total parameters and 15B activated per token, it employs a hybrid attention mechanism for...",
       "releaseDate": null,
       "contextSize": 1048576,
@@ -24529,7 +27586,7 @@
       "routerName": "OpenRouter",
       "modelId": "xiaomi/mimo-v2.6-pro",
       "name": "Xiaomi: MiMo-V2.6-Pro",
-      "owner": "xiaomi",
+      "owner": "Xiaomi",
       "description": "MiMo-V2.6-Pro is the flagship foundation model developed by Xiaomi. Built at a scale of over 1T parameters, it is designed to push the ceiling of capability for the most demanding...",
       "releaseDate": null,
       "contextSize": 1048576,
@@ -24564,7 +27621,7 @@
       "routerName": "OpenRouter",
       "modelId": "xiaomi/mimo-v2.6-pro-ultraspeed",
       "name": "Xiaomi: MiMo-V2.6-Pro-UltraSpeed",
-      "owner": "xiaomi",
+      "owner": "Xiaomi",
       "description": "MiMo-V2.6-Pro-UltraSpeed is the fast speed edition of Xiaomi's flagship foundation model, MiMo-V2.6-Pro. Built from the same 1T MiMo-V2.6-Pro checkpoint, it matches the original model in quality while delivering roughly 10x...",
       "releaseDate": null,
       "contextSize": 1048576,
@@ -24998,7 +28055,7 @@
       "owner": "Z.ai",
       "description": "GLM 5.2 is a large-scale reasoning model from Z.ai. It supports text input and output with a 1M-token context window, and is suited for long-horizon agent workflows, project-level software engineering,...",
       "releaseDate": null,
-      "contextSize": 32768,
+      "contextSize": 131072,
       "capabilities": {
         "reasoning": true,
         "tools": false,
@@ -25811,7 +28868,7 @@
       "routerName": "OpenRouter",
       "modelId": "~x-ai/grok-latest",
       "name": "xAI: Grok Latest",
-      "owner": "x-ai",
+      "owner": "xAI",
       "description": "This model always redirects to the latest Grok model from xAI.",
       "releaseDate": null,
       "contextSize": 500000,
@@ -25909,6 +28966,426 @@
       "quantization": null,
       "euPlan": "Business or Enterprise",
       "priceNote": "USD Router Price converted with the listed ECB rate."
+    },
+    {
+      "key": "zai-direct:glm-4-32b-0414-128k",
+      "router": "zai-direct",
+      "routerName": "z.ai API",
+      "modelId": "glm-4-32b-0414-128k",
+      "name": "glm-4-32b-0414-128k",
+      "owner": "Z.ai",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.08769622029290537,
+        "cached": 0.0,
+        "output": 0.08769622029290537,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.1,
+          "cached": 0.0,
+          "output": 0.1
+        }
+      },
+      "eu": null,
+      "quantization": null,
+      "direct": true,
+      "priceNote": "Direct USD API price published by z.ai and converted with the listed ECB rate. This is not a routed offer."
+    },
+    {
+      "key": "zai-direct:glm-4.5",
+      "router": "zai-direct",
+      "routerName": "z.ai API",
+      "modelId": "glm-4.5",
+      "name": "glm-4.5",
+      "owner": "Z.ai",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.5261773217574321,
+        "cached": 0.0964658423221959,
+        "output": 1.9293168464439183,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.6,
+          "cached": 0.11,
+          "output": 2.2
+        }
+      },
+      "eu": null,
+      "quantization": null,
+      "direct": true,
+      "priceNote": "Direct USD API price published by z.ai and converted with the listed ECB rate. This is not a routed offer."
+    },
+    {
+      "key": "zai-direct:glm-4.5-air",
+      "router": "zai-direct",
+      "routerName": "z.ai API",
+      "modelId": "glm-4.5-air",
+      "name": "glm-4.5-air",
+      "owner": "Z.ai",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.17539244058581074,
+        "cached": 0.02630886608787161,
+        "output": 0.9646584232219592,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.2,
+          "cached": 0.03,
+          "output": 1.1
+        }
+      },
+      "eu": null,
+      "quantization": null,
+      "direct": true,
+      "priceNote": "Direct USD API price published by z.ai and converted with the listed ECB rate. This is not a routed offer."
+    },
+    {
+      "key": "zai-direct:glm-4.5-airx",
+      "router": "zai-direct",
+      "routerName": "z.ai API",
+      "modelId": "glm-4.5-airx",
+      "name": "glm-4.5-airx",
+      "owner": "Z.ai",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.9646584232219592,
+        "cached": 0.1929316846443918,
+        "output": 3.9463299131807417,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.1,
+          "cached": 0.22,
+          "output": 4.5
+        }
+      },
+      "eu": null,
+      "quantization": null,
+      "direct": true,
+      "priceNote": "Direct USD API price published by z.ai and converted with the listed ECB rate. This is not a routed offer."
+    },
+    {
+      "key": "zai-direct:glm-4.5-flash",
+      "router": "zai-direct",
+      "routerName": "z.ai API",
+      "modelId": "glm-4.5-flash",
+      "name": "glm-4.5-flash",
+      "owner": "Z.ai",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.0,
+        "cached": 0.0,
+        "output": 0.0,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.0,
+          "cached": 0.0,
+          "output": 0.0
+        }
+      },
+      "eu": null,
+      "quantization": null,
+      "direct": true,
+      "priceNote": "Direct USD API price published by z.ai and converted with the listed ECB rate. This is not a routed offer."
+    },
+    {
+      "key": "zai-direct:glm-4.5-x",
+      "router": "zai-direct",
+      "routerName": "z.ai API",
+      "modelId": "glm-4.5-x",
+      "name": "glm-4.5-x",
+      "owner": "Z.ai",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 1.9293168464439183,
+        "cached": 0.39463299131807417,
+        "output": 7.804963606068578,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.2,
+          "cached": 0.45,
+          "output": 8.9
+        }
+      },
+      "eu": null,
+      "quantization": null,
+      "direct": true,
+      "priceNote": "Direct USD API price published by z.ai and converted with the listed ECB rate. This is not a routed offer."
+    },
+    {
+      "key": "zai-direct:glm-4.6",
+      "router": "zai-direct",
+      "routerName": "z.ai API",
+      "modelId": "glm-4.6",
+      "name": "glm-4.6",
+      "owner": "Z.ai",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.5261773217574321,
+        "cached": 0.0964658423221959,
+        "output": 1.9293168464439183,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.6,
+          "cached": 0.11,
+          "output": 2.2
+        }
+      },
+      "eu": null,
+      "quantization": null,
+      "direct": true,
+      "priceNote": "Direct USD API price published by z.ai and converted with the listed ECB rate. This is not a routed offer."
+    },
+    {
+      "key": "zai-direct:glm-4.7",
+      "router": "zai-direct",
+      "routerName": "z.ai API",
+      "modelId": "glm-4.7",
+      "name": "glm-4.7",
+      "owner": "Z.ai",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.5261773217574321,
+        "cached": 0.0964658423221959,
+        "output": 1.9293168464439183,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.6,
+          "cached": 0.11,
+          "output": 2.2
+        }
+      },
+      "eu": null,
+      "quantization": null,
+      "direct": true,
+      "priceNote": "Direct USD API price published by z.ai and converted with the listed ECB rate. This is not a routed offer."
+    },
+    {
+      "key": "zai-direct:glm-4.7-flash",
+      "router": "zai-direct",
+      "routerName": "z.ai API",
+      "modelId": "glm-4.7-flash",
+      "name": "glm-4.7-flash",
+      "owner": "Z.ai",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.0,
+        "cached": 0.0,
+        "output": 0.0,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.0,
+          "cached": 0.0,
+          "output": 0.0
+        }
+      },
+      "eu": null,
+      "quantization": null,
+      "direct": true,
+      "priceNote": "Direct USD API price published by z.ai and converted with the listed ECB rate. This is not a routed offer."
+    },
+    {
+      "key": "zai-direct:glm-4.7-flashx",
+      "router": "zai-direct",
+      "routerName": "z.ai API",
+      "modelId": "glm-4.7-flashx",
+      "name": "glm-4.7-flashx",
+      "owner": "Z.ai",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.061387354205033766,
+        "cached": 0.008769622029290536,
+        "output": 0.3507848811716215,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.07,
+          "cached": 0.01,
+          "output": 0.4
+        }
+      },
+      "eu": null,
+      "quantization": null,
+      "direct": true,
+      "priceNote": "Direct USD API price published by z.ai and converted with the listed ECB rate. This is not a routed offer."
+    },
+    {
+      "key": "zai-direct:glm-5",
+      "router": "zai-direct",
+      "routerName": "z.ai API",
+      "modelId": "glm-5",
+      "name": "glm-5",
+      "owner": "Z.ai",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.8769622029290537,
+        "cached": 0.17539244058581074,
+        "output": 2.806279049372972,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.0,
+          "cached": 0.2,
+          "output": 3.2
+        }
+      },
+      "eu": null,
+      "quantization": null,
+      "direct": true,
+      "priceNote": "Direct USD API price published by z.ai and converted with the listed ECB rate. This is not a routed offer."
+    },
+    {
+      "key": "zai-direct:glm-5.1",
+      "router": "zai-direct",
+      "routerName": "z.ai API",
+      "modelId": "glm-5.1",
+      "name": "glm-5.1",
+      "owner": "Z.ai",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 1.227747084100675,
+        "cached": 0.22801017276155397,
+        "output": 3.8586336928878366,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.4,
+          "cached": 0.26,
+          "output": 4.4
+        }
+      },
+      "eu": null,
+      "quantization": null,
+      "direct": true,
+      "priceNote": "Direct USD API price published by z.ai and converted with the listed ECB rate. This is not a routed offer."
     }
   ]
 }

@@ -54,7 +54,28 @@
   function computeRow(row, cfg) {
     const out = { monthlyCost: null, runs: null, ip: null, cp: null, op: null, free: false, plan: null, status: null };
 
-    if (row.dataset.pricingType === 'subscription') {
+    if (row.dataset.pricingType === 'subscription_limit') {
+      out.plan = 'Go';
+      out.ip = parseFloat(row.dataset.inputPrice);
+      out.cp = parseFloat(row.dataset.cachedPrice);
+      out.op = parseFloat(row.dataset.outputPrice);
+      out.monthlyCost = parseFloat(row.dataset.monthlyPrice);
+      const usageCost = cfg.monthlyTokens * (
+        cfg.input / 100 * out.ip
+        + cfg.cached / 100 * out.cp
+        + cfg.output / 100 * out.op
+      );
+      const limit = parseFloat(row.dataset.monthlyLimit);
+      if (Number.isFinite(limit) && limit > 0) {
+        if (usageCost > limit) {
+          out.status = { text: 'Likely to hit limits', cls: 'limit-red' };
+        } else if (usageCost > limit * 0.75) {
+          out.status = { text: 'Approaching limits', cls: 'limit-orange' };
+        } else {
+          out.status = { text: 'Within safe limits', cls: 'limit-green' };
+        }
+      }
+    } else if (row.dataset.pricingType === 'subscription') {
       if (!SUBS.length || !cfg.tierSel) return out;
       const prov = SUBS.find(p => p.id === row.dataset.providerId);
       const tier = prov && prov.tiers.find(t => t.name === cfg.tierSel);
@@ -209,6 +230,11 @@
     if (v === undefined || v === '') return null;
     return +v;
   };
+  const compareText = (a, b) => String(a ?? '').localeCompare(
+    String(b ?? ''),
+    'en',
+    { numeric: true, sensitivity: 'base' },
+  );
   const COLUMN_GET = {
     provider: tr => tr.children[1].textContent.trim(),
     plan:     tr => tr.children[2].textContent.trim(),
@@ -247,12 +273,13 @@
       else if (av == null && bv == null) cmp = 0;
       else if (av == null) cmp = 1;
       else if (bv == null) cmp = -1;
-      else cmp = String(av).localeCompare(String(bv)) * dir;
+      else cmp = compareText(av, bv) * dir;
       // Tiebreaker: model name ascending when primary values are equal
       if (cmp === 0) {
-        const am = (a.dataset.modelId || '').toLowerCase();
-        const bm = (b.dataset.modelId || '').toLowerCase();
-        cmp = am.localeCompare(bm);
+        cmp = compareText(
+          a.children[3].textContent.trim(),
+          b.children[3].textContent.trim(),
+        );
       }
       return cmp;
     }).forEach(tr => tbody.appendChild(tr));
@@ -372,6 +399,12 @@
   // ponytail: simple title tooltip instead of expandable dl; add back if users miss the detail
   function updateSubTooltips() {
     const cfg = getConfig();
+    document.querySelectorAll('#provider-table tbody tr[data-pricing-type="subscription_limit"]').forEach(row => {
+      const limit = parseFloat(row.dataset.monthlyLimit);
+      row.title = Number.isFinite(limit)
+        ? `$${row.dataset.monthlyPrice}/mo · $${limit} monthly usage limit for this model`
+        : `$${row.dataset.monthlyPrice}/mo · Unlimited usage for this model`;
+    });
     document.querySelectorAll('#provider-table tbody tr[data-pricing-type="subscription"]').forEach(row => {
       const prov = SUBS.find(p => p.id === row.dataset.providerId);
       const tier = prov && (prov.tiers.find(t => t.name === cfg.tierSel) || prov.tiers[0]);

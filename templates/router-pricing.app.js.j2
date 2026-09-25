@@ -28,7 +28,15 @@
   const fmtMoney = n => n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   const fmtRuns = n => n.toLocaleString('en-US', { maximumFractionDigits: 1 });
   const rate = n => n === 0 ? 'Free' : `€${fmt(n)}`;
-  const activeRates = model => model[state.mode];
+  const activeRates = (model, cfg = null) => {
+    const base = model[state.mode];
+    if (!base || state.mode !== 'default' || !cfg || !model.pricingTiers?.length) return base;
+    const contextTokens = cfg.inputTokens + cfg.cachedTokens;
+    return model.pricingTiers.reduce(
+      (rates, tier) => contextTokens > tier.contextAbove ? tier : rates,
+      base,
+    );
+  };
   const isFree = prices => prices.input === 0 && prices.cached === 0 && prices.output === 0;
   const encoded = key => encodeURIComponent(key);
   const esc = value => String(value ?? '').replace(/[&<>"']/g, character => ({
@@ -67,6 +75,7 @@
 
   function warnings(model, rates) {
     let result = '';
+    if (model.direct) result += '<span class="direct-chip" title="Direct provider API price; this offer is not routed">Direct API</span>';
     if (rates.cachedFallback && !isFree(rates)) result += '<span class="warning-chip" title="No cached-input rate is published. The estimate uses the normal input rate.">⚠</span>';
     if (model.quantization) result += `<span class="warning-chip" title="A provider matching this price uses heavy quantization">${model.quantization}</span>`;
     if (state.mode === 'default' && model.eu) result += '<span class="router-chip" title="EU price available">EU</span>';
@@ -75,7 +84,7 @@
   }
 
   function passesFilters(model, cfg) {
-    const prices = activeRates(model);
+    const prices = activeRates(model, cfg);
     if (!prices) return false;
     if (state.routers.size && !state.routers.has(model.router)) return false;
     if (state.creator && !(model.owner || '').toLowerCase().includes(state.creator)) return false;
@@ -122,7 +131,7 @@
   function render() {
     const cfg = getConfig();
     const rows = ALL_MODELS.filter(model => passesFilters(model, cfg)).map(model => {
-      const prices = activeRates(model);
+      const prices = activeRates(model, cfg);
       const cost = estimateCost(prices, cfg);
       return { ...model, ...prices, cost, runs: cost > 0 ? cfg.budget / cost : null };
     });
@@ -145,7 +154,7 @@
       </tr>`;
     }).join('');
     document.getElementById('no-results').style.display = rows.length ? 'none' : 'block';
-    document.getElementById('row-count').innerHTML = `Showing <strong>${rows.length}</strong> of <strong>${ALL_MODELS.length}</strong> router model offers`;
+    document.getElementById('row-count').innerHTML = `Showing <strong>${rows.length}</strong> of <strong>${ALL_MODELS.length}</strong> price offers`;
     document.querySelectorAll('thead th[data-col]').forEach(th => {
       const icon = th.querySelector('.sort-icon');
       icon.textContent = th.dataset.col === state.sortCol ? (state.sortDir === 'asc' ? '↑' : '↓') : '↕';
@@ -156,7 +165,7 @@
   }
 
   function detailHtml(model) {
-    const prices = activeRates(model);
+    const prices = activeRates(model, getConfig());
     const providers = (state.mode === 'eu' ? model.euProviders : model.providers) || [];
     const router = ROUTERS.find(item => item.id === model.router);
     const free = isFree(prices);
@@ -179,6 +188,9 @@
     const plan = model.eu && model.euPlan
       ? `<p class="detail-note"><strong>Plan restriction:</strong> ${esc(model.routerName)} EU routing requires ${esc(model.euPlan)}.</p>`
       : '';
+    const tiers = model.pricingTiers?.length
+      ? `<p class="detail-note"><strong>Long-context pricing:</strong> Higher rates are selected automatically when input plus cached tokens exceed ${model.pricingTiers.map(tier => tier.contextAbove.toLocaleString()).join(' or ')} tokens per calculation.</p>`
+      : '';
     return `<div class="detail-panel">
       <div class="detail-title">${esc(model.name)}</div>
       ${model.description ? `<p class="detail-description">${esc(model.description)}</p>` : ''}
@@ -187,7 +199,7 @@
         <div class="detail-item"><strong>Model creator</strong>${esc(model.owner || 'Not supplied')}</div>
         <div class="detail-item"><strong>Context</strong>${model.contextSize ? model.contextSize.toLocaleString() + ' tokens' : 'Not supplied'}</div>
         <div class="detail-item"><strong>Release date</strong>${esc(model.releaseDate || 'Not supplied')}</div>
-        <div class="detail-item"><strong>Routing mode</strong>${state.mode === 'eu' ? 'EU routing' : 'Unrestricted inference'}</div>
+        <div class="detail-item"><strong>Access type</strong>${model.direct ? 'Direct API (not routed)' : state.mode === 'eu' ? 'EU routing' : 'Unrestricted inference'}</div>
         <div class="detail-item"><strong>EUR per 1M</strong>€${fmt(prices.input)} input · €${fmt(prices.cached)} cached${prices.cachedFallback && !free ? ' (estimate)' : ''} · €${fmt(prices.output)} output</div>
         <div class="detail-item"><strong>Providers in bulk catalog</strong>${providers.length ? providers.map(esc).join(', ') : 'Not supplied'}</div>
         <div class="detail-item"><strong>Capabilities</strong>${capabilities(model, false) || 'None explicitly published'}</div>
@@ -196,7 +208,7 @@
       </div>
       <p class="detail-note"><strong>Price provenance:</strong> ${esc(model.priceNote)}</p>
       ${prices.native && !free ? `<p class="detail-note"><strong>ECB conversion:</strong> 1 EUR = ${EXCHANGE_RATE.usdPerEur} USD on ${EXCHANGE_RATE.observationDate}.</p>` : ''}
-      ${euClaim}${cache}${plan}
+      ${euClaim}${cache}${plan}${tiers}
       <p class="detail-note dim">Listed at the router's recorded fetch time. This does not promise live capacity or account access.</p>
     </div>`;
   }
@@ -231,7 +243,7 @@
     tray.classList.add('visible');
     document.body.classList.add('tray-open');
     cards.innerHTML = selected.map(model => {
-      const prices = activeRates(model);
+      const prices = activeRates(model, cfg);
       const remove = `<button class="cmp-card-remove" onclick="toggleCompare(decodeURIComponent('${encoded(model.key)}'))">✕</button>`;
       if (!prices) {
         return `<div class="cmp-card">${remove}<div class="cmp-card-name">${esc(model.name)}</div><div class="cmp-card-provider">${esc(model.routerName)}</div><p class="unavailable">Unavailable with EU routing</p></div>`;

@@ -12,7 +12,10 @@ import fetch_router_pricing
 from fetch_router_pricing import (
     _cached_router,
     _creator,
+    _direct_api_offer,
     _openrouter_rates,
+    _opencode_owner,
+    _opencode_tiers,
     _per_million_rates,
     _provider,
     _rates,
@@ -52,6 +55,46 @@ def test_openrouter_conversion():
     assert converted["input"] == 1
     assert converted["output"] == 3
     assert converted["cached"] == 1
+
+
+def test_opencode_tier_conversion():
+    tiers = _opencode_tiers(
+        {
+            "tiers": [
+                {
+                    "input": 4,
+                    "output": 12,
+                    "cache_read": 1,
+                    "tier": {"type": "context", "size": 200_000},
+                }
+            ]
+        },
+        usd_per_eur=2,
+    )
+    assert tiers[0]["contextAbove"] == 200_000
+    assert tiers[0]["input"] == 2
+    assert tiers[0]["cached"] == 0.5
+    assert tiers[0]["output"] == 6
+
+
+def test_opencode_owner():
+    assert _opencode_owner({"id": "qwen3.8-flash"}) == "Alibaba"
+    assert _opencode_owner({"id": "gpt-5.4"}) == "OpenAI"
+    assert _opencode_owner({"id": "space-bunny-free"}) == "OpenCode"
+
+
+def test_direct_api_offer():
+    offer = _direct_api_offer(
+        {"id": "test-direct", "name": "Test API", "owner": "Test"},
+        {"id": "test-model", "input": 2, "input_cache": 0.5, "output": 6},
+        {"usdPerEur": 2},
+        price_note="Direct test price.",
+    )
+    assert offer["direct"] is True
+    assert offer["eu"] is None
+    assert offer["default"]["input"] == 1
+    assert offer["default"]["cached"] == 0.25
+    assert offer["default"]["output"] == 3
 
 
 def test_organization_name_normalization():
@@ -130,7 +173,14 @@ def test_stale_openrouter_keeps_its_exchange_rate():
 def test_aggregate_contract():
     data = json.loads(DATA.read_text(encoding="utf-8"))
     router_ids = {router["id"] for router in data["routers"]}
-    assert router_ids == {"cortecs", "eurouter", "openrouter"}
+    assert router_ids == {
+        "cortecs",
+        "deepseek-direct",
+        "eurouter",
+        "opencode",
+        "openrouter",
+        "zai-direct",
+    }
     assert data["omittedRouters"] == []
     assert data["currency"] == "EUR"
     assert data["exchangeRate"]["usdPerEur"] > 0
@@ -210,6 +260,28 @@ def test_aggregate_contract():
             assert prices["nativeCurrency"] == "USD"
             assert math.isclose(prices["input"], prices["native"]["input"] / rate)
 
+    opencode_offers = [item for item in offers if item["router"] == "opencode"]
+    assert opencode_offers
+    assert all(offer["eu"] is None for offer in opencode_offers)
+    assert any(offer["pricingTiers"] for offer in opencode_offers)
+    for offer in opencode_offers:
+        assert offer["default"]["nativeCurrency"] == "USD"
+        assert math.isclose(
+            offer["default"]["input"],
+            offer["default"]["native"]["input"] / rate,
+        )
+
+    direct_offers = [item for item in offers if item.get("direct")]
+    assert {offer["router"] for offer in direct_offers} == {
+        "deepseek-direct",
+        "zai-direct",
+    }
+    assert all(offer["eu"] is None for offer in direct_offers)
+    assert all(
+        offer["default"]["nativeCurrency"] == "USD"
+        for offer in direct_offers
+    )
+
 
 def test_generated_pages():
     html = HTML.read_text(encoding="utf-8")
@@ -221,6 +293,14 @@ def test_generated_pages():
         'data-router="cortecs"',
         'data-router="eurouter"',
         'data-router="openrouter"',
+        'data-router="opencode"',
+        'data-router="deepseek-direct"',
+        'data-router="zai-direct"',
+        '.router-deepseek-direct .router-chip',
+        '.router-zai-direct .router-chip',
+        '.router-opencode .router-chip',
+        '#router-table tr.router-deepseek-direct td:first-child',
+        '#router-table tr.router-opencode td:first-child',
         'data-filter="reasoning"',
         'data-filter="tools"',
         'data-filter="vision"',
@@ -246,6 +326,8 @@ def test_generated_pages():
         "Cortecs EU catalog",
         "EUrouter baseline",
         "OpenRouter EU region",
+        "Direct API",
+        "provider price, not routed",
         "EU Router Price",
         "EU routing meaning:",
         "Not listed for this router model offer",
@@ -254,12 +336,18 @@ def test_generated_pages():
         "const ALL_MODELS =",
     ):
         assert marker in html
+    assert '#router-filters [data-router="opencode"]' not in html
+    assert '#router-filters [data-router="cortecs"]' not in html
+    assert '#router-filters [data-router="openrouter"]' not in html
     assert "ZDR" not in html
     assert "Input €/1M" not in html
     assert "Cached €/1M" not in html
     assert "Output €/1M" not in html
     assert 'class="capabilities-col"' in html
     assert "#router-table { table-layout: fixed; min-width: 0;" in html
+    assert "#router-table td.model-id {" in html
+    assert "overflow-wrap: anywhere" in html
+    assert "td.model-id { overflow: hidden" not in html
     assert "@media (max-width: 1000px)" in html
     assert 'http-equiv="refresh"' in redirect
     assert 'rel="canonical" href="router-pricing.html"' in redirect
@@ -269,6 +357,9 @@ def test_generated_pages():
 def main():
     test_rate_helpers()
     test_openrouter_conversion()
+    test_opencode_tier_conversion()
+    test_opencode_owner()
+    test_direct_api_offer()
     test_organization_name_normalization()
     test_seven_day_router_fallback()
     test_stale_openrouter_keeps_its_exchange_rate()

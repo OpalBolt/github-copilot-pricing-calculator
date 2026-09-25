@@ -2,12 +2,13 @@
 """
 fetch_providers.py
 
-Scrapes three provider pricing sources and writes providers.json — the unified
+Scrapes four provider pricing sources and writes providers.json — the unified
 data source for the provider comparison page:
 
     deepseek     https://api-docs.deepseek.com/quick_start/pricing/  (HTML table)
     zai          https://docs.z.ai/guides/overview/pricing.md        (markdown, text models)
     zai-devpack  https://docs.z.ai/devpack/overview.md               (markdown)
+    opencode-go  https://opencode.ai/docs/go/                        (HTML table)
 
 Usage:
     python fetch_providers.py              # fetch + write providers.json
@@ -27,6 +28,7 @@ from pathlib import Path
 DEEPSEEK_URL = "https://api-docs.deepseek.com/quick_start/pricing/"  # trailing slash: the bare URL serves a different page
 ZAI_PAYGO_URL = "https://docs.z.ai/guides/overview/pricing.md"
 ZAI_DEVPACK_URL = "https://docs.z.ai/devpack/overview.md"
+OPENCODE_GO_URL = "https://opencode.ai/docs/go/"
 # Fallback only — the real value is parsed from the page's CONTEXT LENGTH row.
 DEEPSEEK_CONTEXT = 1_048_576
 
@@ -39,6 +41,11 @@ DEVPACK_MONTHLY_USD = {"Lite": 18, "Pro": 80, "Max": 168}
 # compare page. If none of these exist upstream anymore, all models become
 # visible (and a note is printed) rather than an empty default view.
 ZAI_PAYGO_DEFAULT_MODEL_IDS = {"glm-5.1"}
+OPENCODE_GO_DEFAULT_MODELS = {
+    "GLM-5.3-Flash",
+    "Kimi K2.7 Code",
+    "MiniMax M3",
+}
 
 # Curated: the devpack models worth showing (the multiplier table also lists
 # vision models like GLM-4.6V). New unlisted rows are skipped with a printed
@@ -323,14 +330,74 @@ def scrape_zai_devpack() -> dict:
     return parse_zai_devpack(fetch_text(ZAI_DEVPACK_URL))
 
 
+def scrape_opencode_go() -> dict:
+    """Published token rates and per-model dollar limits -> subscription entry."""
+    html = fetch_text(OPENCODE_GO_URL)
+    tables = [
+        html_table_rows(table)
+        for table in re.findall(r"<table.*?</table>", html, re.S)
+    ]
+    table = next(
+        rows for rows in tables
+        if rows and "Monthly limit" in rows[0]
+    )
+    header, *rows = table
+    model_i = header.index("Model")
+    input_i = header.index("Input")
+    output_i = header.index("Output")
+    cached_i = header.index("Cached Read")
+    limit_i = header.index("Monthly limit")
+
+    models = []
+    for row in rows:
+        if len(row) != len(header):
+            continue
+        name = row[model_i]
+        limits = [float(value) for value in PRICE_RE.findall(row[limit_i])]
+        models.append(
+            {
+                "id": re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-"),
+                "name": name,
+                "input": parse_price(row[input_i]),
+                "input_cache": parse_price(row[cached_i]),
+                "output": parse_price(row[output_i]),
+                "monthly_limit_usd": max(limits) if limits else None,
+                "default_visible": name in OPENCODE_GO_DEFAULT_MODELS,
+            }
+        )
+    assert len(models) >= 35, f"expected at least 35 OpenCode Go rows, got {len(models)}"
+    assert any(model["monthly_limit_usd"] is None for model in models)
+    assert {
+        model["name"] for model in models if model["default_visible"]
+    } == OPENCODE_GO_DEFAULT_MODELS
+    return {
+        "id": "opencode-go",
+        "name": "OpenCode Go",
+        "pricing_type": "subscription_limit",
+        "currency": "USD",
+        "monthly_usd": 10,
+        "models": models,
+    }
+
+
 def self_check(providers: list[dict], prev: list[dict] | None = None) -> None:
     """Structural invariants + a change notice vs the previous providers.json.
 
     No pinned rosters or prices: model/pricing changes upstream flow through and
     are only printed here so a human still sees them in CI logs.
     """
-    assert [p["id"] for p in providers] == ["deepseek", "zai", "zai-devpack"], providers
-    assert [p["pricing_type"] for p in providers] == ["paygo", "paygo", "subscription"]
+    assert [p["id"] for p in providers] == [
+        "deepseek",
+        "zai",
+        "zai-devpack",
+        "opencode-go",
+    ], providers
+    assert [p["pricing_type"] for p in providers] == [
+        "paygo",
+        "paygo",
+        "subscription",
+        "subscription_limit",
+    ]
     if not prev:
         return
     old = {p["id"]: p for p in prev}
@@ -347,8 +414,13 @@ def self_check(providers: list[dict], prev: list[dict] | None = None) -> None:
               f"+{sorted(ids(p) - ids(o))} -{sorted(ids(o) - ids(p))}")
 
 def build() -> dict:
-    """Three scrapers + self-check -> the providers.json payload."""
-    providers = [scrape_deepseek(), scrape_zai_paygo(), scrape_zai_devpack()]
+    """Provider scrapers + self-check -> the providers.json payload."""
+    providers = [
+        scrape_deepseek(),
+        scrape_zai_paygo(),
+        scrape_zai_devpack(),
+        scrape_opencode_go(),
+    ]
     prev_path = Path(__file__).parent / "providers.json"
     prev = None
     if prev_path.exists():
@@ -361,7 +433,7 @@ def build() -> dict:
 
 
 def main() -> None:
-    print("Fetching provider pricing (deepseek, z.ai paygo, z.ai devpack)...")
+    print("Fetching provider pricing (deepseek, z.ai, z.ai devpack, opencode go)...")
     output = build()
     for p in output["providers"]:
         print(f"  {p['id']:<11} {p['pricing_type']:<12} {len(p['models'])} model(s)")

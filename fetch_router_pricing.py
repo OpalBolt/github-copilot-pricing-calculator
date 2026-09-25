@@ -11,6 +11,13 @@ from datetime import datetime, timedelta, timezone
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
 
+from fetch_providers import (
+    DEEPSEEK_URL,
+    ZAI_PAYGO_URL,
+    scrape_deepseek,
+    scrape_zai_paygo,
+)
+
 ROOT = Path(__file__).parent
 OUTPUT_PATH = ROOT / "router-pricing.json"
 MAX_STALE_AGE = timedelta(days=7)
@@ -20,6 +27,8 @@ CORTECS_EU_URL = CORTECS_URL + "&eu_native=true"
 EUROUTER_URL = "https://api.eurouter.ai/api/v1/models"
 OPENROUTER_URL = "https://openrouter.ai/api/v1/models"
 OPENROUTER_EU_URL = "https://eu.openrouter.ai/api/v1/models"
+OPENCODE_ZEN_URL = "https://opencode.ai/zen/v1/models"
+MODELS_DEV_URL = "https://models.dev/api.json"
 ECB_SERIES = "EXR.D.USD.EUR.SP00.A"
 ECB_URL = (
     "https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A"
@@ -39,6 +48,8 @@ OWNER_ALIASES = {
     "nousresearch": "Nous Research",
     "nvidia": "NVIDIA",
     "openai": "OpenAI",
+    "xiaomi": "Xiaomi",
+    "xai": "xAI",
     "zai": "Z.ai",
 }
 
@@ -108,6 +119,7 @@ def _capabilities(model: dict) -> dict[str, bool]:
         for value in (
             model.get("input_modalities")
             or model.get("architecture", {}).get("input_modalities")
+            or model.get("modalities", {}).get("input")
             or []
         )
     }
@@ -119,14 +131,21 @@ def _capabilities(model: dict) -> dict[str, bool]:
             or []
         )
     }
+    reasoning = model.get("reasoning")
     return {
         "reasoning": bool(
             {"reasoning", "include_reasoning"} & features
-            or model.get("reasoning", {}).get("mandatory")
-            or model.get("reasoning", {}).get("supported_efforts")
+            or reasoning is True
+            or (
+                isinstance(reasoning, dict)
+                and (
+                    reasoning.get("mandatory")
+                    or reasoning.get("supported_efforts")
+                )
+            )
         ),
-        "tools": bool({"tools", "tool_choice"} & features),
-        "vision": bool({"image", "vision"} & inputs),
+        "tools": bool({"tools", "tool_choice"} & features or model.get("tool_call")),
+        "vision": bool({"image", "vision", "video", "pdf"} & inputs),
         "audio": "audio" in inputs,
     }
 
@@ -238,6 +257,7 @@ def _per_million_rates(pricing: dict, *, native_currency: str) -> dict:
         "cache_read_cost",
         "cached_input",
         "input_cache_read",
+        "cache_read",
     )
     if input_rate is None or output_rate is None:
         raise ValueError("pricing is missing input or output")
@@ -420,6 +440,175 @@ def fetch_openrouter(exchange_rate: dict) -> list[dict]:
     return offers
 
 
+def _opencode_owner(model: dict) -> str:
+    model_id = model["id"].lower()
+    owners = {
+        "claude": "Anthropic",
+        "deepseek": "DeepSeek",
+        "gemini": "Google",
+        "glm": "Z.ai",
+        "gpt": "OpenAI",
+        "grok": "xAI",
+        "kimi": "Moonshot AI",
+        "minimax": "MiniMax AI",
+        "mimo": "Xiaomi",
+        "muse": "Meta",
+        "nemotron": "NVIDIA",
+        "qwen": "Alibaba",
+    }
+    return next(
+        (owner for prefix, owner in owners.items() if model_id.startswith(prefix)),
+        "OpenCode",
+    )
+
+
+def _converted_usd_rates(cost: dict, usd_per_eur: float) -> dict:
+    return _usd_rates({"pricing": cost}, usd_per_eur)
+
+
+def _opencode_tiers(cost: dict, usd_per_eur: float) -> list[dict]:
+    tiers = []
+    for tier in cost.get("tiers", []):
+        threshold = tier.get("tier", {})
+        if threshold.get("type") != "context" or threshold.get("size") is None:
+            continue
+        rates = _converted_usd_rates(tier, usd_per_eur)
+        tiers.append({"contextAbove": threshold["size"], **rates})
+    return sorted(tiers, key=lambda tier: tier["contextAbove"])
+
+
+def fetch_opencode(exchange_rate: dict) -> list[dict]:
+    available = {
+        model["id"]
+        for model in _catalog(fetch_json(OPENCODE_ZEN_URL), "OpenCode Zen")
+        if model.get("id")
+    }
+    provider = fetch_json(MODELS_DEV_URL).get("opencode", {})
+    models = provider.get("models")
+    if not isinstance(models, dict) or not models:
+        raise ValueError("OpenCode Zen metadata catalog has no models")
+
+    offers = []
+    for model_id in sorted(available):
+        model = models.get(model_id)
+        if not model or not _is_text_output(model):
+            continue
+        cost = model.get("cost", {})
+        try:
+            default = _converted_usd_rates(cost, exchange_rate["usdPerEur"])
+        except ValueError:
+            continue
+        tiers = _opencode_tiers(cost, exchange_rate["usdPerEur"])
+        offers.append(
+            {
+                "key": f"opencode:{model_id}",
+                "router": "opencode",
+                "routerName": "OpenCode Zen",
+                "modelId": model_id,
+                "name": model.get("name") or model_id,
+                "owner": _opencode_owner(model),
+                "description": model.get("description", ""),
+                "releaseDate": model.get("release_date"),
+                "contextSize": model.get("limit", {}).get("context"),
+                "capabilities": _capabilities(model),
+                "providers": [],
+                "euProviders": [],
+                "default": default,
+                "pricingTiers": tiers,
+                "eu": None,
+                "quantization": None,
+                "priceNote": (
+                    "USD Router Price published in OpenCode's model catalog and "
+                    "converted with the listed ECB rate."
+                ),
+            }
+        )
+    if not offers:
+        raise ValueError("OpenCode Zen has no usable text-output offers")
+    return offers
+
+
+def _direct_api_offer(
+    provider: dict,
+    model: dict,
+    exchange_rate: dict,
+    *,
+    price_note: str,
+) -> dict:
+    rates = _converted_usd_rates(
+        {
+            "input": model["input"],
+            "cache_read": model.get("input_cache"),
+            "output": model["output"],
+        },
+        exchange_rate["usdPerEur"],
+    )
+    return {
+        "key": f"{provider['id']}:{model['id']}",
+        "router": provider["id"],
+        "routerName": provider["name"],
+        "modelId": model["id"],
+        "name": model["id"],
+        "owner": provider["owner"],
+        "description": "",
+        "releaseDate": None,
+        "contextSize": model.get("context"),
+        "capabilities": {
+            "reasoning": False,
+            "tools": False,
+            "vision": False,
+            "audio": False,
+        },
+        "providers": [],
+        "euProviders": [],
+        "default": rates,
+        "eu": None,
+        "quantization": None,
+        "direct": True,
+        "priceNote": price_note,
+    }
+
+
+def fetch_deepseek_direct(exchange_rate: dict) -> list[dict]:
+    provider = scrape_deepseek()
+    metadata = {"id": "deepseek-direct", "name": "DeepSeek API", "owner": "DeepSeek"}
+    offers = [
+        _direct_api_offer(
+            metadata,
+            model,
+            exchange_rate,
+            price_note=(
+                "Direct USD API peak price published by DeepSeek and converted "
+                "with the listed ECB rate. This is not a routed offer."
+            ),
+        )
+        for model in provider["models"]
+    ]
+    if not offers:
+        raise ValueError("DeepSeek API has no usable offers")
+    return offers
+
+
+def fetch_zai_direct(exchange_rate: dict) -> list[dict]:
+    provider = scrape_zai_paygo()
+    metadata = {"id": "zai-direct", "name": "z.ai API", "owner": "Z.ai"}
+    offers = [
+        _direct_api_offer(
+            metadata,
+            model,
+            exchange_rate,
+            price_note=(
+                "Direct USD API price published by z.ai and converted with the "
+                "listed ECB rate. This is not a routed offer."
+            ),
+        )
+        for model in provider["models"]
+    ]
+    if not offers:
+        raise ValueError("z.ai API has no usable offers")
+    return offers
+
+
 ROUTERS = {
     "cortecs": {
         "name": "Cortecs",
@@ -435,6 +624,23 @@ ROUTERS = {
         "name": "OpenRouter",
         "source": OPENROUTER_URL,
         "euClaim": "EU regional routing; Business or Enterprise plan required.",
+    },
+    "opencode": {
+        "name": "OpenCode Zen",
+        "source": OPENCODE_ZEN_URL,
+        "euClaim": "No EU routing catalog is published.",
+    },
+    "deepseek-direct": {
+        "name": "DeepSeek API",
+        "source": DEEPSEEK_URL,
+        "kind": "direct",
+        "euClaim": "Direct API baseline; no router or EU routing mode.",
+    },
+    "zai-direct": {
+        "name": "z.ai API",
+        "source": ZAI_PAYGO_URL,
+        "kind": "direct",
+        "euClaim": "Direct API baseline; no router or EU routing mode.",
     },
 }
 
@@ -490,11 +696,17 @@ def build(previous: dict | None = None) -> dict:
     }
     if exchange_rate and not ecb_error:
         adapters["openrouter"] = lambda: fetch_openrouter(exchange_rate)
+        adapters["opencode"] = lambda: fetch_opencode(exchange_rate)
+        adapters["deepseek-direct"] = lambda: fetch_deepseek_direct(exchange_rate)
+        adapters["zai-direct"] = lambda: fetch_zai_direct(exchange_rate)
     elif ecb_error:
         def unavailable_openrouter():
             raise RuntimeError(f"ECB: {ecb_error}")
 
         adapters["openrouter"] = unavailable_openrouter
+        adapters["opencode"] = unavailable_openrouter
+        adapters["deepseek-direct"] = unavailable_openrouter
+        adapters["zai-direct"] = unavailable_openrouter
 
     for router_id, adapter in adapters.items():
         try:
@@ -514,7 +726,12 @@ def build(previous: dict | None = None) -> dict:
                 metadata, router_offers = cached
                 routers.append(metadata)
                 offers.extend(router_offers)
-                if router_id == "openrouter":
+                if router_id in {
+                    "openrouter",
+                    "opencode",
+                    "deepseek-direct",
+                    "zai-direct",
+                }:
                     exchange_rate = previous.get("exchangeRate")
             else:
                 omitted.append({"id": router_id, "reason": str(error)})

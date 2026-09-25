@@ -48,6 +48,7 @@ def main() -> int:
     subscriptions = [
         row for row in rows if row["pricing_type"] == "subscription"
     ]
+    go = [row for row in rows if row["pricing_type"] == "subscription_limit"]
     # Row counts mirror providers.json — no pinned rosters; upstream model
     # changes flow through and are noticed in fetch_providers.py, not here.
     assert rows, "no model rows rendered"
@@ -58,6 +59,11 @@ def main() -> int:
     )
     assert len(subscriptions) == sum(
         len(p["models"]) for p in PROVIDERS if p["pricing_type"] == "subscription"
+    )
+    assert len(go) == sum(
+        len(p["models"])
+        for p in PROVIDERS
+        if p["pricing_type"] == "subscription_limit"
     )
     assert all(row["compare_button"] and row["monthly_cost"] for row in rows)
 
@@ -97,6 +103,11 @@ def main() -> int:
         if "off_peak_multiplier" in p:
             assert 0 < p["off_peak_multiplier"] <= 1, p
             assert p["off_peak_label"], p
+    assert by_provider["opencode-go"]["monthly_usd"] == 10
+    assert any(
+        model["monthly_limit_usd"] is None
+        for model in by_provider["opencode-go"]["models"]
+    )
 
     assert 'id="off-peak-toggle"' in HTML
     assert "Use off-peak rates" in HTML
@@ -109,6 +120,8 @@ def main() -> int:
     assert 'id="model-search"' in HTML
     assert 'id="provider-chips"' in HTML
     assert 'id="compare-tray"' in HTML
+    assert "numeric: true" in HTML
+    assert "a.children[3].textContent.trim()" in HTML
     assert HTML.count('class="filter-chip active"') == len(PROVIDERS)
     assert HTML.count('data-provider-name="') == len(rows)
 

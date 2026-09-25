@@ -164,6 +164,402 @@
           "default_visible": true
         }
       ]
+    },
+    {
+      "id": "opencode-go",
+      "name": "OpenCode Go",
+      "pricing_type": "subscription_limit",
+      "currency": "USD",
+      "monthly_usd": 10,
+      "models": [
+        {
+          "id": "glm-5-3-flash",
+          "name": "GLM-5.3-Flash",
+          "input": 0.15,
+          "input_cache": 0.03,
+          "output": 0.5,
+          "monthly_limit_usd": 60.0,
+          "default_visible": true
+        },
+        {
+          "id": "glm-5-3",
+          "name": "GLM-5.3",
+          "input": 1.4,
+          "input_cache": 0.26,
+          "output": 4.4,
+          "monthly_limit_usd": 15.0,
+          "default_visible": false
+        },
+        {
+          "id": "glm-5-2",
+          "name": "GLM-5.2",
+          "input": 1.4,
+          "input_cache": 0.26,
+          "output": 4.4,
+          "monthly_limit_usd": 60.0,
+          "default_visible": false
+        },
+        {
+          "id": "glm-5-1",
+          "name": "GLM-5.1",
+          "input": 1.4,
+          "input_cache": 0.26,
+          "output": 4.4,
+          "monthly_limit_usd": 60.0,
+          "default_visible": false
+        },
+        {
+          "id": "kimi-k3",
+          "name": "Kimi K3",
+          "input": 3.0,
+          "input_cache": 0.3,
+          "output": 15.0,
+          "monthly_limit_usd": 15.0,
+          "default_visible": false
+        },
+        {
+          "id": "kimi-k2-7-code",
+          "name": "Kimi K2.7 Code",
+          "input": 0.95,
+          "input_cache": 0.19,
+          "output": 4.0,
+          "monthly_limit_usd": 60.0,
+          "default_visible": true
+        },
+        {
+          "id": "kimi-k2-6",
+          "name": "Kimi K2.6",
+          "input": 0.95,
+          "input_cache": 0.16,
+          "output": 4.0,
+          "monthly_limit_usd": 60.0,
+          "default_visible": false
+        },
+        {
+          "id": "longcat-2-0",
+          "name": "LongCat-2.0",
+          "input": 0.3,
+          "input_cache": 0.006,
+          "output": 1.2,
+          "monthly_limit_usd": 60.0,
+          "default_visible": false
+        },
+        {
+          "id": "mimo-v2-6-flash",
+          "name": "MiMo-V2.6-Flash",
+          "input": 0.14,
+          "input_cache": 0.0028,
+          "output": 0.28,
+          "monthly_limit_usd": 60.0,
+          "default_visible": false
+        },
+        {
+          "id": "mimo-v2-6-pro",
+          "name": "MiMo-V2.6-Pro",
+          "input": 0.435,
+          "input_cache": 0.003625,
+          "output": 0.87,
+          "monthly_limit_usd": 15.0,
+          "default_visible": false
+        },
+        {
+          "id": "mimo-v2-5",
+          "name": "MiMo-V2.5",
+          "input": 0.14,
+          "input_cache": 0.0028,
+          "output": 0.28,
+          "monthly_limit_usd": 60.0,
+          "default_visible": false
+        },
+        {
+          "id": "mimo-v2-5-pro",
+          "name": "MiMo-V2.5-Pro",
+          "input": 0.435,
+          "input_cache": 0.003625,
+          "output": 0.87,
+          "monthly_limit_usd": 15.0,
+          "default_visible": false
+        },
+        {
+          "id": "minimax-m3",
+          "name": "MiniMax M3",
+          "input": 0.3,
+          "input_cache": 0.06,
+          "output": 1.2,
+          "monthly_limit_usd": 60.0,
+          "default_visible": true
+        },
+        {
+          "id": "minimax-m2-7",
+          "name": "MiniMax M2.7",
+          "input": 0.3,
+          "input_cache": 0.06,
+          "output": 1.2,
+          "monthly_limit_usd": 60.0,
+          "default_visible": false
+        },
+        {
+          "id": "minimax-m2-5",
+          "name": "MiniMax M2.5",
+          "input": 0.3,
+          "input_cache": 0.06,
+          "output": 1.2,
+          "monthly_limit_usd": 60.0,
+          "default_visible": false
+        },
+        {
+          "id": "muse-spark-1-3-contributor",
+          "name": "Muse Spark 1.3 Contributor",
+          "input": 0.1,
+          "input_cache": 0.002,
+          "output": 0.2,
+          "monthly_limit_usd": 60.0,
+          "default_visible": false
+        },
+        {
+          "id": "muse-spark-1-2-contributor",
+          "name": "Muse Spark 1.2 Contributor",
+          "input": 0.1,
+          "input_cache": 0.002,
+          "output": 0.2,
+          "monthly_limit_usd": 60.0,
+          "default_visible": false
+        },
+        {
+          "id": "qwen3-8-max",
+          "name": "Qwen3.8 Max",
+          "input": 2.0,
+          "input_cache": 0.25,
+          "output": 6.0,
+          "monthly_limit_usd": 15.0,
+          "default_visible": false
+        },
+        {
+          "id": "qwen3-8-flash",
+          "name": "Qwen3.8 Flash",
+          "input": 0.15,
+          "input_cache": 0.016,
+          "output": 0.47,
+          "monthly_limit_usd": 30.0,
+          "default_visible": false
+        },
+        {
+          "id": "qwen3-7-max",
+          "name": "Qwen3.7 Max",
+          "input": 2.5,
+          "input_cache": 0.5,
+          "output": 7.5,
+          "monthly_limit_usd": 30.0,
+          "default_visible": false
+        },
+        {
+          "id": "qwen3-7-plus-256k-tokens",
+          "name": "Qwen3.7 Plus (\u2264 256K tokens)",
+          "input": 0.4,
+          "input_cache": 0.04,
+          "output": 1.6,
+          "monthly_limit_usd": 60.0,
+          "default_visible": false
+        },
+        {
+          "id": "qwen3-7-plus-256k-tokens",
+          "name": "Qwen3.7 Plus (> 256K tokens)",
+          "input": 1.2,
+          "input_cache": 0.12,
+          "output": 4.8,
+          "monthly_limit_usd": 60.0,
+          "default_visible": false
+        },
+        {
+          "id": "qwen3-6-plus-256k-tokens",
+          "name": "Qwen3.6 Plus (\u2264 256K tokens)",
+          "input": 0.5,
+          "input_cache": 0.05,
+          "output": 3.0,
+          "monthly_limit_usd": 60.0,
+          "default_visible": false
+        },
+        {
+          "id": "qwen3-6-plus-256k-tokens",
+          "name": "Qwen3.6 Plus (> 256K tokens)",
+          "input": 2.0,
+          "input_cache": 0.2,
+          "output": 6.0,
+          "monthly_limit_usd": 60.0,
+          "default_visible": false
+        },
+        {
+          "id": "deepseek-v4-1-flash-off-peak",
+          "name": "DeepSeek V4.1 Flash (Off-Peak)",
+          "input": 0.15,
+          "input_cache": 0.003,
+          "output": 0.6,
+          "monthly_limit_usd": 60.0,
+          "default_visible": false
+        },
+        {
+          "id": "deepseek-v4-1-flash-peak",
+          "name": "DeepSeek V4.1 Flash (Peak)",
+          "input": 0.3,
+          "input_cache": 0.006,
+          "output": 1.2,
+          "monthly_limit_usd": 60.0,
+          "default_visible": false
+        },
+        {
+          "id": "deepseek-v4-pro-off-peak",
+          "name": "DeepSeek V4 Pro (Off-Peak)",
+          "input": 0.66,
+          "input_cache": 0.022,
+          "output": 1.98,
+          "monthly_limit_usd": 15.0,
+          "default_visible": false
+        },
+        {
+          "id": "deepseek-v4-pro-peak",
+          "name": "DeepSeek V4 Pro (Peak)",
+          "input": 1.32,
+          "input_cache": 0.044,
+          "output": 3.96,
+          "monthly_limit_usd": 15.0,
+          "default_visible": false
+        },
+        {
+          "id": "deepseek-v4-flash-off-peak",
+          "name": "DeepSeek V4 Flash (Off-Peak)",
+          "input": 0.15,
+          "input_cache": 0.003,
+          "output": 0.6,
+          "monthly_limit_usd": 30.0,
+          "default_visible": false
+        },
+        {
+          "id": "deepseek-v4-flash-peak",
+          "name": "DeepSeek V4 Flash (Peak)",
+          "input": 0.3,
+          "input_cache": 0.006,
+          "output": 1.2,
+          "monthly_limit_usd": 30.0,
+          "default_visible": false
+        },
+        {
+          "id": "deepseek-v4-flash-vision-exp-off-peak",
+          "name": "DeepSeek V4 Flash Vision Exp (Off-Peak)",
+          "input": 0.15,
+          "input_cache": 0.003,
+          "output": 0.6,
+          "monthly_limit_usd": 15.0,
+          "default_visible": false
+        },
+        {
+          "id": "deepseek-v4-flash-vision-exp-peak",
+          "name": "DeepSeek V4 Flash Vision Exp (Peak)",
+          "input": 0.3,
+          "input_cache": 0.006,
+          "output": 1.2,
+          "monthly_limit_usd": 15.0,
+          "default_visible": false
+        },
+        {
+          "id": "hy4-preview",
+          "name": "Hy4 preview",
+          "input": 0.834,
+          "input_cache": 0.042,
+          "output": 2.501,
+          "monthly_limit_usd": 30.0,
+          "default_visible": false
+        },
+        {
+          "id": "hy3",
+          "name": "Hy3",
+          "input": 0.14,
+          "input_cache": 0.035,
+          "output": 0.58,
+          "monthly_limit_usd": 60.0,
+          "default_visible": false
+        },
+        {
+          "id": "space-bunny-free",
+          "name": "Space Bunny Free",
+          "input": 0.0,
+          "input_cache": 0.0,
+          "output": 0.0,
+          "monthly_limit_usd": null,
+          "default_visible": false
+        },
+        {
+          "id": "grok-4-7-200k-tokens",
+          "name": "Grok 4.7 (\u2264 200K tokens)",
+          "input": 2.0,
+          "input_cache": 0.5,
+          "output": 6.0,
+          "monthly_limit_usd": 15.0,
+          "default_visible": false
+        },
+        {
+          "id": "grok-4-7-200k-tokens",
+          "name": "Grok 4.7 (> 200K tokens)",
+          "input": 4.0,
+          "input_cache": 1.0,
+          "output": 12.0,
+          "monthly_limit_usd": 15.0,
+          "default_visible": false
+        },
+        {
+          "id": "grok-4-6-200k-tokens",
+          "name": "Grok 4.6 (\u2264 200K tokens)",
+          "input": 2.0,
+          "input_cache": 0.5,
+          "output": 6.0,
+          "monthly_limit_usd": 15.0,
+          "default_visible": false
+        },
+        {
+          "id": "grok-4-6-200k-tokens",
+          "name": "Grok 4.6 (> 200K tokens)",
+          "input": 4.0,
+          "input_cache": 1.0,
+          "output": 12.0,
+          "monthly_limit_usd": 15.0,
+          "default_visible": false
+        },
+        {
+          "id": "gpt-6-luna-272k-tokens",
+          "name": "GPT 6 Luna (\u2264 272K tokens)",
+          "input": 0.1,
+          "input_cache": 0.01,
+          "output": 0.5,
+          "monthly_limit_usd": 15.0,
+          "default_visible": false
+        },
+        {
+          "id": "gpt-6-luna-272k-tokens",
+          "name": "GPT 6 Luna (> 272K tokens)",
+          "input": 0.2,
+          "input_cache": 0.02,
+          "output": 0.75,
+          "monthly_limit_usd": 15.0,
+          "default_visible": false
+        },
+        {
+          "id": "gpt-5-6-luna-272k-tokens",
+          "name": "GPT 5.6 Luna (\u2264 272K tokens)",
+          "input": 0.2,
+          "input_cache": 0.02,
+          "output": 1.2,
+          "monthly_limit_usd": 15.0,
+          "default_visible": false
+        },
+        {
+          "id": "gpt-5-6-luna-272k-tokens",
+          "name": "GPT 5.6 Luna (> 272K tokens)",
+          "input": 0.4,
+          "input_cache": 0.04,
+          "output": 1.8,
+          "monthly_limit_usd": 15.0,
+          "default_visible": false
+        }
+      ]
     }
   ]
 }
