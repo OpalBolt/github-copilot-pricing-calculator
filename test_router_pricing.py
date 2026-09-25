@@ -11,8 +11,10 @@ from unittest.mock import patch
 import fetch_router_pricing
 from fetch_router_pricing import (
     _cached_router,
+    _creator,
     _openrouter_rates,
     _per_million_rates,
+    _provider,
     _rates,
     now_utc,
 )
@@ -50,6 +52,26 @@ def test_openrouter_conversion():
     assert converted["input"] == 1
     assert converted["output"] == 3
     assert converted["cached"] == 1
+
+
+def test_organization_name_normalization():
+    assert _creator("moonshotai") == "Moonshot AI"
+    assert _creator("Moonshot AI") == "Moonshot AI"
+    assert _creator("mistralai") == "Mistral AI"
+    assert _creator("Mistral AI") == "Mistral AI"
+    assert _creator("z-ai") == "Z.ai"
+    assert _creator("z.ai") == "Z.ai"
+    assert _creator("~google") == "Google"
+    assert _creator("openai") == "OpenAI"
+    assert _creator("Nvidia") == "NVIDIA"
+    assert _creator("nousresearch") == "Nous Research"
+    assert _creator("MiniMax") == "MiniMax AI"
+    assert _creator("minimax ai") == "MiniMax AI"
+    assert _creator("MiniMax AI") == "MiniMax AI"
+
+    assert _provider("scaleway") == "Scaleway"
+    assert _provider("Scaleway") == "Scaleway"
+    assert _provider("Custom Provider") == "Custom Provider"
 
 
 def test_seven_day_router_fallback():
@@ -123,7 +145,7 @@ def test_aggregate_contract():
 
     for offer in offers:
         assert offer["key"] == f"{offer['router']}:{offer['modelId']}"
-        assert offer["owner"] == offer["owner"].strip().lstrip("~").lower()
+        assert offer["owner"] == offer["owner"].strip().lstrip("~")
         assert set(offer["capabilities"]) == {"reasoning", "tools", "vision", "audio"}
         for mode in ("default", "eu"):
             prices = offer[mode]
@@ -152,8 +174,32 @@ def test_aggregate_contract():
     assert {
         offer["owner"]
         for offer in offers
-        if offer["owner"].replace("~", "") == "google"
-    } == {"google"}
+        if re.sub(r"[^a-z0-9]+", "", offer["owner"].lower()) == "moonshotai"
+    } == {"Moonshot AI"}
+    assert {
+        offer["owner"]
+        for offer in offers
+        if re.sub(r"[^a-z0-9]+", "", offer["owner"].lower()) == "mistralai"
+    } == {"Mistral AI"}
+    assert {
+        offer["owner"]
+        for offer in offers
+        if re.sub(r"[^a-z0-9]+", "", offer["owner"].lower()) == "zai"
+    } == {"Z.ai"}
+    owner_labels = {}
+    provider_labels = {}
+    for offer in offers:
+        owner_key = re.sub(r"[^a-z0-9]+", "", offer["owner"].lower())
+        owner_labels.setdefault(owner_key, set()).add(offer["owner"])
+        for provider in offer["providers"] + offer["euProviders"]:
+            provider_key = re.sub(r"[^a-z0-9]+", "", provider.lower())
+            provider_labels.setdefault(provider_key, set()).add(provider)
+    assert not {
+        key: labels for key, labels in owner_labels.items() if len(labels) > 1
+    }
+    assert not {
+        key: labels for key, labels in provider_labels.items() if len(labels) > 1
+    }
 
     rate = data["exchangeRate"]["usdPerEur"]
     for offer in (item for item in offers if item["router"] == "openrouter"):
@@ -223,6 +269,7 @@ def test_generated_pages():
 def main():
     test_rate_helpers()
     test_openrouter_conversion()
+    test_organization_name_normalization()
     test_seven_day_router_fallback()
     test_stale_openrouter_keeps_its_exchange_rate()
     test_aggregate_contract()

@@ -12,6 +12,10 @@ _Avoid_: Source, provider
 A named inference backend used by a Router. The calculator shows Provider names only when the router publishes them.
 _Avoid_: Router, source
 
+**Canonical organization name**:
+The display name used for an owner or Provider across all routers. Known upstream aliases map to one label, while source IDs and unknown names remain unchanged.
+_Avoid_: Source name, raw organization name
+
 **Router Model**:
 A model listing published by one router. The same underlying model on two routers is two Router Models.
 _Avoid_: Model offer, source model

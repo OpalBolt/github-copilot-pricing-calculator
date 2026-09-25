@@ -4,6 +4,7 @@
 import csv
 import io
 import json
+import re
 import urllib.parse
 import urllib.request
 from datetime import datetime, timedelta, timezone
@@ -24,6 +25,30 @@ ECB_URL = (
     "https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A"
     "?format=csvdata&startPeriod={start}"
 )
+
+OWNER_ALIASES = {
+    "amazon": "Amazon",
+    "anthropic": "Anthropic",
+    "deepseek": "DeepSeek",
+    "google": "Google",
+    "meta": "Meta",
+    "minimax": "MiniMax AI",
+    "minimaxai": "MiniMax AI",
+    "mistralai": "Mistral AI",
+    "moonshotai": "Moonshot AI",
+    "nousresearch": "Nous Research",
+    "nvidia": "NVIDIA",
+    "openai": "OpenAI",
+    "zai": "Z.ai",
+}
+
+PROVIDER_ALIASES = {
+    "inceptron": "Inceptron",
+    "infercom": "Infercom",
+    "nebius": "Nebius",
+    "scaleway": "Scaleway",
+    "tensorix": "Tensorix",
+}
 
 
 def now_utc() -> datetime:
@@ -115,8 +140,18 @@ def _is_text_output(model: dict) -> bool:
     return "text" in {str(value).lower() for value in outputs}
 
 
+def _organization_name(value, aliases: dict[str, str]) -> str:
+    name = str(value or "").strip().lstrip("~").strip()
+    key = re.sub(r"[^a-z0-9]+", "", name.lower())
+    return aliases.get(key, name)
+
+
 def _creator(value) -> str:
-    return str(value or "").strip().lstrip("~").strip().lower()
+    return _organization_name(value, OWNER_ALIASES)
+
+
+def _provider(value) -> str:
+    return _organization_name(value, PROVIDER_ALIASES)
 
 
 def _heavy_quantization(model: dict, rates: dict) -> str | None:
@@ -150,7 +185,7 @@ def _cortecs_offer(model: dict, eu_model: dict | None) -> dict:
             eu_pricing.get("output_token"),
             eu_pricing.get("cache_read_cost"),
         )
-        eu_providers = eu_model.get("providers", [])
+        eu_providers = [_provider(name) for name in eu_model.get("providers", [])]
     return {
         "key": f"cortecs:{model['id']}",
         "router": "cortecs",
@@ -162,7 +197,7 @@ def _cortecs_offer(model: dict, eu_model: dict | None) -> dict:
         "releaseDate": model.get("release_date"),
         "contextSize": model.get("context_size"),
         "capabilities": _capabilities(model),
-        "providers": model.get("providers", []),
+        "providers": [_provider(name) for name in model.get("providers", [])],
         "euProviders": eu_providers,
         "default": default,
         "eu": eu,
@@ -281,6 +316,7 @@ def fetch_eurouter(exchange_rate: dict | None = None) -> list[dict]:
                 for provider in providers
                 if provider.get("name") or provider.get("id")
             ]
+        providers = [_provider(name) for name in providers]
         offer = {
             "key": f"eurouter:{model['id']}",
             "router": "eurouter",
