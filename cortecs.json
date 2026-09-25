@@ -1,5 +1,5 @@
 {
-  "fetchDate": "2026-09-24",
+  "fetchDate": "2026-09-25",
   "currency": "EUR",
   "source": "https://api.cortecs.ai/v1/models?extended=true&currency=EUR",
   "providers": {
@@ -13,6 +13,10 @@
     },
     "amazon_paris": {
       "eu_native": false,
+      "zdr": true
+    },
+    "arkane": {
+      "eu_native": true,
       "zdr": true
     },
     "azure_sc": {
@@ -108,6 +112,7 @@
         "tools"
       ],
       "model_series": [
+        "gpt-6-sol",
         "gpt-6"
       ],
       "providers_details": {
@@ -128,10 +133,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 82.69,
-            "latency": 4.4,
-            "ttft": 0.68,
-            "cache_hit_rate": 0.64,
+            "throughput": 103.21,
+            "latency": 4.99,
+            "ttft": 0.75,
+            "cache_hit_rate": 0.7,
             "uptime": 1.0
           }
         }
@@ -176,6 +181,7 @@
         "tools"
       ],
       "model_series": [
+        "gpt-6-luna",
         "gpt-6"
       ],
       "providers_details": {
@@ -196,11 +202,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 252.78,
-            "latency": 14.09,
-            "ttft": 0.77,
-            "cache_hit_rate": 0.59,
-            "uptime": 0.97
+            "throughput": 157.83,
+            "latency": 8.1,
+            "ttft": 0.82,
+            "cache_hit_rate": 0.53,
+            "uptime": 1.0
           }
         }
       }
@@ -229,7 +235,6 @@
         "Instruct",
         "Tools",
         "Image",
-        "Code",
         "Reasoning",
         "Document"
       ],
@@ -267,11 +272,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 350.81,
-            "latency": 13.69,
-            "ttft": 10.75,
-            "cache_hit_rate": 0.29,
-            "uptime": 0.94
+            "throughput": 343.64,
+            "latency": 14.18,
+            "ttft": 10.33,
+            "cache_hit_rate": 0.66,
+            "uptime": 0.92
           }
         },
         "amazon_paris": {
@@ -291,11 +296,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 306.32,
-            "latency": 19.78,
-            "ttft": 7.89,
-            "cache_hit_rate": 0.78,
-            "uptime": 0.9
+            "throughput": 300.37,
+            "latency": 20.3,
+            "ttft": 11.18,
+            "cache_hit_rate": 0.57,
+            "uptime": 0.92
           }
         },
         "google": {
@@ -315,10 +320,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 349.78,
-            "latency": 9.73,
-            "ttft": 6.65,
-            "cache_hit_rate": 0.18,
+            "throughput": 333.32,
+            "latency": 12.63,
+            "ttft": 7.91,
+            "cache_hit_rate": 0.43,
             "uptime": 0.98
           }
         }
@@ -332,15 +337,16 @@
       "description": "DeepSeek V4.1 Flash is an efficient multimodal MoE model optimized for fast agentic reasoning and coding workflows.",
       "pricing": {
         "currency": "EUR",
-        "input_token": 0.449,
-        "output_token": 1.346,
-        "cache_read_cost": 0.117
+        "input_token": 0.269,
+        "output_token": 1.077,
+        "cache_read_cost": 0.067
       },
       "providers": [
-        "tensorix"
+        "tensorix",
+        "arkane"
       ],
       "context_size": 1048576,
-      "max_output_tokens": 64000,
+      "max_output_tokens": 393216,
       "tags": [
         "Instruct",
         "Tools",
@@ -379,10 +385,33 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 389.23,
-            "latency": 6.42,
-            "ttft": 2.8,
+            "throughput": 407.83,
+            "latency": 5.55,
+            "ttft": 2.84,
             "cache_hit_rate": 0.74,
+            "uptime": 1.0
+          }
+        },
+        "arkane": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 0.269,
+            "output_token": 1.077,
+            "cache_read_cost": 0.067
+          },
+          "quantization": null,
+          "context_size": 1048576,
+          "max_output_tokens": 393216,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 142.89,
+            "latency": 14.4,
+            "ttft": 2.31,
+            "cache_hit_rate": 0.78,
             "uptime": 1.0
           }
         }
@@ -451,11 +480,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 363.45,
-            "latency": 27.4,
-            "ttft": 11.06,
-            "cache_hit_rate": 0.52,
-            "uptime": 0.96
+            "throughput": 527.48,
+            "latency": 19.35,
+            "ttft": 10.01,
+            "cache_hit_rate": 0.63,
+            "uptime": 0.93
           }
         }
       }
@@ -513,10 +542,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 124.48,
-            "latency": 2.11,
-            "ttft": 1.38,
-            "cache_hit_rate": 0.85,
+            "throughput": 115.06,
+            "latency": 1.77,
+            "ttft": 1.53,
+            "cache_hit_rate": 0.72,
             "uptime": 1.0
           }
         }
@@ -538,13 +567,13 @@
         "tensorix",
         "inceptron",
         "aki",
-        "mistral"
+        "mistral",
+        "arkane"
       ],
       "context_size": 1048576,
       "max_output_tokens": 1048576,
       "tags": [
         "Instruct",
-        "Code",
         "Reasoning",
         "Tools"
       ],
@@ -579,10 +608,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 251.33,
-            "latency": 12.42,
-            "ttft": 5.52,
-            "cache_hit_rate": 0.73,
+            "throughput": 263.82,
+            "latency": 14.13,
+            "ttft": 11.8,
+            "cache_hit_rate": 0.79,
             "uptime": 1.0
           }
         },
@@ -602,10 +631,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 96.91,
-            "latency": 18.92,
-            "ttft": 1.04,
-            "cache_hit_rate": 0.88,
+            "throughput": 97.05,
+            "latency": 18.79,
+            "ttft": 1.27,
+            "cache_hit_rate": 0.85,
             "uptime": 0.99
           }
         },
@@ -625,11 +654,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 155.25,
-            "latency": 38.13,
-            "ttft": 20.45,
-            "cache_hit_rate": 0.69,
-            "uptime": 0.95
+            "throughput": 164.15,
+            "latency": 21.1,
+            "ttft": 11.04,
+            "cache_hit_rate": 0.75,
+            "uptime": 0.96
           }
         },
         "mistral": {
@@ -648,11 +677,34 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 319.01,
-            "latency": 5.69,
-            "ttft": 3.15,
-            "cache_hit_rate": 0.9,
+            "throughput": 332.48,
+            "latency": 4.89,
+            "ttft": 2.54,
+            "cache_hit_rate": 0.94,
             "uptime": 0.99
+          }
+        },
+        "arkane": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 1.257,
+            "output_token": 3.949,
+            "cache_read_cost": 0.269
+          },
+          "quantization": null,
+          "context_size": 200000,
+          "max_output_tokens": 100000,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": null,
+            "latency": null,
+            "ttft": null,
+            "cache_hit_rate": null,
+            "uptime": null
           }
         }
       }
@@ -678,7 +730,6 @@
         "Instruct",
         "Reasoning",
         "Tools",
-        "Code",
         "Image"
       ],
       "input_modalities": [
@@ -713,10 +764,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 180.88,
-            "latency": 16.62,
-            "ttft": 2.9,
-            "cache_hit_rate": 0.89,
+            "throughput": 267.79,
+            "latency": 8.67,
+            "ttft": 2.58,
+            "cache_hit_rate": 0.9,
             "uptime": 1.0
           }
         }
@@ -744,7 +795,6 @@
       "max_output_tokens": 1048576,
       "tags": [
         "Instruct",
-        "Code",
         "Reasoning",
         "Tools",
         "Image"
@@ -781,10 +831,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 236.85,
-            "latency": 25.37,
-            "ttft": 4.32,
-            "cache_hit_rate": 0.7,
+            "throughput": 269.57,
+            "latency": 7.66,
+            "ttft": 3.6,
+            "cache_hit_rate": 0.71,
             "uptime": 0.99
           }
         },
@@ -803,10 +853,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 187.2,
-            "latency": 10.28,
-            "ttft": 4.51,
-            "cache_hit_rate": 0.91,
+            "throughput": 210.28,
+            "latency": 6.92,
+            "ttft": 3.19,
+            "cache_hit_rate": 0.9,
             "uptime": 1.0
           }
         },
@@ -826,11 +876,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 137.41,
-            "latency": 18.12,
-            "ttft": 2.58,
-            "cache_hit_rate": 0.93,
-            "uptime": 0.97
+            "throughput": 155.22,
+            "latency": 14.37,
+            "ttft": 2.92,
+            "cache_hit_rate": 0.91,
+            "uptime": 0.98
           }
         },
         "inceptron": {
@@ -849,11 +899,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 88.13,
-            "latency": 23.7,
-            "ttft": 3.35,
-            "cache_hit_rate": 0.82,
-            "uptime": 0.95
+            "throughput": 94.67,
+            "latency": 20.7,
+            "ttft": 3.09,
+            "cache_hit_rate": 0.81,
+            "uptime": 0.96
           }
         }
       }
@@ -877,15 +927,15 @@
         "ionos",
         "ovh",
         "entrim",
-        "scaleway"
+        "scaleway",
+        "arkane"
       ],
-      "context_size": 262144,
-      "max_output_tokens": 262144,
+      "context_size": 1000000,
+      "max_output_tokens": 500000,
       "tags": [
         "Instruct",
         "Reasoning",
         "Tools",
-        "Code",
         "Image"
       ],
       "input_modalities": [
@@ -920,11 +970,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 43.51,
-            "latency": 29.27,
-            "ttft": 7.62,
-            "cache_hit_rate": 0.49,
-            "uptime": 0.97
+            "throughput": 43.79,
+            "latency": 20.63,
+            "ttft": 5.37,
+            "cache_hit_rate": 0.47,
+            "uptime": 0.99
           }
         },
         "berget": {
@@ -942,11 +992,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 44.39,
-            "latency": 44.48,
-            "ttft": 19.94,
+            "throughput": 43.13,
+            "latency": 49.63,
+            "ttft": 26.94,
             "cache_hit_rate": null,
-            "uptime": 0.71
+            "uptime": 0.73
           }
         },
         "aki": {
@@ -965,11 +1015,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 41.92,
-            "latency": 37.47,
-            "ttft": 3.7,
-            "cache_hit_rate": 0.95,
-            "uptime": 0.95
+            "throughput": 18.99,
+            "latency": 20.68,
+            "ttft": 2.67,
+            "cache_hit_rate": 0.96,
+            "uptime": 0.97
           }
         },
         "ionos": {
@@ -987,11 +1037,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 39.41,
-            "latency": 125.02,
-            "ttft": 63.85,
+            "throughput": 49.08,
+            "latency": 121.12,
+            "ttft": 54.3,
             "cache_hit_rate": 0.01,
-            "uptime": 0.92
+            "uptime": 0.91
           }
         },
         "ovh": {
@@ -1009,9 +1059,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 107.92,
-            "latency": 20.85,
-            "ttft": 3.96,
+            "throughput": 105.01,
+            "latency": 34.38,
+            "ttft": 24.37,
             "cache_hit_rate": null,
             "uptime": 0.99
           }
@@ -1032,11 +1082,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 71.48,
-            "latency": 17.79,
-            "ttft": 2.33,
+            "throughput": 73.47,
+            "latency": 34.0,
+            "ttft": 1.46,
             "cache_hit_rate": 0.5,
-            "uptime": 0.98
+            "uptime": 0.99
           }
         },
         "scaleway": {
@@ -1055,11 +1105,33 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 150.93,
-            "latency": 8.92,
-            "ttft": 2.61,
-            "cache_hit_rate": 0.81,
-            "uptime": 0.97
+            "throughput": 195.8,
+            "latency": 5.11,
+            "ttft": 1.99,
+            "cache_hit_rate": 0.91,
+            "uptime": 1.0
+          }
+        },
+        "arkane": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 0.09,
+            "output_token": 0.898
+          },
+          "quantization": null,
+          "context_size": 1000000,
+          "max_output_tokens": 500000,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": null,
+            "latency": null,
+            "ttft": null,
+            "cache_hit_rate": null,
+            "uptime": null
           }
         }
       }
@@ -1127,10 +1199,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 310.82,
-            "latency": 7.66,
-            "ttft": 3.8,
-            "cache_hit_rate": 0.56,
+            "throughput": 292.43,
+            "latency": 6.98,
+            "ttft": 3.57,
+            "cache_hit_rate": 0.43,
             "uptime": 0.99
           }
         }
@@ -1197,10 +1269,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 474.41,
-            "latency": 7.08,
-            "ttft": 5.68,
-            "cache_hit_rate": 0.44,
+            "throughput": 546.2,
+            "latency": 6.05,
+            "ttft": 5.02,
+            "cache_hit_rate": 0.46,
             "uptime": 1.0
           }
         }
@@ -1226,8 +1298,7 @@
       "tags": [
         "Instruct",
         "Reasoning",
-        "Tools",
-        "Code"
+        "Tools"
       ],
       "input_modalities": [
         "text"
@@ -1260,10 +1331,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 245.01,
-            "latency": 11.74,
-            "ttft": 1.74,
-            "cache_hit_rate": 0.79,
+            "throughput": 237.9,
+            "latency": 7.83,
+            "ttft": 1.75,
+            "cache_hit_rate": 0.8,
             "uptime": 1.0
           }
         }
@@ -1330,10 +1401,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 239.27,
-            "latency": 1.27,
-            "ttft": 0.61,
-            "cache_hit_rate": 0.0,
+            "throughput": 197.66,
+            "latency": 1.3,
+            "ttft": 0.62,
+            "cache_hit_rate": 0.01,
             "uptime": 1.0
           }
         }
@@ -1396,10 +1467,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 109.29,
-            "latency": 11.43,
-            "ttft": 2.33,
-            "cache_hit_rate": 0.59,
+            "throughput": 115.94,
+            "latency": 9.21,
+            "ttft": 2.52,
+            "cache_hit_rate": 0.65,
             "uptime": 1.0
           }
         },
@@ -1419,11 +1490,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 99.83,
-            "latency": 12.05,
-            "ttft": 2.05,
+            "throughput": 119.46,
+            "latency": 8.63,
+            "ttft": 1.95,
             "cache_hit_rate": 0.85,
-            "uptime": 0.99
+            "uptime": 1.0
           }
         },
         "scaleway": {
@@ -1442,10 +1513,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 230.57,
-            "latency": 6.25,
-            "ttft": 2.51,
-            "cache_hit_rate": 0.38,
+            "throughput": 230.97,
+            "latency": 5.83,
+            "ttft": 2.19,
+            "cache_hit_rate": 0.37,
             "uptime": 1.0
           }
         },
@@ -1465,11 +1536,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 88.95,
-            "latency": 12.63,
-            "ttft": 2.07,
-            "cache_hit_rate": 0.84,
-            "uptime": 0.82
+            "throughput": 88.06,
+            "latency": 10.26,
+            "ttft": 1.78,
+            "cache_hit_rate": 0.9,
+            "uptime": 0.89
           }
         },
         "entrim": {
@@ -1488,10 +1559,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 205.98,
-            "latency": 8.38,
-            "ttft": 2.05,
-            "cache_hit_rate": 0.85,
+            "throughput": 178.2,
+            "latency": 10.2,
+            "ttft": 3.04,
+            "cache_hit_rate": 0.86,
             "uptime": 0.99
           }
         }
@@ -1511,13 +1582,13 @@
       "providers": [
         "nebius",
         "tensorix",
-        "berget"
+        "berget",
+        "arkane"
       ],
       "context_size": 1048576,
       "max_output_tokens": 1048576,
       "tags": [
         "Instruct",
-        "Code",
         "Tools",
         "Reasoning",
         "Image"
@@ -1553,11 +1624,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 106.08,
-            "latency": 64.02,
-            "ttft": 44.23,
-            "cache_hit_rate": 0.92,
-            "uptime": 0.99
+            "throughput": 150.18,
+            "latency": 19.97,
+            "ttft": 12.55,
+            "cache_hit_rate": 0.9,
+            "uptime": 1.0
           }
         },
         "tensorix": {
@@ -1576,10 +1647,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 54.46,
-            "latency": 25.42,
-            "ttft": 3.7,
-            "cache_hit_rate": 0.81,
+            "throughput": 53.81,
+            "latency": 27.24,
+            "ttft": 3.42,
+            "cache_hit_rate": 0.71,
             "uptime": 0.99
           }
         },
@@ -1598,11 +1669,34 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 116.67,
-            "latency": 10.99,
-            "ttft": 1.88,
-            "cache_hit_rate": 0.93,
-            "uptime": 0.99
+            "throughput": 135.13,
+            "latency": 9.17,
+            "ttft": 1.78,
+            "cache_hit_rate": 0.92,
+            "uptime": 1.0
+          }
+        },
+        "arkane": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 2.693,
+            "output_token": 13.464,
+            "cache_read_cost": 0.269
+          },
+          "quantization": null,
+          "context_size": 1000000,
+          "max_output_tokens": 500000,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 74.12,
+            "latency": 18.69,
+            "ttft": 4.55,
+            "cache_hit_rate": 0.9,
+            "uptime": 1.0
           }
         }
       }
@@ -1631,7 +1725,6 @@
         "Instruct",
         "Tools",
         "Image",
-        "Code",
         "Reasoning",
         "Document"
       ],
@@ -1669,10 +1762,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 157.93,
-            "latency": 37.26,
-            "ttft": 11.87,
-            "cache_hit_rate": 0.54,
+            "throughput": 125.49,
+            "latency": 32.36,
+            "ttft": 4.62,
+            "cache_hit_rate": 0.55,
             "uptime": 0.97
           }
         },
@@ -1693,11 +1786,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 167.91,
-            "latency": 29.93,
-            "ttft": 6.93,
+            "throughput": 108.74,
+            "latency": 78.9,
+            "ttft": 10.22,
             "cache_hit_rate": 0.56,
-            "uptime": 0.98
+            "uptime": 0.99
           }
         },
         "google": {
@@ -1717,11 +1810,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 110.93,
-            "latency": 33.64,
-            "ttft": 5.72,
-            "cache_hit_rate": 0.57,
-            "uptime": 0.96
+            "throughput": 98.29,
+            "latency": 27.3,
+            "ttft": 3.14,
+            "cache_hit_rate": 0.64,
+            "uptime": 0.97
           }
         }
       }
@@ -1766,6 +1859,7 @@
         "tools"
       ],
       "model_series": [
+        "gpt-5-sol",
         "gpt-5"
       ],
       "providers_details": {
@@ -1786,10 +1880,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 90.0,
-            "latency": 12.36,
-            "ttft": 2.32,
-            "cache_hit_rate": 0.76,
+            "throughput": 111.85,
+            "latency": 17.49,
+            "ttft": 2.14,
+            "cache_hit_rate": 0.63,
             "uptime": 0.99
           }
         },
@@ -1810,11 +1904,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 93.4,
-            "latency": 6.25,
-            "ttft": 0.61,
-            "cache_hit_rate": 0.66,
-            "uptime": 1.0
+            "throughput": 99.04,
+            "latency": 7.97,
+            "ttft": 0.81,
+            "cache_hit_rate": 0.64,
+            "uptime": 0.99
           }
         }
       }
@@ -1859,6 +1953,7 @@
         "tools"
       ],
       "model_series": [
+        "gpt-5-terra",
         "gpt-5"
       ],
       "providers_details": {
@@ -1879,9 +1974,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 156.81,
-            "latency": 25.01,
-            "ttft": 9.19,
+            "throughput": 161.86,
+            "latency": 26.58,
+            "ttft": 9.2,
             "cache_hit_rate": 0.78,
             "uptime": 0.97
           }
@@ -1903,9 +1998,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 113.16,
-            "latency": 5.13,
-            "ttft": 2.42,
+            "throughput": 111.66,
+            "latency": 4.84,
+            "ttft": 1.93,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -1952,6 +2047,7 @@
         "tools"
       ],
       "model_series": [
+        "gpt-5-luna",
         "gpt-5"
       ],
       "providers_details": {
@@ -1972,10 +2068,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 96.97,
-            "latency": 15.03,
+            "throughput": 110.94,
+            "latency": 13.39,
             "ttft": 0.98,
-            "cache_hit_rate": 0.65,
+            "cache_hit_rate": 0.67,
             "uptime": 1.0
           }
         },
@@ -1996,10 +2092,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 134.54,
-            "latency": 5.17,
-            "ttft": 1.9,
-            "cache_hit_rate": 0.53,
+            "throughput": 137.08,
+            "latency": 6.98,
+            "ttft": 1.32,
+            "cache_hit_rate": 0.71,
             "uptime": 1.0
           }
         }
@@ -2054,10 +2150,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 14.73,
-            "latency": 9.62,
+            "throughput": 15.05,
+            "latency": 9.43,
             "ttft": 0.49,
-            "cache_hit_rate": 0.16,
+            "cache_hit_rate": 0.1,
             "uptime": 0.13
           }
         }
@@ -2087,7 +2183,6 @@
         "Instruct",
         "Tools",
         "Image",
-        "Code",
         "Reasoning",
         "Document"
       ],
@@ -2125,10 +2220,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 192.11,
-            "latency": 9.52,
-            "ttft": 4.08,
-            "cache_hit_rate": 0.82,
+            "throughput": 182.95,
+            "latency": 10.22,
+            "ttft": 4.4,
+            "cache_hit_rate": 0.71,
             "uptime": 0.99
           }
         },
@@ -2149,10 +2244,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 145.86,
-            "latency": 10.08,
-            "ttft": 5.18,
-            "cache_hit_rate": 0.8,
+            "throughput": 128.28,
+            "latency": 10.72,
+            "ttft": 10.43,
+            "cache_hit_rate": 0.73,
             "uptime": 0.99
           }
         },
@@ -2173,11 +2268,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 152.31,
-            "latency": 8.86,
-            "ttft": 4.38,
-            "cache_hit_rate": 0.76,
-            "uptime": 0.98
+            "throughput": 139.41,
+            "latency": 8.99,
+            "ttft": 3.33,
+            "cache_hit_rate": 0.78,
+            "uptime": 0.99
           }
         }
       }
@@ -2195,9 +2290,10 @@
       },
       "providers": [
         "infercom",
-        "berget"
+        "berget",
+        "arkane"
       ],
-      "context_size": 262000,
+      "context_size": 262144,
       "max_output_tokens": 262000,
       "tags": [
         "Instruct",
@@ -2236,11 +2332,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 155.55,
-            "latency": 4.52,
-            "ttft": 2.63,
+            "throughput": 191.94,
+            "latency": 4.11,
+            "ttft": 2.7,
             "cache_hit_rate": null,
-            "uptime": 0.99
+            "uptime": 1.0
           }
         },
         "berget": {
@@ -2258,11 +2354,34 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 59.47,
-            "latency": 9.38,
-            "ttft": 1.08,
-            "cache_hit_rate": 0.8,
+            "throughput": 65.6,
+            "latency": 12.44,
+            "ttft": 1.03,
+            "cache_hit_rate": 0.64,
             "uptime": 0.97
+          }
+        },
+        "arkane": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 0.314,
+            "output_token": 0.718,
+            "cache_read_cost": 0.18
+          },
+          "quantization": null,
+          "context_size": 262144,
+          "max_output_tokens": 131072,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 69.49,
+            "latency": 47.3,
+            "ttft": null,
+            "cache_hit_rate": 0.0,
+            "uptime": 0.55
           }
         }
       }
@@ -2283,13 +2402,13 @@
         "tensorix",
         "scaleway",
         "inceptron",
-        "mistral"
+        "mistral",
+        "arkane"
       ],
       "context_size": 1048576,
       "max_output_tokens": 1000000,
       "tags": [
         "Instruct",
-        "Code",
         "Reasoning",
         "Tools"
       ],
@@ -2324,10 +2443,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 222.19,
-            "latency": 3.45,
-            "ttft": 2.01,
-            "cache_hit_rate": 0.73,
+            "throughput": 219.76,
+            "latency": 2.97,
+            "ttft": 1.91,
+            "cache_hit_rate": 0.74,
             "uptime": 1.0
           }
         },
@@ -2347,11 +2466,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 122.39,
-            "latency": 7.56,
-            "ttft": 1.98,
+            "throughput": 122.8,
+            "latency": 7.09,
+            "ttft": 2.18,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.97
           }
         },
         "inceptron": {
@@ -2370,11 +2489,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 61.48,
-            "latency": 11.2,
-            "ttft": 1.21,
-            "cache_hit_rate": 0.7,
-            "uptime": 0.84
+            "throughput": 63.34,
+            "latency": 10.4,
+            "ttft": 1.12,
+            "cache_hit_rate": 0.85,
+            "uptime": 0.91
           }
         },
         "mistral": {
@@ -2393,11 +2512,34 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 278.34,
-            "latency": 3.39,
-            "ttft": 1.89,
-            "cache_hit_rate": 0.8,
+            "throughput": 306.67,
+            "latency": 3.4,
+            "ttft": 1.61,
+            "cache_hit_rate": 0.84,
             "uptime": 0.98
+          }
+        },
+        "arkane": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 1.167,
+            "output_token": 3.77,
+            "cache_read_cost": 0.224
+          },
+          "quantization": null,
+          "context_size": 200000,
+          "max_output_tokens": 100000,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": null,
+            "latency": null,
+            "ttft": null,
+            "cache_hit_rate": null,
+            "uptime": null
           }
         }
       }
@@ -2422,7 +2564,6 @@
       "max_output_tokens": 262144,
       "tags": [
         "Instruct",
-        "Code",
         "Tools",
         "Reasoning",
         "Image",
@@ -2461,11 +2602,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 290.48,
-            "latency": 4.37,
-            "ttft": 1.16,
+            "throughput": 257.09,
+            "latency": 5.9,
+            "ttft": 1.32,
             "cache_hit_rate": 0.96,
-            "uptime": 0.99
+            "uptime": 1.0
           }
         },
         "inceptron": {
@@ -2484,10 +2625,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 103.95,
-            "latency": 33.35,
-            "ttft": 1.34,
-            "cache_hit_rate": 0.69,
+            "throughput": 102.34,
+            "latency": 15.03,
+            "ttft": 2.14,
+            "cache_hit_rate": 0.85,
             "uptime": 0.93
           }
         }
@@ -2501,18 +2642,18 @@
       "description": "MiniMax M3 is a multimodal frontier model built for coding and agentic workflows, featuring ultra-long context and advanced tool-driven reasoning.",
       "pricing": {
         "currency": "EUR",
-        "input_token": 0.355,
-        "output_token": 1.775,
-        "cache_read_cost": 0.089
+        "input_token": 0.269,
+        "output_token": 1.077,
+        "cache_read_cost": 0.054
       },
       "providers": [
-        "tensorix"
+        "tensorix",
+        "arkane"
       ],
       "context_size": 1048576,
       "max_output_tokens": 1048576,
       "tags": [
         "Instruct",
-        "Code",
         "Tools",
         "Reasoning",
         "Image"
@@ -2549,10 +2690,33 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 68.73,
-            "latency": 8.98,
-            "ttft": 1.7,
-            "cache_hit_rate": 0.87,
+            "throughput": 70.87,
+            "latency": 7.95,
+            "ttft": 2.68,
+            "cache_hit_rate": 0.89,
+            "uptime": 1.0
+          }
+        },
+        "arkane": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 0.269,
+            "output_token": 1.077,
+            "cache_read_cost": 0.054
+          },
+          "quantization": null,
+          "context_size": 1000000,
+          "max_output_tokens": 500000,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 182.26,
+            "latency": 30.56,
+            "ttft": 1.27,
+            "cache_hit_rate": 0.31,
             "uptime": 1.0
           }
         }
@@ -2578,7 +2742,6 @@
         "Instruct",
         "Reasoning",
         "Tools",
-        "Code",
         "Image"
       ],
       "input_modalities": [
@@ -2612,11 +2775,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 78.66,
-            "latency": 23.93,
-            "ttft": 6.23,
+            "throughput": 77.31,
+            "latency": 35.31,
+            "ttft": 1.79,
             "cache_hit_rate": null,
-            "uptime": 0.99
+            "uptime": 0.63
           }
         }
       }
@@ -2668,10 +2831,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 10.06,
-            "latency": 0.35,
+            "throughput": 57.43,
+            "latency": 1.02,
             "ttft": 0.26,
-            "cache_hit_rate": 0.32,
+            "cache_hit_rate": 0.25,
             "uptime": 1.0
           }
         }
@@ -2701,7 +2864,6 @@
         "Instruct",
         "Tools",
         "Image",
-        "Code",
         "Reasoning",
         "Document"
       ],
@@ -2739,10 +2901,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 94.68,
-            "latency": 13.04,
-            "ttft": 2.34,
-            "cache_hit_rate": 0.75,
+            "throughput": 94.78,
+            "latency": 11.12,
+            "ttft": 2.13,
+            "cache_hit_rate": 0.73,
             "uptime": 0.97
           }
         },
@@ -2763,10 +2925,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 89.25,
-            "latency": 18.87,
-            "ttft": 2.32,
-            "cache_hit_rate": 0.85,
+            "throughput": 90.45,
+            "latency": 13.11,
+            "ttft": 2.59,
+            "cache_hit_rate": 0.76,
             "uptime": 0.98
           }
         },
@@ -2787,10 +2949,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 95.35,
-            "latency": 19.82,
-            "ttft": 2.13,
-            "cache_hit_rate": 0.8,
+            "throughput": 94.21,
+            "latency": 12.52,
+            "ttft": 1.95,
+            "cache_hit_rate": 0.79,
             "uptime": 1.0
           }
         }
@@ -2857,10 +3019,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 176.31,
-            "latency": 8.16,
-            "ttft": 5.53,
-            "cache_hit_rate": 0.0,
+            "throughput": 181.08,
+            "latency": 8.04,
+            "ttft": 3.68,
+            "cache_hit_rate": 0.03,
             "uptime": 1.0
           }
         }
@@ -2929,10 +3091,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 165.69,
-            "latency": 2.06,
-            "ttft": 1.02,
-            "cache_hit_rate": 0.08,
+            "throughput": 164.22,
+            "latency": 1.97,
+            "ttft": 1.18,
+            "cache_hit_rate": 0.05,
             "uptime": 0.99
           }
         }
@@ -2959,7 +3121,6 @@
         "Instruct",
         "Reasoning",
         "Tools",
-        "Code",
         "Image"
       ],
       "input_modalities": [
@@ -2993,11 +3154,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 207.0,
-            "latency": 6.78,
-            "ttft": 0.4,
+            "throughput": 139.31,
+            "latency": 27.52,
+            "ttft": 0.35,
             "cache_hit_rate": null,
-            "uptime": 0.9
+            "uptime": 0.93
           }
         },
         "aki": {
@@ -3015,10 +3176,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 214.81,
-            "latency": 6.51,
-            "ttft": 0.91,
-            "cache_hit_rate": 0.94,
+            "throughput": 211.98,
+            "latency": 6.81,
+            "ttft": 0.71,
+            "cache_hit_rate": 0.95,
             "uptime": 0.96
           }
         }
@@ -3043,7 +3204,6 @@
       "max_output_tokens": 202752,
       "tags": [
         "Instruct",
-        "Code",
         "Reasoning",
         "Tools",
         "Image"
@@ -3080,9 +3240,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 46.1,
-            "latency": 29.2,
-            "ttft": 4.68,
+            "throughput": 76.5,
+            "latency": 27.56,
+            "ttft": 4.71,
             "cache_hit_rate": 0.58,
             "uptime": 1.0
           }
@@ -3108,7 +3268,6 @@
       "max_output_tokens": 202752,
       "tags": [
         "Instruct",
-        "Code",
         "Reasoning",
         "Tools"
       ],
@@ -3143,9 +3302,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 162.5,
-            "latency": 53.37,
-            "ttft": 10.3,
+            "throughput": 182.33,
+            "latency": 48.43,
+            "ttft": 9.28,
             "cache_hit_rate": 0.01,
             "uptime": 1.0
           }
@@ -3206,11 +3365,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 159.32,
-            "latency": 2.21,
+            "throughput": 160.62,
+            "latency": 2.08,
             "ttft": 0.32,
             "cache_hit_rate": null,
-            "uptime": 0.97
+            "uptime": 0.99
           }
         },
         "aki": {
@@ -3228,11 +3387,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 121.54,
-            "latency": 2.06,
-            "ttft": 3.39,
-            "cache_hit_rate": 0.5,
-            "uptime": 1.0
+            "throughput": 120.8,
+            "latency": 1.85,
+            "ttft": 1.93,
+            "cache_hit_rate": 0.39,
+            "uptime": 0.99
           }
         }
       }
@@ -3245,12 +3404,13 @@
       "description": "DeepSeek-V4 is a Mixture-of-Experts model series featuring advanced attention mechanisms and large-scale training for efficient long-context reasoning and strong performance.",
       "pricing": {
         "currency": "EUR",
-        "input_token": 1.553,
-        "output_token": 3.106,
-        "cache_read_cost": 0.388
+        "input_token": 1.526,
+        "output_token": 3.052,
+        "cache_read_cost": 0.135
       },
       "providers": [
-        "tensorix"
+        "tensorix",
+        "arkane"
       ],
       "context_size": 1048576,
       "max_output_tokens": 1048576,
@@ -3290,11 +3450,34 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 294.73,
-            "latency": 5.66,
-            "ttft": 1.72,
-            "cache_hit_rate": 0.92,
+            "throughput": 275.26,
+            "latency": 4.63,
+            "ttft": 1.63,
+            "cache_hit_rate": 0.91,
             "uptime": 0.99
+          }
+        },
+        "arkane": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 1.526,
+            "output_token": 3.052,
+            "cache_read_cost": 0.135
+          },
+          "quantization": null,
+          "context_size": 1000000,
+          "max_output_tokens": 384000,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": 48.84,
+            "latency": 14.31,
+            "ttft": 2.27,
+            "cache_hit_rate": null,
+            "uptime": 0.85
           }
         }
       }
@@ -3355,9 +3538,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 138.52,
-            "latency": 0.79,
-            "ttft": 0.73,
+            "throughput": 143.68,
+            "latency": 0.93,
+            "ttft": 0.86,
             "cache_hit_rate": 0.1,
             "uptime": 1.0
           }
@@ -3377,9 +3560,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 76.1,
-            "latency": 3.24,
-            "ttft": 0.33,
+            "throughput": 73.66,
+            "latency": 4.92,
+            "ttft": 0.35,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -3444,10 +3627,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 104.03,
-            "latency": 13.03,
-            "ttft": 4.09,
-            "cache_hit_rate": 0.77,
+            "throughput": 97.95,
+            "latency": 14.13,
+            "ttft": 4.17,
+            "cache_hit_rate": 0.8,
             "uptime": 0.99
           }
         },
@@ -3467,10 +3650,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 99.31,
-            "latency": 10.56,
-            "ttft": 2.91,
-            "cache_hit_rate": 0.87,
+            "throughput": 96.03,
+            "latency": 7.96,
+            "ttft": 1.82,
+            "cache_hit_rate": 0.84,
             "uptime": 0.95
           }
         }
@@ -3496,7 +3679,6 @@
       "max_output_tokens": 262144,
       "tags": [
         "Instruct",
-        "Code",
         "Tools",
         "Reasoning",
         "Image",
@@ -3535,11 +3717,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 75.7,
-            "latency": 235.83,
-            "ttft": 9.99,
-            "cache_hit_rate": 0.31,
-            "uptime": 0.98
+            "throughput": 74.31,
+            "latency": 100.59,
+            "ttft": 13.87,
+            "cache_hit_rate": 0.27,
+            "uptime": 0.96
           }
         },
         "inceptron": {
@@ -3558,11 +3740,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 95.33,
-            "latency": 37.94,
-            "ttft": 2.42,
-            "cache_hit_rate": 0.78,
-            "uptime": 0.88
+            "throughput": 84.45,
+            "latency": 47.57,
+            "ttft": 3.29,
+            "cache_hit_rate": 0.77,
+            "uptime": 0.9
           }
         }
       }
@@ -3591,7 +3773,6 @@
         "Instruct",
         "Tools",
         "Image",
-        "Code",
         "Reasoning",
         "Document"
       ],
@@ -3629,11 +3810,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 151.08,
-            "latency": 11.81,
-            "ttft": 1.61,
-            "cache_hit_rate": 0.83,
-            "uptime": 0.77
+            "throughput": 119.43,
+            "latency": 16.04,
+            "ttft": 1.7,
+            "cache_hit_rate": 0.88,
+            "uptime": 0.84
           }
         },
         "amazon_paris": {
@@ -3653,11 +3834,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 160.51,
-            "latency": 9.37,
-            "ttft": 1.25,
+            "throughput": 161.34,
+            "latency": 9.24,
+            "ttft": 1.5,
             "cache_hit_rate": null,
-            "uptime": 0.64
+            "uptime": 0.6
           }
         },
         "google": {
@@ -3677,11 +3858,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 108.29,
-            "latency": 17.0,
-            "ttft": 2.06,
-            "cache_hit_rate": 0.33,
-            "uptime": 0.97
+            "throughput": 107.48,
+            "latency": 17.24,
+            "ttft": 1.57,
+            "cache_hit_rate": 0.35,
+            "uptime": 0.95
           }
         }
       }
@@ -3704,7 +3885,6 @@
       "max_output_tokens": 196608,
       "tags": [
         "Instruct",
-        "Code",
         "Tools",
         "Reasoning"
       ],
@@ -3738,10 +3918,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 339.99,
-            "latency": 65.49,
-            "ttft": 0.45,
-            "cache_hit_rate": 0.32,
+            "throughput": 340.03,
+            "latency": 95.72,
+            "ttft": 1.88,
+            "cache_hit_rate": 0.59,
             "uptime": 1.0
           }
         }
@@ -3767,7 +3947,6 @@
       "max_output_tokens": 202752,
       "tags": [
         "Instruct",
-        "Code",
         "Reasoning",
         "Tools"
       ],
@@ -3802,11 +3981,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 168.75,
-            "latency": 18.45,
-            "ttft": 3.8,
-            "cache_hit_rate": 0.67,
-            "uptime": 0.97
+            "throughput": 116.51,
+            "latency": 25.45,
+            "ttft": 9.36,
+            "cache_hit_rate": 0.61,
+            "uptime": 0.98
           }
         },
         "nebius": {
@@ -3824,10 +4003,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 34.89,
-            "latency": 34.0,
-            "ttft": 2.73,
-            "cache_hit_rate": 0.35,
+            "throughput": 39.07,
+            "latency": 21.77,
+            "ttft": 2.36,
+            "cache_hit_rate": 0.89,
             "uptime": 1.0
           }
         }
@@ -3853,8 +4032,7 @@
       "tags": [
         "Instruct",
         "Reasoning",
-        "Tools",
-        "Code"
+        "Tools"
       ],
       "input_modalities": [
         "text"
@@ -3887,9 +4065,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 96.16,
-            "latency": 40.22,
-            "ttft": 1.82,
+            "throughput": 56.82,
+            "latency": 11.18,
+            "ttft": 7.78,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -3918,7 +4096,6 @@
         "Instruct",
         "Reasoning",
         "Tools",
-        "Code",
         "Image"
       ],
       "input_modalities": [
@@ -3953,9 +4130,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 59.52,
-            "latency": 72.52,
-            "ttft": 1.09,
+            "throughput": 61.41,
+            "latency": 37.4,
+            "ttft": 1.48,
             "cache_hit_rate": 0.24,
             "uptime": 0.98
           }
@@ -3975,11 +4152,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 41.33,
-            "latency": 74.18,
-            "ttft": 0.15,
+            "throughput": 41.93,
+            "latency": 79.57,
+            "ttft": 0.16,
             "cache_hit_rate": null,
-            "uptime": 0.86
+            "uptime": 0.88
           }
         },
         "ionos": {
@@ -3997,9 +4174,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 56.04,
-            "latency": 90.9,
-            "ttft": 0.72,
+            "throughput": 56.07,
+            "latency": 92.84,
+            "ttft": 0.77,
             "cache_hit_rate": null,
             "uptime": 0.86
           }
@@ -4025,8 +4202,7 @@
       "tags": [
         "Instruct",
         "Reasoning",
-        "Tools",
-        "Code"
+        "Tools"
       ],
       "input_modalities": [
         "text"
@@ -4058,9 +4234,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 48.42,
-            "latency": 2.45,
-            "ttft": 0.34,
+            "throughput": 56.07,
+            "latency": 2.41,
+            "ttft": 0.43,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -4086,7 +4262,6 @@
       "max_output_tokens": 202752,
       "tags": [
         "Instruct",
-        "Code",
         "Reasoning",
         "Tools"
       ],
@@ -4121,11 +4296,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 318.43,
-            "latency": 13.02,
-            "ttft": 3.58,
-            "cache_hit_rate": 0.91,
-            "uptime": 0.98
+            "throughput": 131.09,
+            "latency": 13.94,
+            "ttft": 12.9,
+            "cache_hit_rate": 0.97,
+            "uptime": 0.99
           }
         }
       }
@@ -4151,8 +4326,7 @@
       "tags": [
         "Instruct",
         "Reasoning",
-        "Tools",
-        "Code"
+        "Tools"
       ],
       "input_modalities": [
         "text"
@@ -4184,11 +4358,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 75.25,
-            "latency": 26.2,
-            "ttft": 0.8,
+            "throughput": 86.75,
+            "latency": 30.39,
+            "ttft": 1.06,
             "cache_hit_rate": null,
-            "uptime": 0.96
+            "uptime": 0.87
           }
         },
         "ovh": {
@@ -4206,11 +4380,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 511627.22,
-            "latency": 8.75,
-            "ttft": 1.29,
+            "throughput": 511589.83,
+            "latency": 5.02,
+            "ttft": 1.22,
             "cache_hit_rate": null,
-            "uptime": 0.94
+            "uptime": 0.87
           }
         },
         "ionos": {
@@ -4228,11 +4402,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 56.16,
-            "latency": 42.76,
-            "ttft": 2.79,
+            "throughput": 56.55,
+            "latency": 30.19,
+            "ttft": 3.57,
             "cache_hit_rate": null,
-            "uptime": 1.0
+            "uptime": 0.97
           }
         }
       }
@@ -4250,7 +4424,8 @@
         "cache_read_cost": 0.067
       },
       "providers": [
-        "tensorix"
+        "tensorix",
+        "arkane"
       ],
       "context_size": 163840,
       "max_output_tokens": 163840,
@@ -4290,11 +4465,34 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 30.07,
-            "latency": 40.02,
-            "ttft": 5.31,
-            "cache_hit_rate": 0.81,
-            "uptime": 0.98
+            "throughput": 50.53,
+            "latency": 37.56,
+            "ttft": 7.43,
+            "cache_hit_rate": 0.27,
+            "uptime": 0.68
+          }
+        },
+        "arkane": {
+          "pricing": {
+            "currency": "EUR",
+            "input_token": 0.449,
+            "output_token": 1.346,
+            "cache_read_cost": 0.135
+          },
+          "quantization": null,
+          "context_size": 163840,
+          "max_output_tokens": 65536,
+          "supported_features": [
+            "json_mode",
+            "reasoning",
+            "tools"
+          ],
+          "metrics": {
+            "throughput": null,
+            "latency": null,
+            "ttft": null,
+            "cache_hit_rate": null,
+            "uptime": null
           }
         }
       }
@@ -4319,7 +4517,6 @@
       "max_output_tokens": 256000,
       "tags": [
         "Instruct",
-        "Code",
         "Tools",
         "Image",
         "Reasoning"
@@ -4356,10 +4553,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 136.28,
-            "latency": 1.28,
-            "ttft": 0.83,
-            "cache_hit_rate": 0.29,
+            "throughput": 116.19,
+            "latency": 1.22,
+            "ttft": 0.59,
+            "cache_hit_rate": 0.39,
             "uptime": 1.0
           }
         },
@@ -4378,11 +4575,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 148.44,
-            "latency": 4.12,
-            "ttft": 0.58,
-            "cache_hit_rate": 0.72,
-            "uptime": 0.94
+            "throughput": 146.39,
+            "latency": 2.05,
+            "ttft": 0.72,
+            "cache_hit_rate": 0.85,
+            "uptime": 0.96
           }
         }
       }
@@ -4407,7 +4604,6 @@
       "max_output_tokens": 196000,
       "tags": [
         "Instruct",
-        "Code",
         "Tools",
         "Reasoning"
       ],
@@ -4442,10 +4638,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 66.89,
-            "latency": 19.44,
-            "ttft": 14.94,
-            "cache_hit_rate": 0.7,
+            "throughput": 73.28,
+            "latency": 20.4,
+            "ttft": 9.48,
+            "cache_hit_rate": 0.74,
             "uptime": 1.0
           }
         },
@@ -4464,11 +4660,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 39.85,
-            "latency": 39.31,
-            "ttft": 15.6,
+            "throughput": 40.1,
+            "latency": 42.49,
+            "ttft": 10.95,
             "cache_hit_rate": null,
-            "uptime": 0.97
+            "uptime": 0.98
           }
         }
       }
@@ -4497,7 +4693,6 @@
         "Instruct",
         "Tools",
         "Image",
-        "Code",
         "Reasoning",
         "Document"
       ],
@@ -4535,11 +4730,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 145.33,
-            "latency": 9.64,
-            "ttft": 2.03,
-            "cache_hit_rate": 0.75,
-            "uptime": 0.99
+            "throughput": 135.77,
+            "latency": 21.32,
+            "ttft": 1.18,
+            "cache_hit_rate": 0.57,
+            "uptime": 1.0
           }
         },
         "amazon_paris": {
@@ -4559,11 +4754,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 118.01,
-            "latency": 15.85,
-            "ttft": 1.28,
-            "cache_hit_rate": 0.81,
-            "uptime": 0.97
+            "throughput": 127.09,
+            "latency": 15.41,
+            "ttft": 0.95,
+            "cache_hit_rate": 0.87,
+            "uptime": 0.96
           }
         },
         "google": {
@@ -4583,10 +4778,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 85.98,
-            "latency": 12.92,
-            "ttft": 2.46,
-            "cache_hit_rate": 0.38,
+            "throughput": 87.54,
+            "latency": 12.68,
+            "ttft": 2.78,
+            "cache_hit_rate": 0.31,
             "uptime": 0.99
           }
         }
@@ -4610,7 +4805,6 @@
       "max_output_tokens": 203000,
       "tags": [
         "Instruct",
-        "Code",
         "Tools"
       ],
       "input_modalities": [
@@ -4641,11 +4835,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 269.84,
-            "latency": 1.05,
-            "ttft": 0.67,
+            "throughput": 317.54,
+            "latency": 1.38,
+            "ttft": 0.7,
             "cache_hit_rate": null,
-            "uptime": 0.97
+            "uptime": 1.0
           }
         }
       }
@@ -4669,7 +4863,6 @@
       "max_output_tokens": 262144,
       "tags": [
         "Instruct",
-        "Code",
         "Tools",
         "Reasoning",
         "Image"
@@ -4706,10 +4899,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 42.15,
-            "latency": 51.89,
-            "ttft": 5.04,
-            "cache_hit_rate": 0.93,
+            "throughput": 29.75,
+            "latency": 64.91,
+            "ttft": 5.08,
+            "cache_hit_rate": 0.92,
             "uptime": 0.98
           }
         }
@@ -4739,7 +4932,6 @@
         "Instruct",
         "Tools",
         "Image",
-        "Code",
         "Reasoning",
         "Document"
       ],
@@ -4777,11 +4969,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 67.93,
-            "latency": 14.63,
-            "ttft": 1.65,
+            "throughput": 70.37,
+            "latency": 16.45,
+            "ttft": 1.47,
             "cache_hit_rate": 0.05,
-            "uptime": 0.93
+            "uptime": 0.88
           }
         },
         "amazon_paris": {
@@ -4801,11 +4993,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 77.3,
-            "latency": 18.52,
-            "ttft": 1.96,
+            "throughput": 80.01,
+            "latency": 19.14,
+            "ttft": 1.89,
             "cache_hit_rate": null,
-            "uptime": 0.94
+            "uptime": 0.92
           }
         },
         "google": {
@@ -4825,10 +5017,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 72.92,
-            "latency": 24.2,
-            "ttft": 3.25,
-            "cache_hit_rate": 0.32,
+            "throughput": 83.13,
+            "latency": 22.07,
+            "ttft": 3.19,
+            "cache_hit_rate": 0.31,
             "uptime": 0.99
           }
         }
@@ -4852,7 +5044,6 @@
       "max_output_tokens": 196000,
       "tags": [
         "Instruct",
-        "Code",
         "Tools",
         "Reasoning"
       ],
@@ -4886,8 +5077,8 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 138.33,
-            "latency": 8.8,
+            "throughput": 144.42,
+            "latency": 8.87,
             "ttft": 0.66,
             "cache_hit_rate": null,
             "uptime": 1.0
@@ -4913,7 +5104,6 @@
       "max_output_tokens": 196000,
       "tags": [
         "Instruct",
-        "Code",
         "Tools",
         "Reasoning"
       ],
@@ -4947,9 +5137,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 124.99,
-            "latency": 18.03,
-            "ttft": 2.0,
+            "throughput": 124.42,
+            "latency": 18.04,
+            "ttft": 0.78,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -4998,9 +5188,9 @@
           "max_output_tokens": 32000,
           "supported_features": [],
           "metrics": {
-            "throughput": 30.17,
-            "latency": 1.08,
-            "ttft": 0.19,
+            "throughput": 28.12,
+            "latency": 1.63,
+            "ttft": 0.21,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -5049,9 +5239,9 @@
           "max_output_tokens": 32000,
           "supported_features": [],
           "metrics": {
-            "throughput": 37.25,
-            "latency": 0.74,
-            "ttft": 0.11,
+            "throughput": 45.98,
+            "latency": 0.7,
+            "ttft": 0.12,
             "cache_hit_rate": null,
             "uptime": 0.97
           }
@@ -5111,10 +5301,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 170.93,
-            "latency": 2.74,
-            "ttft": 0.34,
-            "cache_hit_rate": 0.29,
+            "throughput": 121.57,
+            "latency": 1.35,
+            "ttft": 0.31,
+            "cache_hit_rate": 0.35,
             "uptime": 1.0
           }
         }
@@ -5173,9 +5363,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 22.36,
-            "latency": 3.68,
-            "ttft": 2.75,
+            "throughput": 21.6,
+            "latency": 4.22,
+            "ttft": 2.86,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -5234,9 +5424,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 216.37,
-            "latency": 4.73,
-            "ttft": 0.31,
+            "throughput": 230.83,
+            "latency": 2.84,
+            "ttft": 0.42,
             "cache_hit_rate": 0.42,
             "uptime": 1.0
           }
@@ -5256,9 +5446,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 410.31,
-            "latency": 1.97,
-            "ttft": 0.42,
+            "throughput": 393.37,
+            "latency": 1.96,
+            "ttft": 0.43,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -5289,7 +5479,6 @@
         "Instruct",
         "Tools",
         "Image",
-        "Code",
         "Reasoning",
         "Document"
       ],
@@ -5327,11 +5516,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 102.39,
-            "latency": 12.42,
-            "ttft": 1.25,
+            "throughput": 110.24,
+            "latency": 12.3,
+            "ttft": 1.18,
             "cache_hit_rate": null,
-            "uptime": 0.67
+            "uptime": 0.6
           }
         },
         "amazon_paris": {
@@ -5351,11 +5540,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 117.28,
-            "latency": 8.67,
+            "throughput": 109.23,
+            "latency": 8.74,
             "ttft": 1.29,
             "cache_hit_rate": null,
-            "uptime": 0.56
+            "uptime": 0.5
           }
         },
         "google": {
@@ -5375,9 +5564,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 65.65,
-            "latency": 13.49,
-            "ttft": 2.0,
+            "throughput": 73.0,
+            "latency": 12.0,
+            "ttft": 2.26,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -5402,7 +5591,6 @@
       "max_output_tokens": 256000,
       "tags": [
         "Instruct",
-        "Code",
         "Tools"
       ],
       "input_modalities": [
@@ -5433,9 +5621,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 90.49,
-            "latency": 5.61,
-            "ttft": 0.46,
+            "throughput": 77.6,
+            "latency": 5.71,
+            "ttft": 0.49,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -5498,8 +5686,8 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 200.32,
-            "latency": 2.95,
+            "throughput": 208.38,
+            "latency": 2.8,
             "ttft": 0.45,
             "cache_hit_rate": null,
             "uptime": 1.0
@@ -5520,9 +5708,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 192.8,
-            "latency": 3.25,
-            "ttft": 0.47,
+            "throughput": 196.25,
+            "latency": 3.06,
+            "ttft": 0.45,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -5581,9 +5769,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 143.87,
-            "latency": 3.16,
-            "ttft": 0.4,
+            "throughput": 155.67,
+            "latency": 2.09,
+            "ttft": 0.39,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -5609,7 +5797,6 @@
       "max_output_tokens": 256000,
       "tags": [
         "Instruct",
-        "Code",
         "Tools",
         "Image"
       ],
@@ -5643,11 +5830,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 91.67,
-            "latency": 6.88,
-            "ttft": 0.65,
-            "cache_hit_rate": 0.04,
-            "uptime": 0.98
+            "throughput": 76.3,
+            "latency": 5.91,
+            "ttft": 0.68,
+            "cache_hit_rate": 0.06,
+            "uptime": 0.99
           }
         }
       }
@@ -5671,7 +5858,6 @@
       "max_output_tokens": 256000,
       "tags": [
         "Instruct",
-        "Code",
         "Tools",
         "Image"
       ],
@@ -5705,10 +5891,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 95.76,
-            "latency": 1.44,
-            "ttft": 0.28,
-            "cache_hit_rate": 0.2,
+            "throughput": 96.27,
+            "latency": 1.45,
+            "ttft": 1.51,
+            "cache_hit_rate": 0.21,
             "uptime": 1.0
           }
         },
@@ -5726,8 +5912,8 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 307.91,
-            "latency": 3.93,
+            "throughput": 310.45,
+            "latency": 3.64,
             "ttft": 0.55,
             "cache_hit_rate": null,
             "uptime": 1.0
@@ -5754,7 +5940,6 @@
       "max_output_tokens": 256000,
       "tags": [
         "Instruct",
-        "Code",
         "Tools",
         "Image"
       ],
@@ -5788,10 +5973,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 156.19,
-            "latency": 1.81,
-            "ttft": 0.46,
-            "cache_hit_rate": 0.07,
+            "throughput": 163.29,
+            "latency": 0.95,
+            "ttft": 0.38,
+            "cache_hit_rate": 0.0,
             "uptime": 1.0
           }
         }
@@ -5816,7 +6001,6 @@
       "max_output_tokens": 256000,
       "tags": [
         "Instruct",
-        "Code",
         "Tools",
         "Image"
       ],
@@ -5850,10 +6034,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 95.01,
-            "latency": 7.03,
-            "ttft": 0.46,
-            "cache_hit_rate": 0.08,
+            "throughput": 59.61,
+            "latency": 4.19,
+            "ttft": 0.3,
+            "cache_hit_rate": 0.42,
             "uptime": 1.0
           }
         },
@@ -5871,9 +6055,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 256.94,
-            "latency": 5.03,
-            "ttft": 0.37,
+            "throughput": 223.19,
+            "latency": 5.52,
+            "ttft": 0.39,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -5935,10 +6119,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 101.18,
-            "latency": 15.54,
-            "ttft": 1.45,
-            "cache_hit_rate": 0.52,
+            "throughput": 99.8,
+            "latency": 12.5,
+            "ttft": 1.49,
+            "cache_hit_rate": 0.39,
             "uptime": 1.0
           }
         }
@@ -5997,9 +6181,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 205.93,
-            "latency": 1.7,
-            "ttft": 0.4,
+            "throughput": 210.4,
+            "latency": 1.91,
+            "ttft": 0.39,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -6030,7 +6214,6 @@
         "Instruct",
         "Tools",
         "Image",
-        "Code",
         "Reasoning",
         "Document"
       ],
@@ -6068,10 +6251,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 205.4,
-            "latency": 2.04,
-            "ttft": 0.96,
-            "cache_hit_rate": 0.81,
+            "throughput": 201.88,
+            "latency": 1.63,
+            "ttft": 0.86,
+            "cache_hit_rate": 0.76,
             "uptime": 1.0
           }
         },
@@ -6092,11 +6275,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 174.88,
-            "latency": 1.81,
-            "ttft": 0.88,
-            "cache_hit_rate": 0.85,
-            "uptime": 0.99
+            "throughput": 205.2,
+            "latency": 1.95,
+            "ttft": 0.83,
+            "cache_hit_rate": 0.88,
+            "uptime": 1.0
           }
         },
         "google": {
@@ -6116,10 +6299,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 168.81,
-            "latency": 2.08,
-            "ttft": 1.03,
-            "cache_hit_rate": 0.59,
+            "throughput": 171.11,
+            "latency": 2.06,
+            "ttft": 1.13,
+            "cache_hit_rate": 0.54,
             "uptime": 0.99
           }
         }
@@ -6149,7 +6332,6 @@
         "Instruct",
         "Tools",
         "Image",
-        "Code",
         "Reasoning",
         "Document"
       ],
@@ -6187,11 +6369,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 109.2,
-            "latency": 16.23,
-            "ttft": 1.7,
-            "cache_hit_rate": 0.66,
-            "uptime": 0.93
+            "throughput": 136.75,
+            "latency": 19.29,
+            "ttft": 1.34,
+            "cache_hit_rate": null,
+            "uptime": 0.97
           }
         },
         "amazon_paris": {
@@ -6211,11 +6393,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 91.81,
-            "latency": 12.47,
-            "ttft": 1.2,
+            "throughput": 94.87,
+            "latency": 12.57,
+            "ttft": 1.26,
             "cache_hit_rate": null,
-            "uptime": 0.55
+            "uptime": 0.5
           }
         },
         "google": {
@@ -6235,9 +6417,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 52.59,
-            "latency": 12.23,
-            "ttft": 0.87,
+            "throughput": 68.91,
+            "latency": 10.98,
+            "ttft": 1.01,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -6297,9 +6479,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 619.33,
-            "latency": 13.16,
-            "ttft": 10.48,
+            "throughput": 1194.58,
+            "latency": 18.88,
+            "ttft": 14.91,
             "cache_hit_rate": 0.13,
             "uptime": 1.0
           }
@@ -6363,11 +6545,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 181.22,
-            "latency": 4.23,
-            "ttft": 0.85,
+            "throughput": 125.23,
+            "latency": 5.56,
+            "ttft": 1.5,
             "cache_hit_rate": null,
-            "uptime": 0.96
+            "uptime": 1.0
           }
         },
         "nebius": {
@@ -6385,11 +6567,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 277.17,
-            "latency": 7.24,
-            "ttft": 25.93,
-            "cache_hit_rate": 0.2,
-            "uptime": 0.99
+            "throughput": 284.09,
+            "latency": 4.54,
+            "ttft": 0.98,
+            "cache_hit_rate": 0.1,
+            "uptime": 1.0
           }
         },
         "ionos": {
@@ -6407,9 +6589,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 168.51,
-            "latency": 3.69,
-            "ttft": 0.26,
+            "throughput": 147.7,
+            "latency": 3.61,
+            "ttft": 0.31,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -6429,9 +6611,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 74.06,
-            "latency": 12.61,
-            "ttft": 0.57,
+            "throughput": 64.29,
+            "latency": 6.8,
+            "ttft": 0.77,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -6451,9 +6633,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 340.84,
-            "latency": 3.41,
-            "ttft": 0.47,
+            "throughput": 300.8,
+            "latency": 3.18,
+            "ttft": 0.43,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -6473,9 +6655,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 473.05,
-            "latency": 3.51,
-            "ttft": 1.73,
+            "throughput": 587.14,
+            "latency": 2.97,
+            "ttft": 1.61,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -6495,11 +6677,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 210.59,
-            "latency": 4.26,
+            "throughput": 185.35,
+            "latency": 7.02,
             "ttft": 1.13,
-            "cache_hit_rate": 0.23,
-            "uptime": 0.97
+            "cache_hit_rate": 0.39,
+            "uptime": 0.99
           }
         }
       }
@@ -6555,10 +6737,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 63.9,
-            "latency": 3.07,
-            "ttft": 0.84,
-            "cache_hit_rate": 0.97,
+            "throughput": 60.13,
+            "latency": 4.95,
+            "ttft": 1.12,
+            "cache_hit_rate": 0.96,
             "uptime": 1.0
           }
         }
@@ -6616,9 +6798,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 80.98,
-            "latency": 8.58,
-            "ttft": 0.84,
+            "throughput": 77.36,
+            "latency": 11.0,
+            "ttft": 0.95,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -6638,9 +6820,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 257.29,
-            "latency": 5.08,
-            "ttft": 0.42,
+            "throughput": 245.39,
+            "latency": 5.29,
+            "ttft": 0.41,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -6695,8 +6877,8 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 31.5,
-            "latency": 6.0,
+            "throughput": 34.2,
+            "latency": 5.81,
             "ttft": 0.37,
             "cache_hit_rate": null,
             "uptime": 0.92
@@ -6748,8 +6930,8 @@
           "max_output_tokens": 8192,
           "supported_features": [],
           "metrics": {
-            "throughput": 132.1,
-            "latency": 2.32,
+            "throughput": 132.03,
+            "latency": 2.11,
             "ttft": 0.19,
             "cache_hit_rate": null,
             "uptime": 1.0
@@ -6766,8 +6948,8 @@
           "max_output_tokens": 8192,
           "supported_features": [],
           "metrics": {
-            "throughput": 134.75,
-            "latency": 2.14,
+            "throughput": 135.31,
+            "latency": 2.07,
             "ttft": 0.16,
             "cache_hit_rate": null,
             "uptime": 1.0
@@ -6829,8 +7011,8 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 47.99,
-            "latency": 11.59,
+            "throughput": 50.69,
+            "latency": 11.07,
             "ttft": 0.23,
             "cache_hit_rate": null,
             "uptime": 1.0
@@ -6851,8 +7033,8 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 49.82,
-            "latency": 7.06,
+            "throughput": 50.04,
+            "latency": 7.2,
             "ttft": 0.21,
             "cache_hit_rate": null,
             "uptime": 1.0
@@ -6916,9 +7098,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 87.21,
-            "latency": 5.66,
-            "ttft": 0.31,
+            "throughput": 86.7,
+            "latency": 5.59,
+            "ttft": 0.33,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -6938,9 +7120,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 87.86,
-            "latency": 5.72,
-            "ttft": 0.37,
+            "throughput": 91.57,
+            "latency": 5.78,
+            "ttft": 0.38,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -6999,9 +7181,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 35.92,
-            "latency": 16.2,
-            "ttft": 0.75,
+            "throughput": 40.5,
+            "latency": 15.19,
+            "ttft": 0.65,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -7020,9 +7202,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 114.81,
-            "latency": 2.8,
-            "ttft": 0.15,
+            "throughput": 114.6,
+            "latency": 3.69,
+            "ttft": 0.27,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -7041,9 +7223,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 65.8,
-            "latency": 3.38,
-            "ttft": 0.66,
+            "throughput": 67.84,
+            "latency": 3.14,
+            "ttft": 0.75,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -7101,9 +7283,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 232.92,
-            "latency": 1.9,
-            "ttft": 0.4,
+            "throughput": 218.02,
+            "latency": 2.11,
+            "ttft": 0.44,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -7164,9 +7346,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 92.6,
-            "latency": 4.97,
-            "ttft": 0.23,
+            "throughput": 92.97,
+            "latency": 4.9,
+            "ttft": 0.24,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -7186,10 +7368,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 52.23,
-            "latency": 25.9,
-            "ttft": 16.61,
-            "cache_hit_rate": 0.27,
+            "throughput": 58.34,
+            "latency": 22.39,
+            "ttft": 15.39,
+            "cache_hit_rate": 0.41,
             "uptime": 1.0
           }
         },
@@ -7209,11 +7391,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 26.15,
-            "latency": 4.65,
-            "ttft": 4.58,
-            "cache_hit_rate": 0.1,
-            "uptime": 1.0
+            "throughput": 38.17,
+            "latency": 5.45,
+            "ttft": 3.07,
+            "cache_hit_rate": 0.08,
+            "uptime": 0.99
           }
         }
       }
@@ -7238,7 +7420,6 @@
       "max_output_tokens": 262144,
       "tags": [
         "Instruct",
-        "Code",
         "Tools",
         "Reasoning"
       ],
@@ -7272,9 +7453,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 173.08,
-            "latency": 1.92,
-            "ttft": 0.14,
+            "throughput": 173.21,
+            "latency": 1.93,
+            "ttft": 0.13,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -7294,9 +7475,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 280.06,
-            "latency": 1.81,
-            "ttft": 0.44,
+            "throughput": 261.02,
+            "latency": 1.58,
+            "ttft": 0.35,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -7316,9 +7497,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 91.21,
-            "latency": 2.77,
-            "ttft": 0.2,
+            "throughput": 110.01,
+            "latency": 4.88,
+            "ttft": 0.09,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -7381,9 +7562,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 124.24,
-            "latency": 2.65,
-            "ttft": 0.94,
+            "throughput": 121.63,
+            "latency": 3.34,
+            "ttft": 0.9,
             "cache_hit_rate": 0.53,
             "uptime": 1.0
           }
@@ -7403,9 +7584,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 131.5,
-            "latency": 2.99,
-            "ttft": 0.61,
+            "throughput": 127.8,
+            "latency": 3.14,
+            "ttft": 0.76,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -7468,9 +7649,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 66.52,
-            "latency": 4.75,
-            "ttft": 0.72,
+            "throughput": 78.76,
+            "latency": 2.99,
+            "ttft": 0.68,
             "cache_hit_rate": 0.01,
             "uptime": 1.0
           }
@@ -7490,9 +7671,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 106.65,
-            "latency": 3.23,
-            "ttft": 0.47,
+            "throughput": 112.8,
+            "latency": 3.02,
+            "ttft": 0.49,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -7555,9 +7736,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 218.87,
-            "latency": 1.56,
-            "ttft": 0.52,
+            "throughput": 225.28,
+            "latency": 1.55,
+            "ttft": 0.5,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -7577,9 +7758,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 222.38,
-            "latency": 1.42,
-            "ttft": 0.39,
+            "throughput": 236.2,
+            "latency": 1.35,
+            "ttft": 0.41,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -7640,9 +7821,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 322.51,
-            "latency": 1.21,
-            "ttft": 0.58,
+            "throughput": 344.06,
+            "latency": 1.26,
+            "ttft": 0.56,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -7662,9 +7843,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 321.32,
-            "latency": 1.26,
-            "ttft": 0.34,
+            "throughput": 323.57,
+            "latency": 1.27,
+            "ttft": 0.36,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -7727,11 +7908,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 238.01,
-            "latency": 1.85,
-            "ttft": 0.33,
+            "throughput": 274.63,
+            "latency": 1.86,
+            "ttft": 0.34,
             "cache_hit_rate": null,
-            "uptime": 0.98
+            "uptime": 1.0
           }
         },
         "amazon_paris": {
@@ -7749,11 +7930,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 261.74,
-            "latency": 2.0,
+            "throughput": 287.94,
+            "latency": 1.8,
             "ttft": 0.36,
             "cache_hit_rate": null,
-            "uptime": 0.75
+            "uptime": 1.0
           }
         }
       }
@@ -7814,9 +7995,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 228.04,
-            "latency": 1.89,
-            "ttft": 0.43,
+            "throughput": 215.32,
+            "latency": 1.91,
+            "ttft": 0.44,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -7836,9 +8017,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 225.49,
-            "latency": 2.15,
-            "ttft": 0.43,
+            "throughput": 202.61,
+            "latency": 2.13,
+            "ttft": 0.46,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -7869,7 +8050,6 @@
         "Instruct",
         "Tools",
         "Image",
-        "Code",
         "Reasoning",
         "Document"
       ],
@@ -7907,11 +8087,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 99.69,
-            "latency": 10.88,
-            "ttft": 1.67,
-            "cache_hit_rate": 0.28,
-            "uptime": 0.64
+            "throughput": 101.06,
+            "latency": 14.46,
+            "ttft": 9.76,
+            "cache_hit_rate": 0.05,
+            "uptime": 0.67
           }
         },
         "amazon_paris": {
@@ -7931,11 +8111,11 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 112.19,
-            "latency": 9.95,
-            "ttft": 1.69,
+            "throughput": 86.37,
+            "latency": 10.46,
+            "ttft": 1.83,
             "cache_hit_rate": null,
-            "uptime": 0.55
+            "uptime": 0.5
           }
         },
         "google": {
@@ -8014,9 +8194,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 41.34,
-            "latency": 3.65,
-            "ttft": 0.32,
+            "throughput": 44.32,
+            "latency": 8.78,
+            "ttft": 0.37,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -8086,9 +8266,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 172.16,
-            "latency": 8.22,
-            "ttft": 2.31,
+            "throughput": 161.27,
+            "latency": 8.95,
+            "ttft": 2.63,
             "cache_hit_rate": 0.21,
             "uptime": 1.0
           }
@@ -8156,10 +8336,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 180.89,
-            "latency": 21.91,
-            "ttft": 20.06,
-            "cache_hit_rate": 0.15,
+            "throughput": 106.3,
+            "latency": 23.16,
+            "ttft": 18.83,
+            "cache_hit_rate": 0.1,
             "uptime": 1.0
           }
         }
@@ -8216,11 +8396,11 @@
             "reasoning"
           ],
           "metrics": {
-            "throughput": 52.43,
-            "latency": 7.74,
-            "ttft": 0.3,
+            "throughput": 32.91,
+            "latency": 3.88,
+            "ttft": 0.53,
             "cache_hit_rate": null,
-            "uptime": 0.99
+            "uptime": 1.0
           }
         }
       }
@@ -8275,9 +8455,9 @@
             "reasoning"
           ],
           "metrics": {
-            "throughput": 16.29,
-            "latency": 7.63,
-            "ttft": 1.62,
+            "throughput": 10.73,
+            "latency": 7.84,
+            "ttft": 1.68,
             "cache_hit_rate": null,
             "uptime": 0.97
           }
@@ -8337,9 +8517,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 16.62,
-            "latency": 57.94,
-            "ttft": 2.02,
+            "throughput": 18.23,
+            "latency": 59.62,
+            "ttft": 1.83,
             "cache_hit_rate": 0.83,
             "uptime": 1.0
           }
@@ -8365,7 +8545,6 @@
       "max_output_tokens": 256000,
       "tags": [
         "Instruct",
-        "Code",
         "Tools"
       ],
       "input_modalities": [
@@ -8397,10 +8576,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 156.6,
-            "latency": 1.2,
-            "ttft": 0.42,
-            "cache_hit_rate": 0.14,
+            "throughput": 170.32,
+            "latency": 1.48,
+            "ttft": 0.61,
+            "cache_hit_rate": 0.13,
             "uptime": 1.0
           }
         }
@@ -8460,9 +8639,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 126.35,
-            "latency": 2.68,
-            "ttft": 0.71,
+            "throughput": 101.49,
+            "latency": 3.51,
+            "ttft": 0.79,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -8482,9 +8661,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 26.76,
-            "latency": 14.21,
-            "ttft": 0.72,
+            "throughput": 20.95,
+            "latency": 21.98,
+            "ttft": 0.76,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -8504,9 +8683,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 45.73,
-            "latency": 11.3,
-            "ttft": 2.48,
+            "throughput": 48.92,
+            "latency": 7.32,
+            "ttft": 1.47,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -8526,8 +8705,8 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 51.35,
-            "latency": 5.0,
+            "throughput": 50.94,
+            "latency": 4.9,
             "ttft": 0.35,
             "cache_hit_rate": 0.91,
             "uptime": 1.0
@@ -8591,10 +8770,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 93.14,
-            "latency": 3.86,
-            "ttft": 0.46,
-            "cache_hit_rate": 0.3,
+            "throughput": 78.32,
+            "latency": 3.74,
+            "ttft": 0.55,
+            "cache_hit_rate": 0.48,
             "uptime": 1.0
           }
         },
@@ -8613,9 +8792,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 137.09,
-            "latency": 2.99,
-            "ttft": 0.54,
+            "throughput": 132.15,
+            "latency": 2.97,
+            "ttft": 0.59,
             "cache_hit_rate": 0.11,
             "uptime": 1.0
           }
@@ -8675,10 +8854,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 302.84,
-            "latency": 7.0,
-            "ttft": 3.87,
-            "cache_hit_rate": 0.44,
+            "throughput": 343.53,
+            "latency": 8.77,
+            "ttft": 5.09,
+            "cache_hit_rate": 0.42,
             "uptime": 1.0
           }
         }
@@ -8737,10 +8916,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 1821.41,
-            "latency": 9.37,
-            "ttft": 8.23,
-            "cache_hit_rate": 0.49,
+            "throughput": 2052.55,
+            "latency": 11.59,
+            "ttft": 10.05,
+            "cache_hit_rate": 0.48,
             "uptime": 1.0
           }
         }
@@ -8798,8 +8977,8 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 104.32,
-            "latency": 13.96,
+            "throughput": 109.57,
+            "latency": 13.75,
             "ttft": 0.15,
             "cache_hit_rate": null,
             "uptime": 1.0
@@ -8855,9 +9034,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 45.63,
-            "latency": 6.39,
-            "ttft": 0.51,
+            "throughput": 45.44,
+            "latency": 7.88,
+            "ttft": 0.54,
             "cache_hit_rate": 0.06,
             "uptime": 1.0
           }
@@ -8913,8 +9092,8 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 43.02,
-            "latency": 6.06,
+            "throughput": 40.46,
+            "latency": 8.46,
             "ttft": 0.11,
             "cache_hit_rate": null,
             "uptime": 1.0
@@ -8934,9 +9113,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 55.63,
-            "latency": 5.6,
-            "ttft": 0.48,
+            "throughput": 51.66,
+            "latency": 6.98,
+            "ttft": 0.35,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -8999,10 +9178,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 56.08,
-            "latency": 3.86,
-            "ttft": 0.63,
-            "cache_hit_rate": 0.08,
+            "throughput": 57.87,
+            "latency": 3.25,
+            "ttft": 0.62,
+            "cache_hit_rate": 0.04,
             "uptime": 1.0
           }
         },
@@ -9021,10 +9200,10 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 78.18,
-            "latency": 3.94,
-            "ttft": 0.54,
-            "cache_hit_rate": 0.21,
+            "throughput": 100.04,
+            "latency": 2.65,
+            "ttft": 0.55,
+            "cache_hit_rate": 0.22,
             "uptime": 1.0
           }
         }
@@ -9082,9 +9261,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 58.45,
-            "latency": 1.85,
-            "ttft": 0.73,
+            "throughput": 58.07,
+            "latency": 1.89,
+            "ttft": 0.78,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -9104,9 +9283,9 @@
             "tools"
           ],
           "metrics": {
-            "throughput": 99.42,
-            "latency": 4.34,
-            "ttft": 0.3,
+            "throughput": 97.62,
+            "latency": 4.66,
+            "ttft": 0.29,
             "cache_hit_rate": 0.99,
             "uptime": 1.0
           }
@@ -9164,9 +9343,9 @@
             "reasoning"
           ],
           "metrics": {
-            "throughput": 112.45,
-            "latency": 3.76,
-            "ttft": 0.24,
+            "throughput": 112.67,
+            "latency": 3.72,
+            "ttft": 0.23,
             "cache_hit_rate": null,
             "uptime": 1.0
           }
@@ -9185,8 +9364,8 @@
             "reasoning"
           ],
           "metrics": {
-            "throughput": 113.0,
-            "latency": 3.5,
+            "throughput": 113.18,
+            "latency": 3.34,
             "ttft": 0.19,
             "cache_hit_rate": null,
             "uptime": 1.0
