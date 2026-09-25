@@ -31,8 +31,16 @@ from fetch_pricing import fetch_markdown, parse_tables
 # Import fetch_model_comparison functionality
 from fetch_model_comparison import fetch_markdown as fetch_markdown_comparison, parse_model_comparison
 
-# Import fetch_cortecs functionality
-from fetch_cortecs import build as build_cortecs, API_URL as CORTECS_URL
+from fetch_router_pricing import build as build_router_pricing
+
+
+def json_for_script(value) -> str:
+    return (
+        json.dumps(value)
+        .replace("<", "\\u003c")
+        .replace(">", "\\u003e")
+        .replace("&", "\\u0026")
+    )
 
 
 def normalize_models(
@@ -130,7 +138,7 @@ def main():
 
     pricing_path = Path(__file__).parent / "pricing.json"
     comparison_path = Path(__file__).parent / "model_comparison.json"
-    cortecs_path = Path(__file__).parent / "cortecs.json"
+    router_pricing_path = Path(__file__).parent / "router-pricing.json"
 
     # Fetch pricing if not --no-fetch
     if not args.no_fetch:
@@ -185,20 +193,27 @@ def main():
             if not comparison_path.exists():
                 print("Warning: model_comparison.json not found, continuing without comparison data", file=sys.stderr)
 
-    # Fetch Cortecs models if not --no-fetch (3 calls + provider-attribute derivation, slice 04)
+    # Refresh router catalogs as one aggregate so each source can fall back independently.
     if not args.no_fetch:
-        print("Fetching Cortecs models data...")
+        print("Fetching router pricing data...")
         try:
-            cortecs_output = build_cortecs()
-            cortecs_path.write_text(json.dumps(cortecs_output, indent=2), encoding="utf-8")
-            print(f"Updated {cortecs_path}")
+            previous = None
+            if router_pricing_path.exists():
+                previous = json.loads(router_pricing_path.read_text(encoding="utf-8"))
+            router_output = build_router_pricing(previous)
+            router_pricing_path.write_text(
+                json.dumps(router_output, indent=2) + "\n",
+                encoding="utf-8",
+            )
+            print(f"Updated {router_pricing_path}")
         except Exception as e:
             print(
-                f"Warning: Cortecs fetch failed ({e}), will try to use existing cortecs.json",
+                f"Warning: router fetch failed ({e}), will use existing router-pricing.json",
                 file=sys.stderr,
             )
-            if not cortecs_path.exists():
-                print("Warning: cortecs.json not found, skipping Cortecs page", file=sys.stderr)
+            if not router_pricing_path.exists():
+                print("Error: router-pricing.json not found", file=sys.stderr)
+                sys.exit(1)
 
     # Load pricing.json
     if not pricing_path.exists():
@@ -245,95 +260,44 @@ def main():
     landing_out.write_text(landing_html, encoding="utf-8")
     print(f"Generated {landing_out}")
 
-    # Render the Cortecs page from cortecs.json (if present).
-    # Server-side default order: cheapest input price first; client sort lands later.
-    if cortecs_path.exists():
-        cortecs_data = json.loads(cortecs_path.read_text(encoding="utf-8"))
-        cortecs_models = sorted(
-            cortecs_data.get("models", []),
-            key=lambda m: (m["pricing"]["input_token"], m["pricing"]["output_token"], m["id"]),
-        )
-        # Flat shape for the client JS: id/owner + €/1M rates + the drill-down's
-        # per-provider rows. Cached reuses cache_read_cost where published, else the
-        # input rate (prompt caching reuses input computation); is-not-None keeps an
-        # explicit 0 intact. Audio/speech costs ride along only when present (slice 04).
-        def _cached(pr):
-            crc = pr.get("cache_read_cost")
-            return crc if crc is not None else pr.get("input_token", 0)
+    if not router_pricing_path.exists():
+        print("Error: router-pricing.json not found", file=sys.stderr)
+        sys.exit(1)
 
-        # Capability + cheapest-quant derivation for the row badges (slice 05).
-        # One consistent source per capability (plan.md "Edge cases"): vision/audio
-        # from input_modalities, reasoning/tools from supported_features.
-        def _capabilities(m):
-            mods = set(m.get("input_modalities", []))
-            feats = set(m.get("supported_features", []))
-            return {
-                "vision": "image" in mods,
-                "audio": "audio" in mods,
-                "reasoning": "reasoning" in feats,
-                "tools": "tools" in feats,
-            }
+    router_data = json.loads(router_pricing_path.read_text(encoding="utf-8"))
+    offers = router_data.get("offers", [])
+    if not offers:
+        print("Error: router-pricing.json has no offers", file=sys.stderr)
+        sys.exit(1)
+    routers = router_data.get("routers", [])
+    exchange_rate = router_data.get("exchangeRate")
+    router_template = env.get_template("router-pricing.html.j2")
+    router_html = router_template.render(
+        generatedAt=router_data.get("generatedAt", "unknown"),
+        routers=routers,
+        staleRouters=[
+            f"{router['name']} (fetched {router.get('fetchedAt', 'unknown')[:10]})"
+            for router in routers
+            if router.get("stale")
+        ],
+        omittedRouters=[
+            omitted.get("id", "unknown")
+            for omitted in router_data.get("omittedRouters", [])
+        ],
+        exchangeRate=exchange_rate,
+        models_json=json_for_script(offers),
+        routers_json=json_for_script(routers),
+        exchange_rate_json=json_for_script(exchange_rate),
+    )
+    router_html = "\n".join(line.rstrip() for line in router_html.splitlines()) + "\n"
+    router_out = Path(__file__).parent / "docs" / "router-pricing.html"
+    router_out.write_text(router_html, encoding="utf-8")
+    print(f"Generated {router_out} ({len(offers)} router model offers)")
 
-        HEAVY_QUANTS = ("fp4", "int4")
-
-        # Cheapest provider = the one whose pricing matches the model's top-level
-        # `pricing`. When several tie at the cheapest price, prefer an aggressive
-        # quant so the honesty badge fires (the low price IS available compressed).
-        def _cheapest_quant(m):
-            top = m["pricing"]
-            tier = []
-            for pd in m.get("providers_details", {}).values():
-                pp = pd.get("pricing", {})
-                if (top.get("input_token") == pp.get("input_token")
-                        and top.get("output_token") == pp.get("output_token")):
-                    q = pd.get("quantization")
-                    if q:
-                        tier.append(q)
-            heavy = sorted(q for q in tier if q in HEAVY_QUANTS)
-            if heavy:
-                return heavy[0]
-            return sorted(tier)[0] if tier else None
-
-        cortecs_js_models = []
-        for m in cortecs_models:
-            prov_rows = []
-            for name, pd in m.get("providers_details", {}).items():
-                pr = pd.get("pricing", {})
-                r = {
-                    "name": name,
-                    "quantization": pd.get("quantization"),
-                    "context_size": pd.get("context_size"),
-                    "input": pr.get("input_token", 0),
-                    "cached": _cached(pr),
-                    "output": pr.get("output_token", 0),
-                    "features": pd.get("supported_features", []),
-                }
-                if "audio_cost" in pr:
-                    r["audio_cost"] = pr["audio_cost"]
-                if "speech_cost" in pr:
-                    r["speech_cost"] = pr["speech_cost"]
-                prov_rows.append(r)
-            cortecs_js_models.append({
-                "id": m["id"],
-                "owned_by": m.get("owned_by", ""),
-                "input": m["pricing"]["input_token"],
-                "cached": _cached(m["pricing"]),
-                "output": m["pricing"]["output_token"],
-                "capabilities": _capabilities(m),
-                "quant": _cheapest_quant(m),
-                "providers": prov_rows,
-            })
-        cortecs_template = env.get_template("cortecs.html.j2")
-        cortecs_html = cortecs_template.render(
-            fetchDate=cortecs_data.get("fetchDate", "unknown"),
-            source=cortecs_data.get("source", CORTECS_URL),
-            models=cortecs_models,
-            models_json=json.dumps(cortecs_js_models),
-            providers_json=json.dumps(cortecs_data.get("providers", {})),
-        )
-        cortecs_out = Path(__file__).parent / "docs" / "cortecs.html"
-        cortecs_out.write_text(cortecs_html, encoding="utf-8")
-        print(f"Generated {cortecs_out} ({len(cortecs_models)} models)")
+    redirect_template = env.get_template("cortecs-redirect.html.j2")
+    cortecs_out = Path(__file__).parent / "docs" / "cortecs.html"
+    cortecs_out.write_text(redirect_template.render(), encoding="utf-8")
+    print(f"Generated compatibility redirect {cortecs_out}")
 
     # Render the provider comparison page from cached providers.json.
     # Loaded unconditionally so --no-fetch still regenerates the page.

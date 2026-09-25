@@ -1,0 +1,275 @@
+<script>
+  const ALL_MODELS = {{ models_json }};
+  const ROUTERS = {{ routers_json }};
+  const EXCHANGE_RATE = {{ exchange_rate_json }};
+
+  const PROFILES = {
+    superuser: { input: 0.49, cached: 98.62, output: 0.89 },
+    regular: { input: 5.45, cached: 86.36, output: 8.18 },
+  };
+  const state = {
+    mode: 'default',
+    sortCol: 'cost',
+    sortDir: 'asc',
+    search: '',
+    routers: new Set(),
+    filters: { reasoning: false, tools: false, vision: false, audio: false },
+    showInput: true,
+    showCached: true,
+    showOutput: true,
+    compareIds: new Set(),
+    activeProfile: null,
+  };
+  const MAX_COMPARE = 5;
+  const fmt = n => n.toLocaleString('en-US', { minimumFractionDigits: 3, maximumFractionDigits: 3 });
+  const fmtMoney = n => n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const fmtRuns = n => n.toLocaleString('en-US', { maximumFractionDigits: 1 });
+  const rate = n => n === 0 ? 'Free' : `€${fmt(n)}`;
+  const activeRates = model => model[state.mode];
+  const encoded = key => encodeURIComponent(key);
+  const esc = value => String(value ?? '').replace(/[&<>"']/g, character => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+  })[character]);
+
+  function getConfig() {
+    const total = parseFloat(document.getElementById('total-tokens').value) || 1_000_000;
+    let ip = parseFloat(document.getElementById('input-pct').value) || 0;
+    let cp = parseFloat(document.getElementById('cached-pct').value) || 0;
+    let op = parseFloat(document.getElementById('output-pct').value) || 0;
+    const budget = Math.max(0, parseFloat(document.getElementById('budget-amount').value) || 0);
+    const sum = ip + cp + op;
+    document.getElementById('pct-warning').style.display = Math.abs(sum - 100) > 0.1 ? 'block' : 'none';
+    if (sum > 0) { ip = ip / sum * 100; cp = cp / sum * 100; op = op / sum * 100; }
+    return {
+      total, ip, cp, op, budget,
+      inputTokens: total * ip / 100,
+      cachedTokens: total * cp / 100,
+      outputTokens: total * op / 100,
+    };
+  }
+
+  function estimateCost(rates, cfg) {
+    return (cfg.inputTokens / 1_000_000) * rates.input
+      + (cfg.cachedTokens / 1_000_000) * rates.cached
+      + (cfg.outputTokens / 1_000_000) * rates.output;
+  }
+
+  function capabilities(model) {
+    return Object.entries(model.capabilities || {})
+      .filter(([, enabled]) => enabled)
+      .map(([name]) => `<span class="cap">${name}</span>`).join('');
+  }
+
+  function warnings(model, rates) {
+    let result = '';
+    if (rates.cachedFallback) result += '<span class="warning-chip" title="Cached-input estimate uses the input rate">⚠ cache estimate</span>';
+    if (model.quantization) result += `<span class="warning-chip" title="A provider matching this price uses heavy quantization">${model.quantization}</span>`;
+    if (state.mode === 'default' && model.eu) result += '<span class="router-chip">EU price available</span>';
+    if (state.mode === 'eu') result += '<span class="router-chip">EU routing</span>';
+    return result;
+  }
+
+  function passesFilters(model) {
+    if (!activeRates(model)) return false;
+    if (state.routers.size && !state.routers.has(model.router)) return false;
+    if (state.search) {
+      const haystack = [
+        model.name, model.modelId, model.owner, model.routerName,
+        ...(model.providers || []), ...(model.euProviders || []),
+      ].join(' ').toLowerCase();
+      if (!haystack.includes(state.search.toLowerCase())) return false;
+    }
+    return Object.entries(state.filters)
+      .every(([name, enabled]) => !enabled || model.capabilities?.[name]);
+  }
+
+  function sortRows(rows) {
+    const direction = state.sortDir === 'asc' ? 1 : -1;
+    rows.sort((a, b) => {
+      const av = a[state.sortCol], bv = b[state.sortCol];
+      if (typeof av === 'number' && typeof bv === 'number') return (av - bv) * direction;
+      return String(av ?? '').localeCompare(String(bv ?? '')) * direction;
+    });
+  }
+
+  function barHtml(cost, maxCost) {
+    if (cost === 0) return '<span class="dim">free</span>';
+    return `<div class="credit-bar-wrap"><div class="credit-bar-bg"><div class="credit-bar-fill" style="width:${Math.round(cost / maxCost * 100)}%"></div></div></div>`;
+  }
+
+  function summaryChips(cfg) {
+    document.getElementById('summary-chips').innerHTML = `
+      <span class="chip">Total tokens: <strong>${cfg.total.toLocaleString()}</strong></span>
+      <span class="chip">Input: <strong>${Math.round(cfg.ip)}%</strong></span>
+      <span class="chip">Cached: <strong>${Math.round(cfg.cp)}%</strong></span>
+      <span class="chip">Output: <strong>${Math.round(cfg.op)}%</strong></span>
+      <span class="chip">Budget: <strong>€${fmtMoney(cfg.budget)}</strong></span>`;
+  }
+
+  function render() {
+    const cfg = getConfig();
+    const rows = ALL_MODELS.filter(passesFilters).map(model => {
+      const prices = activeRates(model);
+      const cost = estimateCost(prices, cfg);
+      return { ...model, ...prices, cost, runs: cost > 0 ? cfg.budget / cost : null };
+    });
+    sortRows(rows);
+    const maxCost = rows.reduce((maximum, model) => Math.max(maximum, model.cost), 0) || 1;
+    document.getElementById('table-body').innerHTML = rows.map(model => {
+      const selected = state.compareIds.has(model.key);
+      return `<tr class="model-row${selected ? ' in-compare' : ''}" data-key="${encoded(model.key)}">
+        <td class="cmp-cell"><button class="cmp-btn${selected ? ' active' : ''}" onclick="toggleCompare(decodeURIComponent('${encoded(model.key)}'))">${selected ? '−' : '+'}</button></td>
+        <td><span class="router-chip">${esc(model.routerName)}</span></td>
+        <td class="model-id">${esc(model.name)}<br><span class="dim">${esc(model.modelId)}</span></td>
+        <td class="owner">${esc(model.owner || '—')}</td>
+        <td class="caps">${capabilities(model)}${warnings(model, model)}</td>
+        <td class="num col-input">${rate(model.input)}</td>
+        <td class="num col-cached">${rate(model.cached)}${model.cachedFallback ? ' ⚠' : ''}</td>
+        <td class="num col-output">${rate(model.output)}</td>
+        <td class="num cost-cell">${model.cost > 0 ? `€${fmt(model.cost)}` : 'Free'}</td>
+        <td class="num runs-cell">${model.runs == null ? '—' : fmtRuns(model.runs)}</td>
+        <td class="bar-cell">${barHtml(model.cost, maxCost)}</td>
+      </tr>`;
+    }).join('');
+    document.getElementById('no-results').style.display = rows.length ? 'none' : 'block';
+    document.getElementById('row-count').innerHTML = `Showing <strong>${rows.length}</strong> of <strong>${ALL_MODELS.length}</strong> router model offers`;
+    document.querySelectorAll('thead th[data-col]').forEach(th => {
+      const icon = th.querySelector('.sort-icon');
+      icon.textContent = th.dataset.col === state.sortCol ? (state.sortDir === 'asc' ? '↑' : '↓') : '↕';
+    });
+    summaryChips(cfg);
+    applyColumnVisibility();
+    renderCompareTray(cfg);
+  }
+
+  function detailHtml(model) {
+    const prices = activeRates(model);
+    const providers = (state.mode === 'eu' ? model.euProviders : model.providers) || [];
+    const native = prices.native
+      ? `<p><strong>Native USD:</strong> input $${fmt(prices.native.input)}, cached $${fmt(prices.native.cached)}, output $${fmt(prices.native.output)} per 1M tokens. Converted using 1 EUR = ${EXCHANGE_RATE.usdPerEur} USD (${EXCHANGE_RATE.observationDate}).</p>`
+      : '';
+    const cache = prices.cachedFallback
+      ? '<p><strong>⚠ Cached-input estimate:</strong> the router did not publish a cached-input rate, so this calculator uses the input rate. A separate cache price may exist.</p>'
+      : '';
+    const plan = state.mode === 'eu' && model.euPlan
+      ? `<p><strong>Plan restriction:</strong> ${model.routerName} EU routing requires ${model.euPlan}.</p>`
+      : '';
+    return `<div class="detail-panel">
+      <p><strong>${state.mode === 'eu' ? 'EU routing' : 'Unrestricted inference'} price provenance:</strong> ${model.priceNote}</p>
+      <p><strong>Providers named by this bulk catalog:</strong> ${providers.length ? providers.map(esc).join(', ') : 'Not supplied'}</p>
+      ${native}${cache}${plan}
+      <p class="dim">Listed at the router's recorded fetch time; this is not a promise of live capacity or account access.</p>
+    </div>`;
+  }
+
+  function onRowClick(event) {
+    if (event.target.closest('.cmp-btn')) return;
+    const row = event.target.closest('tr.model-row');
+    if (!row) return;
+    if (row.nextElementSibling?.classList.contains('drilldown-row')) {
+      row.nextElementSibling.remove();
+      return;
+    }
+    const model = ALL_MODELS.find(item => item.key === decodeURIComponent(row.dataset.key));
+    const detail = document.createElement('tr');
+    detail.className = 'drilldown-row';
+    detail.innerHTML = `<td colspan="11">${detailHtml(model)}</td>`;
+    row.after(detail);
+  }
+
+  function renderCompareTray(cfg) {
+    const tray = document.getElementById('compare-tray');
+    const cards = document.getElementById('tray-cards');
+    const selected = [...state.compareIds]
+      .map(key => ALL_MODELS.find(model => model.key === key))
+      .filter(Boolean);
+    document.getElementById('tray-count').textContent = selected.length;
+    if (!selected.length) {
+      tray.classList.remove('visible');
+      document.body.classList.remove('tray-open');
+      return;
+    }
+    tray.classList.add('visible');
+    document.body.classList.add('tray-open');
+    cards.innerHTML = selected.map(model => {
+      const prices = activeRates(model);
+      const remove = `<button class="cmp-card-remove" onclick="toggleCompare(decodeURIComponent('${encoded(model.key)}'))">✕</button>`;
+      if (!prices) {
+        return `<div class="cmp-card">${remove}<div class="cmp-card-name">${esc(model.name)}</div><div class="cmp-card-provider">${esc(model.routerName)}</div><p class="unavailable">Unavailable with EU routing</p></div>`;
+      }
+      const cost = estimateCost(prices, cfg);
+      const runs = cost > 0 ? cfg.budget / cost : null;
+      return `<div class="cmp-card">
+        ${remove}
+        <div class="cmp-card-name">${esc(model.name)}</div>
+        <div class="cmp-card-provider">${esc(model.routerName)}</div>
+        <div class="cmp-card-rows">
+          <div class="cmp-rate-row"><span class="cmp-rate-label">Input</span><span class="cmp-rate-val">${rate(prices.input)}</span></div>
+          <div class="cmp-rate-row"><span class="cmp-rate-label">Cached${prices.cachedFallback ? ' ⚠' : ''}</span><span class="cmp-rate-val">${rate(prices.cached)}</span></div>
+          <div class="cmp-rate-row"><span class="cmp-rate-label">Output</span><span class="cmp-rate-val">${rate(prices.output)}</span></div>
+        </div>
+        <div class="cmp-card-cost"><div><div class="cmp-cost-label">Est. cost / run</div><div class="cmp-credits">${runs == null ? '—' : fmtRuns(runs)} runs in budget</div></div><span class="cmp-cost-val">${cost > 0 ? `€${fmt(cost)}` : 'Free'}</span></div>
+      </div>`;
+    }).join('');
+  }
+
+  function toggleCompare(key) {
+    if (state.compareIds.has(key)) state.compareIds.delete(key);
+    else if (state.compareIds.size < MAX_COMPARE) state.compareIds.add(key);
+    render();
+  }
+  function clearCompare() { state.compareIds.clear(); render(); }
+  function applyColumnVisibility() {
+    const table = document.getElementById('router-table');
+    table.classList.toggle('hide-input', !state.showInput);
+    table.classList.toggle('hide-cached', !state.showCached);
+    table.classList.toggle('hide-output', !state.showOutput);
+  }
+  function recompute() { render(); }
+  function setProfile(key) {
+    const profile = PROFILES[key];
+    state.activeProfile = key;
+    document.getElementById('input-pct').value = profile.input;
+    document.getElementById('cached-pct').value = profile.cached;
+    document.getElementById('output-pct').value = profile.output;
+    document.querySelectorAll('.profile-btn').forEach(button => button.classList.toggle('active', button.dataset.profile === key));
+    render();
+  }
+
+  document.getElementById('eu-routing-filter').addEventListener('click', event => {
+    state.mode = state.mode === 'default' ? 'eu' : 'default';
+    event.currentTarget.classList.toggle('active', state.mode === 'eu');
+    render();
+  });
+  document.getElementById('router-filters').addEventListener('click', event => {
+    const button = event.target.closest('[data-router]');
+    if (!button) return;
+    const router = button.dataset.router;
+    if (state.routers.has(router)) state.routers.delete(router); else state.routers.add(router);
+    button.classList.toggle('active', state.routers.has(router));
+    render();
+  });
+  document.getElementById('capability-filters').addEventListener('click', event => {
+    const button = event.target.closest('[data-filter]');
+    if (!button) return;
+    const filter = button.dataset.filter;
+    state.filters[filter] = !state.filters[filter];
+    button.classList.toggle('active', state.filters[filter]);
+    render();
+  });
+  document.getElementById('search-input').addEventListener('input', event => { state.search = event.target.value; render(); });
+  document.querySelectorAll('thead th.sortable').forEach(th => th.addEventListener('click', () => {
+    if (state.sortCol === th.dataset.col) state.sortDir = state.sortDir === 'asc' ? 'desc' : 'asc';
+    else { state.sortCol = th.dataset.col; state.sortDir = 'asc'; }
+    render();
+  }));
+  [['toggle-input-col', 'showInput'], ['toggle-cached-col', 'showCached'], ['toggle-output-col', 'showOutput']]
+    .forEach(([id, key]) => document.getElementById(id).addEventListener('change', event => {
+      state[key] = event.target.checked; applyColumnVisibility();
+    }));
+  document.querySelectorAll('.profile-btn').forEach(button => button.addEventListener('click', () => setProfile(button.dataset.profile)));
+  ['total-tokens', 'input-pct', 'cached-pct', 'output-pct', 'budget-amount']
+    .forEach(id => document.getElementById(id).addEventListener('input', recompute));
+  document.getElementById('table-body').addEventListener('click', onRowClick);
+  render();
+</script>

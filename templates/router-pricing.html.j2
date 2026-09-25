@@ -1,0 +1,170 @@
+{% import 'macros.html.j2' as m %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Router Price Calculator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&family=Source+Serif+4:ital,wght@1,500&display=swap" rel="stylesheet" />
+  {% include 'styles.css.j2' %}
+  <style>
+    #router-table { table-layout: auto; }
+    #router-table th, #router-table td { white-space: nowrap; }
+    #router-table td.model-id { white-space: normal; overflow-wrap: anywhere; min-width: 210px; }
+    #router-table th.cmp-col, #router-table td.cmp-cell { width: 40px; text-align: center; padding: 8px; }
+    #router-table td.owner, .dim { color: var(--slate-5); }
+    #router-table td.bar-cell, #router-table td.caps { white-space: normal; }
+    #router-table.hide-input .col-input,
+    #router-table.hide-cached .col-cached,
+    #router-table.hide-output .col-output { display: none; }
+    #router-table tr.model-row { cursor: pointer; }
+    #router-table tr.model-row:hover td { background: var(--slate-2); }
+    #router-table tr.drilldown-row > td { padding: 0; background: var(--canvas); }
+    .detail-panel { padding: 14px 18px; white-space: normal; font-size: 13px; }
+    .detail-panel p + p { margin-top: 6px; }
+    .cap, .router-chip, .warning-chip {
+      display: inline-block; font-size: 10px; font-weight: 600;
+      letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 2px 6px; margin: 0 3px 2px 0; border-radius: 3px;
+      background: var(--slate-2); color: var(--slate-6);
+      border: 1px solid var(--slate-3);
+    }
+    .warning-chip { border-style: dashed; color: var(--efi-yellow); }
+    .build-warning {
+      max-width: 900px; margin: 14px 0 0; padding: 9px 12px;
+      border: 1px solid var(--efi-yellow); color: var(--slate-6); font-size: 13px;
+    }
+    .routing-mode { margin-bottom: 12px; }
+    .routing-mode .filter-chip { font-size: 14px; }
+    .unavailable { color: var(--slate-5); font-style: italic; }
+  </style>
+</head>
+<body>
+<header class="page-header">
+  <p class="eyebrow">Cortecs · EUrouter · OpenRouter</p>
+  <h1>AI Router Price Calculator</h1>
+  <p>Compare router-published model prices in euros. Each row is one router's model offer, not a merged model or a provider-specific quote.</p>
+  <p class="meta">
+    <a href="index.html">← All tools</a> · Data built: {{ generatedAt }}
+    {% if exchangeRate %}
+      · ECB: 1 EUR = {{ exchangeRate.usdPerEur }} USD on {{ exchangeRate.observationDate }}
+    {% endif %}
+    · Sources:
+    {% for router in routers %}
+      <a href="{{ router.source }}" target="_blank">{{ router.name }}</a>{% if not loop.last %}, {% endif %}
+    {% endfor %}
+  </p>
+  {% if staleRouters or omittedRouters %}
+  <div class="build-warning">
+    {% if staleRouters %}Stale router data: {{ staleRouters|join(', ') }} (kept for at most seven days).{% endif %}
+    {% if omittedRouters %} Omitted router data: {{ omittedRouters|join(', ') }}.{% endif %}
+  </div>
+  {% endif %}
+</header>
+
+<main>
+  <div class="controls">
+    <h2>Configure your estimate</h2>
+    <div class="profile-presets">
+      <span class="profile-label">Quick presets:</span>
+      <div class="profile-buttons">
+        <button class="profile-btn" data-profile="superuser">Superuser/Developer</button>
+        <button class="profile-btn" data-profile="regular">Regular User</button>
+      </div>
+    </div>
+    <div class="controls-grid">
+      {{ m.input_group('total-tokens', 'Total tokens', 1000000, 1, none, 100000) }}
+      {{ m.input_group('input-pct', 'Input %', 20, 0, 100, 0.1) }}
+      {{ m.input_group('cached-pct', 'Cached %', 60, 0, 100, 0.1) }}
+      {{ m.input_group('output-pct', 'Output %', 20, 0, 100, 0.1) }}
+      {{ m.input_group('budget-amount', 'Budget (€)', 50, 0, none, 0.01) }}
+    </div>
+    <div class="summary-chips" id="summary-chips"></div>
+    <div id="pct-warning" class="build-warning" style="display:none">Input, Cached, and Output percentages should sum to 100%. The calculator normalizes them.</div>
+  </div>
+
+  <div class="routing-mode">
+    <button class="filter-chip" id="eu-routing-filter" title="Use each router's published EU Router Price and hide offers without one">EU routing</button>
+    <span class="dim">OpenRouter EU routing requires a Business or Enterprise plan.</span>
+  </div>
+
+  <div class="filters-bar">
+    <div class="filter-group">
+      <span class="filter-label">Router</span>
+      <div class="filter-chips" id="router-filters">
+        {% for router in routers %}
+        <button class="filter-chip" data-router="{{ router.id }}">{{ router.name }}{% if router.stale %} ⚠{% endif %}</button>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="filter-group">
+      <span class="filter-label">Capability</span>
+      <div class="filter-chips" id="capability-filters">
+        <button class="filter-chip" data-filter="reasoning">Reasoning</button>
+        <button class="filter-chip" data-filter="tools">Tools</button>
+        <button class="filter-chip" data-filter="vision">Vision</button>
+        <button class="filter-chip" data-filter="audio">Audio</button>
+      </div>
+    </div>
+    <div class="search-wrap">
+      <input type="search" id="search-input" placeholder="Search model, router, owner, or provider…" />
+    </div>
+    <div class="column-toggle-group" aria-label="Table columns">
+      <span class="filter-label">Columns</span>
+      <div class="column-toggle-chips">
+        <label class="column-toggle-chip" for="toggle-input-col"><input type="checkbox" id="toggle-input-col" checked /><span>Input</span></label>
+        <label class="column-toggle-chip" for="toggle-cached-col"><input type="checkbox" id="toggle-cached-col" checked /><span>Cached</span></label>
+        <label class="column-toggle-chip" for="toggle-output-col"><input type="checkbox" id="toggle-output-col" checked /><span>Output</span></label>
+      </div>
+    </div>
+  </div>
+
+  <div class="table-meta"><span class="table-meta-count" id="row-count"></span></div>
+  <div class="table-wrapper">
+    <table id="router-table">
+      <thead>
+        <tr>
+          <th class="cmp-col" title="Add to compare tray"></th>
+          <th class="sortable" data-col="routerName">Router <span class="sort-icon">↕</span></th>
+          <th class="sortable" data-col="name">Model <span class="sort-icon">↕</span></th>
+          <th class="sortable" data-col="owner">Owner <span class="sort-icon">↕</span></th>
+          <th>Capabilities</th>
+          <th class="sortable num col-input" data-col="input">Input €/1M <span class="sort-icon">↕</span></th>
+          <th class="sortable num col-cached" data-col="cached">Cached €/1M <span class="sort-icon">↕</span></th>
+          <th class="sortable num col-output" data-col="output">Output €/1M <span class="sort-icon">↕</span></th>
+          <th class="sortable num" data-col="cost">Est. cost <span class="sort-icon">↕</span></th>
+          <th class="num">Runs</th>
+          <th class="bar-cell">Relative cost</th>
+        </tr>
+      </thead>
+      <tbody id="table-body"></tbody>
+    </table>
+    <div class="no-results" id="no-results">No router model offers match your filters.</div>
+  </div>
+
+  <p class="page-note">
+    Prices are model-level Router Prices recorded at build time; listed availability does not promise live capacity, account access, or request-time routing.
+    EU routing means the documented mode of each router: Cortecs uses its <code>eu_native=true</code> catalog, EUrouter uses its baseline EU guarantee, and OpenRouter uses its EU regional catalog.
+    OpenRouter USD prices are converted with the unrounded ECB reference rate shown above. Calculations use unrounded values and display rounding only.
+    When no cached-input price is published, the input rate is used as an estimate and marked with ⚠.
+  </p>
+</main>
+
+<footer class="page-footer">
+  <span>AI Router Price Calculator · router-published bulk catalogs</span>
+  {% if exchangeRate %}<a href="{{ exchangeRate.source }}" target="_blank">ECB exchange-rate source →</a>{% endif %}
+</footer>
+
+<div id="compare-tray" role="region" aria-label="Router model comparison">
+  <div class="tray-header">
+    <span class="tray-title">Comparing <span id="tray-count">0</span> offers</span>
+    <div class="tray-actions"><button class="tray-clear" onclick="clearCompare()">Clear all</button></div>
+  </div>
+  <div class="tray-cards" id="tray-cards"></div>
+</div>
+
+{% include 'router-pricing.app.js.j2' %}
+</body>
+</html>
