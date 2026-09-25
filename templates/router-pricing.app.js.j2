@@ -99,7 +99,8 @@
         model.name, model.modelId, model.owner, model.routerName,
         ...(model.providers || []), ...(model.euProviders || []),
       ].join(' ').toLowerCase();
-      if (!haystack.includes(state.search.toLowerCase())) return false;
+      const searchTerms = state.search.toLowerCase().trim().split(/\s+/);
+      if (!searchTerms.every(term => haystack.includes(term))) return false;
     }
     return Object.entries(state.filters)
       .every(([name, enabled]) => !enabled || model.capabilities?.[name]);

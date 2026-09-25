@@ -315,6 +315,7 @@ def test_generated_pages():
         "Model creator",
         "state.minimumRuns",
         "state.hideFree",
+        "searchTerms.every(term => haystack.includes(term))",
         "prices.input === 0 && prices.cached === 0 && prices.output === 0",
         "model.owner ||",
         "cache not published",
