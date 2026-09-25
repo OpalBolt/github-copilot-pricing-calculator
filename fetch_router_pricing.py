@@ -115,6 +115,10 @@ def _is_text_output(model: dict) -> bool:
     return "text" in {str(value).lower() for value in outputs}
 
 
+def _creator(value) -> str:
+    return str(value or "").strip().lstrip("~").strip().lower()
+
+
 def _heavy_quantization(model: dict, rates: dict) -> str | None:
     for details in model.get("providers_details", {}).values():
         pricing = details.get("pricing", {})
@@ -153,7 +157,9 @@ def _cortecs_offer(model: dict, eu_model: dict | None) -> dict:
         "routerName": "Cortecs",
         "modelId": model["id"],
         "name": model.get("name") or model["id"],
-        "owner": model.get("owned_by", ""),
+        "owner": _creator(model.get("owned_by")),
+        "description": model.get("description", ""),
+        "releaseDate": model.get("release_date"),
         "contextSize": model.get("context_size"),
         "capabilities": _capabilities(model),
         "providers": model.get("providers", []),
@@ -226,21 +232,46 @@ def _per_million_rates(pricing: dict, *, native_currency: str) -> dict:
     )
 
 
-def fetch_eurouter() -> list[dict]:
+def _usd_rates(model: dict, usd_per_eur: float) -> dict:
+    native = _per_million_rates(model.get("pricing", {}), native_currency="USD")
+    converted = {
+        key: value / usd_per_eur
+        for key, value in native.items()
+        if key in {"input", "cached", "output"}
+    }
+    return {
+        **converted,
+        "cachedFallback": native["cachedFallback"],
+        "nativeCurrency": "USD",
+        "native": {
+            "input": native["input"],
+            "cached": native["cached"],
+            "output": native["output"],
+        },
+    }
+
+
+def fetch_eurouter(exchange_rate: dict | None = None) -> list[dict]:
     models = _catalog(fetch_json(EUROUTER_URL), "EUrouter")
     offers = []
     for model in models:
         endpoints = set(model.get("supported_api_endpoints") or [])
         pricing = model.get("pricing", {})
+        currency = pricing.get("currency")
         if (
             not model.get("id")
             or not _is_text_output(model)
             or "chat.completions" not in endpoints
-            or pricing.get("currency") != "EUR"
+            or currency not in {"EUR", "USD"}
+            or (currency == "USD" and not exchange_rate)
         ):
             continue
         try:
-            rates = _per_million_rates(pricing, native_currency="EUR")
+            rates = (
+                _per_million_rates(pricing, native_currency="EUR")
+                if currency == "EUR"
+                else _usd_rates(model, exchange_rate["usdPerEur"])
+            )
         except ValueError:
             continue
         providers = model.get("providers") or []
@@ -256,12 +287,14 @@ def fetch_eurouter() -> list[dict]:
             "routerName": "EUrouter",
             "modelId": model["id"],
             "name": model.get("name") or model["id"],
-            "owner": (
+            "owner": _creator(
                 model.get("author_info", {}).get("display_name")
                 or model.get("author")
                 or model.get("owned_by")
                 or ""
             ),
+            "description": model.get("description", ""),
+            "releaseDate": model.get("release_date"),
             "contextSize": model.get("context_size") or model.get("context_length"),
             "capabilities": _capabilities(model),
             "providers": providers,
@@ -269,7 +302,11 @@ def fetch_eurouter() -> list[dict]:
             "default": rates,
             "eu": dict(rates),
             "quantization": None,
-            "priceNote": "EUR Router Price published by EUrouter.",
+            "priceNote": (
+                "EUR Router Price published by EUrouter."
+                if currency == "EUR"
+                else "USD Router Price published by EUrouter and converted with the listed ECB rate."
+            ),
         }
         offers.append(offer)
     if not offers:
@@ -299,22 +336,7 @@ def fetch_ecb_rate() -> dict:
 
 
 def _openrouter_rates(model: dict, usd_per_eur: float) -> dict:
-    native = _per_million_rates(model.get("pricing", {}), native_currency="USD")
-    converted = {
-        key: value / usd_per_eur
-        for key, value in native.items()
-        if key in {"input", "cached", "output"}
-    }
-    return {
-        **converted,
-        "cachedFallback": native["cachedFallback"],
-        "nativeCurrency": "USD",
-        "native": {
-            "input": native["input"],
-            "cached": native["cached"],
-            "output": native["output"],
-        },
-    }
+    return _usd_rates(model, usd_per_eur)
 
 
 def fetch_openrouter(exchange_rate: dict) -> list[dict]:
@@ -341,7 +363,11 @@ def fetch_openrouter(exchange_rate: dict) -> list[dict]:
                 "routerName": "OpenRouter",
                 "modelId": model["id"],
                 "name": model.get("name") or model["id"],
-                "owner": model["id"].split("/", 1)[0] if "/" in model["id"] else "",
+                "owner": _creator(
+                    model["id"].split("/", 1)[0] if "/" in model["id"] else ""
+                ),
+                "description": model.get("description", ""),
+                "releaseDate": model.get("release_date"),
                 "contextSize": model.get("context_length"),
                 "capabilities": _capabilities(model),
                 "providers": [],
@@ -424,7 +450,7 @@ def build(previous: dict | None = None) -> dict:
 
     adapters = {
         "cortecs": fetch_cortecs,
-        "eurouter": fetch_eurouter,
+        "eurouter": lambda: fetch_eurouter(exchange_rate),
     }
     if exchange_rate and not ecb_error:
         adapters["openrouter"] = lambda: fetch_openrouter(exchange_rate)

@@ -65,9 +65,10 @@ The router build uses these bulk endpoints:
 | OpenRouter EU routing | `https://eu.openrouter.ai/api/v1/models` |
 | ECB USD per EUR | `https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A` |
 
-The build uses only EUrouter offers that publish EUR prices. It uses only
-text-output chat offers from each router. A missing cached-input rate uses the
-input rate as an estimate and appears with a warning in the calculator.
+The build uses EUrouter offers that publish EUR or USD prices. It converts USD
+prices with the same ECB rate as OpenRouter. It uses only text-output chat
+offers from each router. A missing cached-input rate uses the input rate as an
+estimate and appears with a warning in the calculator.
 
 ## Project structure
 

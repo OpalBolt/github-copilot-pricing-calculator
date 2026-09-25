@@ -10,35 +10,83 @@
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&family=Source+Serif+4:ital,wght@1,500&display=swap" rel="stylesheet" />
   {% include 'styles.css.j2' %}
   <style>
-    #router-table { table-layout: auto; }
+    main { max-width: 1500px; padding-left: 24px; padding-right: 24px; }
+    #router-table { table-layout: fixed; min-width: 0; font-size: 12px; }
     #router-table th, #router-table td { white-space: nowrap; }
-    #router-table td.model-id { white-space: normal; overflow-wrap: anywhere; min-width: 210px; }
-    #router-table th.cmp-col, #router-table td.cmp-cell { width: 40px; text-align: center; padding: 8px; }
+    #router-table thead th { padding: 6px 5px; }
+    #router-table tbody td { padding: 4px 5px; line-height: 1.2; }
+    #router-table th.cmp-col, #router-table td.cmp-cell { width: 28px; text-align: center; padding: 3px; }
+    #router-table th[data-col="routerName"] { width: 78px; }
+    #router-table th[data-col="name"] { width: 175px; }
+    #router-table th[data-col="owner"] { width: 74px; }
+    #router-table th.capabilities-col { width: 112px; }
+    #router-table th[data-col="input"],
+    #router-table th[data-col="cached"],
+    #router-table th[data-col="output"],
+    #router-table th[data-col="cost"] { width: 62px; }
+    #router-table th.runs-col { width: 50px; }
+    #router-table th.bar-cell { width: 58px; }
+    #router-table .bar-cell { min-width: 0; }
+    #router-table td.model-id { overflow: hidden; text-overflow: ellipsis; font-weight: 600; }
+    #router-table td.owner { overflow: hidden; text-overflow: ellipsis; }
     #router-table td.owner, .dim { color: var(--slate-5); }
     #router-table td.bar-cell, #router-table td.caps { white-space: normal; }
+    #router-table td.caps { overflow: hidden; }
     #router-table.hide-input .col-input,
     #router-table.hide-cached .col-cached,
     #router-table.hide-output .col-output { display: none; }
     #router-table tr.model-row { cursor: pointer; }
+    #router-table tr.router-cortecs td:first-child { border-left: 3px solid #7e9cd8; }
+    #router-table tr.router-eurouter td:first-child { border-left: 3px solid #98bb6c; }
+    #router-table tr.router-openrouter td:first-child { border-left: 3px solid #d27e99; }
     #router-table tr.model-row:hover td { background: var(--slate-2); }
     #router-table tr.drilldown-row > td { padding: 0; background: var(--canvas); }
     .detail-panel { padding: 14px 18px; white-space: normal; font-size: 13px; }
-    .detail-panel p + p { margin-top: 6px; }
+    .detail-title { color: var(--nordic-black); font-size: 15px; margin-bottom: 6px; }
+    .detail-description { max-width: 900px; color: var(--slate-6); margin-bottom: 10px; }
+    .detail-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 8px 20px; }
+    .detail-item strong { display: block; color: var(--slate-5); font-size: 10px; letter-spacing: .06em; text-transform: uppercase; }
+    .detail-note { margin-top: 10px; }
     .cap, .router-chip, .warning-chip {
       display: inline-block; font-size: 10px; font-weight: 600;
       letter-spacing: 0.04em; text-transform: uppercase;
-      padding: 2px 6px; margin: 0 3px 2px 0; border-radius: 3px;
+      padding: 1px 4px; margin: 0 2px 0 0; border-radius: 3px;
       background: var(--slate-2); color: var(--slate-6);
       border: 1px solid var(--slate-3);
     }
     .warning-chip { border-style: dashed; color: var(--efi-yellow); }
+    .cap-reasoning { color: #dca561; border-color: #dca561; }
+    .cap-tools { color: #7e9cd8; border-color: #7e9cd8; }
+    .cap-vision { color: #957fb8; border-color: #957fb8; }
+    .cap-audio { color: #98bb6c; border-color: #98bb6c; }
+    .router-cortecs .router-chip { color: #7e9cd8; border-color: #7e9cd8; }
+    .router-eurouter .router-chip { color: #98bb6c; border-color: #98bb6c; }
+    .router-openrouter .router-chip { color: #d27e99; border-color: #d27e99; }
+    .legend-cortecs { color: #7e9cd8; border-color: #7e9cd8; }
+    .legend-eurouter { color: #98bb6c; border-color: #98bb6c; }
+    .legend-openrouter { color: #d27e99; border-color: #d27e99; }
+    .table-legend {
+      display: flex; align-items: center; flex-wrap: wrap; gap: 5px 12px;
+      margin: 0 0 12px; color: var(--slate-6); font-size: 12px;
+    }
+    .legend-title { color: var(--slate-7); font-weight: 600; text-transform: uppercase; letter-spacing: .06em; }
+    .legend-item { white-space: nowrap; }
     .build-warning {
       max-width: 900px; margin: 14px 0 0; padding: 9px 12px;
       border: 1px solid var(--efi-yellow); color: var(--slate-6); font-size: 13px;
     }
     .routing-mode { margin-bottom: 12px; }
     .routing-mode .filter-chip { font-size: 14px; }
+    .compact-filter {
+      width: 150px; padding: 6px 9px; border: 1px solid var(--slate-3);
+      border-radius: 2px; background: var(--canvas); color: var(--nordic-black);
+      font: inherit; font-size: 13px; outline: none;
+    }
+    .compact-filter:focus { border-color: var(--efi-yellow); }
     .unavailable { color: var(--slate-5); font-style: italic; }
+    @media (max-width: 1000px) {
+      #router-table .bar-cell { display: none; }
+    }
   </style>
 </head>
 <body>
@@ -66,7 +114,8 @@
 
 <main>
   <div class="controls">
-    <h2>Configure your estimate</h2>
+    <h2>Budget and token estimate</h2>
+    <p class="dim">Set the tokens in one calculation and your total budget. Runs shows how many calculations fit.</p>
     <div class="profile-presets">
       <span class="profile-label">Quick presets:</span>
       <div class="profile-buttons">
@@ -75,11 +124,11 @@
       </div>
     </div>
     <div class="controls-grid">
-      {{ m.input_group('total-tokens', 'Total tokens', 1000000, 1, none, 100000) }}
+      {{ m.input_group('total-tokens', 'Tokens per calculation', 1000000, 1, none, 100000) }}
+      {{ m.input_group('budget-amount', 'Budget (€)', 50, 0, none, 0.01) }}
       {{ m.input_group('input-pct', 'Input %', 20, 0, 100, 0.1) }}
       {{ m.input_group('cached-pct', 'Cached %', 60, 0, 100, 0.1) }}
       {{ m.input_group('output-pct', 'Output %', 20, 0, 100, 0.1) }}
-      {{ m.input_group('budget-amount', 'Budget (€)', 50, 0, none, 0.01) }}
     </div>
     <div class="summary-chips" id="summary-chips"></div>
     <div id="pct-warning" class="build-warning" style="display:none">Input, Cached, and Output percentages should sum to 100%. The calculator normalizes them.</div>
@@ -88,6 +137,17 @@
   <div class="routing-mode">
     <button class="filter-chip" id="eu-routing-filter" title="Use each router's published EU Router Price and hide offers without one">EU routing</button>
     <span class="dim">OpenRouter EU routing requires a Business or Enterprise plan.</span>
+  </div>
+  <div class="table-legend" aria-label="Table legend">
+    <span class="legend-title">Legend</span>
+    <span class="legend-item"><span class="router-chip legend-cortecs">EU</span> Cortecs EU catalog</span>
+    <span class="legend-item"><span class="router-chip legend-eurouter">EU</span> EUrouter baseline</span>
+    <span class="legend-item"><span class="router-chip legend-openrouter">EU</span> OpenRouter EU region</span>
+    <span class="legend-item"><span class="warning-chip">⚠</span> cache rate not published</span>
+    <span class="legend-item"><span class="cap cap-reasoning">R</span> reasoning</span>
+    <span class="legend-item"><span class="cap cap-tools">T</span> tools</span>
+    <span class="legend-item"><span class="cap cap-vision">V</span> vision</span>
+    <span class="legend-item"><span class="cap cap-audio">A</span> audio</span>
   </div>
 
   <div class="filters-bar">
@@ -106,10 +166,25 @@
         <button class="filter-chip" data-filter="tools">Tools</button>
         <button class="filter-chip" data-filter="vision">Vision</button>
         <button class="filter-chip" data-filter="audio">Audio</button>
+        <button class="filter-chip" id="hide-free-filter">Hide free</button>
       </div>
     </div>
+    <div class="filter-group">
+      <label class="filter-label" for="creator-filter">Model creator</label>
+      <input class="compact-filter" type="search" id="creator-filter" list="creator-options" placeholder="All creators" autocomplete="off" />
+      <datalist id="creator-options"></datalist>
+    </div>
+    <div class="filter-group">
+      <label class="filter-label" for="minimum-runs-filter">Minimum runs</label>
+      <select class="compact-filter" id="minimum-runs-filter">
+        <option value="0">Any</option>
+        <option value="1">1+</option>
+        <option value="10">10+</option>
+        <option value="100">100+</option>
+      </select>
+    </div>
     <div class="search-wrap">
-      <input type="search" id="search-input" placeholder="Search model, router, owner, or provider…" />
+      <input type="search" id="search-input" placeholder="Search model, router, or provider…" />
     </div>
     <div class="column-toggle-group" aria-label="Table columns">
       <span class="filter-label">Columns</span>
@@ -129,13 +204,13 @@
           <th class="cmp-col" title="Add to compare tray"></th>
           <th class="sortable" data-col="routerName">Router <span class="sort-icon">↕</span></th>
           <th class="sortable" data-col="name">Model <span class="sort-icon">↕</span></th>
-          <th class="sortable" data-col="owner">Owner <span class="sort-icon">↕</span></th>
-          <th>Capabilities</th>
-          <th class="sortable num col-input" data-col="input">Input €/1M <span class="sort-icon">↕</span></th>
-          <th class="sortable num col-cached" data-col="cached">Cached €/1M <span class="sort-icon">↕</span></th>
-          <th class="sortable num col-output" data-col="output">Output €/1M <span class="sort-icon">↕</span></th>
+          <th class="sortable" data-col="owner">Creator <span class="sort-icon">↕</span></th>
+          <th class="capabilities-col">Capabilities</th>
+          <th class="sortable num col-input" data-col="input">Input <span class="sort-icon">↕</span></th>
+          <th class="sortable num col-cached" data-col="cached">Cached <span class="sort-icon">↕</span></th>
+          <th class="sortable num col-output" data-col="output">Output <span class="sort-icon">↕</span></th>
           <th class="sortable num" data-col="cost">Est. cost <span class="sort-icon">↕</span></th>
-          <th class="num">Runs</th>
+          <th class="num runs-col">Runs</th>
           <th class="bar-cell">Relative cost</th>
         </tr>
       </thead>
@@ -148,7 +223,7 @@
     Prices are model-level Router Prices recorded at build time; listed availability does not promise live capacity, account access, or request-time routing.
     EU routing means the documented mode of each router: Cortecs uses its <code>eu_native=true</code> catalog, EUrouter uses its baseline EU guarantee, and OpenRouter uses its EU regional catalog.
     OpenRouter USD prices are converted with the unrounded ECB reference rate shown above. Calculations use unrounded values and display rounding only.
-    When no cached-input price is published, the input rate is used as an estimate and marked with ⚠.
+    When no cached-input price is published, the input rate is used as an estimate and marked with ⚠. This does not mean the router publishes or supports prompt caching. Fully free offers do not show this warning because the fallback cannot change their cost.
   </p>
 </main>
 

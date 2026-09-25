@@ -12,6 +12,9 @@
     sortCol: 'cost',
     sortDir: 'asc',
     search: '',
+    creator: '',
+    minimumRuns: 0,
+    hideFree: false,
     routers: new Set(),
     filters: { reasoning: false, tools: false, vision: false, audio: false },
     showInput: true,
@@ -26,6 +29,7 @@
   const fmtRuns = n => n.toLocaleString('en-US', { maximumFractionDigits: 1 });
   const rate = n => n === 0 ? 'Free' : `€${fmt(n)}`;
   const activeRates = model => model[state.mode];
+  const isFree = prices => prices.input === 0 && prices.cached === 0 && prices.output === 0;
   const encoded = key => encodeURIComponent(key);
   const esc = value => String(value ?? '').replace(/[&<>"']/g, character => ({
     '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
@@ -54,24 +58,33 @@
       + (cfg.outputTokens / 1_000_000) * rates.output;
   }
 
-  function capabilities(model) {
+  function capabilities(model, compact = true) {
+    const labels = { reasoning: 'R', tools: 'T', vision: 'V', audio: 'A' };
     return Object.entries(model.capabilities || {})
       .filter(([, enabled]) => enabled)
-      .map(([name]) => `<span class="cap">${name}</span>`).join('');
+      .map(([name]) => `<span class="cap cap-${name}" title="${name}">${compact ? labels[name] : name}</span>`).join('');
   }
 
   function warnings(model, rates) {
     let result = '';
-    if (rates.cachedFallback) result += '<span class="warning-chip" title="Cached-input estimate uses the input rate">⚠ cache estimate</span>';
+    if (rates.cachedFallback && !isFree(rates)) result += '<span class="warning-chip" title="No cached-input rate is published. The estimate uses the normal input rate.">⚠</span>';
     if (model.quantization) result += `<span class="warning-chip" title="A provider matching this price uses heavy quantization">${model.quantization}</span>`;
-    if (state.mode === 'default' && model.eu) result += '<span class="router-chip">EU price available</span>';
-    if (state.mode === 'eu') result += '<span class="router-chip">EU routing</span>';
+    if (state.mode === 'default' && model.eu) result += '<span class="router-chip" title="EU price available">EU</span>';
+    if (state.mode === 'eu') result += '<span class="router-chip" title="Using EU routing">EU</span>';
     return result;
   }
 
-  function passesFilters(model) {
-    if (!activeRates(model)) return false;
+  function passesFilters(model, cfg) {
+    const prices = activeRates(model);
+    if (!prices) return false;
     if (state.routers.size && !state.routers.has(model.router)) return false;
+    if (state.creator && !(model.owner || '').toLowerCase().includes(state.creator)) return false;
+    if (state.hideFree && isFree(prices)) return false;
+    if (state.minimumRuns > 0) {
+      const cost = estimateCost(prices, cfg);
+      const runs = cost > 0 ? cfg.budget / cost : Infinity;
+      if (runs < state.minimumRuns) return false;
+    }
     if (state.search) {
       const haystack = [
         model.name, model.modelId, model.owner, model.routerName,
@@ -108,7 +121,7 @@
 
   function render() {
     const cfg = getConfig();
-    const rows = ALL_MODELS.filter(passesFilters).map(model => {
+    const rows = ALL_MODELS.filter(model => passesFilters(model, cfg)).map(model => {
       const prices = activeRates(model);
       const cost = estimateCost(prices, cfg);
       return { ...model, ...prices, cost, runs: cost > 0 ? cfg.budget / cost : null };
@@ -117,14 +130,14 @@
     const maxCost = rows.reduce((maximum, model) => Math.max(maximum, model.cost), 0) || 1;
     document.getElementById('table-body').innerHTML = rows.map(model => {
       const selected = state.compareIds.has(model.key);
-      return `<tr class="model-row${selected ? ' in-compare' : ''}" data-key="${encoded(model.key)}">
+      return `<tr class="model-row router-${model.router}${selected ? ' in-compare' : ''}" data-key="${encoded(model.key)}">
         <td class="cmp-cell"><button class="cmp-btn${selected ? ' active' : ''}" onclick="toggleCompare(decodeURIComponent('${encoded(model.key)}'))">${selected ? '−' : '+'}</button></td>
         <td><span class="router-chip">${esc(model.routerName)}</span></td>
-        <td class="model-id">${esc(model.name)}<br><span class="dim">${esc(model.modelId)}</span></td>
-        <td class="owner">${esc(model.owner || '—')}</td>
+        <td class="model-id" title="${esc(model.name)}">${esc(model.name)}</td>
+        <td class="owner" title="${esc(model.owner || '')}">${esc(model.owner || '—')}</td>
         <td class="caps">${capabilities(model)}${warnings(model, model)}</td>
         <td class="num col-input">${rate(model.input)}</td>
-        <td class="num col-cached">${rate(model.cached)}${model.cachedFallback ? ' ⚠' : ''}</td>
+        <td class="num col-cached">${rate(model.cached)}${model.cachedFallback && !isFree(model) ? ' ⚠' : ''}</td>
         <td class="num col-output">${rate(model.output)}</td>
         <td class="num cost-cell">${model.cost > 0 ? `€${fmt(model.cost)}` : 'Free'}</td>
         <td class="num runs-cell">${model.runs == null ? '—' : fmtRuns(model.runs)}</td>
@@ -145,20 +158,46 @@
   function detailHtml(model) {
     const prices = activeRates(model);
     const providers = (state.mode === 'eu' ? model.euProviders : model.providers) || [];
-    const native = prices.native
-      ? `<p><strong>Native USD:</strong> input $${fmt(prices.native.input)}, cached $${fmt(prices.native.cached)}, output $${fmt(prices.native.output)} per 1M tokens. Converted using 1 EUR = ${EXCHANGE_RATE.usdPerEur} USD (${EXCHANGE_RATE.observationDate}).</p>`
+    const router = ROUTERS.find(item => item.id === model.router);
+    const free = isFree(prices);
+    const native = prices.native && !free
+      ? `<div class="detail-item"><strong>Native USD per 1M</strong>$${fmt(prices.native.input)} input · ${prices.cachedFallback ? 'cache not published' : '$' + fmt(prices.native.cached) + ' cached'} · $${fmt(prices.native.output)} output</div>`
       : '';
-    const cache = prices.cachedFallback
-      ? '<p><strong>⚠ Cached-input estimate:</strong> the router did not publish a cached-input rate, so this calculator uses the input rate. A separate cache price may exist.</p>'
+    const cache = free
+      ? '<p class="detail-note"><strong>Free offer:</strong> All input and output token rates are zero. Cache-price fallback does not change the estimate, so no cache warning is needed.</p>'
+      : prices.cachedFallback
+      ? `<p class="detail-note"><strong>⚠ Cache rate not published:</strong> The router catalog has no cached-input price for this offer. For calculations, cached tokens use the normal input rate (${rate(prices.input)} per 1M). This is an estimate, not a published cache price, and it does not mean the model supports prompt caching.</p>`
       : '';
-    const plan = state.mode === 'eu' && model.euPlan
-      ? `<p><strong>Plan restriction:</strong> ${model.routerName} EU routing requires ${model.euPlan}.</p>`
+    const euFree = model.eu ? isFree(model.eu) : false;
+    const euDetails = model.eu
+      ? `<div class="detail-item"><strong>EU Router Price</strong>${rate(model.eu.input)} input · ${rate(model.eu.cached)} cached${model.eu.cachedFallback && !euFree ? ' (estimate)' : ''} · ${rate(model.eu.output)} output</div>
+         <div class="detail-item"><strong>EU providers in bulk catalog</strong>${model.euProviders?.length ? model.euProviders.map(esc).join(', ') : 'Not supplied'}</div>`
+      : '<div class="detail-item"><strong>EU routing</strong>Not listed for this router model offer</div>';
+    const euClaim = model.eu && router
+      ? `<p class="detail-note"><strong>EU routing meaning:</strong> ${esc(router.euClaim)}</p>`
+      : '';
+    const plan = model.eu && model.euPlan
+      ? `<p class="detail-note"><strong>Plan restriction:</strong> ${esc(model.routerName)} EU routing requires ${esc(model.euPlan)}.</p>`
       : '';
     return `<div class="detail-panel">
-      <p><strong>${state.mode === 'eu' ? 'EU routing' : 'Unrestricted inference'} price provenance:</strong> ${model.priceNote}</p>
-      <p><strong>Providers named by this bulk catalog:</strong> ${providers.length ? providers.map(esc).join(', ') : 'Not supplied'}</p>
-      ${native}${cache}${plan}
-      <p class="dim">Listed at the router's recorded fetch time; this is not a promise of live capacity or account access.</p>
+      <div class="detail-title">${esc(model.name)}</div>
+      ${model.description ? `<p class="detail-description">${esc(model.description)}</p>` : ''}
+      <div class="detail-grid">
+        <div class="detail-item"><strong>Model ID</strong>${esc(model.modelId)}</div>
+        <div class="detail-item"><strong>Model creator</strong>${esc(model.owner || 'Not supplied')}</div>
+        <div class="detail-item"><strong>Context</strong>${model.contextSize ? model.contextSize.toLocaleString() + ' tokens' : 'Not supplied'}</div>
+        <div class="detail-item"><strong>Release date</strong>${esc(model.releaseDate || 'Not supplied')}</div>
+        <div class="detail-item"><strong>Routing mode</strong>${state.mode === 'eu' ? 'EU routing' : 'Unrestricted inference'}</div>
+        <div class="detail-item"><strong>EUR per 1M</strong>€${fmt(prices.input)} input · €${fmt(prices.cached)} cached${prices.cachedFallback && !free ? ' (estimate)' : ''} · €${fmt(prices.output)} output</div>
+        <div class="detail-item"><strong>Providers in bulk catalog</strong>${providers.length ? providers.map(esc).join(', ') : 'Not supplied'}</div>
+        <div class="detail-item"><strong>Capabilities</strong>${capabilities(model, false) || 'None explicitly published'}</div>
+        ${euDetails}
+        ${native}
+      </div>
+      <p class="detail-note"><strong>Price provenance:</strong> ${esc(model.priceNote)}</p>
+      ${prices.native && !free ? `<p class="detail-note"><strong>ECB conversion:</strong> 1 EUR = ${EXCHANGE_RATE.usdPerEur} USD on ${EXCHANGE_RATE.observationDate}.</p>` : ''}
+      ${euClaim}${cache}${plan}
+      <p class="detail-note dim">Listed at the router's recorded fetch time. This does not promise live capacity or account access.</p>
     </div>`;
   }
 
@@ -205,7 +244,7 @@
         <div class="cmp-card-provider">${esc(model.routerName)}</div>
         <div class="cmp-card-rows">
           <div class="cmp-rate-row"><span class="cmp-rate-label">Input</span><span class="cmp-rate-val">${rate(prices.input)}</span></div>
-          <div class="cmp-rate-row"><span class="cmp-rate-label">Cached${prices.cachedFallback ? ' ⚠' : ''}</span><span class="cmp-rate-val">${rate(prices.cached)}</span></div>
+          <div class="cmp-rate-row"><span class="cmp-rate-label">Cached${prices.cachedFallback && !isFree(prices) ? ' ⚠' : ''}</span><span class="cmp-rate-val">${rate(prices.cached)}</span></div>
           <div class="cmp-rate-row"><span class="cmp-rate-label">Output</span><span class="cmp-rate-val">${rate(prices.output)}</span></div>
         </div>
         <div class="cmp-card-cost"><div><div class="cmp-cost-label">Est. cost / run</div><div class="cmp-credits">${runs == null ? '—' : fmtRuns(runs)} runs in budget</div></div><span class="cmp-cost-val">${cost > 0 ? `€${fmt(cost)}` : 'Free'}</span></div>
@@ -258,6 +297,19 @@
     render();
   });
   document.getElementById('search-input').addEventListener('input', event => { state.search = event.target.value; render(); });
+  document.getElementById('creator-filter').addEventListener('input', event => {
+    state.creator = event.target.value.trim().toLowerCase();
+    render();
+  });
+  document.getElementById('minimum-runs-filter').addEventListener('change', event => {
+    state.minimumRuns = Number(event.target.value) || 0;
+    render();
+  });
+  document.getElementById('hide-free-filter').addEventListener('click', event => {
+    state.hideFree = !state.hideFree;
+    event.currentTarget.classList.toggle('active', state.hideFree);
+    render();
+  });
   document.querySelectorAll('thead th.sortable').forEach(th => th.addEventListener('click', () => {
     if (state.sortCol === th.dataset.col) state.sortDir = state.sortDir === 'asc' ? 'desc' : 'asc';
     else { state.sortCol = th.dataset.col; state.sortDir = 'asc'; }
@@ -271,5 +323,13 @@
   ['total-tokens', 'input-pct', 'cached-pct', 'output-pct', 'budget-amount']
     .forEach(id => document.getElementById(id).addEventListener('input', recompute));
   document.getElementById('table-body').addEventListener('click', onRowClick);
+  const creators = new Map();
+  ALL_MODELS.map(model => model.owner).filter(Boolean).forEach(creator => {
+    const key = creator.toLowerCase();
+    if (!creators.has(key)) creators.set(key, creator);
+  });
+  document.getElementById('creator-options').innerHTML = [...creators.values()]
+    .sort((a, b) => a.localeCompare(b))
+    .map(creator => `<option value="${esc(creator)}"></option>`).join('');
   render();
 </script>

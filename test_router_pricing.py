@@ -123,6 +123,7 @@ def test_aggregate_contract():
 
     for offer in offers:
         assert offer["key"] == f"{offer['router']}:{offer['modelId']}"
+        assert offer["owner"] == offer["owner"].strip().lstrip("~").lower()
         assert set(offer["capabilities"]) == {"reasoning", "tools", "vision", "audio"}
         for mode in ("default", "eu"):
             prices = offer[mode]
@@ -134,9 +135,25 @@ def test_aggregate_contract():
             if prices["cachedFallback"]:
                 assert prices["cached"] == prices["input"]
 
-    for offer in (item for item in offers if item["router"] == "eurouter"):
-        assert offer["default"]["nativeCurrency"] == "EUR"
+    eurouter_offers = [item for item in offers if item["router"] == "eurouter"]
+    assert any(offer["modelId"] == "claude-opus-4-8" for offer in eurouter_offers)
+    assert {offer["default"]["nativeCurrency"] for offer in eurouter_offers} == {
+        "EUR",
+        "USD",
+    }
+    for offer in eurouter_offers:
         assert offer["eu"] == offer["default"]
+        if offer["default"]["nativeCurrency"] == "USD":
+            assert math.isclose(
+                offer["default"]["input"],
+                offer["default"]["native"]["input"] / data["exchangeRate"]["usdPerEur"],
+            )
+
+    assert {
+        offer["owner"]
+        for offer in offers
+        if offer["owner"].replace("~", "") == "google"
+    } == {"google"}
 
     rate = data["exchangeRate"]["usdPerEur"]
     for offer in (item for item in offers if item["router"] == "openrouter"):
@@ -158,14 +175,46 @@ def test_generated_pages():
         'data-router="cortecs"',
         'data-router="eurouter"',
         'data-router="openrouter"',
+        'data-filter="reasoning"',
+        'data-filter="tools"',
+        'data-filter="vision"',
+        'data-filter="audio"',
         "Business or Enterprise",
-        "Cached-input estimate",
+        "Tokens per calculation",
+        "Budget (€)",
+        'id="creator-filter"',
+        'id="creator-options"',
+        'id="minimum-runs-filter"',
+        'id="hide-free-filter"',
+        "Model creator",
+        "state.minimumRuns",
+        "state.hideFree",
+        "prices.input === 0 && prices.cached === 0 && prices.output === 0",
+        "model.owner ||",
+        "cache not published",
+        "Cache rate not published",
+        "This is an estimate, not a published cache price",
+        "Free offer:",
+        "Cache-price fallback does not change the estimate",
+        'aria-label="Table legend"',
+        "Cortecs EU catalog",
+        "EUrouter baseline",
+        "OpenRouter EU region",
+        "EU Router Price",
+        "EU routing meaning:",
+        "Not listed for this router model offer",
         "Unavailable with EU routing",
         "Listed at the router's recorded fetch time",
         "const ALL_MODELS =",
     ):
         assert marker in html
     assert "ZDR" not in html
+    assert "Input €/1M" not in html
+    assert "Cached €/1M" not in html
+    assert "Output €/1M" not in html
+    assert 'class="capabilities-col"' in html
+    assert "#router-table { table-layout: fixed; min-width: 0;" in html
+    assert "@media (max-width: 1000px)" in html
     assert 'http-equiv="refresh"' in redirect
     assert 'rel="canonical" href="router-pricing.html"' in redirect
     assert "window.location.replace('router-pricing.html')" in redirect
