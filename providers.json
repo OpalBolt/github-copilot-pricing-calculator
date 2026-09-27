@@ -488,6 +488,15 @@
           "default_visible": false
         },
         {
+          "id": "longcat-2-5-preview-free",
+          "name": "LongCat 2.5 Preview Free",
+          "input": 0.0,
+          "input_cache": 0.0,
+          "output": 0.0,
+          "monthly_limit_usd": null,
+          "default_visible": false
+        },
+        {
           "id": "grok-4-7-200k-tokens",
           "name": "Grok 4.7 (\u2264 200K tokens)",
           "input": 2.0,
