@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-27T11:18:23.321899+00:00",
+  "generatedAt": "2026-09-28T12:47:29.181429+00:00",
   "currency": "EUR",
   "exchangeRate": {
     "series": "EXR.D.USD.EUR.SP00.A",
-    "source": "https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A?format=csvdata&startPeriod=2026-09-13",
+    "source": "https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A?format=csvdata&startPeriod=2026-09-14",
     "observationDate": "2026-09-25",
     "usdPerEur": 1.1403
   },
@@ -14,7 +14,7 @@
       "source": "https://api.cortecs.ai/v1/models?extended=true&currency=EUR",
       "euClaim": "EU catalog: providers based and regulated within the EU.",
       "id": "cortecs",
-      "fetchedAt": "2026-09-27T11:18:23.321899+00:00",
+      "fetchedAt": "2026-09-28T12:47:29.181429+00:00",
       "stale": false
     },
     {
@@ -22,7 +22,7 @@
       "source": "https://api.eurouter.ai/api/v1/models",
       "euClaim": "EU handling is EUrouter's baseline routing guarantee.",
       "id": "eurouter",
-      "fetchedAt": "2026-09-27T11:18:23.321899+00:00",
+      "fetchedAt": "2026-09-28T12:47:29.181429+00:00",
       "stale": false
     },
     {
@@ -30,7 +30,7 @@
       "source": "https://openrouter.ai/api/v1/models",
       "euClaim": "EU regional routing; Business or Enterprise plan required.",
       "id": "openrouter",
-      "fetchedAt": "2026-09-27T11:18:23.321899+00:00",
+      "fetchedAt": "2026-09-28T12:47:29.181429+00:00",
       "stale": false
     },
     {
@@ -38,7 +38,7 @@
       "source": "https://opencode.ai/zen/v1/models",
       "euClaim": "No EU routing catalog is published.",
       "id": "opencode",
-      "fetchedAt": "2026-09-27T11:18:23.321899+00:00",
+      "fetchedAt": "2026-09-28T12:47:29.181429+00:00",
       "stale": false
     },
     {
@@ -47,7 +47,7 @@
       "kind": "direct",
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "deepseek-direct",
-      "fetchedAt": "2026-09-27T11:18:23.321899+00:00",
+      "fetchedAt": "2026-09-28T12:47:29.181429+00:00",
       "stale": false
     },
     {
@@ -56,7 +56,7 @@
       "kind": "direct",
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "zai-direct",
-      "fetchedAt": "2026-09-27T11:18:23.321899+00:00",
+      "fetchedAt": "2026-09-28T12:47:29.181429+00:00",
       "stale": false
     }
   ],
@@ -14539,15 +14539,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.28062790493729717,
-        "cached": 0.28062790493729717,
-        "output": 0.7804963606068578,
+        "input": 0.22573007103393844,
+        "cached": 0.22573007103393844,
+        "output": 0.9021310181531175,
         "cachedFallback": true,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.32,
-          "cached": 0.32,
-          "output": 0.89
+          "input": 0.2574,
+          "cached": 0.2574,
+          "output": 1.0287
         }
       },
       "eu": null,
@@ -14574,15 +14574,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.21924055073226342,
-        "cached": 0.21924055073226342,
-        "output": 0.8769622029290537,
-        "cachedFallback": true,
+        "input": 0.2543190388494255,
+        "cached": 0.0964658423221959,
+        "output": 0.9997369113391211,
+        "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.25,
-          "cached": 0.25,
-          "output": 1.0
+          "input": 0.29,
+          "cached": 0.11,
+          "output": 1.14
         }
       },
       "eu": null,
@@ -14784,15 +14784,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.23590283258791545,
-        "cached": 0.11795141629395772,
-        "output": 0.3507848811716215,
+        "input": 0.24554941682013506,
+        "cached": 0.024554941682013505,
+        "output": 0.3683241252302025,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.269,
-          "cached": 0.1345,
-          "output": 0.4
+          "input": 0.28,
+          "cached": 0.028,
+          "output": 0.42
         }
       },
       "eu": null,
@@ -14854,15 +14854,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.04112952731737261,
-        "cached": 0.008225905463474523,
-        "output": 0.08225905463474523,
+        "input": 0.07759361571516267,
+        "cached": 0.015518723143032534,
+        "output": 0.15518723143032534,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0469,
-          "cached": 0.00938,
-          "output": 0.0938
+          "input": 0.08848,
+          "cached": 0.017696,
+          "output": 0.17696
         }
       },
       "eu": null,
@@ -14902,14 +14902,14 @@
       },
       "eu": {
         "input": 0.034201525914233095,
-        "cached": 0.02630886608787161,
-        "output": 0.23783214943435935,
+        "cached": 0.02367797947908445,
+        "output": 0.3328071560115759,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
           "input": 0.039,
-          "cached": 0.03,
-          "output": 0.2712
+          "cached": 0.027,
+          "output": 0.3795
         }
       },
       "quantization": null,
@@ -14935,15 +14935,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.18907305095150398,
-        "cached": 0.006015960712093308,
-        "output": 0.567219152854512,
+        "input": 0.3858633692887836,
+        "cached": 0.012277470841006752,
+        "output": 1.1575901078663509,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.2156,
-          "cached": 0.00686,
-          "output": 0.6468
+          "input": 0.44,
+          "cached": 0.014,
+          "output": 1.32
         }
       },
       "eu": null,
@@ -14970,15 +14970,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.30518284661931067,
-        "cached": 0.02543190388494256,
-        "output": 0.6103656932386213,
+        "input": 0.8377269139700079,
+        "cached": 0.06981057616416732,
+        "output": 1.6754538279400157,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.348,
-          "cached": 0.029,
-          "output": 0.696
+          "input": 0.95526,
+          "cached": 0.079605,
+          "output": 1.91052
         }
       },
       "eu": null,
@@ -15005,15 +15005,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.2148732789616767,
-        "cached": 0.2144347978602122,
-        "output": 3.069367710251688,
+        "input": 0.350346400070157,
+        "cached": 0.34990791896869244,
+        "output": 3.6832412523020257,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.24502,
-          "cached": 0.24452,
-          "output": 3.5
+          "input": 0.3995,
+          "cached": 0.399,
+          "output": 4.2
         }
       },
       "eu": null,
@@ -16471,15 +16471,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.05919494869771113,
-        "cached": 0.03288608260983951,
-        "output": 0.19731649565903708,
+        "input": 0.07892659826361483,
+        "cached": 0.043848110146452686,
+        "output": 0.2630886608787161,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0675,
-          "cached": 0.0375,
-          "output": 0.225
+          "input": 0.09,
+          "cached": 0.05,
+          "output": 0.3
         }
       },
       "eu": null,
@@ -17544,14 +17544,14 @@
       "modelId": "meta/muse-spark-1.1",
       "name": "Meta: Muse Spark 1.1",
       "owner": "Meta",
-      "description": "Muse Spark 1.1 is a multimodal reasoning model from Meta, built for agentic tasks. It accepts text, images, video, audio, and PDF documents and returns text, with a 1M-token context...",
+      "description": "Muse Spark 1.1 is a multimodal reasoning model from Meta, built for agentic tasks. It accepts text, images, video, and PDF documents and returns text, with a 1M-token context window....",
       "releaseDate": null,
       "contextSize": 1048576,
       "capabilities": {
         "reasoning": true,
         "tools": true,
         "vision": true,
-        "audio": true
+        "audio": false
       },
       "providers": [],
       "euProviders": [],
@@ -17579,14 +17579,14 @@
       "modelId": "meta/muse-spark-1.2",
       "name": "Meta: Muse Spark 1.2",
       "owner": "Meta",
-      "description": "Muse Spark 1.2 is a reasoning model from Meta, designed for complex agentic tasks. It accepts text, images, video, audio, and PDF documents, returns text, and offers a 1M-token context...",
+      "description": "Muse Spark 1.2 is a reasoning model from Meta, designed for complex agentic tasks. It accepts text, images, video, and PDF documents, returns text, and offers a 1M-token context window....",
       "releaseDate": null,
       "contextSize": 1048576,
       "capabilities": {
         "reasoning": true,
         "tools": true,
         "vision": true,
-        "audio": true
+        "audio": false
       },
       "providers": [],
       "euProviders": [],
@@ -17621,7 +17621,7 @@
         "reasoning": true,
         "tools": true,
         "vision": true,
-        "audio": true
+        "audio": false
       },
       "providers": [],
       "euProviders": [],
@@ -17656,7 +17656,7 @@
         "reasoning": true,
         "tools": true,
         "vision": true,
-        "audio": true
+        "audio": false
       },
       "providers": [],
       "euProviders": [],
@@ -17691,7 +17691,7 @@
         "reasoning": true,
         "tools": true,
         "vision": true,
-        "audio": true
+        "audio": false
       },
       "providers": [],
       "euProviders": [],
@@ -17871,15 +17871,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.2236253617469087,
-        "cached": 0.2236253617469087,
-        "output": 0.8945014469876348,
+        "input": 0.2630886608787161,
+        "cached": 0.2630886608787161,
+        "output": 1.0523546435148643,
         "cachedFallback": true,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.255,
-          "cached": 0.255,
-          "output": 1.02
+          "input": 0.3,
+          "cached": 0.3,
+          "output": 1.2
         }
       },
       "eu": null,
@@ -18011,15 +18011,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.18416206261510126,
-        "cached": 0.036832412523020254,
-        "output": 0.736648250460405,
+        "input": 0.2630886608787161,
+        "cached": 0.05261773217574322,
+        "output": 1.0523546435148643,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.21,
-          "cached": 0.042,
-          "output": 0.84
+          "input": 0.3,
+          "cached": 0.06,
+          "output": 1.2
         }
       },
       "eu": null,
@@ -19283,26 +19283,26 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.833114092782601,
-        "cached": 0.14031395246864858,
-        "output": 3.5078488117162148,
+        "input": 0.5700254319038849,
+        "cached": 0.13154433043935804,
+        "output": 2.990441111988073,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.95,
-          "cached": 0.16,
-          "output": 4.0
+          "input": 0.65,
+          "cached": 0.15,
+          "output": 3.41
         }
       },
       "eu": {
-        "input": 0.35850214855739715,
-        "cached": 0.07813733228097869,
+        "input": 0.4165570463913005,
+        "cached": 0.08550381478558274,
         "output": 2.0959396650004383,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.4088,
-          "cached": 0.0891,
+          "input": 0.475,
+          "cached": 0.0975,
           "output": 2.39
         }
       },
@@ -25322,15 +25322,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.27405068841532926,
-        "cached": 0.13702534420766463,
-        "output": 1.096202753661317,
-        "cachedFallback": false,
+        "input": 0.14250635797597122,
+        "cached": 0.14250635797597122,
+        "output": 1.1400508638077698,
+        "cachedFallback": true,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.3125,
-          "cached": 0.15625,
-          "output": 1.25
+          "input": 0.1625,
+          "cached": 0.1625,
+          "output": 1.3
         }
       },
       "eu": null,
@@ -28064,15 +28064,15 @@
         }
       },
       "eu": {
-        "input": 0.4284837323511356,
-        "cached": 0.11935455581864421,
-        "output": 1.6833289485223186,
+        "input": 0.40550732263439443,
+        "cached": 0.19380864684732085,
+        "output": 2.7332280978689814,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.4886,
-          "cached": 0.1361,
-          "output": 1.9195
+          "input": 0.4624,
+          "cached": 0.221,
+          "output": 3.1167
         }
       },
       "quantization": null,
@@ -28110,15 +28110,15 @@
         }
       },
       "eu": {
-        "input": 0.2658949399280891,
-        "cached": 0.05463474524248005,
-        "output": 2.2052091554853988,
+        "input": 0.2953608699465053,
+        "cached": 0.1435587126194861,
+        "output": 2.229676400947119,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.3032,
-          "cached": 0.0623,
-          "output": 2.5146
+          "input": 0.3368,
+          "cached": 0.1637,
+          "output": 2.5425
         }
       },
       "quantization": null,
@@ -28144,15 +28144,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.03946329913180741,
-        "cached": 0.008769622029290536,
-        "output": 0.12277470841006753,
+        "input": 0.13154433043935804,
+        "cached": 0.02630886608787161,
+        "output": 0.43848110146452685,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.045,
-          "cached": 0.01,
-          "output": 0.14
+          "input": 0.15,
+          "cached": 0.03,
+          "output": 0.5
         }
       },
       "eu": null,
@@ -28529,15 +28529,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.21415416995527492,
-        "cached": 0.006813996316758747,
-        "output": 0.6424625098658248,
+        "input": 0.19812330088573182,
+        "cached": 0.07745330176269402,
+        "output": 1.7174427782162587,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.2442,
-          "cached": 0.00777,
-          "output": 0.7326
+          "input": 0.22592,
+          "cached": 0.08832,
+          "output": 1.9584
         }
       },
       "eu": null,
@@ -28949,15 +28949,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.24002455494168198,
-        "cached": 0.039432605454704894,
-        "output": 2.257300710339384,
+        "input": 0.15653775322283608,
+        "cached": 0.1285845830044725,
+        "output": 2.4598789792159956,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.2737,
-          "cached": 0.044965,
-          "output": 2.574
+          "input": 0.1785,
+          "cached": 0.146625,
+          "output": 2.805
         }
       },
       "eu": null,
