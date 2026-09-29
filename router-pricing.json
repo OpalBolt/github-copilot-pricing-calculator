@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-29T08:26:22.431871+00:00",
+  "generatedAt": "2026-09-29T12:02:31.435794+00:00",
   "currency": "EUR",
   "exchangeRate": {
     "series": "EXR.D.USD.EUR.SP00.A",
@@ -14,7 +14,7 @@
       "source": "https://api.cortecs.ai/v1/models?extended=true&currency=EUR",
       "euClaim": "EU catalog: providers based and regulated within the EU.",
       "id": "cortecs",
-      "fetchedAt": "2026-09-29T08:26:22.431871+00:00",
+      "fetchedAt": "2026-09-29T12:02:31.435794+00:00",
       "stale": false
     },
     {
@@ -22,7 +22,7 @@
       "source": "https://api.eurouter.ai/api/v1/models",
       "euClaim": "EU handling is EUrouter's baseline routing guarantee.",
       "id": "eurouter",
-      "fetchedAt": "2026-09-29T08:26:22.431871+00:00",
+      "fetchedAt": "2026-09-29T12:02:31.435794+00:00",
       "stale": false
     },
     {
@@ -30,7 +30,7 @@
       "source": "https://openrouter.ai/api/v1/models",
       "euClaim": "EU regional routing; Business or Enterprise plan required.",
       "id": "openrouter",
-      "fetchedAt": "2026-09-29T08:26:22.431871+00:00",
+      "fetchedAt": "2026-09-29T12:02:31.435794+00:00",
       "stale": false
     },
     {
@@ -38,7 +38,7 @@
       "source": "https://opencode.ai/zen/v1/models",
       "euClaim": "No EU routing catalog is published.",
       "id": "opencode",
-      "fetchedAt": "2026-09-29T08:26:22.431871+00:00",
+      "fetchedAt": "2026-09-29T12:02:31.435794+00:00",
       "stale": false
     },
     {
@@ -47,7 +47,7 @@
       "kind": "direct",
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "deepseek-direct",
-      "fetchedAt": "2026-09-29T08:26:22.431871+00:00",
+      "fetchedAt": "2026-09-29T12:02:31.435794+00:00",
       "stale": false
     },
     {
@@ -56,7 +56,7 @@
       "kind": "direct",
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "zai-direct",
-      "fetchedAt": "2026-09-29T08:26:22.431871+00:00",
+      "fetchedAt": "2026-09-29T12:02:31.435794+00:00",
       "stale": false
     },
     {
@@ -66,7 +66,7 @@
       "kind": "direct",
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "claude-direct",
-      "fetchedAt": "2026-09-29T08:26:22.431871+00:00",
+      "fetchedAt": "2026-09-29T12:02:31.435794+00:00",
       "stale": false
     },
     {
@@ -76,7 +76,7 @@
       "kind": "direct",
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "openai-direct",
-      "fetchedAt": "2026-09-29T08:26:22.431871+00:00",
+      "fetchedAt": "2026-09-29T12:02:31.435794+00:00",
       "stale": false
     }
   ],
@@ -16932,13 +16932,13 @@
       "eu": {
         "input": 0.049217788715064166,
         "cached": 0.023730005273334506,
-        "output": 0.6983652663033926,
+        "output": 0.5712779047284233,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
           "input": 0.056,
           "cached": 0.027,
-          "output": 0.7946
+          "output": 0.65
         }
       },
       "quantization": null,
@@ -21289,13 +21289,13 @@
         }
       },
       "eu": {
-        "input": 0.4174723149938478,
+        "input": 0.4086834241518721,
         "cached": 0.0856916857092635,
         "output": 2.1532782562840573,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.475,
+          "input": 0.465,
           "cached": 0.0975,
           "output": 2.45
         }
@@ -21954,7 +21954,7 @@
       "owner": "NVIDIA",
       "description": "NVIDIA Nemotron 3.5 Lightning is an open mixture-of-experts model from NVIDIA, with 3B active parameters out of 30B total. It is suited for high-throughput agentic workloads and specialized tasks that...",
       "releaseDate": null,
-      "contextSize": 1000000,
+      "contextSize": 262144,
       "capabilities": {
         "reasoning": true,
         "tools": true,
@@ -26581,15 +26581,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.11425558094568466,
-        "cached": 0.11425558094568466,
-        "output": 0.45702232378273866,
+        "input": 0.10546669010370892,
+        "cached": 0.10546669010370892,
+        "output": 0.43944454209878714,
         "cachedFallback": true,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.13,
-          "cached": 0.13,
-          "output": 0.52
+          "input": 0.12,
+          "cached": 0.12,
+          "output": 0.5
         }
       },
       "eu": null,
@@ -27911,14 +27911,14 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.05501845667076816,
-        "cached": 0.04403234311829847,
+        "input": 0.03946211988047109,
+        "cached": 0.03155211812269292,
         "output": 3.8671119704693275,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0626,
-          "cached": 0.0501,
+          "input": 0.0449,
+          "cached": 0.0359,
           "output": 4.4
         }
       },
@@ -30116,27 +30116,27 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.342766742837054,
-        "cached": 0.2284232729829496,
+        "input": 0.17129548251010723,
+        "cached": 0.13701880822640183,
         "output": 3.8671119704693275,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.39,
-          "cached": 0.2599,
+          "input": 0.1949,
+          "cached": 0.1559,
           "output": 4.4
         }
       },
       "eu": {
-        "input": 0.345667076814906,
-        "cached": 0.1678678150817367,
-        "output": 2.5927227983828445,
+        "input": 0.3441729653717701,
+        "cached": 0.14853225522939006,
+        "output": 2.520038671119705,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.3933,
-          "cached": 0.191,
-          "output": 2.95
+          "input": 0.3916,
+          "cached": 0.169,
+          "output": 2.8673
         }
       },
       "quantization": null,
@@ -30174,15 +30174,15 @@
         }
       },
       "eu": {
-        "input": 0.2844963965547548,
-        "cached": 0.14044647565477236,
-        "output": 2.9354895412198982,
+        "input": 0.272455616101248,
+        "cached": 0.16136403585867465,
+        "output": 2.2997890666197924,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.3237,
-          "cached": 0.1598,
-          "output": 3.34
+          "input": 0.31,
+          "cached": 0.1836,
+          "output": 2.6167
         }
       },
       "quantization": null,
@@ -30593,13 +30593,13 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.13893478642995255,
+        "input": 0.08437335208296713,
         "cached": 0.06581121462471437,
         "output": 1.7212163824925295,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.15808,
+          "input": 0.096,
           "cached": 0.07488,
           "output": 1.9584
         }

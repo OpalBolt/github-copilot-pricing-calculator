@@ -1,5 +1,5 @@
 {
-  "fetchDate": "2026-09-28",
+  "fetchDate": "2026-09-29",
   "models": [
     {
       "provider": "OpenAI",
@@ -314,6 +314,16 @@
     {
       "provider": "Anthropic",
       "Model": "Claude Sonnet 5",
+      "Release status": "GA",
+      "Category": "Versatile",
+      "Input": 2.0,
+      "Cached input": 0.2,
+      "Cache write": 2.5,
+      "Output": 10.0
+    },
+    {
+      "provider": "Anthropic",
+      "Model": "Claude Sonnet 5.5",
       "Release status": "GA",
       "Category": "Versatile",
       "Input": 2.0,
