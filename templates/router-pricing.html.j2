@@ -45,7 +45,9 @@
     #router-table tr.router-openrouter td:first-child { border-left: 3px solid #d27e99; }
     #router-table tr.router-opencode td:first-child { border-left: 3px solid #e6c384; }
     #router-table tr.router-deepseek-direct td:first-child,
-    #router-table tr.router-zai-direct td:first-child { border-left: 3px solid #e46876; }
+    #router-table tr.router-zai-direct td:first-child,
+    #router-table tr.router-claude-direct td:first-child,
+    #router-table tr.router-openai-direct td:first-child { border-left: 3px solid #e46876; }
     #router-table tr.model-row:hover td { background: var(--slate-2); }
     #router-table tr.drilldown-row > td { padding: 0; background: var(--canvas); }
     .detail-panel { padding: 14px 18px; white-space: normal; font-size: 13px; }
@@ -72,9 +74,13 @@
     .router-openrouter .router-chip { color: #d27e99; border-color: #d27e99; }
     .router-opencode .router-chip { color: #e6c384; border-color: #e6c384; }
     .router-deepseek-direct .router-chip,
-    .router-zai-direct .router-chip { color: #e46876; border-color: #e46876; }
+    .router-zai-direct .router-chip,
+    .router-claude-direct .router-chip,
+    .router-openai-direct .router-chip { color: #e46876; border-color: #e46876; }
     #router-filters [data-router="deepseek-direct"],
-    #router-filters [data-router="zai-direct"] { color: #8a9199; border-color: #8a9199; }
+    #router-filters [data-router="zai-direct"],
+    #router-filters [data-router="claude-direct"],
+    #router-filters [data-router="openai-direct"] { color: #8a9199; border-color: #8a9199; }
     .legend-cortecs { color: #7e9cd8; border-color: #7e9cd8; }
     .legend-eurouter { color: #98bb6c; border-color: #98bb6c; }
     .legend-openrouter { color: #d27e99; border-color: #d27e99; }
@@ -106,7 +112,7 @@
 <header class="page-header">
   <p class="eyebrow">Routers · Direct API baselines</p>
   <h1>AI Router Price Calculator</h1>
-  <p>Compare router-published model prices with direct DeepSeek and z.ai API prices in euros. Direct API rows are baselines and are not routed offers.</p>
+  <p>Compare router-published model prices with direct Claude, DeepSeek, OpenAI, and z.ai API prices in euros. Direct API rows are baselines and are not routed offers.</p>
   <p class="meta">
     <a href="index.html">← All tools</a> · Data built: {{ generatedAt }}
     {% if exchangeRate %}
@@ -236,7 +242,7 @@
   <p class="page-note">
     Router rows are model-level Router Prices recorded at build time; direct API rows use the provider's published token prices and are explicitly marked as not routed.
     EU routing means the documented mode of each router: Cortecs uses its <code>eu_native=true</code> catalog, EUrouter uses its baseline EU guarantee, and OpenRouter uses its EU regional catalog. OpenCode Zen does not publish an EU catalog.
-    OpenCode Zen, OpenRouter, DeepSeek, and z.ai USD prices are converted with the unrounded ECB reference rate shown above. Calculations use unrounded values and display rounding only.
+    OpenCode Zen, OpenRouter, Claude, DeepSeek, OpenAI, and z.ai USD prices are converted with the unrounded ECB reference rate shown above. Calculations use unrounded values and display rounding only.
     When no cached-input price is published, the input rate is used as an estimate and marked with ⚠. This does not mean the router publishes or supports prompt caching. Fully free offers do not show this warning because the fallback cannot change their cost.
   </p>
 </main>

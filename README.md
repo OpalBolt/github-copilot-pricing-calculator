@@ -19,9 +19,9 @@ compare in a bottom tray. A task guide recommends models for each kind of work.
 ### AI Router Price Calculator
 
 Compares Router Prices from Cortecs, EUrouter, OpenCode Zen, and OpenRouter in
-euros, with direct DeepSeek and z.ai API prices as marked baselines. Router rows
-are router model offers. The EU routing filter uses each router's published
-EU price and hides offers without one.
+euros, with direct Claude, DeepSeek, OpenAI, and z.ai API prices as marked
+baselines. Router rows are router model offers. The EU routing filter uses each
+router's published EU price and hides offers without one.
 
 The calculator keeps search, sorting, capability filters, budget presets,
 column controls, and a five-offer comparison tray. Price details explain the
@@ -43,8 +43,8 @@ The three tools fetch data differently.
 - **AI routers** — reads the public bulk model catalogs from Cortecs, EUrouter,
   OpenCode Zen, and OpenRouter. It also reads the Cortecs and OpenRouter EU
   catalogs. OpenCode Zen model IDs are joined with OpenCode's `models.dev`
-  metadata for prices and capabilities. The same build scrapes direct DeepSeek
-  and z.ai API prices as non-router comparison baselines.
+  metadata for prices and capabilities. The same build scrapes direct Claude,
+  DeepSeek, OpenAI, and z.ai API prices as non-router comparison baselines.
 - **ECB exchange rate** — reads series `EXR.D.USD.EUR.SP00.A`. The build divides
   USD prices by the latest USD-per-EUR observation.
 - **Provider comparison** — scrapes DeepSeek, z.ai, and OpenCode Go pricing pages into
@@ -58,7 +58,7 @@ router data remains.
 All data ships as static JSON baked into the HTML at build time. There is no
 backend and no runtime fetch.
 
-The router build uses these bulk endpoints:
+The router build uses these sources:
 
 | Data | Endpoint |
 |---|---|
@@ -69,7 +69,11 @@ The router build uses these bulk endpoints:
 | OpenRouter EU routing | `https://eu.openrouter.ai/api/v1/models` |
 | OpenCode Zen availability | `https://opencode.ai/zen/v1/models` |
 | OpenCode model metadata | `https://models.dev/api.json` |
+| Claude model catalog | `https://platform.claude.com/docs/en/api/http/beta/models/list.md` |
+| Claude direct API pricing | `https://platform.claude.com/docs/en/about-claude/pricing.md` |
 | DeepSeek direct API | `https://api-docs.deepseek.com/quick_start/pricing/` |
+| OpenAI model catalog | `https://developers.openai.com/api/reference/resources/models/methods/list` |
+| OpenAI direct API pricing | `https://developers.openai.com/api/docs/pricing.md` |
 | z.ai direct API | `https://docs.z.ai/guides/overview/pricing.md` |
 | ECB USD per EUR | `https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A` |
 

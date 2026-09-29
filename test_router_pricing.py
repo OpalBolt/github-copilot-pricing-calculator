@@ -20,6 +20,8 @@ from fetch_router_pricing import (
     _provider,
     _rates,
     now_utc,
+    parse_claude_pricing,
+    parse_openai_pricing,
 )
 
 ROOT = Path(__file__).parent
@@ -95,6 +97,47 @@ def test_direct_api_offer():
     assert offer["default"]["input"] == 1
     assert offer["default"]["cached"] == 0.25
     assert offer["default"]["output"] == 3
+
+
+def test_claude_pricing_parser():
+    models = parse_claude_pricing(
+        """## Model pricing
+| Model | Base input tokens | Cache hits and refreshes | Output tokens |
+| --- | --- | --- | --- |
+| Claude Sonnet 5 | $2 / MTok | $0.20 / MTok | $10 / MTok |
+| Claude Mythos 5 ([limited availability](https://example.com)) | $10 | $1 | $50 |
+| Claude Opus 4 ([retired](https://example.com)) | $15 | $1.50 | $75 |
+"""
+    )
+    assert models == [
+        {
+            "id": "claude-sonnet-5",
+            "name": "Claude Sonnet 5",
+            "input": 2,
+            "input_cache": 0.2,
+            "output": 10,
+        }
+    ]
+
+
+def test_openai_pricing_parser():
+    models = parse_openai_pricing(
+        """### Standard pricing data
+| Model | Short context input | Short context cached input | Short context output | Long context input | Long context cached input | Long context output |
+| --- | --- | --- | --- | --- | --- | --- |
+| gpt-test (<272K context length) | $2.00 | $0.20 | $10.00 | $4.00 | $0.40 | $15.00 |
+| embedding | $0.02 | - | - | - | - | - |
+"""
+    )
+    assert models[0]["id"] == "gpt-test"
+    assert models[0]["input_cache"] == 0.2
+    assert models[0]["long_context"] == {
+        "contextAbove": 272_000,
+        "input": 4,
+        "input_cache": 0.4,
+        "output": 15,
+    }
+    assert len(models) == 1
 
 
 def test_organization_name_normalization():
@@ -191,7 +234,9 @@ def test_aggregate_contract():
         "deepseek-direct",
         "eurouter",
         "opencode",
+        "openai-direct",
         "openrouter",
+        "claude-direct",
         "zai-direct",
     }
     assert data["omittedRouters"] == []
@@ -286,7 +331,9 @@ def test_aggregate_contract():
 
     direct_offers = [item for item in offers if item.get("direct")]
     assert {offer["router"] for offer in direct_offers} == {
+        "claude-direct",
         "deepseek-direct",
+        "openai-direct",
         "zai-direct",
     }
     assert all(offer["eu"] is None for offer in direct_offers)
@@ -309,6 +356,8 @@ def test_generated_pages():
         'data-router="opencode"',
         'data-router="deepseek-direct"',
         'data-router="zai-direct"',
+        'data-router="claude-direct"',
+        'data-router="openai-direct"',
         '.router-deepseek-direct .router-chip',
         '.router-zai-direct .router-chip',
         '.router-opencode .router-chip',
@@ -374,6 +423,8 @@ def main():
     test_opencode_tier_conversion()
     test_opencode_owner()
     test_direct_api_offer()
+    test_claude_pricing_parser()
+    test_openai_pricing_parser()
     test_organization_name_normalization()
     test_seven_day_router_fallback()
     test_stale_openrouter_keeps_its_exchange_rate()

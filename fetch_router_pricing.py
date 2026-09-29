@@ -14,6 +14,9 @@ from pathlib import Path
 from fetch_providers import (
     DEEPSEEK_URL,
     ZAI_PAYGO_URL,
+    fetch_text,
+    parse_markdown_tables,
+    parse_price,
     scrape_deepseek,
     scrape_zai_paygo,
 )
@@ -29,6 +32,12 @@ OPENROUTER_URL = "https://openrouter.ai/api/v1/models"
 OPENROUTER_EU_URL = "https://eu.openrouter.ai/api/v1/models"
 OPENCODE_ZEN_URL = "https://opencode.ai/zen/v1/models"
 MODELS_DEV_URL = "https://models.dev/api.json"
+CLAUDE_MODELS_URL = "https://platform.claude.com/docs/en/api/http/beta/models/list.md"
+CLAUDE_PRICING_URL = "https://platform.claude.com/docs/en/about-claude/pricing.md"
+OPENAI_MODELS_URL = (
+    "https://developers.openai.com/api/reference/resources/models/methods/list"
+)
+OPENAI_PRICING_URL = "https://developers.openai.com/api/docs/pricing.md"
 ECB_SERIES = "EXR.D.USD.EUR.SP00.A"
 ECB_URL = (
     "https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A"
@@ -579,6 +588,197 @@ def _direct_api_offer(
     }
 
 
+def _plain_markdown(value: str) -> str:
+    value = re.sub(r"<[^>]+>", "", value)
+    value = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", value)
+    return re.sub(r"\s+", " ", value).strip()
+
+
+def _optional_price(value: str) -> float | None:
+    return None if value.strip() in {"-", "—", ""} else parse_price(value)
+
+
+def parse_claude_pricing(markdown: str) -> list[dict]:
+    section = markdown.split("## Model pricing", 1)
+    if len(section) != 2:
+        raise ValueError("Claude pricing page has no model pricing section")
+    table = next(
+        (
+            item
+            for item in parse_markdown_tables(section[1])
+            if item
+            and {"Model", "Base input tokens", "Cache hits and refreshes", "Output tokens"}
+            <= set(item[0])
+        ),
+        None,
+    )
+    if not table:
+        raise ValueError("Claude pricing page has no model pricing table")
+
+    header, *rows = table
+    input_index = header.index("Base input tokens")
+    cached_index = header.index("Cache hits and refreshes")
+    output_index = header.index("Output tokens")
+    models = []
+    for row in rows:
+        name = _plain_markdown(row[0])
+        if not name or any(
+            marker in name.lower() for marker in ("retired", "limited availability")
+        ):
+            continue
+        name = re.sub(r"\s*\(preview\)\s*$", "", name, flags=re.I)
+        model_id = re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
+        models.append(
+            {
+                "id": model_id,
+                "name": name,
+                "input": parse_price(row[input_index]),
+                "input_cache": parse_price(row[cached_index]),
+                "output": parse_price(row[output_index]),
+            }
+        )
+    if not models:
+        raise ValueError("Claude pricing page has no usable models")
+    return models
+
+
+def parse_openai_pricing(markdown: str) -> list[dict]:
+    section = markdown.split("### Standard pricing data", 1)
+    if len(section) != 2:
+        raise ValueError("OpenAI pricing page has no standard pricing section")
+    table = parse_markdown_tables(section[1])[0]
+    required = {
+        "Model",
+        "Short context input",
+        "Short context cached input",
+        "Short context output",
+    }
+    if not table or not required <= set(table[0]):
+        raise ValueError("OpenAI standard pricing table has unexpected columns")
+
+    header, *rows = table
+    indexes = {name: header.index(name) for name in required}
+    long_indexes = {
+        name: header.index(name)
+        for name in (
+            "Long context input",
+            "Long context cached input",
+            "Long context output",
+        )
+        if name in header
+    }
+    models = []
+    for row in rows:
+        raw_name = _plain_markdown(row[indexes["Model"]])
+        model_id = re.sub(r"\s*\([^)]*\)\s*$", "", raw_name).strip()
+        input_rate = _optional_price(row[indexes["Short context input"]])
+        output_rate = _optional_price(row[indexes["Short context output"]])
+        if not model_id or input_rate is None or output_rate is None:
+            continue
+        model = {
+            "id": model_id,
+            "name": model_id,
+            "input": input_rate,
+            "input_cache": _optional_price(
+                row[indexes["Short context cached input"]]
+            ),
+            "output": output_rate,
+        }
+        long_input = (
+            _optional_price(row[long_indexes["Long context input"]])
+            if "Long context input" in long_indexes
+            else None
+        )
+        long_output = (
+            _optional_price(row[long_indexes["Long context output"]])
+            if "Long context output" in long_indexes
+            else None
+        )
+        if (
+            "<272k context length" in raw_name.lower()
+            and long_input is not None
+            and long_output is not None
+        ):
+            model["long_context"] = {
+                "contextAbove": 272_000,
+                "input": long_input,
+                "input_cache": _optional_price(
+                    row[long_indexes["Long context cached input"]]
+                ),
+                "output": long_output,
+            }
+        models.append(model)
+    if not models:
+        raise ValueError("OpenAI pricing page has no usable text models")
+    return models
+
+
+def _direct_pricing_tiers(model: dict, exchange_rate: dict) -> list[dict]:
+    tier = model.get("long_context")
+    if not tier:
+        return []
+    rates = _converted_usd_rates(
+        {
+            "input": tier["input"],
+            "cache_read": tier.get("input_cache"),
+            "output": tier["output"],
+        },
+        exchange_rate["usdPerEur"],
+    )
+    return [{"contextAbove": tier["contextAbove"], **rates}]
+
+
+def _direct_api_offers(
+    metadata: dict,
+    models: list[dict],
+    exchange_rate: dict,
+    *,
+    price_note: str,
+) -> list[dict]:
+    offers = []
+    for model in models:
+        offer = _direct_api_offer(
+            metadata,
+            model,
+            exchange_rate,
+            price_note=price_note,
+        )
+        offer["name"] = model.get("name", model["id"])
+        offer["pricingTiers"] = _direct_pricing_tiers(model, exchange_rate)
+        offers.append(offer)
+    return offers
+
+
+def fetch_claude_direct(exchange_rate: dict) -> list[dict]:
+    offers = _direct_api_offers(
+        {"id": "claude-direct", "name": "Claude API", "owner": "Anthropic"},
+        parse_claude_pricing(fetch_text(CLAUDE_PRICING_URL)),
+        exchange_rate,
+        price_note=(
+            "Direct USD API price published by Anthropic and converted with the "
+            "listed ECB rate. This is not a routed offer."
+        ),
+    )
+    if not offers:
+        raise ValueError("Claude API has no usable offers")
+    return offers
+
+
+def fetch_openai_direct(exchange_rate: dict) -> list[dict]:
+    offers = _direct_api_offers(
+        {"id": "openai-direct", "name": "OpenAI API", "owner": "OpenAI"},
+        parse_openai_pricing(fetch_text(OPENAI_PRICING_URL)),
+        exchange_rate,
+        price_note=(
+            "Direct USD standard API price published by OpenAI and converted "
+            "with the listed ECB rate. This is not a routed offer."
+        ),
+    )
+    if not offers:
+        raise ValueError("OpenAI API has no usable offers")
+    return offers
+
+
 def fetch_deepseek_direct(exchange_rate: dict) -> list[dict]:
     provider = scrape_deepseek()
     metadata = {"id": "deepseek-direct", "name": "DeepSeek API", "owner": "DeepSeek"}
@@ -652,6 +852,20 @@ ROUTERS = {
         "kind": "direct",
         "euClaim": "Direct API baseline; no router or EU routing mode.",
     },
+    "claude-direct": {
+        "name": "Claude API",
+        "source": CLAUDE_PRICING_URL,
+        "catalogSource": CLAUDE_MODELS_URL,
+        "kind": "direct",
+        "euClaim": "Direct API baseline; no router or EU routing mode.",
+    },
+    "openai-direct": {
+        "name": "OpenAI API",
+        "source": OPENAI_PRICING_URL,
+        "catalogSource": OPENAI_MODELS_URL,
+        "kind": "direct",
+        "euClaim": "Direct API baseline; no router or EU routing mode.",
+    },
 }
 
 
@@ -709,6 +923,8 @@ def build(previous: dict | None = None) -> dict:
         adapters["opencode"] = lambda: fetch_opencode(exchange_rate)
         adapters["deepseek-direct"] = lambda: fetch_deepseek_direct(exchange_rate)
         adapters["zai-direct"] = lambda: fetch_zai_direct(exchange_rate)
+        adapters["claude-direct"] = lambda: fetch_claude_direct(exchange_rate)
+        adapters["openai-direct"] = lambda: fetch_openai_direct(exchange_rate)
     elif ecb_error:
         def unavailable_openrouter():
             raise RuntimeError(f"ECB: {ecb_error}")
@@ -717,6 +933,8 @@ def build(previous: dict | None = None) -> dict:
         adapters["opencode"] = unavailable_openrouter
         adapters["deepseek-direct"] = unavailable_openrouter
         adapters["zai-direct"] = unavailable_openrouter
+        adapters["claude-direct"] = unavailable_openrouter
+        adapters["openai-direct"] = unavailable_openrouter
 
     for router_id, adapter in adapters.items():
         try:
@@ -741,6 +959,8 @@ def build(previous: dict | None = None) -> dict:
                     "opencode",
                     "deepseek-direct",
                     "zai-direct",
+                    "claude-direct",
+                    "openai-direct",
                 }:
                     exchange_rate = previous.get("exchangeRate")
             else:

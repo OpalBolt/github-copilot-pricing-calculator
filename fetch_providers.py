@@ -92,7 +92,7 @@ def parse_markdown_tables(text: str) -> list[list[list[str]]]:
             cur = None
             continue
         cells = [c.strip() for c in line.strip("|").split("|")]
-        if all(re.fullmatch(r":?-{2,}:?", c) for c in cells):
+        if all(re.fullmatch(r":?-+:?", c) for c in cells):
             continue  # separator row
         if cur is None:
             cur = []
