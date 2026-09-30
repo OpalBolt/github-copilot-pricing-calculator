@@ -1,5 +1,5 @@
 {
-  "fetchDate": "2026-09-29",
+  "fetchDate": "2026-09-30",
   "summary": [
     {
       "model": "GPT-5 mini",
@@ -68,13 +68,20 @@
       "model": "GPT-6 Luna",
       "taskArea": "Fast help with simple or repetitive tasks",
       "excelsAt": "Quick, cost-efficient responses for smaller, faster tasks",
-      "furtherReadingText": "",
-      "furtherReadingUrl": ""
+      "furtherReadingText": "GPT-6 Luna model card",
+      "furtherReadingUrl": "https://deploymentsafety.openai.com/gpt-6-astra/gpt-6-astra.pdf"
     },
     {
       "model": "GPT-6 Sol",
       "taskArea": "Interactive and agentic coding",
       "excelsAt": "All-round development tasks that benefit from careful, multistep validation",
+      "furtherReadingText": "GPT-6 Sol model card",
+      "furtherReadingUrl": "https://deploymentsafety.openai.com/gpt-6-astra/gpt-6-astra.pdf"
+    },
+    {
+      "model": "GPT-6.1 Sol",
+      "taskArea": "Complex coding tasks",
+      "excelsAt": "Advanced, efficient reasoning for complex coding tasks",
       "furtherReadingText": "",
       "furtherReadingUrl": ""
     },

@@ -1,5 +1,5 @@
 {
-  "fetchDate": "2026-09-29",
+  "fetchDate": "2026-09-30",
   "models": [
     {
       "provider": "OpenAI",
@@ -238,6 +238,30 @@
       "Threshold (input tokens)": "> 272K",
       "Input": 4.0,
       "Cached input": 0.4,
+      "Cache write": 5.0,
+      "Output": 15.0
+    },
+    {
+      "provider": "OpenAI",
+      "Model": "GPT-6.1 Sol",
+      "Release status": "GA",
+      "Category": "Powerful",
+      "Tier": "Default",
+      "Threshold (input tokens)": "\u2264 272K",
+      "Input": 2.0,
+      "Cached input": 0.1,
+      "Cache write": 2.5,
+      "Output": 10.0
+    },
+    {
+      "provider": "OpenAI",
+      "Model": "GPT-6.1 Sol",
+      "Release status": "GA",
+      "Category": "Powerful",
+      "Tier": "Long context",
+      "Threshold (input tokens)": "> 272K",
+      "Input": 4.0,
+      "Cached input": 0.2,
       "Cache write": 5.0,
       "Output": 15.0
     },
