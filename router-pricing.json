@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-30T11:50:53.594801+00:00",
+  "generatedAt": "2026-10-01T12:20:36.319934+00:00",
   "currency": "EUR",
   "exchangeRate": {
     "series": "EXR.D.USD.EUR.SP00.A",
-    "source": "https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A?format=csvdata&startPeriod=2026-09-16",
-    "observationDate": "2026-09-29",
+    "source": "https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A?format=csvdata&startPeriod=2026-09-17",
+    "observationDate": "2026-09-30",
     "usdPerEur": 1.1355
   },
   "routers": [
@@ -14,7 +14,7 @@
       "source": "https://api.cortecs.ai/v1/models?extended=true&currency=EUR",
       "euClaim": "EU catalog: providers based and regulated within the EU.",
       "id": "cortecs",
-      "fetchedAt": "2026-09-30T11:50:53.594801+00:00",
+      "fetchedAt": "2026-10-01T12:20:36.319934+00:00",
       "stale": false
     },
     {
@@ -22,7 +22,7 @@
       "source": "https://api.eurouter.ai/api/v1/models",
       "euClaim": "EU handling is EUrouter's baseline routing guarantee.",
       "id": "eurouter",
-      "fetchedAt": "2026-09-30T11:50:53.594801+00:00",
+      "fetchedAt": "2026-10-01T12:20:36.319934+00:00",
       "stale": false
     },
     {
@@ -30,7 +30,7 @@
       "source": "https://openrouter.ai/api/v1/models",
       "euClaim": "EU regional routing; Business or Enterprise plan required.",
       "id": "openrouter",
-      "fetchedAt": "2026-09-30T11:50:53.594801+00:00",
+      "fetchedAt": "2026-10-01T12:20:36.319934+00:00",
       "stale": false
     },
     {
@@ -38,7 +38,7 @@
       "source": "https://opencode.ai/zen/v1/models",
       "euClaim": "No EU routing catalog is published.",
       "id": "opencode",
-      "fetchedAt": "2026-09-30T11:50:53.594801+00:00",
+      "fetchedAt": "2026-10-01T12:20:36.319934+00:00",
       "stale": false
     },
     {
@@ -47,7 +47,7 @@
       "kind": "direct",
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "deepseek-direct",
-      "fetchedAt": "2026-09-30T11:50:53.594801+00:00",
+      "fetchedAt": "2026-10-01T12:20:36.319934+00:00",
       "stale": false
     },
     {
@@ -56,7 +56,7 @@
       "kind": "direct",
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "zai-direct",
-      "fetchedAt": "2026-09-30T11:50:53.594801+00:00",
+      "fetchedAt": "2026-10-01T12:20:36.319934+00:00",
       "stale": false
     },
     {
@@ -66,7 +66,7 @@
       "kind": "direct",
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "claude-direct",
-      "fetchedAt": "2026-09-30T11:50:53.594801+00:00",
+      "fetchedAt": "2026-10-01T12:20:36.319934+00:00",
       "stale": false
     },
     {
@@ -76,7 +76,7 @@
       "kind": "direct",
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "openai-direct",
-      "fetchedAt": "2026-09-30T11:50:53.594801+00:00",
+      "fetchedAt": "2026-10-01T12:20:36.319934+00:00",
       "stale": false
     }
   ],
@@ -1609,7 +1609,7 @@
       "owner": "Google",
       "description": "Gemma 4 31B IT is a multimodal instruction-tuned model from Google DeepMind designed for strong reasoning, coding, and vision-language tasks.",
       "releaseDate": null,
-      "contextSize": 262144,
+      "contextSize": 262000,
       "capabilities": {
         "reasoning": true,
         "tools": true,
@@ -1618,13 +1618,11 @@
       },
       "providers": [
         "Infercom",
-        "berget",
-        "arkane"
+        "berget"
       ],
       "euProviders": [
         "Infercom",
-        "berget",
-        "arkane"
+        "berget"
       ],
       "default": {
         "input": 0.2,
@@ -3024,45 +3022,6 @@
         "cached": 0.067,
         "output": 1.065,
         "cachedFallback": false,
-        "nativeCurrency": "EUR"
-      },
-      "quantization": null,
-      "priceNote": "Model-level minimum price published by Cortecs."
-    },
-    {
-      "key": "cortecs:minimax-m2.7",
-      "router": "cortecs",
-      "routerName": "Cortecs",
-      "modelId": "minimax-m2.7",
-      "name": "minimax-m2.7",
-      "owner": "MiniMax AI",
-      "description": "MiniMax-M2.7 is a frontier autonomous agent model designed for iterative self-improvement, multi-agent coordination, and enterprise-scale execution.",
-      "releaseDate": null,
-      "contextSize": 196608,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": false,
-        "audio": false
-      },
-      "providers": [
-        "Infercom"
-      ],
-      "euProviders": [
-        "Infercom"
-      ],
-      "default": {
-        "input": 0.6,
-        "cached": 0.6,
-        "output": 2.4,
-        "cachedFallback": true,
-        "nativeCurrency": "EUR"
-      },
-      "eu": {
-        "input": 0.6,
-        "cached": 0.6,
-        "output": 2.4,
-        "cachedFallback": true,
         "nativeCurrency": "EUR"
       },
       "quantization": null,
@@ -17001,15 +16960,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.0720035226772347,
-        "cached": 0.014400704535446939,
-        "output": 0.1440070453544694,
+        "input": 0.036864817261118454,
+        "cached": 0.00737296345222369,
+        "output": 0.07372963452223691,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.08176,
-          "cached": 0.016352,
-          "output": 0.16352
+          "input": 0.04186,
+          "cached": 0.008372,
+          "output": 0.08372
         }
       },
       "eu": null,
@@ -17036,25 +16995,25 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.008806693086745927,
-        "cached": 0.008806693086745927,
+        "input": 0.009511228533685603,
+        "cached": 0.009511228533685603,
         "output": 1.1272567151034787,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.01,
-          "cached": 0.01,
+          "input": 0.0108,
+          "cached": 0.0108,
           "output": 1.28
         }
       },
       "eu": {
-        "input": 0.0493174812857772,
+        "input": 0.044033465433729636,
         "cached": 0.023778071334214005,
         "output": 0.5724350506384853,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.056,
+          "input": 0.05,
           "cached": 0.027,
           "output": 0.65
         }
@@ -17117,15 +17076,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.6895640686922061,
-        "cached": 0.05746367239101718,
-        "output": 1.3791281373844122,
+        "input": 0.18388375165125498,
+        "cached": 0.015323645970937912,
+        "output": 0.36776750330250996,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.783,
-          "cached": 0.06525,
-          "output": 1.566
+          "input": 0.2088,
+          "cached": 0.0174,
+          "output": 0.4176
         }
       },
       "eu": null,
@@ -17187,15 +17146,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.017437252311756937,
-        "cached": 0.0025627476882430647,
-        "output": 0.34874504623513874,
+        "input": 0.026420079260237782,
+        "cached": 0.008806693086745927,
+        "output": 0.44033465433729635,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0198,
-          "cached": 0.00291,
-          "output": 0.396
+          "input": 0.03,
+          "cached": 0.01,
+          "output": 0.5
         }
       },
       "eu": null,
@@ -19948,14 +19907,14 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.3522677234698371,
-        "cached": 0.3522677234698371,
+        "input": 0.48436811977102606,
+        "cached": 0.48436811977102606,
         "output": 1.9374724790841042,
         "cachedFallback": true,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.4,
-          "cached": 0.4,
+          "input": 0.55,
+          "cached": 0.55,
           "output": 2.2
         }
       },
@@ -21326,13 +21285,13 @@
       "euProviders": [],
       "default": {
         "input": 0.5284015852047557,
-        "cached": 0.13210039630118892,
+        "cached": 0.5284015852047557,
         "output": 2.2016732716864817,
-        "cachedFallback": false,
+        "cachedFallback": true,
         "nativeCurrency": "USD",
         "native": {
           "input": 0.6,
-          "cached": 0.15,
+          "cached": 0.6,
           "output": 2.5
         }
       },
@@ -21395,26 +21354,26 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.5724350506384853,
-        "cached": 0.13210039630118892,
-        "output": 3.0030823425803614,
+        "input": 0.38234258036107444,
+        "cached": 0.06439453985028623,
+        "output": 1.6098634962571556,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.65,
-          "cached": 0.15,
-          "output": 3.41
+          "input": 0.43415,
+          "cached": 0.07312,
+          "output": 1.828
         }
       },
       "eu": {
-        "input": 0.3883751651254954,
-        "cached": 0.10779392338177014,
+        "input": 0.3825627476882431,
+        "cached": 0.10568031704095113,
         "output": 2.157639806252752,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.441,
-          "cached": 0.1224,
+          "input": 0.4344,
+          "cached": 0.12,
           "output": 2.45
         }
       },
@@ -21487,15 +21446,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 2.642007926023778,
-        "cached": 0.26420079260237783,
-        "output": 13.21003963011889,
+        "input": 0.6114487010127697,
+        "cached": 0.6114487010127697,
+        "output": 8.806693086745927,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 3.0,
-          "cached": 0.3,
-          "output": 15.0
+          "input": 0.6943,
+          "cached": 0.6943,
+          "output": 10.0
         }
       },
       "eu": null,
@@ -22082,15 +22041,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.052840158520475564,
-        "cached": 0.026420079260237782,
-        "output": 0.14090708938793484,
+        "input": 0.05239982386613826,
+        "cached": 0.02619991193306913,
+        "output": 0.14971378247468078,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.06,
-          "cached": 0.03,
-          "output": 0.16
+          "input": 0.0595,
+          "cached": 0.02975,
+          "output": 0.17
         }
       },
       "eu": null,
@@ -25281,76 +25240,6 @@
       "priceNote": "USD Router Price converted with the listed ECB rate."
     },
     {
-      "key": "openrouter:openai/gpt-6.1-sol-pro:batch",
-      "router": "openrouter",
-      "routerName": "OpenRouter",
-      "modelId": "openai/gpt-6.1-sol-pro:batch",
-      "name": "OpenAI: GPT-6.1 Sol Pro (batch)",
-      "owner": "OpenAI",
-      "description": "GPT-6.1 Sol Pro is the same underlying model as [GPT-6.1 Sol](https://openrouter.ai/openai/gpt-6.1-sol), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks. **Cost note:** pro mode spends far more...",
-      "releaseDate": null,
-      "contextSize": 1050000,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": true,
-        "audio": false
-      },
-      "providers": [],
-      "euProviders": [],
-      "default": {
-        "input": 0.8806693086745927,
-        "cached": 0.044033465433729636,
-        "output": 4.4033465433729635,
-        "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 1.0,
-          "cached": 0.05,
-          "output": 5.0
-        }
-      },
-      "eu": null,
-      "quantization": null,
-      "euPlan": "Business or Enterprise",
-      "priceNote": "USD Router Price converted with the listed ECB rate."
-    },
-    {
-      "key": "openrouter:openai/gpt-6.1-sol:batch",
-      "router": "openrouter",
-      "routerName": "OpenRouter",
-      "modelId": "openai/gpt-6.1-sol:batch",
-      "name": "OpenAI: GPT-6.1 Sol (batch)",
-      "owner": "OpenAI",
-      "description": "GPT-6.1 Sol is an upgrade to GPT-6 Sol from OpenAI, positioned below the flagship GPT-6 Astra in the GPT-6 series. It is suited for agentic coding, computer use, document-heavy professional...",
-      "releaseDate": null,
-      "contextSize": 1050000,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": true,
-        "audio": false
-      },
-      "providers": [],
-      "euProviders": [],
-      "default": {
-        "input": 0.8806693086745927,
-        "cached": 0.044033465433729636,
-        "output": 4.4033465433729635,
-        "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 1.0,
-          "cached": 0.05,
-          "output": 5.0
-        }
-      },
-      "eu": null,
-      "quantization": null,
-      "euPlan": "Business or Enterprise",
-      "priceNote": "USD Router Price converted with the listed ECB rate."
-    },
-    {
       "key": "openrouter:openai/gpt-audio",
       "router": "openrouter",
       "routerName": "OpenRouter",
@@ -26861,15 +26750,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.11448701012769706,
-        "cached": 0.11448701012769706,
-        "output": 0.45794804051078825,
+        "input": 0.10568031704095113,
+        "cached": 0.10568031704095113,
+        "output": 0.44033465433729635,
         "cachedFallback": true,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.13,
-          "cached": 0.13,
-          "output": 0.52
+          "input": 0.12,
+          "cached": 0.12,
+          "output": 0.5
         }
       },
       "eu": null,
@@ -28191,15 +28080,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.021928665785997357,
-        "cached": 0.017525319242624397,
-        "output": 3.830911492734478,
+        "input": 0.36988110964332893,
+        "cached": 0.07485689123734039,
+        "output": 2.642007926023778,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0249,
-          "cached": 0.0199,
-          "output": 4.35
+          "input": 0.42,
+          "cached": 0.085,
+          "output": 3.0
         }
       },
       "eu": null,
@@ -30187,13 +30076,13 @@
       "euProviders": [],
       "default": {
         "input": 0.26420079260237783,
-        "cached": 0.0484368119771026,
+        "cached": 0.044033465433729636,
         "output": 0.7926023778071335,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
           "input": 0.3,
-          "cached": 0.055,
+          "cached": 0.05,
           "output": 0.9
         }
       },
@@ -30361,15 +30250,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 1.2329370321444297,
-        "cached": 0.22897402025539412,
-        "output": 3.8749449581682085,
+        "input": 0.8494936151475122,
+        "cached": 0.15776309995596655,
+        "output": 2.6698370761778953,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 1.4,
-          "cached": 0.26,
-          "output": 4.4
+          "input": 0.9646,
+          "cached": 0.17914,
+          "output": 3.0316
         }
       },
       "eu": null,
@@ -30408,15 +30297,15 @@
         }
       },
       "eu": {
-        "input": 0.6605019815059445,
-        "cached": 0.14883311316600617,
-        "output": 2.1136063408190227,
+        "input": 1.2241303390576839,
+        "cached": 0.22016732716864817,
+        "output": 3.866138265081462,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.75,
-          "cached": 0.169,
-          "output": 2.4
+          "input": 1.39,
+          "cached": 0.25,
+          "output": 4.39
         }
       },
       "quantization": null,
@@ -30442,15 +30331,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 1.2329370321444297,
-        "cached": 0.22897402025539412,
-        "output": 3.8749449581682085,
+        "input": 0.19542051959489212,
+        "cached": 0.1563188022897402,
+        "output": 2.9854689564068693,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 1.4,
-          "cached": 0.26,
-          "output": 4.4
+          "input": 0.2219,
+          "cached": 0.1775,
+          "output": 3.39
         }
       },
       "eu": {
@@ -30838,15 +30727,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.017437252311756937,
-        "cached": 0.0025627476882430647,
-        "output": 0.34874504623513874,
+        "input": 0.021400264200792603,
+        "cached": 0.021400264200792603,
+        "output": 0.5284015852047557,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0198,
-          "cached": 0.00291,
-          "output": 0.396
+          "input": 0.0243,
+          "cached": 0.0243,
+          "output": 0.6
         }
       },
       "eu": null,
@@ -30873,14 +30762,14 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.1083223249669749,
-        "cached": 0.1083223249669749,
+        "input": 0.16318802289740203,
+        "cached": 0.16318802289740203,
         "output": 3.0823425803610744,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.123,
-          "cached": 0.123,
+          "input": 0.1853,
+          "cached": 0.1853,
           "output": 3.5
         }
       },
@@ -30908,15 +30797,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.008718626155878468,
-        "cached": 0.0012206076618229856,
-        "output": 0.11508586525759577,
+        "input": 0.009511228533685603,
+        "cached": 0.009511228533685603,
+        "output": 1.1272567151034787,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0099,
-          "cached": 0.001386,
-          "output": 0.13068
+          "input": 0.0108,
+          "cached": 0.0108,
+          "output": 1.28
         }
       },
       "eu": null,
@@ -31013,15 +30902,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.3217965653896962,
-        "cached": 0.3522677234698371,
-        "output": 8.044297666226331,
+        "input": 0.6114487010127697,
+        "cached": 0.6114487010127697,
+        "output": 8.806693086745927,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.3654,
-          "cached": 0.4,
-          "output": 9.1343
+          "input": 0.6943,
+          "cached": 0.6943,
+          "output": 10.0
         }
       },
       "eu": null,
@@ -31260,13 +31149,13 @@
       "default": {
         "input": 0.017613386173491855,
         "cached": 0.008806693086745927,
-        "output": 0.2179656538969617,
+        "output": 0.26420079260237783,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
           "input": 0.02,
           "cached": 0.01,
-          "output": 0.2475
+          "output": 0.3
         }
       },
       "eu": null,
@@ -31293,15 +31182,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.11448701012769706,
-        "cached": 0.11448701012769706,
-        "output": 3.522677234698371,
+        "input": 0.052840158520475564,
+        "cached": 0.1549977983267283,
+        "output": 2.3725231175693526,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.13,
-          "cached": 0.13,
-          "output": 4.0
+          "input": 0.06,
+          "cached": 0.176,
+          "output": 2.694
         }
       },
       "eu": null,
