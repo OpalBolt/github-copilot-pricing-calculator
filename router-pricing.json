@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-04T11:43:31.501933+00:00",
+  "generatedAt": "2026-10-05T13:28:40.065102+00:00",
   "currency": "EUR",
   "exchangeRate": {
     "series": "EXR.D.USD.EUR.SP00.A",
-    "source": "https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A?format=csvdata&startPeriod=2026-09-20",
+    "source": "https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A?format=csvdata&startPeriod=2026-09-21",
     "observationDate": "2026-10-02",
     "usdPerEur": 1.1225
   },
@@ -14,7 +14,7 @@
       "source": "https://api.cortecs.ai/v1/models?extended=true&currency=EUR",
       "euClaim": "EU catalog: providers based and regulated within the EU.",
       "id": "cortecs",
-      "fetchedAt": "2026-10-04T11:43:31.501933+00:00",
+      "fetchedAt": "2026-10-05T13:28:40.065102+00:00",
       "stale": false
     },
     {
@@ -22,7 +22,7 @@
       "source": "https://api.eurouter.ai/api/v1/models",
       "euClaim": "EU handling is EUrouter's baseline routing guarantee.",
       "id": "eurouter",
-      "fetchedAt": "2026-10-04T11:43:31.501933+00:00",
+      "fetchedAt": "2026-10-05T13:28:40.065102+00:00",
       "stale": false
     },
     {
@@ -30,7 +30,7 @@
       "source": "https://openrouter.ai/api/v1/models",
       "euClaim": "EU regional routing; Business or Enterprise plan required.",
       "id": "openrouter",
-      "fetchedAt": "2026-10-04T11:43:31.501933+00:00",
+      "fetchedAt": "2026-10-05T13:28:40.065102+00:00",
       "stale": false
     },
     {
@@ -38,7 +38,7 @@
       "source": "https://opencode.ai/zen/v1/models",
       "euClaim": "No EU routing catalog is published.",
       "id": "opencode",
-      "fetchedAt": "2026-10-04T11:43:31.501933+00:00",
+      "fetchedAt": "2026-10-05T13:28:40.065102+00:00",
       "stale": false
     },
     {
@@ -47,7 +47,7 @@
       "kind": "direct",
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "deepseek-direct",
-      "fetchedAt": "2026-10-04T11:43:31.501933+00:00",
+      "fetchedAt": "2026-10-05T13:28:40.065102+00:00",
       "stale": false
     },
     {
@@ -56,7 +56,7 @@
       "kind": "direct",
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "zai-direct",
-      "fetchedAt": "2026-10-04T11:43:31.501933+00:00",
+      "fetchedAt": "2026-10-05T13:28:40.065102+00:00",
       "stale": false
     },
     {
@@ -66,7 +66,7 @@
       "kind": "direct",
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "claude-direct",
-      "fetchedAt": "2026-10-04T11:43:31.501933+00:00",
+      "fetchedAt": "2026-10-05T13:28:40.065102+00:00",
       "stale": false
     },
     {
@@ -76,7 +76,7 @@
       "kind": "direct",
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "openai-direct",
-      "fetchedAt": "2026-10-04T11:43:31.501933+00:00",
+      "fetchedAt": "2026-10-05T13:28:40.065102+00:00",
       "stale": false
     }
   ],
@@ -990,45 +990,6 @@
       "priceNote": "Model-level minimum price published by Cortecs."
     },
     {
-      "key": "cortecs:deepseek-r1-0528",
-      "router": "cortecs",
-      "routerName": "Cortecs",
-      "modelId": "deepseek-r1-0528",
-      "name": "deepseek-r1-0528",
-      "owner": "DeepSeek",
-      "description": "DeepSeek R1 0528 is an upgraded reasoning model with enhanced depth, reduced hallucinations, and stronger performance in math, coding, and logic.",
-      "releaseDate": null,
-      "contextSize": 164000,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": false,
-        "audio": false
-      },
-      "providers": [
-        "Tensorix"
-      ],
-      "euProviders": [
-        "Tensorix"
-      ],
-      "default": {
-        "input": 0.585,
-        "cached": 0.146,
-        "output": 2.307,
-        "cachedFallback": false,
-        "nativeCurrency": "EUR"
-      },
-      "eu": {
-        "input": 0.585,
-        "cached": 0.146,
-        "output": 2.307,
-        "cachedFallback": false,
-        "nativeCurrency": "EUR"
-      },
-      "quantization": null,
-      "priceNote": "Model-level minimum price published by Cortecs."
-    },
-    {
       "key": "cortecs:deepseek-v3.2",
       "router": "cortecs",
       "routerName": "Cortecs",
@@ -1045,24 +1006,22 @@
         "audio": false
       },
       "providers": [
-        "Tensorix",
         "arkane"
       ],
       "euProviders": [
-        "Tensorix",
         "arkane"
       ],
       "default": {
-        "input": 0.266,
-        "cached": 0.067,
-        "output": 0.444,
+        "input": 0.449,
+        "cached": 0.135,
+        "output": 1.346,
         "cachedFallback": false,
         "nativeCurrency": "EUR"
       },
       "eu": {
-        "input": 0.266,
-        "cached": 0.067,
-        "output": 0.444,
+        "input": 0.449,
+        "cached": 0.135,
+        "output": 1.346,
         "cachedFallback": false,
         "nativeCurrency": "EUR"
       },
@@ -1126,7 +1085,7 @@
       "owner": "DeepSeek",
       "description": "DeepSeek-V4 is a Mixture-of-Experts model series featuring advanced attention mechanisms and large-scale training for efficient long-context reasoning and strong performance.",
       "releaseDate": null,
-      "contextSize": 1048576,
+      "contextSize": 1000000,
       "capabilities": {
         "reasoning": true,
         "tools": true,
@@ -1134,11 +1093,9 @@
         "audio": false
       },
       "providers": [
-        "Tensorix",
         "arkane"
       ],
       "euProviders": [
-        "Tensorix",
         "arkane"
       ],
       "default": {
@@ -1680,84 +1637,6 @@
       "priceNote": "Model-level minimum price published by Cortecs."
     },
     {
-      "key": "cortecs:glm-5",
-      "router": "cortecs",
-      "routerName": "Cortecs",
-      "modelId": "glm-5",
-      "name": "glm-5",
-      "owner": "Z.ai",
-      "description": "GLM-5 is Zhipu AI\u2019s flagship multimodal model with strong bilingual reasoning, long-context understanding, and advanced agentic and tool-use capabilities.",
-      "releaseDate": null,
-      "contextSize": 202752,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": false,
-        "audio": false
-      },
-      "providers": [
-        "Tensorix"
-      ],
-      "euProviders": [
-        "Tensorix"
-      ],
-      "default": {
-        "input": 0.887,
-        "cached": 0.222,
-        "output": 2.84,
-        "cachedFallback": false,
-        "nativeCurrency": "EUR"
-      },
-      "eu": {
-        "input": 0.887,
-        "cached": 0.222,
-        "output": 2.84,
-        "cachedFallback": false,
-        "nativeCurrency": "EUR"
-      },
-      "quantization": null,
-      "priceNote": "Model-level minimum price published by Cortecs."
-    },
-    {
-      "key": "cortecs:glm-5-turbo",
-      "router": "cortecs",
-      "routerName": "Cortecs",
-      "modelId": "glm-5-turbo",
-      "name": "glm-5-turbo",
-      "owner": "Z.ai",
-      "description": "GLM 5 Turbo is a fast, cost-efficient variant of GLM-5 optimized for agent workflows, tool use, and long-chain execution.",
-      "releaseDate": null,
-      "contextSize": 202752,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": false,
-        "audio": false
-      },
-      "providers": [
-        "Tensorix"
-      ],
-      "euProviders": [
-        "Tensorix"
-      ],
-      "default": {
-        "input": 1.065,
-        "cached": 0.266,
-        "output": 3.55,
-        "cachedFallback": false,
-        "nativeCurrency": "EUR"
-      },
-      "eu": {
-        "input": 1.065,
-        "cached": 0.266,
-        "output": 3.55,
-        "cachedFallback": false,
-        "nativeCurrency": "EUR"
-      },
-      "quantization": null,
-      "priceNote": "Model-level minimum price published by Cortecs."
-    },
-    {
       "key": "cortecs:glm-5.1",
       "router": "cortecs",
       "routerName": "Cortecs",
@@ -1774,25 +1653,23 @@
         "audio": false
       },
       "providers": [
-        "Tensorix",
         "Nebius"
       ],
       "euProviders": [
-        "Tensorix",
         "Nebius"
       ],
       "default": {
         "input": 1.242,
-        "cached": 0.311,
+        "cached": 1.242,
         "output": 3.903,
-        "cachedFallback": false,
+        "cachedFallback": true,
         "nativeCurrency": "EUR"
       },
       "eu": {
         "input": 1.242,
-        "cached": 0.311,
+        "cached": 1.242,
         "output": 3.903,
-        "cachedFallback": false,
+        "cachedFallback": true,
         "nativeCurrency": "EUR"
       },
       "quantization": null,
@@ -1933,45 +1810,6 @@
         "input": 0.09,
         "cached": 0.016,
         "output": 0.314,
-        "cachedFallback": false,
-        "nativeCurrency": "EUR"
-      },
-      "quantization": null,
-      "priceNote": "Model-level minimum price published by Cortecs."
-    },
-    {
-      "key": "cortecs:glm-5v-turbo",
-      "router": "cortecs",
-      "routerName": "Cortecs",
-      "modelId": "glm-5v-turbo",
-      "name": "glm-5v-turbo",
-      "owner": "Z.ai",
-      "description": "GLM 5V Turbo is a flagship multimodal model optimized for vision-based coding, agent workflows, and long-horizon task execution.",
-      "releaseDate": null,
-      "contextSize": 202752,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": true,
-        "audio": false
-      },
-      "providers": [
-        "Tensorix"
-      ],
-      "euProviders": [
-        "Tensorix"
-      ],
-      "default": {
-        "input": 1.065,
-        "cached": 0.266,
-        "output": 3.55,
-        "cachedFallback": false,
-        "nativeCurrency": "EUR"
-      },
-      "eu": {
-        "input": 1.065,
-        "cached": 0.266,
-        "output": 3.55,
         "cachedFallback": false,
         "nativeCurrency": "EUR"
       },
@@ -2644,45 +2482,6 @@
       "priceNote": "Model-level minimum price published by Cortecs."
     },
     {
-      "key": "cortecs:kimi-k2.5",
-      "router": "cortecs",
-      "routerName": "Cortecs",
-      "modelId": "kimi-k2.5",
-      "name": "kimi-k2.5",
-      "owner": "Moonshot AI",
-      "description": "Kimi K2.5 is an open-source native multimodal agentic model delivering state-of-the-art performance in agents, coding, visual understanding, and general reasoning tasks.",
-      "releaseDate": null,
-      "contextSize": 262144,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": true,
-        "audio": false
-      },
-      "providers": [
-        "Tensorix"
-      ],
-      "euProviders": [
-        "Tensorix"
-      ],
-      "default": {
-        "input": 0.444,
-        "cached": 0.111,
-        "output": 2.485,
-        "cachedFallback": false,
-        "nativeCurrency": "EUR"
-      },
-      "eu": {
-        "input": 0.444,
-        "cached": 0.111,
-        "output": 2.485,
-        "cachedFallback": false,
-        "nativeCurrency": "EUR"
-      },
-      "quantization": "int4",
-      "priceNote": "Model-level minimum price published by Cortecs."
-    },
-    {
       "key": "cortecs:kimi-k2.6",
       "router": "cortecs",
       "routerName": "Cortecs",
@@ -2691,7 +2490,7 @@
       "owner": "Moonshot AI",
       "description": "Kimi K2.6 is an advanced multimodal agentic model with strong long-horizon coding, instruction following, and autonomous execution capabilities.",
       "releaseDate": null,
-      "contextSize": 262144,
+      "contextSize": 256000,
       "capabilities": {
         "reasoning": true,
         "tools": true,
@@ -2699,11 +2498,9 @@
         "audio": false
       },
       "providers": [
-        "Tensorix",
         "Inceptron"
       ],
       "euProviders": [
-        "Tensorix",
         "Inceptron"
       ],
       "default": {
@@ -3014,26 +2811,17 @@
         "audio": false
       },
       "providers": [
-        "Tensorix",
         "amazon_ireland"
       ],
-      "euProviders": [
-        "Tensorix"
-      ],
+      "euProviders": [],
       "default": {
-        "input": 0.266,
-        "cached": 0.067,
-        "output": 1.065,
-        "cachedFallback": false,
+        "input": 0.312,
+        "cached": 0.312,
+        "output": 1.248,
+        "cachedFallback": true,
         "nativeCurrency": "EUR"
       },
-      "eu": {
-        "input": 0.266,
-        "cached": 0.067,
-        "output": 1.065,
-        "cachedFallback": false,
-        "nativeCurrency": "EUR"
-      },
+      "eu": null,
       "quantization": null,
       "priceNote": "Model-level minimum price published by Cortecs."
     },
@@ -3903,29 +3691,27 @@
       },
       "providers": [
         "Scaleway",
-        "Nebius",
-        "Tensorix"
+        "Nebius"
       ],
       "euProviders": [
         "Scaleway",
-        "Nebius",
-        "Tensorix"
+        "Nebius"
       ],
       "default": {
-        "input": 0.062,
-        "cached": 0.016,
-        "output": 0.408,
-        "cachedFallback": false,
+        "input": 0.179,
+        "cached": 0.179,
+        "output": 0.537,
+        "cachedFallback": true,
         "nativeCurrency": "EUR"
       },
       "eu": {
-        "input": 0.062,
-        "cached": 0.016,
-        "output": 0.408,
-        "cachedFallback": false,
+        "input": 0.179,
+        "cached": 0.179,
+        "output": 0.537,
+        "cachedFallback": true,
         "nativeCurrency": "EUR"
       },
-      "quantization": null,
+      "quantization": "fp4",
       "priceNote": "Model-level minimum price published by Cortecs."
     },
     {
@@ -4111,45 +3897,6 @@
       "priceNote": "Model-level minimum price published by Cortecs."
     },
     {
-      "key": "cortecs:qwen3.5-122b-a10b",
-      "router": "cortecs",
-      "routerName": "Cortecs",
-      "modelId": "qwen3.5-122b-a10b",
-      "name": "qwen3.5-122b-a10b",
-      "owner": "Alibaba",
-      "description": "Qwen3.5-122B-A10B is a multimodal Mixture-of-Experts model designed for agentic applications across text, image, and video tasks.",
-      "releaseDate": null,
-      "contextSize": 262144,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": false,
-        "audio": false
-      },
-      "providers": [
-        "Tensorix"
-      ],
-      "euProviders": [
-        "Tensorix"
-      ],
-      "default": {
-        "input": 0.444,
-        "cached": 0.111,
-        "output": 3.106,
-        "cachedFallback": false,
-        "nativeCurrency": "EUR"
-      },
-      "eu": {
-        "input": 0.444,
-        "cached": 0.111,
-        "output": 3.106,
-        "cachedFallback": false,
-        "nativeCurrency": "EUR"
-      },
-      "quantization": null,
-      "priceNote": "Model-level minimum price published by Cortecs."
-    },
-    {
       "key": "cortecs:qwen3.5-397b-a17b",
       "router": "cortecs",
       "routerName": "Cortecs",
@@ -4201,7 +3948,7 @@
       "owner": "Alibaba",
       "description": "Qwen3.5-9B is a dense multimodal model delivering strong reasoning, coding, and visual understanding with efficient performance and long context.",
       "releaseDate": null,
-      "contextSize": 262144,
+      "contextSize": 262000,
       "capabilities": {
         "reasoning": true,
         "tools": true,
@@ -4209,12 +3956,10 @@
         "audio": false
       },
       "providers": [
-        "Tensorix",
         "ovh",
         "ionos"
       ],
       "euProviders": [
-        "Tensorix",
         "ovh",
         "ionos"
       ],
@@ -16830,15 +16575,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.22271714922048996,
-        "cached": 0.22271714922048996,
-        "output": 0.8908685968819599,
-        "cachedFallback": true,
+        "input": 0.25835189309576834,
+        "cached": 0.09799554565701558,
+        "output": 1.0155902004454342,
+        "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.25,
-          "cached": 0.25,
-          "output": 1.0
+          "input": 0.29,
+          "cached": 0.11,
+          "output": 1.14
         }
       },
       "eu": null,
@@ -17075,14 +16820,14 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.0199554565701559,
-        "cached": 0.0199554565701559,
+        "input": 0.026726057906458794,
+        "cached": 0.026726057906458794,
         "output": 1.1403118040089086,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0224,
-          "cached": 0.0224,
+          "input": 0.03,
+          "cached": 0.03,
           "output": 1.28
         }
       },
@@ -17226,14 +16971,14 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.7572383073496659,
-        "cached": 0.6236080178173719,
+        "input": 0.35634743875278396,
+        "cached": 0.32071269487750553,
         "output": 4.4543429844097995,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.85,
-          "cached": 0.7,
+          "input": 0.4,
+          "cached": 0.36,
           "output": 5.0
         }
       },
@@ -17261,15 +17006,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.0026726057906458797,
-        "cached": 0.0026726057906458797,
-        "output": 2.1380846325167036,
+        "input": 0.26726057906458794,
+        "cached": 0.005345211581291759,
+        "output": 1.0690423162583518,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.003,
-          "cached": 0.003,
-          "output": 2.4
+          "input": 0.3,
+          "cached": 0.006,
+          "output": 1.2
         }
       },
       "eu": null,
@@ -18692,15 +18437,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.060133630289532294,
-        "cached": 0.03340757238307349,
-        "output": 0.20044543429844097,
+        "input": 0.08017817371937638,
+        "cached": 0.044543429844097995,
+        "output": 0.26726057906458794,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0675,
-          "cached": 0.0375,
-          "output": 0.225
+          "input": 0.09,
+          "cached": 0.05,
+          "output": 0.3
         }
       },
       "eu": null,
@@ -19602,15 +19347,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.19599109131403117,
-        "cached": 0.09799554565701558,
-        "output": 0.4454342984409799,
-        "cachedFallback": false,
+        "input": 0.08908685968819599,
+        "cached": 0.08908685968819599,
+        "output": 0.28507795100222716,
+        "cachedFallback": true,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.22,
-          "cached": 0.11,
-          "output": 0.5
+          "input": 0.1,
+          "cached": 0.1,
+          "output": 0.32
         }
       },
       "eu": null,
@@ -21596,15 +21341,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.6414253897550111,
-        "cached": 0.6236080178173719,
-        "output": 11.58129175946548,
+        "input": 0.5968819599109132,
+        "cached": 0.19599109131403117,
+        "output": 12.472160356347437,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.72,
-          "cached": 0.7,
-          "output": 13.0
+          "input": 0.67,
+          "cached": 0.22,
+          "output": 14.0
         }
       },
       "eu": null,
@@ -22191,15 +21936,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.05300668151447661,
-        "cached": 0.026503340757238304,
-        "output": 0.1514476614699332,
+        "input": 0.05345211581291759,
+        "cached": 0.026726057906458794,
+        "output": 0.14253897550111358,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0595,
-          "cached": 0.02975,
-          "output": 0.17
+          "input": 0.06,
+          "cached": 0.03,
+          "output": 0.16
         }
       },
       "eu": null,
@@ -24539,15 +24284,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 3.5634743875278394,
-        "cached": 0.35634743875278396,
-        "output": 17.817371937639198,
+        "input": 1.7817371937639197,
+        "cached": 0.17817371937639198,
+        "output": 8.908685968819599,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 4.0,
-          "cached": 0.4,
-          "output": 20.0
+          "input": 2.0,
+          "cached": 0.2,
+          "output": 10.0
         }
       },
       "eu": {
@@ -27916,14 +27661,14 @@
       "euProviders": [],
       "default": {
         "input": 0.28507795100222716,
-        "cached": 0.28507795100222716,
-        "output": 2.8507795100222717,
-        "cachedFallback": true,
+        "cached": 0.026726057906458794,
+        "output": 2.89532293986637,
+        "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
           "input": 0.32,
-          "cached": 0.32,
-          "output": 3.2
+          "cached": 0.03,
+          "output": 3.25
         }
       },
       "eu": null,
@@ -30470,26 +30215,26 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.33853006681514475,
-        "cached": 0.23162583518930957,
-        "output": 3.10913140311804,
+        "input": 0.01710467706013363,
+        "cached": 0.01710467706013363,
+        "output": 14.253897550111358,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.38,
-          "cached": 0.26,
-          "output": 3.49
+          "input": 0.0192,
+          "cached": 0.0192,
+          "output": 16.0
         }
       },
       "eu": {
-        "input": 1.1135857461024499,
-        "cached": 0.20489977728285078,
+        "input": 1.238307349665924,
+        "cached": 0.22271714922048996,
         "output": 3.9109131403118034,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 1.25,
-          "cached": 0.23,
+          "input": 1.39,
+          "cached": 0.25,
           "output": 4.39
         }
       },
@@ -30516,27 +30261,27 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 1.2472160356347437,
-        "cached": 0.12472160356347439,
-        "output": 3.9198218262806237,
+        "input": 0.044543429844097995,
+        "cached": 0.04008908685968819,
+        "output": 6.236080178173719,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 1.4,
-          "cached": 0.14,
-          "output": 4.4
+          "input": 0.05,
+          "cached": 0.045,
+          "output": 7.0
         }
       },
       "eu": {
-        "input": 1.3719376391982183,
-        "cached": 0.13719376391982183,
-        "output": 4.311804008908686,
+        "input": 0.5345211581291759,
+        "cached": 0.17817371937639198,
+        "output": 3.020044543429844,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 1.54,
-          "cached": 0.154,
-          "output": 4.84
+          "input": 0.6,
+          "cached": 0.2,
+          "output": 3.39
         }
       },
       "quantization": null,
@@ -30575,14 +30320,14 @@
       },
       "eu": {
         "input": 0.20044543429844097,
-        "cached": 0.07126948775055679,
-        "output": 0.40089086859688194,
+        "cached": 0.08017817371937638,
+        "output": 0.5345211581291759,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
           "input": 0.225,
-          "cached": 0.08,
-          "output": 0.45
+          "cached": 0.09,
+          "output": 0.6
         }
       },
       "quantization": null,
@@ -31098,13 +30843,13 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.5735412026726058,
+        "input": 0.5879732739420935,
         "cached": 0.40089086859688194,
         "output": 11.58129175946548,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.6438,
+          "input": 0.66,
           "cached": 0.45,
           "output": 13.0
         }
@@ -31344,13 +31089,13 @@
       "euProviders": [],
       "default": {
         "input": 0.03135857461024499,
-        "cached": 0.03135857461024499,
+        "cached": 0.020668151447661466,
         "output": 0.4454342984409799,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
           "input": 0.0352,
-          "cached": 0.0352,
+          "cached": 0.0232,
           "output": 0.5
         }
       },
@@ -31378,15 +31123,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.044543429844097995,
-        "cached": 0.035634743875278395,
-        "output": 4.4543429844097995,
+        "input": 0.026726057906458794,
+        "cached": 0.026726057906458794,
+        "output": 10.690423162583519,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.05,
-          "cached": 0.04,
-          "output": 5.0
+          "input": 0.03,
+          "cached": 0.03,
+          "output": 12.0
         }
       },
       "eu": null,
