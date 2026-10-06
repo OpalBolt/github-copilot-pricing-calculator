@@ -443,12 +443,12 @@
           "default_visible": false
         },
         {
-          "id": "space-bunny-free",
-          "name": "Space Bunny Free",
-          "input": 0.0,
-          "input_cache": 0.0,
-          "output": 0.0,
-          "monthly_limit_usd": null,
+          "id": "space-bunny",
+          "name": "Space Bunny",
+          "input": 0.15,
+          "input_cache": 0.03,
+          "output": 0.6,
+          "monthly_limit_usd": 30.0,
           "default_visible": false
         },
         {
