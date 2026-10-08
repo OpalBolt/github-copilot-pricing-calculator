@@ -1,5 +1,5 @@
 {
-  "fetchDate": "2026-10-07",
+  "fetchDate": "2026-10-08",
   "summary": [
     {
       "model": "GPT-5 mini",
@@ -105,6 +105,13 @@
       "excelsAt": "Fast, reliable answers to lightweight coding questions",
       "furtherReadingText": "Claude Haiku 4.5 model card",
       "furtherReadingUrl": "https://assets.anthropic.com/m/99128ddd009bdcb/Claude-Haiku-4-5-System-Card.pdf"
+    },
+    {
+      "model": "Claude Haiku 5.5",
+      "taskArea": "Fast help with simple or repetitive tasks",
+      "excelsAt": "Fast, reliable answers to lightweight coding questions",
+      "furtherReadingText": "Claude Haiku 5.5 model card",
+      "furtherReadingUrl": "https://www-cdn.anthropic.com/e1080d6bf5ae2018ea3c2f414064be03232f5be5/Claude%20Haiku%205.5%20System%20Card.pdf"
     },
     {
       "model": "Claude Opus 4.8",
