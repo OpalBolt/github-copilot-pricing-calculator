@@ -245,6 +245,15 @@
           "default_visible": false
         },
         {
+          "id": "step-5-preview-free",
+          "name": "Step 5 Preview Free",
+          "input": 0.0,
+          "input_cache": 0.0,
+          "output": 0.0,
+          "monthly_limit_usd": null,
+          "default_visible": false
+        },
+        {
           "id": "mimo-v2-6-flash",
           "name": "MiMo-V2.6-Flash",
           "input": 0.14,
