@@ -60,66 +60,10 @@
           "default_visible": false
         },
         {
-          "id": "glm-4.7-flashx",
-          "input": 0.07,
-          "input_cache": 0.01,
-          "output": 0.4,
-          "default_visible": false
-        },
-        {
           "id": "glm-4.6",
           "input": 0.6,
           "input_cache": 0.11,
           "output": 2.2,
-          "default_visible": false
-        },
-        {
-          "id": "glm-4.5",
-          "input": 0.6,
-          "input_cache": 0.11,
-          "output": 2.2,
-          "default_visible": false
-        },
-        {
-          "id": "glm-4.5-x",
-          "input": 2.2,
-          "input_cache": 0.45,
-          "output": 8.9,
-          "default_visible": false
-        },
-        {
-          "id": "glm-4.5-air",
-          "input": 0.2,
-          "input_cache": 0.03,
-          "output": 1.1,
-          "default_visible": false
-        },
-        {
-          "id": "glm-4.5-airx",
-          "input": 1.1,
-          "input_cache": 0.22,
-          "output": 4.5,
-          "default_visible": false
-        },
-        {
-          "id": "glm-4-32b-0414-128k",
-          "input": 0.1,
-          "input_cache": 0.0,
-          "output": 0.1,
-          "default_visible": false
-        },
-        {
-          "id": "glm-4.7-flash",
-          "input": 0.0,
-          "input_cache": 0.0,
-          "output": 0.0,
-          "default_visible": false
-        },
-        {
-          "id": "glm-4.5-flash",
-          "input": 0.0,
-          "input_cache": 0.0,
-          "output": 0.0,
           "default_visible": false
         }
       ]
