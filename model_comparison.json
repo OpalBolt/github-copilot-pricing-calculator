@@ -1,5 +1,5 @@
 {
-  "fetchDate": "2026-10-11",
+  "fetchDate": "2026-10-13",
   "summary": [
     {
       "model": "GPT-5 mini",
@@ -82,8 +82,8 @@
       "model": "GPT-6.1 Sol",
       "taskArea": "Complex coding tasks",
       "excelsAt": "Advanced, efficient reasoning for complex coding tasks",
-      "furtherReadingText": "",
-      "furtherReadingUrl": ""
+      "furtherReadingText": "GPT-6.1 Sol model card",
+      "furtherReadingUrl": "https://deploymentsafety.openai.com/gpt-6-1-sol/gpt-6-1-sol.pdf"
     },
     {
       "model": "Claude Fable 5",
@@ -159,8 +159,8 @@
       "model": "Claude Sonnet 5.5",
       "taskArea": "General-purpose coding and agent tasks",
       "excelsAt": "Efficient task completion with fewer steps, tokens, and tool calls",
-      "furtherReadingText": "",
-      "furtherReadingUrl": ""
+      "furtherReadingText": "Claude Sonnet 5.5 model card",
+      "furtherReadingUrl": "https://www-cdn.anthropic.com/870c8f525702625d2c62fc6dd04c857e3250bec1/Claude%20Sonnet%205.5%20System%20Card.pdf"
     },
     {
       "model": "Gemini 3.7 Flash",
