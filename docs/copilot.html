@@ -1234,9 +1234,16 @@
     font-size: 14px; line-height: 1.45;
   }
   .changelog-list li:last-child { border-bottom: none; }
-  .cl-add { color: var(--add-fg); }
-  .cl-remove { color: var(--remove-fg); }
-  .cl-change { color: var(--slate-8); }
+  .changelog-group-title {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; margin: 14px 0 6px;
+  }
+  .changelog-group-title.cl-add-h { color: var(--add-fg); }
+  .changelog-group-title.cl-remove-h { color: var(--remove-fg); }
+  .changelog-group-title.cl-change-h { color: var(--slate-6); }
+  .changelog-count { color: var(--slate-5); font-weight: 500; }
+  .changelog-more { color: var(--slate-5); font-style: italic; margin-top: 6px; }
+  .changelog-list li { color: var(--slate-8); }
 
 </style>
 <script>
@@ -1587,15 +1594,329 @@
     
 <div class="changelog">
   
-  <p class="changelog-intro">Newest first · 1 recorded day of change. Entries appear automatically whenever the daily data fetch changes a price, model, or plan.</p>
+  <p class="changelog-intro">Newest first · 13 recorded days of change. Entries appear automatically whenever the daily data fetch changes a price, model, or plan.</p>
   
   <div class="changelog-entry">
     <h3 class="changelog-date">2026-10-14</h3>
-    <ul class="changelog-list">
+    
       
-      <li class="cl-add">+ Added Gemini 4 Argon (in $2 · out $10)</li>
+      <h4 class="changelog-group-title cl-add-h">Added <span class="changelog-count">1</span></h4>
+      <ul class="changelog-list">
+        
+        <li>Gemini 4 Argon (in $2 · out $10)</li>
+        
+      </ul>
       
-    </ul>
+    
+      
+    
+      
+    
+    
+  </div>
+  
+  <div class="changelog-entry">
+    <h3 class="changelog-date">2026-10-08</h3>
+    
+      
+      <h4 class="changelog-group-title cl-add-h">Added <span class="changelog-count">1</span></h4>
+      <ul class="changelog-list">
+        
+        <li>Claude Haiku 5.5 (in $0.5 · out $2.5)</li>
+        
+      </ul>
+      
+    
+      
+    
+      
+      <h4 class="changelog-group-title cl-change-h">Changed <span class="changelog-count">1</span></h4>
+      <ul class="changelog-list">
+        
+        <li>Claude Sonnet 5.5 — cached input $0.2→$0.1</li>
+        
+      </ul>
+      
+    
+    
+  </div>
+  
+  <div class="changelog-entry">
+    <h3 class="changelog-date">2026-10-03</h3>
+    
+      
+    
+      
+      <h4 class="changelog-group-title cl-remove-h">Removed <span class="changelog-count">4</span></h4>
+      <ul class="changelog-list">
+        
+        <li>Claude Opus 4.7</li>
+        
+        <li>Gemini 3.5 Flash</li>
+        
+        <li>Gemini 3.6 Flash</li>
+        
+        <li>Kimi K2.7 Code</li>
+        
+      </ul>
+      
+    
+      
+    
+    
+  </div>
+  
+  <div class="changelog-entry">
+    <h3 class="changelog-date">2026-09-30</h3>
+    
+      
+      <h4 class="changelog-group-title cl-add-h">Added <span class="changelog-count">1</span></h4>
+      <ul class="changelog-list">
+        
+        <li>GPT-6.1 Sol (in $4 · out $15)</li>
+        
+      </ul>
+      
+    
+      
+    
+      
+    
+    
+  </div>
+  
+  <div class="changelog-entry">
+    <h3 class="changelog-date">2026-09-29</h3>
+    
+      
+      <h4 class="changelog-group-title cl-add-h">Added <span class="changelog-count">1</span></h4>
+      <ul class="changelog-list">
+        
+        <li>Claude Sonnet 5.5 (in $2 · out $10)</li>
+        
+      </ul>
+      
+    
+      
+    
+      
+    
+    
+  </div>
+  
+  <div class="changelog-entry">
+    <h3 class="changelog-date">2026-09-23</h3>
+    
+      
+      <h4 class="changelog-group-title cl-add-h">Added <span class="changelog-count">3</span></h4>
+      <ul class="changelog-list">
+        
+        <li>Claude Opus 5.5 (in $4 · out $20)</li>
+        
+        <li>GPT-6 Luna (in $0.2 · out $0.75)</li>
+        
+        <li>GPT-6 Sol (in $4 · out $15)</li>
+        
+      </ul>
+      
+    
+      
+    
+      
+    
+    
+  </div>
+  
+  <div class="changelog-entry">
+    <h3 class="changelog-date">2026-09-22</h3>
+    
+      
+      <h4 class="changelog-group-title cl-add-h">Added <span class="changelog-count">1</span></h4>
+      <ul class="changelog-list">
+        
+        <li>Grok 4.7 (in $4 · out $12)</li>
+        
+      </ul>
+      
+    
+      
+    
+      
+    
+    
+  </div>
+  
+  <div class="changelog-entry">
+    <h3 class="changelog-date">2026-09-16</h3>
+    
+      
+    
+      
+      <h4 class="changelog-group-title cl-remove-h">Removed <span class="changelog-count">1</span></h4>
+      <ul class="changelog-list">
+        
+        <li>MAI-Code-1-Flash</li>
+        
+      </ul>
+      
+    
+      
+    
+    
+  </div>
+  
+  <div class="changelog-entry">
+    <h3 class="changelog-date">2026-09-05</h3>
+    
+      
+      <h4 class="changelog-group-title cl-add-h">Added <span class="changelog-count">1</span></h4>
+      <ul class="changelog-list">
+        
+        <li>GPT-6 Astra (in $20 · out $75)</li>
+        
+      </ul>
+      
+    
+      
+      <h4 class="changelog-group-title cl-remove-h">Removed <span class="changelog-count">5</span></h4>
+      <ul class="changelog-list">
+        
+        <li>Claude Opus 4.5</li>
+        
+        <li>Claude Opus 4.6</li>
+        
+        <li>Claude Sonnet 4.5</li>
+        
+        <li>Gemini 3.1 Pro</li>
+        
+        <li>Raptor mini</li>
+        
+      </ul>
+      
+    
+      
+    
+    
+  </div>
+  
+  <div class="changelog-entry">
+    <h3 class="changelog-date">2026-09-04</h3>
+    
+      
+      <h4 class="changelog-group-title cl-add-h">Added <span class="changelog-count">1</span></h4>
+      <ul class="changelog-list">
+        
+        <li>Gemini 3.8 Flash (in $0.75 · out $3.75)</li>
+        
+      </ul>
+      
+    
+      
+    
+      
+      <h4 class="changelog-group-title cl-change-h">Changed <span class="changelog-count">1</span></h4>
+      <ul class="changelog-list">
+        
+        <li>GPT-5.6 Sol — input $4→$8 · cached input $0.4→$0.8 · cache write $5→$10 · output $15→$30</li>
+        
+      </ul>
+      
+    
+    
+  </div>
+  
+  <div class="changelog-entry">
+    <h3 class="changelog-date">2026-09-03</h3>
+    
+      
+      <h4 class="changelog-group-title cl-add-h">Added <span class="changelog-count">1</span></h4>
+      <ul class="changelog-list">
+        
+        <li>Claude Fable 5.1 (in $10 · out $50)</li>
+        
+      </ul>
+      
+    
+      
+    
+      
+    
+    
+  </div>
+  
+  <div class="changelog-entry">
+    <h3 class="changelog-date">2026-08-24</h3>
+    
+      
+      <h4 class="changelog-group-title cl-add-h">Added <span class="changelog-count">4</span></h4>
+      <ul class="changelog-list">
+        
+        <li>Gemini 3.7 Flash (in $0.75 · out $3.75)</li>
+        
+        <li>Grok 4.6 (in $4 · out $12)</li>
+        
+        <li>Kimi K3 (in $3 · out $15)</li>
+        
+        <li>MAI-Code-1.1-Flash (in $0.2 · out $1.2)</li>
+        
+      </ul>
+      
+    
+      
+    
+      
+      <h4 class="changelog-group-title cl-change-h">Changed <span class="changelog-count">2</span></h4>
+      <ul class="changelog-list">
+        
+        <li>GPT-5.6 Sol — input $10→$4 · cached input $1→$0.4 · cache write $12.5→$5 · output $45→$15</li>
+        
+        <li>Gemini 3.6 Flash — input $1.5→$0.75 · cached input $0.15→$0.075 · output $7.5→$3.75</li>
+        
+      </ul>
+      
+    
+    
+  </div>
+  
+  <div class="changelog-entry">
+    <h3 class="changelog-date">2026-08-02</h3>
+    
+      
+      <h4 class="changelog-group-title cl-add-h">Added <span class="changelog-count">3</span></h4>
+      <ul class="changelog-list">
+        
+        <li>Claude Opus 5 (in $5 · out $25)</li>
+        
+        <li>Gemini 3.6 Flash (in $1.5 · out $7.5)</li>
+        
+        <li>Grok 4.5 (in $4 · out $12)</li>
+        
+      </ul>
+      
+    
+      
+      <h4 class="changelog-group-title cl-remove-h">Removed <span class="changelog-count">2</span></h4>
+      <ul class="changelog-list">
+        
+        <li>Gemini 2.5 Pro</li>
+        
+        <li>Gemini 3 Flash</li>
+        
+      </ul>
+      
+    
+      
+      <h4 class="changelog-group-title cl-change-h">Changed <span class="changelog-count">2</span></h4>
+      <ul class="changelog-list">
+        
+        <li>GPT-5.6 Luna — input $2→$0.4 · cached input $0.2→$0.04 · output $9→$1.8</li>
+        
+        <li>GPT-5.6 Terra — input $5→$4 · cached input $0.5→$0.4 · output $22.5→$18</li>
+        
+      </ul>
+      
+    
+    
   </div>
   
   

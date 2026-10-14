@@ -1,65 +1,802 @@
 {
-  "providers": [
+  "copilot": [
+    {
+      "date": "2026-08-02",
+      "changes": [
+        "\u2212 Gemini 2.5 Pro",
+        "\u2212 Gemini 3 Flash",
+        "+ Claude Opus 5 (in $5 \u00b7 out $25)",
+        "+ Gemini 3.6 Flash (in $1.5 \u00b7 out $7.5)",
+        "+ Grok 4.5 (in $4 \u00b7 out $12)",
+        "\u2192 GPT-5.6 Luna \u2014 input $2\u2192$0.4 \u00b7 cached input $0.2\u2192$0.04 \u00b7 output $9\u2192$1.8",
+        "\u2192 GPT-5.6 Terra \u2014 input $5\u2192$4 \u00b7 cached input $0.5\u2192$0.4 \u00b7 output $22.5\u2192$18"
+      ]
+    },
+    {
+      "date": "2026-08-24",
+      "changes": [
+        "+ Gemini 3.7 Flash (in $0.75 \u00b7 out $3.75)",
+        "+ Grok 4.6 (in $4 \u00b7 out $12)",
+        "+ Kimi K3 (in $3 \u00b7 out $15)",
+        "+ MAI-Code-1.1-Flash (in $0.2 \u00b7 out $1.2)",
+        "\u2192 GPT-5.6 Sol \u2014 input $10\u2192$4 \u00b7 cached input $1\u2192$0.4 \u00b7 cache write $12.5\u2192$5 \u00b7 output $45\u2192$15",
+        "\u2192 Gemini 3.6 Flash \u2014 input $1.5\u2192$0.75 \u00b7 cached input $0.15\u2192$0.075 \u00b7 output $7.5\u2192$3.75"
+      ]
+    },
+    {
+      "date": "2026-09-03",
+      "changes": [
+        "+ Claude Fable 5.1 (in $10 \u00b7 out $50)"
+      ]
+    },
+    {
+      "date": "2026-09-04",
+      "changes": [
+        "+ Gemini 3.8 Flash (in $0.75 \u00b7 out $3.75)",
+        "\u2192 GPT-5.6 Sol \u2014 input $4\u2192$8 \u00b7 cached input $0.4\u2192$0.8 \u00b7 cache write $5\u2192$10 \u00b7 output $15\u2192$30"
+      ]
+    },
+    {
+      "date": "2026-09-05",
+      "changes": [
+        "\u2212 Claude Opus 4.5",
+        "\u2212 Claude Opus 4.6",
+        "\u2212 Claude Sonnet 4.5",
+        "\u2212 Gemini 3.1 Pro",
+        "\u2212 Raptor mini",
+        "+ GPT-6 Astra (in $20 \u00b7 out $75)"
+      ]
+    },
+    {
+      "date": "2026-09-16",
+      "changes": [
+        "\u2212 MAI-Code-1-Flash"
+      ]
+    },
+    {
+      "date": "2026-09-22",
+      "changes": [
+        "+ Grok 4.7 (in $4 \u00b7 out $12)"
+      ]
+    },
+    {
+      "date": "2026-09-23",
+      "changes": [
+        "+ Claude Opus 5.5 (in $4 \u00b7 out $20)",
+        "+ GPT-6 Luna (in $0.2 \u00b7 out $0.75)",
+        "+ GPT-6 Sol (in $4 \u00b7 out $15)"
+      ]
+    },
+    {
+      "date": "2026-09-29",
+      "changes": [
+        "+ Claude Sonnet 5.5 (in $2 \u00b7 out $10)"
+      ]
+    },
+    {
+      "date": "2026-09-30",
+      "changes": [
+        "+ GPT-6.1 Sol (in $4 \u00b7 out $15)"
+      ]
+    },
+    {
+      "date": "2026-10-03",
+      "changes": [
+        "\u2212 Claude Opus 4.7",
+        "\u2212 Gemini 3.5 Flash",
+        "\u2212 Gemini 3.6 Flash",
+        "\u2212 Kimi K2.7 Code"
+      ]
+    },
+    {
+      "date": "2026-10-08",
+      "changes": [
+        "+ Claude Haiku 5.5 (in $0.5 \u00b7 out $2.5)",
+        "\u2192 Claude Sonnet 5.5 \u2014 cached input $0.2\u2192$0.1"
+      ]
+    },
     {
       "date": "2026-10-14",
       "changes": [
-        "+ OpenCode Go: Cat Jam Free added",
-        "+ z.ai: glm-5.2 added (input $1.4 \u00b7 cached $0.26 \u00b7 output $4.4)",
-        "+ z.ai: glm-5.3 added (input $1.4 \u00b7 cached $0.26 \u00b7 output $4.4)",
-        "+ z.ai: glm-5.3-flash added (input $0.15 \u00b7 cached $0.03 \u00b7 output $0.5)",
-        "+ z.ai: glm-5.3-flashx added (input $0.37 \u00b7 cached $0.075 \u00b7 output $1.25)"
+        "+ Gemini 4 Argon (in $2 \u00b7 out $10)"
       ]
     }
   ],
-  "copilot": [
+  "providers": [
+    {
+      "date": "2026-09-03",
+      "changes": [
+        "+ DeepSeek \u00b7 deepseek-v4-flash-vision-exp (input $0.44 \u00b7 cached $0.014 \u00b7 output $1.32)",
+        "\u2192 DeepSeek \u00b7 deepseek-v4-flash \u2014 input $0.14\u2192$0.44 \u00b7 cached $0.0028\u2192$0.014 \u00b7 output $0.28\u2192$1.32",
+        "\u2192 DeepSeek \u00b7 deepseek-v4-pro \u2014 input $0.435\u2192$1.32 \u00b7 cached $0.003625\u2192$0.044 \u00b7 output $0.87\u2192$3.96",
+        "\u2212 z.ai \u00b7 glm-5-turbo",
+        "\u2212 z.ai \u00b7 glm-5.2",
+        "\u2212 z.ai Devpack \u00b7 glm-4.7",
+        "\u2212 z.ai Devpack \u00b7 glm-5-turbo",
+        "\u2212 z.ai Devpack \u00b7 glm-5.2",
+        "+ z.ai Devpack \u00b7 glm-5.3 (credit mult in $6.9 \u00b7 credit mult out $24)",
+        "+ z.ai Devpack \u00b7 glm-5.3-flash (credit mult in $2.3 \u00b7 credit mult out $8)"
+      ]
+    },
+    {
+      "date": "2026-09-16",
+      "changes": [
+        "\u2212 DeepSeek \u00b7 deepseek-v4-flash",
+        "\u2212 DeepSeek \u00b7 deepseek-v4-flash-vision-exp",
+        "+ DeepSeek \u00b7 deepseek-flash (input $0.3 \u00b7 cached $0.006 \u00b7 output $1.2)"
+      ]
+    },
+    {
+      "date": "2026-09-25",
+      "changes": [
+        "+ OpenCode Go (new provider)"
+      ]
+    },
+    {
+      "date": "2026-09-27",
+      "changes": [
+        "+ OpenCode Go \u00b7 LongCat 2.5 Preview Free (input free \u00b7 cached free \u00b7 output free)"
+      ]
+    },
+    {
+      "date": "2026-09-28",
+      "changes": [
+        "\u2212 OpenCode Go \u00b7 GLM-5.1",
+        "\u2212 OpenCode Go \u00b7 MiniMax M2.5",
+        "\u2212 OpenCode Go \u00b7 Qwen3.6 Plus (> 256K tokens)",
+        "\u2212 OpenCode Go \u00b7 Qwen3.7 Max"
+      ]
+    },
+    {
+      "date": "2026-10-06",
+      "changes": [
+        "\u2212 OpenCode Go \u00b7 Space Bunny Free",
+        "+ OpenCode Go \u00b7 Space Bunny (input $0.15 \u00b7 cached $0.03 \u00b7 output $0.6)"
+      ]
+    },
+    {
+      "date": "2026-10-08",
+      "changes": [
+        "+ OpenCode Go \u00b7 Claude Haiku 5.5 (> 100K tokens) (input $0.5 \u00b7 cached $0.05 \u00b7 output $2.5)"
+      ]
+    },
+    {
+      "date": "2026-10-09",
+      "changes": [
+        "+ OpenCode Go \u00b7 Step 5 Preview Free (input free \u00b7 cached free \u00b7 output free)"
+      ]
+    },
+    {
+      "date": "2026-10-10",
+      "changes": [
+        "\u2212 z.ai \u00b7 glm-4-32b-0414-128k",
+        "\u2212 z.ai \u00b7 glm-4.5",
+        "\u2212 z.ai \u00b7 glm-4.5-air",
+        "\u2212 z.ai \u00b7 glm-4.5-airx",
+        "\u2212 z.ai \u00b7 glm-4.5-flash",
+        "\u2212 z.ai \u00b7 glm-4.5-x",
+        "\u2212 z.ai \u00b7 glm-4.7-flash",
+        "\u2212 z.ai \u00b7 glm-4.7-flashx"
+      ]
+    },
+    {
+      "date": "2026-10-13",
+      "changes": [
+        "\u2192 OpenCode Go \u00b7 DeepSeek V4.1 Flash (Off-Peak) \u2014 monthly limit $60\u2192$80",
+        "\u2192 OpenCode Go \u00b7 DeepSeek V4.1 Flash (Peak) \u2014 monthly limit $60\u2192$80"
+      ]
+    },
     {
       "date": "2026-10-14",
       "changes": [
-        "+ Added Gemini 4 Argon (in $2 \u00b7 out $10)"
+        "+ OpenCode Go \u00b7 Cat Jam Free (input free \u00b7 cached free \u00b7 output free)",
+        "+ z.ai \u00b7 glm-5.2 (input $1.4 \u00b7 cached $0.26 \u00b7 output $4.4)",
+        "+ z.ai \u00b7 glm-5.3 (input $1.4 \u00b7 cached $0.26 \u00b7 output $4.4)",
+        "+ z.ai \u00b7 glm-5.3-flash (input $0.15 \u00b7 cached $0.03 \u00b7 output $0.5)",
+        "+ z.ai \u00b7 glm-5.3-flashx (input $0.37 \u00b7 cached $0.075 \u00b7 output $1.25)"
       ]
     }
   ],
   "router": [
     {
+      "date": "2026-09-25",
+      "changes": [
+        "+ DeepSeek API: deepseek-flash",
+        "+ DeepSeek API: deepseek-v4-pro",
+        "+ OpenCode Zen: Big Pickle",
+        "+ OpenCode Zen: Claude Fable 5",
+        "+ OpenCode Zen: Claude Fable 5.1",
+        "+ OpenCode Zen: Claude Haiku 4.5",
+        "+ OpenCode Zen: Claude Opus 4.5",
+        "+ OpenCode Zen: Claude Opus 4.6",
+        "+ OpenCode Zen: Claude Opus 4.7",
+        "+ OpenCode Zen: Claude Opus 4.8",
+        "+ OpenCode Zen: Claude Opus 5",
+        "+ OpenCode Zen: Claude Opus 5.5",
+        "+ OpenCode Zen: Claude Sonnet 4",
+        "+ OpenCode Zen: Claude Sonnet 4.5",
+        "+ OpenCode Zen: Claude Sonnet 4.6",
+        "+ OpenCode Zen: Claude Sonnet 5",
+        "+ OpenCode Zen: DeepSeek V4 Flash",
+        "+ OpenCode Zen: DeepSeek V4 Flash Free",
+        "+ OpenCode Zen: DeepSeek V4 Flash Vision Exp",
+        "+ OpenCode Zen: DeepSeek V4 Pro",
+        "+ OpenCode Zen: DeepSeek V4.1 Flash",
+        "+ OpenCode Zen: Gemini 3 Flash",
+        "+ OpenCode Zen: Gemini 3.1 Pro Preview",
+        "+ OpenCode Zen: Gemini 3.5 Flash",
+        "+ OpenCode Zen: Gemini 3.5 Flash Lite",
+        "+ OpenCode Zen: Gemini 3.6 Flash",
+        "+ OpenCode Zen: Gemini 3.7 Flash",
+        "+ OpenCode Zen: Gemini 3.8 Flash",
+        "+ OpenCode Zen: GLM-5",
+        "+ OpenCode Zen: GLM-5.1",
+        "+ OpenCode Zen: GLM-5.2",
+        "+ OpenCode Zen: GLM-5.3",
+        "+ OpenCode Zen: GLM-5.3-Flash",
+        "+ OpenCode Zen: GPT-5",
+        "+ OpenCode Zen: GPT-5 Codex",
+        "+ OpenCode Zen: GPT-5 Nano",
+        "+ OpenCode Zen: GPT-5.1",
+        "+ OpenCode Zen: GPT-5.1 Codex",
+        "+ OpenCode Zen: GPT-5.1 Codex Max",
+        "+ OpenCode Zen: GPT-5.1 Codex Mini",
+        "+ OpenCode Zen: GPT-5.2",
+        "+ OpenCode Zen: GPT-5.2 Codex",
+        "+ OpenCode Zen: GPT-5.3 Codex",
+        "+ OpenCode Zen: GPT-5.3 Codex Spark",
+        "+ OpenCode Zen: GPT-5.4",
+        "+ OpenCode Zen: GPT-5.4 Mini",
+        "+ OpenCode Zen: GPT-5.4 Nano",
+        "+ OpenCode Zen: GPT-5.4 Pro",
+        "+ OpenCode Zen: GPT-5.5",
+        "+ OpenCode Zen: GPT-5.5 Pro",
+        "\u2026 and 47 more"
+      ]
+    },
+    {
+      "date": "2026-09-26",
+      "changes": [
+        "\u2212 OpenRouter: Anthropic: Claude 3 Haiku",
+        "\u2212 OpenRouter: Z.ai: GLM 5.2 (free)",
+        "+ OpenRouter: Perceptron: Perceptron Mk1.5",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash 0423 \u2014 input $0.04844\u2192$0.04704 \u00b7 cached $0.009688\u2192$0.009408 \u00b7 output $0.09688\u2192$0.09408",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash 0731 \u2014 input $0.03\u2192$0.021 \u00b7 eu input $0.0444\u2192$0.039 \u00b7 eu output $0.3192\u2192$0.2712",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Pro 0423 \u2014 input $0.7332\u2192$0.348 \u00b7 cached $0.0611\u2192$0.029 \u00b7 output $1.466\u2192$0.696",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Pro 0813 \u2014 input $0.3458\u2192$0.264 \u00b7 cached $0.01153\u2192$0.0088 \u00b7 output $1.038\u2192$0.792",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4.1 Flash \u2014 input $0.15\u2192$0.3 \u00b7 cached $0.003\u2192$0.006 \u00b7 output $0.6\u2192$1.2",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi K2.6 \u2014 eu input $0.4384\u2192$0.4344 \u00b7 eu cached $0.1059\u2192$0.1047",
+        "\u2192 OpenRouter \u00b7 NVIDIA: Nemotron 3.5 Lightning \u2014 input $0.07\u2192$0.08",
+        "\u2192 OpenRouter \u00b7 Qwen: Qwen3.6 27B \u2014 cached $0.15\u2192$0.32 \u00b7 output $2.7\u2192$3.2",
+        "\u2192 OpenRouter \u00b7 Tencent: Hy3 \u2014 input $0.0825\u2192$0.132 \u00b7 cached $0.02063\u2192$0.033 \u00b7 output $0.33\u2192$0.528",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.2 \u2014 eu input $0.5544\u2192$0.4886 \u00b7 eu cached $0.2059\u2192$0.1815 \u00b7 eu output $2.352\u2192$2.073",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.3 \u2014 input $1.4\u2192$0.3794 \u00b7 cached $0.26\u2192$0.07046 \u00b7 output $4.4\u2192$1.192 \u00b7 eu input $0.5971\u2192$0.3989 \u00b7 eu cached $0.1522\u2192$0.1017 \u00b7 eu output $2.502\u2192$1.671",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.3 Flash \u2014 input $0.045\u2192$0.04 \u00b7 cached $0.01\u2192$0.015 \u00b7 output $0.14\u2192$0.5",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek Flash Latest \u2014 input $0.04\u2192$0.035 \u00b7 cached $0.01\u2192$0.001 \u00b7 output $0.49\u2192$0.29",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek Pro Latest \u2014 input $0.2528\u2192$0.2495 \u00b7 cached $0.08832\u2192$0.007938 \u00b7 output $1.958\u2192$0.7484",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash Latest \u2014 input $0.03\u2192$0.021",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi Latest \u2014 input $0.8845\u2192$1.03 \u00b7 cached $0.33\u2192$0.3 \u00b7 output $10.53\u2192$9.043",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM Flash Latest \u2014 input $0.045\u2192$0.04 \u00b7 cached $0.01\u2192$0.015 \u00b7 output $0.14\u2192$0.5",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM Latest \u2014 input $0.5614\u2192$0.3794 \u00b7 cached $0.1043\u2192$0.07046 \u00b7 output $1.764\u2192$1.192"
+      ]
+    },
+    {
+      "date": "2026-09-27",
+      "changes": [
+        "+ OpenCode Zen: LongCat 2.5 Preview Free",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash 0423 \u2014 input $0.04704\u2192$0.0469 \u00b7 cached $0.009408\u2192$0.00938 \u00b7 output $0.09408\u2192$0.0938",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash Vision Exp \u2014 input $0.22\u2192$0.2156 \u00b7 cached $0.007\u2192$0.00686 \u00b7 output $0.66\u2192$0.6468",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Pro 0813 \u2014 input $0.264\u2192$0.245 \u00b7 cached $0.0088\u2192$0.2445 \u00b7 output $0.792\u2192$3.5",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4.1 Flash \u2014 input $0.3\u2192$0.035 \u00b7 cached $0.006\u2192$0.001 \u00b7 output $1.2\u2192$0.29",
+        "\u2192 OpenRouter \u00b7 MiniMax: MiniMax M2 \u2014 input $0.3\u2192$0.255 \u00b7 cached $0.3\u2192$0.255 \u00b7 output $1.2\u2192$1.02",
+        "\u2192 OpenRouter \u00b7 MiniMax: MiniMax M2.7 \u2014 input $0.3\u2192$0.21 \u00b7 cached $0.06\u2192$0.042 \u00b7 output $1.2\u2192$0.84",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi K2.6 \u2014 eu input $0.4344\u2192$0.4088 \u00b7 eu cached $0.1047\u2192$0.0891",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.2 \u2014 eu cached $0.1815\u2192$0.1361 \u00b7 eu output $2.073\u2192$1.919",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.3 \u2014 input $0.3794\u2192$1.4 \u00b7 cached $0.07046\u2192$0.26 \u00b7 output $1.192\u2192$4.4 \u00b7 eu input $0.3989\u2192$0.3032 \u00b7 eu cached $0.1017\u2192$0.0623 \u00b7 eu output $1.671\u2192$2.515",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.3 Flash \u2014 input $0.04\u2192$0.045 \u00b7 cached $0.015\u2192$0.01 \u00b7 output $0.5\u2192$0.14",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek Pro Latest \u2014 input $0.2495\u2192$0.2442 \u00b7 cached $0.007938\u2192$0.00777 \u00b7 output $0.7484\u2192$0.7326",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi Latest \u2014 input $1.03\u2192$1 \u00b7 output $9.043\u2192$9",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM Flash Latest \u2014 input $0.04\u2192$0.045 \u00b7 cached $0.015\u2192$0.01 \u00b7 output $0.5\u2192$0.14",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM Latest \u2014 input $0.3794\u2192$0.2737 \u00b7 cached $0.07046\u2192$0.04496 \u00b7 output $1.192\u2192$2.574"
+      ]
+    },
+    {
+      "date": "2026-09-28",
+      "changes": [
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V3 \u2014 input $0.32\u2192$0.2574 \u00b7 cached $0.32\u2192$0.2574 \u00b7 output $0.89\u2192$1.029",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V3 0324 \u2014 input $0.25\u2192$0.29 \u00b7 cached $0.25\u2192$0.11 \u00b7 output $1\u2192$1.14",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V3.2 \u2014 input $0.269\u2192$0.28 \u00b7 cached $0.1345\u2192$0.028 \u00b7 output $0.4\u2192$0.42",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash 0423 \u2014 input $0.0469\u2192$0.08848 \u00b7 cached $0.00938\u2192$0.0177 \u00b7 output $0.0938\u2192$0.177",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash 0731 \u2014 eu cached $0.03\u2192$0.027 \u00b7 eu output $0.2712\u2192$0.3795",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash Vision Exp \u2014 input $0.2156\u2192$0.44 \u00b7 cached $0.00686\u2192$0.014 \u00b7 output $0.6468\u2192$1.32",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Pro 0423 \u2014 input $0.348\u2192$0.9553 \u00b7 cached $0.029\u2192$0.0796 \u00b7 output $0.696\u2192$1.911",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Pro 0813 \u2014 input $0.245\u2192$0.3995 \u00b7 cached $0.2445\u2192$0.399 \u00b7 output $3.5\u2192$4.2",
+        "\u2192 OpenRouter \u00b7 Google: Gemma 4 26B A4B \u2014 input $0.0675\u2192$0.09 \u00b7 cached $0.0375\u2192$0.05 \u00b7 output $0.225\u2192$0.3",
+        "\u2192 OpenRouter \u00b7 MiniMax: MiniMax M2 \u2014 input $0.255\u2192$0.3 \u00b7 cached $0.255\u2192$0.3 \u00b7 output $1.02\u2192$1.2",
+        "\u2192 OpenRouter \u00b7 MiniMax: MiniMax M2.7 \u2014 input $0.21\u2192$0.3 \u00b7 cached $0.042\u2192$0.06 \u00b7 output $0.84\u2192$1.2",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi K2.6 \u2014 input $0.95\u2192$0.65 \u00b7 cached $0.16\u2192$0.15 \u00b7 output $4\u2192$3.41 \u00b7 eu input $0.4088\u2192$0.475 \u00b7 eu cached $0.0891\u2192$0.0975",
+        "\u2192 OpenRouter \u00b7 Qwen: Qwen3.5-35B-A3B \u2014 input $0.3125\u2192$0.1625 \u00b7 cached $0.1562\u2192$0.1625 \u00b7 output $1.25\u2192$1.3",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.2 \u2014 eu input $0.4886\u2192$0.4624 \u00b7 eu cached $0.1361\u2192$0.221 \u00b7 eu output $1.919\u2192$3.117",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.3 \u2014 eu input $0.3032\u2192$0.3368 \u00b7 eu cached $0.0623\u2192$0.1637 \u00b7 eu output $2.515\u2192$2.542",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.3 Flash \u2014 input $0.045\u2192$0.15 \u00b7 cached $0.01\u2192$0.03 \u00b7 output $0.14\u2192$0.5",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek Pro Latest \u2014 input $0.2442\u2192$0.2259 \u00b7 cached $0.00777\u2192$0.08832 \u00b7 output $0.7326\u2192$1.958",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM Latest \u2014 input $0.2737\u2192$0.1785 \u00b7 cached $0.04496\u2192$0.1466 \u00b7 output $2.574\u2192$2.805"
+      ]
+    },
+    {
+      "date": "2026-09-29",
+      "changes": [
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash 0731 \u2014 eu output $0.7946\u2192$0.65",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi K2.6 \u2014 eu input $0.475\u2192$0.465",
+        "\u2192 OpenRouter \u00b7 Qwen: Qwen3 30B A3B \u2014 input $0.13\u2192$0.12 \u00b7 cached $0.13\u2192$0.12 \u00b7 output $0.52\u2192$0.5",
+        "\u2192 OpenRouter \u00b7 Qwen: Qwen3.8 27B \u2014 input $0.0626\u2192$0.0449 \u00b7 cached $0.0501\u2192$0.0359",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.2 \u2014 input $0.39\u2192$0.1949 \u00b7 cached $0.2599\u2192$0.1559 \u00b7 eu input $0.3933\u2192$0.3916 \u00b7 eu cached $0.191\u2192$0.169 \u00b7 eu output $2.95\u2192$2.867",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.3 \u2014 eu input $0.3237\u2192$0.31 \u00b7 eu cached $0.1598\u2192$0.1836 \u00b7 eu output $3.34\u2192$2.617",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek Pro Latest \u2014 input $0.1581\u2192$0.096"
+      ]
+    },
+    {
+      "date": "2026-09-30",
+      "changes": [
+        "+ Cortecs: gpt-6.1-sol",
+        "+ OpenAI API: gpt-6.1-sol",
+        "+ OpenCode Zen: GPT-6.1 Sol",
+        "+ OpenRouter: OpenAI: GPT-6.1 Sol",
+        "+ OpenRouter: OpenAI: GPT-6.1 Sol Pro",
+        "+ OpenRouter: OpenAI: GPT-6.1 Sol Pro (batch)",
+        "+ OpenRouter: OpenAI: GPT-6.1 Sol (batch)",
+        "\u2192 Cortecs \u00b7 claude-sonnet-4 \u2014 input $2.601\u2192$2.683 \u00b7 cached $0.26\u2192$0.266 \u00b7 output $13.01\u2192$13.42",
+        "\u2192 Cortecs \u00b7 deepseek-v4.1-flash \u2014 input $0.269\u2192$0.18 \u00b7 cached $0.067\u2192$0.004 \u00b7 output $1.077\u2192$0.539 \u00b7 eu input $0.269\u2192$0.18 \u00b7 eu cached $0.067\u2192$0.004 \u00b7 eu output $1.077\u2192$0.539",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash 0423 \u2014 input $0.14\u2192$0.08176 \u00b7 cached $0.028\u2192$0.01635 \u00b7 output $0.28\u2192$0.1635",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash 0731 \u2014 input $0.018\u2192$0.01 \u00b7 cached $0.018\u2192$0.01 \u00b7 output $0.32\u2192$1.28",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Pro 0423 \u2014 input $0.9553\u2192$0.783 \u00b7 cached $0.0796\u2192$0.06525 \u00b7 output $1.911\u2192$1.566",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Pro 0813 \u2014 input $0.48\u2192$0.66 \u00b7 cached $0.384\u2192$0.022 \u00b7 output $4.2\u2192$1.98",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4.1 Flash \u2014 input $0.3\u2192$0.0198 \u00b7 cached $0.006\u2192$0.00291 \u00b7 output $1.2\u2192$0.396",
+        "\u2192 OpenRouter \u00b7 Meta: Muse Glimmer 30B \u2014 input $0.3\u2192$0.35 \u00b7 output $1.2\u2192$1.5",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi K2.6 \u2014 eu input $0.465\u2192$0.441 \u00b7 eu cached $0.0975\u2192$0.1224",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi K2.7 Code \u2014 input $0.6562\u2192$0.6712 \u00b7 output $3.3\u2192$3.35 \u00b7 eu input $0.6562\u2192$0.6712 \u00b7 eu output $3.3\u2192$3.35",
+        "\u2192 OpenRouter \u00b7 Qwen: Qwen3 30B A3B \u2014 input $0.12\u2192$0.13 \u00b7 cached $0.12\u2192$0.13 \u00b7 output $0.5\u2192$0.52",
+        "\u2192 OpenRouter \u00b7 Qwen: Qwen3.8 27B \u2014 input $0.0449\u2192$0.0249 \u00b7 cached $0.0359\u2192$0.0199 \u00b7 output $4.4\u2192$4.35",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 4.6V \u2014 cached $0.05\u2192$0.055",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.2 \u2014 input $0.1949\u2192$0.41 \u00b7 cached $0.1559\u2192$0.26 \u00b7 output $4.4\u2192$3.99 \u00b7 eu input $0.3916\u2192$0.75 \u00b7 eu output $2.867\u2192$2.4",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.3 \u2014 eu input $0.31\u2192$0.6 \u00b7 eu output $2.617\u2192$3.39",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek Flash Latest \u2014 input $0.02\u2192$0.0198 \u00b7 cached $0.02\u2192$0.00291 \u00b7 output $0.6\u2192$0.396",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek Pro Latest \u2014 input $0.096\u2192$0.123 \u00b7 cached $0.07488\u2192$0.123 \u00b7 output $1.958\u2192$3.5",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash Latest \u2014 input $0.012\u2192$0.0099 \u00b7 cached $0.01\u2192$0.001386 \u00b7 output $1.25\u2192$0.1307",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi Latest \u2014 input $0.4\u2192$0.3654 \u00b7 output $10\u2192$9.134",
+        "\u2192 OpenRouter \u00b7 OpenAI: GPT Sol Latest \u2014 cached $0.2\u2192$0.1",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM Flash Latest \u2014 output $0.3\u2192$0.2475",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM Latest \u2014 input $0.19\u2192$0.13 \u00b7 cached $0.19\u2192$0.13"
+      ]
+    },
+    {
+      "date": "2026-10-01",
+      "changes": [
+        "\u2212 Cortecs: minimax-m2.7",
+        "\u2212 OpenRouter: OpenAI: GPT-6.1 Sol Pro (batch)",
+        "\u2212 OpenRouter: OpenAI: GPT-6.1 Sol (batch)",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash 0423 \u2014 input $0.08176\u2192$0.04186 \u00b7 cached $0.01635\u2192$0.008372 \u00b7 output $0.1635\u2192$0.08372",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash 0731 \u2014 input $0.01\u2192$0.0108 \u00b7 cached $0.01\u2192$0.0108 \u00b7 eu input $0.056\u2192$0.05",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Pro 0423 \u2014 input $0.783\u2192$0.2088 \u00b7 cached $0.06525\u2192$0.0174 \u00b7 output $1.566\u2192$0.4176",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4.1 Flash \u2014 input $0.0198\u2192$0.03 \u00b7 cached $0.00291\u2192$0.01 \u00b7 output $0.396\u2192$0.5",
+        "\u2192 OpenRouter \u00b7 MiniMax: MiniMax M1 \u2014 input $0.4\u2192$0.55 \u00b7 cached $0.4\u2192$0.55",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi K2 Thinking \u2014 cached $0.15\u2192$0.6",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi K2.6 \u2014 input $0.65\u2192$0.4341 \u00b7 cached $0.15\u2192$0.07312 \u00b7 output $3.41\u2192$1.828 \u00b7 eu input $0.441\u2192$0.4344 \u00b7 eu cached $0.1224\u2192$0.12",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi K3 \u2014 input $3\u2192$0.6943 \u00b7 cached $0.3\u2192$0.6943 \u00b7 output $15\u2192$10",
+        "\u2192 OpenRouter \u00b7 NVIDIA: Nemotron 3.5 Lightning \u2014 input $0.06\u2192$0.0595 \u00b7 cached $0.03\u2192$0.02975 \u00b7 output $0.16\u2192$0.17",
+        "\u2192 OpenRouter \u00b7 Qwen: Qwen3 30B A3B \u2014 input $0.13\u2192$0.12 \u00b7 cached $0.13\u2192$0.12 \u00b7 output $0.52\u2192$0.5",
+        "\u2192 OpenRouter \u00b7 Qwen: Qwen3.8 27B \u2014 input $0.0249\u2192$0.42 \u00b7 cached $0.0199\u2192$0.085 \u00b7 output $4.35\u2192$3",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 4.6V \u2014 cached $0.055\u2192$0.05",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.1 \u2014 input $1.4\u2192$0.9646 \u00b7 cached $0.26\u2192$0.1791 \u00b7 output $4.4\u2192$3.032",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.2 \u2014 eu input $0.75\u2192$1.39 \u00b7 eu cached $0.169\u2192$0.25 \u00b7 eu output $2.4\u2192$4.39",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.3 \u2014 input $1.4\u2192$0.2219 \u00b7 cached $0.26\u2192$0.1775 \u00b7 output $4.4\u2192$3.39",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek Flash Latest \u2014 input $0.0198\u2192$0.0243 \u00b7 cached $0.00291\u2192$0.0243 \u00b7 output $0.396\u2192$0.6",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek Pro Latest \u2014 input $0.123\u2192$0.1853 \u00b7 cached $0.123\u2192$0.1853",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash Latest \u2014 input $0.0099\u2192$0.0108 \u00b7 cached $0.001386\u2192$0.0108 \u00b7 output $0.1307\u2192$1.28",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi Latest \u2014 input $0.3654\u2192$0.6943 \u00b7 cached $0.4\u2192$0.6943 \u00b7 output $9.134\u2192$10",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM Flash Latest \u2014 output $0.2475\u2192$0.3",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM Latest \u2014 input $0.13\u2192$0.06 \u00b7 cached $0.13\u2192$0.176 \u00b7 output $4\u2192$2.694"
+      ]
+    },
+    {
+      "date": "2026-10-02",
+      "changes": [
+        "+ OpenCode Zen: Fledge Alpha Free",
+        "+ OpenRouter: Apodex: Apodex 1.1 Mini (free)",
+        "+ OpenRouter: Pareto 26.10 Preview",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash 0423 \u2014 input $0.04186\u2192$0.042 \u00b7 cached $0.008372\u2192$0.0084 \u00b7 output $0.08372\u2192$0.084",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash 0731 \u2014 input $0.0108\u2192$0.0171 \u00b7 cached $0.0108\u2192$0.0171",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4.1 Flash \u2014 input $0.03\u2192$0.3 \u00b7 cached $0.01\u2192$0.006 \u00b7 output $0.5\u2192$1.2",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi K2 Thinking \u2014 cached $0.6\u2192$0.15",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi K3 \u2014 input $0.6943\u2192$2.7 \u00b7 cached $0.6943\u2192$0.27 \u00b7 output $10\u2192$13.5",
+        "\u2192 OpenRouter \u00b7 NVIDIA: Nemotron 3 Ultra \u2014 input $0.6\u2192$0.5 \u00b7 cached $0.12\u2192$0.1 \u00b7 output $2.4\u2192$2.2",
+        "\u2192 OpenRouter \u00b7 NVIDIA: Nemotron 3.5 Lightning \u2014 input $0.0595\u2192$0.06 \u00b7 cached $0.02975\u2192$0.03 \u00b7 output $0.17\u2192$0.16",
+        "\u2192 OpenRouter \u00b7 Qwen: Qwen3.5-35B-A3B \u2014 input $0.1625\u2192$0.15 \u00b7 cached $0.1625\u2192$0.05 \u00b7 output $1.3\u2192$1",
+        "\u2192 OpenRouter \u00b7 Thinking Machines: Inkling \u2014 input $1\u2192$0.95 \u00b7 cached $0.17\u2192$0.16",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.3 \u2014 input $0.2219\u2192$1.4 \u00b7 cached $0.1775\u2192$0.14 \u00b7 output $3.39\u2192$4.4 \u00b7 eu input $0.6\u2192$1.54 \u00b7 eu cached $0.1836\u2192$0.154 \u00b7 eu output $3.39\u2192$4.84",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek Flash Latest \u2014 input $0.0243\u2192$0.015 \u00b7 cached $0.0243\u2192$0.002115 \u00b7 output $0.6\u2192$1.2",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek Pro Latest \u2014 input $0.1853\u2192$0.132 \u00b7 cached $0.1853\u2192$0.0042 \u00b7 output $3.5\u2192$0.396",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash Latest \u2014 input $0.0108\u2192$0.01282 \u00b7 cached $0.0108\u2192$0.01282 \u00b7 output $1.28\u2192$1.6",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi Latest \u2014 input $0.6943\u2192$1.39 \u00b7 cached $0.6943\u2192$0.8 \u00b7 output $10\u2192$13",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM Flash Latest \u2014 input $0.02\u2192$0.02625 \u00b7 cached $0.01\u2192$0.01125 \u00b7 output $0.3\u2192$0.9",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM Latest \u2014 input $0.06\u2192$0.12 \u00b7 cached $0.176\u2192$0.08 \u00b7 output $2.694\u2192$4"
+      ]
+    },
+    {
+      "date": "2026-10-03",
+      "changes": [
+        "+ OpenCode Zen: Ling 3.1 Flash Free",
+        "+ OpenRouter: inclusionAI: Ling 3.1 Flash",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V3.1 Terminus \u2014 input $0.3\u2192$0.27 \u00b7 cached $0.135\u2192$0.27",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash 0423 \u2014 input $0.042\u2192$0.028 \u00b7 cached $0.0084\u2192$0.0056 \u00b7 output $0.084\u2192$0.056",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash 0731 \u2014 input $0.0171\u2192$0.0188 \u00b7 cached $0.0171\u2192$0.0188",
+        "\u2192 OpenRouter \u00b7 Google: Gemma 4 26B A4B \u2014 input $0.09\u2192$0.0675 \u00b7 cached $0.05\u2192$0.0375 \u00b7 output $0.3\u2192$0.225",
+        "\u2192 OpenRouter \u00b7 inclusionAI: Ling 3.0 Flash Fin \u2014 input $0.06\u2192$0.042 \u00b7 cached $0.012\u2192$0.0084 \u00b7 output $0.18\u2192$0.1232",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi K2 Thinking \u2014 cached $0.15\u2192$0.6",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi K2.6 \u2014 input $0.4341\u2192$0.95 \u00b7 cached $0.07312\u2192$0.16 \u00b7 output $1.828\u2192$4 \u00b7 eu input $0.4344\u2192$0.465 \u00b7 eu cached $0.12\u2192$0.0975",
+        "\u2192 OpenRouter \u00b7 NVIDIA: Nemotron 3.5 Lightning \u2014 input $0.06\u2192$0.0595 \u00b7 cached $0.03\u2192$0.02975 \u00b7 output $0.16\u2192$0.17",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.1 \u2014 input $0.9646\u2192$1.4 \u00b7 cached $0.1791\u2192$0.26 \u00b7 output $3.032\u2192$4.4",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.2 \u2014 eu input $1.39\u2192$1.25 \u00b7 eu cached $0.25\u2192$0.23",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek Flash Latest \u2014 input $0.015\u2192$0.02 \u00b7 cached $0.002115\u2192$0.01 \u00b7 output $1.2\u2192$0.6",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek Pro Latest \u2014 input $0.132\u2192$0.12 \u00b7 cached $0.0042\u2192$0.1 \u00b7 output $0.396\u2192$4.2",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash Latest \u2014 input $0.01282\u2192$0.0188 \u00b7 cached $0.01282\u2192$0.0188 \u00b7 output $1.6\u2192$1.28",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi Latest \u2014 input $1.39\u2192$0.9895 \u00b7 cached $0.8\u2192$0.45",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM Flash Latest \u2014 input $0.02625\u2192$0.035 \u00b7 cached $0.01125\u2192$0.035 \u00b7 output $0.9\u2192$0.5"
+      ]
+    },
+    {
+      "date": "2026-10-04",
+      "changes": [
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V3 0324 \u2014 input $0.29\u2192$0.25 \u00b7 cached $0.11\u2192$0.25 \u00b7 output $1.14\u2192$1",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash 0423 \u2014 input $0.028\u2192$0.0224 \u00b7 cached $0.0056\u2192$0.0224 \u00b7 output $0.056\u2192$1.28",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash 0731 \u2014 input $0.0188\u2192$0.0152 \u00b7 cached $0.0188\u2192$0.0152",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Pro 0813 \u2014 input $0.66\u2192$0.85 \u00b7 cached $0.022\u2192$0.7 \u00b7 output $1.98\u2192$5",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4.1 Flash \u2014 input $0.3\u2192$0.003 \u00b7 cached $0.006\u2192$0.003 \u00b7 output $1.2\u2192$2.4",
+        "\u2192 OpenRouter \u00b7 Meta: Llama 3.3 70B Instruct \u2014 input $0.1\u2192$0.22 \u00b7 cached $0.1\u2192$0.11 \u00b7 output $0.32\u2192$0.5",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi K3 \u2014 input $2.7\u2192$0.72 \u00b7 cached $0.27\u2192$0.7 \u00b7 output $13.5\u2192$13",
+        "\u2192 OpenRouter \u00b7 Qwen: Qwen3.8 27B \u2014 input $0.42\u2192$0.425 \u00b7 output $3\u2192$2.55",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.2 \u2014 input $0.41\u2192$0.38 \u00b7 output $3.99\u2192$3.49",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek Flash Latest \u2014 input $0.02\u2192$0.003 \u00b7 cached $0.01\u2192$0.003 \u00b7 output $0.6\u2192$2.4",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek Pro Latest \u2014 input $0.12\u2192$0.1901 \u00b7 cached $0.1\u2192$0.19",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash Latest \u2014 input $0.0188\u2192$0.0152 \u00b7 cached $0.0188\u2192$0.0152",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi Latest \u2014 input $0.9895\u2192$0.6438",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM Flash Latest \u2014 input $0.035\u2192$0.0352 \u00b7 cached $0.035\u2192$0.0352",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM Latest \u2014 input $0.12\u2192$0.05 \u00b7 cached $0.08\u2192$0.04 \u00b7 output $4\u2192$5"
+      ]
+    },
+    {
+      "date": "2026-10-05",
+      "changes": [
+        "\u2212 Cortecs: deepseek-r1-0528",
+        "\u2212 Cortecs: glm-5",
+        "\u2212 Cortecs: glm-5-turbo",
+        "\u2212 Cortecs: glm-5v-turbo",
+        "\u2212 Cortecs: kimi-k2.5",
+        "\u2212 Cortecs: qwen3.5-122b-a10b",
+        "\u2192 Cortecs \u00b7 deepseek-v3.2 \u2014 input $0.266\u2192$0.449 \u00b7 cached $0.067\u2192$0.135 \u00b7 output $0.444\u2192$1.346 \u00b7 eu input $0.266\u2192$0.449 \u00b7 eu cached $0.067\u2192$0.135 \u00b7 eu output $0.444\u2192$1.346",
+        "\u2192 Cortecs \u00b7 glm-5.1 \u2014 cached $0.311\u2192$1.242 \u00b7 eu cached $0.311\u2192$1.242",
+        "\u2192 Cortecs \u00b7 minimax-m2.5 \u2014 input $0.266\u2192$0.312 \u00b7 cached $0.067\u2192$0.312 \u00b7 output $1.065\u2192$1.248",
+        "\u2192 Cortecs \u00b7 qwen3-235b-a22b-instruct-2507 \u2014 input $0.062\u2192$0.179 \u00b7 cached $0.016\u2192$0.179 \u00b7 output $0.408\u2192$0.537 \u00b7 eu input $0.062\u2192$0.179 \u00b7 eu cached $0.016\u2192$0.179 \u00b7 eu output $0.408\u2192$0.537",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V3 0324 \u2014 input $0.25\u2192$0.29 \u00b7 cached $0.25\u2192$0.11 \u00b7 output $1\u2192$1.14",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash 0423 \u2014 input $0.0224\u2192$0.03 \u00b7 cached $0.0224\u2192$0.03",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Pro 0813 \u2014 input $0.85\u2192$0.4 \u00b7 cached $0.7\u2192$0.36",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4.1 Flash \u2014 input $0.003\u2192$0.3 \u00b7 cached $0.003\u2192$0.006 \u00b7 output $2.4\u2192$1.2",
+        "\u2192 OpenRouter \u00b7 Google: Gemma 4 26B A4B \u2014 input $0.0675\u2192$0.09 \u00b7 cached $0.0375\u2192$0.05 \u00b7 output $0.225\u2192$0.3",
+        "\u2192 OpenRouter \u00b7 Meta: Llama 3.3 70B Instruct \u2014 input $0.22\u2192$0.1 \u00b7 cached $0.11\u2192$0.1 \u00b7 output $0.5\u2192$0.32",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi K3 \u2014 input $0.72\u2192$0.67 \u00b7 cached $0.7\u2192$0.22 \u00b7 output $13\u2192$14",
+        "\u2192 OpenRouter \u00b7 NVIDIA: Nemotron 3.5 Lightning \u2014 input $0.0595\u2192$0.06 \u00b7 cached $0.02975\u2192$0.03 \u00b7 output $0.17\u2192$0.16",
+        "\u2192 OpenRouter \u00b7 OpenAI: GPT-5.6 Sol Pro \u2014 input $4\u2192$2 \u00b7 cached $0.4\u2192$0.2 \u00b7 output $20\u2192$10",
+        "\u2192 OpenRouter \u00b7 Qwen: Qwen3.6 27B \u2014 cached $0.32\u2192$0.03 \u00b7 output $3.2\u2192$3.25",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.2 \u2014 input $0.38\u2192$0.0192 \u00b7 cached $0.26\u2192$0.0192 \u00b7 output $3.49\u2192$16 \u00b7 eu input $1.25\u2192$1.39 \u00b7 eu cached $0.23\u2192$0.25",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.3 \u2014 input $1.4\u2192$0.05 \u00b7 cached $0.14\u2192$0.045 \u00b7 output $4.4\u2192$7 \u00b7 eu input $1.54\u2192$0.6 \u00b7 eu cached $0.154\u2192$0.2 \u00b7 eu output $4.84\u2192$3.39",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.3 Flash \u2014 eu cached $0.08\u2192$0.09 \u00b7 eu output $0.45\u2192$0.6",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi Latest \u2014 input $0.6438\u2192$0.66",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM Flash Latest \u2014 cached $0.0352\u2192$0.0232",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM Latest \u2014 input $0.05\u2192$0.03 \u00b7 cached $0.04\u2192$0.03 \u00b7 output $5\u2192$12"
+      ]
+    },
+    {
+      "date": "2026-10-06",
+      "changes": [
+        "\u2212 OpenRouter: Qwen: Qwen3.8 27B (free)",
+        "\u2212 OpenRouter: Space Bunny Alpha",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash 0423 \u2014 input $0.03\u2192$0.012 \u00b7 cached $0.03\u2192$0.012",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash 0731 \u2014 input $0.0152\u2192$0.0134 \u00b7 cached $0.0152\u2192$0.0134",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Pro 0813 \u2014 input $0.4\u2192$0.66 \u00b7 cached $0.36\u2192$0.022 \u00b7 output $5\u2192$1.98",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4.1 Flash \u2014 input $0.3\u2192$0.02142 \u00b7 cached $0.006\u2192$0.0165 \u00b7 output $1.2\u2192$1.32",
+        "\u2192 OpenRouter \u00b7 Meta: Llama 3.3 70B Instruct \u2014 input $0.1\u2192$0.22 \u00b7 cached $0.1\u2192$0.11 \u00b7 output $0.32\u2192$0.5",
+        "\u2192 OpenRouter \u00b7 Meta: Muse Glimmer 30B \u2014 input $0.35\u2192$0.3 \u00b7 output $1.5\u2192$1.2",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi K3 \u2014 input $0.67\u2192$0.95 \u00b7 cached $0.22\u2192$0.31",
+        "\u2192 OpenRouter \u00b7 Qwen: Qwen3 235B A22B Instruct 2507 \u2014 input $0.0875\u2192$0.09 \u00b7 cached $0.0175\u2192$0.09 \u00b7 output $0.35\u2192$0.55",
+        "\u2192 OpenRouter \u00b7 Qwen: Qwen3 30B A3B Instruct 2507 \u2014 input $0.04815\u2192$0.1 \u00b7 cached $0.04815\u2192$0.1 \u00b7 output $0.193\u2192$0.3",
+        "\u2192 OpenRouter \u00b7 Qwen: Qwen3.5-35B-A3B \u2014 input $0.15\u2192$0.08 \u00b7 cached $0.05\u2192$0.04 \u00b7 output $1\u2192$0.75",
+        "\u2192 OpenRouter \u00b7 Qwen: Qwen3.5 397B A17B \u2014 input $0.55\u2192$0.45 \u00b7 cached $0.225\u2192$0.22 \u00b7 output $3.5\u2192$3",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.2 \u2014 input $0.0192\u2192$0.152 \u00b7 cached $0.0192\u2192$0.15 \u00b7 output $16\u2192$12",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.3 \u2014 input $0.05\u2192$0.07 \u00b7 cached $0.045\u2192$0.065",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek Flash Latest \u2014 input $0.003\u2192$0.01947 \u00b7 cached $0.003\u2192$0.015 \u00b7 output $2.4\u2192$1.2",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek Pro Latest \u2014 input $0.1901\u2192$0.152 \u00b7 cached $0.19\u2192$0.15",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash Latest \u2014 input $0.0152\u2192$0.0134 \u00b7 cached $0.0152\u2192$0.0134",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi Latest \u2014 input $0.66\u2192$0.83",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM Flash Latest \u2014 input $0.0352\u2192$0.0244 \u00b7 cached $0.0232\u2192$0.0244"
+      ]
+    },
+    {
+      "date": "2026-10-07",
+      "changes": [
+        "\u2212 OpenCode Zen: DeepSeek V4 Flash Free",
+        "\u2212 OpenCode Zen: MiMo V2.5 Free",
+        "\u2212 OpenRouter: Kwaipilot: KAT-Coder-Pro V2.5",
+        "+ Cortecs: claude-sonnet-5.5",
+        "+ Cortecs: mistral-large-4-0",
+        "+ EUrouter: Qwen3.8 Flash Next",
+        "+ OpenCode Zen: Exo Free",
+        "+ OpenCode Zen: Mistral Large 4",
+        "+ OpenRouter: Google: Nano Banana 2.1",
+        "+ OpenRouter: Mistral: Mistral Large 4",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash 0423 \u2014 input $0.012\u2192$0.03 \u00b7 cached $0.012\u2192$0.03",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash 0731 \u2014 input $0.0134\u2192$0.018 \u00b7 cached $0.0134\u2192$0.018",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4.1 Flash \u2014 input $0.02142\u2192$0.05 \u00b7 cached $0.0165\u2192$0.02 \u00b7 output $1.32\u2192$1.2",
+        "\u2192 OpenRouter \u00b7 Meta: Llama 4 Maverick \u2014 cached $0.1875\u2192$0.05",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi K2.6 \u2014 input $0.95\u2192$0.465 \u00b7 cached $0.16\u2192$0.0975 \u00b7 output $4\u2192$2.45",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi K3 \u2014 input $0.95\u2192$0.62 \u00b7 cached $0.31\u2192$0.43 \u00b7 output $14\u2192$15",
+        "\u2192 OpenRouter \u00b7 Qwen: Qwen3 30B A3B Instruct 2507 \u2014 input $0.1\u2192$0.04815 \u00b7 cached $0.1\u2192$0.04815 \u00b7 output $0.3\u2192$0.193",
+        "\u2192 OpenRouter \u00b7 Qwen: Qwen3.5-35B-A3B \u2014 input $0.08\u2192$0.15 \u00b7 cached $0.04\u2192$0.05 \u00b7 output $0.75\u2192$1",
+        "\u2192 OpenRouter \u00b7 Qwen: Qwen3.6 27B \u2014 input $0.32\u2192$0.3 \u00b7 output $3.25\u2192$2",
+        "\u2192 OpenRouter \u00b7 Thinking Machines: Inkling \u2014 input $0.95\u2192$1 \u00b7 cached $0.16\u2192$0.17",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.1 \u2014 input $1.4\u2192$0.966 \u00b7 cached $0.26\u2192$0.1794 \u00b7 output $4.4\u2192$3.036",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.2 \u2014 input $0.152\u2192$0.171 \u00b7 cached $0.15\u2192$0.162 \u00b7 output $12\u2192$7.2",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek Flash Latest \u2014 input $0.01947\u2192$0.05 \u00b7 cached $0.015\u2192$0.02",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek Pro Latest \u2014 input $0.152\u2192$0.4 \u00b7 cached $0.15\u2192$0.033 \u00b7 output $4.2\u2192$4.3",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash Latest \u2014 input $0.0134\u2192$0.018 \u00b7 cached $0.0134\u2192$0.018",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi Latest \u2014 input $0.83\u2192$0.61",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM Flash Latest \u2014 input $0.0244\u2192$0.0214 \u00b7 cached $0.0244\u2192$0.0214",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM Latest \u2014 input $0.03\u2192$0.063 \u00b7 cached $0.03\u2192$0.0585 \u00b7 output $12\u2192$6.3"
+      ]
+    },
+    {
+      "date": "2026-10-08",
+      "changes": [
+        "+ Claude API: Claude Haiku 5.5 (for prompts over 100,000 tokens)",
+        "+ Claude API: Claude Haiku 5.5 (for prompts up to 100,000 tokens)",
+        "+ Cortecs: claude-haiku-5.5",
+        "+ EUrouter: Claude Haiku 5.5",
+        "+ EUrouter: Claude Opus 5.5",
+        "+ EUrouter: Claude Sonnet 5.5",
+        "+ OpenCode Zen: Claude Haiku 5.5",
+        "+ OpenRouter: Anthropic: Claude Haiku 5.5",
+        "+ OpenRouter: Anthropic: Claude Haiku 5.5 (batch)",
+        "+ OpenRouter: StepFun: Step 5 Preview",
+        "\u2192 Claude API \u00b7 Claude Sonnet 5.5 \u2014 cached $0.2\u2192$0.1",
+        "\u2192 EUrouter \u00b7 GLM 5.2 \u2014 input $1.1\u2192$1.2 \u00b7 cached $0.275\u2192$0.26 \u00b7 output $4.4\u2192$4.2 \u00b7 eu input $1.1\u2192$1.2 \u00b7 eu cached $0.275\u2192$0.26 \u00b7 eu output $4.4\u2192$4.2",
+        "\u2192 EUrouter \u00b7 Kimi K2.6 \u2014 input $0.66\u2192$0.73 \u00b7 cached $0.22\u2192$0.25 \u00b7 output $3.751\u2192$3.5 \u00b7 eu input $0.66\u2192$0.73 \u00b7 eu cached $0.22\u2192$0.25 \u00b7 eu output $3.751\u2192$3.5",
+        "\u2192 EUrouter \u00b7 Llama 3.3 70B Instruct \u2014 input $0.65\u2192$0.71 \u00b7 output $0.65\u2192$0.71 \u00b7 eu input $0.65\u2192$0.71 \u00b7 eu output $0.65\u2192$0.71",
+        "\u2192 EUrouter \u00b7 Qwen3.5 397B A17B \u2014 input $0.6\u2192$0.67 \u00b7 output $3.6\u2192$4 \u00b7 eu input $0.6\u2192$0.67 \u00b7 eu output $3.6\u2192$4",
+        "\u2192 OpenRouter \u00b7 Anthropic: Claude Sonnet 5.5 \u2014 cached $0.2\u2192$0.1 \u00b7 eu cached $0.22\u2192$0.11",
+        "\u2192 OpenRouter \u00b7 Anthropic: Claude Sonnet 5.5 (batch) \u2014 cached $0.1\u2192$0.05",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V3.2 \u2014 input $0.28\u2192$0.259 \u00b7 cached $0.028\u2192$0.135",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash 0423 \u2014 input $0.03\u2192$0.0099 \u00b7 cached $0.03\u2192$0.0099",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash 0731 \u2014 input $0.018\u2192$0.0079 \u00b7 cached $0.018\u2192$0.0079",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Pro 0423 \u2014 input $0.2088\u2192$0.2974 \u00b7 cached $0.0174\u2192$0.02478 \u00b7 output $0.4176\u2192$0.5947",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4.1 Flash \u2014 input $0.05\u2192$0.0356 \u00b7 cached $0.02\u2192$0.01 \u00b7 output $1.2\u2192$1",
+        "\u2192 OpenRouter \u00b7 Meta: Llama 3.3 70B Instruct \u2014 input $0.22\u2192$0.1 \u00b7 cached $0.11\u2192$0.1 \u00b7 output $0.5\u2192$0.32",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi K3 \u2014 output $15\u2192$12.3",
+        "\u2192 OpenRouter \u00b7 NVIDIA: Nemotron 3 Nano 30B A3B \u2014 input $0.05\u2192$0.06 \u00b7 cached $0.03\u2192$0.06 \u00b7 output $0.2\u2192$0.24",
+        "\u2192 OpenRouter \u00b7 NVIDIA: Nemotron 3 Super \u2014 input $0.08\u2192$0.085 \u00b7 cached $0.08\u2192$0.085 \u00b7 output $0.45\u2192$0.4",
+        "\u2192 OpenRouter \u00b7 NVIDIA: Nemotron 3.5 Lightning \u2014 input $0.06\u2192$0.049 \u00b7 cached $0.03\u2192$0.0245 \u00b7 output $0.16\u2192$0.14",
+        "\u2192 OpenRouter \u00b7 Qwen: Qwen3 Next 80B A3B Instruct \u2014 input $0.1\u2192$0.15 \u00b7 cached $0.07\u2192$0.15 \u00b7 output $1.1\u2192$1.5",
+        "\u2192 OpenRouter \u00b7 Qwen: Qwen3.5-27B \u2014 input $0.195\u2192$0.26 \u00b7 cached $0.195\u2192$0.26 \u00b7 output $1.56\u2192$2.6",
+        "\u2192 OpenRouter \u00b7 Qwen: Qwen3.6 27B \u2014 input $0.3\u2192$0.45 \u00b7 cached $0.03\u2192$0.45 \u00b7 output $2\u2192$2.7",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 4.6V \u2014 cached $0.05\u2192$0.055",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.2 \u2014 input $0.171\u2192$0.03 \u00b7 cached $0.162\u2192$0.03 \u00b7 output $7.2\u2192$10",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.3 \u2014 input $0.07\u2192$0.049 \u00b7 cached $0.065\u2192$0.048 \u00b7 output $7\u2192$3.39",
+        "\u2192 OpenRouter \u00b7 Anthropic: Claude Haiku Latest \u2014 input $1\u2192$0.1 \u00b7 cached $0.1\u2192$0.01 \u00b7 output $5\u2192$0.5",
+        "\u2192 OpenRouter \u00b7 Anthropic: Claude Sonnet Latest \u2014 cached $0.2\u2192$0.1",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek Flash Latest \u2014 input $0.05\u2192$0.0356 \u00b7 cached $0.02\u2192$0.01 \u00b7 output $1.2\u2192$1",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek Pro Latest \u2014 input $0.4\u2192$0.108 \u00b7 cached $0.033\u2192$0.081 \u00b7 output $4.3\u2192$8",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash Latest \u2014 input $0.018\u2192$0.00632 \u00b7 cached $0.018\u2192$0.00632 \u00b7 output $1.28\u2192$0.3131",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi Latest \u2014 input $0.61\u2192$0.45",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM Flash Latest \u2014 input $0.0214\u2192$0.032 \u00b7 cached $0.0214\u2192$0.02 \u00b7 output $0.5\u2192$3.336",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM Latest \u2014 input $0.063\u2192$0.036 \u00b7 cached $0.0585\u2192$0.0335 \u00b7 output $6.3\u2192$12"
+      ]
+    },
+    {
+      "date": "2026-10-09",
+      "changes": [
+        "\u2212 EUrouter: MiniMax M2.7",
+        "\u2212 OpenCode Zen: Fledge Alpha Free",
+        "\u2212 OpenRouter: Baidu: ERNIE 4.5 VL 424B A47B",
+        "\u2212 OpenRouter: inclusionAI: Ling 3.0 Flash Sante (free)",
+        "+ OpenCode Zen: Step 5 Preview Free",
+        "+ OpenRouter: inclusionAI: Ling 3.0 Flash Sante",
+        "+ OpenRouter: OpenAI: GPT-6.1 Sol Pro (batch)",
+        "+ OpenRouter: OpenAI: GPT-6.1 Sol (batch)",
+        "\u2192 Cortecs \u00b7 qwen3-coder-30b-a3b-instruct \u2014 input $0.06\u2192$0.161 \u00b7 cached $0.06\u2192$0.161 \u00b7 output $0.22\u2192$0.626 \u00b7 eu input $0.06\u2192$0.2 \u00b7 eu cached $0.06\u2192$0.2 \u00b7 eu output $0.22\u2192$0.8",
+        "\u2192 EUrouter \u00b7 Qwen3.6 35B A3B Instruct \u2014 cached free\u2192$0.15 \u00b7 eu cached free\u2192$0.15",
+        "\u2192 EUrouter \u00b7 Qwen3.8 27B \u2014 cached free\u2192$0.4 \u00b7 eu cached free\u2192$0.4",
+        "\u2192 EUrouter \u00b7 Apertus 70B Instruct \u2014 cached free\u2192$0.4 \u00b7 eu cached free\u2192$0.4",
+        "\u2192 EUrouter \u00b7 DeepSeek V3.1 \u2014 cached free\u2192$0.58 \u00b7 eu cached free\u2192$0.58",
+        "\u2192 EUrouter \u00b7 Devstral 2 123B Instruct \u2014 cached free\u2192$0.48 \u00b7 eu cached free\u2192$0.48",
+        "\u2192 EUrouter \u00b7 Gemma 2 2B IT \u2014 cached free\u2192$0.02 \u00b7 eu cached free\u2192$0.02",
+        "\u2192 EUrouter \u00b7 Gemma 3 27B IT \u2014 cached free\u2192$0.1 \u00b7 eu cached free\u2192$0.1",
+        "\u2192 EUrouter \u00b7 GLM 4.7 \u2014 cached free\u2192$0.72 \u00b7 eu cached free\u2192$0.72",
+        "\u2192 EUrouter \u00b7 GLM 4.7 Flash \u2014 cached free\u2192$0.08 \u00b7 eu cached free\u2192$0.08",
+        "\u2192 EUrouter \u00b7 GPT-OSS 120B \u2014 cached free\u2192$0.08 \u00b7 eu cached free\u2192$0.08",
+        "\u2192 EUrouter \u00b7 GPT-OSS 20B \u2014 cached free\u2192$0.04 \u00b7 eu cached free\u2192$0.04",
+        "\u2192 EUrouter \u00b7 GreenL \u2014 cached free\u2192$0.25 \u00b7 eu cached free\u2192$0.25",
+        "\u2192 EUrouter \u00b7 GreenL Raw \u2014 cached free\u2192$0.25 \u00b7 eu cached free\u2192$0.25",
+        "\u2192 EUrouter \u00b7 GreenR \u2014 cached free\u2192$0.35 \u00b7 eu cached free\u2192$0.35",
+        "\u2192 EUrouter \u00b7 GreenR Raw \u2014 cached free\u2192$0.35 \u00b7 eu cached free\u2192$0.35",
+        "\u2192 EUrouter \u00b7 Hermes 4 405B \u2014 cached free\u2192$1 \u00b7 eu cached free\u2192$1",
+        "\u2192 EUrouter \u00b7 INTELLECT-3 \u2014 cached free\u2192$0.2 \u00b7 eu cached free\u2192$0.2",
+        "\u2192 EUrouter \u00b7 Kimi K3 \u2014 cached free\u2192$3 \u00b7 eu cached free\u2192$3",
+        "\u2192 EUrouter \u00b7 Llama 3.1 8B Instruct \u2014 cached free\u2192$0.02 \u00b7 eu cached free\u2192$0.02",
+        "\u2192 EUrouter \u00b7 Llama 3.3 70B Instruct \u2014 cached free\u2192$0.71 \u00b7 eu cached free\u2192$0.71",
+        "\u2192 EUrouter \u00b7 Magistral Medium 1.2 \u2014 cached free\u2192$2.2 \u00b7 eu cached free\u2192$2.2",
+        "\u2192 EUrouter \u00b7 Magistral Small 1.2 \u2014 cached free\u2192$0.55 \u00b7 eu cached free\u2192$0.55",
+        "\u2192 EUrouter \u00b7 MiniMax M2.1 \u2014 cached free\u2192$0.36 \u00b7 eu cached free\u2192$0.36",
+        "\u2192 EUrouter \u00b7 Mistral 7B Instruct \u2014 cached free\u2192$0.16 \u00b7 eu cached free\u2192$0.16",
+        "\u2192 EUrouter \u00b7 Mistral 7B Instruct v0.3 \u2014 cached free\u2192$0.1 \u00b7 eu cached free\u2192$0.1",
+        "\u2192 EUrouter \u00b7 Mistral Large 2402 \u2014 cached free\u2192$4.3 \u00b7 eu cached free\u2192$4.3",
+        "\u2192 EUrouter \u00b7 Mistral Medium 3.5 \u2014 cached free\u2192$1.5 \u00b7 eu cached free\u2192$1.5",
+        "\u2192 EUrouter \u00b7 Mistral Nemo 12B \u2014 cached free\u2192$0.13 \u00b7 eu cached free\u2192$0.13",
+        "\u2192 EUrouter \u00b7 Mistral Small 24B Instruct \u2014 cached free\u2192$0.11 \u00b7 eu cached free\u2192$0.11",
+        "\u2192 EUrouter \u00b7 Mistral Small 3.2 24B \u2014 cached free\u2192$0.09 \u00b7 eu cached free\u2192$0.09",
+        "\u2192 EUrouter \u00b7 Mixtral 8x7B Instruct \u2014 cached free\u2192$0.49 \u00b7 eu cached free\u2192$0.49",
+        "\u2192 EUrouter \u00b7 Nemotron 3 Nano 30B A3B \u2014 cached free\u2192$0.06 \u00b7 eu cached free\u2192$0.06",
+        "\u2192 EUrouter \u00b7 Nemotron 3 Super 120B A12B \u2014 cached free\u2192$0.3 \u00b7 eu cached free\u2192$0.3",
+        "\u2192 EUrouter \u00b7 Pixtral 12B \u2014 cached free\u2192$0.2 \u00b7 eu cached free\u2192$0.2",
+        "\u2192 EUrouter \u00b7 Pixtral Large 25.02 \u2014 cached free\u2192$2 \u00b7 eu cached free\u2192$2",
+        "\u2192 EUrouter \u00b7 Qwen 2.5 VL 72B Instruct \u2014 cached free\u2192$0.91 \u00b7 eu cached free\u2192$0.91",
+        "\u2192 EUrouter \u00b7 Qwen3 30B A3B Instruct \u2014 cached free\u2192$0.1 \u00b7 eu cached free\u2192$0.1",
+        "\u2192 EUrouter \u00b7 Qwen3 32B \u2014 cached free\u2192$0.2 \u00b7 eu cached free\u2192$0.2",
+        "\u2192 EUrouter \u00b7 Qwen3 Coder 30B A3B \u2014 cached free\u2192$0.06 \u00b7 eu cached free\u2192$0.06",
+        "\u2192 EUrouter \u00b7 Qwen3 Coder 480B A35B Instruct \u2014 cached free\u2192$0.45 \u00b7 eu cached free\u2192$0.45",
+        "\u2192 EUrouter \u00b7 Qwen3 Coder Next 80B \u2014 cached free\u2192$0.17 \u00b7 eu cached free\u2192$0.17",
+        "\u2026 and 26 more"
+      ]
+    },
+    {
+      "date": "2026-10-10",
+      "changes": [
+        "\u2212 OpenRouter: Qwen: Qwen Plus 0728",
+        "\u2212 OpenRouter: Qwen: Qwen3 235B A22B",
+        "\u2212 OpenRouter: Qwen: Qwen3 30B A3B Thinking 2507",
+        "\u2212 OpenRouter: Qwen: Qwen3 8B",
+        "\u2212 OpenRouter: Qwen: Qwen3 Coder Plus",
+        "\u2212 OpenRouter: Qwen: Qwen3 Max",
+        "\u2212 OpenRouter: Qwen: Qwen3 Max Thinking",
+        "\u2212 OpenRouter: Qwen: Qwen3 VL 235B A22B Thinking",
+        "\u2212 OpenRouter: Qwen: Qwen3 VL 32B Instruct",
+        "\u2212 OpenRouter: Qwen: Qwen3 VL 8B Thinking",
+        "\u2212 OpenRouter: Qwen: Qwen3.6 Max Preview",
+        "\u2212 z.ai API: glm-4-32b-0414-128k",
+        "\u2212 z.ai API: glm-4.5",
+        "\u2212 z.ai API: glm-4.5-air",
+        "\u2212 z.ai API: glm-4.5-airx",
+        "\u2212 z.ai API: glm-4.5-flash",
+        "\u2212 z.ai API: glm-4.5-x",
+        "\u2212 z.ai API: glm-4.7-flash",
+        "\u2212 z.ai API: glm-4.7-flashx",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V3.2 \u2014 cached $0.135\u2192$0.14 \u00b7 output $0.42\u2192$0.8",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash 0423 \u2014 input $0.0075\u2192$0.019 \u00b7 cached $0.0075\u2192$0.019",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash 0731 \u2014 input $0.018\u2192$0.0103 \u00b7 cached $0.018\u2192$0.0103 \u00b7 eu input $0.05\u2192$0.1056 \u00b7 eu output $0.65\u2192$0.6",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Pro 0423 \u2014 input $0.9553\u2192$0.9483 \u00b7 cached $0.0796\u2192$0.07902 \u00b7 output $1.911\u2192$1.897",
+        "\u2192 OpenRouter \u00b7 Google: Gemma 4 26B A4B \u2014 input $0.09\u2192$0.0675 \u00b7 cached $0.05\u2192$0.0375 \u00b7 output $0.3\u2192$0.225",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi K2 Thinking \u2014 cached $0.6\u2192$0.15",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi K2.5 \u2014 input $0.45\u2192$0.5 \u00b7 cached $0.07\u2192$0.15 \u00b7 output $2.25\u2192$2.5",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi K2.6 \u2014 cached $0.0975\u2192$0.0875 \u00b7 eu cached $0.0975\u2192$0.0875",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi K3 \u2014 input $0.5\u2192$0.64 \u00b7 cached $0.3\u2192$0.28 \u00b7 output $12\u2192$13.5",
+        "\u2192 OpenRouter \u00b7 NVIDIA: Nemotron 3.5 Lightning \u2014 input $0.0469\u2192$0.07 \u00b7 cached $0.02345\u2192$0.04 \u00b7 output $0.134\u2192$0.2",
+        "\u2192 OpenRouter \u00b7 Qwen: Qwen3 235B A22B Thinking 2507 \u2014 input $0.23\u2192$0.45 \u00b7 cached $0.23\u2192$0.45 \u00b7 output $2.3\u2192$3.5",
+        "\u2192 OpenRouter \u00b7 Qwen: Qwen3 VL 30B A3B Thinking \u2014 input $0.2\u2192$0.29 \u00b7 cached $0.2\u2192$0.29 \u00b7 output $2.4\u2192$1",
+        "\u2192 OpenRouter \u00b7 Qwen: Qwen3 VL 8B Instruct \u2014 input $0.117\u2192$0.25 \u00b7 cached $0.117\u2192$0.12 \u00b7 output $0.455\u2192$0.75",
+        "\u2192 OpenRouter \u00b7 Qwen: Qwen3.6 27B \u2014 input $0.45\u2192$0.32 \u00b7 cached $0.45\u2192$0.32 \u00b7 output $2.7\u2192$3.2",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 4.6 \u2014 input $0.43\u2192$0.5 \u00b7 cached $0.08\u2192$0.1 \u00b7 output $1.75\u2192$2",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.2 \u2014 output $4.2\u2192$7 \u00b7 eu input $1.39\u2192$1.25 \u00b7 eu cached $0.25\u2192$0.2 \u00b7 eu output $4.39\u2192$5.46",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.3 \u2014 input $0.04\u2192$0.039 \u00b7 cached $0.039\u2192$0.038 \u00b7 eu output $3.39\u2192$2.2",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.3 Flash \u2014 eu input $0.225\u2192$0.12 \u00b7 eu cached $0.09\u2192$0.099 \u00b7 eu output $0.6\u2192$0.55",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek Flash Latest \u2014 input $0.016\u2192$0.0001 \u00b7 cached $0.01\u2192$0.005 \u00b7 output $1.2\u2192$0.6",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek Pro Latest \u2014 input $0.198\u2192$0.22 \u00b7 cached $0.2\u2192$0.219 \u00b7 output $8\u2192$4",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash Latest \u2014 input $0.00368\u2192$0.0103 \u00b7 cached $0.00368\u2192$0.0103 \u00b7 output $0.04675\u2192$1.28",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi Latest \u2014 input $0.49\u2192$0.33 \u00b7 output $13\u2192$14.89",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM Flash Latest \u2014 input $0.032\u2192$0.04 \u00b7 cached $0.02\u2192$0.0125 \u00b7 output $0.4981\u2192$0.5",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM Latest \u2014 input $0.0312\u2192$0.039 \u00b7 cached $0.029\u2192$0.038 \u00b7 output $4.4\u2192$4.8"
+      ]
+    },
+    {
+      "date": "2026-10-11",
+      "changes": [
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash 0423 \u2014 input $0.019\u2192$0.03 \u00b7 cached $0.019\u2192$0.03",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash 0731 \u2014 input $0.0103\u2192$0.018 \u00b7 cached $0.0103\u2192$0.018 \u00b7 output $1.28\u2192$0.64 \u00b7 eu input $0.1056\u2192$0.1845",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Pro 0423 \u2014 input $0.9483\u2192$0.2088 \u00b7 cached $0.07902\u2192$0.0174 \u00b7 output $1.897\u2192$0.4176",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi K2.6 \u2014 input $0.465\u2192$0.65 \u00b7 cached $0.0875\u2192$0.15 \u00b7 output $2.45\u2192$3.41 \u00b7 eu input $0.465\u2192$0.4344 \u00b7 eu cached $0.0875\u2192$0.1077",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi K3 \u2014 input $0.64\u2192$0.8 \u00b7 cached $0.28\u2192$0.55 \u00b7 output $13.5\u2192$10",
+        "\u2192 OpenRouter \u00b7 NVIDIA: Nemotron 3 Ultra \u2014 input $0.5\u2192$0.6 \u00b7 cached $0.1\u2192$0.12 \u00b7 output $2.2\u2192$2.4",
+        "\u2192 OpenRouter \u00b7 Qwen: Qwen3.6 35B A3B \u2014 input $0.15\u2192$0.1 \u00b7 cached $0.05\u2192$0.1 \u00b7 output $1\u2192$0.95",
+        "\u2192 OpenRouter \u00b7 Qwen: Qwen3.8 27B \u2014 input $0.425\u2192$0.04 \u00b7 cached $0.085\u2192$0.0198 \u00b7 output $2.55\u2192$2.3",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.2 \u2014 eu output $5.46\u2192$1.95",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.3 \u2014 eu output $2.2\u2192$1.1",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek Flash Latest \u2014 input $0.0001\u2192$0.0348 \u00b7 cached $0.005\u2192$0.000696 \u00b7 output $0.6\u2192$0.1392",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek Pro Latest \u2014 input $0.22\u2192$0.2191 \u00b7 cached $0.219\u2192$0.006972 \u00b7 output $4\u2192$0.6574",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash Latest \u2014 input $0.0103\u2192$0.018 \u00b7 cached $0.0103\u2192$0.018 \u00b7 output $1.28\u2192$0.64",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi Latest \u2014 input $0.33\u2192$0.75 \u00b7 cached $0.3\u2192$0.29 \u00b7 output $14.89\u2192$14.9"
+      ]
+    },
+    {
+      "date": "2026-10-13",
+      "changes": [
+        "\u2212 OpenCode Zen: Claude Sonnet 4",
+        "\u2212 OpenCode Zen: DeepSeek V4 Flash Vision Exp",
+        "\u2212 OpenCode Zen: Exo Free",
+        "\u2212 OpenCode Zen: Ling 3.0 Flash Fin Free",
+        "\u2212 OpenCode Zen: Nemotron 3 Ultra Free",
+        "+ OpenCode Zen: Cat Jam Free",
+        "+ OpenRouter: Meta: Muse Wonder",
+        "+ OpenRouter: ScaleDown: Extract",
+        "+ OpenRouter: ScaleDown: Summarize",
+        "\u2192 EUrouter \u00b7 GPT-5.6 Sol \u2014 input $5.5\u2192$4.4 \u00b7 cached $0.55\u2192$0.44 \u00b7 output $33\u2192$22 \u00b7 eu input $5.5\u2192$4.4 \u00b7 eu cached $0.55\u2192$0.44 \u00b7 eu output $33\u2192$22",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash 0423 \u2014 input $0.03\u2192$0.05 \u00b7 cached $0.03\u2192$0.05",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash 0731 \u2014 input $0.018\u2192$0.016 \u00b7 cached $0.018\u2192$0.016 \u00b7 eu input $0.1845\u2192$0.1476",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Pro 0423 \u2014 input $0.2088\u2192$0.4461 \u00b7 cached $0.0174\u2192$0.03718 \u00b7 output $0.4176\u2192$0.8923",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4.1 Flash \u2014 input $0.3\u2192$0.0438 \u00b7 cached $0.006\u2192$0.000876 \u00b7 output $1.2\u2192$0.1752",
+        "\u2192 OpenRouter \u00b7 Google: Gemma 4 26B A4B \u2014 input $0.0675\u2192$0.09 \u00b7 cached $0.0375\u2192$0.05 \u00b7 output $0.225\u2192$0.3",
+        "\u2192 OpenRouter \u00b7 Meta: Llama 3.3 70B Instruct \u2014 input $0.22\u2192$0.59 \u00b7 cached $0.11\u2192$0.295 \u00b7 output $0.5\u2192$0.79",
+        "\u2192 OpenRouter \u00b7 Meta: Llama 4 Scout \u2014 input $0.1\u2192$0.18 \u00b7 cached $0.1\u2192$0.18 \u00b7 output $0.3\u2192$0.59",
+        "\u2192 OpenRouter \u00b7 MiniMax: MiniMax M2.7 \u2014 input $0.21\u2192$0.3 \u00b7 cached $0.042\u2192$0.06 \u00b7 output $0.84\u2192$1.2",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi K2.6 \u2014 eu input $0.4344\u2192$0.4365 \u00b7 eu cached $0.1077\u2192$0.1312",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi K3 \u2014 input $0.8\u2192$0.73",
+        "\u2192 OpenRouter \u00b7 OpenAI: gpt-oss-120b \u2014 input $0.037\u2192$0.15 \u00b7 cached $0.037\u2192$0.075 \u00b7 output $0.17\u2192$0.6",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.2 \u2014 eu input $1.25\u2192$0.69 \u00b7 eu cached $0.2\u2192$0.14 \u00b7 eu output $1.95\u2192$2.94",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.3 \u2014 input $0.039\u2192$0.079 \u00b7 cached $0.038\u2192$0.059 \u00b7 eu output $1.1\u2192$2.196",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.3 Flash \u2014 input $0.15\u2192$0.0261 \u00b7 cached $0.03\u2192$0.0108 \u00b7 output $0.5\u2192$0.9 \u00b7 eu input $0.12\u2192$0.0783",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek Flash Latest \u2014 input $0.0348\u2192$0.0438 \u00b7 cached $0.000696\u2192$0.000876 \u00b7 output $0.1392\u2192$0.1752",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek Pro Latest \u2014 input $0.2191\u2192$0.2587 \u00b7 cached $0.006972\u2192$0.008232 \u00b7 output $0.6574\u2192$0.7762",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash Latest \u2014 input $0.018\u2192$0.0144 \u00b7 cached $0.018\u2192$0.0108 \u00b7 output $0.64\u2192$0.576",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi Latest \u2014 input $0.75\u2192$0.73 \u00b7 cached $0.29\u2192$0.55 \u00b7 output $14.9\u2192$10",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM Flash Latest \u2014 input $0.04\u2192$0.0261 \u00b7 cached $0.0125\u2192$0.0108 \u00b7 output $0.5\u2192$0.9",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM Latest \u2014 input $0.039\u2192$0.055 \u00b7 cached $0.038\u2192$0.06 \u00b7 output $4.8\u2192$5"
+      ]
+    },
+    {
       "date": "2026-10-14",
       "changes": [
-        "\u2212 OpenRouter: Apodex: Apodex 1.1 Mini (free) removed",
-        "\u2212 OpenRouter: inclusionAI: Ling 3.0 Flash Fin removed",
-        "\u2212 OpenRouter: inclusionAI: Ling 3.0 Flash Sante removed",
-        "\u2212 OpenRouter: Pareto removed",
-        "+ EUrouter: GPT-6 Luna added",
-        "+ EUrouter: GPT-6 Sol added",
-        "+ EUrouter: GPT-6.1 Sol added",
-        "+ OpenCode Zen: Gemini 4 Argon added",
-        "+ OpenRouter: Google: Gemini 4 Argon added",
-        "+ OpenRouter: Google: Gemini 4 Argon (batch) added",
-        "+ OpenRouter: LiquidAI: LFM2.5-24B-A2B added",
-        "+ OpenRouter: Pareto 26.9 added",
-        "+ OpenRouter: Pareto Latest added",
-        "+ z.ai API: glm-5.2 added",
-        "+ z.ai API: glm-5.3 added",
-        "+ z.ai API: glm-5.3-flash added",
-        "+ z.ai API: glm-5.3-flashx added",
-        "\u2192 OpenRouter / DeepSeek: DeepSeek V4 Flash 0423: default input $0.05\u2192$0.091, default cached $0.05\u2192$0.0182, default output $1.28\u2192$0.182",
-        "\u2192 OpenRouter / DeepSeek: DeepSeek V4 Pro 0423: default input $0.446136\u2192$0.95526, default cached $0.037178\u2192$0.079605, default output $0.892272\u2192$1.91052",
-        "\u2192 OpenRouter / DeepSeek: DeepSeek V4.1 Flash: default input $0.0438\u2192$0.0351, default cached $0.000876\u2192$0.0054, default output $0.1752\u2192$0.891",
-        "\u2192 OpenRouter / Google: Gemma 4 26B A4B : default input $0.09\u2192$0.0765, default cached $0.05\u2192$0.0425, default output $0.3\u2192$0.255",
-        "\u2192 OpenRouter / inclusionAI: Ling 3.0 Flash VL: default input $0.021\u2192$0.06, default cached $0.0042\u2192$0.012, default output $0.0616\u2192$0.18",
-        "\u2192 OpenRouter / inclusionAI: Ling 3.1 Flash: default input free\u2192$0.075, default cached free\u2192$0.015, default output free\u2192$0.225",
-        "\u2192 OpenRouter / MiniMax: MiniMax M2: default input $0.3\u2192$0.255, default cached $0.3\u2192$0.255, default output $1.2\u2192$1.02",
-        "\u2192 OpenRouter / MoonshotAI: Kimi K2.6: eu input $0.4365\u2192$0.441, eu cached $0.1312\u2192$0.099",
-        "\u2192 OpenRouter / MoonshotAI: Kimi K3: default input $0.73\u2192$0.7, default cached $0.55\u2192$0.32, default output $10\u2192$15",
-        "\u2192 OpenRouter / OpenAI: gpt-oss-120b: default input $0.15\u2192$0.037, default cached $0.075\u2192$0.037, default output $0.6\u2192$0.17",
-        "\u2192 OpenRouter / Qwen: Qwen3.5-35B-A3B: default input $0.08\u2192$0.15, default cached $0.04\u2192$0.05, default output $0.75\u2192$1",
-        "\u2192 OpenRouter / Qwen: Qwen3.5 397B A17B: default input $0.55\u2192$0.5, default cached $0.225\u2192$0.3, default output $3.5\u2192$3.6",
-        "\u2192 OpenRouter / Z.ai: GLM 5.1: default input $0.966\u2192$1.33, default cached $0.1794\u2192$0.247, default output $3.036\u2192$4.18",
-        "\u2192 OpenRouter / Z.ai: GLM 5.3: eu output $2.1956\u2192$2.2",
-        "\u2192 OpenRouter / Z.ai: GLM 5.3 Flash: default input $0.0261\u2192$0.15, default cached $0.0108\u2192$0.03, default output $0.9\u2192$0.5, eu input $0.0783\u2192$0.108",
-        "\u2192 OpenRouter / DeepSeek: DeepSeek Flash Latest: default input $0.0438\u2192$0.0351, default cached $0.000876\u2192$0.0054, default output $0.1752\u2192$0.891",
-        "\u2192 OpenRouter / DeepSeek: DeepSeek Pro Latest: default input $0.25872\u2192$0.225, default cached $0.008232\u2192$0.23, default output $0.77616\u2192$8",
-        "\u2192 OpenRouter / MoonshotAI: Kimi Latest: default input $0.73\u2192$0.7, default cached $0.55\u2192$0.32, default output $10\u2192$15",
-        "\u2192 OpenRouter / Z.ai: GLM Flash Latest: default input $0.0261\u2192$0.036",
-        "\u2192 OpenRouter / Z.ai: GLM Latest: default input $0.055\u2192$0.063, default cached $0.06\u2192$0.0586, default output $5\u2192$4.4"
+        "\u2212 OpenRouter: Apodex: Apodex 1.1 Mini (free)",
+        "\u2212 OpenRouter: inclusionAI: Ling 3.0 Flash Fin",
+        "\u2212 OpenRouter: inclusionAI: Ling 3.0 Flash Sante",
+        "\u2212 OpenRouter: Pareto",
+        "+ EUrouter: GPT-6 Luna",
+        "+ EUrouter: GPT-6 Sol",
+        "+ EUrouter: GPT-6.1 Sol",
+        "+ OpenCode Zen: Gemini 4 Argon",
+        "+ OpenRouter: Google: Gemini 4 Argon",
+        "+ OpenRouter: Google: Gemini 4 Argon (batch)",
+        "+ OpenRouter: LiquidAI: LFM2.5-24B-A2B",
+        "+ OpenRouter: Pareto 26.9",
+        "+ OpenRouter: Pareto Latest",
+        "+ z.ai API: glm-5.2",
+        "+ z.ai API: glm-5.3",
+        "+ z.ai API: glm-5.3-flash",
+        "+ z.ai API: glm-5.3-flashx",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash 0423 \u2014 input $0.05\u2192$0.091 \u00b7 cached $0.05\u2192$0.0182 \u00b7 output $1.28\u2192$0.182",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Pro 0423 \u2014 input $0.4461\u2192$0.9553 \u00b7 cached $0.03718\u2192$0.0796 \u00b7 output $0.8923\u2192$1.911",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4.1 Flash \u2014 input $0.0438\u2192$0.0351 \u00b7 cached $0.000876\u2192$0.0054 \u00b7 output $0.1752\u2192$0.891",
+        "\u2192 OpenRouter \u00b7 Google: Gemma 4 26B A4B \u2014 input $0.09\u2192$0.0765 \u00b7 cached $0.05\u2192$0.0425 \u00b7 output $0.3\u2192$0.255",
+        "\u2192 OpenRouter \u00b7 inclusionAI: Ling 3.0 Flash VL \u2014 input $0.021\u2192$0.06 \u00b7 cached $0.0042\u2192$0.012 \u00b7 output $0.0616\u2192$0.18",
+        "\u2192 OpenRouter \u00b7 inclusionAI: Ling 3.1 Flash \u2014 input free\u2192$0.075 \u00b7 cached free\u2192$0.015 \u00b7 output free\u2192$0.225",
+        "\u2192 OpenRouter \u00b7 MiniMax: MiniMax M2 \u2014 input $0.3\u2192$0.255 \u00b7 cached $0.3\u2192$0.255 \u00b7 output $1.2\u2192$1.02",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi K2.6 \u2014 eu input $0.4365\u2192$0.441 \u00b7 eu cached $0.1312\u2192$0.099",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi K3 \u2014 input $0.73\u2192$0.7 \u00b7 cached $0.55\u2192$0.32 \u00b7 output $10\u2192$15",
+        "\u2192 OpenRouter \u00b7 OpenAI: gpt-oss-120b \u2014 input $0.15\u2192$0.037 \u00b7 cached $0.075\u2192$0.037 \u00b7 output $0.6\u2192$0.17",
+        "\u2192 OpenRouter \u00b7 Qwen: Qwen3.5-35B-A3B \u2014 input $0.08\u2192$0.15 \u00b7 cached $0.04\u2192$0.05 \u00b7 output $0.75\u2192$1",
+        "\u2192 OpenRouter \u00b7 Qwen: Qwen3.5 397B A17B \u2014 input $0.55\u2192$0.5 \u00b7 cached $0.225\u2192$0.3 \u00b7 output $3.5\u2192$3.6",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.1 \u2014 input $0.966\u2192$1.33 \u00b7 cached $0.1794\u2192$0.247 \u00b7 output $3.036\u2192$4.18",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.3 \u2014 eu output $2.196\u2192$2.2",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.3 Flash \u2014 input $0.0261\u2192$0.15 \u00b7 cached $0.0108\u2192$0.03 \u00b7 output $0.9\u2192$0.5 \u00b7 eu input $0.0783\u2192$0.108",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek Flash Latest \u2014 input $0.0438\u2192$0.0351 \u00b7 cached $0.000876\u2192$0.0054 \u00b7 output $0.1752\u2192$0.891",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek Pro Latest \u2014 input $0.2587\u2192$0.225 \u00b7 cached $0.008232\u2192$0.23 \u00b7 output $0.7762\u2192$8",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi Latest \u2014 input $0.73\u2192$0.7 \u00b7 cached $0.55\u2192$0.32 \u00b7 output $10\u2192$15",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM Flash Latest \u2014 input $0.0261\u2192$0.036",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM Latest \u2014 input $0.055\u2192$0.063 \u00b7 cached $0.06\u2192$0.0586 \u00b7 output $5\u2192$4.4"
       ]
     }
   ]

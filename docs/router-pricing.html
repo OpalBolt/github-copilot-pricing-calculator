@@ -1234,9 +1234,16 @@
     font-size: 14px; line-height: 1.45;
   }
   .changelog-list li:last-child { border-bottom: none; }
-  .cl-add { color: var(--add-fg); }
-  .cl-remove { color: var(--remove-fg); }
-  .cl-change { color: var(--slate-8); }
+  .changelog-group-title {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; margin: 14px 0 6px;
+  }
+  .changelog-group-title.cl-add-h { color: var(--add-fg); }
+  .changelog-group-title.cl-remove-h { color: var(--remove-fg); }
+  .changelog-group-title.cl-change-h { color: var(--slate-6); }
+  .changelog-count { color: var(--slate-5); font-weight: 500; }
+  .changelog-more { color: var(--slate-5); font-style: italic; margin-top: 6px; }
+  .changelog-list li { color: var(--slate-8); }
 
 </style>
 <script>
@@ -1556,87 +1563,1436 @@
 
 <div class="changelog">
 
-  <p class="changelog-intro">Newest first · 1 recorded day of change. Entries appear automatically whenever the daily data fetch changes a price, model, or plan.</p>
+  <p class="changelog-intro">Newest first · 19 recorded days of change. Entries appear automatically whenever the daily data fetch changes a price, model, or plan.</p>
 
   <div class="changelog-entry">
     <h3 class="changelog-date">2026-10-14</h3>
-    <ul class="changelog-list">
 
-      <li class="cl-remove">− OpenRouter: Apodex: Apodex 1.1 Mini (free) removed</li>
 
-      <li class="cl-remove">− OpenRouter: inclusionAI: Ling 3.0 Flash Fin removed</li>
+      <h4 class="changelog-group-title cl-add-h">Added <span class="changelog-count">13</span></h4>
+      <ul class="changelog-list">
 
-      <li class="cl-remove">− OpenRouter: inclusionAI: Ling 3.0 Flash Sante removed</li>
+        <li>EUrouter: GPT-6 Luna</li>
 
-      <li class="cl-remove">− OpenRouter: Pareto removed</li>
+        <li>EUrouter: GPT-6 Sol</li>
 
-      <li class="cl-add">+ EUrouter: GPT-6 Luna added</li>
+        <li>EUrouter: GPT-6.1 Sol</li>
 
-      <li class="cl-add">+ EUrouter: GPT-6 Sol added</li>
+        <li>OpenCode Zen: Gemini 4 Argon</li>
 
-      <li class="cl-add">+ EUrouter: GPT-6.1 Sol added</li>
+        <li>OpenRouter: Google: Gemini 4 Argon</li>
 
-      <li class="cl-add">+ OpenCode Zen: Gemini 4 Argon added</li>
+        <li>OpenRouter: Google: Gemini 4 Argon (batch)</li>
 
-      <li class="cl-add">+ OpenRouter: Google: Gemini 4 Argon added</li>
+        <li>OpenRouter: LiquidAI: LFM2.5-24B-A2B</li>
 
-      <li class="cl-add">+ OpenRouter: Google: Gemini 4 Argon (batch) added</li>
+        <li>OpenRouter: Pareto 26.9</li>
 
-      <li class="cl-add">+ OpenRouter: LiquidAI: LFM2.5-24B-A2B added</li>
+        <li>OpenRouter: Pareto Latest</li>
 
-      <li class="cl-add">+ OpenRouter: Pareto 26.9 added</li>
+        <li>z.ai API: glm-5.2</li>
 
-      <li class="cl-add">+ OpenRouter: Pareto Latest added</li>
+        <li>z.ai API: glm-5.3</li>
 
-      <li class="cl-add">+ z.ai API: glm-5.2 added</li>
+        <li>z.ai API: glm-5.3-flash</li>
 
-      <li class="cl-add">+ z.ai API: glm-5.3 added</li>
+        <li>z.ai API: glm-5.3-flashx</li>
 
-      <li class="cl-add">+ z.ai API: glm-5.3-flash added</li>
+      </ul>
 
-      <li class="cl-add">+ z.ai API: glm-5.3-flashx added</li>
 
-      <li class="cl-change">→ OpenRouter / DeepSeek: DeepSeek V4 Flash 0423: default input $0.05→$0.091, default cached $0.05→$0.0182, default output $1.28→$0.182</li>
 
-      <li class="cl-change">→ OpenRouter / DeepSeek: DeepSeek V4 Pro 0423: default input $0.446136→$0.95526, default cached $0.037178→$0.079605, default output $0.892272→$1.91052</li>
+      <h4 class="changelog-group-title cl-remove-h">Removed <span class="changelog-count">4</span></h4>
+      <ul class="changelog-list">
 
-      <li class="cl-change">→ OpenRouter / DeepSeek: DeepSeek V4.1 Flash: default input $0.0438→$0.0351, default cached $0.000876→$0.0054, default output $0.1752→$0.891</li>
+        <li>OpenRouter: Apodex: Apodex 1.1 Mini (free)</li>
 
-      <li class="cl-change">→ OpenRouter / Google: Gemma 4 26B A4B : default input $0.09→$0.0765, default cached $0.05→$0.0425, default output $0.3→$0.255</li>
+        <li>OpenRouter: inclusionAI: Ling 3.0 Flash Fin</li>
 
-      <li class="cl-change">→ OpenRouter / inclusionAI: Ling 3.0 Flash VL: default input $0.021→$0.06, default cached $0.0042→$0.012, default output $0.0616→$0.18</li>
+        <li>OpenRouter: inclusionAI: Ling 3.0 Flash Sante</li>
 
-      <li class="cl-change">→ OpenRouter / inclusionAI: Ling 3.1 Flash: default input free→$0.075, default cached free→$0.015, default output free→$0.225</li>
+        <li>OpenRouter: Pareto</li>
 
-      <li class="cl-change">→ OpenRouter / MiniMax: MiniMax M2: default input $0.3→$0.255, default cached $0.3→$0.255, default output $1.2→$1.02</li>
+      </ul>
 
-      <li class="cl-change">→ OpenRouter / MoonshotAI: Kimi K2.6: eu input $0.4365→$0.441, eu cached $0.1312→$0.099</li>
 
-      <li class="cl-change">→ OpenRouter / MoonshotAI: Kimi K3: default input $0.73→$0.7, default cached $0.55→$0.32, default output $10→$15</li>
 
-      <li class="cl-change">→ OpenRouter / OpenAI: gpt-oss-120b: default input $0.15→$0.037, default cached $0.075→$0.037, default output $0.6→$0.17</li>
+      <h4 class="changelog-group-title cl-change-h">Changed <span class="changelog-count">20</span></h4>
+      <ul class="changelog-list">
 
-      <li class="cl-change">→ OpenRouter / Qwen: Qwen3.5-35B-A3B: default input $0.08→$0.15, default cached $0.04→$0.05, default output $0.75→$1</li>
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Flash 0423 — input $0.05→$0.091 · cached $0.05→$0.0182 · output $1.28→$0.182</li>
 
-      <li class="cl-change">→ OpenRouter / Qwen: Qwen3.5 397B A17B: default input $0.55→$0.5, default cached $0.225→$0.3, default output $3.5→$3.6</li>
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Pro 0423 — input $0.4461→$0.9553 · cached $0.03718→$0.0796 · output $0.8923→$1.911</li>
 
-      <li class="cl-change">→ OpenRouter / Z.ai: GLM 5.1: default input $0.966→$1.33, default cached $0.1794→$0.247, default output $3.036→$4.18</li>
+        <li>OpenRouter · DeepSeek: DeepSeek V4.1 Flash — input $0.0438→$0.0351 · cached $0.000876→$0.0054 · output $0.1752→$0.891</li>
 
-      <li class="cl-change">→ OpenRouter / Z.ai: GLM 5.3: eu output $2.1956→$2.2</li>
+        <li>OpenRouter · Google: Gemma 4 26B A4B — input $0.09→$0.0765 · cached $0.05→$0.0425 · output $0.3→$0.255</li>
 
-      <li class="cl-change">→ OpenRouter / Z.ai: GLM 5.3 Flash: default input $0.0261→$0.15, default cached $0.0108→$0.03, default output $0.9→$0.5, eu input $0.0783→$0.108</li>
+        <li>OpenRouter · inclusionAI: Ling 3.0 Flash VL — input $0.021→$0.06 · cached $0.0042→$0.012 · output $0.0616→$0.18</li>
 
-      <li class="cl-change">→ OpenRouter / DeepSeek: DeepSeek Flash Latest: default input $0.0438→$0.0351, default cached $0.000876→$0.0054, default output $0.1752→$0.891</li>
+        <li>OpenRouter · inclusionAI: Ling 3.1 Flash — input free→$0.075 · cached free→$0.015 · output free→$0.225</li>
 
-      <li class="cl-change">→ OpenRouter / DeepSeek: DeepSeek Pro Latest: default input $0.25872→$0.225, default cached $0.008232→$0.23, default output $0.77616→$8</li>
+        <li>OpenRouter · MiniMax: MiniMax M2 — input $0.3→$0.255 · cached $0.3→$0.255 · output $1.2→$1.02</li>
 
-      <li class="cl-change">→ OpenRouter / MoonshotAI: Kimi Latest: default input $0.73→$0.7, default cached $0.55→$0.32, default output $10→$15</li>
+        <li>OpenRouter · MoonshotAI: Kimi K2.6 — eu input $0.4365→$0.441 · eu cached $0.1312→$0.099</li>
 
-      <li class="cl-change">→ OpenRouter / Z.ai: GLM Flash Latest: default input $0.0261→$0.036</li>
+        <li>OpenRouter · MoonshotAI: Kimi K3 — input $0.73→$0.7 · cached $0.55→$0.32 · output $10→$15</li>
 
-      <li class="cl-change">→ OpenRouter / Z.ai: GLM Latest: default input $0.055→$0.063, default cached $0.06→$0.0586, default output $5→$4.4</li>
+        <li>OpenRouter · OpenAI: gpt-oss-120b — input $0.15→$0.037 · cached $0.075→$0.037 · output $0.6→$0.17</li>
 
-    </ul>
+        <li>OpenRouter · Qwen: Qwen3.5-35B-A3B — input $0.08→$0.15 · cached $0.04→$0.05 · output $0.75→$1</li>
+
+        <li>OpenRouter · Qwen: Qwen3.5 397B A17B — input $0.55→$0.5 · cached $0.225→$0.3 · output $3.5→$3.6</li>
+
+        <li>OpenRouter · Z.ai: GLM 5.1 — input $0.966→$1.33 · cached $0.1794→$0.247 · output $3.036→$4.18</li>
+
+        <li>OpenRouter · Z.ai: GLM 5.3 — eu output $2.196→$2.2</li>
+
+        <li>OpenRouter · Z.ai: GLM 5.3 Flash — input $0.0261→$0.15 · cached $0.0108→$0.03 · output $0.9→$0.5 · eu input $0.0783→$0.108</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek Flash Latest — input $0.0438→$0.0351 · cached $0.000876→$0.0054 · output $0.1752→$0.891</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek Pro Latest — input $0.2587→$0.225 · cached $0.008232→$0.23 · output $0.7762→$8</li>
+
+        <li>OpenRouter · MoonshotAI: Kimi Latest — input $0.73→$0.7 · cached $0.55→$0.32 · output $10→$15</li>
+
+        <li>OpenRouter · Z.ai: GLM Flash Latest — input $0.0261→$0.036</li>
+
+        <li>OpenRouter · Z.ai: GLM Latest — input $0.055→$0.063 · cached $0.06→$0.0586 · output $5→$4.4</li>
+
+      </ul>
+
+
+
+  </div>
+
+  <div class="changelog-entry">
+    <h3 class="changelog-date">2026-10-13</h3>
+
+
+      <h4 class="changelog-group-title cl-add-h">Added <span class="changelog-count">4</span></h4>
+      <ul class="changelog-list">
+
+        <li>OpenCode Zen: Cat Jam Free</li>
+
+        <li>OpenRouter: Meta: Muse Wonder</li>
+
+        <li>OpenRouter: ScaleDown: Extract</li>
+
+        <li>OpenRouter: ScaleDown: Summarize</li>
+
+      </ul>
+
+
+
+      <h4 class="changelog-group-title cl-remove-h">Removed <span class="changelog-count">5</span></h4>
+      <ul class="changelog-list">
+
+        <li>OpenCode Zen: Claude Sonnet 4</li>
+
+        <li>OpenCode Zen: DeepSeek V4 Flash Vision Exp</li>
+
+        <li>OpenCode Zen: Exo Free</li>
+
+        <li>OpenCode Zen: Ling 3.0 Flash Fin Free</li>
+
+        <li>OpenCode Zen: Nemotron 3 Ultra Free</li>
+
+      </ul>
+
+
+
+      <h4 class="changelog-group-title cl-change-h">Changed <span class="changelog-count">21</span></h4>
+      <ul class="changelog-list">
+
+        <li>EUrouter · GPT-5.6 Sol — input $5.5→$4.4 · cached $0.55→$0.44 · output $33→$22 · eu input $5.5→$4.4 · eu cached $0.55→$0.44 · eu output $33→$22</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Flash 0423 — input $0.03→$0.05 · cached $0.03→$0.05</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Flash 0731 — input $0.018→$0.016 · cached $0.018→$0.016 · eu input $0.1845→$0.1476</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Pro 0423 — input $0.2088→$0.4461 · cached $0.0174→$0.03718 · output $0.4176→$0.8923</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4.1 Flash — input $0.3→$0.0438 · cached $0.006→$0.000876 · output $1.2→$0.1752</li>
+
+        <li>OpenRouter · Google: Gemma 4 26B A4B — input $0.0675→$0.09 · cached $0.0375→$0.05 · output $0.225→$0.3</li>
+
+        <li>OpenRouter · Meta: Llama 3.3 70B Instruct — input $0.22→$0.59 · cached $0.11→$0.295 · output $0.5→$0.79</li>
+
+        <li>OpenRouter · Meta: Llama 4 Scout — input $0.1→$0.18 · cached $0.1→$0.18 · output $0.3→$0.59</li>
+
+        <li>OpenRouter · MiniMax: MiniMax M2.7 — input $0.21→$0.3 · cached $0.042→$0.06 · output $0.84→$1.2</li>
+
+        <li>OpenRouter · MoonshotAI: Kimi K2.6 — eu input $0.4344→$0.4365 · eu cached $0.1077→$0.1312</li>
+
+        <li>OpenRouter · MoonshotAI: Kimi K3 — input $0.8→$0.73</li>
+
+        <li>OpenRouter · OpenAI: gpt-oss-120b — input $0.037→$0.15 · cached $0.037→$0.075 · output $0.17→$0.6</li>
+
+        <li>OpenRouter · Z.ai: GLM 5.2 — eu input $1.25→$0.69 · eu cached $0.2→$0.14 · eu output $1.95→$2.94</li>
+
+        <li>OpenRouter · Z.ai: GLM 5.3 — input $0.039→$0.079 · cached $0.038→$0.059 · eu output $1.1→$2.196</li>
+
+        <li>OpenRouter · Z.ai: GLM 5.3 Flash — input $0.15→$0.0261 · cached $0.03→$0.0108 · output $0.5→$0.9 · eu input $0.12→$0.0783</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek Flash Latest — input $0.0348→$0.0438 · cached $0.000696→$0.000876 · output $0.1392→$0.1752</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek Pro Latest — input $0.2191→$0.2587 · cached $0.006972→$0.008232 · output $0.6574→$0.7762</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Flash Latest — input $0.018→$0.0144 · cached $0.018→$0.0108 · output $0.64→$0.576</li>
+
+        <li>OpenRouter · MoonshotAI: Kimi Latest — input $0.75→$0.73 · cached $0.29→$0.55 · output $14.9→$10</li>
+
+        <li>OpenRouter · Z.ai: GLM Flash Latest — input $0.04→$0.0261 · cached $0.0125→$0.0108 · output $0.5→$0.9</li>
+
+        <li>OpenRouter · Z.ai: GLM Latest — input $0.039→$0.055 · cached $0.038→$0.06 · output $4.8→$5</li>
+
+      </ul>
+
+
+
+  </div>
+
+  <div class="changelog-entry">
+    <h3 class="changelog-date">2026-10-11</h3>
+
+
+
+
+
+
+      <h4 class="changelog-group-title cl-change-h">Changed <span class="changelog-count">14</span></h4>
+      <ul class="changelog-list">
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Flash 0423 — input $0.019→$0.03 · cached $0.019→$0.03</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Flash 0731 — input $0.0103→$0.018 · cached $0.0103→$0.018 · output $1.28→$0.64 · eu input $0.1056→$0.1845</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Pro 0423 — input $0.9483→$0.2088 · cached $0.07902→$0.0174 · output $1.897→$0.4176</li>
+
+        <li>OpenRouter · MoonshotAI: Kimi K2.6 — input $0.465→$0.65 · cached $0.0875→$0.15 · output $2.45→$3.41 · eu input $0.465→$0.4344 · eu cached $0.0875→$0.1077</li>
+
+        <li>OpenRouter · MoonshotAI: Kimi K3 — input $0.64→$0.8 · cached $0.28→$0.55 · output $13.5→$10</li>
+
+        <li>OpenRouter · NVIDIA: Nemotron 3 Ultra — input $0.5→$0.6 · cached $0.1→$0.12 · output $2.2→$2.4</li>
+
+        <li>OpenRouter · Qwen: Qwen3.6 35B A3B — input $0.15→$0.1 · cached $0.05→$0.1 · output $1→$0.95</li>
+
+        <li>OpenRouter · Qwen: Qwen3.8 27B — input $0.425→$0.04 · cached $0.085→$0.0198 · output $2.55→$2.3</li>
+
+        <li>OpenRouter · Z.ai: GLM 5.2 — eu output $5.46→$1.95</li>
+
+        <li>OpenRouter · Z.ai: GLM 5.3 — eu output $2.2→$1.1</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek Flash Latest — input $0.0001→$0.0348 · cached $0.005→$0.000696 · output $0.6→$0.1392</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek Pro Latest — input $0.22→$0.2191 · cached $0.219→$0.006972 · output $4→$0.6574</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Flash Latest — input $0.0103→$0.018 · cached $0.0103→$0.018 · output $1.28→$0.64</li>
+
+        <li>OpenRouter · MoonshotAI: Kimi Latest — input $0.33→$0.75 · cached $0.3→$0.29 · output $14.89→$14.9</li>
+
+      </ul>
+
+
+
+  </div>
+
+  <div class="changelog-entry">
+    <h3 class="changelog-date">2026-10-10</h3>
+
+
+
+
+      <h4 class="changelog-group-title cl-remove-h">Removed <span class="changelog-count">19</span></h4>
+      <ul class="changelog-list">
+
+        <li>OpenRouter: Qwen: Qwen Plus 0728</li>
+
+        <li>OpenRouter: Qwen: Qwen3 235B A22B</li>
+
+        <li>OpenRouter: Qwen: Qwen3 30B A3B Thinking 2507</li>
+
+        <li>OpenRouter: Qwen: Qwen3 8B</li>
+
+        <li>OpenRouter: Qwen: Qwen3 Coder Plus</li>
+
+        <li>OpenRouter: Qwen: Qwen3 Max</li>
+
+        <li>OpenRouter: Qwen: Qwen3 Max Thinking</li>
+
+        <li>OpenRouter: Qwen: Qwen3 VL 235B A22B Thinking</li>
+
+        <li>OpenRouter: Qwen: Qwen3 VL 32B Instruct</li>
+
+        <li>OpenRouter: Qwen: Qwen3 VL 8B Thinking</li>
+
+        <li>OpenRouter: Qwen: Qwen3.6 Max Preview</li>
+
+        <li>z.ai API: glm-4-32b-0414-128k</li>
+
+        <li>z.ai API: glm-4.5</li>
+
+        <li>z.ai API: glm-4.5-air</li>
+
+        <li>z.ai API: glm-4.5-airx</li>
+
+        <li>z.ai API: glm-4.5-flash</li>
+
+        <li>z.ai API: glm-4.5-x</li>
+
+        <li>z.ai API: glm-4.7-flash</li>
+
+        <li>z.ai API: glm-4.7-flashx</li>
+
+      </ul>
+
+
+
+      <h4 class="changelog-group-title cl-change-h">Changed <span class="changelog-count">24</span></h4>
+      <ul class="changelog-list">
+
+        <li>OpenRouter · DeepSeek: DeepSeek V3.2 — cached $0.135→$0.14 · output $0.42→$0.8</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Flash 0423 — input $0.0075→$0.019 · cached $0.0075→$0.019</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Flash 0731 — input $0.018→$0.0103 · cached $0.018→$0.0103 · eu input $0.05→$0.1056 · eu output $0.65→$0.6</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Pro 0423 — input $0.9553→$0.9483 · cached $0.0796→$0.07902 · output $1.911→$1.897</li>
+
+        <li>OpenRouter · Google: Gemma 4 26B A4B — input $0.09→$0.0675 · cached $0.05→$0.0375 · output $0.3→$0.225</li>
+
+        <li>OpenRouter · MoonshotAI: Kimi K2 Thinking — cached $0.6→$0.15</li>
+
+        <li>OpenRouter · MoonshotAI: Kimi K2.5 — input $0.45→$0.5 · cached $0.07→$0.15 · output $2.25→$2.5</li>
+
+        <li>OpenRouter · MoonshotAI: Kimi K2.6 — cached $0.0975→$0.0875 · eu cached $0.0975→$0.0875</li>
+
+        <li>OpenRouter · MoonshotAI: Kimi K3 — input $0.5→$0.64 · cached $0.3→$0.28 · output $12→$13.5</li>
+
+        <li>OpenRouter · NVIDIA: Nemotron 3.5 Lightning — input $0.0469→$0.07 · cached $0.02345→$0.04 · output $0.134→$0.2</li>
+
+        <li>OpenRouter · Qwen: Qwen3 235B A22B Thinking 2507 — input $0.23→$0.45 · cached $0.23→$0.45 · output $2.3→$3.5</li>
+
+        <li>OpenRouter · Qwen: Qwen3 VL 30B A3B Thinking — input $0.2→$0.29 · cached $0.2→$0.29 · output $2.4→$1</li>
+
+        <li>OpenRouter · Qwen: Qwen3 VL 8B Instruct — input $0.117→$0.25 · cached $0.117→$0.12 · output $0.455→$0.75</li>
+
+        <li>OpenRouter · Qwen: Qwen3.6 27B — input $0.45→$0.32 · cached $0.45→$0.32 · output $2.7→$3.2</li>
+
+        <li>OpenRouter · Z.ai: GLM 4.6 — input $0.43→$0.5 · cached $0.08→$0.1 · output $1.75→$2</li>
+
+        <li>OpenRouter · Z.ai: GLM 5.2 — output $4.2→$7 · eu input $1.39→$1.25 · eu cached $0.25→$0.2 · eu output $4.39→$5.46</li>
+
+        <li>OpenRouter · Z.ai: GLM 5.3 — input $0.04→$0.039 · cached $0.039→$0.038 · eu output $3.39→$2.2</li>
+
+        <li>OpenRouter · Z.ai: GLM 5.3 Flash — eu input $0.225→$0.12 · eu cached $0.09→$0.099 · eu output $0.6→$0.55</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek Flash Latest — input $0.016→$0.0001 · cached $0.01→$0.005 · output $1.2→$0.6</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek Pro Latest — input $0.198→$0.22 · cached $0.2→$0.219 · output $8→$4</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Flash Latest — input $0.00368→$0.0103 · cached $0.00368→$0.0103 · output $0.04675→$1.28</li>
+
+        <li>OpenRouter · MoonshotAI: Kimi Latest — input $0.49→$0.33 · output $13→$14.89</li>
+
+        <li>OpenRouter · Z.ai: GLM Flash Latest — input $0.032→$0.04 · cached $0.02→$0.0125 · output $0.4981→$0.5</li>
+
+        <li>OpenRouter · Z.ai: GLM Latest — input $0.0312→$0.039 · cached $0.029→$0.038 · output $4.4→$4.8</li>
+
+      </ul>
+
+
+
+  </div>
+
+  <div class="changelog-entry">
+    <h3 class="changelog-date">2026-10-09</h3>
+
+
+      <h4 class="changelog-group-title cl-add-h">Added <span class="changelog-count">4</span></h4>
+      <ul class="changelog-list">
+
+        <li>OpenCode Zen: Step 5 Preview Free</li>
+
+        <li>OpenRouter: inclusionAI: Ling 3.0 Flash Sante</li>
+
+        <li>OpenRouter: OpenAI: GPT-6.1 Sol Pro (batch)</li>
+
+        <li>OpenRouter: OpenAI: GPT-6.1 Sol (batch)</li>
+
+      </ul>
+
+
+
+      <h4 class="changelog-group-title cl-remove-h">Removed <span class="changelog-count">4</span></h4>
+      <ul class="changelog-list">
+
+        <li>EUrouter: MiniMax M2.7</li>
+
+        <li>OpenCode Zen: Fledge Alpha Free</li>
+
+        <li>OpenRouter: Baidu: ERNIE 4.5 VL 424B A47B</li>
+
+        <li>OpenRouter: inclusionAI: Ling 3.0 Flash Sante (free)</li>
+
+      </ul>
+
+
+
+      <h4 class="changelog-group-title cl-change-h">Changed <span class="changelog-count">42</span></h4>
+      <ul class="changelog-list">
+
+        <li>Cortecs · qwen3-coder-30b-a3b-instruct — input $0.06→$0.161 · cached $0.06→$0.161 · output $0.22→$0.626 · eu input $0.06→$0.2 · eu cached $0.06→$0.2 · eu output $0.22→$0.8</li>
+
+        <li>EUrouter · Qwen3.6 35B A3B Instruct — cached free→$0.15 · eu cached free→$0.15</li>
+
+        <li>EUrouter · Qwen3.8 27B — cached free→$0.4 · eu cached free→$0.4</li>
+
+        <li>EUrouter · Apertus 70B Instruct — cached free→$0.4 · eu cached free→$0.4</li>
+
+        <li>EUrouter · DeepSeek V3.1 — cached free→$0.58 · eu cached free→$0.58</li>
+
+        <li>EUrouter · Devstral 2 123B Instruct — cached free→$0.48 · eu cached free→$0.48</li>
+
+        <li>EUrouter · Gemma 2 2B IT — cached free→$0.02 · eu cached free→$0.02</li>
+
+        <li>EUrouter · Gemma 3 27B IT — cached free→$0.1 · eu cached free→$0.1</li>
+
+        <li>EUrouter · GLM 4.7 — cached free→$0.72 · eu cached free→$0.72</li>
+
+        <li>EUrouter · GLM 4.7 Flash — cached free→$0.08 · eu cached free→$0.08</li>
+
+        <li>EUrouter · GPT-OSS 120B — cached free→$0.08 · eu cached free→$0.08</li>
+
+        <li>EUrouter · GPT-OSS 20B — cached free→$0.04 · eu cached free→$0.04</li>
+
+        <li>EUrouter · GreenL — cached free→$0.25 · eu cached free→$0.25</li>
+
+        <li>EUrouter · GreenL Raw — cached free→$0.25 · eu cached free→$0.25</li>
+
+        <li>EUrouter · GreenR — cached free→$0.35 · eu cached free→$0.35</li>
+
+        <li>EUrouter · GreenR Raw — cached free→$0.35 · eu cached free→$0.35</li>
+
+        <li>EUrouter · Hermes 4 405B — cached free→$1 · eu cached free→$1</li>
+
+        <li>EUrouter · INTELLECT-3 — cached free→$0.2 · eu cached free→$0.2</li>
+
+        <li>EUrouter · Kimi K3 — cached free→$3 · eu cached free→$3</li>
+
+        <li>EUrouter · Llama 3.1 8B Instruct — cached free→$0.02 · eu cached free→$0.02</li>
+
+        <li>EUrouter · Llama 3.3 70B Instruct — cached free→$0.71 · eu cached free→$0.71</li>
+
+        <li>EUrouter · Magistral Medium 1.2 — cached free→$2.2 · eu cached free→$2.2</li>
+
+        <li>EUrouter · Magistral Small 1.2 — cached free→$0.55 · eu cached free→$0.55</li>
+
+        <li>EUrouter · MiniMax M2.1 — cached free→$0.36 · eu cached free→$0.36</li>
+
+        <li>EUrouter · Mistral 7B Instruct — cached free→$0.16 · eu cached free→$0.16</li>
+
+        <li>EUrouter · Mistral 7B Instruct v0.3 — cached free→$0.1 · eu cached free→$0.1</li>
+
+        <li>EUrouter · Mistral Large 2402 — cached free→$4.3 · eu cached free→$4.3</li>
+
+        <li>EUrouter · Mistral Medium 3.5 — cached free→$1.5 · eu cached free→$1.5</li>
+
+        <li>EUrouter · Mistral Nemo 12B — cached free→$0.13 · eu cached free→$0.13</li>
+
+        <li>EUrouter · Mistral Small 24B Instruct — cached free→$0.11 · eu cached free→$0.11</li>
+
+        <li>EUrouter · Mistral Small 3.2 24B — cached free→$0.09 · eu cached free→$0.09</li>
+
+        <li>EUrouter · Mixtral 8x7B Instruct — cached free→$0.49 · eu cached free→$0.49</li>
+
+        <li>EUrouter · Nemotron 3 Nano 30B A3B — cached free→$0.06 · eu cached free→$0.06</li>
+
+        <li>EUrouter · Nemotron 3 Super 120B A12B — cached free→$0.3 · eu cached free→$0.3</li>
+
+        <li>EUrouter · Pixtral 12B — cached free→$0.2 · eu cached free→$0.2</li>
+
+        <li>EUrouter · Pixtral Large 25.02 — cached free→$2 · eu cached free→$2</li>
+
+        <li>EUrouter · Qwen 2.5 VL 72B Instruct — cached free→$0.91 · eu cached free→$0.91</li>
+
+        <li>EUrouter · Qwen3 30B A3B Instruct — cached free→$0.1 · eu cached free→$0.1</li>
+
+        <li>EUrouter · Qwen3 32B — cached free→$0.2 · eu cached free→$0.2</li>
+
+        <li>EUrouter · Qwen3 Coder 30B A3B — cached free→$0.06 · eu cached free→$0.06</li>
+
+        <li>EUrouter · Qwen3 Coder 480B A35B Instruct — cached free→$0.45 · eu cached free→$0.45</li>
+
+        <li>EUrouter · Qwen3 Coder Next 80B — cached free→$0.17 · eu cached free→$0.17</li>
+
+      </ul>
+
+
+
+    <p class="changelog-more">… and 26 more</p>
+
+  </div>
+
+  <div class="changelog-entry">
+    <h3 class="changelog-date">2026-10-08</h3>
+
+
+      <h4 class="changelog-group-title cl-add-h">Added <span class="changelog-count">10</span></h4>
+      <ul class="changelog-list">
+
+        <li>Claude API: Claude Haiku 5.5 (for prompts over 100,000 tokens)</li>
+
+        <li>Claude API: Claude Haiku 5.5 (for prompts up to 100,000 tokens)</li>
+
+        <li>Cortecs: claude-haiku-5.5</li>
+
+        <li>EUrouter: Claude Haiku 5.5</li>
+
+        <li>EUrouter: Claude Opus 5.5</li>
+
+        <li>EUrouter: Claude Sonnet 5.5</li>
+
+        <li>OpenCode Zen: Claude Haiku 5.5</li>
+
+        <li>OpenRouter: Anthropic: Claude Haiku 5.5</li>
+
+        <li>OpenRouter: Anthropic: Claude Haiku 5.5 (batch)</li>
+
+        <li>OpenRouter: StepFun: Step 5 Preview</li>
+
+      </ul>
+
+
+
+
+
+      <h4 class="changelog-group-title cl-change-h">Changed <span class="changelog-count">31</span></h4>
+      <ul class="changelog-list">
+
+        <li>Claude API · Claude Sonnet 5.5 — cached $0.2→$0.1</li>
+
+        <li>EUrouter · GLM 5.2 — input $1.1→$1.2 · cached $0.275→$0.26 · output $4.4→$4.2 · eu input $1.1→$1.2 · eu cached $0.275→$0.26 · eu output $4.4→$4.2</li>
+
+        <li>EUrouter · Kimi K2.6 — input $0.66→$0.73 · cached $0.22→$0.25 · output $3.751→$3.5 · eu input $0.66→$0.73 · eu cached $0.22→$0.25 · eu output $3.751→$3.5</li>
+
+        <li>EUrouter · Llama 3.3 70B Instruct — input $0.65→$0.71 · output $0.65→$0.71 · eu input $0.65→$0.71 · eu output $0.65→$0.71</li>
+
+        <li>EUrouter · Qwen3.5 397B A17B — input $0.6→$0.67 · output $3.6→$4 · eu input $0.6→$0.67 · eu output $3.6→$4</li>
+
+        <li>OpenRouter · Anthropic: Claude Sonnet 5.5 — cached $0.2→$0.1 · eu cached $0.22→$0.11</li>
+
+        <li>OpenRouter · Anthropic: Claude Sonnet 5.5 (batch) — cached $0.1→$0.05</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V3.2 — input $0.28→$0.259 · cached $0.028→$0.135</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Flash 0423 — input $0.03→$0.0099 · cached $0.03→$0.0099</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Flash 0731 — input $0.018→$0.0079 · cached $0.018→$0.0079</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Pro 0423 — input $0.2088→$0.2974 · cached $0.0174→$0.02478 · output $0.4176→$0.5947</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4.1 Flash — input $0.05→$0.0356 · cached $0.02→$0.01 · output $1.2→$1</li>
+
+        <li>OpenRouter · Meta: Llama 3.3 70B Instruct — input $0.22→$0.1 · cached $0.11→$0.1 · output $0.5→$0.32</li>
+
+        <li>OpenRouter · MoonshotAI: Kimi K3 — output $15→$12.3</li>
+
+        <li>OpenRouter · NVIDIA: Nemotron 3 Nano 30B A3B — input $0.05→$0.06 · cached $0.03→$0.06 · output $0.2→$0.24</li>
+
+        <li>OpenRouter · NVIDIA: Nemotron 3 Super — input $0.08→$0.085 · cached $0.08→$0.085 · output $0.45→$0.4</li>
+
+        <li>OpenRouter · NVIDIA: Nemotron 3.5 Lightning — input $0.06→$0.049 · cached $0.03→$0.0245 · output $0.16→$0.14</li>
+
+        <li>OpenRouter · Qwen: Qwen3 Next 80B A3B Instruct — input $0.1→$0.15 · cached $0.07→$0.15 · output $1.1→$1.5</li>
+
+        <li>OpenRouter · Qwen: Qwen3.5-27B — input $0.195→$0.26 · cached $0.195→$0.26 · output $1.56→$2.6</li>
+
+        <li>OpenRouter · Qwen: Qwen3.6 27B — input $0.3→$0.45 · cached $0.03→$0.45 · output $2→$2.7</li>
+
+        <li>OpenRouter · Z.ai: GLM 4.6V — cached $0.05→$0.055</li>
+
+        <li>OpenRouter · Z.ai: GLM 5.2 — input $0.171→$0.03 · cached $0.162→$0.03 · output $7.2→$10</li>
+
+        <li>OpenRouter · Z.ai: GLM 5.3 — input $0.07→$0.049 · cached $0.065→$0.048 · output $7→$3.39</li>
+
+        <li>OpenRouter · Anthropic: Claude Haiku Latest — input $1→$0.1 · cached $0.1→$0.01 · output $5→$0.5</li>
+
+        <li>OpenRouter · Anthropic: Claude Sonnet Latest — cached $0.2→$0.1</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek Flash Latest — input $0.05→$0.0356 · cached $0.02→$0.01 · output $1.2→$1</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek Pro Latest — input $0.4→$0.108 · cached $0.033→$0.081 · output $4.3→$8</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Flash Latest — input $0.018→$0.00632 · cached $0.018→$0.00632 · output $1.28→$0.3131</li>
+
+        <li>OpenRouter · MoonshotAI: Kimi Latest — input $0.61→$0.45</li>
+
+        <li>OpenRouter · Z.ai: GLM Flash Latest — input $0.0214→$0.032 · cached $0.0214→$0.02 · output $0.5→$3.336</li>
+
+        <li>OpenRouter · Z.ai: GLM Latest — input $0.063→$0.036 · cached $0.0585→$0.0335 · output $6.3→$12</li>
+
+      </ul>
+
+
+
+  </div>
+
+  <div class="changelog-entry">
+    <h3 class="changelog-date">2026-10-07</h3>
+
+
+      <h4 class="changelog-group-title cl-add-h">Added <span class="changelog-count">7</span></h4>
+      <ul class="changelog-list">
+
+        <li>Cortecs: claude-sonnet-5.5</li>
+
+        <li>Cortecs: mistral-large-4-0</li>
+
+        <li>EUrouter: Qwen3.8 Flash Next</li>
+
+        <li>OpenCode Zen: Exo Free</li>
+
+        <li>OpenCode Zen: Mistral Large 4</li>
+
+        <li>OpenRouter: Google: Nano Banana 2.1</li>
+
+        <li>OpenRouter: Mistral: Mistral Large 4</li>
+
+      </ul>
+
+
+
+      <h4 class="changelog-group-title cl-remove-h">Removed <span class="changelog-count">3</span></h4>
+      <ul class="changelog-list">
+
+        <li>OpenCode Zen: DeepSeek V4 Flash Free</li>
+
+        <li>OpenCode Zen: MiMo V2.5 Free</li>
+
+        <li>OpenRouter: Kwaipilot: KAT-Coder-Pro V2.5</li>
+
+      </ul>
+
+
+
+      <h4 class="changelog-group-title cl-change-h">Changed <span class="changelog-count">18</span></h4>
+      <ul class="changelog-list">
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Flash 0423 — input $0.012→$0.03 · cached $0.012→$0.03</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Flash 0731 — input $0.0134→$0.018 · cached $0.0134→$0.018</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4.1 Flash — input $0.02142→$0.05 · cached $0.0165→$0.02 · output $1.32→$1.2</li>
+
+        <li>OpenRouter · Meta: Llama 4 Maverick — cached $0.1875→$0.05</li>
+
+        <li>OpenRouter · MoonshotAI: Kimi K2.6 — input $0.95→$0.465 · cached $0.16→$0.0975 · output $4→$2.45</li>
+
+        <li>OpenRouter · MoonshotAI: Kimi K3 — input $0.95→$0.62 · cached $0.31→$0.43 · output $14→$15</li>
+
+        <li>OpenRouter · Qwen: Qwen3 30B A3B Instruct 2507 — input $0.1→$0.04815 · cached $0.1→$0.04815 · output $0.3→$0.193</li>
+
+        <li>OpenRouter · Qwen: Qwen3.5-35B-A3B — input $0.08→$0.15 · cached $0.04→$0.05 · output $0.75→$1</li>
+
+        <li>OpenRouter · Qwen: Qwen3.6 27B — input $0.32→$0.3 · output $3.25→$2</li>
+
+        <li>OpenRouter · Thinking Machines: Inkling — input $0.95→$1 · cached $0.16→$0.17</li>
+
+        <li>OpenRouter · Z.ai: GLM 5.1 — input $1.4→$0.966 · cached $0.26→$0.1794 · output $4.4→$3.036</li>
+
+        <li>OpenRouter · Z.ai: GLM 5.2 — input $0.152→$0.171 · cached $0.15→$0.162 · output $12→$7.2</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek Flash Latest — input $0.01947→$0.05 · cached $0.015→$0.02</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek Pro Latest — input $0.152→$0.4 · cached $0.15→$0.033 · output $4.2→$4.3</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Flash Latest — input $0.0134→$0.018 · cached $0.0134→$0.018</li>
+
+        <li>OpenRouter · MoonshotAI: Kimi Latest — input $0.83→$0.61</li>
+
+        <li>OpenRouter · Z.ai: GLM Flash Latest — input $0.0244→$0.0214 · cached $0.0244→$0.0214</li>
+
+        <li>OpenRouter · Z.ai: GLM Latest — input $0.03→$0.063 · cached $0.03→$0.0585 · output $12→$6.3</li>
+
+      </ul>
+
+
+
+  </div>
+
+  <div class="changelog-entry">
+    <h3 class="changelog-date">2026-10-06</h3>
+
+
+
+
+      <h4 class="changelog-group-title cl-remove-h">Removed <span class="changelog-count">2</span></h4>
+      <ul class="changelog-list">
+
+        <li>OpenRouter: Qwen: Qwen3.8 27B (free)</li>
+
+        <li>OpenRouter: Space Bunny Alpha</li>
+
+      </ul>
+
+
+
+      <h4 class="changelog-group-title cl-change-h">Changed <span class="changelog-count">18</span></h4>
+      <ul class="changelog-list">
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Flash 0423 — input $0.03→$0.012 · cached $0.03→$0.012</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Flash 0731 — input $0.0152→$0.0134 · cached $0.0152→$0.0134</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Pro 0813 — input $0.4→$0.66 · cached $0.36→$0.022 · output $5→$1.98</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4.1 Flash — input $0.3→$0.02142 · cached $0.006→$0.0165 · output $1.2→$1.32</li>
+
+        <li>OpenRouter · Meta: Llama 3.3 70B Instruct — input $0.1→$0.22 · cached $0.1→$0.11 · output $0.32→$0.5</li>
+
+        <li>OpenRouter · Meta: Muse Glimmer 30B — input $0.35→$0.3 · output $1.5→$1.2</li>
+
+        <li>OpenRouter · MoonshotAI: Kimi K3 — input $0.67→$0.95 · cached $0.22→$0.31</li>
+
+        <li>OpenRouter · Qwen: Qwen3 235B A22B Instruct 2507 — input $0.0875→$0.09 · cached $0.0175→$0.09 · output $0.35→$0.55</li>
+
+        <li>OpenRouter · Qwen: Qwen3 30B A3B Instruct 2507 — input $0.04815→$0.1 · cached $0.04815→$0.1 · output $0.193→$0.3</li>
+
+        <li>OpenRouter · Qwen: Qwen3.5-35B-A3B — input $0.15→$0.08 · cached $0.05→$0.04 · output $1→$0.75</li>
+
+        <li>OpenRouter · Qwen: Qwen3.5 397B A17B — input $0.55→$0.45 · cached $0.225→$0.22 · output $3.5→$3</li>
+
+        <li>OpenRouter · Z.ai: GLM 5.2 — input $0.0192→$0.152 · cached $0.0192→$0.15 · output $16→$12</li>
+
+        <li>OpenRouter · Z.ai: GLM 5.3 — input $0.05→$0.07 · cached $0.045→$0.065</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek Flash Latest — input $0.003→$0.01947 · cached $0.003→$0.015 · output $2.4→$1.2</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek Pro Latest — input $0.1901→$0.152 · cached $0.19→$0.15</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Flash Latest — input $0.0152→$0.0134 · cached $0.0152→$0.0134</li>
+
+        <li>OpenRouter · MoonshotAI: Kimi Latest — input $0.66→$0.83</li>
+
+        <li>OpenRouter · Z.ai: GLM Flash Latest — input $0.0352→$0.0244 · cached $0.0232→$0.0244</li>
+
+      </ul>
+
+
+
+  </div>
+
+  <div class="changelog-entry">
+    <h3 class="changelog-date">2026-10-05</h3>
+
+
+
+
+      <h4 class="changelog-group-title cl-remove-h">Removed <span class="changelog-count">6</span></h4>
+      <ul class="changelog-list">
+
+        <li>Cortecs: deepseek-r1-0528</li>
+
+        <li>Cortecs: glm-5</li>
+
+        <li>Cortecs: glm-5-turbo</li>
+
+        <li>Cortecs: glm-5v-turbo</li>
+
+        <li>Cortecs: kimi-k2.5</li>
+
+        <li>Cortecs: qwen3.5-122b-a10b</li>
+
+      </ul>
+
+
+
+      <h4 class="changelog-group-title cl-change-h">Changed <span class="changelog-count">20</span></h4>
+      <ul class="changelog-list">
+
+        <li>Cortecs · deepseek-v3.2 — input $0.266→$0.449 · cached $0.067→$0.135 · output $0.444→$1.346 · eu input $0.266→$0.449 · eu cached $0.067→$0.135 · eu output $0.444→$1.346</li>
+
+        <li>Cortecs · glm-5.1 — cached $0.311→$1.242 · eu cached $0.311→$1.242</li>
+
+        <li>Cortecs · minimax-m2.5 — input $0.266→$0.312 · cached $0.067→$0.312 · output $1.065→$1.248</li>
+
+        <li>Cortecs · qwen3-235b-a22b-instruct-2507 — input $0.062→$0.179 · cached $0.016→$0.179 · output $0.408→$0.537 · eu input $0.062→$0.179 · eu cached $0.016→$0.179 · eu output $0.408→$0.537</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V3 0324 — input $0.25→$0.29 · cached $0.25→$0.11 · output $1→$1.14</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Flash 0423 — input $0.0224→$0.03 · cached $0.0224→$0.03</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Pro 0813 — input $0.85→$0.4 · cached $0.7→$0.36</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4.1 Flash — input $0.003→$0.3 · cached $0.003→$0.006 · output $2.4→$1.2</li>
+
+        <li>OpenRouter · Google: Gemma 4 26B A4B — input $0.0675→$0.09 · cached $0.0375→$0.05 · output $0.225→$0.3</li>
+
+        <li>OpenRouter · Meta: Llama 3.3 70B Instruct — input $0.22→$0.1 · cached $0.11→$0.1 · output $0.5→$0.32</li>
+
+        <li>OpenRouter · MoonshotAI: Kimi K3 — input $0.72→$0.67 · cached $0.7→$0.22 · output $13→$14</li>
+
+        <li>OpenRouter · NVIDIA: Nemotron 3.5 Lightning — input $0.0595→$0.06 · cached $0.02975→$0.03 · output $0.17→$0.16</li>
+
+        <li>OpenRouter · OpenAI: GPT-5.6 Sol Pro — input $4→$2 · cached $0.4→$0.2 · output $20→$10</li>
+
+        <li>OpenRouter · Qwen: Qwen3.6 27B — cached $0.32→$0.03 · output $3.2→$3.25</li>
+
+        <li>OpenRouter · Z.ai: GLM 5.2 — input $0.38→$0.0192 · cached $0.26→$0.0192 · output $3.49→$16 · eu input $1.25→$1.39 · eu cached $0.23→$0.25</li>
+
+        <li>OpenRouter · Z.ai: GLM 5.3 — input $1.4→$0.05 · cached $0.14→$0.045 · output $4.4→$7 · eu input $1.54→$0.6 · eu cached $0.154→$0.2 · eu output $4.84→$3.39</li>
+
+        <li>OpenRouter · Z.ai: GLM 5.3 Flash — eu cached $0.08→$0.09 · eu output $0.45→$0.6</li>
+
+        <li>OpenRouter · MoonshotAI: Kimi Latest — input $0.6438→$0.66</li>
+
+        <li>OpenRouter · Z.ai: GLM Flash Latest — cached $0.0352→$0.0232</li>
+
+        <li>OpenRouter · Z.ai: GLM Latest — input $0.05→$0.03 · cached $0.04→$0.03 · output $5→$12</li>
+
+      </ul>
+
+
+
+  </div>
+
+  <div class="changelog-entry">
+    <h3 class="changelog-date">2026-10-04</h3>
+
+
+
+
+
+
+      <h4 class="changelog-group-title cl-change-h">Changed <span class="changelog-count">15</span></h4>
+      <ul class="changelog-list">
+
+        <li>OpenRouter · DeepSeek: DeepSeek V3 0324 — input $0.29→$0.25 · cached $0.11→$0.25 · output $1.14→$1</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Flash 0423 — input $0.028→$0.0224 · cached $0.0056→$0.0224 · output $0.056→$1.28</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Flash 0731 — input $0.0188→$0.0152 · cached $0.0188→$0.0152</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Pro 0813 — input $0.66→$0.85 · cached $0.022→$0.7 · output $1.98→$5</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4.1 Flash — input $0.3→$0.003 · cached $0.006→$0.003 · output $1.2→$2.4</li>
+
+        <li>OpenRouter · Meta: Llama 3.3 70B Instruct — input $0.1→$0.22 · cached $0.1→$0.11 · output $0.32→$0.5</li>
+
+        <li>OpenRouter · MoonshotAI: Kimi K3 — input $2.7→$0.72 · cached $0.27→$0.7 · output $13.5→$13</li>
+
+        <li>OpenRouter · Qwen: Qwen3.8 27B — input $0.42→$0.425 · output $3→$2.55</li>
+
+        <li>OpenRouter · Z.ai: GLM 5.2 — input $0.41→$0.38 · output $3.99→$3.49</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek Flash Latest — input $0.02→$0.003 · cached $0.01→$0.003 · output $0.6→$2.4</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek Pro Latest — input $0.12→$0.1901 · cached $0.1→$0.19</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Flash Latest — input $0.0188→$0.0152 · cached $0.0188→$0.0152</li>
+
+        <li>OpenRouter · MoonshotAI: Kimi Latest — input $0.9895→$0.6438</li>
+
+        <li>OpenRouter · Z.ai: GLM Flash Latest — input $0.035→$0.0352 · cached $0.035→$0.0352</li>
+
+        <li>OpenRouter · Z.ai: GLM Latest — input $0.12→$0.05 · cached $0.08→$0.04 · output $4→$5</li>
+
+      </ul>
+
+
+
+  </div>
+
+  <div class="changelog-entry">
+    <h3 class="changelog-date">2026-10-03</h3>
+
+
+      <h4 class="changelog-group-title cl-add-h">Added <span class="changelog-count">2</span></h4>
+      <ul class="changelog-list">
+
+        <li>OpenCode Zen: Ling 3.1 Flash Free</li>
+
+        <li>OpenRouter: inclusionAI: Ling 3.1 Flash</li>
+
+      </ul>
+
+
+
+
+
+      <h4 class="changelog-group-title cl-change-h">Changed <span class="changelog-count">15</span></h4>
+      <ul class="changelog-list">
+
+        <li>OpenRouter · DeepSeek: DeepSeek V3.1 Terminus — input $0.3→$0.27 · cached $0.135→$0.27</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Flash 0423 — input $0.042→$0.028 · cached $0.0084→$0.0056 · output $0.084→$0.056</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Flash 0731 — input $0.0171→$0.0188 · cached $0.0171→$0.0188</li>
+
+        <li>OpenRouter · Google: Gemma 4 26B A4B — input $0.09→$0.0675 · cached $0.05→$0.0375 · output $0.3→$0.225</li>
+
+        <li>OpenRouter · inclusionAI: Ling 3.0 Flash Fin — input $0.06→$0.042 · cached $0.012→$0.0084 · output $0.18→$0.1232</li>
+
+        <li>OpenRouter · MoonshotAI: Kimi K2 Thinking — cached $0.15→$0.6</li>
+
+        <li>OpenRouter · MoonshotAI: Kimi K2.6 — input $0.4341→$0.95 · cached $0.07312→$0.16 · output $1.828→$4 · eu input $0.4344→$0.465 · eu cached $0.12→$0.0975</li>
+
+        <li>OpenRouter · NVIDIA: Nemotron 3.5 Lightning — input $0.06→$0.0595 · cached $0.03→$0.02975 · output $0.16→$0.17</li>
+
+        <li>OpenRouter · Z.ai: GLM 5.1 — input $0.9646→$1.4 · cached $0.1791→$0.26 · output $3.032→$4.4</li>
+
+        <li>OpenRouter · Z.ai: GLM 5.2 — eu input $1.39→$1.25 · eu cached $0.25→$0.23</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek Flash Latest — input $0.015→$0.02 · cached $0.002115→$0.01 · output $1.2→$0.6</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek Pro Latest — input $0.132→$0.12 · cached $0.0042→$0.1 · output $0.396→$4.2</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Flash Latest — input $0.01282→$0.0188 · cached $0.01282→$0.0188 · output $1.6→$1.28</li>
+
+        <li>OpenRouter · MoonshotAI: Kimi Latest — input $1.39→$0.9895 · cached $0.8→$0.45</li>
+
+        <li>OpenRouter · Z.ai: GLM Flash Latest — input $0.02625→$0.035 · cached $0.01125→$0.035 · output $0.9→$0.5</li>
+
+      </ul>
+
+
+
+  </div>
+
+  <div class="changelog-entry">
+    <h3 class="changelog-date">2026-10-02</h3>
+
+
+      <h4 class="changelog-group-title cl-add-h">Added <span class="changelog-count">3</span></h4>
+      <ul class="changelog-list">
+
+        <li>OpenCode Zen: Fledge Alpha Free</li>
+
+        <li>OpenRouter: Apodex: Apodex 1.1 Mini (free)</li>
+
+        <li>OpenRouter: Pareto 26.10 Preview</li>
+
+      </ul>
+
+
+
+
+
+      <h4 class="changelog-group-title cl-change-h">Changed <span class="changelog-count">16</span></h4>
+      <ul class="changelog-list">
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Flash 0423 — input $0.04186→$0.042 · cached $0.008372→$0.0084 · output $0.08372→$0.084</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Flash 0731 — input $0.0108→$0.0171 · cached $0.0108→$0.0171</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4.1 Flash — input $0.03→$0.3 · cached $0.01→$0.006 · output $0.5→$1.2</li>
+
+        <li>OpenRouter · MoonshotAI: Kimi K2 Thinking — cached $0.6→$0.15</li>
+
+        <li>OpenRouter · MoonshotAI: Kimi K3 — input $0.6943→$2.7 · cached $0.6943→$0.27 · output $10→$13.5</li>
+
+        <li>OpenRouter · NVIDIA: Nemotron 3 Ultra — input $0.6→$0.5 · cached $0.12→$0.1 · output $2.4→$2.2</li>
+
+        <li>OpenRouter · NVIDIA: Nemotron 3.5 Lightning — input $0.0595→$0.06 · cached $0.02975→$0.03 · output $0.17→$0.16</li>
+
+        <li>OpenRouter · Qwen: Qwen3.5-35B-A3B — input $0.1625→$0.15 · cached $0.1625→$0.05 · output $1.3→$1</li>
+
+        <li>OpenRouter · Thinking Machines: Inkling — input $1→$0.95 · cached $0.17→$0.16</li>
+
+        <li>OpenRouter · Z.ai: GLM 5.3 — input $0.2219→$1.4 · cached $0.1775→$0.14 · output $3.39→$4.4 · eu input $0.6→$1.54 · eu cached $0.1836→$0.154 · eu output $3.39→$4.84</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek Flash Latest — input $0.0243→$0.015 · cached $0.0243→$0.002115 · output $0.6→$1.2</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek Pro Latest — input $0.1853→$0.132 · cached $0.1853→$0.0042 · output $3.5→$0.396</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Flash Latest — input $0.0108→$0.01282 · cached $0.0108→$0.01282 · output $1.28→$1.6</li>
+
+        <li>OpenRouter · MoonshotAI: Kimi Latest — input $0.6943→$1.39 · cached $0.6943→$0.8 · output $10→$13</li>
+
+        <li>OpenRouter · Z.ai: GLM Flash Latest — input $0.02→$0.02625 · cached $0.01→$0.01125 · output $0.3→$0.9</li>
+
+        <li>OpenRouter · Z.ai: GLM Latest — input $0.06→$0.12 · cached $0.176→$0.08 · output $2.694→$4</li>
+
+      </ul>
+
+
+
+  </div>
+
+  <div class="changelog-entry">
+    <h3 class="changelog-date">2026-10-01</h3>
+
+
+
+
+      <h4 class="changelog-group-title cl-remove-h">Removed <span class="changelog-count">3</span></h4>
+      <ul class="changelog-list">
+
+        <li>Cortecs: minimax-m2.7</li>
+
+        <li>OpenRouter: OpenAI: GPT-6.1 Sol Pro (batch)</li>
+
+        <li>OpenRouter: OpenAI: GPT-6.1 Sol (batch)</li>
+
+      </ul>
+
+
+
+      <h4 class="changelog-group-title cl-change-h">Changed <span class="changelog-count">21</span></h4>
+      <ul class="changelog-list">
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Flash 0423 — input $0.08176→$0.04186 · cached $0.01635→$0.008372 · output $0.1635→$0.08372</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Flash 0731 — input $0.01→$0.0108 · cached $0.01→$0.0108 · eu input $0.056→$0.05</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Pro 0423 — input $0.783→$0.2088 · cached $0.06525→$0.0174 · output $1.566→$0.4176</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4.1 Flash — input $0.0198→$0.03 · cached $0.00291→$0.01 · output $0.396→$0.5</li>
+
+        <li>OpenRouter · MiniMax: MiniMax M1 — input $0.4→$0.55 · cached $0.4→$0.55</li>
+
+        <li>OpenRouter · MoonshotAI: Kimi K2 Thinking — cached $0.15→$0.6</li>
+
+        <li>OpenRouter · MoonshotAI: Kimi K2.6 — input $0.65→$0.4341 · cached $0.15→$0.07312 · output $3.41→$1.828 · eu input $0.441→$0.4344 · eu cached $0.1224→$0.12</li>
+
+        <li>OpenRouter · MoonshotAI: Kimi K3 — input $3→$0.6943 · cached $0.3→$0.6943 · output $15→$10</li>
+
+        <li>OpenRouter · NVIDIA: Nemotron 3.5 Lightning — input $0.06→$0.0595 · cached $0.03→$0.02975 · output $0.16→$0.17</li>
+
+        <li>OpenRouter · Qwen: Qwen3 30B A3B — input $0.13→$0.12 · cached $0.13→$0.12 · output $0.52→$0.5</li>
+
+        <li>OpenRouter · Qwen: Qwen3.8 27B — input $0.0249→$0.42 · cached $0.0199→$0.085 · output $4.35→$3</li>
+
+        <li>OpenRouter · Z.ai: GLM 4.6V — cached $0.055→$0.05</li>
+
+        <li>OpenRouter · Z.ai: GLM 5.1 — input $1.4→$0.9646 · cached $0.26→$0.1791 · output $4.4→$3.032</li>
+
+        <li>OpenRouter · Z.ai: GLM 5.2 — eu input $0.75→$1.39 · eu cached $0.169→$0.25 · eu output $2.4→$4.39</li>
+
+        <li>OpenRouter · Z.ai: GLM 5.3 — input $1.4→$0.2219 · cached $0.26→$0.1775 · output $4.4→$3.39</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek Flash Latest — input $0.0198→$0.0243 · cached $0.00291→$0.0243 · output $0.396→$0.6</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek Pro Latest — input $0.123→$0.1853 · cached $0.123→$0.1853</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Flash Latest — input $0.0099→$0.0108 · cached $0.001386→$0.0108 · output $0.1307→$1.28</li>
+
+        <li>OpenRouter · MoonshotAI: Kimi Latest — input $0.3654→$0.6943 · cached $0.4→$0.6943 · output $9.134→$10</li>
+
+        <li>OpenRouter · Z.ai: GLM Flash Latest — output $0.2475→$0.3</li>
+
+        <li>OpenRouter · Z.ai: GLM Latest — input $0.13→$0.06 · cached $0.13→$0.176 · output $4→$2.694</li>
+
+      </ul>
+
+
+
+  </div>
+
+  <div class="changelog-entry">
+    <h3 class="changelog-date">2026-09-30</h3>
+
+
+      <h4 class="changelog-group-title cl-add-h">Added <span class="changelog-count">7</span></h4>
+      <ul class="changelog-list">
+
+        <li>Cortecs: gpt-6.1-sol</li>
+
+        <li>OpenAI API: gpt-6.1-sol</li>
+
+        <li>OpenCode Zen: GPT-6.1 Sol</li>
+
+        <li>OpenRouter: OpenAI: GPT-6.1 Sol</li>
+
+        <li>OpenRouter: OpenAI: GPT-6.1 Sol Pro</li>
+
+        <li>OpenRouter: OpenAI: GPT-6.1 Sol Pro (batch)</li>
+
+        <li>OpenRouter: OpenAI: GPT-6.1 Sol (batch)</li>
+
+      </ul>
+
+
+
+
+
+      <h4 class="changelog-group-title cl-change-h">Changed <span class="changelog-count">22</span></h4>
+      <ul class="changelog-list">
+
+        <li>Cortecs · claude-sonnet-4 — input $2.601→$2.683 · cached $0.26→$0.266 · output $13.01→$13.42</li>
+
+        <li>Cortecs · deepseek-v4.1-flash — input $0.269→$0.18 · cached $0.067→$0.004 · output $1.077→$0.539 · eu input $0.269→$0.18 · eu cached $0.067→$0.004 · eu output $1.077→$0.539</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Flash 0423 — input $0.14→$0.08176 · cached $0.028→$0.01635 · output $0.28→$0.1635</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Flash 0731 — input $0.018→$0.01 · cached $0.018→$0.01 · output $0.32→$1.28</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Pro 0423 — input $0.9553→$0.783 · cached $0.0796→$0.06525 · output $1.911→$1.566</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Pro 0813 — input $0.48→$0.66 · cached $0.384→$0.022 · output $4.2→$1.98</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4.1 Flash — input $0.3→$0.0198 · cached $0.006→$0.00291 · output $1.2→$0.396</li>
+
+        <li>OpenRouter · Meta: Muse Glimmer 30B — input $0.3→$0.35 · output $1.2→$1.5</li>
+
+        <li>OpenRouter · MoonshotAI: Kimi K2.6 — eu input $0.465→$0.441 · eu cached $0.0975→$0.1224</li>
+
+        <li>OpenRouter · MoonshotAI: Kimi K2.7 Code — input $0.6562→$0.6712 · output $3.3→$3.35 · eu input $0.6562→$0.6712 · eu output $3.3→$3.35</li>
+
+        <li>OpenRouter · Qwen: Qwen3 30B A3B — input $0.12→$0.13 · cached $0.12→$0.13 · output $0.5→$0.52</li>
+
+        <li>OpenRouter · Qwen: Qwen3.8 27B — input $0.0449→$0.0249 · cached $0.0359→$0.0199 · output $4.4→$4.35</li>
+
+        <li>OpenRouter · Z.ai: GLM 4.6V — cached $0.05→$0.055</li>
+
+        <li>OpenRouter · Z.ai: GLM 5.2 — input $0.1949→$0.41 · cached $0.1559→$0.26 · output $4.4→$3.99 · eu input $0.3916→$0.75 · eu output $2.867→$2.4</li>
+
+        <li>OpenRouter · Z.ai: GLM 5.3 — eu input $0.31→$0.6 · eu output $2.617→$3.39</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek Flash Latest — input $0.02→$0.0198 · cached $0.02→$0.00291 · output $0.6→$0.396</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek Pro Latest — input $0.096→$0.123 · cached $0.07488→$0.123 · output $1.958→$3.5</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Flash Latest — input $0.012→$0.0099 · cached $0.01→$0.001386 · output $1.25→$0.1307</li>
+
+        <li>OpenRouter · MoonshotAI: Kimi Latest — input $0.4→$0.3654 · output $10→$9.134</li>
+
+        <li>OpenRouter · OpenAI: GPT Sol Latest — cached $0.2→$0.1</li>
+
+        <li>OpenRouter · Z.ai: GLM Flash Latest — output $0.3→$0.2475</li>
+
+        <li>OpenRouter · Z.ai: GLM Latest — input $0.19→$0.13 · cached $0.19→$0.13</li>
+
+      </ul>
+
+
+
+  </div>
+
+  <div class="changelog-entry">
+    <h3 class="changelog-date">2026-09-29</h3>
+
+
+
+
+
+
+      <h4 class="changelog-group-title cl-change-h">Changed <span class="changelog-count">7</span></h4>
+      <ul class="changelog-list">
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Flash 0731 — eu output $0.7946→$0.65</li>
+
+        <li>OpenRouter · MoonshotAI: Kimi K2.6 — eu input $0.475→$0.465</li>
+
+        <li>OpenRouter · Qwen: Qwen3 30B A3B — input $0.13→$0.12 · cached $0.13→$0.12 · output $0.52→$0.5</li>
+
+        <li>OpenRouter · Qwen: Qwen3.8 27B — input $0.0626→$0.0449 · cached $0.0501→$0.0359</li>
+
+        <li>OpenRouter · Z.ai: GLM 5.2 — input $0.39→$0.1949 · cached $0.2599→$0.1559 · eu input $0.3933→$0.3916 · eu cached $0.191→$0.169 · eu output $2.95→$2.867</li>
+
+        <li>OpenRouter · Z.ai: GLM 5.3 — eu input $0.3237→$0.31 · eu cached $0.1598→$0.1836 · eu output $3.34→$2.617</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek Pro Latest — input $0.1581→$0.096</li>
+
+      </ul>
+
+
+
+  </div>
+
+  <div class="changelog-entry">
+    <h3 class="changelog-date">2026-09-28</h3>
+
+
+
+
+
+
+      <h4 class="changelog-group-title cl-change-h">Changed <span class="changelog-count">18</span></h4>
+      <ul class="changelog-list">
+
+        <li>OpenRouter · DeepSeek: DeepSeek V3 — input $0.32→$0.2574 · cached $0.32→$0.2574 · output $0.89→$1.029</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V3 0324 — input $0.25→$0.29 · cached $0.25→$0.11 · output $1→$1.14</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V3.2 — input $0.269→$0.28 · cached $0.1345→$0.028 · output $0.4→$0.42</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Flash 0423 — input $0.0469→$0.08848 · cached $0.00938→$0.0177 · output $0.0938→$0.177</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Flash 0731 — eu cached $0.03→$0.027 · eu output $0.2712→$0.3795</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Flash Vision Exp — input $0.2156→$0.44 · cached $0.00686→$0.014 · output $0.6468→$1.32</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Pro 0423 — input $0.348→$0.9553 · cached $0.029→$0.0796 · output $0.696→$1.911</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Pro 0813 — input $0.245→$0.3995 · cached $0.2445→$0.399 · output $3.5→$4.2</li>
+
+        <li>OpenRouter · Google: Gemma 4 26B A4B — input $0.0675→$0.09 · cached $0.0375→$0.05 · output $0.225→$0.3</li>
+
+        <li>OpenRouter · MiniMax: MiniMax M2 — input $0.255→$0.3 · cached $0.255→$0.3 · output $1.02→$1.2</li>
+
+        <li>OpenRouter · MiniMax: MiniMax M2.7 — input $0.21→$0.3 · cached $0.042→$0.06 · output $0.84→$1.2</li>
+
+        <li>OpenRouter · MoonshotAI: Kimi K2.6 — input $0.95→$0.65 · cached $0.16→$0.15 · output $4→$3.41 · eu input $0.4088→$0.475 · eu cached $0.0891→$0.0975</li>
+
+        <li>OpenRouter · Qwen: Qwen3.5-35B-A3B — input $0.3125→$0.1625 · cached $0.1562→$0.1625 · output $1.25→$1.3</li>
+
+        <li>OpenRouter · Z.ai: GLM 5.2 — eu input $0.4886→$0.4624 · eu cached $0.1361→$0.221 · eu output $1.919→$3.117</li>
+
+        <li>OpenRouter · Z.ai: GLM 5.3 — eu input $0.3032→$0.3368 · eu cached $0.0623→$0.1637 · eu output $2.515→$2.542</li>
+
+        <li>OpenRouter · Z.ai: GLM 5.3 Flash — input $0.045→$0.15 · cached $0.01→$0.03 · output $0.14→$0.5</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek Pro Latest — input $0.2442→$0.2259 · cached $0.00777→$0.08832 · output $0.7326→$1.958</li>
+
+        <li>OpenRouter · Z.ai: GLM Latest — input $0.2737→$0.1785 · cached $0.04496→$0.1466 · output $2.574→$2.805</li>
+
+      </ul>
+
+
+
+  </div>
+
+  <div class="changelog-entry">
+    <h3 class="changelog-date">2026-09-27</h3>
+
+
+      <h4 class="changelog-group-title cl-add-h">Added <span class="changelog-count">1</span></h4>
+      <ul class="changelog-list">
+
+        <li>OpenCode Zen: LongCat 2.5 Preview Free</li>
+
+      </ul>
+
+
+
+
+
+      <h4 class="changelog-group-title cl-change-h">Changed <span class="changelog-count">14</span></h4>
+      <ul class="changelog-list">
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Flash 0423 — input $0.04704→$0.0469 · cached $0.009408→$0.00938 · output $0.09408→$0.0938</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Flash Vision Exp — input $0.22→$0.2156 · cached $0.007→$0.00686 · output $0.66→$0.6468</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Pro 0813 — input $0.264→$0.245 · cached $0.0088→$0.2445 · output $0.792→$3.5</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4.1 Flash — input $0.3→$0.035 · cached $0.006→$0.001 · output $1.2→$0.29</li>
+
+        <li>OpenRouter · MiniMax: MiniMax M2 — input $0.3→$0.255 · cached $0.3→$0.255 · output $1.2→$1.02</li>
+
+        <li>OpenRouter · MiniMax: MiniMax M2.7 — input $0.3→$0.21 · cached $0.06→$0.042 · output $1.2→$0.84</li>
+
+        <li>OpenRouter · MoonshotAI: Kimi K2.6 — eu input $0.4344→$0.4088 · eu cached $0.1047→$0.0891</li>
+
+        <li>OpenRouter · Z.ai: GLM 5.2 — eu cached $0.1815→$0.1361 · eu output $2.073→$1.919</li>
+
+        <li>OpenRouter · Z.ai: GLM 5.3 — input $0.3794→$1.4 · cached $0.07046→$0.26 · output $1.192→$4.4 · eu input $0.3989→$0.3032 · eu cached $0.1017→$0.0623 · eu output $1.671→$2.515</li>
+
+        <li>OpenRouter · Z.ai: GLM 5.3 Flash — input $0.04→$0.045 · cached $0.015→$0.01 · output $0.5→$0.14</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek Pro Latest — input $0.2495→$0.2442 · cached $0.007938→$0.00777 · output $0.7484→$0.7326</li>
+
+        <li>OpenRouter · MoonshotAI: Kimi Latest — input $1.03→$1 · output $9.043→$9</li>
+
+        <li>OpenRouter · Z.ai: GLM Flash Latest — input $0.04→$0.045 · cached $0.015→$0.01 · output $0.5→$0.14</li>
+
+        <li>OpenRouter · Z.ai: GLM Latest — input $0.3794→$0.2737 · cached $0.07046→$0.04496 · output $1.192→$2.574</li>
+
+      </ul>
+
+
+
+  </div>
+
+  <div class="changelog-entry">
+    <h3 class="changelog-date">2026-09-26</h3>
+
+
+      <h4 class="changelog-group-title cl-add-h">Added <span class="changelog-count">1</span></h4>
+      <ul class="changelog-list">
+
+        <li>OpenRouter: Perceptron: Perceptron Mk1.5</li>
+
+      </ul>
+
+
+
+      <h4 class="changelog-group-title cl-remove-h">Removed <span class="changelog-count">2</span></h4>
+      <ul class="changelog-list">
+
+        <li>OpenRouter: Anthropic: Claude 3 Haiku</li>
+
+        <li>OpenRouter: Z.ai: GLM 5.2 (free)</li>
+
+      </ul>
+
+
+
+      <h4 class="changelog-group-title cl-change-h">Changed <span class="changelog-count">18</span></h4>
+      <ul class="changelog-list">
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Flash 0423 — input $0.04844→$0.04704 · cached $0.009688→$0.009408 · output $0.09688→$0.09408</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Flash 0731 — input $0.03→$0.021 · eu input $0.0444→$0.039 · eu output $0.3192→$0.2712</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Pro 0423 — input $0.7332→$0.348 · cached $0.0611→$0.029 · output $1.466→$0.696</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Pro 0813 — input $0.3458→$0.264 · cached $0.01153→$0.0088 · output $1.038→$0.792</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4.1 Flash — input $0.15→$0.3 · cached $0.003→$0.006 · output $0.6→$1.2</li>
+
+        <li>OpenRouter · MoonshotAI: Kimi K2.6 — eu input $0.4384→$0.4344 · eu cached $0.1059→$0.1047</li>
+
+        <li>OpenRouter · NVIDIA: Nemotron 3.5 Lightning — input $0.07→$0.08</li>
+
+        <li>OpenRouter · Qwen: Qwen3.6 27B — cached $0.15→$0.32 · output $2.7→$3.2</li>
+
+        <li>OpenRouter · Tencent: Hy3 — input $0.0825→$0.132 · cached $0.02063→$0.033 · output $0.33→$0.528</li>
+
+        <li>OpenRouter · Z.ai: GLM 5.2 — eu input $0.5544→$0.4886 · eu cached $0.2059→$0.1815 · eu output $2.352→$2.073</li>
+
+        <li>OpenRouter · Z.ai: GLM 5.3 — input $1.4→$0.3794 · cached $0.26→$0.07046 · output $4.4→$1.192 · eu input $0.5971→$0.3989 · eu cached $0.1522→$0.1017 · eu output $2.502→$1.671</li>
+
+        <li>OpenRouter · Z.ai: GLM 5.3 Flash — input $0.045→$0.04 · cached $0.01→$0.015 · output $0.14→$0.5</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek Flash Latest — input $0.04→$0.035 · cached $0.01→$0.001 · output $0.49→$0.29</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek Pro Latest — input $0.2528→$0.2495 · cached $0.08832→$0.007938 · output $1.958→$0.7484</li>
+
+        <li>OpenRouter · DeepSeek: DeepSeek V4 Flash Latest — input $0.03→$0.021</li>
+
+        <li>OpenRouter · MoonshotAI: Kimi Latest — input $0.8845→$1.03 · cached $0.33→$0.3 · output $10.53→$9.043</li>
+
+        <li>OpenRouter · Z.ai: GLM Flash Latest — input $0.045→$0.04 · cached $0.01→$0.015 · output $0.14→$0.5</li>
+
+        <li>OpenRouter · Z.ai: GLM Latest — input $0.5614→$0.3794 · cached $0.1043→$0.07046 · output $1.764→$1.192</li>
+
+      </ul>
+
+
+
+  </div>
+
+  <div class="changelog-entry">
+    <h3 class="changelog-date">2026-09-25</h3>
+
+
+      <h4 class="changelog-group-title cl-add-h">Added <span class="changelog-count">50</span></h4>
+      <ul class="changelog-list">
+
+        <li>DeepSeek API: deepseek-flash</li>
+
+        <li>DeepSeek API: deepseek-v4-pro</li>
+
+        <li>OpenCode Zen: Big Pickle</li>
+
+        <li>OpenCode Zen: Claude Fable 5</li>
+
+        <li>OpenCode Zen: Claude Fable 5.1</li>
+
+        <li>OpenCode Zen: Claude Haiku 4.5</li>
+
+        <li>OpenCode Zen: Claude Opus 4.5</li>
+
+        <li>OpenCode Zen: Claude Opus 4.6</li>
+
+        <li>OpenCode Zen: Claude Opus 4.7</li>
+
+        <li>OpenCode Zen: Claude Opus 4.8</li>
+
+        <li>OpenCode Zen: Claude Opus 5</li>
+
+        <li>OpenCode Zen: Claude Opus 5.5</li>
+
+        <li>OpenCode Zen: Claude Sonnet 4</li>
+
+        <li>OpenCode Zen: Claude Sonnet 4.5</li>
+
+        <li>OpenCode Zen: Claude Sonnet 4.6</li>
+
+        <li>OpenCode Zen: Claude Sonnet 5</li>
+
+        <li>OpenCode Zen: DeepSeek V4 Flash</li>
+
+        <li>OpenCode Zen: DeepSeek V4 Flash Free</li>
+
+        <li>OpenCode Zen: DeepSeek V4 Flash Vision Exp</li>
+
+        <li>OpenCode Zen: DeepSeek V4 Pro</li>
+
+        <li>OpenCode Zen: DeepSeek V4.1 Flash</li>
+
+        <li>OpenCode Zen: Gemini 3 Flash</li>
+
+        <li>OpenCode Zen: Gemini 3.1 Pro Preview</li>
+
+        <li>OpenCode Zen: Gemini 3.5 Flash</li>
+
+        <li>OpenCode Zen: Gemini 3.5 Flash Lite</li>
+
+        <li>OpenCode Zen: Gemini 3.6 Flash</li>
+
+        <li>OpenCode Zen: Gemini 3.7 Flash</li>
+
+        <li>OpenCode Zen: Gemini 3.8 Flash</li>
+
+        <li>OpenCode Zen: GLM-5</li>
+
+        <li>OpenCode Zen: GLM-5.1</li>
+
+        <li>OpenCode Zen: GLM-5.2</li>
+
+        <li>OpenCode Zen: GLM-5.3</li>
+
+        <li>OpenCode Zen: GLM-5.3-Flash</li>
+
+        <li>OpenCode Zen: GPT-5</li>
+
+        <li>OpenCode Zen: GPT-5 Codex</li>
+
+        <li>OpenCode Zen: GPT-5 Nano</li>
+
+        <li>OpenCode Zen: GPT-5.1</li>
+
+        <li>OpenCode Zen: GPT-5.1 Codex</li>
+
+        <li>OpenCode Zen: GPT-5.1 Codex Max</li>
+
+        <li>OpenCode Zen: GPT-5.1 Codex Mini</li>
+
+        <li>OpenCode Zen: GPT-5.2</li>
+
+        <li>OpenCode Zen: GPT-5.2 Codex</li>
+
+        <li>OpenCode Zen: GPT-5.3 Codex</li>
+
+        <li>OpenCode Zen: GPT-5.3 Codex Spark</li>
+
+        <li>OpenCode Zen: GPT-5.4</li>
+
+        <li>OpenCode Zen: GPT-5.4 Mini</li>
+
+        <li>OpenCode Zen: GPT-5.4 Nano</li>
+
+        <li>OpenCode Zen: GPT-5.4 Pro</li>
+
+        <li>OpenCode Zen: GPT-5.5</li>
+
+        <li>OpenCode Zen: GPT-5.5 Pro</li>
+
+      </ul>
+
+
+
+
+
+
+
+    <p class="changelog-more">… and 47 more</p>
+
   </div>
 
 

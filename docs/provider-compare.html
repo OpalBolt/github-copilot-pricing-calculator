@@ -1246,9 +1246,16 @@
     font-size: 14px; line-height: 1.45;
   }
   .changelog-list li:last-child { border-bottom: none; }
-  .cl-add { color: var(--add-fg); }
-  .cl-remove { color: var(--remove-fg); }
-  .cl-change { color: var(--slate-8); }
+  .changelog-group-title {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; margin: 14px 0 6px;
+  }
+  .changelog-group-title.cl-add-h { color: var(--add-fg); }
+  .changelog-group-title.cl-remove-h { color: var(--remove-fg); }
+  .changelog-group-title.cl-change-h { color: var(--slate-6); }
+  .changelog-count { color: var(--slate-5); font-weight: 500; }
+  .changelog-more { color: var(--slate-5); font-style: italic; margin-top: 6px; }
+  .changelog-list li { color: var(--slate-8); }
 
 </style>
 <script>
@@ -2322,23 +2329,289 @@
 
 <div class="changelog">
 
-  <p class="changelog-intro">Newest first · 1 recorded day of change. Entries appear automatically whenever the daily data fetch changes a price, model, or plan.</p>
+  <p class="changelog-intro">Newest first · 11 recorded days of change. Entries appear automatically whenever the daily data fetch changes a price, model, or plan.</p>
 
   <div class="changelog-entry">
     <h3 class="changelog-date">2026-10-14</h3>
-    <ul class="changelog-list">
 
-      <li class="cl-add">+ OpenCode Go: Cat Jam Free added</li>
 
-      <li class="cl-add">+ z.ai: glm-5.2 added (input $1.4 · cached $0.26 · output $4.4)</li>
+      <h4 class="changelog-group-title cl-add-h">Added <span class="changelog-count">5</span></h4>
+      <ul class="changelog-list">
 
-      <li class="cl-add">+ z.ai: glm-5.3 added (input $1.4 · cached $0.26 · output $4.4)</li>
+        <li>OpenCode Go · Cat Jam Free (input free · cached free · output free)</li>
 
-      <li class="cl-add">+ z.ai: glm-5.3-flash added (input $0.15 · cached $0.03 · output $0.5)</li>
+        <li>z.ai · glm-5.2 (input $1.4 · cached $0.26 · output $4.4)</li>
 
-      <li class="cl-add">+ z.ai: glm-5.3-flashx added (input $0.37 · cached $0.075 · output $1.25)</li>
+        <li>z.ai · glm-5.3 (input $1.4 · cached $0.26 · output $4.4)</li>
 
-    </ul>
+        <li>z.ai · glm-5.3-flash (input $0.15 · cached $0.03 · output $0.5)</li>
+
+        <li>z.ai · glm-5.3-flashx (input $0.37 · cached $0.075 · output $1.25)</li>
+
+      </ul>
+
+
+
+
+
+
+
+  </div>
+
+  <div class="changelog-entry">
+    <h3 class="changelog-date">2026-10-13</h3>
+
+
+
+
+
+
+      <h4 class="changelog-group-title cl-change-h">Changed <span class="changelog-count">2</span></h4>
+      <ul class="changelog-list">
+
+        <li>OpenCode Go · DeepSeek V4.1 Flash (Off-Peak) — monthly limit $60→$80</li>
+
+        <li>OpenCode Go · DeepSeek V4.1 Flash (Peak) — monthly limit $60→$80</li>
+
+      </ul>
+
+
+
+  </div>
+
+  <div class="changelog-entry">
+    <h3 class="changelog-date">2026-10-10</h3>
+
+
+
+
+      <h4 class="changelog-group-title cl-remove-h">Removed <span class="changelog-count">8</span></h4>
+      <ul class="changelog-list">
+
+        <li>z.ai · glm-4-32b-0414-128k</li>
+
+        <li>z.ai · glm-4.5</li>
+
+        <li>z.ai · glm-4.5-air</li>
+
+        <li>z.ai · glm-4.5-airx</li>
+
+        <li>z.ai · glm-4.5-flash</li>
+
+        <li>z.ai · glm-4.5-x</li>
+
+        <li>z.ai · glm-4.7-flash</li>
+
+        <li>z.ai · glm-4.7-flashx</li>
+
+      </ul>
+
+
+
+
+
+  </div>
+
+  <div class="changelog-entry">
+    <h3 class="changelog-date">2026-10-09</h3>
+
+
+      <h4 class="changelog-group-title cl-add-h">Added <span class="changelog-count">1</span></h4>
+      <ul class="changelog-list">
+
+        <li>OpenCode Go · Step 5 Preview Free (input free · cached free · output free)</li>
+
+      </ul>
+
+
+
+
+
+
+
+  </div>
+
+  <div class="changelog-entry">
+    <h3 class="changelog-date">2026-10-08</h3>
+
+
+      <h4 class="changelog-group-title cl-add-h">Added <span class="changelog-count">1</span></h4>
+      <ul class="changelog-list">
+
+        <li>OpenCode Go · Claude Haiku 5.5 (> 100K tokens) (input $0.5 · cached $0.05 · output $2.5)</li>
+
+      </ul>
+
+
+
+
+
+
+
+  </div>
+
+  <div class="changelog-entry">
+    <h3 class="changelog-date">2026-10-06</h3>
+
+
+      <h4 class="changelog-group-title cl-add-h">Added <span class="changelog-count">1</span></h4>
+      <ul class="changelog-list">
+
+        <li>OpenCode Go · Space Bunny (input $0.15 · cached $0.03 · output $0.6)</li>
+
+      </ul>
+
+
+
+      <h4 class="changelog-group-title cl-remove-h">Removed <span class="changelog-count">1</span></h4>
+      <ul class="changelog-list">
+
+        <li>OpenCode Go · Space Bunny Free</li>
+
+      </ul>
+
+
+
+
+
+  </div>
+
+  <div class="changelog-entry">
+    <h3 class="changelog-date">2026-09-28</h3>
+
+
+
+
+      <h4 class="changelog-group-title cl-remove-h">Removed <span class="changelog-count">4</span></h4>
+      <ul class="changelog-list">
+
+        <li>OpenCode Go · GLM-5.1</li>
+
+        <li>OpenCode Go · MiniMax M2.5</li>
+
+        <li>OpenCode Go · Qwen3.6 Plus (> 256K tokens)</li>
+
+        <li>OpenCode Go · Qwen3.7 Max</li>
+
+      </ul>
+
+
+
+
+
+  </div>
+
+  <div class="changelog-entry">
+    <h3 class="changelog-date">2026-09-27</h3>
+
+
+      <h4 class="changelog-group-title cl-add-h">Added <span class="changelog-count">1</span></h4>
+      <ul class="changelog-list">
+
+        <li>OpenCode Go · LongCat 2.5 Preview Free (input free · cached free · output free)</li>
+
+      </ul>
+
+
+
+
+
+
+
+  </div>
+
+  <div class="changelog-entry">
+    <h3 class="changelog-date">2026-09-25</h3>
+
+
+      <h4 class="changelog-group-title cl-add-h">Added <span class="changelog-count">1</span></h4>
+      <ul class="changelog-list">
+
+        <li>OpenCode Go (new provider)</li>
+
+      </ul>
+
+
+
+
+
+
+
+  </div>
+
+  <div class="changelog-entry">
+    <h3 class="changelog-date">2026-09-16</h3>
+
+
+      <h4 class="changelog-group-title cl-add-h">Added <span class="changelog-count">1</span></h4>
+      <ul class="changelog-list">
+
+        <li>DeepSeek · deepseek-flash (input $0.3 · cached $0.006 · output $1.2)</li>
+
+      </ul>
+
+
+
+      <h4 class="changelog-group-title cl-remove-h">Removed <span class="changelog-count">2</span></h4>
+      <ul class="changelog-list">
+
+        <li>DeepSeek · deepseek-v4-flash</li>
+
+        <li>DeepSeek · deepseek-v4-flash-vision-exp</li>
+
+      </ul>
+
+
+
+
+
+  </div>
+
+  <div class="changelog-entry">
+    <h3 class="changelog-date">2026-09-03</h3>
+
+
+      <h4 class="changelog-group-title cl-add-h">Added <span class="changelog-count">3</span></h4>
+      <ul class="changelog-list">
+
+        <li>DeepSeek · deepseek-v4-flash-vision-exp (input $0.44 · cached $0.014 · output $1.32)</li>
+
+        <li>z.ai Devpack · glm-5.3 (credit mult in $6.9 · credit mult out $24)</li>
+
+        <li>z.ai Devpack · glm-5.3-flash (credit mult in $2.3 · credit mult out $8)</li>
+
+      </ul>
+
+
+
+      <h4 class="changelog-group-title cl-remove-h">Removed <span class="changelog-count">5</span></h4>
+      <ul class="changelog-list">
+
+        <li>z.ai · glm-5-turbo</li>
+
+        <li>z.ai · glm-5.2</li>
+
+        <li>z.ai Devpack · glm-4.7</li>
+
+        <li>z.ai Devpack · glm-5-turbo</li>
+
+        <li>z.ai Devpack · glm-5.2</li>
+
+      </ul>
+
+
+
+      <h4 class="changelog-group-title cl-change-h">Changed <span class="changelog-count">2</span></h4>
+      <ul class="changelog-list">
+
+        <li>DeepSeek · deepseek-v4-flash — input $0.14→$0.44 · cached $0.0028→$0.014 · output $0.28→$1.32</li>
+
+        <li>DeepSeek · deepseek-v4-pro — input $0.435→$1.32 · cached $0.003625→$0.044 · output $0.87→$3.96</li>
+
+      </ul>
+
+
+
   </div>
 
 
