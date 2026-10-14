@@ -37,8 +37,23 @@ import changelog
 
 
 def newest_changelog(log: dict, category: str, n: int = 20) -> list[dict]:
-    """A category's changelog entries, newest first, capped for the page."""
-    return list(reversed(log.get(category, [])))[:n]
+    """A category's changelog entries, newest first, split into
+    added / removed / changed groups for the page's Changelog tab."""
+    grouped = []
+    for e in list(reversed(log.get(category, [])))[:n]:
+        split = {"date": e["date"], "added": [], "removed": [],
+                 "changed": [], "more": []}
+        for c in e["changes"]:
+            if c.startswith("+ "):
+                split["added"].append(c[2:])
+            elif c.startswith("− "):
+                split["removed"].append(c[2:])
+            elif c.startswith("→ "):
+                split["changed"].append(c[2:])
+            else:
+                split["more"].append(c)
+        grouped.append(split)
+    return grouped
 
 
 def json_for_script(value) -> str:

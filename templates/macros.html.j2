@@ -86,11 +86,22 @@
   {% for e in entries %}
   <div class="changelog-entry">
     <h3 class="changelog-date">{{ e.date }}</h3>
-    <ul class="changelog-list">
-      {% for c in e.changes %}
-      <li class="{% if c.startswith('+') %}cl-add{% elif c.startswith('−') %}cl-remove{% else %}cl-change{% endif %}">{{ c }}</li>
-      {% endfor %}
-    </ul>
+    {% for label, cls, items in [
+         ("Added", "cl-add-h", e.added),
+         ("Removed", "cl-remove-h", e.removed),
+         ("Changed", "cl-change-h", e.changed)] %}
+      {% if items %}
+      <h4 class="changelog-group-title {{ cls }}">{{ label }} <span class="changelog-count">{{ items | length }}</span></h4>
+      <ul class="changelog-list">
+        {% for c in items %}
+        <li>{{ c }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    {% endfor %}
+    {% for m in e.more %}
+    <p class="changelog-more">{{ m }}</p>
+    {% endfor %}
   </div>
   {% endfor %}
   {% else %}

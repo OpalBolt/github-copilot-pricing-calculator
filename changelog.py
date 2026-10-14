@@ -44,40 +44,52 @@ def head_version(fname: str):
 
 
 def fmt(v) -> str:
-    """0.25 -> '$0.25'; 0 -> 'free'; non-numbers pass through as strings."""
+    """0.25 -> '$0.25'; 0 -> 'free'; non-numbers pass through as strings.
+    Prices are capped at 4 significant digits so converted values like
+    0.446136 stay readable; the raw values stay in the data files."""
     if isinstance(v, bool) or not isinstance(v, (int, float)):
         return str(v)
-    return "free" if v == 0 else f"${v:g}"
+    if v == 0:
+        return "free"
+    s = f"{v:.4g}"
+    if "e" in s or "E" in s:  # tiny values would flip to scientific
+        s = f"{v:.6f}".rstrip("0").rstrip(".")
+    return f"${s}"
 
 
 def price_deltas(fields: list[tuple[str, object, object]]) -> list[str]:
-    """[("input", 1.4, 1.2), ...] -> ["input $1.4→$1.2", ...]; skips None↔None."""
+    """[("input", 1.4, 1.2), ...] -> ["input $1.4→$1.2", ...]. Skips
+    None-involved pairs: a missing baseline or a newly-missing value is a
+    schema change upstream, not a price change worth logging."""
     return [
         f"{label} {fmt(a)}→{fmt(b)}"
         for label, a, b in fields
-        if not (a is None and b is None) and a != b
+        if a is not None and b is not None and a != b
     ]
 
 
 # ── copilot: pricing.json ────────────────────────────────────────────
 
 def diff_copilot(old: dict, new: dict) -> list[str]:
+    """Lines carry a '+ ' / '− ' / '→ ' prefix that generate_html groups
+    into Added / Removed / Changed sections at render time."""
     fields = ("Input", "Cached input", "Cache write", "Output")
     om = {m["Model"]: m for m in old.get("models", [])}
     nm = {m["Model"]: m for m in new.get("models", [])}
     changes = []
     for name in sorted(om.keys() - nm.keys()):
-        changes.append(f"− Removed {name}")
+        changes.append(f"− {name}")
     for name in sorted(nm.keys() - om.keys()):
         m = nm[name]
-        changes.append(f"+ Added {name} "
-                       f"(in {fmt(m.get('Input'))} · out {fmt(m.get('Output'))})")
+        changes.append(f"+ {name} (in {fmt(m.get('Input'))} · out {fmt(m.get('Output'))})")
     for name in sorted(om.keys() & nm.keys()):
         deltas = price_deltas(
-            [(f.lower(), om[name].get(f), nm[name].get(f)) for f in fields]
+            [(f.lower(), om[name].get(f), nm[name].get(f)) for f in fields
+             if isinstance(om[name].get(f), (int, float))
+             and isinstance(nm[name].get(f), (int, float))]
         )
         if deltas:
-            changes.append(f"→ {name}: " + ", ".join(deltas))
+            changes.append(f"→ {name} — " + " · ".join(deltas))
     return changes
 
 
@@ -85,7 +97,6 @@ def diff_copilot(old: dict, new: dict) -> list[str]:
 
 PROVIDER_FIELDS = {
     "monthly_usd": "monthly price",
-    "off_peak_multiplier": "off-peak multiplier",
     "off_peak_label": "off-peak hours",
 }
 MODEL_FIELDS = {
@@ -104,50 +115,53 @@ def diff_providers(old: dict, new: dict) -> list[str]:
     np_ = {p["id"]: p for p in new.get("providers", [])}
     changes = []
     for pid in sorted(op.keys() - np_.keys()):
-        changes.append(f"− Provider removed: {op[pid]['name']}")
+        changes.append(f"− {op[pid]['name']} (provider)")
     for pid in sorted(np_.keys() - op.keys()):
-        changes.append(f"+ Provider added: {np_[pid]['name']}")
+        changes.append(f"+ {np_[pid]['name']} (new provider)")
     for pid in sorted(op.keys() & np_.keys()):
         o, n = op[pid], np_[pid]
         prefix = n["name"]
         deltas = price_deltas(
             [(label, o.get(k), n.get(k)) for k, label in PROVIDER_FIELDS.items()]
         )
+        o_mult, n_mult = o.get("off_peak_multiplier"), n.get("off_peak_multiplier")
+        if o_mult is not None and n_mult is not None and o_mult != n_mult:
+            deltas.append(f"off-peak ×{o_mult:g}→×{n_mult:g}")
         if deltas:
-            changes.append(f"→ {prefix}: " + ", ".join(deltas))
+            changes.append(f"→ {prefix} — " + " · ".join(deltas))
         ot = {t["name"]: t for t in o.get("tiers", [])}
         nt = {t["name"]: t for t in n.get("tiers", [])}
         for t in sorted(ot.keys() - nt.keys()):
-            changes.append(f"− {prefix}: {t} tier removed")
+            changes.append(f"− {prefix}: {t} tier")
         for t in sorted(nt.keys() - ot.keys()):
-            changes.append(f"+ {prefix}: {t} tier added ({fmt(nt[t]['monthly_usd'])}/mo)")
+            changes.append(f"+ {prefix}: {t} tier ({fmt(nt[t]['monthly_usd'])}/mo)")
         for t in sorted(ot.keys() & nt.keys()):
-            deltas = price_deltas([
-                ("monthly", ot[t].get("monthly_usd"), nt[t].get("monthly_usd")),
-                ("weekly credits", ot[t].get("weekly_credits"), nt[t].get("weekly_credits")),
-            ])
+            deltas = price_deltas(
+                [("monthly", ot[t].get("monthly_usd"), nt[t].get("monthly_usd"))]
+            )
+            if ot[t].get("weekly_credits") != nt[t].get("weekly_credits"):
+                deltas.append(f"weekly credits {ot[t]['weekly_credits']}→{nt[t]['weekly_credits']}")
             if deltas:
-                changes.append(f"→ {prefix} {t} tier: " + ", ".join(deltas))
+                changes.append(f"→ {prefix}: {t} tier — " + " · ".join(deltas))
         om = {m["id"]: m for m in o.get("models", [])}
         nm = {m["id"]: m for m in n.get("models", [])}
         for mid in sorted(om.keys() - nm.keys()):
-            changes.append(f"− {prefix}: {om[mid].get('name', mid)} removed")
+            changes.append(f"− {prefix} · {om[mid].get('name', mid)}")
         for mid in sorted(nm.keys() - om.keys()):
             m = nm[mid]
-            rates = " (" + " · ".join(
-                f"{label} {fmt(m[k])}" for k, label in MODEL_FIELDS.items()
-                if m.get(k) is not None and k in ("input", "input_cache", "output",
-                                                  "mult_input", "mult_output")
-            ) + ")" if m.get("input") or m.get("mult_input") else ""
-            changes.append(f"+ {prefix}: {m.get('name', mid)} added{rates}")
+            rates = [f"{label} {fmt(m[k])}" for k, label in MODEL_FIELDS.items()
+                     if m.get(k) is not None and k in ("input", "input_cache", "output",
+                                                       "mult_input", "mult_output")]
+            changes.append(f"+ {prefix} · {m.get('name', mid)}"
+                           + (" (" + " · ".join(rates) + ")" if rates else ""))
         for mid in sorted(om.keys() & nm.keys()):
             deltas = price_deltas(
                 [(label, om[mid].get(k), nm[mid].get(k))
                  for k, label in MODEL_FIELDS.items()]
             )
             if deltas:
-                changes.append(f"→ {prefix} / {nm[mid].get('name', mid)}: "
-                               + ", ".join(deltas))
+                changes.append(f"→ {prefix} · {nm[mid].get('name', mid)} — "
+                               + " · ".join(deltas))
     return changes
 
 
@@ -166,19 +180,21 @@ def diff_router(old: dict, new: dict) -> list[str]:
     no = {o["key"]: o for o in new.get("offers", [])}
     changes = []
     for key in sorted(oo.keys() - no.keys()):
-        changes.append(f"− {oo[key]['routerName']}: {oo[key]['name']} removed")
+        changes.append(f"− {oo[key]['routerName']}: {oo[key]['name'].strip()}")
     for key in sorted(no.keys() - oo.keys()):
-        changes.append(f"+ {no[key]['routerName']}: {no[key]['name']} added")
+        changes.append(f"+ {no[key]['routerName']}: {no[key]['name'].strip()}")
     for key in sorted(oo.keys() & no.keys()):
         a, b = oo[key], no[key]
         deltas = []
         for mode in ("default", "eu"):
             pa, pb = mode_prices(a, mode), mode_prices(b, mode)
             deltas += price_deltas([
-                (f"{mode} {f}", pa[f], pb[f]) for f in ("input", "cached", "output")
+                (f"{mode} {f}" if mode == "eu" else f, pa[f], pb[f])
+                for f in ("input", "cached", "output")
             ])
         if deltas:
-            changes.append(f"→ {b['routerName']} / {b['name']}: " + ", ".join(deltas))
+            changes.append(f"→ {b['routerName']} · {b['name'].strip()} — "
+                           + " · ".join(deltas))
     return changes
 
 
@@ -225,6 +241,11 @@ def update() -> dict:
 
 if __name__ == "__main__":
     # Offline self-checks of the pure differs.
+    assert fmt(0.446136) == "$0.4461" and fmt(10) == "$10" and fmt(0) == "free"
+    # None on either side is schema drift, not a price change
+    assert price_deltas([("cache write", None, "Not applicable")]) == []
+    assert price_deltas([("input", 1.0, None)]) == []
+
     cop = diff_copilot(
         {"models": [{"Model": "A", "Input": 1.0, "Cached input": 0.1,
                       "Cache write": "Not applicable", "Output": 2.0},
@@ -236,9 +257,9 @@ if __name__ == "__main__":
                      "Cache write": "Not applicable", "Output": 1.0}]},
     )
     assert cop == [
-        "− Removed B",
-        "+ Added C (in $0.5 · out $1)",
-        "→ A: input $1→$1.25",
+        "− B",
+        "+ C (in $0.5 · out $1)",
+        "→ A — input $1→$1.25",
     ], cop
 
     prv = diff_providers(
@@ -252,8 +273,8 @@ if __name__ == "__main__":
                                     "input_cache": 0.03, "output": 0.5}]}]},
     )
     assert prv == [
-        "+ z.ai: glm-5.3-flash added (input $0.15 · cached $0.03 · output $0.5)",
-        "→ z.ai / glm-5.3: input $1.4→$1.2",
+        "+ z.ai · glm-5.3-flash (input $0.15 · cached $0.03 · output $0.5)",
+        "→ z.ai · glm-5.3 — input $1.4→$1.2",
     ], prv
 
     rtr = diff_router(
@@ -270,7 +291,7 @@ if __name__ == "__main__":
     )
     # r:a native prices unchanged -> USD-only drift is not a change;
     # r:b has no native prices -> its USD drop is one.
-    assert rtr == ["→ R / B: default output $9→$8"], rtr
+    assert rtr == ["→ R · B — output $9→$8"], rtr
 
     log = update()
     summary = ", ".join(f"{cat}={len(log.get(cat, []))}" for cat in CATEGORIES)
