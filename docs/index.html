@@ -25,6 +25,8 @@
     --cta-hover:    #DCA561;   /* Kanagawa autumnYellow */
     --bg-header:    #1F1F28;   /* Kanagawa sumiInk3 — dark header/footer */
     --surface:      #2A2A37;   /* Kanagawa sumiInk4 — card/table bg */
+    --add-fg:       #98BB6C;   /* Kanagawa springGreen — changelog additions */
+    --remove-fg:    #E46876;   /* Kanagawa waveRed — changelog removals */
     --ease:         cubic-bezier(0.2, 0, 0, 1);
   }
 
@@ -45,6 +47,8 @@
     --cta-hover:    #9A6B0C;   /* darker gold */
     --bg-header:    #1A1A1A;   /* dark header */
     --surface:      #FFFFFF;   /* white cards */
+    --add-fg:       #166534;   /* green — changelog additions */
+    --remove-fg:    #B91C1C;   /* red — changelog removals */
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -1211,6 +1215,28 @@
     transition: color 120ms var(--ease), border-color 120ms var(--ease);
   }
   .theme-toggle:hover { color: var(--slate-7); border-color: var(--slate-7); }
+
+  /* ── Changelog ────────────────────────────────────────────── */
+  .changelog { max-width: 780px; }
+  .changelog-intro { color: var(--slate-6); font-size: 14px; margin: 0 0 20px; }
+  .changelog-entry { margin-bottom: 24px; }
+  .changelog-date {
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--slate-7); margin: 0 0 8px;
+  }
+  .changelog-list {
+    list-style: none; margin: 0; padding: 0;
+    border: 1px solid var(--slate-3); border-radius: 4px; background: var(--surface);
+  }
+  .changelog-list li {
+    padding: 8px 14px; border-bottom: 1px solid var(--slate-3);
+    font-size: 14px; line-height: 1.45;
+  }
+  .changelog-list li:last-child { border-bottom: none; }
+  .cl-add { color: var(--add-fg); }
+  .cl-remove { color: var(--remove-fg); }
+  .cl-change { color: var(--slate-8); }
+
 </style>
 <script>
   (function() {

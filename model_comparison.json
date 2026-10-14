@@ -1,5 +1,5 @@
 {
-  "fetchDate": "2026-10-13",
+  "fetchDate": "2026-10-14",
   "summary": [
     {
       "model": "GPT-5 mini",
@@ -175,6 +175,13 @@
       "excelsAt": "Fast, reliable answers to lightweight coding questions",
       "furtherReadingText": "Gemini 3.8 Flash model card",
       "furtherReadingUrl": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-8-Flash-Model-Card.pdf"
+    },
+    {
+      "model": "Gemini 4 Argon",
+      "taskArea": "Complex coding, agentic, and reasoning tasks",
+      "excelsAt": "Thorough work that tests edge cases before finishing",
+      "furtherReadingText": "Gemini 4 Argon",
+      "furtherReadingUrl": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-4-Argon-Model-Card.pdf"
     },
     {
       "model": "MAI-Code-1.1-Flash[^mai-models]",

@@ -26,6 +26,8 @@
     --cta-hover:    #DCA561;   /* Kanagawa autumnYellow */
     --bg-header:    #1F1F28;   /* Kanagawa sumiInk3 — dark header/footer */
     --surface:      #2A2A37;   /* Kanagawa sumiInk4 — card/table bg */
+    --add-fg:       #98BB6C;   /* Kanagawa springGreen — changelog additions */
+    --remove-fg:    #E46876;   /* Kanagawa waveRed — changelog removals */
     --ease:         cubic-bezier(0.2, 0, 0, 1);
   }
 
@@ -46,6 +48,8 @@
     --cta-hover:    #9A6B0C;   /* darker gold */
     --bg-header:    #1A1A1A;   /* dark header */
     --surface:      #FFFFFF;   /* white cards */
+    --add-fg:       #166534;   /* green — changelog additions */
+    --remove-fg:    #B91C1C;   /* red — changelog removals */
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -1212,6 +1216,28 @@
     transition: color 120ms var(--ease), border-color 120ms var(--ease);
   }
   .theme-toggle:hover { color: var(--slate-7); border-color: var(--slate-7); }
+
+  /* ── Changelog ────────────────────────────────────────────── */
+  .changelog { max-width: 780px; }
+  .changelog-intro { color: var(--slate-6); font-size: 14px; margin: 0 0 20px; }
+  .changelog-entry { margin-bottom: 24px; }
+  .changelog-date {
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--slate-7); margin: 0 0 8px;
+  }
+  .changelog-list {
+    list-style: none; margin: 0; padding: 0;
+    border: 1px solid var(--slate-3); border-radius: 4px; background: var(--surface);
+  }
+  .changelog-list li {
+    padding: 8px 14px; border-bottom: 1px solid var(--slate-3);
+    font-size: 14px; line-height: 1.45;
+  }
+  .changelog-list li:last-child { border-bottom: none; }
+  .cl-add { color: var(--add-fg); }
+  .cl-remove { color: var(--remove-fg); }
+  .cl-change { color: var(--slate-8); }
+
 </style>
 <script>
   (function() {
@@ -1256,6 +1282,7 @@
       <button class="tab-btn active" data-tab="pricing-tab">Pricing & Compare</button>
       <button class="tab-btn" data-tab="guide-tab">Task Guide</button>
       <button class="tab-btn" data-tab="strategies-tab">AI strategies</button>
+      <button class="tab-btn" data-tab="changelog-tab">Changelog</button>
     </div>
     
     <!-- Pricing Tab -->
@@ -1554,6 +1581,27 @@
       · <a href="https://docs.github.com/en/copilot/reference/copilot-billing/models-and-pricing" target="_blank">Source pricing →</a>
     </p>
   </div>
+
+  <!-- Changelog Tab -->
+  <div id="changelog-tab" class="tab-content">
+    
+<div class="changelog">
+  
+  <p class="changelog-intro">Newest first · 1 recorded day of change. Entries appear automatically whenever the daily data fetch changes a price, model, or plan.</p>
+  
+  <div class="changelog-entry">
+    <h3 class="changelog-date">2026-10-14</h3>
+    <ul class="changelog-list">
+      
+      <li class="cl-add">+ Added Gemini 4 Argon (in $2 · out $10)</li>
+      
+    </ul>
+  </div>
+  
+  
+</div>
+
+  </div>
 </main>
 
 <footer class="page-footer">
@@ -1573,8 +1621,8 @@
 </div>
 
 <script>
-  // ── Pricing data (fetched 2026-10-13) ──
-  const FETCH_DATE = '2026-10-13';
+  // ── Pricing data (fetched 2026-10-14) ──
+  const FETCH_DATE = '2026-10-14';
   document.getElementById('fetch-date').textContent = FETCH_DATE;
 
   // All rates $ per 1M tokens
@@ -2133,6 +2181,21 @@
     "taskArea": "Fast help with simple or repetitive tasks",
     "excelsAt": "Fast, reliable answers to lightweight coding questions",
     "furtherReadingUrl": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-8-Flash-Model-Card.pdf"
+  },
+  {
+    "name": "Gemini 4 Argon",
+    "provider": "Google",
+    "category": "Powerful",
+    "status": "GA",
+    "tier": "Default",
+    "input": 2.0,
+    "cached": 0.1,
+    "cacheWrite": null,
+    "output": 10.0,
+    "footnote": "Gemini 4 Argon is available at the promotional pricing of $2.00 per 1M input tokens, $0.10 per 1M cached input tokens, and $10.00 per 1M output tokens until December 1, 2026.",
+    "taskArea": "Complex coding, agentic, and reasoning tasks",
+    "excelsAt": "Thorough work that tests edge cases before finishing",
+    "furtherReadingUrl": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-4-Argon-Model-Card.pdf"
   },
   {
     "name": "MAI-Code-1.1-Flash",

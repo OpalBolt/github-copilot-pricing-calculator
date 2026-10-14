@@ -1,5 +1,5 @@
 {
-  "fetchDate": "2026-10-13",
+  "fetchDate": "2026-10-14",
   "models": [
     {
       "provider": "OpenAI",
@@ -450,6 +450,20 @@
       "Output": 3.75
     },
     {
+      "provider": "Google",
+      "Model": "Gemini 4 Argon",
+      "_footnotes": [
+        "gemini-4-argon-promo"
+      ],
+      "Release status": "GA",
+      "Category": "Powerful",
+      "Tier": "Default",
+      "Threshold (input tokens)": "Not applicable",
+      "Input": 2.0,
+      "Cached input": 0.1,
+      "Output": 10.0
+    },
+    {
       "provider": "Microsoft",
       "Model": "MAI-Code-1.1-Flash",
       "Release status": "GA",
@@ -535,6 +549,7 @@
     }
   ],
   "footnotes": {
-    "gemini-flash-promo": "Gemini 3.7 Flash and Gemini 3.8 Flash are available at the promotional pricing of $0.75 per 1M input tokens, $0.075 per 1M cached input tokens, and $3.75 per 1M output tokens through December 31, 2026."
+    "gemini-flash-promo": "Gemini 3.7 Flash and Gemini 3.8 Flash are available at the promotional pricing of $0.75 per 1M input tokens, $0.075 per 1M cached input tokens, and $3.75 per 1M output tokens through December 31, 2026.",
+    "gemini-4-argon-promo": "Gemini 4 Argon is available at the promotional pricing of $2.00 per 1M input tokens, $0.10 per 1M cached input tokens, and $10.00 per 1M output tokens until December 1, 2026."
   }
 }
