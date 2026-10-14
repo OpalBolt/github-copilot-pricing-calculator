@@ -22,6 +22,8 @@ Requires: Python 3.8+ (stdlib only — urllib, re, json, html)
 import html as html_mod
 import json
 import re
+import time
+import urllib.error
 import urllib.request
 from pathlib import Path
 
@@ -40,7 +42,7 @@ DEVPACK_MONTHLY_USD = {"Lite": 18, "Pro": 80, "Max": 168}
 # Curated preference for which paygo models are visible by default on the
 # compare page. If none of these exist upstream anymore, all models become
 # visible (and a note is printed) rather than an empty default view.
-ZAI_PAYGO_DEFAULT_MODEL_IDS = {"glm-5.1"}
+ZAI_PAYGO_DEFAULT_MODEL_IDS = {"glm-5.3"}
 OPENCODE_GO_DEFAULT_MODELS = {
     "GLM-5.3-Flash",
     "Kimi K2.7 Code",
@@ -55,10 +57,24 @@ DEV_PACK_MODEL_IDS = {"glm-5.3", "glm-5.3-flash"}
 PRICE_RE = re.compile(r"([0-9]+(?:\.[0-9]+)?)")
 
 
-def fetch_text(url: str) -> str:
-    req = urllib.request.Request(url, headers={"User-Agent": "fetch-providers/1.0"})
-    with urllib.request.urlopen(req, timeout=15) as resp:
-        return resp.read().decode("utf-8")
+def fetch_text(url: str, attempts: int = 3) -> str:
+    """GET with retries — CDN/site hiccups (like a 404 during a page
+    migration) often clear within seconds. Fails loudly after the last
+    attempt so real site changes still get noticed."""
+    last = None
+    for i in range(attempts):
+        req = urllib.request.Request(url, headers={"User-Agent": "fetch-providers/1.0"})
+        try:
+            with urllib.request.urlopen(req, timeout=15) as resp:
+                return resp.read().decode("utf-8")
+        except (urllib.error.HTTPError, urllib.error.URLError) as e:
+            last = e
+            if i < attempts - 1:
+                wait = 10 * (i + 1)
+                print(f"Note: {e} fetching {url} — retrying in {wait}s "
+                      f"({i + 2}/{attempts})")
+                time.sleep(wait)
+    raise last
 
 
 def parse_price(cell: str) -> float:
@@ -206,37 +222,38 @@ def scrape_deepseek() -> dict:
 
 
 def parse_zai_paygo(md: str) -> dict:
-    """Text-models markdown table -> paygo provider entry. Roster-generic:
-    models and prices are whatever the table lists; only the header shape
-    (Model / Input / Cached Input / Output) is a hard requirement.
+    """Token-model markdown tables -> paygo provider entry. Roster-generic:
+    models and prices are whatever the tables list. The page splits models
+    across '### Latest Models' and '### Text Models' tables (same shape) —
+    every header-matching table under '## Models' is taken, so neither new
+    nor legacy rosters silently drop.
     """
-    section = md.split("### Text Models", 1)
-    assert len(section) == 2, "no '### Text Models' section on z.ai pricing page"
-    table = next(
-        (t for t in parse_markdown_tables(section[1])
-         if t and {"Model", "Input", "Cached Input", "Output"} <= set(t[0])),
-        None,
-    )
-    assert table, "no table with Model/Input/Cached Input/Output headers in Text Models"
-    header, *rows = table
-    i_input = header.index("Input")
-    i_cached = header.index("Cached Input")
-    i_output = header.index("Output")
+    section = md.split("## Models", 1)
+    assert len(section) == 2, "no '## Models' section on z.ai pricing page"
+    tables = [
+        t for t in parse_markdown_tables(section[1])
+        if t and {"Model", "Input", "Cached Input", "Output"} <= set(t[0])
+    ]
+    assert tables, "no table with Model/Input/Cached Input/Output headers in Models"
 
     models = []
-    for row in rows:
-        if not row or not row[0]:
-            continue
-        mid = row[0].lower()
-        models.append(
-            {
-                "id": mid,
-                "input": parse_price(row[i_input]),
-                "input_cache": parse_price(row[i_cached]),
-                "output": parse_price(row[i_output]),
-                "default_visible": mid in ZAI_PAYGO_DEFAULT_MODEL_IDS,
-            }
-        )
+    for header, *rows in tables:
+        i_input = header.index("Input")
+        i_cached = header.index("Cached Input")
+        i_output = header.index("Output")
+        for row in rows:
+            if not row or not row[0]:
+                continue
+            models.append(
+                {
+                    "id": row[0].lower(),
+                    "input": parse_price(row[i_input]),
+                    "input_cache": parse_price(row[i_cached]),
+                    "output": parse_price(row[i_output]),
+                }
+            )
+    for m in models:
+        m["default_visible"] = m["id"] in ZAI_PAYGO_DEFAULT_MODEL_IDS
     assert models, "no text models parsed from z.ai pricing page"
     assert len({m["id"] for m in models}) == len(models), \
         f"duplicate model ids: {sorted(m['id'] for m in models)}"
@@ -478,18 +495,28 @@ if __name__ == "__main__":
     assert pro["id"] == "deepseek-v4-pro" and pro["output"] == 3.96
     assert got["off_peak_multiplier"] == 0.5
     assert got["off_peak_label"] == "Outside Mon–Fri 01:00–04:00 and 06:00–10:00 UTC", got["off_peak_label"]
-    # z.ai paygo: roster-generic parse + default-visibility preference.
+    # z.ai paygo: roster-generic parse across the split Latest/Text tables
+    # + default-visibility preference.
     zai_md = (
+        "## Models\n"
+        "### Latest Models\n"
+        "| Model | Input | Cached Input | Cached Input Storage | Output |\n"
+        "|---|---|---|---|---|\n"
+        "| GLM-5.3 | $1.4 / MTok | $0.26 / MTok | Free | $4.4 / MTok |\n"
         "### Text Models\n"
-        "| Model | Input | Cached Input | Output |\n"
-        "|---|---|---|---|\n"
-        "| GLM-5.1 | $1.4 / MTok | $0.26 / MTok | $4.4 / MTok |\n"
-        "| GLM-4.6 | $0.6 / MTok | $0.14 / MTok | $2.2 / MTok |\n"
+        "| Model | Input | Cached Input | Cached Input Storage | Output |\n"
+        "|---|---|---|---|---|\n"
+        "| GLM-5.1 | $1.4 / MTok | $0.26 / MTok | Free | $4.4 / MTok |\n"
+        "| GLM-4.6 | $0.6 / MTok | $0.14 / MTok | Free | $2.2 / MTok |\n"
+        "### Image Generation Models\n"
+        "| Model | Price |\n|---|---|\n| GLM-Image | $0.015 |\n"
     )
     zai = parse_zai_paygo(zai_md)
-    assert [m["id"] for m in zai["models"]] == ["glm-5.1", "glm-4.6"]
-    assert zai["models"][0]["default_visible"] and not zai["models"][1]["default_visible"]
-    zai2 = parse_zai_paygo(zai_md.replace("GLM-5.1", "GLM-9"))  # prints note
+    assert [m["id"] for m in zai["models"]] == ["glm-5.3", "glm-5.1", "glm-4.6"]
+    assert zai["models"][0]["default_visible"] and not any(
+        m["default_visible"] for m in zai["models"][1:]
+    )
+    zai2 = parse_zai_paygo(zai_md.replace("GLM-5.3", "GLM-9"))  # prints note
     assert all(m["default_visible"] for m in zai2["models"]), zai2["models"]
     # z.ai devpack: tiers + multipliers + off-peak from the page; USD stays pinned.
     devpack_md = (

@@ -39,11 +39,39 @@
       "currency": "USD",
       "models": [
         {
-          "id": "glm-5.1",
+          "id": "glm-5.3-flash",
+          "input": 0.15,
+          "input_cache": 0.03,
+          "output": 0.5,
+          "default_visible": false
+        },
+        {
+          "id": "glm-5.3-flashx",
+          "input": 0.37,
+          "input_cache": 0.075,
+          "output": 1.25,
+          "default_visible": false
+        },
+        {
+          "id": "glm-5.3",
           "input": 1.4,
           "input_cache": 0.26,
           "output": 4.4,
           "default_visible": true
+        },
+        {
+          "id": "glm-5.2",
+          "input": 1.4,
+          "input_cache": 0.26,
+          "output": 4.4,
+          "default_visible": false
+        },
+        {
+          "id": "glm-5.1",
+          "input": 1.4,
+          "input_cache": 0.26,
+          "output": 4.4,
+          "default_visible": false
         },
         {
           "id": "glm-5",
@@ -191,6 +219,15 @@
         {
           "id": "step-5-preview-free",
           "name": "Step 5 Preview Free",
+          "input": 0.0,
+          "input_cache": 0.0,
+          "output": 0.0,
+          "monthly_limit_usd": null,
+          "default_visible": false
+        },
+        {
+          "id": "cat-jam-free",
+          "name": "Cat Jam Free",
           "input": 0.0,
           "input_cache": 0.0,
           "output": 0.0,
