@@ -89,11 +89,13 @@ fetch_pricing.py            # GitHub Copilot docs -> pricing.json
 fetch_model_comparison.py   # GitHub Copilot docs -> model_comparison.json
 fetch_router_pricing.py     # Router catalogs + ECB -> router-pricing.json
 fetch_providers.py          # DeepSeek + z.ai scrapers -> providers.json
+changelog.py                # Diffs fetched data vs git HEAD -> changelog.json
 generate_html.py            # Renders the hub + all three tools
 pricing.json                # GitHub Copilot pricing (checked in)
 model_comparison.json       # GitHub Copilot task data (checked in)
 router-pricing.json         # Normalized router offers (checked in)
 providers.json              # Provider comparison data (checked in)
+changelog.json              # Per-category change log rendered into each page (checked in)
 templates/                  # Jinja2 templates + shared CSS/JS for the three pages
 docs/
   index.html                # The landing hub (what gets published)

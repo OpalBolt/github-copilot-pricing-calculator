@@ -1,0 +1,66 @@
+{
+  "providers": [
+    {
+      "date": "2026-10-14",
+      "changes": [
+        "+ OpenCode Go: Cat Jam Free added",
+        "+ z.ai: glm-5.2 added (input $1.4 \u00b7 cached $0.26 \u00b7 output $4.4)",
+        "+ z.ai: glm-5.3 added (input $1.4 \u00b7 cached $0.26 \u00b7 output $4.4)",
+        "+ z.ai: glm-5.3-flash added (input $0.15 \u00b7 cached $0.03 \u00b7 output $0.5)",
+        "+ z.ai: glm-5.3-flashx added (input $0.37 \u00b7 cached $0.075 \u00b7 output $1.25)"
+      ]
+    }
+  ],
+  "copilot": [
+    {
+      "date": "2026-10-14",
+      "changes": [
+        "+ Added Gemini 4 Argon (in $2 \u00b7 out $10)"
+      ]
+    }
+  ],
+  "router": [
+    {
+      "date": "2026-10-14",
+      "changes": [
+        "\u2212 OpenRouter: Apodex: Apodex 1.1 Mini (free) removed",
+        "\u2212 OpenRouter: inclusionAI: Ling 3.0 Flash Fin removed",
+        "\u2212 OpenRouter: inclusionAI: Ling 3.0 Flash Sante removed",
+        "\u2212 OpenRouter: Pareto removed",
+        "+ EUrouter: GPT-6 Luna added",
+        "+ EUrouter: GPT-6 Sol added",
+        "+ EUrouter: GPT-6.1 Sol added",
+        "+ OpenCode Zen: Gemini 4 Argon added",
+        "+ OpenRouter: Google: Gemini 4 Argon added",
+        "+ OpenRouter: Google: Gemini 4 Argon (batch) added",
+        "+ OpenRouter: LiquidAI: LFM2.5-24B-A2B added",
+        "+ OpenRouter: Pareto 26.9 added",
+        "+ OpenRouter: Pareto Latest added",
+        "+ z.ai API: glm-5.2 added",
+        "+ z.ai API: glm-5.3 added",
+        "+ z.ai API: glm-5.3-flash added",
+        "+ z.ai API: glm-5.3-flashx added",
+        "\u2192 OpenRouter / DeepSeek: DeepSeek V4 Flash 0423: default input $0.05\u2192$0.091, default cached $0.05\u2192$0.0182, default output $1.28\u2192$0.182",
+        "\u2192 OpenRouter / DeepSeek: DeepSeek V4 Pro 0423: default input $0.446136\u2192$0.95526, default cached $0.037178\u2192$0.079605, default output $0.892272\u2192$1.91052",
+        "\u2192 OpenRouter / DeepSeek: DeepSeek V4.1 Flash: default input $0.0438\u2192$0.0351, default cached $0.000876\u2192$0.0054, default output $0.1752\u2192$0.891",
+        "\u2192 OpenRouter / Google: Gemma 4 26B A4B : default input $0.09\u2192$0.0765, default cached $0.05\u2192$0.0425, default output $0.3\u2192$0.255",
+        "\u2192 OpenRouter / inclusionAI: Ling 3.0 Flash VL: default input $0.021\u2192$0.06, default cached $0.0042\u2192$0.012, default output $0.0616\u2192$0.18",
+        "\u2192 OpenRouter / inclusionAI: Ling 3.1 Flash: default input free\u2192$0.075, default cached free\u2192$0.015, default output free\u2192$0.225",
+        "\u2192 OpenRouter / MiniMax: MiniMax M2: default input $0.3\u2192$0.255, default cached $0.3\u2192$0.255, default output $1.2\u2192$1.02",
+        "\u2192 OpenRouter / MoonshotAI: Kimi K2.6: eu input $0.4365\u2192$0.441, eu cached $0.1312\u2192$0.099",
+        "\u2192 OpenRouter / MoonshotAI: Kimi K3: default input $0.73\u2192$0.7, default cached $0.55\u2192$0.32, default output $10\u2192$15",
+        "\u2192 OpenRouter / OpenAI: gpt-oss-120b: default input $0.15\u2192$0.037, default cached $0.075\u2192$0.037, default output $0.6\u2192$0.17",
+        "\u2192 OpenRouter / Qwen: Qwen3.5-35B-A3B: default input $0.08\u2192$0.15, default cached $0.04\u2192$0.05, default output $0.75\u2192$1",
+        "\u2192 OpenRouter / Qwen: Qwen3.5 397B A17B: default input $0.55\u2192$0.5, default cached $0.225\u2192$0.3, default output $3.5\u2192$3.6",
+        "\u2192 OpenRouter / Z.ai: GLM 5.1: default input $0.966\u2192$1.33, default cached $0.1794\u2192$0.247, default output $3.036\u2192$4.18",
+        "\u2192 OpenRouter / Z.ai: GLM 5.3: eu output $2.1956\u2192$2.2",
+        "\u2192 OpenRouter / Z.ai: GLM 5.3 Flash: default input $0.0261\u2192$0.15, default cached $0.0108\u2192$0.03, default output $0.9\u2192$0.5, eu input $0.0783\u2192$0.108",
+        "\u2192 OpenRouter / DeepSeek: DeepSeek Flash Latest: default input $0.0438\u2192$0.0351, default cached $0.000876\u2192$0.0054, default output $0.1752\u2192$0.891",
+        "\u2192 OpenRouter / DeepSeek: DeepSeek Pro Latest: default input $0.25872\u2192$0.225, default cached $0.008232\u2192$0.23, default output $0.77616\u2192$8",
+        "\u2192 OpenRouter / MoonshotAI: Kimi Latest: default input $0.73\u2192$0.7, default cached $0.55\u2192$0.32, default output $10\u2192$15",
+        "\u2192 OpenRouter / Z.ai: GLM Flash Latest: default input $0.0261\u2192$0.036",
+        "\u2192 OpenRouter / Z.ai: GLM Latest: default input $0.055\u2192$0.063, default cached $0.06\u2192$0.0586, default output $5\u2192$4.4"
+      ]
+    }
+  ]
+}

@@ -78,3 +78,35 @@
   </div>
 </div>
 {% endmacro %}
+
+{% macro changelog_panel(entries) %}
+<div class="changelog">
+  {% if entries %}
+  <p class="changelog-intro">Newest first · {{ entries | length }} recorded day{{ 's' if entries|length != 1 }} of change. Entries appear automatically whenever the daily data fetch changes a price, model, or plan.</p>
+  {% for e in entries %}
+  <div class="changelog-entry">
+    <h3 class="changelog-date">{{ e.date }}</h3>
+    <ul class="changelog-list">
+      {% for c in e.changes %}
+      <li class="{% if c.startswith('+') %}cl-add{% elif c.startswith('−') %}cl-remove{% else %}cl-change{% endif %}">{{ c }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endfor %}
+  {% else %}
+  <p class="changelog-intro">No changes recorded yet. Entries appear here automatically whenever the daily data fetch changes a price, model, or plan.</p>
+  {% endif %}
+</div>
+{% endmacro %}
+
+{% macro tab_switcher_js() %}
+<script>
+  // Minimal tab switcher for pages without app-level tab state.
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b === btn));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.toggle('active', c.id === btn.dataset.tab));
+    });
+  });
+</script>
+{% endmacro %}

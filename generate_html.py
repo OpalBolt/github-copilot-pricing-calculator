@@ -33,6 +33,13 @@ from fetch_model_comparison import fetch_markdown as fetch_markdown_comparison, 
 
 from fetch_router_pricing import build as build_router_pricing
 
+import changelog
+
+
+def newest_changelog(log: dict, category: str, n: int = 20) -> list[dict]:
+    """A category's changelog entries, newest first, capped for the page."""
+    return list(reversed(log.get(category, [])))[:n]
+
 
 def json_for_script(value) -> str:
     return (
@@ -215,6 +222,11 @@ def main():
                 print("Error: router-pricing.json not found", file=sys.stderr)
                 sys.exit(1)
 
+    # Record today's data changes (vs git HEAD) for the page changelogs.
+    # Runs even with --no-fetch: an unchanged diff adds no entry, and a
+    # same-day rebuild replaces that day's entry, so this is idempotent.
+    changelog_log = changelog.update()
+
     # Load pricing.json
     if not pricing_path.exists():
         print(f"Error: {pricing_path} not found", file=sys.stderr)
@@ -246,6 +258,7 @@ def main():
         fetchDate=fetch_date,
         models_json=json.dumps(models, indent=2),
         task_guide_json=json.dumps(task_guide, indent=2),
+        changelog_entries=newest_changelog(changelog_log, "copilot"),
     )
 
     # Write output
@@ -288,6 +301,7 @@ def main():
         models_json=json_for_script(offers),
         routers_json=json_for_script(routers),
         exchange_rate_json=json_for_script(exchange_rate),
+        changelog_entries=newest_changelog(changelog_log, "router"),
     )
     router_html = "\n".join(line.rstrip() for line in router_html.splitlines()) + "\n"
     router_out = Path(__file__).parent / "docs" / "router-pricing.html"
@@ -306,7 +320,10 @@ def main():
         providers_data = json.loads(providers_path.read_text(encoding="utf-8"))
         providers = providers_data.get("providers", [])
         providers_template = env.get_template("provider-compare.html.j2")
-        providers_html = providers_template.render(providers=providers)
+        providers_html = providers_template.render(
+            providers=providers,
+            changelog_entries=newest_changelog(changelog_log, "providers"),
+        )
         providers_html = (
             "\n".join(line.rstrip() for line in providers_html.splitlines()) + "\n"
         )

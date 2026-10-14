@@ -30,7 +30,12 @@
 
 <!-- ── Main ────────────────────────────────────────────────── -->
 <main>
+  <div class="tabs-nav">
+    <button class="tab-btn active" data-tab="calc-tab">Calculator</button>
+    <button class="tab-btn" data-tab="changelog-tab">Changelog</button>
+  </div>
 
+  <div id="calc-tab" class="tab-content active">
   <!-- Controls -->
   <div class="controls provider-controls">
     <h2>Configure your estimate</h2>
@@ -178,6 +183,12 @@
     expensive model currently visible. Off-peak uses each provider's published schedule; hover the toggle for details.
     Hover a subscription row for plan and usage-limit details.
   </p>
+  </div>
+
+  <!-- Changelog Tab -->
+  <div id="changelog-tab" class="tab-content">
+    {{ m.changelog_panel(changelog_entries) }}
+  </div>
 </main>
 
 <footer class="page-footer">
@@ -195,6 +206,8 @@
   </div>
   <div class="tray-cards" id="tray-cards"></div>
 </div>
+
+{{ m.tab_switcher_js() }}
 
 {% include 'provider-compare.app.js.j2' %}
 

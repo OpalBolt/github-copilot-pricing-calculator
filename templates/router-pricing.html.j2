@@ -132,6 +132,12 @@
 </header>
 
 <main>
+  <div class="tabs-nav">
+    <button class="tab-btn active" data-tab="calc-tab">Calculator</button>
+    <button class="tab-btn" data-tab="changelog-tab">Changelog</button>
+  </div>
+
+  <div id="calc-tab" class="tab-content active">
   <div class="controls">
     <h2>Budget and token estimate</h2>
     <p class="dim">Set the tokens in one calculation and your total budget. Runs shows how many calculations fit.</p>
@@ -245,6 +251,12 @@
     OpenCode Zen, OpenRouter, Claude, DeepSeek, OpenAI, and z.ai USD prices are converted with the unrounded ECB reference rate shown above. Calculations use unrounded values and display rounding only.
     When no cached-input price is published, the input rate is used as an estimate and marked with ⚠. This does not mean the router publishes or supports prompt caching. Fully free offers do not show this warning because the fallback cannot change their cost.
   </p>
+  </div>
+
+  <!-- Changelog Tab -->
+  <div id="changelog-tab" class="tab-content">
+    {{ m.changelog_panel(changelog_entries) }}
+  </div>
 </main>
 
 <footer class="page-footer">
@@ -259,6 +271,8 @@
   </div>
   <div class="tray-cards" id="tray-cards"></div>
 </div>
+
+{{ m.tab_switcher_js() }}
 
 {% include 'router-pricing.app.js.j2' %}
 </body>
