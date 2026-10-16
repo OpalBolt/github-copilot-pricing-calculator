@@ -1,5 +1,12 @@
 {# Reusable Jinja2 macros for the token calculator #}
 
+{% macro disclaimer() %}
+<div class="disclaimer" role="note">
+  ⚠️ <strong>Estimates only.</strong> Prices are not guaranteed to be complete, current, or correct.
+  Always look up official pricing with the provider before making decisions — this tool is guidance only, not binding.
+</div>
+{% endmacro %}
+
 {% macro footnote_icon(text) %}
 {% if text %}
 <span class="footnote-icon" title="{{ text }}">!</span>

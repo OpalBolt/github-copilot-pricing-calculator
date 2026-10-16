@@ -1,3 +1,4 @@
+{% import 'macros.html.j2' as m %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +11,8 @@
   {% include 'styles.css.j2' %}
 </head>
 <body>
+
+{{ m.disclaimer() }}
 
 <header class="page-header">
   <p class="eyebrow">Calculators · AI strategies</p>
