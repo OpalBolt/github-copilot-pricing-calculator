@@ -217,12 +217,12 @@
           "default_visible": false
         },
         {
-          "id": "step-5-preview-free",
-          "name": "Step 5 Preview Free",
-          "input": 0.0,
-          "input_cache": 0.0,
-          "output": 0.0,
-          "monthly_limit_usd": null,
+          "id": "step-5-preview",
+          "name": "Step 5 Preview",
+          "input": 1.0,
+          "input_cache": 0.1,
+          "output": 2.7,
+          "monthly_limit_usd": 604.0,
           "default_visible": false
         },
         {
@@ -379,42 +379,6 @@
           "default_visible": false
         },
         {
-          "id": "deepseek-v4-flash-off-peak",
-          "name": "DeepSeek V4 Flash (Off-Peak)",
-          "input": 0.15,
-          "input_cache": 0.003,
-          "output": 0.6,
-          "monthly_limit_usd": 30.0,
-          "default_visible": false
-        },
-        {
-          "id": "deepseek-v4-flash-peak",
-          "name": "DeepSeek V4 Flash (Peak)",
-          "input": 0.3,
-          "input_cache": 0.006,
-          "output": 1.2,
-          "monthly_limit_usd": 30.0,
-          "default_visible": false
-        },
-        {
-          "id": "deepseek-v4-flash-vision-exp-off-peak",
-          "name": "DeepSeek V4 Flash Vision Exp (Off-Peak)",
-          "input": 0.15,
-          "input_cache": 0.003,
-          "output": 0.6,
-          "monthly_limit_usd": 15.0,
-          "default_visible": false
-        },
-        {
-          "id": "deepseek-v4-flash-vision-exp-peak",
-          "name": "DeepSeek V4 Flash Vision Exp (Peak)",
-          "input": 0.3,
-          "input_cache": 0.006,
-          "output": 1.2,
-          "monthly_limit_usd": 15.0,
-          "default_visible": false
-        },
-        {
           "id": "hy4-preview",
           "name": "Hy4 preview",
           "input": 0.834,
@@ -529,6 +493,15 @@
           "input_cache": 0.05,
           "output": 2.5,
           "monthly_limit_usd": 15.0,
+          "default_visible": false
+        },
+        {
+          "id": "gemini-4-argon-contributor",
+          "name": "Gemini 4 Argon Contributor",
+          "input": 4.0,
+          "input_cache": 0.2,
+          "output": 20.0,
+          "monthly_limit_usd": 602.0,
           "default_visible": false
         }
       ]
