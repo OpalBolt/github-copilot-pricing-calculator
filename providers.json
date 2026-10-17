@@ -217,8 +217,8 @@
           "default_visible": false
         },
         {
-          "id": "cat-jam-free",
-          "name": "Cat Jam Free",
+          "id": "beam-free",
+          "name": "Beam Free",
           "input": 0.0,
           "input_cache": 0.0,
           "output": 0.0,
