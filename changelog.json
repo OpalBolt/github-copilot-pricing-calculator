@@ -864,6 +864,26 @@
         "\u2192 OpenRouter \u00b7 Z.ai: GLM Flash Latest \u2014 input $0.0169\u2192$0.0264 \u00b7 cached $0.0125\u2192$0.0084 \u00b7 output $0.7772\u2192$0.3966",
         "\u2192 OpenRouter \u00b7 Z.ai: GLM Latest \u2014 input $0.0608\u2192$0.069 \u00b7 cached $0.0565\u2192$0.069 \u00b7 output $4.4\u2192$3.939"
       ]
+    },
+    {
+      "date": "2026-10-18",
+      "changes": [
+        "+ Cortecs: deepseek-v4.1-flash-1017",
+        "+ OpenRouter: Pareto 26.10",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash 0731 \u2014 input $0.0087\u2192$0.0086 \u00b7 cached $0.0087\u2192$0.0086 \u00b7 output $0.2829\u2192$0.45 \u00b7 eu output $0.5978\u2192$0.4782",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4.1 Flash \u2014 input $0.017\u2192$0.0648 \u00b7 cached $0.0017\u2192$0.0016 \u00b7 output $0.594\u2192$0.144",
+        "\u2192 OpenRouter \u00b7 Google: Gemma 3 27B \u2014 output $0.45\u2192$0.35",
+        "\u2192 OpenRouter \u00b7 Qwen: Qwen3 30B A3B Instruct 2507 \u2014 input $0.1\u2192$0.09 \u00b7 cached $0.1\u2192$0.09",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.3 \u2014 output $4.8\u2192$2.5",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.3 Flash \u2014 input $0.0264\u2192$0.048 \u00b7 cached $0.0084\u2192$0.006 \u00b7 output $0.3966\u2192$0.2 \u00b7 eu output $0.8625\u2192$0.69",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek Flash Latest \u2014 input $0.15\u2192$0.05 \u00b7 cached $0.003\u2192$0.008",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek Pro Latest \u2014 input $0.1233\u2192$0.12 \u00b7 cached $0.0041\u2192$0.12 \u00b7 output $0.3831\u2192$8",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash Latest \u2014 input $0.0087\u2192$0.00688 \u00b7 cached $0.0087\u2192$0.001523 \u00b7 output $0.2829\u2192$0.1436",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi Latest \u2014 cached $0.0513\u2192$0.27 \u00b7 output $13.98\u2192$14",
+        "\u2192 OpenRouter \u00b7 Pareto Latest \u2014 input $2.5\u2192$0.8 \u00b7 cached $0.25\u2192$0.03 \u00b7 output $7.5\u2192$3.2",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM Flash Latest \u2014 input $0.0264\u2192$0.048 \u00b7 cached $0.0084\u2192$0.006 \u00b7 output $0.3966\u2192$0.2",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM Latest \u2014 input $0.069\u2192$0.0632 \u00b7 cached $0.069\u2192$0.0588 \u00b7 output $3.939\u2192$4.4"
+      ]
     }
   ]
 }
