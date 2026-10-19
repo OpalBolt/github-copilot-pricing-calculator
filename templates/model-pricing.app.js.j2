@@ -2,6 +2,10 @@
   const ALL_MODELS = {{ models_json }};
   const SELLERS = {{ sellers_json }};
   const EXCHANGE_RATE = {{ exchange_rate_json }};
+  // The usage-ranked default view: the listing keys the page opens on.
+  // Search and filters still query ALL_MODELS, the full catalog.
+  const DEFAULT_VIEW = {{ default_view_json }};
+  const DEFAULT_KEYS = new Set(DEFAULT_VIEW?.listingKeys || []);
 
   const PROFILES = {
     superuser: { input: 0.49, cached: 98.62, output: 0.89 },
@@ -91,18 +95,31 @@
     return result;
   }
 
+  // One source of truth for the narrowing filters: each entry detects whether
+  // its state field is engaged. passesFilters guards every check with the same
+  // detector filtersActive reduces over, so a future filter cannot narrow rows
+  // without also widening the default view back to the full catalog.
+  const filterEngaged = {
+    search: () => Boolean(state.search.trim()),
+    creator: () => Boolean(state.creator),
+    sellers: () => state.sellers.size > 0,
+    minimumRuns: () => state.minimumRuns > 0,
+    hideFree: () => state.hideFree,
+    filters: () => Object.values(state.filters).some(Boolean),
+  };
+
   function passesFilters(model, cfg) {
     const prices = activeRates(model, cfg);
     if (!prices) return false;
-    if (state.sellers.size && !state.sellers.has(model.seller)) return false;
-    if (state.creator && !(model.creator || '').toLowerCase().includes(state.creator)) return false;
-    if (state.hideFree && isFree(prices)) return false;
-    if (state.minimumRuns > 0) {
+    if (filterEngaged.sellers() && !state.sellers.has(model.seller)) return false;
+    if (filterEngaged.creator() && !(model.creator || '').toLowerCase().includes(state.creator)) return false;
+    if (filterEngaged.hideFree() && isFree(prices)) return false;
+    if (filterEngaged.minimumRuns()) {
       const cost = estimateCost(prices, cfg);
       const runs = cost > 0 ? cfg.budget / cost : Infinity;
       if (runs < state.minimumRuns) return false;
     }
-    if (state.search) {
+    if (filterEngaged.search()) {
       const haystack = [
         model.name, model.modelId, model.creator, model.sellerName,
       ].join(' ').toLowerCase();
@@ -136,9 +153,21 @@
       <span class="chip">Budget: <strong>€${fmtMoney(cfg.budget)}</strong></span>`;
   }
 
+  // Whether the visitor is searching or filtering. The page opens on the
+  // usage-ranked default view; any active search or filter widens the row
+  // universe back to the full catalog so nothing is unreachable. With no
+  // selection at all the page loads search-only (see the visible note).
+  // Derived from the same filterEngaged detectors passesFilters guards with.
+  const filtersActive = () => Object.values(filterEngaged).some(engaged => engaged());
+  function baseCatalog() {
+    if (filtersActive()) return ALL_MODELS;
+    if (!DEFAULT_KEYS.size) return [];
+    return ALL_MODELS.filter(model => DEFAULT_KEYS.has(model.key));
+  }
+
   function render() {
     const cfg = getConfig();
-    const rows = ALL_MODELS.filter(model => passesFilters(model, cfg)).map(model => {
+    const rows = baseCatalog().filter(model => passesFilters(model, cfg)).map(model => {
       const prices = activeRates(model, cfg);
       const cost = estimateCost(prices, cfg);
       return { ...model, ...prices, cost, runs: cost > 0 ? cfg.budget / cost : null };

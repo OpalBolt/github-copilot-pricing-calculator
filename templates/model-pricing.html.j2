@@ -210,6 +210,14 @@
     </div>
   </div>
 
+  <div class="build-warning" id="default-view-note">
+    {% if defaultView and defaultView.listingKeys %}
+    Default view: the listings of the {{ defaultView.models|length }} most-used models, ranked by OpenRouter token usage over {{ defaultView.window.start }} – {{ defaultView.window.end }}. Search or filter to reach the full catalog of {{ listingCount }} listings.
+    {% else %}
+    No usage-ranked default view is available in this build — the table starts empty. Use search or the filters to find listings.
+    {% endif %}
+  </div>
+
   <div class="table-meta"><span class="table-meta-count" id="row-count"></span></div>
   <div class="table-wrapper">
     <table id="model-table">

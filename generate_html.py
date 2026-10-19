@@ -360,6 +360,7 @@ def main():
         sys.exit(1)
     model_sellers = model_pricing_data.get("sellers", [])
     model_exchange_rate = model_pricing_data.get("exchangeRate")
+    model_default_view = model_pricing_data.get("defaultView")
     model_template = env.get_template("model-pricing.html.j2")
     model_html = model_template.render(
         generatedAt=model_pricing_data.get("generatedAt", "unknown"),
@@ -374,9 +375,12 @@ def main():
             for omitted in model_pricing_data.get("omittedSellers", [])
         ],
         exchangeRate=model_exchange_rate,
+        listingCount=len(model_listings),
+        defaultView=model_default_view,
         models_json=json_for_script(model_listings),
         sellers_json=json_for_script(model_sellers),
         exchange_rate_json=json_for_script(model_exchange_rate),
+        default_view_json=json_for_script(model_default_view),
         changelog_entries=newest_changelog(changelog_log, "model-pricing"),
     )
     model_html = "\n".join(line.rstrip() for line in model_html.splitlines()) + "\n"

@@ -890,13 +890,9 @@
     {
       "date": "2026-10-19",
       "changes": [
-        "+ Meta: Muse Spark",
-        "+ Meta: Muse Spark",
-        "+ Meta: Muse Spark",
-        "+ Meta: Muse Wonder",
-        "\u2192 Kilo \u00b7 DeepSeek: DeepSeek V4 Flash Latest \u2014 input $0.0114\u2192$0.00912 \u00b7 cached $0.0114\u2192$0.003304 \u00b7 output $0.45\u2192$0.12",
-        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Pro 0423 \u2014 input $0.392\u2192$0.3887 \u00b7 cached $0.03267\u2192$0.03239 \u00b7 output $0.784\u2192$0.7774",
-        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash Latest \u2014 input $0.0114\u2192$0.00912 \u00b7 cached $0.0114\u2192$0.003304 \u00b7 output $0.45\u2192$0.12"
+        "\u2192 Kilo \u00b7 DeepSeek: DeepSeek V4 Flash Latest \u2014 input $0.00912\u2192$0.00688",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Pro 0423 \u2014 input $0.3887\u2192$0.387 \u00b7 cached $0.03239\u2192$0.03225 \u00b7 output $0.7774\u2192$0.774",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash Latest \u2014 input $0.00912\u2192$0.00688"
       ]
     }
   ]

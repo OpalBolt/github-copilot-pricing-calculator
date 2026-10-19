@@ -142,6 +142,7 @@ fetch_pricing.py            # GitHub Copilot docs -> pricing.json
 fetch_model_comparison.py   # GitHub Copilot docs -> model_comparison.json
 fetch_router_pricing.py     # Router catalogs + ECB -> eu-router-pricing.json
 fetch_model_pricing.py      # All Sellers' catalogs + ECB -> model-pricing.json
+default_view.py             # Usage-ranked opening selection for the Model Price Calculator
 fetch_providers.py          # DeepSeek + z.ai scrapers -> providers.json
 changelog.py                # Diffs fetched data vs git HEAD -> changelog.json
 generate_html.py            # Renders the hub + all four tools
@@ -151,6 +152,8 @@ eu-router-pricing.json      # Normalized EU router offers (checked in)
 model-pricing.json          # Normalized model listings per Seller (checked in)
 providers.json              # Provider comparison data (checked in)
 changelog.json              # Per-category change log rendered into each page (checked in)
+fixtures/                   # Committed catalog samples and rankings snapshot (checked in)
+sources/                    # Seller listings adapters + the shared source registry
 templates/                  # Jinja2 templates + shared CSS/JS for the pages
 docs/
   index.html                # The landing hub (what gets published)

@@ -4,11 +4,13 @@
 import json
 import math
 import re
+from collections import Counter
 from contextlib import ExitStack, contextmanager
 from datetime import timedelta
 from pathlib import Path
 from unittest.mock import patch
 
+import default_view
 import fetch_model_pricing
 from fetch_model_pricing import _cached_seller
 from sources import SOURCES
@@ -4402,6 +4404,223 @@ def test_aggregate_contract():
             if tier["cachedFallback"]:
                 assert tier["cached"] == tier["input"]
 
+    # The usage-ranked default view rides in the dataset with its ranking
+    # metadata (window, fetched-at, stale flag), so the live-fetch slice can
+    # slot in behind the same shape and fall back to this stored selection.
+    view = data["defaultView"]
+    assert view["source"] == "openrouter-rankings"
+    assert re.fullmatch(r"\d{4}-\d{2}-\d{2}", view["window"]["start"])
+    assert view["window"]["start"] <= view["window"]["end"]
+    assert view["fetchedAt"]
+    assert view["stale"] is False
+    assert len(view["models"]) == 20
+    assert len({slug.split("/")[0].lower() for slug in view["models"]}) == 13
+    assert set(view["misses"]) < set(view["models"])
+    view_keys = set(view["listingKeys"])
+    assert view_keys <= {listing["key"] for listing in listings}
+    assert 200 < len(view_keys) < len(listings)
+
+
+def _ranking_rows(*rows: tuple[str, int]) -> dict:
+    """A minimal rankings payload shaped like the OpenRouter fixture."""
+    return {
+        "data": [
+            {
+                "date": "2026-10-01",
+                "model_permaslug": slug,
+                "total_tokens": str(tokens),
+            }
+            for slug, tokens in rows
+        ],
+        "meta": {
+            "as_of": "2026-10-19T09:18:03.868Z",
+            "start_date": "2026-09-19",
+            "end_date": "2026-10-18",
+        },
+    }
+
+
+def _mini_listing(model_id: str, seller: str = "test-seller") -> dict:
+    """The fields the default-view matcher reads from a listing."""
+    return {"key": f"{seller}:{model_id}", "seller": seller, "modelId": model_id}
+
+
+def test_default_view_slug_normalization():
+    assert (
+        default_view.normalize_model_slug("haiku-4.5")
+        == default_view.normalize_model_slug("haiku 4.5")
+        == default_view.normalize_model_slug("haiku-4-5")
+    )
+    # Creator prefix, trailing :free, trailing date, and punctuation all
+    # normalize away.
+    assert (
+        default_view.normalize_model_slug("anthropic/claude-opus-5.5-20260921")
+        == "claudeopus55"
+    )
+    assert (
+        default_view.normalize_model_slug(
+            "nvidia/nemotron-3-ultra-550b-a55b-20260604:free"
+        )
+        == "nemotron3ultra550ba55b"
+    )
+
+
+def test_default_view_exact_match_guard():
+    rankings = _ranking_rows(("z-ai/glm-5.3", 10))
+    listings = [
+        _mini_listing("z-ai/glm-5.3", "zai-direct"),
+        _mini_listing("z-ai/glm-5.3-flash", "zai-direct"),
+        _mini_listing("glm-5.3-flash", "openrouter"),
+    ]
+    selection = default_view.select_default_view(rankings, listings)
+    # Exact equality only: glm-5.3 never pulls in glm-5.3-flash listings.
+    assert selection["listingKeys"] == ["zai-direct:z-ai/glm-5.3"]
+    assert selection["misses"] == []
+
+
+def test_default_view_dedupes_ranked_variants():
+    rankings = _ranking_rows(
+        ("deepseek/deepseek-v4-flash-20260731", 10),
+        ("deepseek/deepseek-v4-flash-20260731:free", 5),
+    )
+    listings = [
+        _mini_listing("deepseek/deepseek-v4-flash", "openrouter"),
+        _mini_listing("deepseek/deepseek-v4-flash:free", "kilo"),
+    ]
+    selection = default_view.select_default_view(rankings, listings)
+    assert len(selection["models"]) == 2
+    # Both ranked variants normalize the same, so every matched listing
+    # appears once — but the two distinct listings both stay eligible.
+    assert selection["listingKeys"] == [
+        "openrouter:deepseek/deepseek-v4-flash",
+        "kilo:deepseek/deepseek-v4-flash:free",
+    ]
+
+
+def test_default_view_free_listings_are_eligible():
+    rankings = _ranking_rows(
+        ("nvidia/nemotron-3-ultra-550b-a55b-20260604:free", 10)
+    )
+    listings = [
+        {
+            **_mini_listing(
+                "nemotron-3-ultra-550b-a55b-20260604:free", "openrouter"
+            ),
+            "rates": {"input": 0, "cached": 0, "output": 0},
+        }
+    ]
+    selection = default_view.select_default_view(rankings, listings)
+    # A zero price is a price: the :free listing is a default-view row.
+    assert selection["listingKeys"] == [
+        "openrouter:nemotron-3-ultra-550b-a55b-20260604:free"
+    ]
+
+
+def test_default_view_selection_from_fixture():
+    rankings = json.loads(
+        (ROOT / "fixtures" / "openrouter-rankings.json").read_text(encoding="utf-8")
+    )
+    listings = json.loads(DATA.read_text(encoding="utf-8"))["listings"]
+    selection = default_view.select_default_view(rankings, listings)
+    assert selection is not None
+    assert default_view.MAX_DEFAULT_MODELS == 20
+    assert len(selection["models"]) == 20
+    creators = {slug.split("/")[0].lower() for slug in selection["models"]}
+    assert len(creators) == 13
+    assert selection["models"][0] == "deepseek/deepseek-v4.1-flash-20260910"
+    per_creator = Counter(slug.split("/")[0].lower() for slug in selection["models"])
+    assert max(per_creator.values()) <= default_view.MAX_MODELS_PER_CREATOR
+    assert default_view.MAX_MODELS_PER_CREATOR == 3
+    # Ranking metadata carried for the page and the later live fetch.
+    assert selection["window"] == {"start": "2026-09-19", "end": "2026-10-18"}
+    assert selection["fetchedAt"] == rankings["meta"]["as_of"]
+    assert selection["stale"] is False
+    # Misses stay visible in the data.
+    assert "stealth/space-bunny-alpha" in selection["misses"]
+    assert set(selection["misses"]) < set(selection["models"])
+    # The default view is a strict, sizeable slice of the flat catalog,
+    # deduplicated across ranked variants, with free rows eligible.
+    catalog = {listing["key"] for listing in listings}
+    keys = selection["listingKeys"]
+    assert 200 < len(keys) < len(catalog)
+    assert set(keys) <= catalog
+    assert len(set(keys)) == len(keys)
+    rates_by_key = {listing["key"]: listing["rates"] for listing in listings}
+    assert any(
+        rates_by_key[key]["input"] == 0 and rates_by_key[key]["output"] == 0
+        for key in keys
+    )
+
+
+def test_default_view_without_usable_rankings_is_search_only():
+    listings = [_mini_listing("z-ai/glm-5.3")]
+    assert default_view.select_default_view(None, listings) is None
+    assert default_view.select_default_view({"data": [], "meta": {}}, listings) is None
+    # Rankings that match no listing at all also leave the page search-only.
+    rankings = _ranking_rows(("unheard-of/model-x", 10))
+    assert default_view.select_default_view(rankings, listings) is None
+
+
+def test_default_view_fixture_loader():
+    payload = default_view.load_rankings()
+    assert payload and payload["data"]
+    assert payload["meta"]["start_date"]
+    assert payload["meta"]["end_date"]
+
+
+def _render_model_page(default_view_selection, default_view_json: str) -> str:
+    """The Model Price Calculator template with a minimal page context, so
+    both note variants can be checked without a rebuild."""
+    from jinja2 import Environment, FileSystemLoader
+
+    env = Environment(loader=FileSystemLoader(str(ROOT / "templates")))
+    template = env.get_template("model-pricing.html.j2")
+    return template.render(
+        generatedAt="test",
+        sellers=[],
+        staleSellers=[],
+        omittedSellers=[],
+        exchangeRate=None,
+        listingCount=5806,
+        defaultView=default_view_selection,
+        models_json="[]",
+        sellers_json="[]",
+        exchange_rate_json="null",
+        default_view_json=default_view_json,
+        changelog_entries=[],
+    )
+
+
+def test_default_view_page_search_only_without_selection():
+    html = _render_model_page(None, "null")
+    assert 'id="default-view-note"' in html
+    assert "the table starts empty" in html
+    assert "most-used models" not in html
+    # Search-only JS: with no selection, zero rows until the visitor
+    # searches or filters.
+    assert "if (!DEFAULT_KEYS.size) return [];" in html
+
+
+def test_default_view_page_note_with_selection():
+    selection = {
+        "source": "openrouter-rankings",
+        "window": {"start": "2026-09-19", "end": "2026-10-18"},
+        "fetchedAt": "2026-10-19T09:18:03.868Z",
+        "stale": False,
+        "models": ["deepseek/deepseek-v4.1-flash-20260910"],
+        "listingKeys": ["seller:model"],
+        "misses": [],
+    }
+    html = _render_model_page(selection, json.dumps(selection))
+    assert 'id="default-view-note"' in html
+    assert "most-used models" in html
+    assert "2026-09-19" in html and "2026-10-18" in html
+    assert "the table starts empty" not in html
+    assert "const DEFAULT_VIEW =" in html
+    assert "DEFAULT_KEYS.has(model.key)" in html
+    # The default view renders through the same flat, price-sorted table.
+    assert "sortCol: 'cost'" in html
+
 
 def test_generated_page():
     html = HTML.read_text(encoding="utf-8")
@@ -4485,8 +4704,20 @@ def test_generated_page():
         "unrounded ECB reference rate",
         "dropped after seven days",
         "sellerOf(model)?.stale",
+        'id="default-view-note"',
+        "const DEFAULT_VIEW =",
+        "DEFAULT_KEYS.has(model.key)",
+        "most-used models",
     ):
         assert marker in html
+    # The generated page opens on the dataset's stored selection, and with a
+    # selection present it is not the search-only variant.
+    embedded = re.search(r"const DEFAULT_VIEW = (\{.*?\});", html).group(1)
+    page_view = json.loads(embedded)
+    dataset_view = json.loads(DATA.read_text(encoding="utf-8"))["defaultView"]
+    assert page_view["listingKeys"] == dataset_view["listingKeys"]
+    assert len(page_view["models"]) == 20
+    assert "the table starts empty" not in html
     # Zero grouping anywhere: no group column, no merged-model markup, and no
     # cheapest-per-model aggregate.
     assert 'data-col="group"' not in html
@@ -4536,9 +4767,21 @@ def main():
     test_build_fails_only_without_usable_data()
     test_stale_seller_keeps_its_exchange_rate()
     test_ecb_failure_keeps_rate_optional_sellers()
+    test_default_view_slug_normalization()
+    test_default_view_exact_match_guard()
+    test_default_view_dedupes_ranked_variants()
+    test_default_view_free_listings_are_eligible()
+    test_default_view_selection_from_fixture()
+    test_default_view_without_usable_rankings_is_search_only()
+    test_default_view_fixture_loader()
+    test_default_view_page_search_only_without_selection()
+    test_default_view_page_note_with_selection()
     test_aggregate_contract()
     test_generated_page()
-    print("OK - listing helpers, adapters, aggregate data, and generated page")
+    print(
+        "OK - listing helpers, adapters, default view, aggregate data, "
+        "and generated page"
+    )
 
 
 if __name__ == "__main__":
