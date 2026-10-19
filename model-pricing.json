@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-19T16:49:27.433308+00:00",
+  "generatedAt": "2026-10-19T17:03:01.208271+00:00",
   "currency": "EUR",
   "exchangeRate": {
     "series": "EXR.D.USD.EUR.SP00.A",
@@ -15,7 +15,7 @@
       "source": "https://api.cortecs.ai/v1/models?extended=true&currency=EUR",
       "id": "cortecs",
       "nativeCurrency": "EUR",
-      "fetchedAt": "2026-10-19T16:49:27.433308+00:00",
+      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
       "stale": false
     },
     {
@@ -24,7 +24,7 @@
       "source": "https://api.eurouter.ai/api/v1/models",
       "id": "eurouter",
       "nativeCurrency": "mixed",
-      "fetchedAt": "2026-10-19T16:49:27.433308+00:00",
+      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
       "stale": false
     },
     {
@@ -33,7 +33,7 @@
       "source": "https://openrouter.ai/api/v1/models",
       "id": "openrouter",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T16:49:27.433308+00:00",
+      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
       "stale": false
     },
     {
@@ -42,7 +42,7 @@
       "source": "https://opencode.ai/zen/v1/models",
       "id": "opencode",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T16:49:27.433308+00:00",
+      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
       "stale": false
     },
     {
@@ -51,7 +51,7 @@
       "source": "https://api.deepinfra.com/v1/models",
       "nativeCurrency": "USD",
       "id": "deepinfra",
-      "fetchedAt": "2026-10-19T16:49:27.433308+00:00",
+      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
       "stale": false
     },
     {
@@ -60,7 +60,7 @@
       "source": "https://api.novita.ai/v3/openai/models",
       "nativeCurrency": "USD",
       "id": "novita",
-      "fetchedAt": "2026-10-19T16:49:27.433308+00:00",
+      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
       "stale": false
     },
     {
@@ -69,7 +69,7 @@
       "source": "https://router.requesty.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "requesty",
-      "fetchedAt": "2026-10-19T16:49:27.433308+00:00",
+      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
       "stale": false
     },
     {
@@ -78,7 +78,7 @@
       "source": "https://ai-gateway.vercel.sh/v1/models",
       "nativeCurrency": "USD",
       "id": "vercel-gateway",
-      "fetchedAt": "2026-10-19T16:49:27.433308+00:00",
+      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
       "stale": false
     },
     {
@@ -87,7 +87,7 @@
       "source": "https://api.kilo.ai/api/gateway/models",
       "nativeCurrency": "USD",
       "id": "kilo",
-      "fetchedAt": "2026-10-19T16:49:27.433308+00:00",
+      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
       "stale": false
     },
     {
@@ -96,7 +96,7 @@
       "source": "https://nano-gpt.com/api/v1/models?detailed=true",
       "nativeCurrency": "USD",
       "id": "nano-gpt",
-      "fetchedAt": "2026-10-19T16:49:27.433308+00:00",
+      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
       "stale": false
     },
     {
@@ -105,7 +105,7 @@
       "source": "https://llm.chutes.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "chutes",
-      "fetchedAt": "2026-10-19T16:49:27.433308+00:00",
+      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
       "stale": false
     },
     {
@@ -114,7 +114,7 @@
       "source": "https://api.llmgateway.io/v1/models",
       "nativeCurrency": "USD",
       "id": "llmgateway",
-      "fetchedAt": "2026-10-19T16:49:27.433308+00:00",
+      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
       "stale": false
     },
     {
@@ -123,7 +123,7 @@
       "source": "https://api.aiand.com/v1/models",
       "nativeCurrency": "USD",
       "id": "aiand",
-      "fetchedAt": "2026-10-19T16:49:27.433308+00:00",
+      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
       "stale": false
     },
     {
@@ -132,7 +132,7 @@
       "source": "https://api.aimlapi.com/v1/models?include=pricing,modalities",
       "nativeCurrency": "USD",
       "id": "aimlapi",
-      "fetchedAt": "2026-10-19T16:49:27.433308+00:00",
+      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
       "stale": false
     },
     {
@@ -141,7 +141,7 @@
       "source": "https://api.ambient.xyz/v1/models",
       "nativeCurrency": "USD",
       "id": "ambient",
-      "fetchedAt": "2026-10-19T16:49:27.433308+00:00",
+      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
       "stale": false
     },
     {
@@ -150,7 +150,7 @@
       "source": "https://www.crossmodel.ai/api/models",
       "nativeCurrency": "USD",
       "id": "crossmodel",
-      "fetchedAt": "2026-10-19T16:49:27.433308+00:00",
+      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
       "stale": false
     },
     {
@@ -159,7 +159,7 @@
       "source": "https://api.edenai.run/v3/models",
       "nativeCurrency": "USD",
       "id": "edenai",
-      "fetchedAt": "2026-10-19T16:49:27.433308+00:00",
+      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
       "stale": false
     },
     {
@@ -168,7 +168,7 @@
       "source": "https://api.empiriolabs.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "empiriolabs",
-      "fetchedAt": "2026-10-19T16:49:27.433308+00:00",
+      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
       "stale": false
     },
     {
@@ -177,7 +177,16 @@
       "source": "https://api.engy.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "engy",
-      "fetchedAt": "2026-10-19T16:49:27.433308+00:00",
+      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
+      "stale": false
+    },
+    {
+      "name": "FriendliAI",
+      "sellerKind": "gateway",
+      "source": "https://api.friendli.ai/serverless/v1/models",
+      "nativeCurrency": "USD",
+      "id": "friendli",
+      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
       "stale": false
     },
     {
@@ -186,7 +195,7 @@
       "sellerKind": "first-party",
       "id": "deepseek-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T16:49:27.433308+00:00",
+      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
       "stale": false
     },
     {
@@ -195,7 +204,7 @@
       "sellerKind": "first-party",
       "id": "zai-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T16:49:27.433308+00:00",
+      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
       "stale": false
     },
     {
@@ -204,7 +213,7 @@
       "sellerKind": "first-party",
       "id": "claude-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T16:49:27.433308+00:00",
+      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
       "stale": false
     },
     {
@@ -213,7 +222,7 @@
       "sellerKind": "first-party",
       "id": "openai-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T16:49:27.433308+00:00",
+      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
       "stale": false
     }
   ],
@@ -67942,6 +67951,223 @@
       "priceNote": "EUR price published in EUrouter's catalog."
     },
     {
+      "key": "friendli:MiniMaxAI/MiniMax-M2.5",
+      "seller": "friendli",
+      "sellerName": "FriendliAI",
+      "modelId": "MiniMaxAI/MiniMax-M2.5",
+      "name": "MiniMaxAI/MiniMax-M2.5",
+      "creator": "MiniMax AI",
+      "description": "Prior MiniMax coding model for agent workflows, office edits, and automation",
+      "releaseDate": null,
+      "contextSize": 196608,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.26726057906458794,
+        "cached": 0.05345211581291759,
+        "output": 1.0690423162583518,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3,
+          "cached": 0.06,
+          "output": 1.2
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in FriendliAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "friendli:deepseek-ai/DeepSeek-V3.2",
+      "seller": "friendli",
+      "sellerName": "FriendliAI",
+      "modelId": "deepseek-ai/DeepSeek-V3.2",
+      "name": "deepseek-ai/DeepSeek-V3.2",
+      "creator": "DeepSeek",
+      "description": "DeepSeek chat model for instruction following, coding, and analysis",
+      "releaseDate": null,
+      "contextSize": 163840,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.4454342984409799,
+        "cached": 0.22271714922048996,
+        "output": 1.3363028953229399,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.5,
+          "cached": 0.25,
+          "output": 1.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in FriendliAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "friendli:google/gemma-4-31B-it",
+      "seller": "friendli",
+      "sellerName": "FriendliAI",
+      "modelId": "google/gemma-4-31B-it",
+      "name": "google/gemma-4-31B-it",
+      "creator": "Google",
+      "description": "Largest Gemma 4 instruction model for open, self-hosted chat and reasoning",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.12472160356347439,
+        "cached": 0.12472160356347439,
+        "output": 0.35634743875278396,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.14,
+          "cached": 0.14,
+          "output": 0.4
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in FriendliAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "friendli:zai-org/GLM-5.1",
+      "seller": "friendli",
+      "sellerName": "FriendliAI",
+      "modelId": "zai-org/GLM-5.1",
+      "name": "zai-org/GLM-5.1",
+      "creator": "Z.ai",
+      "description": "Strong GLM coding model for agentic engineering, terminals, and repository generation",
+      "releaseDate": null,
+      "contextSize": 202752,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.2472160356347437,
+        "cached": 0.23162583518930957,
+        "output": 3.9198218262806237,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.4,
+          "cached": 0.26,
+          "output": 4.4
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in FriendliAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "friendli:zai-org/GLM-5.2",
+      "seller": "friendli",
+      "sellerName": "FriendliAI",
+      "modelId": "zai-org/GLM-5.2",
+      "name": "zai-org/GLM-5.2",
+      "creator": "Z.ai",
+      "description": "Open flagship GLM for long-horizon coding agents and million-token context work",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.2472160356347437,
+        "cached": 0.23162583518930957,
+        "output": 3.9198218262806237,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.4,
+          "cached": 0.26,
+          "output": 4.4
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in FriendliAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "friendli:zai-org/GLM-5.3",
+      "seller": "friendli",
+      "sellerName": "FriendliAI",
+      "modelId": "zai-org/GLM-5.3",
+      "name": "zai-org/GLM-5.3",
+      "creator": "Z.ai",
+      "description": "Flagship GLM model for long-horizon coding, agents, and complex project delivery",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.1224944320712695,
+        "cached": 0.20846325167037863,
+        "output": 3.527839643652561,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.26,
+          "cached": 0.234,
+          "output": 3.96
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in FriendliAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "friendli:zai-org/GLM-5.3-Flash",
+      "seller": "friendli",
+      "sellerName": "FriendliAI",
+      "modelId": "zai-org/GLM-5.3-Flash",
+      "name": "zai-org/GLM-5.3-Flash",
+      "creator": "Z.ai",
+      "description": "Native multimodal GLM model for efficient coding and long-horizon agent tasks",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.13363028953229397,
+        "cached": 0.026726057906458794,
+        "output": 0.4454342984409799,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.15,
+          "cached": 0.03,
+          "output": 0.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in FriendliAI's model catalog and converted with the listed ECB rate."
+    },
+    {
       "key": "kilo:aion-labs/aion-2.0",
       "seller": "kilo",
       "sellerName": "Kilo",
@@ -70850,6 +71076,37 @@
           "input": 0.2,
           "cached": 0.02,
           "output": 0.75
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Kilo's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "kilo:inception/mercury-3",
+      "seller": "kilo",
+      "sellerName": "Kilo",
+      "modelId": "inception/mercury-3",
+      "name": "Inception: Mercury 3",
+      "creator": "inception",
+      "description": "Mercury 3 is a diffusion-based language model from Inception, and the lab's most capable model to date. It is suited for agentic workflows and real-time applications where latency compounds, such...",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.17817371937639198,
+        "cached": 0.017817371937639197,
+        "output": 0.6236080178173719,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.2,
+          "cached": 0.02,
+          "output": 0.7
         }
       },
       "pricingTiers": [],
@@ -80751,7 +81008,7 @@
       "modelId": "deepseek-v4-flash",
       "name": "DeepSeek V4 Flash",
       "creator": "DeepSeek",
-      "description": "deepseek-v4-flash provided by deepseek, novita, alibaba, deepinfra, bytedance, fireworks, together-ai, ranoai, canopywave, baidu, tencent, consensusprotocol, runware",
+      "description": "deepseek-v4-flash provided by deepseek, novita, alibaba, deepinfra, bytedance, fireworks, together-ai, ranoai, canopywave, baidu, tencent, runware, consensusprotocol",
       "releaseDate": null,
       "contextSize": 1050000,
       "capabilities": {
@@ -82208,7 +82465,7 @@
       "modelId": "glm-5.3",
       "name": "GLM-5.3",
       "creator": "Z.ai",
-      "description": "glm-5.3 provided by zai, novita, baidu, alibaba, fireworks, inference.net, mistral, deepinfra, together-ai, runware, reka-ai, scx-ai-gp, entrim",
+      "description": "glm-5.3 provided by zai, novita, baidu, alibaba, fireworks, inference.net, mistral, deepinfra, together-ai, runware, reka-ai, entrim, scx-ai-gp",
       "releaseDate": null,
       "contextSize": 1048576,
       "capabilities": {
@@ -82270,7 +82527,7 @@
       "modelId": "glm-5.3-flash",
       "name": "GLM-5.3 Flash",
       "creator": "Z.ai",
-      "description": "glm-5.3-flash provided by zai, novita, fireworks, inference.net, together-ai, runware, scx-ai-gp, consensusprotocol, entrim",
+      "description": "glm-5.3-flash provided by zai, novita, fireworks, inference.net, together-ai, runware, consensusprotocol, scx-ai-gp, entrim",
       "releaseDate": null,
       "contextSize": 1048576,
       "capabilities": {
@@ -105592,15 +105849,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.7429844097995545,
-        "cached": 0.03741648106904231,
-        "output": 2.2280623608017813,
+        "input": 0.668685968819599,
+        "cached": 0.033674832962138086,
+        "output": 2.0052561247216034,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.834,
-          "cached": 0.041999999999999996,
-          "output": 2.501
+          "input": 0.7505999999999999,
+          "cached": 0.03780000000000001,
+          "output": 2.2509
         }
       },
       "pricingTiers": [],
@@ -107918,13 +108175,13 @@
       },
       "rates": {
         "input": 1.1135857461024499,
-        "cached": 0.26726057906458794,
+        "cached": 0.27581291759465476,
         "output": 2.0044543429844097,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
           "input": 1.25,
-          "cached": 0.3,
+          "cached": 0.3096,
           "output": 2.25
         }
       },
@@ -118825,6 +119082,37 @@
           "input": 0.04,
           "cached": 0.004,
           "output": 0.15
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OpenRouter's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "openrouter:inception/mercury-3",
+      "seller": "openrouter",
+      "sellerName": "OpenRouter",
+      "modelId": "inception/mercury-3",
+      "name": "Inception: Mercury 3",
+      "creator": "inception",
+      "description": "Mercury 3 is a diffusion-based language model from Inception, and the lab's most capable model to date. It is suited for agentic workflows and real-time applications where latency compounds, such...",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.08908685968819599,
+        "cached": 0.008908685968819599,
+        "output": 0.3118040089086859,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.1,
+          "cached": 0.01,
+          "output": 0.35
         }
       },
       "pricingTiers": [],
@@ -142577,6 +142865,37 @@
       "priceNote": "USD price published in Requesty's model catalog and converted with the listed ECB rate."
     },
     {
+      "key": "requesty:minimaxi/minimax-m3.1-flash",
+      "seller": "requesty",
+      "sellerName": "Requesty",
+      "modelId": "minimaxi/minimax-m3.1-flash",
+      "name": "minimax-m3.1-flash",
+      "creator": "MiniMax AI",
+      "description": "MiniMax M3.1 Flash is a fast multimodal model in the MiniMax M3 family, built for agentic cowork automation, coding and visual tasks. It scores 72.5% on AutomationBench AA (best among open models), 73.67% on DeepSWE, 91.0 on BabyVision with tools, 82.5 on CharXiv RQ, 56% on AA Omniscience and 48% on HLE. Supports image input, tool calling, structured JSON output, reasoning and prompt caching. Ideal for multi step workflows, coding agents, frontend and presentation generation, and professional analysis at low cost.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.13363028953229397,
+        "cached": 0.013363028953229397,
+        "output": 0.5345211581291759,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.15,
+          "cached": 0.015,
+          "output": 0.6
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Requesty's model catalog and converted with the listed ECB rate."
+    },
+    {
       "key": "requesty:mistral/codestral-latest",
       "seller": "requesty",
       "sellerName": "Requesty",
@@ -157823,6 +158142,37 @@
           "input": 0.04,
           "cached": 0.004,
           "output": 0.15
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Vercel AI Gateway's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "vercel-gateway:inception/mercury-3",
+      "seller": "vercel-gateway",
+      "sellerName": "Vercel AI Gateway",
+      "modelId": "inception/mercury-3",
+      "name": "Mercury 3",
+      "creator": "inception",
+      "description": "Mercury 3 is Inception\u2019s most capable model for agentic workflows and real-time applications. It is one of the world\u2019s fastest models, powered by diffusion.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.08908685968819599,
+        "cached": 0.008908685968819599,
+        "output": 0.3118040089086859,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.1,
+          "cached": 0.01,
+          "output": 0.35
         }
       },
       "pricingTiers": [],

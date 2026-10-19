@@ -24,6 +24,7 @@ from sources.empiriolabs import (
     fetch_empiriolabs_listings,
 )
 from sources.engy import _engy_rates, fetch_engy_listings
+from sources.friendli import _friendli_rates, fetch_friendli_listings
 from sources.eurouter import fetch_eurouter_listings
 from sources.helpers import _rates, listing_from_offer, now_utc
 from sources.kilo import _kilo_rates, fetch_kilo_listings
@@ -64,6 +65,7 @@ ALL_SELLERS = {
     "edenai",
     "empiriolabs",
     "engy",
+    "friendli",
     "deepseek-direct",
     "zai-direct",
     "claude-direct",
@@ -89,6 +91,7 @@ SELLER_KINDS = {
     "edenai": "gateway",
     "empiriolabs": "gateway",
     "engy": "gateway",
+    "friendli": "gateway",
     "deepseek-direct": "first-party",
     "zai-direct": "first-party",
     "claude-direct": "first-party",
@@ -153,6 +156,7 @@ def test_registry_pages():
         "edenai",
         "empiriolabs",
         "engy",
+        "friendli",
     }
     assert global_pages == ALL_SELLERS
     assert {m["sellerKind"] for m in SOURCES.values()} == set(SELLER_KINDS.values())
@@ -2205,6 +2209,129 @@ def test_engy_adapter():
         raise AssertionError("missing per-token prices should skip the row")
 
 
+def test_friendli_adapter():
+    """The committed FriendliAI catalog sample normalizes its per-token USD
+    decimal strings into per-million listings converted with the ECB rate;
+    rows without a cache price fall back to the input rate."""
+    # FriendliAI bills in US dollars ("All fees, prices, and other amounts
+    # payable under this Agreement are denominated, calculated, and
+    # invoiced in U.S. dollars", friendli.ai/terms-of-service) and its
+    # pricing page renders the catalog's per-token decimals as dollars per
+    # 1M tokens (the embedded GLM-5.3 rate card: unit "1M tokens",
+    # inputPrice 1.4 for the catalog's "0.0000014"); the registry records
+    # that verified native currency, and the catalog feeds the global page
+    # only.
+    assert SOURCES["friendli"]["nativeCurrency"] == "USD"
+    assert SOURCES["friendli"]["pages"] == ("global",)
+    assert SOURCES["friendli"]["sellerKind"] == "gateway"
+
+    fixture = ROOT / "fixtures" / "friendli-models.json"
+    payload = json.loads(fixture.read_text(encoding="utf-8"))
+    with patch("sources.friendli.fetch_json", return_value=payload):
+        listings = fetch_friendli_listings({"usdPerEur": 2.0})
+    by_id = {listing["modelId"]: listing for listing in listings}
+    assert set(by_id) == {
+        "zai-org/GLM-5.3",
+        "zai-org/GLM-5.3-Flash",
+        "google/gemma-4-31B-it",
+        "deepseek-ai/DeepSeek-V3.2",
+        "MiniMaxAI/MiniMax-M2.5",
+    }
+
+    # The catalog's input, output, and input_cache_read fields are
+    # per-token decimals (the pricing page's GLM-5.3 rate card prices unit
+    # "1M tokens" at inputPrice 1.4 for the catalog's "0.0000014"), so the
+    # rates scale by 1,000,000 in dollars and the ECB rate converts them.
+    glm = by_id["zai-org/GLM-5.3"]
+    assert glm["key"] == "friendli:zai-org/GLM-5.3"
+    assert glm["seller"] == "friendli"
+    assert glm["sellerName"] == "FriendliAI"
+    assert glm["name"] == "zai-org/GLM-5.3"
+    assert glm["creator"] == "Z.ai"
+    assert glm["contextSize"] == 1_048_576
+    assert glm["pricingTiers"] == []
+    assert glm["rates"]["nativeCurrency"] == "USD"
+    assert glm["rates"]["native"] == {
+        "input": 1.26,
+        "cached": 0.234,
+        "output": 3.96,
+    }
+    assert math.isclose(glm["rates"]["input"], 0.63)
+    assert math.isclose(glm["rates"]["cached"], 0.117)
+    assert math.isclose(glm["rates"]["output"], 1.98)
+    assert glm["rates"]["cachedFallback"] is False
+    # Tool support nests under `functionality`; the top-level reasoning
+    # flag and input modalities flow through the shared helper.
+    assert glm["capabilities"] == {
+        "reasoning": True,
+        "tools": True,
+        "vision": False,
+        "audio": False,
+    }
+
+    # Image and video inputs map to the vision capability.
+    flash = by_id["zai-org/GLM-5.3-Flash"]
+    assert flash["rates"]["native"] == {
+        "input": 0.15,
+        "cached": 0.03,
+        "output": 0.5,
+    }
+    assert flash["capabilities"] == {
+        "reasoning": True,
+        "tools": True,
+        "vision": True,
+        "audio": False,
+    }
+
+    # Rows without input_cache_read fall back to the input rate.
+    gemma = by_id["google/gemma-4-31B-it"]
+    assert gemma["creator"] == "Google"
+    assert gemma["rates"]["native"] == {
+        "input": 0.14,
+        "cached": 0.14,
+        "output": 0.4,
+    }
+    assert gemma["rates"]["cachedFallback"] is True
+
+    assert by_id["deepseek-ai/DeepSeek-V3.2"]["creator"] == "DeepSeek"
+    assert by_id["deepseek-ai/DeepSeek-V3.2"]["rates"]["native"] == {
+        "input": 0.5,
+        "cached": 0.25,
+        "output": 1.5,
+    }
+    assert by_id["MiniMaxAI/MiniMax-M2.5"]["creator"] == "MiniMax AI"
+    assert by_id["MiniMaxAI/MiniMax-M2.5"]["rates"]["native"] == {
+        "input": 0.3,
+        "cached": 0.06,
+        "output": 1.2,
+    }
+
+    assert all(
+        listing["rates"]["nativeCurrency"] == "USD" for listing in listings
+    )
+    assert all(
+        "FriendliAI" in listing["priceNote"] and "ECB" in listing["priceNote"]
+        for listing in listings
+    )
+    # A zero price is a price: zero token rows normalize to zero rates
+    # instead of dropping out.
+    zeros = _friendli_rates(
+        {"pricing": {"input": "0", "output": "0", "input_cache_read": "0"}},
+        2.0,
+    )
+    assert zeros["input"] == zeros["cached"] == zeros["output"] == 0
+    assert zeros["nativeCurrency"] == "USD"
+    assert zeros["cachedFallback"] is False
+    # Rows without per-token input and output prices are not
+    # per-million-token priced and stay out of the listings.
+    try:
+        _friendli_rates({"pricing": {"input": "0.0000005"}}, 2.0)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("missing per-token prices should skip the row")
+
+
 def test_seven_day_seller_fallback():
     fetched_at = now_utc().isoformat()
     previous = {
@@ -2435,6 +2562,7 @@ def test_aggregate_contract():
     assert native_by_seller["edenai"] == "USD"
     assert native_by_seller["empiriolabs"] == "USD"
     assert native_by_seller["engy"] == "USD"
+    assert native_by_seller["friendli"] == "USD"
     assert {
         native_by_seller[sid]
         for sid in ("deepseek-direct", "zai-direct", "claude-direct", "openai-direct")
@@ -2516,6 +2644,7 @@ def test_generated_page():
         'data-seller="edenai"',
         'data-seller="empiriolabs"',
         'data-seller="engy"',
+        'data-seller="friendli"',
         'data-seller="deepseek-direct"',
         'data-seller="zai-direct"',
         'data-seller="claude-direct"',
@@ -2602,6 +2731,7 @@ def main():
     test_edenai_adapter()
     test_empiriolabs_adapter()
     test_engy_adapter()
+    test_friendli_adapter()
     test_seven_day_seller_fallback()
     test_broken_source_fails_in_isolation()
     test_build_fails_only_without_usable_data()

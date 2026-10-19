@@ -24,6 +24,7 @@ from sources.edenai import EDENAI_URL
 from sources.empiriolabs import EMPIRIOLABS_URL
 from sources.engy import ENGY_URL
 from sources.eurouter import EUROUTER_URL
+from sources.friendli import FRIENDLI_URL
 from sources.kilo import KILO_URL
 from sources.llm_gateway import LLM_GATEWAY_URL
 from sources.nano_gpt import NANO_GPT_URL
@@ -250,6 +251,24 @@ SOURCES = {
         # the billing engine. The API reports the same numbers at https://
         # api.engy.ai/v1/models" (engy.ai/pricing), so the catalog's
         # per-token decimals are US dollars.
+        "nativeCurrency": "USD",
+        "euClaim": "No EU routing catalog is published.",
+    },
+    "friendli": {
+        "name": "FriendliAI",
+        "pages": ("global",),
+        "sellerKind": "gateway",
+        "source": FRIENDLI_URL,
+        # FriendliAI sells "AI inference services, including serverless
+        # APIs, dedicated GPU endpoints, and Bring Your Own GPU (BYOG)"
+        # (friendli.ai/pricing) — a hosted inference platform, not a
+        # router. It bills in US dollars: "All fees, prices, and other
+        # amounts payable under this Agreement are denominated, calculated,
+        # and invoiced in U.S. dollars" (friendli.ai/terms-of-service,
+        # Payment Process), and its pricing page renders the catalog's
+        # per-token decimals as dollars per 1M tokens (rate card unit
+        # "1M tokens"; GLM-5.3: inputPrice 1.4 for the catalog's
+        # "0.0000014").
         "nativeCurrency": "USD",
         "euClaim": "No EU routing catalog is published.",
     },

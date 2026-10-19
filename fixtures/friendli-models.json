@@ -1,0 +1,260 @@
+{
+  "object": "list",
+  "data": [
+    {
+      "id": "zai-org/GLM-5.3",
+      "name": "zai-org/GLM-5.3",
+      "created": 1787929200,
+      "context_length": 1048576,
+      "max_completion_tokens": 1048576,
+      "pricing": {
+        "input": "0.00000126",
+        "output": "0.00000396",
+        "prompt": "0.00000126",
+        "completion": "0.00000396",
+        "input_cache_read": "0.000000234"
+      },
+      "functionality": {
+        "tool_call": true,
+        "parallel_tool_call": true,
+        "structured_output": true,
+        "tool_choice": true,
+        "system_messages": true
+      },
+      "description": "Flagship GLM model for long-horizon coding, agents, and complex project delivery",
+      "reasoning": true,
+      "reasoning_options": [
+        {
+          "type": "effort",
+          "values": [
+            "low",
+            "high",
+            "max"
+          ]
+        },
+        {
+          "type": "budget_tokens",
+          "min": -1,
+          "max": 1048576
+        }
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "interleaved": "reasoning_content",
+      "base_model": "zhipuai/glm-5.3",
+      "mode": "chat",
+      "default_params": {
+        "repetition_penalty": 1.0,
+        "temperature": 1.0,
+        "top_p": 1.0,
+        "min_p": 0.0,
+        "top_k": 0
+      }
+    },
+    {
+      "id": "zai-org/GLM-5.3-Flash",
+      "name": "zai-org/GLM-5.3-Flash",
+      "created": 1787929200,
+      "context_length": 1048576,
+      "max_completion_tokens": 1048576,
+      "pricing": {
+        "input": "0.00000015",
+        "output": "0.0000005",
+        "prompt": "0.00000015",
+        "completion": "0.0000005",
+        "input_cache_read": "0.00000003"
+      },
+      "functionality": {
+        "tool_call": true,
+        "parallel_tool_call": true,
+        "structured_output": true,
+        "tool_choice": true,
+        "system_messages": true
+      },
+      "description": "Native multimodal GLM model for efficient coding and long-horizon agent tasks",
+      "reasoning": true,
+      "reasoning_options": [
+        {
+          "type": "effort",
+          "values": [
+            "low",
+            "high",
+            "max"
+          ]
+        },
+        {
+          "type": "budget_tokens",
+          "min": -1,
+          "max": 1048576
+        }
+      ],
+      "input_modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "interleaved": "reasoning_content",
+      "base_model": "zhipuai/glm-5.3-flash",
+      "mode": "chat",
+      "default_params": {
+        "repetition_penalty": 1.0,
+        "temperature": 1.0,
+        "top_p": 1.0,
+        "min_p": 0.0,
+        "top_k": 0
+      }
+    },
+    {
+      "id": "google/gemma-4-31B-it",
+      "name": "google/gemma-4-31B-it",
+      "created": 1777593600,
+      "context_length": 262144,
+      "max_completion_tokens": 262144,
+      "pricing": {
+        "input": "0.00000014",
+        "output": "0.0000004",
+        "prompt": "0.00000014",
+        "completion": "0.0000004"
+      },
+      "functionality": {
+        "tool_call": true,
+        "parallel_tool_call": true,
+        "structured_output": true,
+        "tool_choice": true,
+        "system_messages": true
+      },
+      "description": "Largest Gemma 4 instruction model for open, self-hosted chat and reasoning",
+      "reasoning": true,
+      "reasoning_options": [
+        {
+          "type": "toggle"
+        },
+        {
+          "type": "budget_tokens",
+          "min": -1,
+          "max": 262144
+        }
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "interleaved": "reasoning_content",
+      "base_model": "google/gemma-4-31b-it",
+      "mode": "chat",
+      "default_params": {
+        "repetition_penalty": 1.0,
+        "temperature": 1.0,
+        "top_p": 1.0,
+        "min_p": 0.0,
+        "top_k": 0
+      }
+    },
+    {
+      "id": "deepseek-ai/DeepSeek-V3.2",
+      "name": "deepseek-ai/DeepSeek-V3.2",
+      "created": 1772841600,
+      "context_length": 163840,
+      "max_completion_tokens": 163840,
+      "pricing": {
+        "input": "0.0000005",
+        "output": "0.0000015",
+        "prompt": "0.0000005",
+        "completion": "0.0000015",
+        "input_cache_read": "0.00000025"
+      },
+      "functionality": {
+        "tool_call": true,
+        "parallel_tool_call": true,
+        "structured_output": true,
+        "tool_choice": true,
+        "system_messages": true
+      },
+      "description": "DeepSeek chat model for instruction following, coding, and analysis",
+      "deprecation_date": "2026-10-24T00:00:00Z",
+      "reasoning": true,
+      "reasoning_options": [
+        {
+          "type": "toggle"
+        },
+        {
+          "type": "budget_tokens",
+          "min": -1,
+          "max": 163840
+        }
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "interleaved": false,
+      "mode": "chat",
+      "default_params": {
+        "repetition_penalty": 1.0,
+        "temperature": 1.0,
+        "top_p": 1.0,
+        "min_p": 0.0,
+        "top_k": 0
+      }
+    },
+    {
+      "id": "MiniMaxAI/MiniMax-M2.5",
+      "name": "MiniMaxAI/MiniMax-M2.5",
+      "created": 1771459200,
+      "context_length": 196608,
+      "max_completion_tokens": 196608,
+      "pricing": {
+        "input": "0.0000003",
+        "output": "0.0000012",
+        "prompt": "0.0000003",
+        "completion": "0.0000012",
+        "input_cache_read": "0.00000006"
+      },
+      "functionality": {
+        "tool_call": true,
+        "parallel_tool_call": true,
+        "structured_output": true,
+        "tool_choice": true,
+        "system_messages": true
+      },
+      "description": "Prior MiniMax coding model for agent workflows, office edits, and automation",
+      "deprecation_date": "2026-10-22T00:00:00Z",
+      "reasoning": true,
+      "reasoning_options": [
+        {
+          "type": "budget_tokens",
+          "min": -1,
+          "max": 196608
+        }
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "interleaved": "reasoning_content",
+      "base_model": "minimax/minimax-m2.5",
+      "mode": "chat",
+      "default_params": {
+        "repetition_penalty": 1.0,
+        "temperature": 1.0,
+        "top_p": 1.0,
+        "min_p": 0.0,
+        "top_k": 0
+      }
+    }
+  ]
+}
