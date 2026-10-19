@@ -97,6 +97,7 @@ The router build uses these sources:
 | OpenCode Zen prices (ADR 0003) | `https://models.dev/api.json` (OpenCode Zen entry) |
 | DeepInfra catalog | `https://api.deepinfra.com/v1/models` |
 | Novita catalog | `https://api.novita.ai/v3/openai/models` |
+| Requesty catalog | `https://router.requesty.ai/v1/models` |
 | Claude model catalog | `https://platform.claude.com/docs/en/api/http/beta/models/list.md` |
 | Claude direct API pricing | `https://platform.claude.com/docs/en/about-claude/pricing.md` |
 | DeepSeek direct API | `https://api-docs.deepseek.com/quick_start/pricing/` |

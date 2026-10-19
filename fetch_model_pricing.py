@@ -23,6 +23,7 @@ from sources.novita import fetch_novita_listings
 from sources.openai_direct import fetch_openai_direct_listings
 from sources.opencode import fetch_opencode_listings
 from sources.openrouter import fetch_openrouter_listings
+from sources.requesty import fetch_requesty_listings
 from sources.zai_direct import fetch_zai_direct_listings
 
 ROOT = Path(__file__).parent
@@ -41,6 +42,7 @@ ADAPTERS = {
     "opencode": lambda exchange_rate: fetch_opencode_listings(exchange_rate),
     "deepinfra": lambda exchange_rate: fetch_deepinfra_listings(exchange_rate),
     "novita": lambda exchange_rate: fetch_novita_listings(exchange_rate),
+    "requesty": lambda exchange_rate: fetch_requesty_listings(exchange_rate),
     "deepseek-direct": lambda exchange_rate: fetch_deepseek_direct_listings(
         exchange_rate
     ),

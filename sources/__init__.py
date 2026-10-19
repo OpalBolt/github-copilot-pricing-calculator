@@ -20,6 +20,7 @@ from sources.novita import NOVITA_URL
 from sources.openai_direct import OPENAI_MODELS_URL, OPENAI_PRICING_URL
 from sources.opencode import OPENCODE_ZEN_URL
 from sources.openrouter import OPENROUTER_URL
+from sources.requesty import REQUESTY_URL
 
 SOURCES = {
     "cortecs": {
@@ -63,6 +64,14 @@ SOURCES = {
         "pages": ("global",),
         "sellerKind": "gateway",
         "source": NOVITA_URL,
+        "nativeCurrency": "USD",
+        "euClaim": "No EU routing catalog is published.",
+    },
+    "requesty": {
+        "name": "Requesty",
+        "pages": ("global",),
+        "sellerKind": "gateway",
+        "source": REQUESTY_URL,
         "nativeCurrency": "USD",
         "euClaim": "No EU routing catalog is published.",
     },

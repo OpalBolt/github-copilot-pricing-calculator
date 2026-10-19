@@ -38,6 +38,9 @@ OWNER_ALIASES = {
     "minimax": "MiniMax AI",
     "minimaxai": "MiniMax AI",
     "mistralai": "Mistral AI",
+    # spill: slice 06 — Requesty's `model_lab` uses these shorter spellings.
+    "mistral": "Mistral AI",
+    "moonshot": "Moonshot AI",
     "moonshotai": "Moonshot AI",
     "nousresearch": "Nous Research",
     "nvidia": "NVIDIA",

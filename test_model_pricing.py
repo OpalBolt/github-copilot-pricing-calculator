@@ -17,6 +17,7 @@ from sources.eurouter import fetch_eurouter_listings
 from sources.helpers import _rates, listing_from_offer, now_utc
 from sources.novita import _novita_rates, fetch_novita_listings
 from sources.opencode import fetch_opencode_listings
+from sources.requesty import _requesty_rates, fetch_requesty_listings
 from sources.openrouter import fetch_openrouter_listings
 from sources.deepseek_direct import fetch_deepseek_direct_listings
 
@@ -32,6 +33,7 @@ ALL_SELLERS = {
     "opencode",
     "deepinfra",
     "novita",
+    "requesty",
     "deepseek-direct",
     "zai-direct",
     "claude-direct",
@@ -44,6 +46,7 @@ SELLER_KINDS = {
     "opencode": "gateway",
     "deepinfra": "gateway",
     "novita": "gateway",
+    "requesty": "gateway",
     "deepseek-direct": "first-party",
     "zai-direct": "first-party",
     "claude-direct": "first-party",
@@ -91,7 +94,12 @@ def _offer(**overrides) -> dict:
 def test_registry_pages():
     router_pages = {sid for sid, m in SOURCES.items() if "router" in m["pages"]}
     global_pages = {sid for sid, m in SOURCES.items() if "global" in m["pages"]}
-    assert router_pages == ALL_SELLERS - {"opencode", "deepinfra", "novita"}
+    assert router_pages == ALL_SELLERS - {
+        "opencode",
+        "deepinfra",
+        "novita",
+        "requesty",
+    }
     assert global_pages == ALL_SELLERS
     assert {m["sellerKind"] for m in SOURCES.values()} == set(SELLER_KINDS.values())
     assert {sid: m["sellerKind"] for sid, m in SOURCES.items()} == SELLER_KINDS
@@ -415,6 +423,112 @@ def test_novita_adapter():
     assert integers["cachedFallback"] is True
 
 
+def test_requesty_adapter():
+    """The committed Requesty catalog sample normalizes to per-million-token
+    USD listings converted with the ECB rate; rows without per-token input
+    and output prices are skipped, not broken."""
+    fixture = ROOT / "fixtures" / "requesty-models.json"
+    payload = json.loads(fixture.read_text(encoding="utf-8"))
+    with patch("sources.requesty.fetch_json", return_value=payload):
+        listings = fetch_requesty_listings({"usdPerEur": 2.0})
+    by_id = {listing["modelId"]: listing for listing in listings}
+    assert set(by_id) == {
+        "anthropic/claude-sonnet-4-5",
+        "deepinfra/deepseek-v4.1-flash-1017",
+        "anthropic/claude-haiku-5-5",
+        "nebius/kimi-k3",
+        "nvidia/nemotron-3.5-lightning-30b-a3b",
+    }
+
+    # Requesty's API reference documents the catalog's price fields as
+    # per-token USD prices ("Price per input token in USD"), so the rates
+    # scale by 1,000,000 in dollars and the ECB rate converts them.
+    sonnet = by_id["anthropic/claude-sonnet-4-5"]
+    assert sonnet["key"] == "requesty:anthropic/claude-sonnet-4-5"
+    assert sonnet["seller"] == "requesty"
+    assert sonnet["sellerName"] == "Requesty"
+    assert sonnet["name"] == "claude-sonnet-4-5"
+    assert sonnet["creator"] == "Anthropic"
+    assert sonnet["contextSize"] == 1000000
+    assert sonnet["capabilities"] == {
+        "reasoning": True,
+        "tools": True,
+        "vision": True,
+        "audio": False,
+    }
+    assert sonnet["rates"]["nativeCurrency"] == "USD"
+    assert sonnet["rates"]["native"] == {
+        "input": 3.0,
+        "cached": 0.3,
+        "output": 15.0,
+    }
+    assert math.isclose(sonnet["rates"]["input"], 1.5)
+    assert math.isclose(sonnet["rates"]["cached"], 0.15)
+    assert math.isclose(sonnet["rates"]["output"], 7.5)
+    assert sonnet["rates"]["cachedFallback"] is False
+
+    # Tiered rows keep the base (threshold-0) tier the top-level prices
+    # publish: the catalog's 200k-prompt tier does not move the rate.
+    haiku = by_id["anthropic/claude-haiku-5-5"]
+    assert haiku["rates"]["native"] == {
+        "input": 0.1,
+        "cached": 0.01,
+        "output": 0.5,
+    }
+
+    # Discount rows already publish the discounted price: the catalog's
+    # discount_percentage is baked into these values, not applied by us.
+    deepseek = by_id["deepinfra/deepseek-v4.1-flash-1017"]
+    assert deepseek["creator"] == "DeepSeek"
+    assert deepseek["rates"]["native"] == {
+        "input": 0.098,
+        "cached": 0.00294,
+        "output": 0.294,
+    }
+
+    # Rows without a cached_price fall back to the input rate, and the
+    # canonical `model_lab` spellings map to the table's creator names.
+    kimi = by_id["nebius/kimi-k3"]
+    assert kimi["creator"] == "Moonshot AI"
+    assert kimi["rates"]["cachedFallback"] is True
+    assert kimi["rates"]["cached"] == kimi["rates"]["input"]
+    assert math.isclose(kimi["rates"]["input"], 1.5)
+
+    nemotron = by_id["nvidia/nemotron-3.5-lightning-30b-a3b"]
+    assert nemotron["creator"] == "NVIDIA"
+
+    assert all(
+        listing["rates"]["nativeCurrency"] == "USD" for listing in listings
+    )
+    assert all(
+        "Requesty" in listing["priceNote"]
+        and "ECB" in listing["priceNote"]
+        for listing in listings
+    )
+    # A zero price is a price: the zero-priced row normalizes to zero rates
+    # with its published cached_price, so no fallback applies.
+    assert nemotron["rates"]["native"] == {
+        "input": 0,
+        "cached": 0,
+        "output": 0,
+    }
+    assert nemotron["rates"]["cachedFallback"] is False
+    zeros = _requesty_rates(
+        {"input_price": 0, "cached_price": 0, "output_price": 0}, 2.0
+    )
+    assert zeros["input"] == zeros["cached"] == zeros["output"] == 0
+    assert zeros["nativeCurrency"] == "USD"
+    assert zeros["cachedFallback"] is False
+    # Rows without per-token input and output prices are not token-priced
+    # and stay out of the listings.
+    try:
+        _requesty_rates({}, 2.0)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("missing per-token prices should skip the row")
+
+
 def test_seven_day_seller_fallback():
     fetched_at = now_utc().isoformat()
     previous = {
@@ -436,7 +550,7 @@ def test_seven_day_seller_fallback():
 
 @contextmanager
 def _patch_adapters(**behaviors):
-    """Patch the build's ECB fetch and all ten listings adapters. Values
+    """Patch the build's ECB fetch and all eleven listings adapters. Values
     are return values for `ok`, exceptions for failing sources."""
     ecb = behaviors.pop("ecb", {"usdPerEur": 1.1, "observationDate": "2026-10-16"})
     patches = [
@@ -596,7 +710,10 @@ def test_aggregate_contract():
         if rates["cachedFallback"]:
             assert rates["cached"] == rates["input"]
     assert all(count > 0 for count in counts.values())
-    assert counts["openrouter"] == max(counts.values())
+    # Requesty's catalog is the site's biggest at ~800 rows; OpenRouter's
+    # is the biggest of the routers.
+    assert counts["requesty"] == max(counts.values())
+    assert counts["requesty"] > 400
     assert counts["openrouter"] > 100
     assert counts["cortecs"] > 50
     assert counts["eurouter"] > 50
@@ -625,6 +742,7 @@ def test_aggregate_contract():
     assert native_by_seller["opencode"] == "USD"
     assert native_by_seller["deepinfra"] == "USD"
     assert native_by_seller["novita"] == "USD"
+    assert native_by_seller["requesty"] == "USD"
     assert {
         native_by_seller[sid]
         for sid in ("deepseek-direct", "zai-direct", "claude-direct", "openai-direct")
@@ -693,6 +811,7 @@ def test_generated_page():
         'data-seller="opencode"',
         'data-seller="deepinfra"',
         'data-seller="novita"',
+        'data-seller="requesty"',
         'data-seller="deepseek-direct"',
         'data-seller="zai-direct"',
         'data-seller="claude-direct"',
@@ -766,6 +885,7 @@ def main():
     test_listing_notes_name_the_sellers_own_source()
     test_deepinfra_adapter()
     test_novita_adapter()
+    test_requesty_adapter()
     test_seven_day_seller_fallback()
     test_broken_source_fails_in_isolation()
     test_build_fails_only_without_usable_data()
