@@ -1,0 +1,507 @@
+{
+  "object": "list",
+  "catalog_version": "2.10.66",
+  "catalog_updated_at": "2026-10-19",
+  "data": [
+    {
+      "id": "glm-5-3",
+      "object": "model",
+      "display_name": "GLM 5.3",
+      "author": "zhipu",
+      "provider": "zhipu",
+      "description": "Coding and agentic model with a 1M token context, 128K output, always-on reasoning at low, high, or max effort, native web search, and tool calling.",
+      "category": "text",
+      "modality": "text",
+      "modalities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "features": [
+        "reasoning",
+        "function_calling",
+        "web_search"
+      ],
+      "capabilities": {
+        "streaming": true,
+        "system_prompt": true,
+        "web_search": true,
+        "images": false,
+        "audio": false,
+        "video": false,
+        "three_d": false,
+        "reasoning": true
+      },
+      "context_window": 1000000,
+      "context_length": 1000000,
+      "max_output_tokens": 131072,
+      "model_released_at": "2026-08-14",
+      "is_new": false,
+      "is_featured": true,
+      "discount": null,
+      "pricing": {
+        "prompt": "0.0000014",
+        "completion": "0.0000044",
+        "image": "0",
+        "request": "0",
+        "input_cache_read": "0.0000014"
+      }
+    },
+    {
+      "id": "qwen3-7-flash",
+      "object": "model",
+      "display_name": "Qwen3.7 Flash",
+      "author": "alibaba",
+      "provider": "alibaba",
+      "description": "Fast Qwen3.7 vision-language model for text, image, video, tool use, and agentic tasks, with implicit caching and a 1M token context.",
+      "category": "text",
+      "modality": "multimodal",
+      "modalities": [
+        "multimodal",
+        "text",
+        "image",
+        "video"
+      ],
+      "input_modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "features": [
+        "reasoning",
+        "vision",
+        "video",
+        "web_search",
+        "code_interpreter",
+        "function_calling",
+        "prefix_continuation",
+        "cache",
+        "agentic_coding"
+      ],
+      "capabilities": {
+        "streaming": true,
+        "system_prompt": true,
+        "web_search": true,
+        "images": true,
+        "audio": false,
+        "video": true,
+        "three_d": false,
+        "reasoning": true
+      },
+      "context_window": 1000000,
+      "context_length": 1000000,
+      "max_output_tokens": 65536,
+      "model_released_at": "2026-07-15",
+      "is_new": false,
+      "is_featured": true,
+      "discount": null,
+      "pricing": [
+        {
+          "prompt": "0.00000003",
+          "completion": "0.00000013",
+          "image": "0",
+          "request": "0",
+          "input_cache_read": "0.000000006"
+        },
+        {
+          "prompt": "0.0000001",
+          "completion": "0.0000004",
+          "image": "0",
+          "request": "0",
+          "input_cache_read": "0.00000002",
+          "min_context": 32000
+        },
+        {
+          "prompt": "0.0000002",
+          "completion": "0.0000008",
+          "image": "0",
+          "request": "0",
+          "input_cache_read": "0.00000004",
+          "min_context": 256000
+        }
+      ]
+    },
+    {
+      "id": "qwen3-7-plus:variant1",
+      "object": "model",
+      "display_name": "Qwen3.7 Plus",
+      "author": "alibaba",
+      "provider": "alibaba",
+      "description": "Cost-effective Qwen3.7 vision-language model for text, image, video, coding, tool use, GUI understanding, and 1M-context workflows.",
+      "category": "text",
+      "modality": "multimodal",
+      "modalities": [
+        "multimodal",
+        "text",
+        "image",
+        "video"
+      ],
+      "input_modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "features": [
+        "reasoning",
+        "vision",
+        "video",
+        "web_search",
+        "code_interpreter",
+        "function_calling",
+        "prefix_continuation",
+        "cache",
+        "fine_tuning",
+        "agentic_coding"
+      ],
+      "capabilities": {
+        "streaming": true,
+        "system_prompt": true,
+        "web_search": true,
+        "images": true,
+        "audio": false,
+        "video": true,
+        "three_d": false,
+        "reasoning": true
+      },
+      "context_window": 1000000,
+      "context_length": 1000000,
+      "max_output_tokens": 65536,
+      "model_released_at": "2026-06-01",
+      "is_new": false,
+      "is_featured": true,
+      "discount": {
+        "label": "Save up to 64%",
+        "percent": 64
+      },
+      "pricing": [
+        {
+          "prompt": "0.000000276",
+          "completion": "0.000001101",
+          "image": "0",
+          "request": "0",
+          "input_cache_read": "0.000000056"
+        },
+        {
+          "prompt": "0.000000826",
+          "completion": "0.000003301",
+          "image": "0",
+          "request": "0",
+          "input_cache_read": "0.000000166",
+          "min_context": 256000
+        }
+      ]
+    },
+    {
+      "id": "qwen3-5-omni-flash",
+      "object": "model",
+      "display_name": "Qwen3.5 Omni Flash",
+      "author": "alibaba",
+      "provider": "alibaba",
+      "description": "Cost-efficient omni-modal model handling text, image, audio, and video, with up to 3 hours of audio and 1 hour of video across 90+ languages.",
+      "category": "text",
+      "modality": "text",
+      "modalities": [
+        "text",
+        "image",
+        "video",
+        "audio"
+      ],
+      "input_modalities": [
+        "text",
+        "image",
+        "video",
+        "audio"
+      ],
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "features": [
+        "vision",
+        "audio_in",
+        "audio_out",
+        "multilingual",
+        "function_calling",
+        "web_search"
+      ],
+      "capabilities": {
+        "streaming": true,
+        "system_prompt": true,
+        "web_search": true,
+        "images": true,
+        "audio": true,
+        "video": true,
+        "three_d": false,
+        "reasoning": false
+      },
+      "context_window": 256000,
+      "context_length": 256000,
+      "max_output_tokens": 32768,
+      "model_released_at": "2026-03-30",
+      "is_new": false,
+      "is_featured": true,
+      "discount": null,
+      "pricing": {
+        "prompt": "0.0000008",
+        "completion": "0.0000044",
+        "image": "0",
+        "request": "0",
+        "input_cache_read": "0.0000008"
+      }
+    },
+    {
+      "id": "glm-4-5-flash",
+      "object": "model",
+      "display_name": "GLM 4.5 Flash",
+      "author": "zhipu",
+      "provider": "zhipu",
+      "description": "Free lightweight GLM-4.5 text model for reasoning, coding, long-form chat, and general language tasks.",
+      "category": "text",
+      "modality": "text",
+      "modalities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "features": [
+        "reasoning",
+        "function_calling",
+        "web_search"
+      ],
+      "capabilities": {
+        "streaming": true,
+        "system_prompt": true,
+        "web_search": true,
+        "images": false,
+        "audio": false,
+        "video": false,
+        "three_d": false,
+        "reasoning": true
+      },
+      "context_window": 200000,
+      "context_length": 200000,
+      "max_output_tokens": 98304,
+      "model_released_at": "2025-07-28",
+      "is_new": false,
+      "is_featured": false,
+      "discount": null,
+      "pricing": {
+        "prompt": "0",
+        "completion": "0",
+        "image": "0",
+        "request": "0",
+        "input_cache_read": "0"
+      }
+    },
+    {
+      "id": "exa-search",
+      "object": "model",
+      "display_name": "Exa Search",
+      "author": "exa",
+      "provider": "exa",
+      "description": "Web search engine for finding pages, retrieving similar pages, crawling, and dedicated code search across the open web for AI agents.",
+      "category": "research",
+      "modality": "text",
+      "modalities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "features": [
+        "web_search",
+        "semantic_search"
+      ],
+      "capabilities": {
+        "streaming": false,
+        "system_prompt": false,
+        "web_search": true,
+        "images": false,
+        "audio": false,
+        "video": false,
+        "three_d": false,
+        "reasoning": true
+      },
+      "context_window": null,
+      "context_length": null,
+      "max_output_tokens": null,
+      "model_released_at": null,
+      "is_new": false,
+      "is_featured": false,
+      "discount": null,
+      "pricing": {
+        "prompt": "0",
+        "completion": "0",
+        "image": "0",
+        "request": "0",
+        "input_cache_read": "0"
+      }
+    },
+    {
+      "id": "janus-pro-deepseek",
+      "object": "model",
+      "display_name": "Janus-Pro DeepSeek",
+      "author": "deepseek",
+      "provider": "deepseek",
+      "description": "Autoregressive framework on the Janus Pro 7B model that unifies multimodal understanding and image generation in one architecture.",
+      "category": "image",
+      "modality": "image",
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text",
+        "image"
+      ],
+      "features": [
+        "vision",
+        "image_generation"
+      ],
+      "capabilities": {
+        "streaming": false,
+        "system_prompt": false,
+        "web_search": false,
+        "images": true,
+        "audio": false,
+        "video": false,
+        "three_d": false,
+        "reasoning": false
+      },
+      "context_window": null,
+      "context_length": null,
+      "max_output_tokens": null,
+      "model_released_at": "2025-01-27",
+      "is_new": false,
+      "is_featured": false,
+      "discount": null,
+      "pricing": {
+        "prompt": "0",
+        "completion": "0",
+        "image": "0.03",
+        "request": "0",
+        "input_cache_read": "0"
+      }
+    },
+    {
+      "id": "perplexity-sonar",
+      "object": "model",
+      "display_name": "Perplexity Sonar",
+      "author": "perplexity",
+      "provider": "perplexity",
+      "description": "Real-time web-connected search with accurate citations and customizable sources for up-to-date AI search integration in production apps.",
+      "category": "research",
+      "modality": "text",
+      "modalities": [
+        "text",
+        "image",
+        "document"
+      ],
+      "input_modalities": [
+        "text",
+        "image",
+        "document"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "features": [
+        "web_search"
+      ],
+      "capabilities": {
+        "streaming": true,
+        "system_prompt": true,
+        "web_search": true,
+        "images": true,
+        "audio": false,
+        "video": false,
+        "three_d": false,
+        "reasoning": true
+      },
+      "context_window": 127000,
+      "context_length": 127000,
+      "max_output_tokens": null,
+      "model_released_at": null,
+      "is_new": false,
+      "is_featured": false,
+      "discount": null,
+      "pricing": {
+        "prompt": "0.0000024",
+        "completion": "0.0000024",
+        "image": "0",
+        "request": "0.012",
+        "input_cache_read": "0.0000024"
+      }
+    },
+    {
+      "id": "text-embedding-v4",
+      "object": "model",
+      "display_name": "Text Embedding v4",
+      "author": "alibaba",
+      "provider": "alibaba",
+      "description": "Multilingual text embedding with selectable output dimensions (64\u20132048). Up to 8,192 tokens per input.",
+      "category": "embedding",
+      "modality": null,
+      "modalities": [
+        "text",
+        "embedding"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "embedding"
+      ],
+      "features": [
+        "custom dimensions",
+        "sparse vectors",
+        "task instructions",
+        "batch"
+      ],
+      "capabilities": {
+        "streaming": false,
+        "system_prompt": false,
+        "web_search": false,
+        "images": false,
+        "audio": false,
+        "video": false,
+        "three_d": false,
+        "reasoning": false
+      },
+      "context_window": 8192,
+      "context_length": 8192,
+      "max_output_tokens": null,
+      "model_released_at": "2025-06-04",
+      "is_new": false,
+      "discount": null,
+      "pricing": {
+        "prompt": "0.00000007",
+        "completion": "0",
+        "image": "0",
+        "request": "0",
+        "input_cache_read": "0.00000007"
+      }
+    }
+  ]
+}

@@ -21,6 +21,7 @@ from sources.cortecs import CORTECS_URL
 from sources.crossmodel import CROSSMODEL_URL
 from sources.deepinfra import DEEPINFRA_URL
 from sources.edenai import EDENAI_URL
+from sources.empiriolabs import EMPIRIOLABS_URL
 from sources.eurouter import EUROUTER_URL
 from sources.kilo import KILO_URL
 from sources.llm_gateway import LLM_GATEWAY_URL
@@ -218,6 +219,22 @@ SOURCES = {
         "nativeCurrency": "USD",
         "euClaim": "EU data-residency endpoint documented; no EU routing "
         "catalog.",
+    },
+    "empiriolabs": {
+        "name": "Empirio Labs",
+        "pages": ("global",),
+        "sellerKind": "gateway",
+        "source": EMPIRIOLABS_URL,
+        # Empirio Labs self-describes as "a specialized AI inference and
+        # integration provider" that hosts "open-source models on our own
+        # GPUs" and runs "optimized endpoints for proprietary models"
+        # (empiriolabs.ai) — a hosted inference platform, not a router.
+        # Its pricing page states "Prices are listed and billed in USD"
+        # (empiriolabs.ai/pricing), and the catalog's pricing_rows render
+        # the per-token decimals as dollars per 1M tokens ("$1.40 per 1M
+        # prompt tokens" for prompt "0.0000014").
+        "nativeCurrency": "USD",
+        "euClaim": "No EU routing catalog is published.",
     },
     "deepseek-direct": {
         "name": "DeepSeek API",

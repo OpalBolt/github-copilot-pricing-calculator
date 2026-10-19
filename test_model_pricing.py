@@ -19,6 +19,10 @@ from sources.chutes import _chutes_rates, fetch_chutes_listings
 from sources.crossmodel import _crossmodel_rates, fetch_crossmodel_listings
 from sources.deepinfra import _deepinfra_rates, fetch_deepinfra_listings
 from sources.edenai import _edenai_rates, fetch_edenai_listings
+from sources.empiriolabs import (
+    _empiriolabs_rates,
+    fetch_empiriolabs_listings,
+)
 from sources.eurouter import fetch_eurouter_listings
 from sources.helpers import _rates, listing_from_offer, now_utc
 from sources.kilo import _kilo_rates, fetch_kilo_listings
@@ -57,6 +61,7 @@ ALL_SELLERS = {
     "ambient",
     "crossmodel",
     "edenai",
+    "empiriolabs",
     "deepseek-direct",
     "zai-direct",
     "claude-direct",
@@ -80,6 +85,7 @@ SELLER_KINDS = {
     "ambient": "gateway",
     "crossmodel": "gateway",
     "edenai": "gateway",
+    "empiriolabs": "gateway",
     "deepseek-direct": "first-party",
     "zai-direct": "first-party",
     "claude-direct": "first-party",
@@ -142,6 +148,7 @@ def test_registry_pages():
         "ambient",
         "crossmodel",
         "edenai",
+        "empiriolabs",
     }
     assert global_pages == ALL_SELLERS
     assert {m["sellerKind"] for m in SOURCES.values()} == set(SELLER_KINDS.values())
@@ -1899,6 +1906,183 @@ def test_edenai_adapter():
     assert kept[0]["rates"]["native"]["input"] == 0.15
 
 
+def test_empiriolabs_adapter():
+    """The committed Empirio Labs catalog sample normalizes its per-token
+    USD decimal strings into per-million listings converted with the ECB
+    rate; tiered rows publish pricingTiers and zero prices are kept."""
+    # Empirio Labs's own pricing page states "Prices are listed and billed
+    # in USD" (empiriolabs.ai/pricing); the registry records that verified
+    # native currency, and the catalog feeds the global page only.
+    assert SOURCES["empiriolabs"]["nativeCurrency"] == "USD"
+    assert SOURCES["empiriolabs"]["pages"] == ("global",)
+    assert SOURCES["empiriolabs"]["sellerKind"] == "gateway"
+
+    fixture = ROOT / "fixtures" / "empiriolabs-models.json"
+    payload = json.loads(fixture.read_text(encoding="utf-8"))
+    with patch("sources.empiriolabs.fetch_json", return_value=payload):
+        listings = fetch_empiriolabs_listings({"usdPerEur": 2.0})
+    by_id = {listing["modelId"]: listing for listing in listings}
+    assert set(by_id) == {
+        "glm-5-3",
+        "qwen3-7-flash",
+        "qwen3-7-plus:variant1",
+        "qwen3-5-omni-flash",
+        "glm-4-5-flash",
+        "exa-search",
+        "janus-pro-deepseek",
+        "perplexity-sonar",
+    }
+
+    # The catalog's prompt, completion, and input_cache_read fields are
+    # per-token decimals (pricing_rows renders "0.0000014" as "$1.40 per
+    # 1M prompt tokens"), so the rates scale by 1,000,000 in dollars and
+    # the ECB rate converts them.
+    glm = by_id["glm-5-3"]
+    assert glm["key"] == "empiriolabs:glm-5-3"
+    assert glm["seller"] == "empiriolabs"
+    assert glm["sellerName"] == "Empirio Labs"
+    assert glm["name"] == "GLM 5.3"
+    assert glm["creator"] == "Z.ai"
+    assert glm["contextSize"] == 1_000_000
+    assert glm["pricingTiers"] == []
+    assert glm["rates"]["nativeCurrency"] == "USD"
+    assert glm["rates"]["native"] == {
+        "input": 1.4,
+        "cached": 1.4,
+        "output": 4.4,
+    }
+    assert math.isclose(glm["rates"]["input"], 0.7)
+    assert math.isclose(glm["rates"]["cached"], 0.7)
+    assert math.isclose(glm["rates"]["output"], 2.2)
+    assert glm["rates"]["cachedFallback"] is False
+    assert glm["capabilities"] == {
+        "reasoning": True,
+        "tools": True,
+        "vision": False,
+        "audio": False,
+    }
+
+    # Tiered rows publish a pricing list: the threshold-free first dict is
+    # the listing's base rate, and the min_context dicts become pricingTiers
+    # with per-million native and converted rates.
+    flash = by_id["qwen3-7-flash"]
+    assert flash["creator"] == "Alibaba"
+    assert flash["rates"]["native"] == {
+        "input": 0.03,
+        "cached": 0.006,
+        "output": 0.13,
+    }
+    tiers = flash["pricingTiers"]
+    assert [tier["contextAbove"] for tier in tiers] == [32_000, 256_000]
+    assert tiers[0]["native"] == {
+        "input": 0.1,
+        "cached": 0.02,
+        "output": 0.4,
+    }
+    assert tiers[0]["nativeCurrency"] == "USD"
+    assert math.isclose(tiers[0]["input"], 0.05)
+    assert math.isclose(tiers[0]["cached"], 0.01)
+    assert math.isclose(tiers[0]["output"], 0.2)
+    assert tiers[1]["native"] == {
+        "input": 0.2,
+        "cached": 0.04,
+        "output": 0.8,
+    }
+
+    # Discounted rows bill `pricing` — the catalog's pricing_rows render
+    # the billed rates with the list rates as "was $" — so the billed
+    # 64%-off prices convert, not the list prices.
+    variant = by_id["qwen3-7-plus:variant1"]
+    assert variant["rates"]["native"] == {
+        "input": 0.276,
+        "cached": 0.056,
+        "output": 1.101,
+    }
+    assert [tier["contextAbove"] for tier in variant["pricingTiers"]] == [
+        256_000
+    ]
+
+    # Audio-and-text output rows list with their audio capabilities.
+    omni = by_id["qwen3-5-omni-flash"]
+    assert omni["contextSize"] == 256_000
+    assert omni["capabilities"] == {
+        "reasoning": False,
+        "tools": True,
+        "vision": True,
+        "audio": True,
+    }
+
+    # A zero price is a price: the free rows normalize to zero rates
+    # instead of dropping out, and the per-request search fee (exa-search
+    # bills per call) and image fee (janus-pro-deepseek bills per image)
+    # stay out of the token rates.
+    free = by_id["glm-4-5-flash"]
+    assert free["rates"]["native"] == {"input": 0, "cached": 0, "output": 0}
+    assert free["rates"]["cachedFallback"] is False
+    search = by_id["exa-search"]
+    assert search["creator"] == "exa"
+    assert search["contextSize"] is None
+    assert search["rates"]["native"] == {"input": 0, "cached": 0, "output": 0}
+    assert search["capabilities"] == {
+        "reasoning": True,
+        "tools": False,
+        "vision": False,
+        "audio": False,
+    }
+    image = by_id["janus-pro-deepseek"]
+    assert image["creator"] == "DeepSeek"
+    assert image["rates"]["native"] == {"input": 0, "cached": 0, "output": 0}
+    assert image["capabilities"]["vision"] is True
+
+    # A row that also bills per request keeps only its token rates: the
+    # $0.012-per-request fee never reaches input, cached, or output.
+    sonar = by_id["perplexity-sonar"]
+    assert sonar["creator"] == "perplexity"
+    assert sonar["rates"]["native"] == {
+        "input": 2.4,
+        "cached": 2.4,
+        "output": 2.4,
+    }
+    assert sonar["capabilities"] == {
+        "reasoning": True,
+        "tools": False,
+        "vision": True,
+        "audio": False,
+    }
+
+    # Embedding-only rows stay out: no "text" in output_modalities means
+    # no token-priced listing.
+    assert "text-embedding-v4" not in by_id
+
+    assert all(
+        listing["rates"]["nativeCurrency"] == "USD" for listing in listings
+    )
+    assert all(
+        "Empirio Labs" in listing["priceNote"] and "ECB" in listing["priceNote"]
+        for listing in listings
+    )
+    zeros = _empiriolabs_rates(
+        {"prompt": "0", "completion": "0", "input_cache_read": "0"}, 2.0
+    )
+    assert zeros["input"] == zeros["cached"] == zeros["output"] == 0
+    assert zeros["nativeCurrency"] == "USD"
+    assert zeros["cachedFallback"] is False
+    # Rows without input_cache_read fall back to the input rate.
+    fallback = _empiriolabs_rates(
+        {"prompt": "0.000001", "completion": "0.000002"}, 2.0
+    )
+    assert fallback["native"] == {"input": 1.0, "cached": 1.0, "output": 2.0}
+    assert fallback["cachedFallback"] is True
+    # Rows without per-token prompt and completion prices are not
+    # per-million-token priced and stay out of the listings.
+    try:
+        _empiriolabs_rates({"prompt": "0.000001"}, 2.0)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("missing per-token prices should skip the row")
+
+
 def test_seven_day_seller_fallback():
     fetched_at = now_utc().isoformat()
     previous = {
@@ -2087,6 +2271,7 @@ def test_aggregate_contract():
     assert counts["edenai"] > 1000
     assert counts["requesty"] > 400
     assert counts["nano-gpt"] > 600
+    assert counts["empiriolabs"] > 100
     assert counts["openrouter"] > 100
     assert counts["cortecs"] > 50
     assert counts["eurouter"] > 50
@@ -2126,6 +2311,7 @@ def test_aggregate_contract():
     assert native_by_seller["ambient"] == "USD"
     assert native_by_seller["crossmodel"] == "USD"
     assert native_by_seller["edenai"] == "USD"
+    assert native_by_seller["empiriolabs"] == "USD"
     assert {
         native_by_seller[sid]
         for sid in ("deepseek-direct", "zai-direct", "claude-direct", "openai-direct")
@@ -2205,6 +2391,7 @@ def test_generated_page():
         'data-seller="ambient"',
         'data-seller="crossmodel"',
         'data-seller="edenai"',
+        'data-seller="empiriolabs"',
         'data-seller="deepseek-direct"',
         'data-seller="zai-direct"',
         'data-seller="claude-direct"',
@@ -2289,6 +2476,7 @@ def main():
     test_ambient_adapter()
     test_crossmodel_adapter()
     test_edenai_adapter()
+    test_empiriolabs_adapter()
     test_seven_day_seller_fallback()
     test_broken_source_fails_in_isolation()
     test_build_fails_only_without_usable_data()

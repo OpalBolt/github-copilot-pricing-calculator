@@ -22,6 +22,7 @@ from sources.cortecs import fetch_cortecs_listings
 from sources.crossmodel import fetch_crossmodel_listings
 from sources.deepinfra import fetch_deepinfra_listings
 from sources.edenai import fetch_edenai_listings
+from sources.empiriolabs import fetch_empiriolabs_listings
 from sources.deepseek_direct import fetch_deepseek_direct_listings
 from sources.eurouter import fetch_eurouter_listings
 from sources.helpers import fetch_ecb_rate, now_utc
@@ -67,6 +68,9 @@ ADAPTERS = {
     "ambient": lambda exchange_rate: fetch_ambient_listings(exchange_rate),
     "crossmodel": lambda exchange_rate: fetch_crossmodel_listings(exchange_rate),
     "edenai": lambda exchange_rate: fetch_edenai_listings(exchange_rate),
+    "empiriolabs": lambda exchange_rate: fetch_empiriolabs_listings(
+        exchange_rate
+    ),
     "deepseek-direct": lambda exchange_rate: fetch_deepseek_direct_listings(
         exchange_rate
     ),

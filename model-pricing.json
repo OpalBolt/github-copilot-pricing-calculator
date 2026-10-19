@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-19T16:19:55.411021+00:00",
+  "generatedAt": "2026-10-19T16:43:01.337956+00:00",
   "currency": "EUR",
   "exchangeRate": {
     "series": "EXR.D.USD.EUR.SP00.A",
@@ -15,7 +15,7 @@
       "source": "https://api.cortecs.ai/v1/models?extended=true&currency=EUR",
       "id": "cortecs",
       "nativeCurrency": "EUR",
-      "fetchedAt": "2026-10-19T16:19:55.411021+00:00",
+      "fetchedAt": "2026-10-19T16:43:01.337956+00:00",
       "stale": false
     },
     {
@@ -24,7 +24,7 @@
       "source": "https://api.eurouter.ai/api/v1/models",
       "id": "eurouter",
       "nativeCurrency": "mixed",
-      "fetchedAt": "2026-10-19T16:19:55.411021+00:00",
+      "fetchedAt": "2026-10-19T16:43:01.337956+00:00",
       "stale": false
     },
     {
@@ -33,7 +33,7 @@
       "source": "https://openrouter.ai/api/v1/models",
       "id": "openrouter",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T16:19:55.411021+00:00",
+      "fetchedAt": "2026-10-19T16:43:01.337956+00:00",
       "stale": false
     },
     {
@@ -42,7 +42,7 @@
       "source": "https://opencode.ai/zen/v1/models",
       "id": "opencode",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T16:19:55.411021+00:00",
+      "fetchedAt": "2026-10-19T16:43:01.337956+00:00",
       "stale": false
     },
     {
@@ -51,7 +51,7 @@
       "source": "https://api.deepinfra.com/v1/models",
       "nativeCurrency": "USD",
       "id": "deepinfra",
-      "fetchedAt": "2026-10-19T16:19:55.411021+00:00",
+      "fetchedAt": "2026-10-19T16:43:01.337956+00:00",
       "stale": false
     },
     {
@@ -60,7 +60,7 @@
       "source": "https://api.novita.ai/v3/openai/models",
       "nativeCurrency": "USD",
       "id": "novita",
-      "fetchedAt": "2026-10-19T16:19:55.411021+00:00",
+      "fetchedAt": "2026-10-19T16:43:01.337956+00:00",
       "stale": false
     },
     {
@@ -69,7 +69,7 @@
       "source": "https://router.requesty.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "requesty",
-      "fetchedAt": "2026-10-19T16:19:55.411021+00:00",
+      "fetchedAt": "2026-10-19T16:43:01.337956+00:00",
       "stale": false
     },
     {
@@ -78,7 +78,7 @@
       "source": "https://ai-gateway.vercel.sh/v1/models",
       "nativeCurrency": "USD",
       "id": "vercel-gateway",
-      "fetchedAt": "2026-10-19T16:19:55.411021+00:00",
+      "fetchedAt": "2026-10-19T16:43:01.337956+00:00",
       "stale": false
     },
     {
@@ -87,7 +87,7 @@
       "source": "https://api.kilo.ai/api/gateway/models",
       "nativeCurrency": "USD",
       "id": "kilo",
-      "fetchedAt": "2026-10-19T16:19:55.411021+00:00",
+      "fetchedAt": "2026-10-19T16:43:01.337956+00:00",
       "stale": false
     },
     {
@@ -96,7 +96,7 @@
       "source": "https://nano-gpt.com/api/v1/models?detailed=true",
       "nativeCurrency": "USD",
       "id": "nano-gpt",
-      "fetchedAt": "2026-10-19T16:19:55.411021+00:00",
+      "fetchedAt": "2026-10-19T16:43:01.337956+00:00",
       "stale": false
     },
     {
@@ -105,7 +105,7 @@
       "source": "https://llm.chutes.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "chutes",
-      "fetchedAt": "2026-10-19T16:19:55.411021+00:00",
+      "fetchedAt": "2026-10-19T16:43:01.337956+00:00",
       "stale": false
     },
     {
@@ -114,7 +114,7 @@
       "source": "https://api.llmgateway.io/v1/models",
       "nativeCurrency": "USD",
       "id": "llmgateway",
-      "fetchedAt": "2026-10-19T16:19:55.411021+00:00",
+      "fetchedAt": "2026-10-19T16:43:01.337956+00:00",
       "stale": false
     },
     {
@@ -123,7 +123,7 @@
       "source": "https://api.aiand.com/v1/models",
       "nativeCurrency": "USD",
       "id": "aiand",
-      "fetchedAt": "2026-10-19T16:19:55.411021+00:00",
+      "fetchedAt": "2026-10-19T16:43:01.337956+00:00",
       "stale": false
     },
     {
@@ -132,7 +132,7 @@
       "source": "https://api.aimlapi.com/v1/models?include=pricing,modalities",
       "nativeCurrency": "USD",
       "id": "aimlapi",
-      "fetchedAt": "2026-10-19T16:19:55.411021+00:00",
+      "fetchedAt": "2026-10-19T16:43:01.337956+00:00",
       "stale": false
     },
     {
@@ -141,7 +141,7 @@
       "source": "https://api.ambient.xyz/v1/models",
       "nativeCurrency": "USD",
       "id": "ambient",
-      "fetchedAt": "2026-10-19T16:19:55.411021+00:00",
+      "fetchedAt": "2026-10-19T16:43:01.337956+00:00",
       "stale": false
     },
     {
@@ -150,7 +150,7 @@
       "source": "https://www.crossmodel.ai/api/models",
       "nativeCurrency": "USD",
       "id": "crossmodel",
-      "fetchedAt": "2026-10-19T16:19:55.411021+00:00",
+      "fetchedAt": "2026-10-19T16:43:01.337956+00:00",
       "stale": false
     },
     {
@@ -159,7 +159,16 @@
       "source": "https://api.edenai.run/v3/models",
       "nativeCurrency": "USD",
       "id": "edenai",
-      "fetchedAt": "2026-10-19T16:19:55.411021+00:00",
+      "fetchedAt": "2026-10-19T16:43:01.337956+00:00",
+      "stale": false
+    },
+    {
+      "name": "Empirio Labs",
+      "sellerKind": "gateway",
+      "source": "https://api.empiriolabs.ai/v1/models",
+      "nativeCurrency": "USD",
+      "id": "empiriolabs",
+      "fetchedAt": "2026-10-19T16:43:01.337956+00:00",
       "stale": false
     },
     {
@@ -168,7 +177,7 @@
       "sellerKind": "first-party",
       "id": "deepseek-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T16:19:55.411021+00:00",
+      "fetchedAt": "2026-10-19T16:43:01.337956+00:00",
       "stale": false
     },
     {
@@ -177,7 +186,7 @@
       "sellerKind": "first-party",
       "id": "zai-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T16:19:55.411021+00:00",
+      "fetchedAt": "2026-10-19T16:43:01.337956+00:00",
       "stale": false
     },
     {
@@ -186,7 +195,7 @@
       "sellerKind": "first-party",
       "id": "claude-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T16:19:55.411021+00:00",
+      "fetchedAt": "2026-10-19T16:43:01.337956+00:00",
       "stale": false
     },
     {
@@ -195,7 +204,7 @@
       "sellerKind": "first-party",
       "id": "openai-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T16:19:55.411021+00:00",
+      "fetchedAt": "2026-10-19T16:43:01.337956+00:00",
       "stale": false
     }
   ],
@@ -59586,6 +59595,4376 @@
       "priceNote": "USD price published in Eden AI's model catalog and converted with the listed ECB rate."
     },
     {
+      "key": "empiriolabs:deepgram-nova-3",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "deepgram-nova-3",
+      "name": "Deepgram Nova 3",
+      "creator": "deepgram",
+      "description": "Speech-to-text transcription using the Nova-3 model with multi-language support and advanced customizable settings for production workloads.",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": true
+      },
+      "rates": {
+        "input": 0.0,
+        "cached": 0.0,
+        "output": 0.0,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.0,
+          "cached": 0.0,
+          "output": 0.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:deepgram-nova-3-stream",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "deepgram-nova-3-stream",
+      "name": "Deepgram Nova-3 Stream",
+      "creator": "deepgram",
+      "description": "Live transcription over a socket, returning interim results while the speaker is still talking and a settled transcript once each phrase ends.",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": true
+      },
+      "rates": {
+        "input": 0.0,
+        "cached": 0.0,
+        "output": 0.0,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.0,
+          "cached": 0.0,
+          "output": 0.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:deepreasoning",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "deepreasoning",
+      "name": "DeepReasoning",
+      "creator": "winfunc",
+      "description": "Pairs DeepSeek R1 chain-of-thought reasoning with Anthropic Claude creative and code generation behind a unified, data-controlled interface.",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": true,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 4.276169265033407,
+        "cached": 4.276169265033407,
+        "output": 20.489977728285076,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 4.8,
+          "cached": 4.8,
+          "output": 23.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:deepseek-v4-1-flash",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "deepseek-v4-1-flash",
+      "name": "DeepSeek V4.1 Flash",
+      "creator": "DeepSeek",
+      "description": "Lightweight flagship of DeepSeek's new architecture with native image understanding, hybrid thinking, 1M context, and up to 384K output tokens.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.26726057906458794,
+        "cached": 0.26726057906458794,
+        "output": 1.0690423162583518,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3,
+          "cached": 0.3,
+          "output": 1.2
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:deepseek-v4-1-flash-1017",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "deepseek-v4-1-flash-1017",
+      "name": "DeepSeek V4.1 Flash 1017",
+      "creator": "DeepSeek",
+      "description": "Post-trained 1017 release with stronger coding and agent results, faster task completion, shorter outputs, image input, and a 1M context window.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.26726057906458794,
+        "cached": 0.26726057906458794,
+        "output": 1.0690423162583518,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3,
+          "cached": 0.3,
+          "output": 1.2
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:deepseek-v4-flash-0731",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "deepseek-v4-flash-0731",
+      "name": "DeepSeek V4 Flash 0731",
+      "creator": "DeepSeek",
+      "description": "Post-trained 0731 release with major gains across coding, repository work, tool use, and full-stack tasks, plus a 1M context window.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.377728285077951,
+        "cached": 0.377728285077951,
+        "output": 1.133184855233853,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.424,
+          "cached": 0.424,
+          "output": 1.272
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:deepseek-v4-flash-0731:variant1",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "deepseek-v4-flash-0731:variant1",
+      "name": "DeepSeek V4 Flash 0731 (Variant 1)",
+      "creator": "DeepSeek",
+      "description": "Post-trained 0731 release with major gains across coding, repository work, tool use, and full-stack tasks, plus a 1M context window.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.39198218262806234,
+        "cached": 0.39198218262806234,
+        "output": 1.175946547884187,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.44,
+          "cached": 0.44,
+          "output": 1.32
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:deepseek-v4-pro",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "deepseek-v4-pro",
+      "name": "DeepSeek V4 Pro",
+      "creator": "DeepSeek",
+      "description": "Flagship MoE LLM with 1.6T total / 49B active parameters and native 1M context for advanced math, logical inference, and specialized coding.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.4699331848552337,
+        "cached": 1.4699331848552337,
+        "output": 2.9398663697104674,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.65,
+          "cached": 1.65,
+          "output": 3.3
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:deepseek-v4-pro-0813",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "deepseek-v4-pro-0813",
+      "name": "DeepSeek V4 Pro 0813",
+      "creator": "DeepSeek",
+      "description": "Official 0813 Pro release with major gains across coding, repository work, tool use, and agent tasks, plus hybrid thinking and a 1M context window.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.175946547884187,
+        "cached": 1.175946547884187,
+        "output": 3.527839643652561,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.32,
+          "cached": 1.32,
+          "output": 3.96
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:deepseek-v4-pro:variant1",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "deepseek-v4-pro:variant1",
+      "name": "DeepSeek V4 Pro (Variant 1)",
+      "creator": "DeepSeek",
+      "description": "Flagship MoE LLM with 1.6T total / 49B active parameters and native 1M context for advanced math, logical inference, and specialized coding.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 2.1380846325167036,
+        "cached": 2.1380846325167036,
+        "output": 4.276169265033407,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.4,
+          "cached": 2.4,
+          "output": 4.8
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:deepseek-v4-pro:variant2",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "deepseek-v4-pro:variant2",
+      "name": "DeepSeek V4 Pro (Variant 2)",
+      "creator": "DeepSeek",
+      "description": "DeepSeek V4 Pro is a flagship MoE reasoning model with 1M context, strong coding, automatic cache reads, and web search.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.4699331848552337,
+        "cached": 0.12293986636971047,
+        "output": 2.9407572383073495,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.65,
+          "cached": 0.138,
+          "output": 3.301
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:deepseek-v4-pro:variant3",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "deepseek-v4-pro:variant3",
+      "name": "DeepSeek V4 Pro (Variant 3)",
+      "creator": "DeepSeek",
+      "description": "Flagship MoE LLM with 1.6T total / 49B active parameters and native 1M context for advanced math, logical inference, and specialized coding.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 2.1380846325167036,
+        "cached": 2.1380846325167036,
+        "output": 4.276169265033407,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.4,
+          "cached": 2.4,
+          "output": 4.8
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:exa-answer",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "exa-answer",
+      "name": "Exa Answer",
+      "creator": "exa",
+      "description": "Quick LLM-style answer to a natural-language question, grounded in fresh Exa web search results with inline citations and source links.",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": true,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.0,
+        "cached": 0.0,
+        "output": 0.0,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.0,
+          "cached": 0.0,
+          "output": 0.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:exa-search",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "exa-search",
+      "name": "Exa Search",
+      "creator": "exa",
+      "description": "Web search engine for finding pages, retrieving similar pages, crawling, and dedicated code search across the open web for AI agents.",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": true,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.0,
+        "cached": 0.0,
+        "output": 0.0,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.0,
+          "cached": 0.0,
+          "output": 0.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:fugu-max",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "fugu-max",
+      "name": "Fugu Max",
+      "creator": "sakana",
+      "description": "Cost-efficient multi-agent conductor that assembles a right-sized expert team per task, with 1M context, image input, and web search.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 0.22271714922048996,
+        "output": 5.3452115812917596,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 0.25,
+          "output": 6.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:fugu-ultra-v1-0",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "fugu-ultra-v1-0",
+      "name": "Fugu Ultra v1.0",
+      "creator": "sakana",
+      "description": "Original multi-agent conductor for hard reasoning, coding, and research, with 1M context, image input, function calling, and web search.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 6.681514476614699,
+        "cached": 1.3363028953229399,
+        "output": 40.089086859688194,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 7.5,
+          "cached": 1.5,
+          "output": 45.0
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 272000,
+          "input": 13.363028953229398,
+          "cached": 2.6726057906458798,
+          "output": 60.13363028953229,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 15.0,
+            "cached": 3.0,
+            "output": 67.5
+          }
+        }
+      ],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:fugu-ultra-v1-1",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "fugu-ultra-v1-1",
+      "name": "Fugu Ultra v1.1",
+      "creator": "sakana",
+      "description": "Updated multi-agent conductor for hard reasoning, coding, and research, with distinct max effort, 1M context, image input, and web search.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 4.4543429844097995,
+        "cached": 0.4454342984409799,
+        "output": 26.726057906458795,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 5.0,
+          "cached": 0.5,
+          "output": 30.0
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 272000,
+          "input": 8.908685968819599,
+          "cached": 0.8908685968819599,
+          "output": 40.089086859688194,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 10.0,
+            "cached": 1.0,
+            "output": 45.0
+          }
+        }
+      ],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:fugu-ultra-v2-0",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "fugu-ultra-v2-0",
+      "name": "Fugu Ultra v2.0",
+      "creator": "sakana",
+      "description": "Flagship multi-agent conductor for the hardest reasoning, coding, and research work, with 1M context, image input, and web search.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 4.4543429844097995,
+        "cached": 0.4454342984409799,
+        "output": 26.726057906458795,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 5.0,
+          "cached": 0.5,
+          "output": 30.0
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 272000,
+          "input": 8.908685968819599,
+          "cached": 0.8908685968819599,
+          "output": 40.089086859688194,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 10.0,
+            "cached": 1.0,
+            "output": 45.0
+          }
+        }
+      ],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:gemini-3-8-live",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "gemini-3-8-live",
+      "name": "Gemini 3.8 Live",
+      "creator": "Google",
+      "description": "Low-latency voice conversation over one socket, with 30 voices, live video input, tool calling, and replies you can interrupt as you speak.",
+      "releaseDate": null,
+      "contextSize": 128000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 2.316258351893096,
+        "cached": 2.316258351893096,
+        "output": 10.42316258351893,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.6,
+          "cached": 2.6,
+          "output": 11.7
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:gemini-3-8-live-extended-thinking",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "gemini-3-8-live-extended-thinking",
+      "name": "Gemini 3.8 Live Extended Thinking",
+      "creator": "Google",
+      "description": "Voice conversation that keeps talking while it reasons in the background, with 30 voices, live video input, tool calling, and adjustable reasoning effort.",
+      "releaseDate": null,
+      "contextSize": 128000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 2.316258351893096,
+        "cached": 2.316258351893096,
+        "output": 10.42316258351893,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.6,
+          "cached": 2.6,
+          "output": 11.7
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:gemma-3-27b",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "gemma-3-27b",
+      "name": "Gemma 3 27B",
+      "creator": "Google",
+      "description": "Open-source vision-language model with 128K context, 140+ languages, improved math/reasoning, structured outputs, and function calling.",
+      "releaseDate": null,
+      "contextSize": 128000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.0,
+        "cached": 0.0,
+        "output": 0.0,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.0,
+          "cached": 0.0,
+          "output": 0.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:gemma-4-26b-a4b",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "gemma-4-26b-a4b",
+      "name": "Gemma 4 26B-A4B",
+      "creator": "Google",
+      "description": "Gemma 4 26B A4B is a Google open multimodal model with 256K context, text, image, and video input, tools, and structured output.",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.044543429844097995,
+        "cached": 0.022271714922048998,
+        "output": 0.25835189309576834,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.05,
+          "cached": 0.025,
+          "output": 0.29
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:glm-4-5-flash",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "glm-4-5-flash",
+      "name": "GLM 4.5 Flash",
+      "creator": "Z.ai",
+      "description": "Free lightweight GLM-4.5 text model for reasoning, coding, long-form chat, and general language tasks.",
+      "releaseDate": null,
+      "contextSize": 200000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.0,
+        "cached": 0.0,
+        "output": 0.0,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.0,
+          "cached": 0.0,
+          "output": 0.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:glm-4-6v-flash",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "glm-4-6v-flash",
+      "name": "GLM 4.6V Flash",
+      "creator": "Z.ai",
+      "description": "Free multimodal GLM-4.6V model for image, video, file, and text understanding with native function calling.",
+      "releaseDate": null,
+      "contextSize": 128000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.0,
+        "cached": 0.0,
+        "output": 0.0,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.0,
+          "cached": 0.0,
+          "output": 0.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:glm-4-7-flash",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "glm-4-7-flash",
+      "name": "GLM 4.7 Flash",
+      "creator": "Z.ai",
+      "description": "Free lightweight GLM-4.7 text model for coding, reasoning, long-context writing, and general chat.",
+      "releaseDate": null,
+      "contextSize": 200000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.0,
+        "cached": 0.0,
+        "output": 0.0,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.0,
+          "cached": 0.0,
+          "output": 0.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:glm-5-1",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "glm-5-1",
+      "name": "GLM 5.1",
+      "creator": "Z.ai",
+      "description": "Long-context Zhipu AI reasoning model with 202K context, 128K output, tool calling, structured output, and cache support.",
+      "releaseDate": null,
+      "contextSize": 202000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.7349665924276169,
+        "cached": 0.14699331848552338,
+        "output": 2.9407572383073495,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.825,
+          "cached": 0.165,
+          "output": 3.301
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 32000,
+          "input": 0.9799554565701559,
+          "cached": 0.19599109131403117,
+          "output": 3.4307349665924276,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 1.1,
+            "cached": 0.22,
+            "output": 3.851
+          }
+        }
+      ],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:glm-5-2",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "glm-5-2",
+      "name": "GLM 5.2",
+      "creator": "Z.ai",
+      "description": "Reasoning and coding model with a 1M token context, 128K output, adjustable reasoning effort, native web search, and tool calling.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.2472160356347437,
+        "cached": 1.2472160356347437,
+        "output": 3.9198218262806237,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.4,
+          "cached": 1.4,
+          "output": 4.4
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:glm-5-2:variant1",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "glm-5-2:variant1",
+      "name": "GLM 5.2 (Variant 1)",
+      "creator": "Z.ai",
+      "description": "Reasoning and coding model with a 1M token context, 128K output, adjustable reasoning effort, and tool calling.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.9799554565701559,
+        "cached": 0.24498886414253898,
+        "output": 3.4307349665924276,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.1,
+          "cached": 0.275,
+          "output": 3.851
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:glm-5-2:variant2",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "glm-5-2:variant2",
+      "name": "GLM 5.2 (Variant 2)",
+      "creator": "Z.ai",
+      "description": "Reasoning and coding model with a 1M token context, 128K output, adjustable reasoning effort, and tool calling.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.2472160356347437,
+        "cached": 1.2472160356347437,
+        "output": 3.9198218262806237,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.4,
+          "cached": 1.4,
+          "output": 4.4
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:glm-5-3",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "glm-5-3",
+      "name": "GLM 5.3",
+      "creator": "Z.ai",
+      "description": "Coding and agentic model with a 1M token context, 128K output, always-on reasoning at low, high, or max effort, native web search, and tool calling.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.2472160356347437,
+        "cached": 1.2472160356347437,
+        "output": 3.9198218262806237,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.4,
+          "cached": 1.4,
+          "output": 4.4
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:glm-5-3-flash",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "glm-5-3-flash",
+      "name": "GLM 5.3 Flash",
+      "creator": "Z.ai",
+      "description": "Natively multimodal flash model with a 1M token context, image and video input, always-on reasoning, native web search, and tool calling.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.06681514476614699,
+        "cached": 0.06681514476614699,
+        "output": 0.22271714922048996,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.075,
+          "cached": 0.075,
+          "output": 0.25
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:gptzero",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "gptzero",
+      "name": "GPTZero",
+      "creator": "gptzero",
+      "description": "Deep-learning detector that flags portions of text likely generated by AI versus human, classifying content as entirely human, AI, or mixed.",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.0,
+        "cached": 0.0,
+        "output": 0.0,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.0,
+          "cached": 0.0,
+          "output": 0.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:janus-pro-deepseek",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "janus-pro-deepseek",
+      "name": "Janus-Pro DeepSeek",
+      "creator": "DeepSeek",
+      "description": "Autoregressive framework on the Janus Pro 7B model that unifies multimodal understanding and image generation in one architecture.",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.0,
+        "cached": 0.0,
+        "output": 0.0,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.0,
+          "cached": 0.0,
+          "output": 0.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:kimi-k2-6",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "kimi-k2-6",
+      "name": "Kimi K2.6",
+      "creator": "Moonshot AI",
+      "description": "Kimi K2.6 is a Moonshot multimodal reasoning model with 256K context, strong coding, and text, image, and video inputs.",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.7963474387527839,
+        "cached": 0.15928730512249442,
+        "output": 3.307884187082405,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.8939,
+          "cached": 0.1788,
+          "output": 3.7131
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:kimi-k2-7-code",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "kimi-k2-7-code",
+      "name": "Kimi K2.7 Code",
+      "creator": "Moonshot AI",
+      "description": "Kimi K2.7 Code is Moonshot's trillion-parameter agentic coding model with 256K context, always-on reasoning, and text, image, and video inputs.",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.8463251670378619,
+        "cached": 0.8463251670378619,
+        "output": 3.5634743875278394,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.95,
+          "cached": 0.95,
+          "output": 4.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:kimi-k2-7-code-highspeed",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "kimi-k2-7-code-highspeed",
+      "name": "Kimi K2.7 Code Highspeed",
+      "creator": "Moonshot AI",
+      "description": "Kimi K2.7 Code Highspeed is the faster-serving tier of Moonshot's agentic coding model, with 256K context, always-on reasoning, and image and video input.",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.6926503340757237,
+        "cached": 1.6926503340757237,
+        "output": 7.126948775055679,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.9,
+          "cached": 1.9,
+          "output": 8.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:kimi-k2-7-code:variant1",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "kimi-k2-7-code:variant1",
+      "name": "Kimi K2.7 Code (Variant 1)",
+      "creator": "Moonshot AI",
+      "description": "Kimi K2.7 Code is Moonshot's trillion-parameter agentic coding model with 256K context, always-on reasoning, and text, image, and video inputs.",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.7963474387527839,
+        "cached": 0.15928730512249442,
+        "output": 3.307884187082405,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.8939,
+          "cached": 0.1788,
+          "output": 3.7131
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:kimi-k3",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "kimi-k3",
+      "name": "Kimi K3",
+      "creator": "Moonshot AI",
+      "description": "Kimi K3 is Moonshot's flagship reasoning model with a 1M token context, always-on thinking, native web search, and text, image, and video inputs.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 2.6726057906458798,
+        "cached": 2.6726057906458798,
+        "output": 13.363028953229398,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 3.0,
+          "cached": 3.0,
+          "output": 15.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:linkup-deep-search",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "linkup-deep-search",
+      "name": "Linkup Deep Search",
+      "creator": "linkup",
+      "description": "Iterative AI search that keeps querying when initial results are insufficient, returning more comprehensive answers than Standard mode.",
+      "releaseDate": null,
+      "contextSize": 100000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.0,
+        "cached": 0.0,
+        "output": 0.0,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.0,
+          "cached": 0.0,
+          "output": 0.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:linkup-standard",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "linkup-standard",
+      "name": "Linkup Standard",
+      "creator": "linkup",
+      "description": "AI-powered web search with detailed overviews and answers, faster than Deep Search.",
+      "releaseDate": null,
+      "contextSize": 100000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.0,
+        "cached": 0.0,
+        "output": 0.0,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.0,
+          "cached": 0.0,
+          "output": 0.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:manus",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "manus",
+      "name": "Manus",
+      "creator": "manus",
+      "description": "Autonomous AI agent that turns a high-level prompt into subtasks, calls tools and APIs, and delivers end-to-end results without manual orchestration.",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 0.0,
+        "cached": 0.0,
+        "output": 0.0,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.0,
+          "cached": 0.0,
+          "output": 0.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:mimo-v2-5",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "mimo-v2-5",
+      "name": "MiMo V2.5",
+      "creator": "Xiaomi",
+      "description": "Multimodal model with native visual and audio understanding on a 1M context, designed to reason and act across modalities in agentic workflows.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 0.6236080178173719,
+        "cached": 0.012472160356347439,
+        "output": 1.2472160356347437,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.7,
+          "cached": 0.014,
+          "output": 1.4
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:mimo-v2-5-pro",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "mimo-v2-5-pro",
+      "name": "MiMo V2.5 Pro",
+      "creator": "Xiaomi",
+      "description": "Top-tier model for agentic workflows, complex software engineering, and long-horizon tasks, sustaining work across 1000+ tool calls on 1M context.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.9376391982182626,
+        "cached": 0.016035634743875277,
+        "output": 3.875278396436525,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.175,
+          "cached": 0.018,
+          "output": 4.35
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:mimo-v2-6-flash",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "mimo-v2-6-flash",
+      "name": "MiMo V2.6 Flash",
+      "creator": "Xiaomi",
+      "description": "Low-cost full-modality reasoner with native image, video, and audio understanding on a 1M context, built for high-frequency production workloads.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 0.12472160356347439,
+        "cached": 0.12472160356347439,
+        "output": 0.24944320712694878,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.14,
+          "cached": 0.14,
+          "output": 0.28
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:mimo-v2-6-pro",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "mimo-v2-6-pro",
+      "name": "MiMo V2.6 Pro",
+      "creator": "Xiaomi",
+      "description": "Trillion-parameter flagship for agentic work, with native image, video, and audio understanding and reasoning across a 1M context.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 0.38752783964365256,
+        "cached": 0.38752783964365256,
+        "output": 0.7750556792873051,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.435,
+          "cached": 0.435,
+          "output": 0.87
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:mimo-v2-6-pro-ultraspeed",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "mimo-v2-6-pro-ultraspeed",
+      "name": "MiMo V2.6 Pro UltraSpeed",
+      "creator": "Xiaomi",
+      "description": "High-throughput build of the trillion-parameter flagship, matching its full-modality reasoning while generating output substantially faster.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 3.875278396436525,
+        "cached": 3.875278396436525,
+        "output": 7.75055679287305,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 4.35,
+          "cached": 4.35,
+          "output": 8.7
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:minimax-m2-7",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "minimax-m2-7",
+      "name": "MiniMax M2.7",
+      "creator": "MiniMax AI",
+      "description": "MiniMax M2.7 is a general-purpose reasoning chat model with interleaved thinking, function calling, and prompt caching.",
+      "releaseDate": null,
+      "contextSize": 200000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.13363028953229397,
+        "cached": 0.026726057906458794,
+        "output": 0.5345211581291759,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.15,
+          "cached": 0.03,
+          "output": 0.6
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:minimax-m2-7-highspeed",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "minimax-m2-7-highspeed",
+      "name": "MiniMax M2.7 Highspeed",
+      "creator": "MiniMax AI",
+      "description": "High-speed M2.7 variant tuned for fast inference with strong general-purpose performance with strong agentic capabilities.",
+      "releaseDate": null,
+      "contextSize": 200000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.26726057906458794,
+        "cached": 0.026726057906458794,
+        "output": 1.0690423162583518,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3,
+          "cached": 0.03,
+          "output": 1.2
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:minimax-m3",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "minimax-m3",
+      "name": "MiniMax M3",
+      "creator": "MiniMax AI",
+      "description": "MiniMax M3 is a multimodal reasoning model for coding, agents, and long-context analysis with text, image, and video input.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.20044543429844097,
+        "cached": 0.04008908685968819,
+        "output": 0.8017817371937639,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.225,
+          "cached": 0.045,
+          "output": 0.9
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 512000,
+          "input": 0.40089086859688194,
+          "cached": 0.08017817371937638,
+          "output": 1.6035634743875278,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 0.45,
+            "cached": 0.09,
+            "output": 1.8
+          }
+        }
+      ],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:minimax-m3-1-flash",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "minimax-m3-1-flash",
+      "name": "MiniMax M3.1 Flash",
+      "creator": "MiniMax AI",
+      "description": "Fast multimodal coding and agent model with 1M context, adjustable reasoning depth, image and video input, function calling, and built-in web search.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.10022271714922049,
+        "cached": 0.010022271714922048,
+        "output": 0.40089086859688194,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.1125,
+          "cached": 0.01125,
+          "output": 0.45
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:minimax-m3:priority",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "minimax-m3:priority",
+      "name": "MiniMax M3 (Priority)",
+      "creator": "MiniMax AI",
+      "description": "MiniMax M3 is a multimodal reasoning model for coding, agents, and long-context analysis with text, image, and video input.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.30066815144766146,
+        "cached": 0.060133630289532294,
+        "output": 1.2026726057906458,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3375,
+          "cached": 0.0675,
+          "output": 1.35
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 512000,
+          "input": 0.6013363028953229,
+          "cached": 0.12026726057906459,
+          "output": 2.4053452115812917,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 0.675,
+            "cached": 0.135,
+            "output": 2.7
+          }
+        }
+      ],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:mistral-small-3-1",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "mistral-small-3-1",
+      "name": "Mistral Small 3.1",
+      "creator": "Mistral AI",
+      "description": "24B-parameter multimodal model with 128K context for image analysis, programming, math, and multilingual tasks, tuned for efficient local inference.",
+      "releaseDate": null,
+      "contextSize": 128000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.0,
+        "cached": 0.0,
+        "output": 0.0,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.0,
+          "cached": 0.0,
+          "output": 0.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:mistral-small-4",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "mistral-small-4",
+      "name": "Mistral Small 4",
+      "creator": "Mistral AI",
+      "description": "Hybrid model unifying Instruct, Reasoning (Magistral), and Devstral families: 40% lower completion time and 3x throughput vs Small 3.",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.13363028953229397,
+        "cached": 0.13363028953229397,
+        "output": 0.5345211581291759,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.15,
+          "cached": 0.15,
+          "output": 0.6
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:muse-glimmer-30b",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "muse-glimmer-30b",
+      "name": "Muse Glimmer 30B",
+      "creator": "Meta",
+      "description": "Meta open 30B agentic model with image understanding, 128K context, tool calling, structured output, and controllable reasoning strength.",
+      "releaseDate": null,
+      "contextSize": 131072,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.17817371937639198,
+        "cached": 0.044543429844097995,
+        "output": 0.7126948775055679,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.2,
+          "cached": 0.05,
+          "output": 0.8
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:muse-spark-1-1",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "muse-spark-1-1",
+      "name": "Muse Spark 1.1",
+      "creator": "Meta",
+      "description": "Meta frontier reasoning model with a 1,048,576-token context plus image, video, audio, and PDF understanding, web search, and tool calling.",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 1.1135857461024499,
+        "cached": 0.8908685968819599,
+        "output": 3.7861915367483294,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.25,
+          "cached": 1.0,
+          "output": 4.25
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:muse-spark-1-2",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "muse-spark-1-2",
+      "name": "Muse Spark 1.2",
+      "creator": "Meta",
+      "description": "Meta's updated frontier reasoning model with a 1,048,576-token context, image, video, audio, and PDF understanding, web search, and tool calling.",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 1.1135857461024499,
+        "cached": 0.8908685968819599,
+        "output": 3.7861915367483294,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.25,
+          "cached": 1.0,
+          "output": 4.25
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:muse-spark-1-3",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "muse-spark-1-3",
+      "name": "Muse Spark 1.3",
+      "creator": "Meta",
+      "description": "Meta's long-horizon agentic reasoning model with a 1,048,576-token context, image, video, and PDF understanding, web search, and tool calling.",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.1135857461024499,
+        "cached": 0.8908685968819599,
+        "output": 3.7861915367483294,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.25,
+          "cached": 1.0,
+          "output": 4.25
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:nova-lite-1-0",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "nova-lite-1-0",
+      "name": "Nova Lite 1.0",
+      "creator": "Amazon",
+      "description": "Low-cost multimodal foundation model for text, images, and video on a 300K context (up to ~30 min video), tuned for speed and affordability.",
+      "releaseDate": null,
+      "contextSize": 300000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.06146993318485523,
+        "cached": 0.034387527839643654,
+        "output": 0.24944320712694878,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.069,
+          "cached": 0.0386,
+          "output": 0.28
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:nova-lite-2",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "nova-lite-2",
+      "name": "Nova Lite 2",
+      "creator": "Amazon",
+      "description": "Fast, cost-effective multimodal reasoning model for text, images, documents, and video on a 1M context (long docs and ~90 min clips).",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.33853006681514475,
+        "cached": 0.18957683741648104,
+        "output": 2.8151447661469935,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.38,
+          "cached": 0.2128,
+          "output": 3.16
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:nova-micro-1-0",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "nova-micro-1-0",
+      "name": "Nova Micro 1.0",
+      "creator": "Amazon",
+      "description": "Text-only foundation model tuned for ultra-low latency and cost on 128K context. Strong for summarization, translation, and chat with 44% cache discount.",
+      "releaseDate": null,
+      "contextSize": 128000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.035634743875278395,
+        "cached": 0.0199554565701559,
+        "output": 0.14253897550111358,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.04,
+          "cached": 0.0224,
+          "output": 0.16
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:nova-pro-1-0",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "nova-pro-1-0",
+      "name": "Nova Pro 1.0",
+      "creator": "Amazon",
+      "description": "Multimodal foundation model balancing accuracy, speed, and cost for text, images, and video on 300K context (up to ~30 min video).",
+      "releaseDate": null,
+      "contextSize": 300000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 2.1380846325167036,
+        "cached": 2.1380846325167036,
+        "output": 8.552338530066814,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.4,
+          "cached": 2.4,
+          "output": 9.6
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:openai-whisper-1",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "openai-whisper-1",
+      "name": "OpenAI Whisper 1",
+      "creator": "OpenAI",
+      "description": "Whisper-1 speech-to-text transcription trained on multilingual supervised audio, with a 25 MB upload limit per file.",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": true
+      },
+      "rates": {
+        "input": 0.0,
+        "cached": 0.0,
+        "output": 0.0,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.0,
+          "cached": 0.0,
+          "output": 0.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:perplexity-advanced-deep-research",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "perplexity-advanced-deep-research",
+      "name": "Perplexity Advanced Deep Research",
+      "creator": "perplexity",
+      "description": "Institutional-grade research agent that runs many rounds of web search and page reading, with maximum depth and extensive source coverage.",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": true,
+        "tools": false,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 10.690423162583519,
+        "cached": 10.690423162583519,
+        "output": 53.45211581291759,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 12.0,
+          "cached": 12.0,
+          "output": 60.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:perplexity-deep-research",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "perplexity-deep-research",
+      "name": "Perplexity Deep Research",
+      "creator": "perplexity",
+      "description": "Research model for multi-step retrieval, synthesis, and reasoning, autonomously searching, reading, and evaluating sources across complex topics.",
+      "releaseDate": null,
+      "contextSize": 128000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": false,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 4.276169265033407,
+        "cached": 4.276169265033407,
+        "output": 16.926503340757236,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 4.8,
+          "cached": 4.8,
+          "output": 19.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:perplexity-pro-search",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "perplexity-pro-search",
+      "name": "Perplexity Pro Search",
+      "creator": "perplexity",
+      "description": "Sonar Pro as an agentic researcher: chains web searches, fetches full pages, and streams live reasoning, adapting strategy for complex queries.",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": true,
+        "tools": false,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 6.948775055679286,
+        "cached": 6.948775055679286,
+        "output": 34.74387527839644,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 7.8,
+          "cached": 7.8,
+          "output": 39.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:perplexity-search",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "perplexity-search",
+      "name": "Perplexity Search",
+      "creator": "perplexity",
+      "description": "Real-time web search with filtering by domain, language, date, and more. Returns search results, not LLM responses; no file uploads.",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": true,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.0,
+        "cached": 0.0,
+        "output": 0.0,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.0,
+          "cached": 0.0,
+          "output": 0.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:perplexity-sonar",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "perplexity-sonar",
+      "name": "Perplexity Sonar",
+      "creator": "perplexity",
+      "description": "Real-time web-connected search with accurate citations and customizable sources for up-to-date AI search integration in production apps.",
+      "releaseDate": null,
+      "contextSize": 127000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": false,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 2.1380846325167036,
+        "cached": 2.1380846325167036,
+        "output": 2.1380846325167036,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.4,
+          "cached": 2.4,
+          "output": 2.4
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:perplexity-sonar-pro",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "perplexity-sonar-pro",
+      "name": "Perplexity Sonar Pro",
+      "creator": "perplexity",
+      "description": "Search-grounded model with double the citations and a larger context window, tuned for complex queries needing in-depth, nuanced answers.",
+      "releaseDate": null,
+      "contextSize": 200000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": false,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 6.414253897550111,
+        "cached": 6.414253897550111,
+        "output": 32.071269487750556,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 7.2,
+          "cached": 7.2,
+          "output": 36.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:perplexity-sonar-reasoning-pro",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "perplexity-sonar-reasoning-pro",
+      "name": "Perplexity Sonar Reasoning Pro",
+      "creator": "perplexity",
+      "description": "Reasoning model that researches over several rounds of web search, chaining evidence across many sources before it answers, with inline citations.",
+      "releaseDate": null,
+      "contextSize": 128000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": false,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 4.276169265033407,
+        "cached": 4.276169265033407,
+        "output": 16.926503340757236,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 4.8,
+          "cached": 4.8,
+          "output": 19.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:qwen-audio-3-1-asr",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "qwen-audio-3-1-asr",
+      "name": "Qwen Audio 3.1 ASR",
+      "creator": "Alibaba",
+      "description": "Speech-to-text for short clips and long recordings, with sentence segments, word timestamps, and multilingual and Chinese dialect recognition.",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": true
+      },
+      "rates": {
+        "input": 0.26726057906458794,
+        "cached": 0.26726057906458794,
+        "output": 0.8374164810690422,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3,
+          "cached": 0.3,
+          "output": 0.94
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:qwen-audio-3-1-asr-message",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "qwen-audio-3-1-asr-message",
+      "name": "Qwen Audio 3.1 ASR Message",
+      "creator": "Alibaba",
+      "description": "Transcription tuned for voice messages and voice input over a socket, returning each utterance as one complete transcript when the speaker pauses.",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": true
+      },
+      "rates": {
+        "input": 1.6570155902004455,
+        "cached": 1.6570155902004455,
+        "output": 1.2472160356347437,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.86,
+          "cached": 1.86,
+          "output": 1.4
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:qwen-audio-3-1-asr-stream",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "qwen-audio-3-1-asr-stream",
+      "name": "Qwen Audio 3.1 ASR Stream",
+      "creator": "Alibaba",
+      "description": "Live transcription over a socket, streaming partial words while the speaker talks and a settled sentence at each pause, priced per token.",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": true
+      },
+      "rates": {
+        "input": 1.6570155902004455,
+        "cached": 1.6570155902004455,
+        "output": 1.2472160356347437,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.86,
+          "cached": 1.86,
+          "output": 1.4
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:qwen-audio-3-1-realtime-plus",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "qwen-audio-3-1-realtime-plus",
+      "name": "Qwen Audio 3.1 Realtime Plus",
+      "creator": "Alibaba",
+      "description": "Duplex speech conversation over one socket, with 27 voices, native web search, tool calling, and separate text and audio token rates.",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": false,
+        "audio": true
+      },
+      "rates": {
+        "input": 1.4253897550111359,
+        "cached": 1.4253897550111359,
+        "output": 11.403118040089087,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.6,
+          "cached": 1.6,
+          "output": 12.8
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:qwen3-5-122b-a10b",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "qwen3-5-122b-a10b",
+      "name": "Qwen3.5 122B-A10B",
+      "creator": "Alibaba",
+      "description": "Qwen3.5 122B-A10B is a multimodal reasoning model with 256K context, efficient sparse MoE inference, and text, image, and video input.",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.10244988864142539,
+        "cached": 0.10244988864142539,
+        "output": 0.8169265033407572,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.115,
+          "cached": 0.115,
+          "output": 0.917
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 128000,
+          "input": 0.25567928730512246,
+          "cached": 0.25567928730512246,
+          "output": 2.043652561247216,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 0.287,
+            "cached": 0.287,
+            "output": 2.294
+          }
+        }
+      ],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:qwen3-5-27b",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "qwen3-5-27b",
+      "name": "Qwen3.5 27B",
+      "creator": "Alibaba",
+      "description": "Qwen3.5 27B is a dense multimodal reasoning model with fast responses, 256K context, and text, image, and video understanding.",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.07661469933184854,
+        "cached": 0.07661469933184854,
+        "output": 0.6129175946547883,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.086,
+          "cached": 0.086,
+          "output": 0.688
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 128000,
+          "input": 0.22984409799554564,
+          "cached": 0.22984409799554564,
+          "output": 1.8387527839643651,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 0.258,
+            "cached": 0.258,
+            "output": 2.064
+          }
+        }
+      ],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:qwen3-5-35b-a3b",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "qwen3-5-35b-a3b",
+      "name": "Qwen3.5 35B-A3B",
+      "creator": "Alibaba",
+      "description": "Qwen3.5 35B-A3B is an efficient native vision-language model with sparse MoE routing, deep thinking, and text, image, and video input.",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.05077951002227171,
+        "cached": 0.05077951002227171,
+        "output": 0.4089086859688196,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.057,
+          "cached": 0.057,
+          "output": 0.459
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 128000,
+          "input": 0.20400890868596883,
+          "cached": 0.20400890868596883,
+          "output": 1.6347438752783963,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 0.229,
+            "cached": 0.229,
+            "output": 1.835
+          }
+        }
+      ],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:qwen3-5-397b-a17b",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "qwen3-5-397b-a17b",
+      "name": "Qwen3.5 397B-A17B",
+      "creator": "Alibaba",
+      "description": "Qwen3.5 397B-A17B is a flagship multimodal reasoning model for language, code, agents, GUI tasks, and image and video understanding.",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.1532293986636971,
+        "cached": 0.1532293986636971,
+        "output": 0.9193763919821826,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.172,
+          "cached": 0.172,
+          "output": 1.032
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 128000,
+          "input": 0.38307349665924273,
+          "cached": 0.38307349665924273,
+          "output": 2.2984409799554566,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 0.43,
+            "cached": 0.43,
+            "output": 2.58
+          }
+        }
+      ],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:qwen3-5-4b",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "qwen3-5-4b",
+      "name": "Qwen3.5 4B",
+      "creator": "Alibaba",
+      "description": "Qwen3.5 4B is a low-cost multimodal reasoning model with 256K context, image and video input, function tools, and structured output.",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.035634743875278395,
+        "cached": 0.017817371937639197,
+        "output": 0.062360801781737196,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.04,
+          "cached": 0.02,
+          "output": 0.07
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:qwen3-5-9b",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "qwen3-5-9b",
+      "name": "Qwen3.5 9B",
+      "creator": "Alibaba",
+      "description": "Qwen3.5 9B is a compact multimodal reasoning model with 256K context, image and video input, function tools, and structured output.",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.08017817371937638,
+        "cached": 0.04008908685968819,
+        "output": 0.11581291759465479,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.09,
+          "cached": 0.045,
+          "output": 0.13
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:qwen3-5-flash",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "qwen3-5-flash",
+      "name": "Qwen3.5 Flash",
+      "creator": "Alibaba",
+      "description": "Vision-language model with hybrid linear-attention plus sparse MoE, 1M context, and fast multimodal text/image/video inference.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.08017817371937638,
+        "cached": 0.08017817371937638,
+        "output": 0.32783964365256124,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.09,
+          "cached": 0.09,
+          "output": 0.368
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:qwen3-5-flash:variant1",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "qwen3-5-flash:variant1",
+      "name": "Qwen3.5 Flash (Variant 1)",
+      "creator": "Alibaba",
+      "description": "China-region Qwen3.5 Flash delivers fast native vision-language inference for text, image, video, coding, and reasoning tasks.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.025835189309576838,
+        "cached": 0.025835189309576838,
+        "output": 0.25567928730512246,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.029,
+          "cached": 0.029,
+          "output": 0.287
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 128000,
+          "input": 0.10244988864142539,
+          "cached": 0.10244988864142539,
+          "output": 1.021826280623608,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 0.115,
+            "cached": 0.115,
+            "output": 1.147
+          }
+        },
+        {
+          "contextAbove": 256000,
+          "input": 0.1532293986636971,
+          "cached": 0.1532293986636971,
+          "output": 1.532293986636971,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 0.172,
+            "cached": 0.172,
+            "output": 1.72
+          }
+        }
+      ],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:qwen3-5-omni-flash",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "qwen3-5-omni-flash",
+      "name": "Qwen3.5 Omni Flash",
+      "creator": "Alibaba",
+      "description": "Cost-efficient omni-modal model handling text, image, audio, and video, with up to 3 hours of audio and 1 hour of video across 90+ languages.",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 0.7126948775055679,
+        "cached": 0.7126948775055679,
+        "output": 3.9198218262806237,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.8,
+          "cached": 0.8,
+          "output": 4.4
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:qwen3-5-omni-flash-realtime",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "qwen3-5-omni-flash-realtime",
+      "name": "Qwen3.5 Omni Flash Realtime",
+      "creator": "Alibaba",
+      "description": "Speech in, speech out, over one socket, with separate text and audio token rates and per-turn billing.",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": true
+      },
+      "rates": {
+        "input": 0.9799554565701559,
+        "cached": 0.9799554565701559,
+        "output": 5.879732739420935,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.1,
+          "cached": 1.1,
+          "output": 6.6
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:qwen3-5-omni-plus",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "qwen3-5-omni-plus",
+      "name": "Qwen3.5 Omni Plus",
+      "creator": "Alibaba",
+      "description": "Flagship omni-modal model for text, image, audio, and video. 3h audio, 1h video, 90+ input and 30+ output languages, 55 voice timbres.",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 2.4944320712694874,
+        "cached": 2.4944320712694874,
+        "output": 14.788418708240535,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.8,
+          "cached": 2.8,
+          "output": 16.6
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:qwen3-5-omni-plus-realtime",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "qwen3-5-omni-plus-realtime",
+      "name": "Qwen3.5 Omni Plus Realtime",
+      "creator": "Alibaba",
+      "description": "Speech in, speech out, over one socket, on the larger Omni tier, with separate text and audio token rates and per-turn billing.",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": true
+      },
+      "rates": {
+        "input": 3.7416481069042318,
+        "cached": 3.7416481069042318,
+        "output": 22.093541202672604,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 4.2,
+          "cached": 4.2,
+          "output": 24.8
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:qwen3-5-plus",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "qwen3-5-plus",
+      "name": "Qwen3.5 Plus",
+      "creator": "Alibaba",
+      "description": "Multimodal model with hybrid architecture for efficient deep thinking and visual understanding across text, image, and video on a 1M context.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.32071269487750553,
+        "cached": 0.32071269487750553,
+        "output": 1.9688195991091313,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.36,
+          "cached": 0.36,
+          "output": 2.21
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 256000,
+          "input": 0.9621380846325167,
+          "cached": 0.9621380846325167,
+          "output": 5.897550111358575,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 1.08,
+            "cached": 1.08,
+            "output": 6.62
+          }
+        }
+      ],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:qwen3-5-plus:variant1",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "qwen3-5-plus:variant1",
+      "name": "Qwen3.5 Plus (Variant 1)",
+      "creator": "Alibaba",
+      "description": "China-region Qwen3.5 Plus is a native vision-language model for efficient text, image, video, coding, and reasoning workloads.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.10244988864142539,
+        "cached": 0.10244988864142539,
+        "output": 0.6129175946547883,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.115,
+          "cached": 0.115,
+          "output": 0.688
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 128000,
+          "input": 0.25567928730512246,
+          "cached": 0.25567928730512246,
+          "output": 1.532293986636971,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 0.287,
+            "cached": 0.287,
+            "output": 1.72
+          }
+        },
+        {
+          "contextAbove": 256000,
+          "input": 0.510467706013363,
+          "cached": 0.510467706013363,
+          "output": 3.064587973273942,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 0.573,
+            "cached": 0.573,
+            "output": 3.44
+          }
+        }
+      ],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:qwen3-6-27b",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "qwen3-6-27b",
+      "name": "Qwen3.6 27B",
+      "creator": "Alibaba",
+      "description": "Qwen3.6 27B improves agentic coding, STEM reasoning, spatial vision, OCR, and text, image, and video understanding on 256K context.",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.36754031180400887,
+        "cached": 0.36754031180400887,
+        "output": 2.2052418708240533,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.412564,
+          "cached": 0.412564,
+          "output": 2.475384
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:qwen3-6-35b-a3b",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "qwen3-6-35b-a3b",
+      "name": "Qwen3.6 35B A3B",
+      "creator": "Alibaba",
+      "description": "Qwen3.6 35B A3B is a 256-expert mixture-of-experts reasoning model with 128K context, function tools, and strict structured JSON output.",
+      "releaseDate": null,
+      "contextSize": 131072,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.062360801781737196,
+        "cached": 0.031180400890868598,
+        "output": 0.3741648106904231,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.07,
+          "cached": 0.035,
+          "output": 0.42
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:qwen3-6-flash",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "qwen3-6-flash",
+      "name": "Qwen3.6 Flash",
+      "creator": "Alibaba",
+      "description": "Fast Qwen3.6 vision-language model for agentic coding, math reasoning, spatial understanding, OCR, and text, image, and video input.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.22271714922048996,
+        "cached": 0.22271714922048996,
+        "output": 1.3363028953229399,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.25,
+          "cached": 0.25,
+          "output": 1.5
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 256000,
+          "input": 0.8908685968819599,
+          "cached": 0.8908685968819599,
+          "output": 3.5634743875278394,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 1.0,
+            "cached": 1.0,
+            "output": 4.0
+          }
+        }
+      ],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:qwen3-6-flash:variant1",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "qwen3-6-flash:variant1",
+      "name": "Qwen3.6 Flash (Variant 1)",
+      "creator": "Alibaba",
+      "description": "China-region Qwen3.6 Flash keeps the same vision, coding, reasoning, and video capabilities with lower token pricing than the Singapore standard route.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.14699331848552338,
+        "cached": 0.14699331848552338,
+        "output": 0.8819599109131403,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.165,
+          "cached": 0.165,
+          "output": 0.99
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 256000,
+          "input": 0.5879732739420935,
+          "cached": 0.5879732739420935,
+          "output": 3.528730512249443,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 0.66,
+            "cached": 0.66,
+            "output": 3.961
+          }
+        }
+      ],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:qwen3-6-plus",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "qwen3-6-plus",
+      "name": "Qwen3.6 Plus",
+      "creator": "Alibaba",
+      "description": "Vision-language model with major upgrades over 3.5: agentic and front-end coding, multimodal recognition, OCR, and object localization.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.4454342984409799,
+        "cached": 0.4454342984409799,
+        "output": 2.6726057906458798,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.5,
+          "cached": 0.5,
+          "output": 3.0
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 256000,
+          "input": 1.7817371937639197,
+          "cached": 1.7817371937639197,
+          "output": 5.3452115812917596,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 2.0,
+            "cached": 2.0,
+            "output": 6.0
+          }
+        }
+      ],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:qwen3-6-plus:variant1",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "qwen3-6-plus:variant1",
+      "name": "Qwen3.6 Plus (Variant 1)",
+      "creator": "Alibaba",
+      "description": "Qwen3.6 Plus is a state-of-the-art vision-language model for agentic coding, multimodal recognition, OCR, and object localization.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.24587973273942093,
+        "cached": 0.24587973273942093,
+        "output": 1.4708240534521158,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.276,
+          "cached": 0.276,
+          "output": 1.651
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 256000,
+          "input": 0.9808463251670378,
+          "cached": 0.9808463251670378,
+          "output": 5.881514476614699,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 1.101,
+            "cached": 1.101,
+            "output": 6.602
+          }
+        }
+      ],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:qwen3-7-flash",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "qwen3-7-flash",
+      "name": "Qwen3.7 Flash",
+      "creator": "Alibaba",
+      "description": "Fast Qwen3.7 vision-language model for text, image, video, tool use, and agentic tasks, with implicit caching and a 1M token context.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.026726057906458794,
+        "cached": 0.005345211581291759,
+        "output": 0.11581291759465479,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.03,
+          "cached": 0.006,
+          "output": 0.13
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 32000,
+          "input": 0.08908685968819599,
+          "cached": 0.017817371937639197,
+          "output": 0.35634743875278396,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 0.1,
+            "cached": 0.02,
+            "output": 0.4
+          }
+        },
+        {
+          "contextAbove": 256000,
+          "input": 0.17817371937639198,
+          "cached": 0.035634743875278395,
+          "output": 0.7126948775055679,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 0.2,
+            "cached": 0.04,
+            "output": 0.8
+          }
+        }
+      ],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:qwen3-7-flash:variant1",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "qwen3-7-flash:variant1",
+      "name": "Qwen3.7 Flash",
+      "creator": "Alibaba",
+      "description": "Fast Qwen3.7 vision-language model for text, image, video, tool use, and agentic tasks, with implicit caching and a 1M token context.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.024944320712694878,
+        "cached": 0.005345211581291759,
+        "output": 0.09799554565701558,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.028,
+          "cached": 0.006,
+          "output": 0.11
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 32000,
+          "input": 0.07394209354120267,
+          "cached": 0.015144766146993319,
+          "output": 0.29398663697104677,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 0.083,
+            "cached": 0.017,
+            "output": 0.33
+          }
+        },
+        {
+          "contextAbove": 256000,
+          "input": 0.14699331848552338,
+          "cached": 0.029398663697104678,
+          "output": 0.5879732739420935,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 0.165,
+            "cached": 0.033,
+            "output": 0.66
+          }
+        }
+      ],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:qwen3-7-max",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "qwen3-7-max",
+      "name": "Qwen3.7 Max",
+      "creator": "Alibaba",
+      "description": "Qwen3.7 Max is a flagship text model for coding, productivity, long-running agents, deep thinking, tools, and 1M-token context.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 2.2271714922048997,
+        "cached": 2.2271714922048997,
+        "output": 6.681514476614699,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.5,
+          "cached": 2.5,
+          "output": 7.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:qwen3-7-max:variant1",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "qwen3-7-max:variant1",
+      "name": "Qwen3.7 Max",
+      "creator": "Alibaba",
+      "description": "Qwen3.7 Max is a flagship text model for coding, productivity, long-running agents, deep thinking, tools, and 1M-token context.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.4699331848552337,
+        "cached": 1.4699331848552337,
+        "output": 4.410690423162583,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.65,
+          "cached": 1.65,
+          "output": 4.951
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:qwen3-7-plus",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "qwen3-7-plus",
+      "name": "Qwen3.7 Plus",
+      "creator": "Alibaba",
+      "description": "Cost-effective Qwen3.7 vision-language model for text, image, video, coding, tool use, GUI understanding, and 1M-context workflows.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.35634743875278396,
+        "cached": 0.35634743875278396,
+        "output": 1.4253897550111359,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.4,
+          "cached": 0.4,
+          "output": 1.6
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 256000,
+          "input": 1.0690423162583518,
+          "cached": 1.0690423162583518,
+          "output": 4.276169265033407,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 1.2,
+            "cached": 1.2,
+            "output": 4.8
+          }
+        }
+      ],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:qwen3-7-plus:variant1",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "qwen3-7-plus:variant1",
+      "name": "Qwen3.7 Plus",
+      "creator": "Alibaba",
+      "description": "Cost-effective Qwen3.7 vision-language model for text, image, video, coding, tool use, GUI understanding, and 1M-context workflows.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.24587973273942093,
+        "cached": 0.049888641425389756,
+        "output": 0.9808463251670378,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.276,
+          "cached": 0.056,
+          "output": 1.101
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 256000,
+          "input": 0.7358574610244988,
+          "cached": 0.14788418708240533,
+          "output": 2.9407572383073495,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 0.826,
+            "cached": 0.166,
+            "output": 3.301
+          }
+        }
+      ],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:qwen3-8-27b",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "qwen3-8-27b",
+      "name": "Qwen3.8 27B",
+      "creator": "Alibaba",
+      "description": "Multimodal reasoner with 256K context, image and video input, function tools, structured JSON, and thinking on by default.",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.1514476614699332,
+        "cached": 0.07126948775055679,
+        "output": 0.4454342984409799,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.17,
+          "cached": 0.08,
+          "output": 0.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:qwen3-8-flash",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "qwen3-8-flash",
+      "name": "Qwen3.8 Flash",
+      "creator": "Alibaba",
+      "description": "Fast Qwen3.8 vision-language model for coding, agents, and visual understanding, with image and video input, five built-in tools, and a 1M token context.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.14253897550111358,
+        "cached": 0.14253897550111358,
+        "output": 0.4187082405345211,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.16,
+          "cached": 0.16,
+          "output": 0.47
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:qwen3-8-livetranslate-flash-realtime",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "qwen3-8-livetranslate-flash-realtime",
+      "name": "Qwen3.8 LiveTranslate Flash Realtime",
+      "creator": "Alibaba",
+      "description": "Simultaneous spoken translation over a WebSocket. Set the target language, then speak; the model replies in that language with text and audio.",
+      "releaseDate": null,
+      "contextSize": 53000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": true
+      },
+      "rates": {
+        "input": 0.9799554565701559,
+        "cached": 0.9799554565701559,
+        "output": 35.634743875278396,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.1,
+          "cached": 1.1,
+          "output": 40.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:qwen3-8-max",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "qwen3-8-max",
+      "name": "Qwen3.8 Max",
+      "creator": "Alibaba",
+      "description": "Trillion-scale MoE flagship for coding, long-horizon agents, and professional work, with image and video understanding across a 1M-token context.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 1.7817371937639197,
+        "output": 5.3452115812917596,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 2.0,
+          "output": 6.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:qwen3-8-max-0902",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "qwen3-8-max-0902",
+      "name": "Qwen3.8 Max 0902",
+      "creator": "Alibaba",
+      "description": "Upgraded Qwen3.8 Max snapshot with stronger coding, steadier multi-tool agent runs, and sharper chart and document vision across a 1M-token context.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 1.7817371937639197,
+        "output": 5.3452115812917596,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 2.0,
+          "output": 6.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:qwen3-8-max:variant1",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "qwen3-8-max:variant1",
+      "name": "Qwen3.8 Max",
+      "creator": "Alibaba",
+      "description": "Trillion-scale MoE flagship for coding, long-horizon agents, and professional work, with image and video understanding across a 1M-token context.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.4699331848552337,
+        "cached": 1.4699331848552337,
+        "output": 4.410690423162583,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.65,
+          "cached": 1.65,
+          "output": 4.951
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:qwen3-8-omni-flash",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "qwen3-8-omni-flash",
+      "name": "Qwen3.8 Omni Flash",
+      "creator": "Alibaba",
+      "description": "Omni-modal reasoner that reads text, images, audio, and video and answers in text, with a 1M token context, thinking, and native web search.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 0.26726057906458794,
+        "cached": 0.26726057906458794,
+        "output": 0.8374164810690422,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3,
+          "cached": 0.3,
+          "output": 0.94
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:qwen3-8-omni-flash-realtime",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "qwen3-8-omni-flash-realtime",
+      "name": "Qwen3.8 Omni Flash Realtime",
+      "creator": "Alibaba",
+      "description": "Speech and live video frames in, speech out over one socket, with 56 voices, tool calling during the conversation, and separate text and audio token rates.",
+      "releaseDate": null,
+      "contextSize": 192000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 0.40979955456570155,
+        "cached": 0.40979955456570155,
+        "output": 1.2472160356347437,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.46,
+          "cached": 0.46,
+          "output": 1.4
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:seed-2-0-code",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "seed-2-0-code",
+      "name": "Seed 2.0 Code",
+      "creator": "ByteDance",
+      "description": "Coding-tuned 256K-context model with strong front-end results and multilingual programming support for AI coding tools and agents.",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.35634743875278396,
+        "cached": 0.35634743875278396,
+        "output": 2.1380846325167036,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.4,
+          "cached": 0.4,
+          "output": 2.4
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 128000,
+          "input": 0.7126948775055679,
+          "cached": 0.7126948775055679,
+          "output": 4.276169265033407,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 0.8,
+            "cached": 0.8,
+            "output": 4.8
+          }
+        }
+      ],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:seed-2-0-lite",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "seed-2-0-lite",
+      "name": "Seed 2.0 Lite",
+      "creator": "ByteDance",
+      "description": "Balanced general-purpose model for high-frequency enterprise workloads: information processing, content, search, and data analysis.",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.27616926503340755,
+        "cached": 0.27616926503340755,
+        "output": 2.2271714922048997,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.31,
+          "cached": 0.31,
+          "output": 2.5
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 128000,
+          "input": 0.5523385300668151,
+          "cached": 0.5523385300668151,
+          "output": 4.4543429844097995,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 0.62,
+            "cached": 0.62,
+            "output": 5.0
+          }
+        }
+      ],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:seed-2-0-mini",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "seed-2-0-mini",
+      "name": "Seed 2.0 Mini",
+      "creator": "ByteDance",
+      "description": "Latency-focused multimodal model with 256K context, four reasoning effort modes, and image/video understanding for high-concurrency use.",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.10690423162583518,
+        "cached": 0.10690423162583518,
+        "output": 0.4454342984409799,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.12,
+          "cached": 0.12,
+          "output": 0.5
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 128000,
+          "input": 0.21380846325167036,
+          "cached": 0.21380846325167036,
+          "output": 0.8908685968819599,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 0.24,
+            "cached": 0.24,
+            "output": 1.0
+          }
+        }
+      ],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:seed-2-0-pro",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "seed-2-0-pro",
+      "name": "Seed 2.0 Pro",
+      "creator": "ByteDance",
+      "description": "Flagship general model with 256K context for complex reasoning, multimodal understanding, structured generation, and tool-augmented execution.",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.5612472160356348,
+        "cached": 0.5612472160356348,
+        "output": 3.376391982182628,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.63,
+          "cached": 0.63,
+          "output": 3.79
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 128000,
+          "input": 1.1224944320712695,
+          "cached": 1.1224944320712695,
+          "output": 6.752783964365256,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 1.26,
+            "cached": 1.26,
+            "output": 7.58
+          }
+        }
+      ],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:seed-2-1-turbo",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "seed-2-1-turbo",
+      "name": "Seed 2.1 Turbo",
+      "creator": "ByteDance",
+      "description": "Next-generation coding and agent model with engineering-grade code delivery, long-horizon autonomy, and 256K multimodal understanding.",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.5612472160356348,
+        "cached": 0.5612472160356348,
+        "output": 2.7884187082405343,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.63,
+          "cached": 0.63,
+          "output": 3.13
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:sonilo-proofread",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "sonilo-proofread",
+      "name": "Sonilo Proofread",
+      "creator": "sonilo",
+      "description": "Transcribes a video and translates the script into 24 languages, returning editable subtitle tracks you can correct before dubbing.",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.0,
+        "cached": 0.0,
+        "output": 0.0,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.0,
+          "cached": 0.0,
+          "output": 0.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:sonilo-video-analysis",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "sonilo-video-analysis",
+      "name": "Sonilo Video Analysis",
+      "creator": "sonilo",
+      "description": "Reads a video and writes a timed creative brief, with a prompt per scene for music and sound design, ready to drive a later generation.",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.0,
+        "cached": 0.0,
+        "output": 0.0,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.0,
+          "cached": 0.0,
+          "output": 0.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:step-3-5-flash",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "step-3-5-flash",
+      "name": "Step 3.5 Flash",
+      "creator": "stepfun",
+      "description": "StepFun text reasoning model for agents, coding, tool calling, and long-context analysis.",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.08908685968819599,
+        "cached": 0.017817371937639197,
+        "output": 0.26726057906458794,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.1,
+          "cached": 0.02,
+          "output": 0.3
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:step-3-5-flash-2603",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "step-3-5-flash-2603",
+      "name": "Step 3.5 Flash 2603",
+      "creator": "stepfun",
+      "description": "Agent-optimized Step 3.5 Flash variant with low and high reasoning effort modes.",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.08908685968819599,
+        "cached": 0.017817371937639197,
+        "output": 0.26726057906458794,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.1,
+          "cached": 0.02,
+          "output": 0.3
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:step-3-7-flash",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "step-3-7-flash",
+      "name": "Step 3.7 Flash",
+      "creator": "stepfun",
+      "description": "StepFun multimodal reasoning model with image and video input, tool calling, adjustable reasoning effort, and 256K context.",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.17817371937639198,
+        "cached": 0.035634743875278395,
+        "output": 1.0244988864142537,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.2,
+          "cached": 0.04,
+          "output": 1.15
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:step-5-preview",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "step-5-preview",
+      "name": "Step 5 Preview",
+      "creator": "stepfun",
+      "description": "Frontier multimodal reasoning with a 1M token context, image and video input, parallel tool calling, and strict JSON schema output.",
+      "releaseDate": null,
+      "contextSize": 1024000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.8908685968819599,
+        "cached": 0.044543429844097995,
+        "output": 2.4053452115812917,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.0,
+          "cached": 0.05,
+          "output": 2.7
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:stepaudio-2-5-asr",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "stepaudio-2-5-asr",
+      "name": "StepAudio 2.5 ASR",
+      "creator": "stepfun",
+      "description": "StepFun streaming speech recognition model for Chinese and English audio transcription.",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": true
+      },
+      "rates": {
+        "input": 0.0,
+        "cached": 0.0,
+        "output": 0.0,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.0,
+          "cached": 0.0,
+          "output": 0.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:stepaudio-2-5-asr-stream",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "stepaudio-2-5-asr-stream",
+      "name": "StepAudio 2.5 ASR Stream",
+      "creator": "stepfun",
+      "description": "Live transcription over a socket, returning partial results as the speaker talks, with voice activity detection marking each sentence.",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": true
+      },
+      "rates": {
+        "input": 0.0,
+        "cached": 0.0,
+        "output": 0.0,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.0,
+          "cached": 0.0,
+          "output": 0.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:stepaudio-2-5-chat",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "stepaudio-2-5-chat",
+      "name": "StepAudio 2.5 Chat",
+      "creator": "stepfun",
+      "description": "StepFun audio and text conversation model with text output and paralinguistic understanding.",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": true
+      },
+      "rates": {
+        "input": 1.3363028953229399,
+        "cached": 0.26726057906458794,
+        "output": 3.1180400890868594,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.5,
+          "cached": 0.3,
+          "output": 3.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:stepaudio-2-5-realtime",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "stepaudio-2-5-realtime",
+      "name": "StepAudio 2.5 Realtime",
+      "creator": "stepfun",
+      "description": "Speech in, speech out, over one socket, with paralinguistic understanding of tone and pacing.",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": true
+      },
+      "rates": {
+        "input": 1.3363028953229399,
+        "cached": 0.26726057906458794,
+        "output": 8.908685968819599,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.5,
+          "cached": 0.3,
+          "output": 10.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:stepaudio-3-asr-max",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "stepaudio-3-asr-max",
+      "name": "StepAudio 3 ASR Max",
+      "creator": "stepfun",
+      "description": "Context-aware transcription for proper nouns, technical terms, dialects, and difficult audio including whispers, fast speech, and singing.",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": true
+      },
+      "rates": {
+        "input": 0.0,
+        "cached": 0.0,
+        "output": 0.0,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.0,
+          "cached": 0.0,
+          "output": 0.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:stepaudio-3-chat",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "stepaudio-3-chat",
+      "name": "StepAudio 3 Chat",
+      "creator": "stepfun",
+      "description": "Audio and text conversation model that reasons before answering, with function calling and JSON output.",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": true
+      },
+      "rates": {
+        "input": 1.3363028953229399,
+        "cached": 0.26726057906458794,
+        "output": 3.1180400890868594,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.5,
+          "cached": 0.3,
+          "output": 3.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:stepaudio-3-realtime",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "stepaudio-3-realtime",
+      "name": "StepAudio 3 Realtime",
+      "creator": "stepfun",
+      "description": "Speech in, speech out, over one socket. Interruptible mid-reply, with voice activity detection deciding when to answer.",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": true
+      },
+      "rates": {
+        "input": 1.3363028953229399,
+        "cached": 0.26726057906458794,
+        "output": 8.908685968819599,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.5,
+          "cached": 0.3,
+          "output": 10.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:tavily-research",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "tavily-research",
+      "name": "Tavily Research",
+      "creator": "tavily",
+      "description": "Multi-search research assistant that explores a topic, analyzes sources, and produces a detailed research report with citations.",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": true,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.0,
+        "cached": 0.0,
+        "output": 0.0,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.0,
+          "cached": 0.0,
+          "output": 0.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:tavily-search",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "tavily-search",
+      "name": "Tavily Search",
+      "creator": "tavily",
+      "description": "Web search with crawl, extract, and URL mapping for fast, structured retrieval across pages and domains for downstream pipelines.",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": true,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.0,
+        "cached": 0.0,
+        "output": 0.0,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.0,
+          "cached": 0.0,
+          "output": 0.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "empiriolabs:whisper-large-v3-turbo",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "whisper-large-v3-turbo",
+      "name": "Whisper Large v3 Turbo",
+      "creator": "OpenAI",
+      "description": "Controlled Whisper Large v3 Turbo transcription with multilingual ASR, translation, VAD, timestamps, subtitles, hotwords, and decoder controls.",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": true
+      },
+      "rates": {
+        "input": 0.0,
+        "cached": 0.0,
+        "output": 0.0,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.0,
+          "cached": 0.0,
+          "output": 0.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
       "key": "eurouter:alibaba/qwen3.6-35b-instruct",
       "seller": "eurouter",
       "sellerName": "EUrouter",
@@ -74978,13 +79357,13 @@
         "audio": false
       },
       "rates": {
-        "input": 0.006129175946547884,
+        "input": 0.0034922048997772827,
         "cached": 0.0029434298440979955,
         "output": 0.10690423162583518,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.00688,
+          "input": 0.00392,
           "cached": 0.003304,
           "output": 0.12
         }
@@ -75350,14 +79729,14 @@
         "audio": false
       },
       "rates": {
-        "input": 0.04543429844097995,
-        "cached": 0.028507795100222718,
+        "input": 0.04721603563474387,
+        "cached": 0.029398663697104678,
         "output": 5.3452115812917596,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.051,
-          "cached": 0.032,
+          "input": 0.053,
+          "cached": 0.033,
           "output": 6.0
         }
       },
@@ -77603,7 +81982,7 @@
       "modelId": "glm-5.3-flash",
       "name": "GLM-5.3 Flash",
       "creator": "Z.ai",
-      "description": "glm-5.3-flash provided by zai, novita, fireworks, inference.net, together-ai, runware, consensusprotocol, scx-ai-gp, entrim",
+      "description": "glm-5.3-flash provided by zai, novita, fireworks, inference.net, together-ai, runware, scx-ai-gp, consensusprotocol, entrim",
       "releaseDate": null,
       "contextSize": 1048576,
       "capabilities": {
@@ -112413,15 +116792,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.3763670378619154,
-        "cached": 0.03136391982182628,
-        "output": 0.7527340757238308,
+        "input": 0.3732668151447661,
+        "cached": 0.031105567928730513,
+        "output": 0.7465336302895322,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.422472,
-          "cached": 0.035206,
-          "output": 0.844944
+          "input": 0.418992,
+          "cached": 0.034916,
+          "output": 0.837984
         }
       },
       "pricingTiers": [],
@@ -124255,15 +128634,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.0057906458797327386,
-        "cached": 0.0057906458797327386,
-        "output": 0.40089086859688194,
+        "input": 0.0034922048997772827,
+        "cached": 0.0029434298440979955,
+        "output": 0.10690423162583518,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0065,
-          "cached": 0.0065,
-          "output": 0.45
+          "input": 0.00392,
+          "cached": 0.003304,
+          "output": 0.12
         }
       },
       "pricingTiers": [],
@@ -124627,14 +129006,14 @@
         "audio": false
       },
       "rates": {
-        "input": 0.04543429844097995,
-        "cached": 0.028507795100222718,
+        "input": 0.04721603563474387,
+        "cached": 0.029398663697104678,
         "output": 5.3452115812917596,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.051,
-          "cached": 0.032,
+          "input": 0.053,
+          "cached": 0.033,
           "output": 6.0
         }
       },
