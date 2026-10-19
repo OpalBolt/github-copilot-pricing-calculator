@@ -885,5 +885,63 @@
         "\u2192 OpenRouter \u00b7 Z.ai: GLM Latest \u2014 input $0.069\u2192$0.0632 \u00b7 cached $0.069\u2192$0.0588 \u00b7 output $3.939\u2192$4.4"
       ]
     }
+  ],
+  "model-pricing": [
+    {
+      "date": "2026-10-19",
+      "changes": [
+        "+ DeepInfra: ByteDance/Seed-1.8",
+        "+ DeepInfra: ByteDance/Seed-2.0-code",
+        "+ DeepInfra: ByteDance/Seed-2.0-mini",
+        "+ DeepInfra: ByteDance/Seed-2.0-pro",
+        "+ DeepInfra: Gryphe/MythoMax-L2-13b",
+        "+ DeepInfra: MiniMaxAI/MiniMax-M3",
+        "+ DeepInfra: NousResearch/Hermes-3-Llama-3.1-405B",
+        "+ DeepInfra: NousResearch/Hermes-3-Llama-3.1-70B",
+        "+ DeepInfra: Qwen/Qwen2.5-72B-Instruct",
+        "+ DeepInfra: Qwen/Qwen3-14B",
+        "+ DeepInfra: Qwen/Qwen3-235B-A22B-Instruct-2507",
+        "+ DeepInfra: Qwen/Qwen3-30B-A3B",
+        "+ DeepInfra: Qwen/Qwen3-32B",
+        "+ DeepInfra: Qwen/Qwen3-Coder-480B-A35B-Instruct-Turbo",
+        "+ DeepInfra: Qwen/Qwen3-Next-80B-A3B-Instruct",
+        "+ DeepInfra: Qwen/Qwen3-VL-235B-A22B-Instruct",
+        "+ DeepInfra: Qwen/Qwen3-VL-30B-A3B-Instruct",
+        "+ DeepInfra: Qwen/Qwen3.5-27B",
+        "+ DeepInfra: Qwen/Qwen3.5-35B-A3B",
+        "+ DeepInfra: Qwen/Qwen3.5-397B-A17B",
+        "+ DeepInfra: Qwen/Qwen3.5-9B",
+        "+ DeepInfra: Qwen/Qwen3.6-27B",
+        "+ DeepInfra: Qwen/Qwen3.6-35B-A3B",
+        "+ DeepInfra: Qwen/Qwen3.7-Max",
+        "+ DeepInfra: Qwen/Qwen3.8-27B",
+        "+ DeepInfra: Qwen/Qwen3.8-Flash",
+        "+ DeepInfra: Qwen/Qwen3.8-Max",
+        "+ DeepInfra: Sao10K/L3-8B-Lunaris-v1-Turbo",
+        "+ DeepInfra: Sao10K/L3.1-70B-Euryale-v2.2",
+        "+ DeepInfra: XiaomiMiMo/MiMo-V2.6-Flash",
+        "+ DeepInfra: XiaomiMiMo/MiMo-V2.6-Pro",
+        "+ DeepInfra: anthropic/claude-fable-5",
+        "+ DeepInfra: anthropic/claude-haiku-4-5",
+        "+ DeepInfra: anthropic/claude-opus-4-7",
+        "+ DeepInfra: anthropic/claude-opus-4-8",
+        "+ DeepInfra: anthropic/claude-opus-5",
+        "+ DeepInfra: anthropic/claude-opus-5-5",
+        "+ DeepInfra: anthropic/claude-sonnet-4-6",
+        "+ DeepInfra: anthropic/claude-sonnet-5",
+        "+ DeepInfra: anthropic/claude-sonnet-5-5",
+        "+ DeepInfra: deepseek-ai/DeepSeek-R1-0528",
+        "+ DeepInfra: deepseek-ai/DeepSeek-V3",
+        "+ DeepInfra: deepseek-ai/DeepSeek-V3.1",
+        "+ DeepInfra: deepseek-ai/DeepSeek-V3.2",
+        "+ DeepInfra: deepseek-ai/DeepSeek-V4-Flash",
+        "+ DeepInfra: deepseek-ai/DeepSeek-V4-Flash-0731",
+        "+ DeepInfra: deepseek-ai/DeepSeek-V4-Flash-Vision-Exp",
+        "+ DeepInfra: deepseek-ai/DeepSeek-V4-Pro",
+        "+ DeepInfra: deepseek-ai/DeepSeek-V4-Pro-0813",
+        "+ DeepInfra: deepseek-ai/DeepSeek-V4.1-Flash",
+        "\u2026 and 48 more"
+      ]
+    }
   ]
 }

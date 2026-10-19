@@ -34,9 +34,11 @@ source, named providers, currency conversion, and cached-input estimates.
 
 ### Model Price Calculator
 
-Compares every model listing from every Seller the build can query: Cortecs,
-EUrouter, and OpenRouter, the OpenCode Zen gateway, and the first-party
-Claude, DeepSeek, OpenAI, and z.ai APIs. One flat table in euros, sorted by
+Compares every model listing from every Seller the build can query — the
+three EU routers, the OpenCode Zen gateway (models.dev prices, ADR 0003),
+the first-party Claude, DeepSeek, OpenAI, and z.ai APIs, and every additional
+catalog adapter registered in `sources/` (the roster grows; the page and the
+source registry are the live list). One flat table in euros, sorted by
 estimated cost for your token mix. The same model can appear as several
 listings from different Sellers — first-party and reseller prices sit side by
 side, and the page never merges or groups them.
@@ -64,8 +66,9 @@ The four tools fetch data differently.
   catalogs. The same build scrapes direct Claude,
   DeepSeek, OpenAI, and z.ai API prices as non-router comparison baselines.
 - **Model pricing page** — reads the same catalogs plus OpenCode Zen's catalog
-  with models.dev metadata (ADR 0003) and the direct Claude, DeepSeek, OpenAI,
-  and z.ai API prices. One Model Listing per catalog row per Seller.
+  with models.dev metadata (ADR 0003), the direct Claude, DeepSeek, OpenAI,
+  and z.ai API prices, and every further keyless catalog adapter in the
+  `sources/` registry. One Model Listing per catalog row per Seller.
 - **ECB exchange rate** — reads series `EXR.D.USD.EUR.SP00.A`. The build divides
   USD prices by the latest USD-per-EUR observation.
 - **Provider comparison** — scrapes DeepSeek, z.ai, and OpenCode Go pricing pages into
@@ -92,6 +95,7 @@ The router build uses these sources:
 | OpenRouter EU routing | `https://eu.openrouter.ai/api/v1/models` |
 | OpenCode Zen catalog | `https://opencode.ai/zen/v1/models` |
 | OpenCode Zen prices (ADR 0003) | `https://models.dev/api.json` (OpenCode Zen entry) |
+| DeepInfra catalog | `https://api.deepinfra.com/v1/models` |
 | Claude model catalog | `https://platform.claude.com/docs/en/api/http/beta/models/list.md` |
 | Claude direct API pricing | `https://platform.claude.com/docs/en/about-claude/pricing.md` |
 | DeepSeek direct API | `https://api-docs.deepseek.com/quick_start/pricing/` |

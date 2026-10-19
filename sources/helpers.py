@@ -29,6 +29,8 @@ OWNER_ALIASES = {
     "bytedance": "ByteDance",
     "bytedanceseed": "ByteDance",
     "deepseek": "DeepSeek",
+    # spill: slice 04 — DeepInfra ids use the `deepseek-ai/` prefix.
+    "deepseekai": "DeepSeek",
     "google": "Google",
     "meta": "Meta",
     "metaai": "Meta",
@@ -44,6 +46,8 @@ OWNER_ALIASES = {
     "xiaomi": "Xiaomi",
     "xai": "xAI",
     "zai": "Z.ai",
+    # spill: slice 04 — DeepInfra ids use the `zai-org/` prefix.
+    "zaiorg": "Z.ai",
     "zhipu": "Z.ai",
     "zhipuai": "Z.ai",
 }

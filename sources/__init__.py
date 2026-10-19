@@ -3,8 +3,8 @@
 Each entry describes one pricing source and declares which page(s) it feeds
 via `pages`; each page's build step selects its sources from this field.
 Every source feeds the global Model Price Calculator page. All sources except
-OpenCode Zen also feed the EU router page: Zen's catalog publishes no EU
-routing and therefore feeds only the global page.
+OpenCode Zen and DeepInfra also feed the EU router page: their catalogs
+publish no EU routing and therefore feed only the global page.
 
 `sellerKind` classifies the source as a Seller for the global page (router,
 gateway, or first-party API). `kind` stays the EU page's direct-baseline
@@ -14,6 +14,7 @@ marker and is unchanged.
 from fetch_providers import DEEPSEEK_URL, ZAI_PAYGO_URL
 from sources.claude_direct import CLAUDE_MODELS_URL, CLAUDE_PRICING_URL
 from sources.cortecs import CORTECS_URL
+from sources.deepinfra import DEEPINFRA_URL
 from sources.eurouter import EUROUTER_URL
 from sources.openai_direct import OPENAI_MODELS_URL, OPENAI_PRICING_URL
 from sources.opencode import OPENCODE_ZEN_URL
@@ -46,6 +47,14 @@ SOURCES = {
         "pages": ("global",),
         "sellerKind": "gateway",
         "source": OPENCODE_ZEN_URL,
+        "euClaim": "No EU routing catalog is published.",
+    },
+    "deepinfra": {
+        "name": "DeepInfra",
+        "pages": ("global",),
+        "sellerKind": "gateway",
+        "source": DEEPINFRA_URL,
+        "nativeCurrency": "USD",
         "euClaim": "No EU routing catalog is published.",
     },
     "deepseek-direct": {

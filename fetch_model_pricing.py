@@ -15,6 +15,7 @@ from pathlib import Path
 from sources import SOURCES
 from sources.claude_direct import fetch_claude_direct_listings
 from sources.cortecs import fetch_cortecs_listings
+from sources.deepinfra import fetch_deepinfra_listings
 from sources.deepseek_direct import fetch_deepseek_direct_listings
 from sources.eurouter import fetch_eurouter_listings
 from sources.helpers import fetch_ecb_rate, now_utc
@@ -37,6 +38,7 @@ ADAPTERS = {
     "eurouter": lambda exchange_rate: fetch_eurouter_listings(exchange_rate),
     "openrouter": lambda exchange_rate: fetch_openrouter_listings(exchange_rate),
     "opencode": lambda exchange_rate: fetch_opencode_listings(exchange_rate),
+    "deepinfra": lambda exchange_rate: fetch_deepinfra_listings(exchange_rate),
     "deepseek-direct": lambda exchange_rate: fetch_deepseek_direct_listings(
         exchange_rate
     ),

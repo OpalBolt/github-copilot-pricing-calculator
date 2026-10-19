@@ -12,6 +12,7 @@ from unittest.mock import patch
 import fetch_model_pricing
 from fetch_model_pricing import _cached_seller
 from sources import SOURCES
+from sources.deepinfra import _deepinfra_rates, fetch_deepinfra_listings
 from sources.eurouter import fetch_eurouter_listings
 from sources.helpers import _rates, listing_from_offer, now_utc
 from sources.opencode import fetch_opencode_listings
@@ -28,6 +29,7 @@ ALL_SELLERS = {
     "eurouter",
     "openrouter",
     "opencode",
+    "deepinfra",
     "deepseek-direct",
     "zai-direct",
     "claude-direct",
@@ -38,6 +40,7 @@ SELLER_KINDS = {
     "eurouter": "router",
     "openrouter": "router",
     "opencode": "gateway",
+    "deepinfra": "gateway",
     "deepseek-direct": "first-party",
     "zai-direct": "first-party",
     "claude-direct": "first-party",
@@ -85,7 +88,7 @@ def _offer(**overrides) -> dict:
 def test_registry_pages():
     router_pages = {sid for sid, m in SOURCES.items() if "router" in m["pages"]}
     global_pages = {sid for sid, m in SOURCES.items() if "global" in m["pages"]}
-    assert router_pages == ALL_SELLERS - {"opencode"}
+    assert router_pages == ALL_SELLERS - {"opencode", "deepinfra"}
     assert global_pages == ALL_SELLERS
     assert {m["sellerKind"] for m in SOURCES.values()} == set(SELLER_KINDS.values())
     assert {sid: m["sellerKind"] for sid, m in SOURCES.items()} == SELLER_KINDS
@@ -225,6 +228,91 @@ def test_listing_notes_name_the_sellers_own_source():
     assert "routed offer" not in listing["priceNote"]
 
 
+def test_deepinfra_adapter():
+    """The committed DeepInfra catalog sample normalizes to per-million-token
+    USD listings converted with the ECB rate; rows without per-token input
+    and output prices are skipped, not broken."""
+    fixture = ROOT / "fixtures" / "deepinfra-models.json"
+    payload = json.loads(fixture.read_text(encoding="utf-8"))
+    with patch("sources.deepinfra.fetch_json", return_value=payload):
+        listings = fetch_deepinfra_listings({"usdPerEur": 2.0})
+    by_id = {listing["modelId"]: listing for listing in listings}
+    assert set(by_id) == {
+        "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+        "deepseek-ai/DeepSeek-V4-Pro-0813",
+        "zai-org/GLM-5.3",
+        "moonshotai/Kimi-K3",
+    }
+
+    # DeepInfra's pricing page quotes these as "$ per 1M input/output
+    # tokens" in dollars: the native rates pass through unmultiplied and the
+    # ECB rate converts them.
+    llama = by_id["meta-llama/Llama-3.3-70B-Instruct-Turbo"]
+    assert llama["key"] == "deepinfra:meta-llama/Llama-3.3-70B-Instruct-Turbo"
+    assert llama["seller"] == "deepinfra"
+    assert llama["sellerName"] == "DeepInfra"
+    assert llama["creator"] == "Meta"
+    assert llama["contextSize"] == 131072
+    assert llama["capabilities"] == {
+        "reasoning": False,
+        "tools": False,
+        "vision": False,
+        "audio": False,
+    }
+    assert llama["rates"]["nativeCurrency"] == "USD"
+    assert llama["rates"]["native"] == {
+        "input": 0.1,
+        "cached": 0.1,
+        "output": 0.32,
+    }
+    assert math.isclose(llama["rates"]["input"], 0.05)
+    assert math.isclose(llama["rates"]["cached"], 0.05)
+    assert math.isclose(llama["rates"]["output"], 0.16)
+    assert llama["rates"]["cachedFallback"] is True
+
+    kimi = by_id["moonshotai/Kimi-K3"]
+    assert kimi["creator"] == "Moonshot AI"
+    assert kimi["rates"]["native"] == {
+        "input": 2.8499999999999996,
+        "cached": 0.285,
+        "output": 14.25,
+    }
+    assert math.isclose(kimi["rates"]["input"], 1.425)
+    assert math.isclose(kimi["rates"]["cached"], 0.1425)
+    assert kimi["rates"]["cachedFallback"] is False
+    assert kimi["capabilities"] == {
+        "reasoning": True,
+        "tools": False,
+        "vision": True,
+        "audio": False,
+    }
+
+    # Canonical creator spelling from the id prefixes.
+    assert by_id["deepseek-ai/DeepSeek-V4-Pro-0813"]["creator"] == "DeepSeek"
+    assert by_id["zai-org/GLM-5.3"]["creator"] == "Z.ai"
+    assert by_id["zai-org/GLM-5.3"]["capabilities"]["reasoning"] is True
+
+    assert all(
+        listing["rates"]["nativeCurrency"] == "USD" for listing in listings
+    )
+    assert all(
+        "DeepInfra" in listing["priceNote"]
+        and "ECB" in listing["priceNote"]
+        for listing in listings
+    )
+    # A zero price is a price: zero-priced token rows normalize to zero
+    # rates, and the catalog's zero-price rows (TTS, per character) stay out
+    # of the token-priced listings.
+    zeros = _deepinfra_rates(
+        {"input_tokens": 0, "output_tokens": 0, "cache_read_tokens": 0},
+        2.0,
+    )
+    assert zeros["input"] == zeros["cached"] == zeros["output"] == 0
+    assert zeros["nativeCurrency"] == "USD"
+    assert zeros["cachedFallback"] is False
+    assert "XiaomiMiMo/MiMo-V2.5-tts" not in by_id
+
+
 def test_seven_day_seller_fallback():
     fetched_at = now_utc().isoformat()
     previous = {
@@ -246,7 +334,7 @@ def test_seven_day_seller_fallback():
 
 @contextmanager
 def _patch_adapters(**behaviors):
-    """Patch the build's ECB fetch and all eight listings adapters. Values
+    """Patch the build's ECB fetch and all nine listings adapters. Values
     are return values for `ok`, exceptions for failing sources."""
     ecb = behaviors.pop("ecb", {"usdPerEur": 1.1, "observationDate": "2026-10-16"})
     patches = [
@@ -433,6 +521,7 @@ def test_aggregate_contract():
     assert native_by_seller["eurouter"] == "mixed"
     assert native_by_seller["openrouter"] == "USD"
     assert native_by_seller["opencode"] == "USD"
+    assert native_by_seller["deepinfra"] == "USD"
     assert {
         native_by_seller[sid]
         for sid in ("deepseek-direct", "zai-direct", "claude-direct", "openai-direct")
@@ -499,6 +588,7 @@ def test_generated_page():
         'data-seller="eurouter"',
         'data-seller="openrouter"',
         'data-seller="opencode"',
+        'data-seller="deepinfra"',
         'data-seller="deepseek-direct"',
         'data-seller="zai-direct"',
         'data-seller="claude-direct"',
@@ -570,6 +660,7 @@ def main():
     test_registry_pages()
     test_listing_from_offer()
     test_listing_notes_name_the_sellers_own_source()
+    test_deepinfra_adapter()
     test_seven_day_seller_fallback()
     test_broken_source_fails_in_isolation()
     test_build_fails_only_without_usable_data()

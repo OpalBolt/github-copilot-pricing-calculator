@@ -1,0 +1,247 @@
+{
+  "object": "list",
+  "data": [
+    {
+      "id": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+      "object": "model",
+      "created": 0,
+      "owned_by": "deepinfra",
+      "root": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+      "parent": null,
+      "metadata": {
+        "description": "Llama 3.3-70B Turbo is a highly optimized version of the Llama 3.3-70B model, utilizing FP8 quantization to deliver significantly faster inference speeds with a minor trade-off in accuracy. The model is designed to be helpful, safe, and flexible, with a focus on responsible deployment and mitigating potential risks such as bias, toxicity, and misinformation. It achieves state-of-the-art performance on various benchmarks, including conversational tasks, language translation, and text generation.",
+        "context_length": 131072,
+        "max_tokens": 131072,
+        "pricing": {
+          "input_tokens": 0.1,
+          "output_tokens": 0.32
+        },
+        "discount": null,
+        "tags": [
+          "chat"
+        ],
+        "default_width": null,
+        "default_height": null,
+        "default_iterations": null
+      }
+    },
+    {
+      "id": "deepseek-ai/DeepSeek-V4-Pro-0813",
+      "object": "model",
+      "created": 0,
+      "owned_by": "deepinfra",
+      "root": "deepseek-ai/DeepSeek-V4-Pro-0813",
+      "parent": null,
+      "metadata": {
+        "description": "DeepSeek-V4-Pro-0813 is the official release of DeepSeek-V4-Pro, superseding the preview version, with greatly enhanced agentic capabilities and performance improvements that are especially pronounced in production environments. It is built on the DeepSeek-V4-Pro (Preview) model structure, with a DSpark speculative decoding module attached.",
+        "context_length": 1048576,
+        "max_tokens": 1048576,
+        "pricing": {
+          "input_tokens": 1.2999999999999998,
+          "output_tokens": 2.5999999999999996,
+          "cache_read_tokens": 0.10000000399999999
+        },
+        "discount": null,
+        "tags": [
+          "chat",
+          "prompt_cache"
+        ],
+        "default_width": null,
+        "default_height": null,
+        "default_iterations": null
+      }
+    },
+    {
+      "id": "moonshotai/Kimi-K3",
+      "object": "model",
+      "created": 0,
+      "owned_by": "deepinfra",
+      "root": "moonshotai/Kimi-K3",
+      "parent": null,
+      "metadata": {
+        "description": "Kimi K3 is Moonshot AI's 2.8T-parameter open-weight multimodal reasoning model. Built for complex coding, knowledge work, and long-horizon agentic workflows, it excels at navigating large repositories, calling tools, debugging, and iterating on images, logs, tests, and runtime feedback. Its architecture relies on KDA and Attention Residuals for computational efficiency.",
+        "context_length": 1048576,
+        "max_tokens": 1048576,
+        "pricing": {
+          "input_tokens": 2.8499999999999996,
+          "output_tokens": 14.25,
+          "cache_read_tokens": 0.285
+        },
+        "discount": null,
+        "tags": [
+          "chat",
+          "vlm",
+          "vision",
+          "prompt_cache",
+          "reasoning"
+        ],
+        "default_width": null,
+        "default_height": null,
+        "default_iterations": null
+      }
+    },
+    {
+      "id": "zai-org/GLM-5.3",
+      "object": "model",
+      "created": 0,
+      "owned_by": "deepinfra",
+      "root": "zai-org/GLM-5.3",
+      "parent": null,
+      "metadata": {
+        "description": "GLM-5.3 is a large-scale reasoning model from Z.ai, built for complex software engineering and long-horizon agent tasks. It supports text input and output with a 1M-token context window, and improves on GLM-5.2 in coding and in the balance between performance and token efficiency.",
+        "context_length": 1048576,
+        "max_tokens": 1048576,
+        "pricing": {
+          "input_tokens": 0.9,
+          "output_tokens": 4.0,
+          "cache_read_tokens": 0.199999998
+        },
+        "discount": 0.375,
+        "tags": [
+          "chat",
+          "prompt_cache",
+          "reasoning"
+        ],
+        "default_width": null,
+        "default_height": null,
+        "default_iterations": null
+      }
+    },
+    {
+      "id": "sentence-transformers/all-MiniLM-L6-v2",
+      "object": "model",
+      "created": 0,
+      "owned_by": "deepinfra",
+      "root": "sentence-transformers/all-MiniLM-L6-v2",
+      "parent": null,
+      "metadata": {
+        "description": "We present a sentence transformation model that achieves state-of-the-art results on various NLP tasks without requiring task-specific architectures or fine-tuning. Our approach leverages contrastive learning and utilizes a variety of datasets to learn robust sentence representations. We evaluate our model on several benchmarks and demonstrate its effectiveness in various applications such as text classification, sentiment analysis, named entity recognition, and question answering.",
+        "context_length": 512,
+        "max_tokens": 512,
+        "pricing": {
+          "input_tokens": 0.005
+        },
+        "discount": null,
+        "tags": [
+          "embed"
+        ],
+        "default_width": null,
+        "default_height": null,
+        "default_iterations": null
+      }
+    },
+    {
+      "id": "ByteDance/Seedream-4",
+      "object": "model",
+      "created": 0,
+      "owned_by": "deepinfra",
+      "root": "ByteDance/Seedream-4",
+      "parent": null,
+      "metadata": {
+        "description": "Seedream 4.0 is a SOTA multimodal image creation model built on leading architecture. It breaks through the boundaries of traditional text-to-image models by natively supporting text, single-image, and multi-image inputs. Users can freely combine text and images to achieve diverse creative modes within a single model\u2014such as multi-image blending, image editing, and sequentially batch image generation, featuring subject consistency, making image creation more free and controllable.",
+        "context_length": null,
+        "max_tokens": null,
+        "pricing": {
+          "per_image_unit": 0.04
+        },
+        "discount": null,
+        "tags": [
+          "image-gen"
+        ],
+        "default_width": 0,
+        "default_height": 0,
+        "default_iterations": 0
+      }
+    },
+    {
+      "id": "XiaomiMiMo/MiMo-V2.5-tts",
+      "object": "model",
+      "created": 0,
+      "owned_by": "deepinfra",
+      "root": "XiaomiMiMo/MiMo-V2.5-tts",
+      "parent": null,
+      "metadata": {
+        "description": "Automatically convert input text into natural and fluent speech output. You can generate natural and vivid speech content by configuring parameters such as speech style and voice. Use the high-quality voices from the built-in voices list.",
+        "context_length": null,
+        "max_tokens": null,
+        "pricing": {
+          "input_characters": 0.0
+        },
+        "discount": null,
+        "tags": [
+          "tts"
+        ],
+        "default_width": null,
+        "default_height": null,
+        "default_iterations": null
+      }
+    },
+    {
+      "id": "ByteDance/Seedance-1.5-Pro",
+      "object": "model",
+      "created": 0,
+      "owned_by": "deepinfra",
+      "root": "ByteDance/Seedance-1.5-Pro",
+      "parent": null,
+      "metadata": {
+        "description": "ByteDance's Seedance 1.5 Pro is a professional video model using V2A native generation for integrated, synced audio-visual output, enhancing efficiency of professional video creation.",
+        "context_length": null,
+        "max_tokens": null,
+        "pricing": {},
+        "discount": null,
+        "tags": [
+          "video-gen"
+        ],
+        "default_width": null,
+        "default_height": null,
+        "default_iterations": null
+      }
+    },
+    {
+      "id": "nvidia/Nemotron-3.5-ASR-Streaming-Multilingual-0.6b",
+      "object": "model",
+      "created": 0,
+      "owned_by": "deepinfra",
+      "root": "nvidia/Nemotron-3.5-ASR-Streaming-Multilingual-0.6b",
+      "parent": null,
+      "metadata": {
+        "description": "Nemotron 3.5 ASR Streaming Multilingual is an open 0.6B-parameter prompt-conditioned cache-aware FastConformer-RNNT model, engineered for low-latency streaming transcription across 40+ languages. It powers real-time captioning, voice agents, and multilingual transcription pipelines\u2014replacing separate per-language Whisper deployments with a single inference pass.",
+        "context_length": null,
+        "max_tokens": null,
+        "pricing": {
+          "input_seconds": 3.3300000000000003e-06
+        },
+        "discount": null,
+        "tags": [
+          "stt"
+        ],
+        "default_width": null,
+        "default_height": null,
+        "default_iterations": null
+      }
+    },
+    {
+      "id": "Wan-AI/Wan2.6-T2V",
+      "object": "model",
+      "created": 0,
+      "owned_by": "deepinfra",
+      "root": "Wan-AI/Wan2.6-T2V",
+      "parent": null,
+      "metadata": {
+        "description": "Turn any prompt into a smooth video. Intelligent shot scheduling supports multi-shot storytelling, generating multi-shot narrative videos with consistent subjects, scenes, and atmosphere",
+        "context_length": null,
+        "max_tokens": null,
+        "pricing": {
+          "output_seconds": 0.1
+        },
+        "discount": null,
+        "tags": [
+          "video-gen"
+        ],
+        "default_width": null,
+        "default_height": null,
+        "default_iterations": null
+      }
+    }
+  ]
+}
