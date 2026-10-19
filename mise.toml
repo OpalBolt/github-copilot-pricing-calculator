@@ -15,6 +15,7 @@ run = [
   "python fetch_pricing.py",
   "python fetch_model_comparison.py",
   "python fetch_router_pricing.py",
+  "python fetch_model_pricing.py",
   "python fetch_providers.py",
 ]
 

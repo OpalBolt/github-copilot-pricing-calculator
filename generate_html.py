@@ -32,6 +32,7 @@ from fetch_pricing import fetch_markdown, parse_tables
 from fetch_model_comparison import fetch_markdown as fetch_markdown_comparison, parse_model_comparison
 
 from fetch_router_pricing import build as build_router_pricing
+from fetch_model_pricing import build as build_model_pricing
 
 import changelog
 
@@ -161,6 +162,7 @@ def main():
     pricing_path = Path(__file__).parent / "pricing.json"
     comparison_path = Path(__file__).parent / "model_comparison.json"
     router_pricing_path = Path(__file__).parent / "eu-router-pricing.json"
+    model_pricing_path = Path(__file__).parent / "model-pricing.json"
 
     # Fetch pricing if not --no-fetch
     if not args.no_fetch:
@@ -235,6 +237,29 @@ def main():
             )
             if not router_pricing_path.exists():
                 print("Error: eu-router-pricing.json not found", file=sys.stderr)
+                sys.exit(1)
+
+    # Refresh global model-pricing catalogs as one aggregate so each source
+    # can fall back independently.
+    if not args.no_fetch:
+        print("Fetching model pricing data...")
+        try:
+            previous = None
+            if model_pricing_path.exists():
+                previous = json.loads(model_pricing_path.read_text(encoding="utf-8"))
+            model_pricing_output = build_model_pricing(previous)
+            model_pricing_path.write_text(
+                json.dumps(model_pricing_output, indent=2) + "\n",
+                encoding="utf-8",
+            )
+            print(f"Updated {model_pricing_path}")
+        except Exception as e:
+            print(
+                f"Warning: model pricing fetch failed ({e}), will use existing model-pricing.json",
+                file=sys.stderr,
+            )
+            if not model_pricing_path.exists():
+                print("Error: model-pricing.json not found", file=sys.stderr)
                 sys.exit(1)
 
     # Record today's data changes (vs git HEAD) for the page changelogs.
@@ -322,6 +347,42 @@ def main():
     router_out = Path(__file__).parent / "docs" / "eu-router-pricing.html"
     router_out.write_text(router_html, encoding="utf-8")
     print(f"Generated {router_out} ({len(offers)} router model offers)")
+
+    # Render the global Model Price Calculator from model-pricing.json.
+    if not model_pricing_path.exists():
+        print("Error: model-pricing.json not found", file=sys.stderr)
+        sys.exit(1)
+
+    model_pricing_data = json.loads(model_pricing_path.read_text(encoding="utf-8"))
+    model_listings = model_pricing_data.get("listings", [])
+    if not model_listings:
+        print("Error: model-pricing.json has no listings", file=sys.stderr)
+        sys.exit(1)
+    model_sellers = model_pricing_data.get("sellers", [])
+    model_exchange_rate = model_pricing_data.get("exchangeRate")
+    model_template = env.get_template("model-pricing.html.j2")
+    model_html = model_template.render(
+        generatedAt=model_pricing_data.get("generatedAt", "unknown"),
+        sellers=model_sellers,
+        staleSellers=[
+            f"{seller['name']} (fetched {seller.get('fetchedAt', 'unknown')[:10]})"
+            for seller in model_sellers
+            if seller.get("stale")
+        ],
+        omittedSellers=[
+            omitted.get("id", "unknown")
+            for omitted in model_pricing_data.get("omittedSellers", [])
+        ],
+        exchangeRate=model_exchange_rate,
+        models_json=json_for_script(model_listings),
+        sellers_json=json_for_script(model_sellers),
+        exchange_rate_json=json_for_script(model_exchange_rate),
+        changelog_entries=newest_changelog(changelog_log, "model-pricing"),
+    )
+    model_html = "\n".join(line.rstrip() for line in model_html.splitlines()) + "\n"
+    model_out = Path(__file__).parent / "docs" / "model-pricing.html"
+    model_out.write_text(model_html, encoding="utf-8")
+    print(f"Generated {model_out} ({len(model_listings)} model listings)")
 
     redirect_template = env.get_template("cortecs-redirect.html.j2")
     cortecs_out = Path(__file__).parent / "docs" / "cortecs.html"

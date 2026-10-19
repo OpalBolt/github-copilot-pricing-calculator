@@ -335,6 +335,33 @@ def _direct_api_offers(
     return offers
 
 
+def listing_from_offer(offer: dict, price_note: str | None = None) -> dict:
+    """One Model Listing for the global page, built from the shared fetch
+    layer's offer: EU-page fields (routing modes, EU providers, quantization)
+    are dropped, seller fields are renamed, the canonical creator is reused,
+    and the native rates are always explicit next to the EUR conversion."""
+    rates = offer["default"]
+    native = rates.get("native") or {
+        field: rates[field] for field in ("input", "cached", "output")
+    }
+    return {
+        "key": offer["key"],
+        "seller": offer["router"],
+        "sellerName": offer["routerName"],
+        "modelId": offer["modelId"],
+        "name": offer["name"],
+        "creator": _creator(offer.get("owner")),
+        "description": offer.get("description", ""),
+        "releaseDate": offer.get("releaseDate"),
+        "contextSize": offer.get("contextSize"),
+        "capabilities": offer.get("capabilities")
+        or {"reasoning": False, "tools": False, "vision": False, "audio": False},
+        "rates": {**rates, "native": native},
+        "pricingTiers": offer.get("pricingTiers", []),
+        "priceNote": price_note or offer["priceNote"],
+    }
+
+
 def _plain_markdown(value: str) -> str:
     value = re.sub(r"<[^>]+>", "", value)
     value = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", value)

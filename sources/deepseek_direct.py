@@ -1,7 +1,21 @@
 """DeepSeek direct API adapter: pay-as-you-go prices scraped from the docs."""
 
 from fetch_providers import scrape_deepseek
-from sources.helpers import _direct_api_offer
+from sources.helpers import _direct_api_offer, listing_from_offer
+
+
+def fetch_deepseek_direct_listings(exchange_rate: dict) -> list[dict]:
+    """Global-page Model Listings: DeepSeek's first-party prices."""
+    return [
+        listing_from_offer(
+            offer,
+            price_note=(
+                "Direct USD API price published by DeepSeek and converted "
+                "with the listed ECB rate."
+            ),
+        )
+        for offer in fetch_deepseek_direct(exchange_rate)
+    ]
 
 
 def fetch_deepseek_direct(exchange_rate: dict) -> list[dict]:

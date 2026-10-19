@@ -1,0 +1,266 @@
+{% import 'macros.html.j2' as m %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Model Price Calculator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&family=Source+Serif+4:ital,wght@1,500&display=swap" rel="stylesheet" />
+  {% include 'styles.css.j2' %}
+  <style>
+    main { max-width: 1500px; padding-left: 24px; padding-right: 24px; }
+    #model-table { table-layout: fixed; min-width: 0; font-size: 12px; }
+    #model-table th, #model-table td { white-space: nowrap; }
+    #model-table thead th { padding: 6px 5px; }
+    #model-table tbody td { padding: 4px 5px; line-height: 1.2; }
+    #model-table th.cmp-col, #model-table td.cmp-cell { width: 28px; text-align: center; padding: 3px; }
+    #model-table th[data-col="sellerName"] { width: 105px; }
+    #model-table th[data-col="name"] { width: 320px; }
+    #model-table th[data-col="creator"] { width: 90px; }
+    #model-table th.capabilities-col { width: 112px; }
+    #model-table th[data-col="input"],
+    #model-table th[data-col="cached"],
+    #model-table th[data-col="output"],
+    #model-table th[data-col="cost"] { width: 62px; }
+    #model-table th.runs-col { width: 50px; }
+    #model-table th.bar-cell { width: 58px; }
+    #model-table .bar-cell { min-width: 0; }
+    #model-table td.model-id {
+      white-space: normal;
+      overflow-wrap: anywhere;
+      font-weight: 600;
+    }
+    #model-table td.creator { overflow: hidden; text-overflow: ellipsis; }
+    #model-table td.creator, .dim { color: var(--slate-5); }
+    #model-table td.bar-cell, #model-table td.caps { white-space: normal; }
+    #model-table td.caps { overflow: hidden; }
+    #model-table.hide-input .col-input,
+    #model-table.hide-cached .col-cached,
+    #model-table.hide-output .col-output { display: none; }
+    #model-table tr.model-row { cursor: pointer; }
+    #model-table tr.seller-cortecs td:first-child { border-left: 3px solid #7e9cd8; }
+    #model-table tr.seller-eurouter td:first-child { border-left: 3px solid #98bb6c; }
+    #model-table tr.seller-openrouter td:first-child { border-left: 3px solid #d27e99; }
+    #model-table tr.seller-opencode td:first-child { border-left: 3px solid #957fb8; }
+    #model-table tr.seller-deepseek-direct td:first-child { border-left: 3px solid #dca561; }
+    #model-table tr.seller-zai-direct td:first-child { border-left: 3px solid #6aa8a2; }
+    #model-table tr.seller-claude-direct td:first-child { border-left: 3px solid #c98a6d; }
+    #model-table tr.seller-openai-direct td:first-child { border-left: 3px solid #8892a8; }
+    #model-table tr.model-row:hover td { background: var(--slate-2); }
+    #model-table tr.drilldown-row > td { padding: 0; background: var(--canvas); }
+    .detail-panel { padding: 14px 18px; white-space: normal; font-size: 13px; }
+    .detail-title { color: var(--nordic-black); font-size: 15px; margin-bottom: 6px; }
+    .detail-description { max-width: 900px; color: var(--slate-6); margin-bottom: 10px; }
+    .detail-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 8px 20px; }
+    .detail-item strong { display: block; color: var(--slate-5); font-size: 10px; letter-spacing: .06em; text-transform: uppercase; }
+    .detail-note { margin-top: 10px; }
+    .cap, .seller-chip, .kind-chip, .warning-chip, .direct-chip {
+      display: inline-block; font-size: 10px; font-weight: 600;
+      letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 1px 4px; margin: 0 2px 0 0; border-radius: 3px;
+      background: var(--slate-2); color: var(--slate-6);
+      border: 1px solid var(--slate-3);
+    }
+    .warning-chip { border-style: dashed; color: var(--efi-yellow); }
+    .direct-chip { border-style: dashed; color: var(--slate-7); }
+    .kind-chip { border-style: dashed; color: var(--slate-5); }
+    .cap-reasoning { color: #dca561; border-color: #dca561; }
+    .cap-tools { color: #7e9cd8; border-color: #7e9cd8; }
+    .cap-vision { color: #957fb8; border-color: #957fb8; }
+    .cap-audio { color: #98bb6c; border-color: #98bb6c; }
+    .seller-cortecs .seller-chip { color: #7e9cd8; border-color: #7e9cd8; }
+    .seller-eurouter .seller-chip { color: #98bb6c; border-color: #98bb6c; }
+    .seller-openrouter .seller-chip { color: #d27e99; border-color: #d27e99; }
+    .seller-opencode .seller-chip { color: #957fb8; border-color: #957fb8; }
+    .seller-deepseek-direct .seller-chip { color: #dca561; border-color: #dca561; }
+    .seller-zai-direct .seller-chip { color: #6aa8a2; border-color: #6aa8a2; }
+    .seller-claude-direct .seller-chip { color: #c98a6d; border-color: #c98a6d; }
+    .seller-openai-direct .seller-chip { color: #8892a8; border-color: #8892a8; }
+    .table-legend {
+      display: flex; align-items: center; flex-wrap: wrap; gap: 5px 12px;
+      margin: 0 0 12px; color: var(--slate-6); font-size: 12px;
+    }
+    .legend-title { color: var(--slate-7); font-weight: 600; text-transform: uppercase; letter-spacing: .06em; }
+    .legend-item { white-space: nowrap; }
+    .build-warning {
+      max-width: 900px; margin: 14px 0 0; padding: 9px 12px;
+      border: 1px solid var(--efi-yellow); color: var(--slate-6); font-size: 13px;
+    }
+    .compact-filter {
+      width: 150px; padding: 6px 9px; border: 1px solid var(--slate-3);
+      border-radius: 2px; background: var(--canvas); color: var(--nordic-black);
+      font: inherit; font-size: 13px; outline: none;
+    }
+    .compact-filter:focus { border-color: var(--efi-yellow); }
+    @media (max-width: 1000px) {
+      #model-table .bar-cell { display: none; }
+    }
+  </style>
+</head>
+<body>
+{{ m.disclaimer() }}
+<header class="page-header">
+  <p class="eyebrow">Routers · Gateways · First-party APIs</p>
+  <h1>Model Price Calculator</h1>
+  <p>Every model listing from every Seller the build can query — Cortecs, EUrouter, OpenRouter, OpenCode Zen, DeepSeek, z.ai, Claude, and OpenAI — as one flat table in euros, sorted by estimated cost for your token mix. The same model can appear as several listings from different Sellers; the page never merges them.</p>
+  <p class="meta">
+    <a href="index.html">← All tools</a> · Data built: {{ generatedAt }}
+    {% if exchangeRate %}
+      · ECB: 1 EUR = {{ exchangeRate.usdPerEur }} USD on {{ exchangeRate.observationDate }}
+    {% endif %}
+    · Sources:
+    {% for seller in sellers %}
+      <a href="{{ seller.source }}" target="_blank">{{ seller.name }}</a>{% if not loop.last %}, {% endif %}
+    {% endfor %}
+  </p>
+  {% if staleSellers or omittedSellers %}
+  <div class="build-warning">
+    {% if staleSellers %}Stale seller data: {{ staleSellers|join(', ') }} (kept for at most seven days).{% endif %}
+    {% if omittedSellers %} Omitted seller data: {{ omittedSellers|join(', ') }}.{% endif %}
+  </div>
+  {% endif %}
+</header>
+
+<main>
+  <div class="tabs-nav">
+    <button class="tab-btn active" data-tab="calc-tab">Calculator</button>
+    <button class="tab-btn" data-tab="changelog-tab">Changelog</button>
+  </div>
+
+  <div id="calc-tab" class="tab-content active">
+  <div class="controls">
+    <h2>Budget and token estimate</h2>
+    <p class="dim">Set the tokens in one calculation and your total budget. Runs shows how many calculations fit.</p>
+    <div class="profile-presets">
+      <span class="profile-label">Quick presets:</span>
+      <div class="profile-buttons">
+        <button class="profile-btn" data-profile="superuser">Superuser/Developer</button>
+        <button class="profile-btn" data-profile="regular">Regular User</button>
+      </div>
+    </div>
+    <div class="controls-grid">
+      {{ m.input_group('total-tokens', 'Tokens per calculation', 1000000, 1, none, 100000) }}
+      {{ m.input_group('budget-amount', 'Budget (€)', 50, 0, none, 0.01) }}
+      {{ m.input_group('input-pct', 'Input %', 20, 0, 100, 0.1) }}
+      {{ m.input_group('cached-pct', 'Cached %', 60, 0, 100, 0.1) }}
+      {{ m.input_group('output-pct', 'Output %', 20, 0, 100, 0.1) }}
+    </div>
+    <div class="summary-chips" id="summary-chips"></div>
+    <div id="pct-warning" class="build-warning" style="display:none">Input, Cached, and Output percentages should sum to 100%. The calculator normalizes them.</div>
+  </div>
+
+  <div class="table-legend" aria-label="Table legend">
+    <span class="legend-title">Legend</span>
+    <span class="legend-item"><span class="kind-chip">Router</span> routing service reselling other providers' models</span>
+    <span class="legend-item"><span class="kind-chip">Gateway</span> catalog selling many providers' models</span>
+    <span class="legend-item"><span class="direct-chip">First-party</span> the model creator's own API price, not a reseller</span>
+    <span class="legend-item"><span class="warning-chip">⚠</span> cache rate not published</span>
+    <span class="legend-item"><span class="cap cap-reasoning">R</span> reasoning</span>
+    <span class="legend-item"><span class="cap cap-tools">T</span> tools</span>
+    <span class="legend-item"><span class="cap cap-vision">V</span> vision</span>
+    <span class="legend-item"><span class="cap cap-audio">A</span> audio</span>
+  </div>
+
+  <div class="filters-bar">
+    <div class="filter-group">
+      <span class="filter-label">Seller</span>
+      <div class="filter-chips" id="seller-filters">
+        {% for seller in sellers %}
+        <button class="filter-chip" data-seller="{{ seller.id }}">{{ seller.name }}{% if seller.stale %} ⚠{% endif %}</button>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="filter-group">
+      <span class="filter-label">Capability</span>
+      <div class="filter-chips" id="capability-filters">
+        <button class="filter-chip" data-filter="reasoning">Reasoning</button>
+        <button class="filter-chip" data-filter="tools">Tools</button>
+        <button class="filter-chip" data-filter="vision">Vision</button>
+        <button class="filter-chip" data-filter="audio">Audio</button>
+        <button class="filter-chip" id="hide-free-filter">Hide free</button>
+      </div>
+    </div>
+    <div class="filter-group">
+      <label class="filter-label" for="creator-filter">Model creator</label>
+      <input class="compact-filter" type="search" id="creator-filter" list="creator-options" placeholder="All creators" autocomplete="off" />
+      <datalist id="creator-options"></datalist>
+    </div>
+    <div class="filter-group">
+      <label class="filter-label" for="minimum-runs-filter">Minimum runs</label>
+      <select class="compact-filter" id="minimum-runs-filter">
+        <option value="0">Any</option>
+        <option value="1">1+</option>
+        <option value="10">10+</option>
+        <option value="100">100+</option>
+      </select>
+    </div>
+    <div class="search-wrap">
+      <input type="search" id="search-input" placeholder="Search model, seller, or creator…" />
+    </div>
+    <div class="column-toggle-group" aria-label="Table columns">
+      <span class="filter-label">Columns</span>
+      <div class="column-toggle-chips">
+        <label class="column-toggle-chip" for="toggle-input-col"><input type="checkbox" id="toggle-input-col" checked /><span>Input</span></label>
+        <label class="column-toggle-chip" for="toggle-cached-col"><input type="checkbox" id="toggle-cached-col" checked /><span>Cached</span></label>
+        <label class="column-toggle-chip" for="toggle-output-col"><input type="checkbox" id="toggle-output-col" checked /><span>Output</span></label>
+      </div>
+    </div>
+  </div>
+
+  <div class="table-meta"><span class="table-meta-count" id="row-count"></span></div>
+  <div class="table-wrapper">
+    <table id="model-table">
+      <thead>
+        <tr>
+          <th class="cmp-col" title="Add to compare tray"></th>
+          <th class="sortable" data-col="sellerName">Seller <span class="sort-icon">↕</span></th>
+          <th class="sortable" data-col="name">Model <span class="sort-icon">↕</span></th>
+          <th class="sortable" data-col="creator">Creator <span class="sort-icon">↕</span></th>
+          <th class="capabilities-col">Capabilities</th>
+          <th class="sortable num col-input" data-col="input">Input <span class="sort-icon">↕</span></th>
+          <th class="sortable num col-cached" data-col="cached">Cached <span class="sort-icon">↕</span></th>
+          <th class="sortable num col-output" data-col="output">Output <span class="sort-icon">↕</span></th>
+          <th class="sortable num" data-col="cost">Est. cost <span class="sort-icon">↕</span></th>
+          <th class="num runs-col">Runs</th>
+          <th class="bar-cell">Relative cost</th>
+        </tr>
+      </thead>
+      <tbody id="table-body"></tbody>
+    </table>
+    <div class="no-results" id="no-results">No model listings match your filters.</div>
+  </div>
+
+  <p class="page-note">
+    Every row is one Seller's Model Listing at the build's fetch time; the table stays flat and is sorted by estimated cost for your token mix. The same model can appear as several listings from different Sellers — first-party and reseller prices sit side by side, and the page never merges or groups them. Creator names are each Seller's published owner, normalized to one display spelling.
+    Sellers quoting USD are converted with the unrounded ECB reference rate shown above; native per-million rates stay visible in the price details. Calculations use unrounded values and display rounding only.
+    When no cached-input price is published, the input rate is used as an estimate and marked with ⚠. This does not mean the Seller publishes or supports prompt caching. Fully free listings do not show this warning because the fallback cannot change their cost.
+    Listings from a Seller whose refresh failed are marked stale ⚠ per Seller and dropped after seven days.
+  </p>
+  </div>
+
+  <!-- Changelog Tab -->
+  <div id="changelog-tab" class="tab-content">
+    {{ m.changelog_panel(changelog_entries) }}
+  </div>
+</main>
+
+<footer class="page-footer">
+  <span>Model Price Calculator · every Seller's model listings in euros</span>
+  {% if exchangeRate %}<a href="{{ exchangeRate.source }}" target="_blank">ECB exchange-rate source →</a>{% endif %}
+</footer>
+
+<div id="compare-tray" role="region" aria-label="Model listing comparison">
+  <div class="tray-header">
+    <span class="tray-title">Comparing <span id="tray-count">0</span> listings</span>
+    <div class="tray-actions"><button class="tray-clear" onclick="clearCompare()">Clear all</button></div>
+  </div>
+  <div class="tray-cards" id="tray-cards"></div>
+</div>
+
+{{ m.tab_switcher_js() }}
+
+{% include 'model-pricing.app.js.j2' %}
+</body>
+</html>

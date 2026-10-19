@@ -48,10 +48,12 @@ def _parse_time(value: str) -> datetime:
 
 def _router_metadata(source_id: str) -> dict:
     """One source's registry metadata without the registry-only `pages` field."""
+    # spill: slice 03 added `sellerKind` for the global page; the EU dataset
+    # must stay unchanged, so the EU build drops that field here.
     return {
         key: value
         for key, value in SOURCES[source_id].items()
-        if key != "pages"
+        if key not in {"pages", "sellerKind"}
     }
 
 

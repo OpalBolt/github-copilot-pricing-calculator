@@ -8,6 +8,7 @@ from sources.helpers import (
     _provider,
     _rates,
     fetch_json,
+    listing_from_offer,
 )
 
 CORTECS_URL = "https://api.cortecs.ai/v1/models?extended=true&currency=EUR"
@@ -64,6 +65,13 @@ def _cortecs_offer(model: dict, eu_model: dict | None) -> dict:
         "quantization": _heavy_quantization(model, default),
         "priceNote": "Model-level minimum price published by Cortecs.",
     }
+
+
+def fetch_cortecs_listings() -> list[dict]:
+    """Global-page Model Listings: Cortecs' model-level minimum prices.
+    The router offers are already listing-shaped, so only the EU-page fields
+    are stripped."""
+    return [listing_from_offer(offer) for offer in fetch_cortecs()]
 
 
 def fetch_cortecs() -> list[dict]:

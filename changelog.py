@@ -6,9 +6,10 @@ Diffs the fetched data files on disk against their last committed versions
 (git HEAD) and appends human-readable entries to changelog.json — one entry
 per category per day:
 
-    copilot    pricing.json        (GitHub Copilot per-model prices)
-    providers  providers.json      (deepseek / z.ai / devpack / opencode go)
-    router     eu-router-pricing.json (per-router model offers)
+    copilot        pricing.json           (GitHub Copilot per-model prices)
+    providers      providers.json         (deepseek / z.ai / devpack / opencode go)
+    router         eu-router-pricing.json (per-router model offers)
+    model-pricing  model-pricing.json     (per-seller model listings)
 
 Called by generate_html.py after the fetch step and before rendering; the
 entries become the Changelog tab on each page. Re-running the same day
@@ -198,10 +199,41 @@ def diff_router(old: dict, new: dict) -> list[str]:
     return changes
 
 
+# ── model-pricing: model-pricing.json ────────────────────────────────
+
+def listing_prices(listing: dict) -> dict:
+    """The listing's input/cached/output, preferring native-currency prices so
+    exchange-rate drift does not register as daily price changes."""
+    rates = listing.get("rates") or {}
+    native = rates.get("native") or {}
+    return {f: native.get(f, rates.get(f)) for f in ("input", "cached", "output")}
+
+
+def diff_model_pricing(old: dict, new: dict) -> list[str]:
+    ol = {item["key"]: item for item in old.get("listings", [])}
+    nl = {item["key"]: item for item in new.get("listings", [])}
+    changes = []
+    for key in sorted(ol.keys() - nl.keys()):
+        changes.append(f"− {ol[key]['sellerName']}: {ol[key]['name'].strip()}")
+    for key in sorted(nl.keys() - ol.keys()):
+        changes.append(f"+ {nl[key]['sellerName']}: {nl[key]['name'].strip()}")
+    for key in sorted(ol.keys() & nl.keys()):
+        a, b = ol[key], nl[key]
+        deltas = price_deltas([
+            (f, listing_prices(a)[f], listing_prices(b)[f])
+            for f in ("input", "cached", "output")
+        ])
+        if deltas:
+            changes.append(f"→ {b['sellerName']} · {b['name'].strip()} — "
+                           + " · ".join(deltas))
+    return changes
+
+
 CATEGORIES = {
     "copilot": ("pricing.json", diff_copilot),
     "providers": ("providers.json", diff_providers),
     "router": ("eu-router-pricing.json", diff_router),
+    "model-pricing": ("model-pricing.json", diff_model_pricing),
 }
 
 
@@ -292,6 +324,24 @@ if __name__ == "__main__":
     # r:a native prices unchanged -> USD-only drift is not a change;
     # r:b has no native prices -> its USD drop is one.
     assert rtr == ["→ R · B — output $9→$8"], rtr
+
+    mdl = diff_model_pricing(
+        {"listings": [{"key": "s:a", "sellerName": "S", "name": "A",
+                       "rates": {"input": 1.1, "cached": 0.1, "output": 2.0,
+                                 "native": {"input": 1.0, "cached": 0.1,
+                                            "output": 2.0}}},
+                      {"key": "s:b", "sellerName": "S", "name": "B",
+                       "rates": {"input": 5.0, "cached": 0.5, "output": 9.0}}]},
+        {"listings": [{"key": "s:a", "sellerName": "S", "name": "A",
+                       "rates": {"input": 1.2, "cached": 0.1, "output": 2.0,
+                                 "native": {"input": 1.0, "cached": 0.1,
+                                            "output": 2.0}}},
+                      {"key": "s:b", "sellerName": "S", "name": "B",
+                       "rates": {"input": 5.0, "cached": 0.5, "output": 8.0}}]},
+    )
+    # s:a native prices unchanged -> exchange-rate drift is not a change;
+    # s:b has no native prices -> its EUR drop is one.
+    assert mdl == ["→ S · B — output $9→$8"], mdl
 
     log = update()
     summary = ", ".join(f"{cat}={len(log.get(cat, []))}" for cat in CATEGORIES)

@@ -7,6 +7,7 @@ from sources.helpers import (
     _converted_usd_rates,
     _is_text_output,
     fetch_json,
+    listing_from_offer,
 )
 
 OPENCODE_ZEN_URL = "https://opencode.ai/zen/v1/models"
@@ -44,6 +45,21 @@ def _opencode_tiers(cost: dict, usd_per_eur: float) -> list[dict]:
         rates = _converted_usd_rates(tier, usd_per_eur)
         tiers.append({"contextAbove": threshold["size"], **rates})
     return sorted(tiers, key=lambda tier: tier["contextAbove"])
+
+
+def fetch_opencode_listings(exchange_rate: dict) -> list[dict]:
+    """Global-page Model Listings: Zen's prices with models.dev named as the
+    price source, per ADR 0003."""
+    return [
+        listing_from_offer(
+            offer,
+            price_note=(
+                "USD price published in models.dev's OpenCode Zen catalog "
+                "(models.dev api.json) and converted with the listed ECB rate."
+            ),
+        )
+        for offer in fetch_opencode(exchange_rate)
+    ]
 
 
 def fetch_opencode(exchange_rate: dict) -> list[dict]:

@@ -2,8 +2,13 @@
 
 Each entry describes one pricing source and declares which page(s) it feeds
 via `pages`; each page's build step selects its sources from this field.
-Every source feeds the EU router page except OpenCode Zen, whose catalog
-publishes no EU routing and which therefore feeds only the global page.
+Every source feeds the global Model Price Calculator page. All sources except
+OpenCode Zen also feed the EU router page: Zen's catalog publishes no EU
+routing and therefore feeds only the global page.
+
+`sellerKind` classifies the source as a Seller for the global page (router,
+gateway, or first-party API). `kind` stays the EU page's direct-baseline
+marker and is unchanged.
 """
 
 from fetch_providers import DEEPSEEK_URL, ZAI_PAYGO_URL
@@ -17,56 +22,64 @@ from sources.openrouter import OPENROUTER_URL
 SOURCES = {
     "cortecs": {
         "name": "Cortecs",
-        "pages": ("router",),
+        "pages": ("router", "global"),
+        "sellerKind": "router",
         "source": CORTECS_URL,
         "euClaim": "EU catalog: providers based and regulated within the EU.",
     },
     "eurouter": {
         "name": "EUrouter",
-        "pages": ("router",),
+        "pages": ("router", "global"),
+        "sellerKind": "router",
         "source": EUROUTER_URL,
         "euClaim": "EU handling is EUrouter's baseline routing guarantee.",
     },
     "openrouter": {
         "name": "OpenRouter",
-        "pages": ("router",),
+        "pages": ("router", "global"),
+        "sellerKind": "router",
         "source": OPENROUTER_URL,
         "euClaim": "EU regional routing; Business or Enterprise plan required.",
     },
     "opencode": {
         "name": "OpenCode Zen",
         "pages": ("global",),
+        "sellerKind": "gateway",
         "source": OPENCODE_ZEN_URL,
         "euClaim": "No EU routing catalog is published.",
     },
     "deepseek-direct": {
         "name": "DeepSeek API",
-        "pages": ("router",),
+        "pages": ("router", "global"),
         "source": DEEPSEEK_URL,
         "kind": "direct",
+        "sellerKind": "first-party",
         "euClaim": "Direct API baseline; no router or EU routing mode.",
     },
     "zai-direct": {
         "name": "z.ai API",
-        "pages": ("router",),
+        "pages": ("router", "global"),
         "source": ZAI_PAYGO_URL,
         "kind": "direct",
+        "sellerKind": "first-party",
         "euClaim": "Direct API baseline; no router or EU routing mode.",
     },
     "claude-direct": {
         "name": "Claude API",
-        "pages": ("router",),
+        "pages": ("router", "global"),
         "source": CLAUDE_PRICING_URL,
         "catalogSource": CLAUDE_MODELS_URL,
         "kind": "direct",
+        "sellerKind": "first-party",
         "euClaim": "Direct API baseline; no router or EU routing mode.",
     },
     "openai-direct": {
         "name": "OpenAI API",
-        "pages": ("router",),
+        "pages": ("router", "global"),
         "source": OPENAI_PRICING_URL,
         "catalogSource": OPENAI_MODELS_URL,
         "kind": "direct",
+        "sellerKind": "first-party",
         "euClaim": "Direct API baseline; no router or EU routing mode.",
     },
 }

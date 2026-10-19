@@ -9,9 +9,28 @@ from sources.helpers import (
     _provider,
     _usd_rates,
     fetch_json,
+    listing_from_offer,
 )
 
 EUROUTER_URL = "https://api.eurouter.ai/api/v1/models"
+
+
+def _eurouter_listing_note(offer: dict) -> str:
+    if offer["default"]["nativeCurrency"] == "EUR":
+        return "EUR price published in EUrouter's catalog."
+    return (
+        "USD price published in EUrouter's catalog and converted with the "
+        "listed ECB rate."
+    )
+
+
+def fetch_eurouter_listings(exchange_rate: dict | None = None) -> list[dict]:
+    """Global-page Model Listings: EUrouter's catalog prices, re-noted as
+    listing prices instead of routing-mode prices."""
+    return [
+        listing_from_offer(offer, price_note=_eurouter_listing_note(offer))
+        for offer in fetch_eurouter(exchange_rate)
+    ]
 
 
 def fetch_eurouter(exchange_rate: dict | None = None) -> list[dict]:

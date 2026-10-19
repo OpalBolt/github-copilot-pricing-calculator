@@ -7,6 +7,7 @@ from sources.helpers import (
     _is_text_output,
     _usd_rates,
     fetch_json,
+    listing_from_offer,
 )
 
 OPENROUTER_URL = "https://openrouter.ai/api/v1/models"
@@ -15,6 +16,21 @@ OPENROUTER_EU_URL = "https://eu.openrouter.ai/api/v1/models"
 
 def _openrouter_rates(model: dict, usd_per_eur: float) -> dict:
     return _usd_rates(model, usd_per_eur)
+
+
+def fetch_openrouter_listings(exchange_rate: dict) -> list[dict]:
+    """Global-page Model Listings: OpenRouter's catalog prices, re-noted as
+    listing prices instead of routing-mode prices."""
+    return [
+        listing_from_offer(
+            offer,
+            price_note=(
+                "USD price published in OpenRouter's model catalog and "
+                "converted with the listed ECB rate."
+            ),
+        )
+        for offer in fetch_openrouter(exchange_rate)
+    ]
 
 
 def fetch_openrouter(exchange_rate: dict) -> list[dict]:
