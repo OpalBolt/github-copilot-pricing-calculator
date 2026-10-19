@@ -16,6 +16,7 @@ from sources.claude_direct import CLAUDE_MODELS_URL, CLAUDE_PRICING_URL
 from sources.cortecs import CORTECS_URL
 from sources.deepinfra import DEEPINFRA_URL
 from sources.eurouter import EUROUTER_URL
+from sources.kilo import KILO_URL
 from sources.nano_gpt import NANO_GPT_URL
 from sources.novita import NOVITA_URL
 from sources.openai_direct import OPENAI_MODELS_URL, OPENAI_PRICING_URL
@@ -85,6 +86,18 @@ SOURCES = {
         # Vercel AI Gateway charges the provider's list price with zero
         # markup and bills it in US dollars (vercel.com/docs/ai-gateway/
         # pricing: "You pay the provider's list price").
+        "nativeCurrency": "USD",
+        "euClaim": "No EU routing catalog is published.",
+    },
+    "kilo": {
+        "name": "Kilo",
+        "pages": ("global",),
+        "sellerKind": "gateway",
+        "source": KILO_URL,
+        # Kilo bills the gateway per token in US dollars with "microdollar
+        # precision (1 USD = 1,000,000 microdollars)" (kilo.ai/docs/gateway/
+        # usage-and-billing), and the catalog's per-token decimals match the
+        # providers' USD list prices.
         "nativeCurrency": "USD",
         "euClaim": "No EU routing catalog is published.",
     },

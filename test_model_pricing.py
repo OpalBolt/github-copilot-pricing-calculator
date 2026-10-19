@@ -15,6 +15,7 @@ from sources import SOURCES
 from sources.deepinfra import _deepinfra_rates, fetch_deepinfra_listings
 from sources.eurouter import fetch_eurouter_listings
 from sources.helpers import _rates, listing_from_offer, now_utc
+from sources.kilo import _kilo_rates, fetch_kilo_listings
 from sources.novita import _novita_rates, fetch_novita_listings
 from sources.nano_gpt import _nano_gpt_rates, fetch_nano_gpt_listings
 from sources.opencode import fetch_opencode_listings
@@ -41,6 +42,7 @@ ALL_SELLERS = {
     "requesty",
     "nano-gpt",
     "vercel-gateway",
+    "kilo",
     "deepseek-direct",
     "zai-direct",
     "claude-direct",
@@ -56,6 +58,7 @@ SELLER_KINDS = {
     "requesty": "gateway",
     "nano-gpt": "gateway",
     "vercel-gateway": "gateway",
+    "kilo": "gateway",
     "deepseek-direct": "first-party",
     "zai-direct": "first-party",
     "claude-direct": "first-party",
@@ -110,6 +113,7 @@ def test_registry_pages():
         "requesty",
         "nano-gpt",
         "vercel-gateway",
+        "kilo",
     }
     assert global_pages == ALL_SELLERS
     assert {m["sellerKind"] for m in SOURCES.values()} == set(SELLER_KINDS.values())
@@ -759,6 +763,121 @@ def test_vercel_gateway_adapter():
     assert "microsoft/mai-image-2.6" not in by_id
 
 
+def test_kilo_adapter():
+    """The committed Kilo catalog sample normalizes to per-million-token USD
+    listings converted with the ECB rate; the auto-routing rows' -1 sentinel
+    prices skip the row, not break the build."""
+    # Kilo bills its gateway per token in US dollars with "microdollar
+    # precision (1 USD = 1,000,000 microdollars)" (kilo.ai/docs/gateway/
+    # usage-and-billing); the registry records that verified native
+    # currency, and the catalog feeds the global page only.
+    assert SOURCES["kilo"]["nativeCurrency"] == "USD"
+    assert SOURCES["kilo"]["pages"] == ("global",)
+    assert SOURCES["kilo"]["sellerKind"] == "gateway"
+
+    fixture = ROOT / "fixtures" / "kilo-models.json"
+    payload = json.loads(fixture.read_text(encoding="utf-8"))
+    with patch("sources.kilo.fetch_json", return_value=payload):
+        listings = fetch_kilo_listings({"usdPerEur": 2.0})
+    by_id = {listing["modelId"]: listing for listing in listings}
+    assert set(by_id) == {
+        "anthropic/claude-sonnet-4.5",
+        "deepseek/deepseek-v3.2-exp",
+        "google/gemini-3-pro-image",
+        "kilo-auto/free",
+        "minimax/minimax-m3.1-flash:free",
+    }
+
+    # Kilo's Usage & Billing doc derives costs from "the upstream
+    # provider's pricing based on token usage", so the catalog's per-token
+    # decimals scale by 1,000,000 in dollars and the ECB rate converts
+    # them.
+    sonnet = by_id["anthropic/claude-sonnet-4.5"]
+    assert sonnet["key"] == "kilo:anthropic/claude-sonnet-4.5"
+    assert sonnet["seller"] == "kilo"
+    assert sonnet["sellerName"] == "Kilo"
+    assert sonnet["name"] == "Anthropic: Claude Sonnet 4.5"
+    assert sonnet["creator"] == "Anthropic"
+    assert sonnet["contextSize"] == 1000000
+    assert sonnet["capabilities"] == {
+        "reasoning": True,
+        "tools": True,
+        "vision": True,
+        "audio": False,
+    }
+    assert sonnet["rates"]["nativeCurrency"] == "USD"
+    assert sonnet["rates"]["native"] == {
+        "input": 3.0,
+        "cached": 0.3,
+        "output": 15.0,
+    }
+    assert math.isclose(sonnet["rates"]["input"], 1.5)
+    assert math.isclose(sonnet["rates"]["cached"], 0.15)
+    assert math.isclose(sonnet["rates"]["output"], 7.5)
+    assert sonnet["rates"]["cachedFallback"] is False
+
+    # Rows without an input_cache_read component fall back to the input
+    # rate, and the creator spelling comes from the id's vendor prefix.
+    deepseek = by_id["deepseek/deepseek-v3.2-exp"]
+    assert deepseek["creator"] == "DeepSeek"
+    assert deepseek["rates"]["cachedFallback"] is True
+    assert deepseek["rates"]["cached"] == deepseek["rates"]["input"]
+    assert math.isclose(deepseek["rates"]["native"]["input"], 0.27)
+    assert math.isclose(deepseek["rates"]["native"]["output"], 0.41)
+
+    # Image inputs map to the vision capability through the shared
+    # capability helper.
+    image = by_id["google/gemini-3-pro-image"]
+    assert image["creator"] == "Google"
+    assert image["capabilities"]["vision"] is True
+    assert image["rates"]["native"] == {
+        "input": 2.0,
+        "cached": 0.2,
+        "output": 12.0,
+    }
+
+    # A zero price is a price: the free rows normalize to zero rates
+    # instead of dropping out.
+    free = by_id["kilo-auto/free"]
+    assert free["rates"]["native"] == {"input": 0, "cached": 0, "output": 0}
+    # The free row's published zero cache-read price is a price, not a
+    # fallback; the :free row without a cache component falls back.
+    assert free["rates"]["cachedFallback"] is False
+    minimax_free = by_id["minimax/minimax-m3.1-flash:free"]
+    assert minimax_free["creator"] == "MiniMax AI"
+    assert minimax_free["rates"]["cachedFallback"] is True
+
+    assert all(
+        listing["rates"]["nativeCurrency"] == "USD" for listing in listings
+    )
+    assert all(
+        "Kilo" in listing["priceNote"] and "ECB" in listing["priceNote"]
+        for listing in listings
+    )
+    zeros = _kilo_rates(
+        {"pricing": {"prompt": "0", "completion": "0", "input_cache_read": "0"}},
+        2.0,
+    )
+    assert zeros["input"] == zeros["cached"] == zeros["output"] == 0
+    assert zeros["nativeCurrency"] == "USD"
+    assert zeros["cachedFallback"] is False
+    # The auto-routing rows publish a -1 sentinel instead of token prices;
+    # negative and missing prices are not token-priced and skip the row.
+    try:
+        _kilo_rates({"pricing": {"prompt": "-1", "completion": "-1"}}, 2.0)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("negative sentinel prices should skip the row")
+    try:
+        _kilo_rates({"pricing": {}}, 2.0)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("missing per-token prices should skip the row")
+    assert "kilo-auto/efficient" not in by_id
+
+
 def test_seven_day_seller_fallback():
     fetched_at = now_utc().isoformat()
     previous = {
@@ -780,7 +899,7 @@ def test_seven_day_seller_fallback():
 
 @contextmanager
 def _patch_adapters(**behaviors):
-    """Patch the build's ECB fetch and all thirteen listings adapters. Values
+    """Patch the build's ECB fetch and all fourteen listings adapters. Values
     are return values for `ok`, exceptions for failing sources."""
     ecb = behaviors.pop("ecb", {"usdPerEur": 1.1, "observationDate": "2026-10-16"})
     patches = [
@@ -976,6 +1095,7 @@ def test_aggregate_contract():
     assert native_by_seller["requesty"] == "USD"
     assert native_by_seller["nano-gpt"] == "USD"
     assert native_by_seller["vercel-gateway"] == "USD"
+    assert native_by_seller["kilo"] == "USD"
     assert {
         native_by_seller[sid]
         for sid in ("deepseek-direct", "zai-direct", "claude-direct", "openai-direct")
@@ -1047,6 +1167,7 @@ def test_generated_page():
         'data-seller="requesty"',
         'data-seller="nano-gpt"',
         'data-seller="vercel-gateway"',
+        'data-seller="kilo"',
         'data-seller="deepseek-direct"',
         'data-seller="zai-direct"',
         'data-seller="claude-direct"',
@@ -1123,6 +1244,7 @@ def main():
     test_requesty_adapter()
     test_nano_gpt_adapter()
     test_vercel_gateway_adapter()
+    test_kilo_adapter()
     test_seven_day_seller_fallback()
     test_broken_source_fails_in_isolation()
     test_build_fails_only_without_usable_data()
