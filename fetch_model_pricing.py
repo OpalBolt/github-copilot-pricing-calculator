@@ -12,7 +12,7 @@ import json
 from datetime import datetime, timedelta
 from pathlib import Path
 
-from default_view import load_rankings, select_default_view
+from default_view import resolve_default_view
 from sources import SOURCES
 from sources.aiand import fetch_aiand_listings
 from sources.aimlapi import fetch_aimlapi_listings
@@ -228,9 +228,10 @@ def build(previous: dict | None = None) -> dict:
         "omittedSellers": omitted,
         "listings": sorted(listings, key=lambda listing: listing["key"]),
         # The page's opening selection with its ranking metadata (window,
-        # fetched-at, stale flag); None when no rankings data is usable and
-        # the page loads search-only.
-        "defaultView": select_default_view(load_rankings(), listings),
+        # fetched-at, stale flag): live when the key works, else the previous
+        # build's stored selection, else the committed snapshot; None when no
+        # rankings data is usable and the page loads search-only.
+        "defaultView": resolve_default_view(previous, listings),
     }
 
 

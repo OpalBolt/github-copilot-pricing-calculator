@@ -7,18 +7,30 @@ Seller listings by normalized slug equality. The page opens on the matched
 listings; the full catalog stays reachable through search.
 
 The selection is pure: select_default_view is fed a rankings payload and
-listings and never fetches. load_rankings is the fetching seam — today it
-reads the committed fixture snapshot; the live keyed fetch (slice 32)
-replaces its body behind the same interface, falling back to the previous
-build's stored selection on failure.
+listings and never fetches. The fetching seam is the chain in
+resolve_default_view: it fetches OpenRouter's rankings-daily dataset live
+behind the build's only secret (OPENROUTER_DATASETS_KEY), falls back to the
+previous build's stored selection for at most seven days, then to the
+committed fixture snapshot, and finally to no selection at all. A failed or
+keyless fetch never fails the build (ADR 0005); tests patch the seam
+functions.
 """
 
 import json
+import os
 import re
+import urllib.request
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).parent
 FIXTURE_PATH = ROOT / "fixtures" / "openrouter-rankings.json"
+# OpenRouter's rankings-daily dataset (docs: Data API cookbook). The default
+# 30-day window needs no query parameters; a missing or invalid key gets 401.
+RANKINGS_URL = "https://openrouter.ai/api/v1/datasets/rankings-daily"
+LIVE_RANKINGS_SOURCE = "openrouter-rankings-daily"
+# The previous build's selection stays usable for this long (ADR 0005).
+SELECTION_MAX_AGE = timedelta(days=7)
 
 # Ranking knobs: walk the usage ranking top-down keeping at most
 # MAX_MODELS_PER_CREATOR models per creator, stopping at MAX_DEFAULT_MODELS.
@@ -125,10 +137,112 @@ def select_default_view(rankings: dict | None, listings: list[dict]) -> dict | N
 
 
 def load_rankings() -> dict | None:
-    """The rankings payload for this build. Never raises: a failed read
-    returns None and the page loads search-only rather than failing the
-    build."""
+    """The committed fixture snapshot — the chain's last usable rankings
+    payload. Never raises: a failed read returns None and the page loads
+    search-only rather than failing the build."""
     try:
         return json.loads(FIXTURE_PATH.read_text(encoding="utf-8"))
     except (OSError, ValueError):
         return None
+
+
+def now_utc() -> datetime:
+    return datetime.now(timezone.utc)
+
+
+def fetch_live_rankings(key: str) -> dict | None:
+    """One keyed GET of the rankings-daily dataset: the same 30-day
+    {date, model_permaslug, total_tokens} rows the committed snapshot holds.
+    Returns None when the endpoint fails or answers with an unusable
+    payload; no exception escapes, so a failing endpoint never fails the
+    build. The key value is read from the environment at fetch time only —
+    it is never committed, logged, or embedded."""
+    request = urllib.request.Request(
+        RANKINGS_URL,
+        headers={
+            "Accept": "application/json",
+            "Authorization": f"Bearer {key}",
+            "User-Agent": "github-copilot-pricing-calculator/1.0",
+        },
+    )
+    try:
+        with urllib.request.urlopen(request, timeout=30) as response:
+            payload = json.loads(response.read().decode("utf-8"))
+    except Exception:
+        # Anything the request, body read, or JSON parse can raise — socket
+        # timeouts, truncated transfers (http.client.IncompleteRead),
+        # undecodable or malformed bodies — degrades to the chain; no
+        # exception escapes, so a failing endpoint never fails the build.
+        return None
+    if not isinstance(payload, dict) or not isinstance(payload.get("data"), list):
+        return None
+    return payload
+
+
+def load_live_rankings() -> dict | None:
+    """The live rankings payload when OPENROUTER_DATASETS_KEY is set and the
+    endpoint answers; None otherwise. An absent key is not an error and
+    makes no request."""
+    key = os.environ.get("OPENROUTER_DATASETS_KEY", "").strip()
+    if not key:
+        return None
+    return fetch_live_rankings(key)
+
+
+def _stored_selection(previous: dict | None) -> dict | None:
+    """The previous build's stored selection, reused verbatim while its
+    fetchedAt is younger than SELECTION_MAX_AGE. Missing, malformed, or
+    expired selections are unusable so the chain falls through."""
+    view = (previous or {}).get("defaultView")
+    if not (
+        isinstance(view, dict)
+        and view.get("models")
+        and view.get("listingKeys")
+        and view.get("fetchedAt")
+    ):
+        return None
+    try:
+        fetched = datetime.fromisoformat(str(view["fetchedAt"]).replace("Z", "+00:00"))
+    except ValueError:
+        return None
+    # An offset-naive timestamp has no absolute age: treat it as malformed
+    # so the age subtraction below cannot raise.
+    if fetched.tzinfo is None:
+        return None
+    if now_utc() - fetched > SELECTION_MAX_AGE:
+        return None
+    return view
+
+
+def _snapshot_source(payload: dict) -> str:
+    """The committed snapshot's name: the rankings source plus the date the
+    snapshot was taken, so the dataset names exactly the data it opened on."""
+    meta = payload.get("meta") or {}
+    stamp = str(meta.get("as_of") or meta.get("end_date") or "unknown")[:10]
+    return f"openrouter-rankings-snapshot-{stamp}"
+
+
+def resolve_default_view(previous: dict | None, listings: list[dict]) -> dict | None:
+    """The page's opening selection from the first usable rankings source:
+    the live keyed fetch, then the previous build's stored selection
+    (stale-marked, seven-day expiry), then the committed fixture snapshot
+    (stale-marked, no expiry — refreshing it is a maintainer action), then
+    None so the page loads search-only. Each step is pure selection math on
+    top of the source; no failure here raises."""
+    live = load_live_rankings()
+    if live:
+        selection = select_default_view(live, listings)
+        if selection:
+            selection["source"] = LIVE_RANKINGS_SOURCE
+            return selection
+    stored = _stored_selection(previous)
+    if stored:
+        return {**stored, "stale": True}
+    fixture = load_rankings()
+    if fixture:
+        selection = select_default_view(fixture, listings)
+        if selection:
+            selection["source"] = _snapshot_source(fixture)
+            selection["stale"] = True
+            return selection
+    return None

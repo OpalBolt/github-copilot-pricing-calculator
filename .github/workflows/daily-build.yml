@@ -20,6 +20,10 @@ jobs:
         uses: jdx/mise-action@v4
 
       - name: Build site
+        env:
+          # The build's only secret: the live rankings fetch (ADR 0005).
+          # Unset or failing, the build falls back and never fails.
+          OPENROUTER_DATASETS_KEY: ${{ secrets.OPENROUTER_DATASETS_KEY }}
         run: mise run build
 
       - name: Commit and push changes

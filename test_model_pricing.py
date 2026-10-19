@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 """Focused checks for the aggregate model-pricing data and generated page."""
 
+import http.client
 import json
 import math
+import os
 import re
+import socket
 from collections import Counter
 from contextlib import ExitStack, contextmanager
 from datetime import timedelta
@@ -4407,12 +4410,19 @@ def test_aggregate_contract():
     # The usage-ranked default view rides in the dataset with its ranking
     # metadata (window, fetched-at, stale flag), so the live-fetch slice can
     # slot in behind the same shape and fall back to this stored selection.
+    # A keyless build falls back honestly, so the source is not pinned to
+    # one name: stale is a bool that is False only for the live rankings
+    # fetch, and True for the snapshot and any reused previous selection.
     view = data["defaultView"]
-    assert view["source"] == "openrouter-rankings"
+    assert isinstance(view["source"], str) and view["source"]
     assert re.fullmatch(r"\d{4}-\d{2}-\d{2}", view["window"]["start"])
     assert view["window"]["start"] <= view["window"]["end"]
     assert view["fetchedAt"]
-    assert view["stale"] is False
+    assert isinstance(view["stale"], bool)
+    if view["source"] == default_view.LIVE_RANKINGS_SOURCE:
+        assert view["stale"] is False
+    else:
+        assert view["stale"] is True
     assert len(view["models"]) == 20
     assert len({slug.split("/")[0].lower() for slug in view["models"]}) == 13
     assert set(view["misses"]) < set(view["models"])
@@ -4443,6 +4453,25 @@ def _ranking_rows(*rows: tuple[str, int]) -> dict:
 def _mini_listing(model_id: str, seller: str = "test-seller") -> dict:
     """The fields the default-view matcher reads from a listing."""
     return {"key": f"{seller}:{model_id}", "seller": seller, "modelId": model_id}
+
+
+class _FakeRankingsResponse:
+    """A urlopen() stand-in for the live fetch's failure modes: read()
+    returns the body, or raises it when the body is an exception."""
+
+    def __init__(self, body):
+        self._body = body
+
+    def read(self):
+        if isinstance(self._body, Exception):
+            raise self._body
+        return self._body
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *_exc_info):
+        return False
 
 
 def test_default_view_slug_normalization():
@@ -4566,6 +4595,236 @@ def test_default_view_fixture_loader():
     assert payload and payload["data"]
     assert payload["meta"]["start_date"]
     assert payload["meta"]["end_date"]
+
+
+def test_default_view_live_fetch_needs_the_key():
+    """Without OPENROUTER_DATASETS_KEY no request is attempted and the
+    chain falls to the committed snapshot, stale-marked with its date."""
+    listings = json.loads(DATA.read_text(encoding="utf-8"))["listings"]
+    fixture = default_view.load_rankings()
+    with patch.dict(os.environ, {"OPENROUTER_DATASETS_KEY": ""}):
+        with patch.object(
+            default_view.urllib.request,
+            "urlopen",
+            side_effect=AssertionError("no request without a key"),
+        ):
+            assert default_view.load_live_rankings() is None
+            view = default_view.resolve_default_view(None, listings)
+    assert view["source"] == (
+        f"openrouter-rankings-snapshot-{fixture['meta']['as_of'][:10]}"
+    )
+    assert view["stale"] is True
+    fresh = default_view.select_default_view(fixture, listings)
+    assert view["models"] == fresh["models"]
+    assert view["listingKeys"] == fresh["listingKeys"]
+
+
+def test_default_view_failing_fetch_reuses_previous_selection():
+    """Key set but endpoint down: the build never fails — the previous
+    build's stored selection is reused verbatim and stale-marked."""
+    previous = {
+        "defaultView": {
+            "source": "openrouter-rankings-daily",
+            "window": {"start": "2026-09-19", "end": "2026-10-18"},
+            "fetchedAt": now_utc().isoformat(),
+            "stale": False,
+            "models": ["z-ai/glm-5.3"],
+            "listingKeys": ["seller:x"],
+            "misses": [],
+        }
+    }
+    with patch.dict(os.environ, {"OPENROUTER_DATASETS_KEY": "test-key"}):
+        with patch.object(
+            default_view.urllib.request,
+            "urlopen",
+            side_effect=OSError("endpoint down"),
+        ):
+            assert default_view.load_live_rankings() is None
+            view = default_view.resolve_default_view(previous, [])
+    assert view["source"] == "openrouter-rankings-daily"
+    assert view["stale"] is True
+    assert view["listingKeys"] == ["seller:x"]
+    assert view["fetchedAt"] == previous["defaultView"]["fetchedAt"]
+
+
+def test_default_view_live_fetch_non_json_body_degrades():
+    """A non-JSON body (a proxy error page, say) is an unusable payload:
+    the fetch returns None and the chain degrades to the committed
+    snapshot, stale-marked."""
+    listings = json.loads(DATA.read_text(encoding="utf-8"))["listings"]
+    with patch.dict(os.environ, {"OPENROUTER_DATASETS_KEY": "test-key"}):
+        with patch.object(
+            default_view.urllib.request,
+            "urlopen",
+            return_value=_FakeRankingsResponse(b"<html>502 Bad Gateway</html>"),
+        ):
+            assert default_view.fetch_live_rankings("test-key") is None
+            view = default_view.resolve_default_view(None, listings)
+    assert view["source"].startswith("openrouter-rankings-snapshot-")
+    assert view["stale"] is True
+
+
+def test_default_view_live_fetch_bad_shape_degrades():
+    """JSON that is not a rankings payload — `data` is not a row list —
+    is an unusable payload: the fetch returns None and the chain degrades
+    to the committed snapshot, stale-marked."""
+    listings = json.loads(DATA.read_text(encoding="utf-8"))["listings"]
+    with patch.dict(os.environ, {"OPENROUTER_DATASETS_KEY": "test-key"}):
+        with patch.object(
+            default_view.urllib.request,
+            "urlopen",
+            return_value=_FakeRankingsResponse(b'{"data": "not-a-row-list"}'),
+        ):
+            assert default_view.fetch_live_rankings("test-key") is None
+            view = default_view.resolve_default_view(None, listings)
+    assert view["source"].startswith("openrouter-rankings-snapshot-")
+    assert view["stale"] is True
+
+
+def test_default_view_live_fetch_read_failure_degrades():
+    """A body read that dies mid-flight — a socket read timeout, or the
+    truncated IncompleteRead that once escaped the except net — returns
+    None instead of raising, and the chain degrades to the snapshot."""
+    listings = json.loads(DATA.read_text(encoding="utf-8"))["listings"]
+    with patch.dict(os.environ, {"OPENROUTER_DATASETS_KEY": "test-key"}):
+        for mid_read_failure in (
+            socket.timeout("read timed out"),
+            http.client.IncompleteRead(b"partial body"),
+        ):
+            with patch.object(
+                default_view.urllib.request,
+                "urlopen",
+                return_value=_FakeRankingsResponse(mid_read_failure),
+            ):
+                assert default_view.fetch_live_rankings("test-key") is None
+                view = default_view.resolve_default_view(None, listings)
+            assert view["stale"] is True
+    assert view["source"].startswith("openrouter-rankings-snapshot-")
+
+
+def test_default_view_live_fetch_wins_with_fresh_selection():
+    """Key present and endpoint OK: a fresh selection with the live source
+    name beats even a usable previous selection."""
+    live = _ranking_rows(("z-ai/glm-5.3", 5))
+    listings = [_mini_listing("z-ai/glm-5.3")]
+    previous = {
+        "defaultView": {
+            "source": "openrouter-rankings-snapshot-2026-10-19",
+            "window": {"start": "2026-09-19", "end": "2026-10-18"},
+            "fetchedAt": now_utc().isoformat(),
+            "stale": True,
+            "models": ["old/model"],
+            "listingKeys": ["seller:old"],
+            "misses": [],
+        }
+    }
+    with patch.dict(os.environ, {"OPENROUTER_DATASETS_KEY": "test-key"}):
+        with patch.object(default_view, "fetch_live_rankings", return_value=live):
+            view = default_view.resolve_default_view(previous, listings)
+    assert view["source"] == "openrouter-rankings-daily"
+    assert view["stale"] is False
+    assert view["listingKeys"] == ["test-seller:z-ai/glm-5.3"]
+    assert view["fetchedAt"] == live["meta"]["as_of"]
+
+
+def test_default_view_previous_selection_expires_after_seven_days():
+    """The stored selection is reused while younger than seven days and
+    falls through to the committed snapshot beyond that."""
+
+    def previous_at(age: timedelta) -> dict:
+        return {
+            "defaultView": {
+                "source": "openrouter-rankings-daily",
+                "window": {"start": "2026-09-19", "end": "2026-10-18"},
+                "fetchedAt": (frozen - age).isoformat(),
+                "stale": True,
+                "models": ["z-ai/glm-5.3"],
+                "listingKeys": ["seller:x"],
+                "misses": [],
+            }
+        }
+
+    frozen = default_view.now_utc()
+    with patch.dict(os.environ, {"OPENROUTER_DATASETS_KEY": ""}):
+        with patch.object(default_view, "now_utc", return_value=frozen):
+            view = default_view.resolve_default_view(
+                previous_at(timedelta(days=6)), []
+            )
+            assert view["listingKeys"] == ["seller:x"]
+            assert view["stale"] is True
+            view = default_view.resolve_default_view(
+                previous_at(timedelta(days=7)), []
+            )
+            assert view["listingKeys"] == ["seller:x"]
+            listings = json.loads(DATA.read_text(encoding="utf-8"))["listings"]
+            view = default_view.resolve_default_view(
+                previous_at(timedelta(days=8)), listings
+            )
+    assert view["source"].startswith("openrouter-rankings-snapshot-")
+    assert view["stale"] is True
+    assert "seller:x" not in view["listingKeys"]
+
+
+def test_default_view_naive_fetched_at_is_unusable():
+    """An offset-naive fetchedAt has no absolute age: the stored selection
+    counts as malformed and the chain falls through instead of raising on
+    the age subtraction."""
+    frozen = default_view.now_utc()
+    previous = {
+        "defaultView": {
+            "source": "openrouter-rankings-daily",
+            "window": {"start": "2026-09-19", "end": "2026-10-18"},
+            "fetchedAt": (
+                frozen.replace(tzinfo=None) - timedelta(days=1)
+            ).isoformat(),
+            "stale": False,
+            "models": ["z-ai/glm-5.3"],
+            "listingKeys": ["seller:x"],
+            "misses": [],
+        }
+    }
+    listings = json.loads(DATA.read_text(encoding="utf-8"))["listings"]
+    with patch.dict(os.environ, {"OPENROUTER_DATASETS_KEY": ""}):
+        with patch.object(default_view, "now_utc", return_value=frozen):
+            view = default_view.resolve_default_view(previous, listings)
+    assert view["source"].startswith("openrouter-rankings-snapshot-")
+    assert view["stale"] is True
+    assert "seller:x" not in view["listingKeys"]
+
+
+def test_default_view_everything_failing_is_search_only():
+    """Failing endpoint, no previous selection, unreadable fixture: the
+    chain returns None and the page loads search-only."""
+    with patch.dict(os.environ, {"OPENROUTER_DATASETS_KEY": "test-key"}):
+        with patch.object(default_view, "fetch_live_rankings", return_value=None):
+            with patch.object(default_view, "load_rankings", return_value=None):
+                assert default_view.resolve_default_view(None, []) is None
+
+
+def test_build_reuses_previous_selection_without_the_key():
+    """A keyless build (today's local run) reuses the previous selection,
+    stale-marked, and stays green."""
+    stored = {
+        "source": "openrouter-rankings-daily",
+        "window": {"start": "2026-09-19", "end": "2026-10-18"},
+        "fetchedAt": now_utc().isoformat(),
+        "stale": False,
+        "models": ["m0"],
+        "listingKeys": ["cortecs:m0"],
+        "misses": [],
+    }
+    adapters = {source_id: [_listing(source_id)] for source_id in ALL_SELLERS}
+    with ExitStack() as stack:
+        stack.enter_context(_patch_adapters(**adapters))
+        stack.enter_context(
+            patch.dict(os.environ, {"OPENROUTER_DATASETS_KEY": ""})
+        )
+        output = fetch_model_pricing.build({"defaultView": stored})
+    view = output["defaultView"]
+    assert view["stale"] is True
+    assert view["listingKeys"] == ["cortecs:m0"]
+    assert view["fetchedAt"] == stored["fetchedAt"]
+    assert view["source"] == "openrouter-rankings-daily"
 
 
 def _render_model_page(default_view_selection, default_view_json: str) -> str:
@@ -4774,6 +5033,16 @@ def main():
     test_default_view_selection_from_fixture()
     test_default_view_without_usable_rankings_is_search_only()
     test_default_view_fixture_loader()
+    test_default_view_live_fetch_needs_the_key()
+    test_default_view_failing_fetch_reuses_previous_selection()
+    test_default_view_live_fetch_non_json_body_degrades()
+    test_default_view_live_fetch_bad_shape_degrades()
+    test_default_view_live_fetch_read_failure_degrades()
+    test_default_view_live_fetch_wins_with_fresh_selection()
+    test_default_view_previous_selection_expires_after_seven_days()
+    test_default_view_naive_fetched_at_is_unusable()
+    test_default_view_everything_failing_is_search_only()
+    test_build_reuses_previous_selection_without_the_key()
     test_default_view_page_search_only_without_selection()
     test_default_view_page_note_with_selection()
     test_aggregate_contract()

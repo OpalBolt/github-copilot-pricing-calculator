@@ -128,7 +128,15 @@ The router build uses these sources:
 | xAI direct API pricing | `https://docs.x.ai/developers/pricing.md` |
 | Mistral direct API pricing | `https://docs.mistral.ai/inference/pricing.md` |
 | Meta direct API pricing | `https://dev.meta.ai/docs/pricing-rate-limits.md` |
+| OpenRouter usage ranking (default view) | `https://openrouter.ai/api/v1/datasets/rankings-daily` — keyed: `Authorization: Bearer $OPENROUTER_DATASETS_KEY` |
 | ECB USD per EUR | `https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A` |
+
+The model-pricing build fetches the default view's usage ranking from the
+rankings-daily dataset with the build's only secret,
+`OPENROUTER_DATASETS_KEY`. Without the key, or if the fetch fails, the build
+reuses the previous selection (stale-marked, dropped after seven days) and
+then the committed `fixtures/openrouter-rankings.json` snapshot — a keyless
+build never fails.
 
 The build uses EUrouter offers that publish EUR or USD prices. It converts USD
 prices with the same ECB rate as OpenRouter. It uses only text-output chat

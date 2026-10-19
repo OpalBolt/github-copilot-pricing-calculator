@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-19T19:57:10.229711+00:00",
+  "generatedAt": "2026-10-19T20:30:58.959949+00:00",
   "currency": "EUR",
   "exchangeRate": {
     "series": "EXR.D.USD.EUR.SP00.A",
@@ -15,7 +15,7 @@
       "source": "https://api.cortecs.ai/v1/models?extended=true&currency=EUR",
       "id": "cortecs",
       "nativeCurrency": "EUR",
-      "fetchedAt": "2026-10-19T19:57:10.229711+00:00",
+      "fetchedAt": "2026-10-19T20:30:58.959949+00:00",
       "stale": false
     },
     {
@@ -24,7 +24,7 @@
       "source": "https://api.eurouter.ai/api/v1/models",
       "id": "eurouter",
       "nativeCurrency": "mixed",
-      "fetchedAt": "2026-10-19T19:57:10.229711+00:00",
+      "fetchedAt": "2026-10-19T20:30:58.959949+00:00",
       "stale": false
     },
     {
@@ -33,7 +33,7 @@
       "source": "https://openrouter.ai/api/v1/models",
       "id": "openrouter",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T19:57:10.229711+00:00",
+      "fetchedAt": "2026-10-19T20:30:58.959949+00:00",
       "stale": false
     },
     {
@@ -42,7 +42,7 @@
       "source": "https://opencode.ai/zen/v1/models",
       "id": "opencode",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T19:57:10.229711+00:00",
+      "fetchedAt": "2026-10-19T20:30:58.959949+00:00",
       "stale": false
     },
     {
@@ -51,7 +51,7 @@
       "source": "https://api.deepinfra.com/v1/models",
       "nativeCurrency": "USD",
       "id": "deepinfra",
-      "fetchedAt": "2026-10-19T19:57:10.229711+00:00",
+      "fetchedAt": "2026-10-19T20:30:58.959949+00:00",
       "stale": false
     },
     {
@@ -60,7 +60,7 @@
       "source": "https://api.novita.ai/v3/openai/models",
       "nativeCurrency": "USD",
       "id": "novita",
-      "fetchedAt": "2026-10-19T19:57:10.229711+00:00",
+      "fetchedAt": "2026-10-19T20:30:58.959949+00:00",
       "stale": false
     },
     {
@@ -69,7 +69,7 @@
       "source": "https://router.requesty.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "requesty",
-      "fetchedAt": "2026-10-19T19:57:10.229711+00:00",
+      "fetchedAt": "2026-10-19T20:30:58.959949+00:00",
       "stale": false
     },
     {
@@ -78,7 +78,7 @@
       "source": "https://ai-gateway.vercel.sh/v1/models",
       "nativeCurrency": "USD",
       "id": "vercel-gateway",
-      "fetchedAt": "2026-10-19T19:57:10.229711+00:00",
+      "fetchedAt": "2026-10-19T20:30:58.959949+00:00",
       "stale": false
     },
     {
@@ -87,7 +87,7 @@
       "source": "https://api.kilo.ai/api/gateway/models",
       "nativeCurrency": "USD",
       "id": "kilo",
-      "fetchedAt": "2026-10-19T19:57:10.229711+00:00",
+      "fetchedAt": "2026-10-19T20:30:58.959949+00:00",
       "stale": false
     },
     {
@@ -96,7 +96,7 @@
       "source": "https://nano-gpt.com/api/v1/models?detailed=true",
       "nativeCurrency": "USD",
       "id": "nano-gpt",
-      "fetchedAt": "2026-10-19T19:57:10.229711+00:00",
+      "fetchedAt": "2026-10-19T20:30:58.959949+00:00",
       "stale": false
     },
     {
@@ -105,7 +105,7 @@
       "source": "https://llm.chutes.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "chutes",
-      "fetchedAt": "2026-10-19T19:57:10.229711+00:00",
+      "fetchedAt": "2026-10-19T20:30:58.959949+00:00",
       "stale": false
     },
     {
@@ -114,7 +114,7 @@
       "source": "https://api.llmgateway.io/v1/models",
       "nativeCurrency": "USD",
       "id": "llmgateway",
-      "fetchedAt": "2026-10-19T19:57:10.229711+00:00",
+      "fetchedAt": "2026-10-19T20:30:58.959949+00:00",
       "stale": false
     },
     {
@@ -123,7 +123,7 @@
       "source": "https://api.aiand.com/v1/models",
       "nativeCurrency": "USD",
       "id": "aiand",
-      "fetchedAt": "2026-10-19T19:57:10.229711+00:00",
+      "fetchedAt": "2026-10-19T20:30:58.959949+00:00",
       "stale": false
     },
     {
@@ -132,7 +132,7 @@
       "source": "https://api.aimlapi.com/v1/models?include=pricing,modalities",
       "nativeCurrency": "USD",
       "id": "aimlapi",
-      "fetchedAt": "2026-10-19T19:57:10.229711+00:00",
+      "fetchedAt": "2026-10-19T20:30:58.959949+00:00",
       "stale": false
     },
     {
@@ -141,7 +141,7 @@
       "source": "https://api.ambient.xyz/v1/models",
       "nativeCurrency": "USD",
       "id": "ambient",
-      "fetchedAt": "2026-10-19T19:57:10.229711+00:00",
+      "fetchedAt": "2026-10-19T20:30:58.959949+00:00",
       "stale": false
     },
     {
@@ -150,7 +150,7 @@
       "source": "https://www.crossmodel.ai/api/models",
       "nativeCurrency": "USD",
       "id": "crossmodel",
-      "fetchedAt": "2026-10-19T19:57:10.229711+00:00",
+      "fetchedAt": "2026-10-19T20:30:58.959949+00:00",
       "stale": false
     },
     {
@@ -159,7 +159,7 @@
       "source": "https://api.edenai.run/v3/models",
       "nativeCurrency": "USD",
       "id": "edenai",
-      "fetchedAt": "2026-10-19T19:57:10.229711+00:00",
+      "fetchedAt": "2026-10-19T20:30:58.959949+00:00",
       "stale": false
     },
     {
@@ -168,7 +168,7 @@
       "source": "https://api.empiriolabs.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "empiriolabs",
-      "fetchedAt": "2026-10-19T19:57:10.229711+00:00",
+      "fetchedAt": "2026-10-19T20:30:58.959949+00:00",
       "stale": false
     },
     {
@@ -177,7 +177,7 @@
       "source": "https://api.engy.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "engy",
-      "fetchedAt": "2026-10-19T19:57:10.229711+00:00",
+      "fetchedAt": "2026-10-19T20:30:58.959949+00:00",
       "stale": false
     },
     {
@@ -186,7 +186,7 @@
       "source": "https://api.friendli.ai/serverless/v1/models",
       "nativeCurrency": "USD",
       "id": "friendli",
-      "fetchedAt": "2026-10-19T19:57:10.229711+00:00",
+      "fetchedAt": "2026-10-19T20:30:58.959949+00:00",
       "stale": false
     },
     {
@@ -195,7 +195,7 @@
       "source": "https://hyper.charm.land/v1/models",
       "nativeCurrency": "USD",
       "id": "hyper",
-      "fetchedAt": "2026-10-19T19:57:10.229711+00:00",
+      "fetchedAt": "2026-10-19T20:30:58.959949+00:00",
       "stale": false
     },
     {
@@ -204,7 +204,7 @@
       "source": "https://api.inceptron.io/v1/models",
       "nativeCurrency": "USD",
       "id": "inceptron",
-      "fetchedAt": "2026-10-19T19:57:10.229711+00:00",
+      "fetchedAt": "2026-10-19T20:30:58.959949+00:00",
       "stale": false
     },
     {
@@ -213,7 +213,7 @@
       "source": "https://cloud-api.near.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "nearai",
-      "fetchedAt": "2026-10-19T19:57:10.229711+00:00",
+      "fetchedAt": "2026-10-19T20:30:58.959949+00:00",
       "stale": false
     },
     {
@@ -222,7 +222,7 @@
       "source": "https://api.ofox.ai/v2/models/catalog?include=provider_price&limit=500",
       "nativeCurrency": "USD",
       "id": "ofox",
-      "fetchedAt": "2026-10-19T19:57:10.229711+00:00",
+      "fetchedAt": "2026-10-19T20:30:58.959949+00:00",
       "stale": false
     },
     {
@@ -231,7 +231,7 @@
       "source": "https://api.fastino.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "pioneer",
-      "fetchedAt": "2026-10-19T19:57:10.229711+00:00",
+      "fetchedAt": "2026-10-19T20:30:58.959949+00:00",
       "stale": false
     },
     {
@@ -240,7 +240,7 @@
       "source": "https://api.pinference.ai/api/v1/models",
       "nativeCurrency": "USD",
       "id": "prime",
-      "fetchedAt": "2026-10-19T19:57:10.229711+00:00",
+      "fetchedAt": "2026-10-19T20:30:58.959949+00:00",
       "stale": false
     },
     {
@@ -249,7 +249,7 @@
       "source": "https://inference.tinfoil.sh/v1/models",
       "nativeCurrency": "USD",
       "id": "tinfoil",
-      "fetchedAt": "2026-10-19T19:57:10.229711+00:00",
+      "fetchedAt": "2026-10-19T20:30:58.959949+00:00",
       "stale": false
     },
     {
@@ -258,7 +258,7 @@
       "source": "https://api.venice.ai/api/v1/models?type=text",
       "nativeCurrency": "USD",
       "id": "venice",
-      "fetchedAt": "2026-10-19T19:57:10.229711+00:00",
+      "fetchedAt": "2026-10-19T20:30:58.959949+00:00",
       "stale": false
     },
     {
@@ -267,7 +267,7 @@
       "sellerKind": "first-party",
       "id": "deepseek-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T19:57:10.229711+00:00",
+      "fetchedAt": "2026-10-19T20:30:58.959949+00:00",
       "stale": false
     },
     {
@@ -276,7 +276,7 @@
       "sellerKind": "first-party",
       "id": "zai-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T19:57:10.229711+00:00",
+      "fetchedAt": "2026-10-19T20:30:58.959949+00:00",
       "stale": false
     },
     {
@@ -285,7 +285,7 @@
       "sellerKind": "first-party",
       "id": "claude-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T19:57:10.229711+00:00",
+      "fetchedAt": "2026-10-19T20:30:58.959949+00:00",
       "stale": false
     },
     {
@@ -294,7 +294,7 @@
       "sellerKind": "first-party",
       "id": "openai-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T19:57:10.229711+00:00",
+      "fetchedAt": "2026-10-19T20:30:58.959949+00:00",
       "stale": false
     },
     {
@@ -303,7 +303,7 @@
       "source": "https://docs.x.ai/developers/pricing.md",
       "nativeCurrency": "USD",
       "id": "xai",
-      "fetchedAt": "2026-10-19T19:57:10.229711+00:00",
+      "fetchedAt": "2026-10-19T20:30:58.959949+00:00",
       "stale": false
     },
     {
@@ -312,7 +312,7 @@
       "source": "https://docs.mistral.ai/inference/pricing.md",
       "nativeCurrency": "USD",
       "id": "mistral",
-      "fetchedAt": "2026-10-19T19:57:10.229711+00:00",
+      "fetchedAt": "2026-10-19T20:30:58.959949+00:00",
       "stale": false
     },
     {
@@ -321,7 +321,7 @@
       "source": "https://dev.meta.ai/docs/pricing-rate-limits.md",
       "nativeCurrency": "USD",
       "id": "meta",
-      "fetchedAt": "2026-10-19T19:57:10.229711+00:00",
+      "fetchedAt": "2026-10-19T20:30:58.959949+00:00",
       "stale": false
     }
   ],
@@ -80776,14 +80776,14 @@
         "audio": false
       },
       "rates": {
-        "input": 0.033853006681514475,
-        "cached": 0.004454342984409799,
+        "input": 0.031180400890868598,
+        "cached": 0.0035634743875278397,
         "output": 0.5345211581291759,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.038,
-          "cached": 0.005,
+          "input": 0.035,
+          "cached": 0.004,
           "output": 0.6
         }
       },
@@ -80838,13 +80838,13 @@
         "audio": false
       },
       "rates": {
-        "input": 0.006129175946547884,
+        "input": 0.0034922048997772827,
         "cached": 0.0029434298440979955,
         "output": 0.10690423162583518,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.00688,
+          "input": 0.00392,
           "cached": 0.003304,
           "output": 0.12
         }
@@ -82006,7 +82006,7 @@
       "modelId": "deepseek-v4.1-flash",
       "name": "DeepSeek V4.1 Flash",
       "creator": "DeepSeek",
-      "description": "deepseek-v4.1-flash provided by deepseek, alibaba, deepinfra, fireworks, together-ai, novita, baidu, entrim, luminal, runware, consensusprotocol, scx-ai-gp, sciforium",
+      "description": "deepseek-v4.1-flash provided by deepseek, alibaba, deepinfra, fireworks, together-ai, novita, baidu, luminal, entrim, runware, consensusprotocol, scx-ai-gp",
       "releaseDate": null,
       "contextSize": 1050000,
       "capabilities": {
@@ -98043,15 +98043,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.08017817371937638,
-        "cached": 0.04454342984409799,
-        "output": 0.26726057906458794,
+        "input": 0.06815144766146992,
+        "cached": 0.03786191536748329,
+        "output": 0.22717149220489977,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.09,
-          "cached": 0.049999999999999996,
-          "output": 0.3
+          "input": 0.0765,
+          "cached": 0.042499999999999996,
+          "output": 0.255
         }
       },
       "pricingTiers": [],
@@ -98105,15 +98105,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.08017817371937638,
-        "cached": 0.04454342984409799,
-        "output": 0.26726057906458794,
+        "input": 0.06815144766146992,
+        "cached": 0.03786191536748329,
+        "output": 0.22717149220489977,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.09,
-          "cached": 0.049999999999999996,
-          "output": 0.3
+          "input": 0.0765,
+          "cached": 0.042499999999999996,
+          "output": 0.255
         }
       },
       "pricingTiers": [],
@@ -124194,15 +124194,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.3447447661469933,
-        "cached": 0.02872873051224944,
-        "output": 0.6894895322939866,
+        "input": 0.3386993318485523,
+        "cached": 0.028224944320712694,
+        "output": 0.6773986636971046,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.386976,
-          "cached": 0.032248,
-          "output": 0.773952
+          "input": 0.38019,
+          "cached": 0.0316825,
+          "output": 0.76038
         }
       },
       "pricingTiers": [],
@@ -124256,13 +124256,13 @@
         "audio": false
       },
       "rates": {
-        "input": 0.02708240534521158,
+        "input": 0.024944320712694878,
         "cached": 0.0014253897550111359,
         "output": 0.07126948775055679,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0304,
+          "input": 0.028,
           "cached": 0.0016,
           "output": 0.08
         }
@@ -133742,15 +133742,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.8908685968819599,
-        "cached": 0.08908685968819599,
-        "output": 2.6726057906458798,
+        "input": 0.26726057906458794,
+        "cached": 0.035634743875278395,
+        "output": 0.8908685968819599,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 1.0,
-          "cached": 0.1,
-          "output": 3.0
+          "input": 0.3,
+          "cached": 0.04,
+          "output": 1.0
         }
       },
       "pricingTiers": [],
@@ -136005,14 +136005,14 @@
         "audio": false
       },
       "rates": {
-        "input": 0.033853006681514475,
-        "cached": 0.004454342984409799,
+        "input": 0.031180400890868598,
+        "cached": 0.0035634743875278397,
         "output": 0.5345211581291759,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.038,
-          "cached": 0.005,
+          "input": 0.035,
+          "cached": 0.004,
           "output": 0.6
         }
       },
@@ -136067,13 +136067,13 @@
         "audio": false
       },
       "rates": {
-        "input": 0.006129175946547884,
+        "input": 0.0034922048997772827,
         "cached": 0.0029434298440979955,
         "output": 0.10690423162583518,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.00688,
+          "input": 0.00392,
           "cached": 0.003304,
           "output": 0.12
         }
@@ -181870,7 +181870,7 @@
       "end": "2026-10-18"
     },
     "fetchedAt": "2026-10-19T09:18:03.868Z",
-    "stale": false,
+    "stale": true,
     "models": [
       "deepseek/deepseek-v4.1-flash-20260910",
       "stealth/space-bunny-alpha",
