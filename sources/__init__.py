@@ -18,6 +18,7 @@ from sources.ambient import AMBIENT_URL
 from sources.claude_direct import CLAUDE_MODELS_URL, CLAUDE_PRICING_URL
 from sources.chutes import CHUTES_URL
 from sources.cortecs import CORTECS_URL
+from sources.crossmodel import CROSSMODEL_URL
 from sources.deepinfra import DEEPINFRA_URL
 from sources.eurouter import EUROUTER_URL
 from sources.kilo import KILO_URL
@@ -181,6 +182,22 @@ SOURCES = {
         # platform, not a router. Its docs publish the catalog's per-model
         # prices "as USD per million tokens (pricing.input and pricing.
         # output)" (ambient.xyz/docs/build/models).
+        "nativeCurrency": "USD",
+        "euClaim": "No EU routing catalog is published.",
+    },
+    "crossmodel": {
+        "name": "Crossmodel",
+        "pages": ("global",),
+        "sellerKind": "gateway",
+        "source": CROSSMODEL_URL,
+        # CrossModel self-describes as "a multi-model API gateway — access
+        # Claude, GPT, DeepSeek, Gemini and more with one API key"
+        # (crossmodel.ai, crossmodel.ai/docs) — a gateway, not a router. It
+        # bills a US-dollar wallet: credits are integers "in micro units of
+        # currency (1 USD = 1,000,000 micro)" with "Wallet currency, e.g.
+        # USD" (crossmodel.ai/docs/api-reference/credits), the site asks
+        # users to "Top up in USD", and every catalog row prices currency
+        # "USD".
         "nativeCurrency": "USD",
         "euClaim": "No EU routing catalog is published.",
     },

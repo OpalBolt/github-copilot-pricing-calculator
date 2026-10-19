@@ -19,6 +19,7 @@ from sources.ambient import fetch_ambient_listings
 from sources.claude_direct import fetch_claude_direct_listings
 from sources.chutes import fetch_chutes_listings
 from sources.cortecs import fetch_cortecs_listings
+from sources.crossmodel import fetch_crossmodel_listings
 from sources.deepinfra import fetch_deepinfra_listings
 from sources.deepseek_direct import fetch_deepseek_direct_listings
 from sources.eurouter import fetch_eurouter_listings
@@ -63,6 +64,7 @@ ADAPTERS = {
     "aiand": lambda exchange_rate: fetch_aiand_listings(exchange_rate),
     "aimlapi": lambda exchange_rate: fetch_aimlapi_listings(exchange_rate),
     "ambient": lambda exchange_rate: fetch_ambient_listings(exchange_rate),
+    "crossmodel": lambda exchange_rate: fetch_crossmodel_listings(exchange_rate),
     "deepseek-direct": lambda exchange_rate: fetch_deepseek_direct_listings(
         exchange_rate
     ),

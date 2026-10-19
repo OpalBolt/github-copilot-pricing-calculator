@@ -16,6 +16,7 @@ from sources.aiand import _aiand_rates, fetch_aiand_listings
 from sources.aimlapi import _aimlapi_rates, fetch_aimlapi_listings
 from sources.ambient import _ambient_rates, fetch_ambient_listings
 from sources.chutes import _chutes_rates, fetch_chutes_listings
+from sources.crossmodel import _crossmodel_rates, fetch_crossmodel_listings
 from sources.deepinfra import _deepinfra_rates, fetch_deepinfra_listings
 from sources.eurouter import fetch_eurouter_listings
 from sources.helpers import _rates, listing_from_offer, now_utc
@@ -53,6 +54,7 @@ ALL_SELLERS = {
     "aiand",
     "aimlapi",
     "ambient",
+    "crossmodel",
     "deepseek-direct",
     "zai-direct",
     "claude-direct",
@@ -74,6 +76,7 @@ SELLER_KINDS = {
     "aiand": "gateway",
     "aimlapi": "gateway",
     "ambient": "gateway",
+    "crossmodel": "gateway",
     "deepseek-direct": "first-party",
     "zai-direct": "first-party",
     "claude-direct": "first-party",
@@ -134,6 +137,7 @@ def test_registry_pages():
         "aiand",
         "aimlapi",
         "ambient",
+        "crossmodel",
     }
     assert global_pages == ALL_SELLERS
     assert {m["sellerKind"] for m in SOURCES.values()} == set(SELLER_KINDS.values())
@@ -1543,6 +1547,168 @@ def test_ambient_adapter():
         raise AssertionError("missing pricing should skip the row")
 
 
+def test_crossmodel_adapter():
+    """The committed Crossmodel catalog sample normalizes its micro-dollar
+    per-1M prices into USD listings converted with the ECB rate; the
+    threshold tiers become pricingTiers and the decision rows keep their
+    published zero prices."""
+    # CrossModel bills a US-dollar wallet in "micro units of currency
+    # (1 USD = 1,000,000 micro)" (crossmodel.ai/docs/api-reference/
+    # credits); the registry records that verified native currency, and
+    # the catalog feeds the global page only.
+    assert SOURCES["crossmodel"]["nativeCurrency"] == "USD"
+    assert SOURCES["crossmodel"]["pages"] == ("global",)
+    assert SOURCES["crossmodel"]["sellerKind"] == "gateway"
+
+    fixture = ROOT / "fixtures" / "crossmodel-models.json"
+    payload = json.loads(fixture.read_text(encoding="utf-8"))
+    with patch("sources.crossmodel.fetch_json", return_value=payload):
+        listings = fetch_crossmodel_listings({"usdPerEur": 2.0})
+    by_id = {listing["modelId"]: listing for listing in listings}
+    assert set(by_id) == {
+        "anthropic/claude-opus-5",
+        "openai/gpt-5.6-sol",
+        "qwen/qwen3.7-flash",
+        "gemini/gemini-3.8-flash",
+        "z-ai/glm-5",
+        "deepseek/deepseek-v4.1-flash",
+        "cloudflare/clef",
+    }
+
+    # The catalog's input_micro_per_1m fields are micro-dollars per 1M
+    # tokens (the usage API bills cost_micro "in micro units of currency
+    # (1 USD = 1,000,000 micro); divide by 1,000,000"), so claude-opus-5's
+    # 5,000,000 input micro and 25,000,000 output micro are the $5.00 /
+    # $25.00 per 1M the site itself quotes and divide by 1,000,000 before
+    # the ECB rate converts them.
+    opus = by_id["anthropic/claude-opus-5"]
+    assert opus["key"] == "crossmodel:anthropic/claude-opus-5"
+    assert opus["seller"] == "crossmodel"
+    assert opus["sellerName"] == "Crossmodel"
+    assert opus["name"] == "Claude Opus 5"
+    assert opus["creator"] == "Anthropic"
+    assert opus["contextSize"] == 1_000_000
+    assert opus["pricingTiers"] == []
+    assert opus["rates"]["nativeCurrency"] == "USD"
+    assert opus["rates"]["native"] == {"input": 5.0, "cached": 0.5, "output": 25.0}
+    assert math.isclose(opus["rates"]["input"], 2.5)
+    assert math.isclose(opus["rates"]["cached"], 0.25)
+    assert math.isclose(opus["rates"]["output"], 12.5)
+    assert opus["rates"]["cachedFallback"] is False
+    assert opus["capabilities"] == {
+        "reasoning": True,
+        "tools": True,
+        "vision": True,
+        "audio": False,
+    }
+
+    # The threshold tiers after the base row are long-context tiers with
+    # their own rates, listed at their contextAbove like the other
+    # sellers' pricingTiers.
+    sol = by_id["openai/gpt-5.6-sol"]
+    assert [tier["contextAbove"] for tier in sol["pricingTiers"]] == [272000]
+    tier = sol["pricingTiers"][0]
+    assert tier["native"] == {"input": 8.0, "cached": 0.8, "output": 30.0}
+    assert math.isclose(tier["input"], 4.0)
+    assert math.isclose(tier["cached"], 0.4)
+    assert math.isclose(tier["output"], 15.0)
+    qwen = by_id["qwen/qwen3.7-flash"]
+    assert [t["contextAbove"] for t in qwen["pricingTiers"]] == [32000, 256000]
+    assert qwen["creator"] == "Alibaba"
+    assert qwen["rates"]["native"] == {"input": 0.04, "cached": 0.01, "output": 0.13}
+
+    # The gemini vendor prefix maps to Google, and audio input maps to the
+    # audio capability through the catalog's modalities.
+    gemini = by_id["gemini/gemini-3.8-flash"]
+    assert gemini["creator"] == "Google"
+    assert gemini["capabilities"] == {
+        "reasoning": True,
+        "tools": True,
+        "vision": True,
+        "audio": True,
+    }
+    assert gemini["rates"]["native"] == {"input": 0.75, "cached": 0.075, "output": 3.75}
+
+    # Decision models are "billed on input tokens only" (crossmodel.ai/
+    # docs/billing), so their published zero output and cache prices stay
+    # zero rates instead of falling back to the input rate, and a vendor
+    # prefix outside the alias table passes through unaliased.
+    clef = by_id["cloudflare/clef"]
+    assert clef["name"] == "Clef"
+    assert clef["creator"] == "cloudflare"
+    assert clef["rates"]["native"] == {"input": 0.24, "cached": 0, "output": 0}
+    assert clef["rates"]["cachedFallback"] is False
+    assert clef["capabilities"] == {
+        "reasoning": False,
+        "tools": False,
+        "vision": True,
+        "audio": False,
+    }
+
+    assert all(
+        listing["rates"]["nativeCurrency"] == "USD" for listing in listings
+    )
+    assert all(
+        "Crossmodel" in listing["priceNote"] and "ECB" in listing["priceNote"]
+        for listing in listings
+    )
+    # A zero price is a price: zero-priced rows normalize to zero rates
+    # instead of dropping out.
+    zeros = _crossmodel_rates(
+        {
+            "pricing": {
+                "tiers": [
+                    {
+                        "threshold": 0,
+                        "input_micro_per_1m": 0,
+                        "output_micro_per_1m": 0,
+                        "cache_read_micro_per_1m": 0,
+                    }
+                ]
+            }
+        },
+        2.0,
+    )
+    assert zeros["input"] == zeros["cached"] == zeros["output"] == 0
+    assert zeros["nativeCurrency"] == "USD"
+    assert zeros["cachedFallback"] is False
+    # Tiers without a cache_read_micro_per_1m field fall back to the input
+    # rate.
+    fallback = _crossmodel_rates(
+        {
+            "pricing": {
+                "tiers": [
+                    {
+                        "threshold": 0,
+                        "input_micro_per_1m": 200000,
+                        "output_micro_per_1m": 1000000,
+                    }
+                ]
+            }
+        },
+        2.0,
+    )
+    assert fallback["cachedFallback"] is True
+    assert fallback["cached"] == fallback["input"] == 0.1
+    # Rows without input and output prices in their base tier are not
+    # token-priced and stay out of the listings.
+    try:
+        _crossmodel_rates(
+            {"pricing": {"tiers": [{"threshold": 0, "input_micro_per_1m": 200000}]}},
+            2.0,
+        )
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("missing output price should skip the row")
+    try:
+        _crossmodel_rates({}, 2.0)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("missing pricing should skip the row")
+
+
 def test_seven_day_seller_fallback():
     fetched_at = now_utc().isoformat()
     previous = {
@@ -1766,6 +1932,7 @@ def test_aggregate_contract():
     assert native_by_seller["aiand"] == "USD"
     assert native_by_seller["aimlapi"] == "USD"
     assert native_by_seller["ambient"] == "USD"
+    assert native_by_seller["crossmodel"] == "USD"
     assert {
         native_by_seller[sid]
         for sid in ("deepseek-direct", "zai-direct", "claude-direct", "openai-direct")
@@ -1843,6 +2010,7 @@ def test_generated_page():
         'data-seller="aiand"',
         'data-seller="aimlapi"',
         'data-seller="ambient"',
+        'data-seller="crossmodel"',
         'data-seller="deepseek-direct"',
         'data-seller="zai-direct"',
         'data-seller="claude-direct"',
@@ -1925,6 +2093,7 @@ def main():
     test_aiand_adapter()
     test_aimlapi_adapter()
     test_ambient_adapter()
+    test_crossmodel_adapter()
     test_seven_day_seller_fallback()
     test_broken_source_fails_in_isolation()
     test_build_fails_only_without_usable_data()

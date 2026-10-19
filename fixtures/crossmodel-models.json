@@ -1,0 +1,621 @@
+{
+  "object": "list",
+  "data": [
+    {
+      "id": "deepseek/deepseek-v4.1-flash",
+      "vendor_code": "deepseek",
+      "vendor_display_name": "DeepSeek",
+      "short_name": "deepseek-v4.1-flash",
+      "display_name": "DeepSeek V4.1 Flash",
+      "context_window_tokens": 1000000,
+      "max_output_tokens": 384000,
+      "capabilities": {
+        "streaming": true,
+        "reasoning": {
+          "supported": true,
+          "toggle": true,
+          "default_enabled": true,
+          "effort": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ],
+          "default_effort": "high",
+          "budget_tokens": null
+        },
+        "tool_use": {
+          "supported": true,
+          "parallel": null
+        },
+        "structured_output": {
+          "json_schema": null,
+          "strict_schema": null
+        },
+        "context": {
+          "caching": true
+        },
+        "hosted_tools": {
+          "web_search": null
+        }
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "kind": "chat",
+      "status": "available",
+      "identity": {
+        "family_code": "deepseek-v4.1",
+        "variant_code": "flash",
+        "release_stage": "stable",
+        "released_at": "2026-10-17T00:00:00+00:00"
+      },
+      "provider": {
+        "name": "DeepSeek",
+        "code": "deepseek"
+      },
+      "currency": "USD",
+      "pricing": {
+        "tiers": [
+          {
+            "threshold": 0,
+            "input_micro_per_1m": 300000,
+            "output_micro_per_1m": 1200000,
+            "cache_read_micro_per_1m": 6000,
+            "cache_creation_micro_per_1m": 300000
+          }
+        ]
+      },
+      "profile_summary": {
+        "tier": "balanced",
+        "task_codes": [
+          "agentic_coding",
+          "visual_understanding",
+          "research",
+          "high_volume"
+        ]
+      }
+    },
+    {
+      "id": "cloudflare/clef",
+      "vendor_code": "cloudflare",
+      "vendor_display_name": "Cloudflare",
+      "short_name": "clef",
+      "display_name": "Clef",
+      "context_window_tokens": 65536,
+      "max_output_tokens": null,
+      "capabilities": {
+        "streaming": false,
+        "reasoning": {
+          "supported": false,
+          "toggle": null,
+          "default_enabled": null,
+          "effort": null,
+          "default_effort": null,
+          "budget_tokens": null
+        },
+        "tool_use": {
+          "supported": false,
+          "parallel": null
+        },
+        "structured_output": {
+          "json_schema": null,
+          "strict_schema": null
+        },
+        "context": {
+          "caching": null
+        },
+        "hosted_tools": {
+          "web_search": null
+        }
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "kind": "decision",
+      "status": "available",
+      "identity": {
+        "family_code": null,
+        "variant_code": null,
+        "release_stage": null,
+        "released_at": "2026-10-01T00:00:00+00:00"
+      },
+      "provider": {
+        "name": "Cloudflare Workers AI",
+        "code": "cloudflare"
+      },
+      "currency": "USD",
+      "pricing": {
+        "tiers": [
+          {
+            "threshold": 0,
+            "input_micro_per_1m": 240000,
+            "output_micro_per_1m": 0,
+            "cache_read_micro_per_1m": 0,
+            "cache_creation_micro_per_1m": 0
+          }
+        ]
+      },
+      "profile_summary": {
+        "tier": "specialist",
+        "task_codes": [
+          "high_volume"
+        ]
+      }
+    },
+    {
+      "id": "gemini/gemini-3.8-flash",
+      "vendor_code": "gemini",
+      "vendor_display_name": "Gemini",
+      "short_name": "gemini-3.8-flash",
+      "display_name": "Gemini 3.8 Flash",
+      "context_window_tokens": 1048576,
+      "max_output_tokens": 65536,
+      "capabilities": {
+        "streaming": true,
+        "reasoning": {
+          "supported": true,
+          "toggle": false,
+          "default_enabled": true,
+          "effort": [
+            "low",
+            "medium",
+            "high"
+          ],
+          "default_effort": "medium",
+          "budget_tokens": null
+        },
+        "tool_use": {
+          "supported": true,
+          "parallel": true
+        },
+        "structured_output": {
+          "json_schema": true,
+          "strict_schema": null
+        },
+        "context": {
+          "caching": true
+        },
+        "hosted_tools": {
+          "web_search": true
+        }
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image",
+          "audio",
+          "video"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "kind": "chat",
+      "status": "available",
+      "identity": {
+        "family_code": "gemini-3.8",
+        "variant_code": "flash",
+        "release_stage": "stable",
+        "released_at": "2026-09-02T00:00:00+00:00"
+      },
+      "provider": {
+        "name": "Gemini",
+        "code": "gemini"
+      },
+      "currency": "USD",
+      "pricing": {
+        "tiers": [
+          {
+            "threshold": 0,
+            "input_micro_per_1m": 750000,
+            "output_micro_per_1m": 3750000,
+            "cache_read_micro_per_1m": 75000,
+            "cache_creation_micro_per_1m": 750000
+          }
+        ],
+        "list_tiers": [
+          {
+            "threshold": 0,
+            "input_micro_per_1m": 1500000,
+            "output_micro_per_1m": 7500000,
+            "cache_read_micro_per_1m": 150000,
+            "cache_creation_micro_per_1m": 1500000
+          }
+        ],
+        "discount": {
+          "id": "c8bc846f-212e-4ad7-86fe-1e3ef3a94f73",
+          "scope": "model",
+          "kind": "percent",
+          "percent_bps": 5000,
+          "label": "Promotion",
+          "starts_at": "2026-09-04T00:00:00+00:00",
+          "ends_at": "2027-01-01T00:00:00+00:00"
+        }
+      },
+      "profile_summary": {
+        "tier": "balanced",
+        "task_codes": [
+          "agentic_coding",
+          "knowledge_work",
+          "long_context"
+        ]
+      }
+    },
+    {
+      "id": "anthropic/claude-opus-5",
+      "vendor_code": "anthropic",
+      "vendor_display_name": "Anthropic",
+      "short_name": "claude-opus-5",
+      "display_name": "Claude Opus 5",
+      "context_window_tokens": 1000000,
+      "max_output_tokens": 128000,
+      "capabilities": {
+        "streaming": true,
+        "reasoning": {
+          "supported": true,
+          "toggle": true,
+          "default_enabled": true,
+          "effort": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ],
+          "default_effort": "high",
+          "budget_tokens": null
+        },
+        "tool_use": {
+          "supported": true,
+          "parallel": true
+        },
+        "structured_output": {
+          "json_schema": true,
+          "strict_schema": true
+        },
+        "context": {
+          "caching": true
+        },
+        "hosted_tools": {
+          "web_search": true
+        }
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "kind": "chat",
+      "status": "available",
+      "identity": {
+        "family_code": "claude-5",
+        "variant_code": "opus",
+        "release_stage": "stable",
+        "released_at": "2026-07-24T00:00:00+00:00"
+      },
+      "provider": {
+        "name": "OpenRouter",
+        "code": "openrouter"
+      },
+      "currency": "USD",
+      "pricing": {
+        "tiers": [
+          {
+            "threshold": 0,
+            "input_micro_per_1m": 5000000,
+            "output_micro_per_1m": 25000000,
+            "cache_read_micro_per_1m": 500000,
+            "cache_creation_micro_per_1m": 6250000
+          }
+        ]
+      },
+      "profile_summary": {
+        "tier": "flagship",
+        "task_codes": [
+          "agentic_coding",
+          "knowledge_work",
+          "research"
+        ]
+      }
+    },
+    {
+      "id": "qwen/qwen3.7-flash",
+      "vendor_code": "qwen",
+      "vendor_display_name": "Qwen",
+      "short_name": "qwen3.7-flash",
+      "display_name": "Qwen3.7 Flash",
+      "context_window_tokens": 1000000,
+      "max_output_tokens": 65536,
+      "capabilities": {
+        "streaming": true,
+        "reasoning": {
+          "supported": true,
+          "toggle": true,
+          "default_enabled": null,
+          "effort": null,
+          "default_effort": null,
+          "budget_tokens": null
+        },
+        "tool_use": {
+          "supported": true,
+          "parallel": null
+        },
+        "structured_output": {
+          "json_schema": null,
+          "strict_schema": null
+        },
+        "context": {
+          "caching": true
+        },
+        "hosted_tools": {
+          "web_search": true
+        }
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image",
+          "video"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "kind": "chat",
+      "status": "available",
+      "identity": {
+        "family_code": "qwen3.7",
+        "variant_code": "flash",
+        "release_stage": "stable",
+        "released_at": "2026-07-21T00:00:00+00:00"
+      },
+      "provider": {
+        "name": "Qwen",
+        "code": "qwen"
+      },
+      "currency": "USD",
+      "pricing": {
+        "tiers": [
+          {
+            "threshold": 0,
+            "input_micro_per_1m": 40000,
+            "output_micro_per_1m": 130000,
+            "cache_read_micro_per_1m": 10000,
+            "cache_creation_micro_per_1m": 40000
+          },
+          {
+            "threshold": 32000,
+            "input_micro_per_1m": 100000,
+            "output_micro_per_1m": 370000,
+            "cache_read_micro_per_1m": 20000,
+            "cache_creation_micro_per_1m": 120000
+          },
+          {
+            "threshold": 256000,
+            "input_micro_per_1m": 190000,
+            "output_micro_per_1m": 740000,
+            "cache_read_micro_per_1m": 40000,
+            "cache_creation_micro_per_1m": 240000
+          }
+        ]
+      },
+      "profile_summary": {
+        "tier": "efficient",
+        "task_codes": [
+          "high_volume",
+          "visual_to_code"
+        ]
+      }
+    },
+    {
+      "id": "openai/gpt-5.6-sol",
+      "vendor_code": "openai",
+      "vendor_display_name": "OpenAI",
+      "short_name": "gpt-5.6-sol",
+      "display_name": "GPT-5.6 Sol",
+      "context_window_tokens": 1050000,
+      "max_output_tokens": 128000,
+      "capabilities": {
+        "streaming": true,
+        "reasoning": {
+          "supported": true,
+          "toggle": null,
+          "default_enabled": true,
+          "effort": [
+            "none",
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ],
+          "default_effort": "medium",
+          "budget_tokens": null
+        },
+        "tool_use": {
+          "supported": true,
+          "parallel": null
+        },
+        "structured_output": {
+          "json_schema": true,
+          "strict_schema": true
+        },
+        "context": {
+          "caching": true
+        },
+        "hosted_tools": {
+          "web_search": true
+        }
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "kind": "chat",
+      "status": "available",
+      "identity": {
+        "family_code": "gpt-5",
+        "variant_code": "sol",
+        "release_stage": "stable",
+        "released_at": "2026-07-09T00:00:00+00:00"
+      },
+      "provider": {
+        "name": "OpenRouter",
+        "code": "openrouter"
+      },
+      "currency": "USD",
+      "pricing": {
+        "tiers": [
+          {
+            "threshold": 0,
+            "input_micro_per_1m": 4000000,
+            "output_micro_per_1m": 20000000,
+            "cache_read_micro_per_1m": 400000,
+            "cache_creation_micro_per_1m": 5000000
+          },
+          {
+            "threshold": 272000,
+            "input_micro_per_1m": 8000000,
+            "output_micro_per_1m": 30000000,
+            "cache_read_micro_per_1m": 800000,
+            "cache_creation_micro_per_1m": 10000000
+          }
+        ],
+        "list_tiers": [
+          {
+            "threshold": 0,
+            "input_micro_per_1m": 5000000,
+            "output_micro_per_1m": 30000000,
+            "cache_read_micro_per_1m": 500000,
+            "cache_creation_micro_per_1m": 6250000
+          },
+          {
+            "threshold": 272000,
+            "input_micro_per_1m": 10000000,
+            "output_micro_per_1m": 45000000,
+            "cache_read_micro_per_1m": 1000000,
+            "cache_creation_micro_per_1m": 12500000
+          }
+        ],
+        "discount": {
+          "id": "a8b50588-815c-44ce-a45b-205089b313dc",
+          "scope": "model",
+          "kind": "override",
+          "percent_bps": null,
+          "label": "Promotion",
+          "starts_at": "2026-09-05T00:00:00+00:00",
+          "ends_at": "2026-11-22T00:00:00+00:00"
+        }
+      },
+      "profile_summary": {
+        "tier": "flagship",
+        "task_codes": [
+          "agentic_coding",
+          "knowledge_work"
+        ]
+      }
+    },
+    {
+      "id": "z-ai/glm-5",
+      "vendor_code": "z-ai",
+      "vendor_display_name": "Z.ai",
+      "short_name": "glm-5",
+      "display_name": "GLM-5",
+      "context_window_tokens": 200000,
+      "max_output_tokens": 128000,
+      "capabilities": {
+        "streaming": true,
+        "reasoning": {
+          "supported": true,
+          "toggle": true,
+          "default_enabled": true,
+          "effort": null,
+          "default_effort": null,
+          "budget_tokens": null
+        },
+        "tool_use": {
+          "supported": true,
+          "parallel": null
+        },
+        "structured_output": {
+          "json_schema": null,
+          "strict_schema": null
+        },
+        "context": {
+          "caching": true
+        },
+        "hosted_tools": {
+          "web_search": null
+        }
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "kind": "chat",
+      "status": "available",
+      "identity": {
+        "family_code": "glm-5",
+        "variant_code": "5",
+        "release_stage": "legacy",
+        "released_at": "2026-02-12T00:00:00+00:00"
+      },
+      "provider": {
+        "name": "Z.ai",
+        "code": "glm"
+      },
+      "currency": "USD",
+      "pricing": {
+        "tiers": [
+          {
+            "threshold": 0,
+            "input_micro_per_1m": 600000,
+            "output_micro_per_1m": 3000000,
+            "cache_read_micro_per_1m": 160000,
+            "cache_creation_micro_per_1m": 600000
+          },
+          {
+            "threshold": 32000,
+            "input_micro_per_1m": 800000,
+            "output_micro_per_1m": 3400000,
+            "cache_read_micro_per_1m": 200000,
+            "cache_creation_micro_per_1m": 800000
+          }
+        ]
+      },
+      "profile_summary": {
+        "tier": "flagship",
+        "task_codes": [
+          "agentic_coding"
+        ]
+      }
+    }
+  ]
+}

@@ -31,6 +31,9 @@ OWNER_ALIASES = {
     "deepseek": "DeepSeek",
     # spill: slice 04 — DeepInfra ids use the `deepseek-ai/` prefix.
     "deepseekai": "DeepSeek",
+    # spill: slice 15 — Crossmodel ids use the `gemini/` prefix for Google
+    # models.
+    "gemini": "Google",
     "google": "Google",
     "meta": "Meta",
     "metaai": "Meta",

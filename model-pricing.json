@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-19T15:48:31.327364+00:00",
+  "generatedAt": "2026-10-19T16:03:21.425811+00:00",
   "currency": "EUR",
   "exchangeRate": {
     "series": "EXR.D.USD.EUR.SP00.A",
@@ -15,7 +15,7 @@
       "source": "https://api.cortecs.ai/v1/models?extended=true&currency=EUR",
       "id": "cortecs",
       "nativeCurrency": "EUR",
-      "fetchedAt": "2026-10-19T15:48:31.327364+00:00",
+      "fetchedAt": "2026-10-19T16:03:21.425811+00:00",
       "stale": false
     },
     {
@@ -24,7 +24,7 @@
       "source": "https://api.eurouter.ai/api/v1/models",
       "id": "eurouter",
       "nativeCurrency": "mixed",
-      "fetchedAt": "2026-10-19T15:48:31.327364+00:00",
+      "fetchedAt": "2026-10-19T16:03:21.425811+00:00",
       "stale": false
     },
     {
@@ -33,7 +33,7 @@
       "source": "https://openrouter.ai/api/v1/models",
       "id": "openrouter",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T15:48:31.327364+00:00",
+      "fetchedAt": "2026-10-19T16:03:21.425811+00:00",
       "stale": false
     },
     {
@@ -42,7 +42,7 @@
       "source": "https://opencode.ai/zen/v1/models",
       "id": "opencode",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T15:48:31.327364+00:00",
+      "fetchedAt": "2026-10-19T16:03:21.425811+00:00",
       "stale": false
     },
     {
@@ -51,7 +51,7 @@
       "source": "https://api.deepinfra.com/v1/models",
       "nativeCurrency": "USD",
       "id": "deepinfra",
-      "fetchedAt": "2026-10-19T15:48:31.327364+00:00",
+      "fetchedAt": "2026-10-19T16:03:21.425811+00:00",
       "stale": false
     },
     {
@@ -60,7 +60,7 @@
       "source": "https://api.novita.ai/v3/openai/models",
       "nativeCurrency": "USD",
       "id": "novita",
-      "fetchedAt": "2026-10-19T15:48:31.327364+00:00",
+      "fetchedAt": "2026-10-19T16:03:21.425811+00:00",
       "stale": false
     },
     {
@@ -69,7 +69,7 @@
       "source": "https://router.requesty.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "requesty",
-      "fetchedAt": "2026-10-19T15:48:31.327364+00:00",
+      "fetchedAt": "2026-10-19T16:03:21.425811+00:00",
       "stale": false
     },
     {
@@ -78,7 +78,7 @@
       "source": "https://ai-gateway.vercel.sh/v1/models",
       "nativeCurrency": "USD",
       "id": "vercel-gateway",
-      "fetchedAt": "2026-10-19T15:48:31.327364+00:00",
+      "fetchedAt": "2026-10-19T16:03:21.425811+00:00",
       "stale": false
     },
     {
@@ -87,7 +87,7 @@
       "source": "https://api.kilo.ai/api/gateway/models",
       "nativeCurrency": "USD",
       "id": "kilo",
-      "fetchedAt": "2026-10-19T15:48:31.327364+00:00",
+      "fetchedAt": "2026-10-19T16:03:21.425811+00:00",
       "stale": false
     },
     {
@@ -96,7 +96,7 @@
       "source": "https://nano-gpt.com/api/v1/models?detailed=true",
       "nativeCurrency": "USD",
       "id": "nano-gpt",
-      "fetchedAt": "2026-10-19T15:48:31.327364+00:00",
+      "fetchedAt": "2026-10-19T16:03:21.425811+00:00",
       "stale": false
     },
     {
@@ -105,7 +105,7 @@
       "source": "https://llm.chutes.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "chutes",
-      "fetchedAt": "2026-10-19T15:48:31.327364+00:00",
+      "fetchedAt": "2026-10-19T16:03:21.425811+00:00",
       "stale": false
     },
     {
@@ -114,7 +114,7 @@
       "source": "https://api.llmgateway.io/v1/models",
       "nativeCurrency": "USD",
       "id": "llmgateway",
-      "fetchedAt": "2026-10-19T15:48:31.327364+00:00",
+      "fetchedAt": "2026-10-19T16:03:21.425811+00:00",
       "stale": false
     },
     {
@@ -123,7 +123,7 @@
       "source": "https://api.aiand.com/v1/models",
       "nativeCurrency": "USD",
       "id": "aiand",
-      "fetchedAt": "2026-10-19T15:48:31.327364+00:00",
+      "fetchedAt": "2026-10-19T16:03:21.425811+00:00",
       "stale": false
     },
     {
@@ -132,7 +132,7 @@
       "source": "https://api.aimlapi.com/v1/models?include=pricing,modalities",
       "nativeCurrency": "USD",
       "id": "aimlapi",
-      "fetchedAt": "2026-10-19T15:48:31.327364+00:00",
+      "fetchedAt": "2026-10-19T16:03:21.425811+00:00",
       "stale": false
     },
     {
@@ -141,7 +141,16 @@
       "source": "https://api.ambient.xyz/v1/models",
       "nativeCurrency": "USD",
       "id": "ambient",
-      "fetchedAt": "2026-10-19T15:48:31.327364+00:00",
+      "fetchedAt": "2026-10-19T16:03:21.425811+00:00",
+      "stale": false
+    },
+    {
+      "name": "Crossmodel",
+      "sellerKind": "gateway",
+      "source": "https://www.crossmodel.ai/api/models",
+      "nativeCurrency": "USD",
+      "id": "crossmodel",
+      "fetchedAt": "2026-10-19T16:03:21.425811+00:00",
       "stale": false
     },
     {
@@ -150,7 +159,7 @@
       "sellerKind": "first-party",
       "id": "deepseek-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T15:48:31.327364+00:00",
+      "fetchedAt": "2026-10-19T16:03:21.425811+00:00",
       "stale": false
     },
     {
@@ -159,7 +168,7 @@
       "sellerKind": "first-party",
       "id": "zai-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T15:48:31.327364+00:00",
+      "fetchedAt": "2026-10-19T16:03:21.425811+00:00",
       "stale": false
     },
     {
@@ -168,7 +177,7 @@
       "sellerKind": "first-party",
       "id": "claude-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T15:48:31.327364+00:00",
+      "fetchedAt": "2026-10-19T16:03:21.425811+00:00",
       "stale": false
     },
     {
@@ -177,7 +186,7 @@
       "sellerKind": "first-party",
       "id": "openai-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T15:48:31.327364+00:00",
+      "fetchedAt": "2026-10-19T16:03:21.425811+00:00",
       "stale": false
     }
   ],
@@ -16519,6 +16528,2722 @@
       },
       "pricingTiers": [],
       "priceNote": "Model-level minimum price published by Cortecs."
+    },
+    {
+      "key": "crossmodel:anthropic/claude-fable-5",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "anthropic/claude-fable-5",
+      "name": "Claude Fable 5",
+      "creator": "Anthropic",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 8.908685968819599,
+        "cached": 0.8908685968819599,
+        "output": 44.54342984409799,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 10.0,
+          "cached": 1.0,
+          "output": 50.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:anthropic/claude-fable-5-1",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "anthropic/claude-fable-5-1",
+      "name": "Claude Fable 5.1",
+      "creator": "Anthropic",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 8.908685968819599,
+        "cached": 0.22271714922048996,
+        "output": 44.54342984409799,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 10.0,
+          "cached": 0.25,
+          "output": 50.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:anthropic/claude-haiku-4-5",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "anthropic/claude-haiku-4-5",
+      "name": "Claude Haiku 4.5",
+      "creator": "Anthropic",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 200000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.8908685968819599,
+        "cached": 0.08908685968819599,
+        "output": 4.4543429844097995,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.0,
+          "cached": 0.1,
+          "output": 5.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:anthropic/claude-haiku-5-5",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "anthropic/claude-haiku-5-5",
+      "name": "Claude Haiku 5.5",
+      "creator": "Anthropic",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.08908685968819599,
+        "cached": 0.008908685968819599,
+        "output": 0.4454342984409799,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.1,
+          "cached": 0.01,
+          "output": 0.5
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 100000,
+          "input": 0.4454342984409799,
+          "cached": 0.044543429844097995,
+          "output": 2.2271714922048997,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 0.5,
+            "cached": 0.05,
+            "output": 2.5
+          }
+        }
+      ],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:anthropic/claude-opus-4-7",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "anthropic/claude-opus-4-7",
+      "name": "Claude Opus 4.7",
+      "creator": "Anthropic",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 4.4543429844097995,
+        "cached": 0.4454342984409799,
+        "output": 22.271714922048996,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 5.0,
+          "cached": 0.5,
+          "output": 25.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:anthropic/claude-opus-4-8",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "anthropic/claude-opus-4-8",
+      "name": "Claude Opus 4.8",
+      "creator": "Anthropic",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 4.4543429844097995,
+        "cached": 0.4454342984409799,
+        "output": 22.271714922048996,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 5.0,
+          "cached": 0.5,
+          "output": 25.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:anthropic/claude-opus-5",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "anthropic/claude-opus-5",
+      "name": "Claude Opus 5",
+      "creator": "Anthropic",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 4.4543429844097995,
+        "cached": 0.4454342984409799,
+        "output": 22.271714922048996,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 5.0,
+          "cached": 0.5,
+          "output": 25.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:anthropic/claude-opus-5-5",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "anthropic/claude-opus-5-5",
+      "name": "Claude Opus 5.5",
+      "creator": "Anthropic",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 3.5634743875278394,
+        "cached": 0.17817371937639198,
+        "output": 17.817371937639198,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 4.0,
+          "cached": 0.2,
+          "output": 20.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:anthropic/claude-sonnet-4-6",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "anthropic/claude-sonnet-4-6",
+      "name": "Claude Sonnet 4.6",
+      "creator": "Anthropic",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 2.6726057906458798,
+        "cached": 0.26726057906458794,
+        "output": 13.363028953229398,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 3.0,
+          "cached": 0.3,
+          "output": 15.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:anthropic/claude-sonnet-5",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "anthropic/claude-sonnet-5",
+      "name": "Claude Sonnet 5",
+      "creator": "Anthropic",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 0.17817371937639198,
+        "output": 8.908685968819599,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 0.2,
+          "output": 10.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:anthropic/claude-sonnet-5-5",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "anthropic/claude-sonnet-5-5",
+      "name": "Claude Sonnet 5.5",
+      "creator": "Anthropic",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 0.08908685968819599,
+        "output": 8.908685968819599,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 0.1,
+          "output": 10.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:cloudflare/clef",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "cloudflare/clef",
+      "name": "Clef",
+      "creator": "cloudflare",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 65536,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.21380846325167036,
+        "cached": 0.0,
+        "output": 0.0,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.24,
+          "cached": 0.0,
+          "output": 0.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:cloudflare/clef-flash",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "cloudflare/clef-flash",
+      "name": "Clef Flash",
+      "creator": "cloudflare",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 24576,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.033853006681514475,
+        "cached": 0.0,
+        "output": 0.0,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.038,
+          "cached": 0.0,
+          "output": 0.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:cloudflare/clef-omni",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "cloudflare/clef-omni",
+      "name": "Clef Omni",
+      "creator": "cloudflare",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 64000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.13363028953229397,
+        "cached": 0.0,
+        "output": 0.0,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.15,
+          "cached": 0.0,
+          "output": 0.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:deepseek/deepseek-v4-flash",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "deepseek/deepseek-v4-flash",
+      "name": "DeepSeek V4 Flash",
+      "creator": "DeepSeek",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.26726057906458794,
+        "cached": 0.005345211581291759,
+        "output": 1.0690423162583518,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3,
+          "cached": 0.006,
+          "output": 1.2
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:deepseek/deepseek-v4-flash-vision-exp",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "deepseek/deepseek-v4-flash-vision-exp",
+      "name": "DeepSeek V4 Flash Vision Exp",
+      "creator": "DeepSeek",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.26726057906458794,
+        "cached": 0.005345211581291759,
+        "output": 1.0690423162583518,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3,
+          "cached": 0.006,
+          "output": 1.2
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:deepseek/deepseek-v4-pro",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "deepseek/deepseek-v4-pro",
+      "name": "DeepSeek V4 Pro",
+      "creator": "DeepSeek",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.2026726057906458,
+        "cached": 0.04008908685968819,
+        "output": 3.6080178173719375,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.35,
+          "cached": 0.045,
+          "output": 4.05
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:deepseek/deepseek-v4.1-flash",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "deepseek/deepseek-v4.1-flash",
+      "name": "DeepSeek V4.1 Flash",
+      "creator": "DeepSeek",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.26726057906458794,
+        "cached": 0.005345211581291759,
+        "output": 1.0690423162583518,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3,
+          "cached": 0.006,
+          "output": 1.2
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:gemini/gemini-2.5-flash",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "gemini/gemini-2.5-flash",
+      "name": "Gemini 2.5 Flash",
+      "creator": "Google",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 0.26726057906458794,
+        "cached": 0.026726057906458794,
+        "output": 2.2271714922048997,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3,
+          "cached": 0.03,
+          "output": 2.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:gemini/gemini-2.5-flash-lite",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "gemini/gemini-2.5-flash-lite",
+      "name": "Gemini 2.5 Flash Lite",
+      "creator": "Google",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 0.08908685968819599,
+        "cached": 0.008908685968819599,
+        "output": 0.35634743875278396,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.1,
+          "cached": 0.01,
+          "output": 0.4
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:gemini/gemini-2.5-pro",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "gemini/gemini-2.5-pro",
+      "name": "Gemini 2.5 Pro",
+      "creator": "Google",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 1.1135857461024499,
+        "cached": 0.11135857461024498,
+        "output": 8.908685968819599,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.25,
+          "cached": 0.125,
+          "output": 10.0
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 200000,
+          "input": 2.2271714922048997,
+          "cached": 0.22271714922048996,
+          "output": 13.363028953229398,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 2.5,
+            "cached": 0.25,
+            "output": 15.0
+          }
+        }
+      ],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:gemini/gemini-3-flash-preview",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "gemini/gemini-3-flash-preview",
+      "name": "Gemini 3 Flash Preview",
+      "creator": "Google",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 0.4454342984409799,
+        "cached": 0.044543429844097995,
+        "output": 2.6726057906458798,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.5,
+          "cached": 0.05,
+          "output": 3.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:gemini/gemini-3.1-pro-preview",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "gemini/gemini-3.1-pro-preview",
+      "name": "Gemini 3.1 Pro Preview",
+      "creator": "Google",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 0.17817371937639198,
+        "output": 10.690423162583519,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 0.2,
+          "output": 12.0
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 200000,
+          "input": 3.5634743875278394,
+          "cached": 0.35634743875278396,
+          "output": 16.035634743875278,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 4.0,
+            "cached": 0.4,
+            "output": 18.0
+          }
+        }
+      ],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:gemini/gemini-3.5-flash",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "gemini/gemini-3.5-flash",
+      "name": "Gemini 3.5 Flash",
+      "creator": "Google",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 1.3363028953229399,
+        "cached": 0.13363028953229397,
+        "output": 8.017817371937639,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.5,
+          "cached": 0.15,
+          "output": 9.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:gemini/gemini-3.5-flash-lite",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "gemini/gemini-3.5-flash-lite",
+      "name": "Gemini 3.5 Flash Lite",
+      "creator": "Google",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 0.26726057906458794,
+        "cached": 0.026726057906458794,
+        "output": 2.2271714922048997,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3,
+          "cached": 0.03,
+          "output": 2.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:gemini/gemini-3.6-flash",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "gemini/gemini-3.6-flash",
+      "name": "Gemini 3.6 Flash",
+      "creator": "Google",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 0.6681514476614699,
+        "cached": 0.06681514476614699,
+        "output": 3.3407572383073494,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.75,
+          "cached": 0.075,
+          "output": 3.75
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:gemini/gemini-3.7-flash",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "gemini/gemini-3.7-flash",
+      "name": "Gemini 3.7 Flash",
+      "creator": "Google",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 0.6681514476614699,
+        "cached": 0.06681514476614699,
+        "output": 3.3407572383073494,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.75,
+          "cached": 0.075,
+          "output": 3.75
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:gemini/gemini-3.8-flash",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "gemini/gemini-3.8-flash",
+      "name": "Gemini 3.8 Flash",
+      "creator": "Google",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 0.6681514476614699,
+        "cached": 0.06681514476614699,
+        "output": 3.3407572383073494,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.75,
+          "cached": 0.075,
+          "output": 3.75
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:gemini/gemini-4-argon",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "gemini/gemini-4-argon",
+      "name": "Gemini 4 Argon",
+      "creator": "Google",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 0.08908685968819599,
+        "output": 8.908685968819599,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 0.1,
+          "output": 10.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:minimax/minimax-m2.7",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "minimax/minimax-m2.7",
+      "name": "MiniMax M2.7",
+      "creator": "MiniMax AI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 204800,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.29398663697104677,
+        "cached": 0.058797327394209356,
+        "output": 1.175946547884187,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.33,
+          "cached": 0.066,
+          "output": 1.32
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:minimax/minimax-m3",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "minimax/minimax-m3",
+      "name": "MiniMax-M3",
+      "creator": "MiniMax AI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1024000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.29398663697104677,
+        "cached": 0.058797327394209356,
+        "output": 1.175946547884187,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.33,
+          "cached": 0.066,
+          "output": 1.32
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 512000,
+          "input": 0.5879732739420935,
+          "cached": 0.11759465478841871,
+          "output": 2.3429844097995542,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 0.66,
+            "cached": 0.132,
+            "output": 2.63
+          }
+        }
+      ],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:moonshot/kimi-k2.6",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "moonshot/kimi-k2.6",
+      "name": "Kimi K2.6",
+      "creator": "Moonshot AI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 262000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.8908685968819599,
+        "cached": 0.16035634743875277,
+        "output": 3.706013363028953,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.0,
+          "cached": 0.18,
+          "output": 4.16
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:moonshot/kimi-k2.7-code",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "moonshot/kimi-k2.7-code",
+      "name": "Kimi K2.7 Code",
+      "creator": "Moonshot AI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 262000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.8908685968819599,
+        "cached": 0.16035634743875277,
+        "output": 3.706013363028953,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.0,
+          "cached": 0.18,
+          "output": 4.16
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:moonshot/kimi-k3",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "moonshot/kimi-k3",
+      "name": "Kimi K3",
+      "creator": "Moonshot AI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 2.6726057906458798,
+        "cached": 0.26726057906458794,
+        "output": 13.363028953229398,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 3.0,
+          "cached": 0.3,
+          "output": 15.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:openai/gpt-4o-mini",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "openai/gpt-4o-mini",
+      "name": "GPT-4o Mini",
+      "creator": "OpenAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 128000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.13363028953229397,
+        "cached": 0.06681514476614699,
+        "output": 0.5345211581291759,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.15,
+          "cached": 0.075,
+          "output": 0.6
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:openai/gpt-5.4",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "openai/gpt-5.4",
+      "name": "GPT-5.4",
+      "creator": "OpenAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 2.2271714922048997,
+        "cached": 0.22271714922048996,
+        "output": 13.363028953229398,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.5,
+          "cached": 0.25,
+          "output": 15.0
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 272000,
+          "input": 4.4543429844097995,
+          "cached": 0.4454342984409799,
+          "output": 20.044543429844097,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 5.0,
+            "cached": 0.5,
+            "output": 22.5
+          }
+        }
+      ],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:openai/gpt-5.4-mini",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "openai/gpt-5.4-mini",
+      "name": "GPT-5.4 Mini",
+      "creator": "OpenAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 400000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.6681514476614699,
+        "cached": 0.06681514476614699,
+        "output": 4.008908685968819,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.75,
+          "cached": 0.075,
+          "output": 4.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:openai/gpt-5.4-nano",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "openai/gpt-5.4-nano",
+      "name": "GPT-5.4 Nano",
+      "creator": "OpenAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 400000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.17817371937639198,
+        "cached": 0.017817371937639197,
+        "output": 1.1135857461024499,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.2,
+          "cached": 0.02,
+          "output": 1.25
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:openai/gpt-5.5",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "openai/gpt-5.5",
+      "name": "GPT-5.5",
+      "creator": "OpenAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 4.4543429844097995,
+        "cached": 0.4454342984409799,
+        "output": 26.726057906458795,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 5.0,
+          "cached": 0.5,
+          "output": 30.0
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 272000,
+          "input": 8.908685968819599,
+          "cached": 0.8908685968819599,
+          "output": 40.089086859688194,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 10.0,
+            "cached": 1.0,
+            "output": 45.0
+          }
+        }
+      ],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:openai/gpt-5.5-pro",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "openai/gpt-5.5-pro",
+      "name": "GPT-5.5 Pro",
+      "creator": "OpenAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 26.726057906458795,
+        "cached": 26.726057906458795,
+        "output": 160.35634743875278,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 30.0,
+          "cached": 30.0,
+          "output": 180.0
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 272000,
+          "input": 53.45211581291759,
+          "cached": 53.45211581291759,
+          "output": 240.53452115812917,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 60.0,
+            "cached": 60.0,
+            "output": 270.0
+          }
+        }
+      ],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:openai/gpt-5.6-luna",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "openai/gpt-5.6-luna",
+      "name": "GPT-5.6 Luna",
+      "creator": "OpenAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.17817371937639198,
+        "cached": 0.017817371937639197,
+        "output": 1.0690423162583518,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.2,
+          "cached": 0.02,
+          "output": 1.2
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 272000,
+          "input": 0.35634743875278396,
+          "cached": 0.035634743875278395,
+          "output": 1.6035634743875278,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 0.4,
+            "cached": 0.04,
+            "output": 1.8
+          }
+        }
+      ],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:openai/gpt-5.6-sol",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "openai/gpt-5.6-sol",
+      "name": "GPT-5.6 Sol",
+      "creator": "OpenAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 3.5634743875278394,
+        "cached": 0.35634743875278396,
+        "output": 17.817371937639198,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 4.0,
+          "cached": 0.4,
+          "output": 20.0
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 272000,
+          "input": 7.126948775055679,
+          "cached": 0.7126948775055679,
+          "output": 26.726057906458795,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 8.0,
+            "cached": 0.8,
+            "output": 30.0
+          }
+        }
+      ],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:openai/gpt-5.6-terra",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "openai/gpt-5.6-terra",
+      "name": "GPT-5.6 Terra",
+      "creator": "OpenAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 0.17817371937639198,
+        "output": 10.690423162583519,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 0.2,
+          "output": 12.0
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 272000,
+          "input": 3.5634743875278394,
+          "cached": 0.35634743875278396,
+          "output": 16.035634743875278,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 4.0,
+            "cached": 0.4,
+            "output": 18.0
+          }
+        }
+      ],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:openai/gpt-6-astra",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "openai/gpt-6-astra",
+      "name": "GPT-6 Astra",
+      "creator": "OpenAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 8.908685968819599,
+        "cached": 0.8908685968819599,
+        "output": 44.54342984409799,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 10.0,
+          "cached": 1.0,
+          "output": 50.0
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 272000,
+          "input": 17.817371937639198,
+          "cached": 1.7817371937639197,
+          "output": 66.81514476614699,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 20.0,
+            "cached": 2.0,
+            "output": 75.0
+          }
+        }
+      ],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:openai/gpt-6-luna",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "openai/gpt-6-luna",
+      "name": "GPT-6 Luna",
+      "creator": "OpenAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.08908685968819599,
+        "cached": 0.008908685968819599,
+        "output": 0.4454342984409799,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.1,
+          "cached": 0.01,
+          "output": 0.5
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 272000,
+          "input": 0.17817371937639198,
+          "cached": 0.017817371937639197,
+          "output": 0.6681514476614699,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 0.2,
+            "cached": 0.02,
+            "output": 0.75
+          }
+        }
+      ],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:openai/gpt-6-luna-decisions",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "openai/gpt-6-luna-decisions",
+      "name": "GPT-6 Luna Decisions",
+      "creator": "OpenAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.08908685968819599,
+        "cached": 0.0,
+        "output": 0.0,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.1,
+          "cached": 0.0,
+          "output": 0.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:openai/gpt-6-sol",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "openai/gpt-6-sol",
+      "name": "GPT-6 Sol",
+      "creator": "OpenAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 0.17817371937639198,
+        "output": 8.908685968819599,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 0.2,
+          "output": 10.0
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 272000,
+          "input": 3.5634743875278394,
+          "cached": 0.35634743875278396,
+          "output": 13.363028953229398,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 4.0,
+            "cached": 0.4,
+            "output": 15.0
+          }
+        }
+      ],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:openai/gpt-6.1-sol",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "openai/gpt-6.1-sol",
+      "name": "GPT-6.1 Sol",
+      "creator": "OpenAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 0.08908685968819599,
+        "output": 8.908685968819599,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 0.1,
+          "output": 10.0
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 272000,
+          "input": 3.5634743875278394,
+          "cached": 0.17817371937639198,
+          "output": 13.363028953229398,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 4.0,
+            "cached": 0.2,
+            "output": 15.0
+          }
+        }
+      ],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:qwen/qwen3.6-flash",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "qwen/qwen3.6-flash",
+      "name": "Qwen3.6 Flash",
+      "creator": "Alibaba",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.16926503340757237,
+        "cached": 0.016926503340757237,
+        "output": 1.0066815144766146,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.19,
+          "cached": 0.019,
+          "output": 1.13
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 256000,
+          "input": 0.6681514476614699,
+          "cached": 0.06681514476614699,
+          "output": 4.008908685968819,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 0.75,
+            "cached": 0.075,
+            "output": 4.5
+          }
+        }
+      ],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:qwen/qwen3.6-plus",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "qwen/qwen3.6-plus",
+      "name": "Qwen3.6 Plus",
+      "creator": "Alibaba",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.28507795100222716,
+        "cached": 0.028507795100222718,
+        "output": 1.6748329621380844,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.32,
+          "cached": 0.032,
+          "output": 1.88
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 256000,
+          "input": 1.1135857461024499,
+          "cached": 0.11046770601336302,
+          "output": 6.681514476614699,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 1.25,
+            "cached": 0.124,
+            "output": 7.5
+          }
+        }
+      ],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:qwen/qwen3.7-flash",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "qwen/qwen3.7-flash",
+      "name": "Qwen3.7 Flash",
+      "creator": "Alibaba",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.035634743875278395,
+        "cached": 0.008908685968819599,
+        "output": 0.11581291759465479,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.04,
+          "cached": 0.01,
+          "output": 0.13
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 32000,
+          "input": 0.08908685968819599,
+          "cached": 0.017817371937639197,
+          "output": 0.32962138084632514,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 0.1,
+            "cached": 0.02,
+            "output": 0.37
+          }
+        },
+        {
+          "contextAbove": 256000,
+          "input": 0.16926503340757237,
+          "cached": 0.035634743875278395,
+          "output": 0.6592427616926503,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 0.19,
+            "cached": 0.04,
+            "output": 0.74
+          }
+        }
+      ],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:qwen/qwen3.7-max",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "qwen/qwen3.7-max",
+      "name": "Qwen3.7 Max",
+      "creator": "Alibaba",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.6748329621380844,
+        "cached": 0.33407572383073497,
+        "output": 5.015590200445434,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.88,
+          "cached": 0.375,
+          "output": 5.63
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:qwen/qwen3.7-plus",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "qwen/qwen3.7-plus",
+      "name": "Qwen3.7 Plus",
+      "creator": "Alibaba",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.28507795100222716,
+        "cached": 0.028507795100222718,
+        "output": 1.1135857461024499,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.32,
+          "cached": 0.032,
+          "output": 1.25
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 256000,
+          "input": 0.8552338530066814,
+          "cached": 0.08552338530066815,
+          "output": 3.3407572383073494,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 0.96,
+            "cached": 0.096,
+            "output": 3.75
+          }
+        }
+      ],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:qwen/qwen3.8-flash",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "qwen/qwen3.8-flash",
+      "name": "Qwen3.8 Flash",
+      "creator": "Alibaba",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.11581291759465479,
+        "cached": 0.014253897550111359,
+        "output": 0.38307349665924273,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.13,
+          "cached": 0.016,
+          "output": 0.43
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:qwen/qwen3.8-max",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "qwen/qwen3.8-max",
+      "name": "Qwen3.8 Max",
+      "creator": "Alibaba",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.6748329621380844,
+        "cached": 0.20489977728285078,
+        "output": 5.015590200445434,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.88,
+          "cached": 0.23,
+          "output": 5.63
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:qwen/qwen3.8-omni-flash",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "qwen/qwen3.8-omni-flash",
+      "name": "Qwen3.8 Omni Flash",
+      "creator": "Alibaba",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 0.11581291759465479,
+        "cached": 0.014253897550111359,
+        "output": 0.38307349665924273,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.13,
+          "cached": 0.016,
+          "output": 0.43
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:tencent/hy3",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "tencent/hy3",
+      "name": "Hy3",
+      "creator": "tencent",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.14253897550111358,
+        "cached": 0.035634743875278395,
+        "output": 0.5701559020044543,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.16,
+          "cached": 0.04,
+          "output": 0.64
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:tencent/hy4-preview",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "tencent/hy4-preview",
+      "name": "Hy4 Preview",
+      "creator": "tencent",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.8552338530066814,
+        "cached": 0.042761692650334075,
+        "output": 2.5657015590200443,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.96,
+          "cached": 0.048,
+          "output": 2.88
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:typesafe/jev",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "typesafe/jev",
+      "name": "Jev",
+      "creator": "typesafe",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 32000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.037416481069042315,
+        "cached": 0.0,
+        "output": 0.0,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.042,
+          "cached": 0.0,
+          "output": 0.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:x-ai/grok-4.3",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "x-ai/grok-4.3",
+      "name": "Grok 4.3",
+      "creator": "xAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.1135857461024499,
+        "cached": 0.17817371937639198,
+        "output": 2.2271714922048997,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.25,
+          "cached": 0.2,
+          "output": 2.5
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 200000,
+          "input": 2.2271714922048997,
+          "cached": 0.35634743875278396,
+          "output": 4.4543429844097995,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 2.5,
+            "cached": 0.4,
+            "output": 5.0
+          }
+        }
+      ],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:x-ai/grok-4.5",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "x-ai/grok-4.5",
+      "name": "Grok 4.5",
+      "creator": "xAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 500000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 0.26726057906458794,
+        "output": 5.3452115812917596,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 0.3,
+          "output": 6.0
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 200000,
+          "input": 3.5634743875278394,
+          "cached": 0.5345211581291759,
+          "output": 10.690423162583519,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 4.0,
+            "cached": 0.6,
+            "output": 12.0
+          }
+        }
+      ],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:x-ai/grok-4.6",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "x-ai/grok-4.6",
+      "name": "Grok 4.6",
+      "creator": "xAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 500000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 0.4454342984409799,
+        "output": 5.3452115812917596,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 0.5,
+          "output": 6.0
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 200000,
+          "input": 3.5634743875278394,
+          "cached": 0.8908685968819599,
+          "output": 10.690423162583519,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 4.0,
+            "cached": 1.0,
+            "output": 12.0
+          }
+        }
+      ],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:x-ai/grok-4.7",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "x-ai/grok-4.7",
+      "name": "Grok 4.7",
+      "creator": "xAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 500000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 0.4454342984409799,
+        "output": 5.3452115812917596,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 0.5,
+          "output": 6.0
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 200000,
+          "input": 3.5634743875278394,
+          "cached": 0.8908685968819599,
+          "output": 10.690423162583519,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 4.0,
+            "cached": 1.0,
+            "output": 12.0
+          }
+        }
+      ],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:x-ai/grok-build-0.1",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "x-ai/grok-build-0.1",
+      "name": "Grok Build 0.1",
+      "creator": "xAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.8908685968819599,
+        "cached": 0.17817371937639198,
+        "output": 1.7817371937639197,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.0,
+          "cached": 0.2,
+          "output": 2.0
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 200000,
+          "input": 1.7817371937639197,
+          "cached": 0.35634743875278396,
+          "output": 3.5634743875278394,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 2.0,
+            "cached": 0.4,
+            "output": 4.0
+          }
+        }
+      ],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:xiaomi/mimo-v2.5",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "xiaomi/mimo-v2.5",
+      "name": "MiMo V2.5",
+      "creator": "Xiaomi",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.14253897550111358,
+        "cached": 0.0035634743875278397,
+        "output": 0.28507795100222716,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.16,
+          "cached": 0.004,
+          "output": 0.32
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:xiaomi/mimo-v2.5-pro",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "xiaomi/mimo-v2.5-pro",
+      "name": "MiMo V2.5 Pro",
+      "creator": "Xiaomi",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.4187082405345211,
+        "cached": 0.004454342984409799,
+        "output": 0.8374164810690422,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.47,
+          "cached": 0.005,
+          "output": 0.94
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:xiaomi/mimo-v2.6-flash",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "xiaomi/mimo-v2.6-flash",
+      "name": "MiMo V2.6 Flash",
+      "creator": "Xiaomi",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 0.14253897550111358,
+        "cached": 0.0035634743875278397,
+        "output": 0.28507795100222716,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.16,
+          "cached": 0.004,
+          "output": 0.32
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:xiaomi/mimo-v2.6-pro",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "xiaomi/mimo-v2.6-pro",
+      "name": "MiMo V2.6 Pro",
+      "creator": "Xiaomi",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 0.4187082405345211,
+        "cached": 0.004454342984409799,
+        "output": 0.8374164810690422,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.47,
+          "cached": 0.005,
+          "output": 0.94
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:z-ai/glm-4.7",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "z-ai/glm-4.7",
+      "name": "GLM-4.7",
+      "creator": "Z.ai",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 200000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.4187082405345211,
+        "cached": 0.08908685968819599,
+        "output": 1.9242761692650334,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.47,
+          "cached": 0.1,
+          "output": 2.16
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 32000,
+          "input": 0.5523385300668151,
+          "cached": 0.11581291759465479,
+          "output": 2.200445434298441,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 0.62,
+            "cached": 0.13,
+            "output": 2.47
+          }
+        }
+      ],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:z-ai/glm-5",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "z-ai/glm-5",
+      "name": "GLM-5",
+      "creator": "Z.ai",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 200000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.5345211581291759,
+        "cached": 0.14253897550111358,
+        "output": 2.6726057906458798,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.6,
+          "cached": 0.16,
+          "output": 3.0
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 32000,
+          "input": 0.7126948775055679,
+          "cached": 0.17817371937639198,
+          "output": 3.0289532293986636,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 0.8,
+            "cached": 0.2,
+            "output": 3.4
+          }
+        }
+      ],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:z-ai/glm-5-turbo",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "z-ai/glm-5-turbo",
+      "name": "GLM-5 Turbo",
+      "creator": "Z.ai",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 200000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.8017817371937639,
+        "cached": 0.16035634743875277,
+        "output": 3.2962138084632517,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.9,
+          "cached": 0.18,
+          "output": 3.7
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 32000,
+          "input": 0.9799554565701559,
+          "cached": 0.24053452115812918,
+          "output": 3.830734966592427,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 1.1,
+            "cached": 0.27,
+            "output": 4.3
+          }
+        }
+      ],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:z-ai/glm-5.1",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "z-ai/glm-5.1",
+      "name": "GLM-5.1",
+      "creator": "Z.ai",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 200000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.8908685968819599,
+        "cached": 0.17817371937639198,
+        "output": 3.3853006681514475,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.0,
+          "cached": 0.2,
+          "output": 3.8
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 32000,
+          "input": 1.0690423162583518,
+          "cached": 0.26726057906458794,
+          "output": 3.9198218262806237,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 1.2,
+            "cached": 0.3,
+            "output": 4.4
+          }
+        }
+      ],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:z-ai/glm-5.2",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "z-ai/glm-5.2",
+      "name": "GLM-5.2",
+      "creator": "Z.ai",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.0690423162583518,
+        "cached": 0.26726057906458794,
+        "output": 3.9198218262806237,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.2,
+          "cached": 0.3,
+          "output": 4.4
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:z-ai/glm-5.3",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "z-ai/glm-5.3",
+      "name": "GLM-5.3",
+      "creator": "Z.ai",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.0690423162583518,
+        "cached": 0.26726057906458794,
+        "output": 3.9198218262806237,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.2,
+          "cached": 0.3,
+          "output": 4.4
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:z-ai/glm-5.3-flash",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "z-ai/glm-5.3-flash",
+      "name": "GLM-5.3-Flash",
+      "creator": "Z.ai",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.13363028953229397,
+        "cached": 0.026726057906458794,
+        "output": 0.4454342984409799,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.15,
+          "cached": 0.03,
+          "output": 0.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
     },
     {
       "key": "deepinfra:ByteDance/Seed-1.8",
@@ -34951,13 +37676,13 @@
         "audio": false
       },
       "rates": {
-        "input": 0.010761692650334076,
+        "input": 0.008124721603563473,
         "cached": 0.0029434298440979955,
         "output": 0.10690423162583518,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.01208,
+          "input": 0.00912,
           "cached": 0.003304,
           "output": 0.12
         }
@@ -35044,15 +37769,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.2129175946547884,
-        "cached": 0.18708240534521156,
-        "output": 10.633407572383073,
+        "input": 0.21202672605790643,
+        "cached": 0.20311804008908685,
+        "output": 14.253897550111358,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.239,
-          "cached": 0.21,
-          "output": 11.936
+          "input": 0.238,
+          "cached": 0.228,
+          "output": 16.0
         }
       },
       "pricingTiers": [],
@@ -36119,7 +38844,7 @@
       "modelId": "deepseek-v4.1-flash",
       "name": "DeepSeek V4.1 Flash",
       "creator": "DeepSeek",
-      "description": "deepseek-v4.1-flash provided by deepseek, alibaba, deepinfra, fireworks, together-ai, novita, baidu, scx-ai-gp, consensusprotocol, sciforium, luminal, entrim, runware",
+      "description": "deepseek-v4.1-flash provided by deepseek, alibaba, deepinfra, fireworks, together-ai, novita, baidu, consensusprotocol, scx-ai-gp, sciforium, luminal, entrim, runware",
       "releaseDate": null,
       "contextSize": 1050000,
       "capabilities": {
@@ -37576,7 +40301,7 @@
       "modelId": "glm-5.3-flash",
       "name": "GLM-5.3 Flash",
       "creator": "Z.ai",
-      "description": "glm-5.3-flash provided by zai, novita, fireworks, inference.net, together-ai, runware, scx-ai-gp, consensusprotocol, entrim",
+      "description": "glm-5.3-flash provided by zai, novita, fireworks, inference.net, together-ai, runware, consensusprotocol, scx-ai-gp, entrim",
       "releaseDate": null,
       "contextSize": 1048576,
       "capabilities": {
@@ -49696,7 +52421,7 @@
       "sellerName": "nano-gpt",
       "modelId": "gemini-2.0-pro-exp-02-05",
       "name": "Gemini 2.0 Pro 0205",
-      "creator": "gemini",
+      "creator": "Google",
       "description": "Note: This model is now being routed to Gemini 2.5 Pro because Google no longer has the Gemini 2.0 Pro model available and Gemini 2.5 Pro is an across the board improvement.",
       "releaseDate": null,
       "contextSize": 2097152,
@@ -49727,7 +52452,7 @@
       "sellerName": "nano-gpt",
       "modelId": "gemini-2.0-pro-reasoner",
       "name": "Gemini 2.0 Pro Reasoner",
-      "creator": "gemini",
+      "creator": "Google",
       "description": "Note: This model is now being routed to Gemini 2.5 Pro because Google no longer has the Gemini 2.0 Pro model available and Gemini 2.5 Pro is an across the board improvement. 'DeepGemini', fusion of Gemini 2.5 Pro and Deepseek R1.",
       "releaseDate": null,
       "contextSize": 128000,
@@ -49758,7 +52483,7 @@
       "sellerName": "nano-gpt",
       "modelId": "gemini-2.5-flash",
       "name": "Gemini 2.5 Flash",
-      "creator": "gemini",
+      "creator": "Google",
       "description": "Fast, cost efficient performance on complex tasks. The workhorse of the Gemini series. Stable release with improved capabilities. Audio input costs $1.00 per million audio tokens.",
       "releaseDate": null,
       "contextSize": 1048576,
@@ -49789,7 +52514,7 @@
       "sellerName": "nano-gpt",
       "modelId": "gemini-2.5-flash-lite",
       "name": "Gemini 2.5 Flash Lite",
-      "creator": "gemini",
+      "creator": "Google",
       "description": "Ultra-lightweight and fast variant of Gemini 2.5 Flash. Stable release optimized for speed and efficiency. Audio input costs $0.30 per million audio tokens.",
       "releaseDate": null,
       "contextSize": 1048576,
@@ -49820,7 +52545,7 @@
       "sellerName": "nano-gpt",
       "modelId": "gemini-2.5-flash-lite-preview-06-17",
       "name": "Gemini 2.5 Flash Lite Preview",
-      "creator": "gemini",
+      "creator": "Google",
       "description": "Ultra-lightweight and fast variant of Gemini 2.5 Flash. Preview release optimized for speed and efficiency.",
       "releaseDate": null,
       "contextSize": 1048576,
@@ -49851,7 +52576,7 @@
       "sellerName": "nano-gpt",
       "modelId": "gemini-2.5-flash-lite-preview-09-2025",
       "name": "Gemini 2.5 Flash Lite Preview (09/2025)",
-      "creator": "gemini",
+      "creator": "Google",
       "description": "Deprecated compatibility alias. Requests route to the stable Gemini 2.5 Flash Lite model.",
       "releaseDate": null,
       "contextSize": 1048576,
@@ -49882,7 +52607,7 @@
       "sellerName": "nano-gpt",
       "modelId": "gemini-2.5-flash-lite-preview-09-2025-thinking",
       "name": "Gemini 2.5 Flash Lite Preview (09/2025) \u2013 Thinking",
-      "creator": "gemini",
+      "creator": "Google",
       "description": "Deprecated compatibility alias. Requests route to Gemini 2.5 Flash Lite with the stable thinking path.",
       "releaseDate": null,
       "contextSize": 1048576,
@@ -49913,7 +52638,7 @@
       "sellerName": "nano-gpt",
       "modelId": "gemini-2.5-flash-nothinking",
       "name": "Gemini 2.5 Flash (No Thinking)",
-      "creator": "gemini",
+      "creator": "Google",
       "description": "Fast, cost efficient performance on complex tasks. The workhorse of the Gemini series. Stable release with thinking mode disabled. Audio input costs $1.00 per million audio tokens.",
       "releaseDate": null,
       "contextSize": 1048576,
@@ -49944,7 +52669,7 @@
       "sellerName": "nano-gpt",
       "modelId": "gemini-2.5-flash-preview-04-17",
       "name": "Gemini 2.5 Flash Preview",
-      "creator": "gemini",
+      "creator": "Google",
       "description": "Deprecated. This model now routes to stable Gemini 2.5 Flash.",
       "releaseDate": null,
       "contextSize": 1048576,
@@ -49975,7 +52700,7 @@
       "sellerName": "nano-gpt",
       "modelId": "gemini-2.5-flash-preview-04-17:thinking",
       "name": "Gemini 2.5 Flash Preview Thinking",
-      "creator": "gemini",
+      "creator": "Google",
       "description": "Deprecated. This model now routes to stable Gemini 2.5 Flash.",
       "releaseDate": null,
       "contextSize": 1048576,
@@ -50006,7 +52731,7 @@
       "sellerName": "nano-gpt",
       "modelId": "gemini-2.5-flash-preview-05-20",
       "name": "Gemini 2.5 Flash 0520",
-      "creator": "gemini",
+      "creator": "Google",
       "description": "Deprecated. Mapped to Gemini 2.5 Flash because this model is deprecated",
       "releaseDate": null,
       "contextSize": 1048000,
@@ -50037,7 +52762,7 @@
       "sellerName": "nano-gpt",
       "modelId": "gemini-2.5-flash-preview-05-20:thinking",
       "name": "Gemini 2.5 Flash 0520 Thinking",
-      "creator": "gemini",
+      "creator": "Google",
       "description": "Deprecated. Mapped to Gemini 2.5 Flash because this model is deprecated",
       "releaseDate": null,
       "contextSize": 1048000,
@@ -50068,7 +52793,7 @@
       "sellerName": "nano-gpt",
       "modelId": "gemini-2.5-flash-preview-09-2025",
       "name": "Gemini 2.5 Flash Preview (09/2025)",
-      "creator": "gemini",
+      "creator": "Google",
       "description": "State-of-the-art Gemini 2.5 Flash checkpoint tuned for advanced reasoning, coding, math, and scientific tasks. Built-in thinking for higher accuracy and nuanced context handling. Routed to Gemini 2.5 Flash (stable).",
       "releaseDate": null,
       "contextSize": 1048576,
@@ -50099,7 +52824,7 @@
       "sellerName": "nano-gpt",
       "modelId": "gemini-2.5-flash-preview-09-2025-thinking",
       "name": "Gemini 2.5 Flash Preview (09/2025) \u2013 Thinking",
-      "creator": "gemini",
+      "creator": "Google",
       "description": "Same checkpoint with thinking enabled by default for deeper reasoning and stepwise analysis on complex tasks. Routed to Gemini 2.5 Flash Thinking (stable).",
       "releaseDate": null,
       "contextSize": 1048576,
@@ -50130,7 +52855,7 @@
       "sellerName": "nano-gpt",
       "modelId": "gemini-2.5-pro",
       "name": "Gemini 2.5 Pro",
-      "creator": "gemini",
+      "creator": "Google",
       "description": "Gemini 2.5 Pro stable release. Google's most capable generalist model with strong performance across a wide range of tasks.",
       "releaseDate": null,
       "contextSize": 1048576,
@@ -50161,7 +52886,7 @@
       "sellerName": "nano-gpt",
       "modelId": "gemini-2.5-pro-exp-03-25",
       "name": "Gemini 2.5 Pro Experimental 0325",
-      "creator": "gemini",
+      "creator": "Google",
       "description": "Gemini 2.5 Pro Exp 0325. Google's experimental model from March 2025.",
       "releaseDate": null,
       "contextSize": 1048576,
@@ -50192,7 +52917,7 @@
       "sellerName": "nano-gpt",
       "modelId": "gemini-2.5-pro-preview-03-25",
       "name": "Gemini 2.5 Pro Preview 0325",
-      "creator": "gemini",
+      "creator": "Google",
       "description": "Gemini 2.5 Pro Preview 0325. Google's model from March 2025.",
       "releaseDate": null,
       "contextSize": 1048576,
@@ -50223,7 +52948,7 @@
       "sellerName": "nano-gpt",
       "modelId": "gemini-2.5-pro-preview-05-06",
       "name": "Gemini 2.5 Pro Preview 0506",
-      "creator": "gemini",
+      "creator": "Google",
       "description": "Gemini 2.5 Pro Preview 0506. Google's model from May 2025.",
       "releaseDate": null,
       "contextSize": 1048576,
@@ -50254,7 +52979,7 @@
       "sellerName": "nano-gpt",
       "modelId": "gemini-2.5-pro-preview-06-05",
       "name": "Gemini 2.5 Pro Preview 0605",
-      "creator": "gemini",
+      "creator": "Google",
       "description": "Note: This preview is mapped to Gemini 2.5 Pro (stable).",
       "releaseDate": null,
       "contextSize": 1048576,
@@ -50285,7 +53010,7 @@
       "sellerName": "nano-gpt",
       "modelId": "gemini-3-pro-image-preview",
       "name": "Gemini 3 Pro Image",
-      "creator": "gemini",
+      "creator": "Google",
       "description": "Gemini 3 Pro with native image generation support. Can generate images inline from text prompts.",
       "releaseDate": null,
       "contextSize": 65536,
@@ -50316,7 +53041,7 @@
       "sellerName": "nano-gpt",
       "modelId": "gemini-exp-1206",
       "name": "Gemini 2.0 Pro 1206",
-      "creator": "gemini",
+      "creator": "Google",
       "description": "Note: This model is now being routed to Gemini 2.5 Pro because Google no longer has the Gemini 2.0 Pro model available and Gemini 2.5 Pro is an across the board improvement.",
       "releaseDate": null,
       "contextSize": 2097152,
@@ -51184,7 +53909,7 @@
       "sellerName": "nano-gpt",
       "modelId": "google/gemini-3-flash-preview",
       "name": "Gemini 3 Flash (Preview)",
-      "creator": "gemini",
+      "creator": "Google",
       "description": "Google's Gemini 3 Flash preview model optimized for speed while maintaining high capability. Features sub-second response times with strong multimodal understanding and reasoning. Audio input costs $1.00 per million audio tokens.",
       "releaseDate": null,
       "contextSize": 1048576,
@@ -51215,7 +53940,7 @@
       "sellerName": "nano-gpt",
       "modelId": "google/gemini-3-flash-preview-thinking",
       "name": "Gemini 3 Flash Thinking",
-      "creator": "gemini",
+      "creator": "Google",
       "description": "Google's Gemini 3 Flash preview model with thinking mode enabled for enhanced reasoning and chain-of-thought capabilities. Audio input costs $1.00 per million audio tokens.",
       "releaseDate": null,
       "contextSize": 1048576,
@@ -51246,7 +53971,7 @@
       "sellerName": "nano-gpt",
       "modelId": "google/gemini-3.1-flash-lite",
       "name": "Gemini 3.1 Flash Lite",
-      "creator": "gemini",
+      "creator": "Google",
       "description": "Google's Gemini 3.1 Flash Lite. Optimized for high-volume, cost-efficient reasoning and multimodal workloads.",
       "releaseDate": null,
       "contextSize": 1048576,
@@ -51277,7 +54002,7 @@
       "sellerName": "nano-gpt",
       "modelId": "google/gemini-3.1-pro-preview",
       "name": "Gemini 3.1 Pro (Preview)",
-      "creator": "gemini",
+      "creator": "Google",
       "description": "Gemini 3.1 Pro preview is built for tasks where simple answers are not enough. Stronger core reasoning for complex coding, math, and long-context workflows, with multimodal support and a reported 77.1% verified score on ARC-AGI-2. NOTE: Inputs > 200k tokens are charged at 2x input and 1.5x output rates.",
       "releaseDate": null,
       "contextSize": 1048576,
@@ -51308,7 +54033,7 @@
       "sellerName": "nano-gpt",
       "modelId": "google/gemini-3.1-pro-preview-customtools",
       "name": "Gemini 3.1 Pro (Preview Custom Tools)",
-      "creator": "gemini",
+      "creator": "Google",
       "description": "Gemini 3.1 Pro preview variant tuned for better tool selection behavior in coding agents and multi-tool workflows. It reduces overuse of generic bash tools and improves function-calling reliability while retaining Gemini 3.1 Pro's multimodal reasoning and 1M-token context. NOTE: Inputs > 200k tokens are charged at 2x input and 1.5x output rates.",
       "releaseDate": null,
       "contextSize": 1048576,
@@ -51339,7 +54064,7 @@
       "sellerName": "nano-gpt",
       "modelId": "google/gemini-3.1-pro-preview-high",
       "name": "Gemini 3.1 Pro (Preview High)",
-      "creator": "gemini",
+      "creator": "Google",
       "description": "Gemini 3.1 Pro preview high-reasoning variant.",
       "releaseDate": null,
       "contextSize": 1048576,
@@ -51370,7 +54095,7 @@
       "sellerName": "nano-gpt",
       "modelId": "google/gemini-3.1-pro-preview-low",
       "name": "Gemini 3.1 Pro (Preview Low)",
-      "creator": "gemini",
+      "creator": "Google",
       "description": "Gemini 3.1 Pro preview low-reasoning variant.",
       "releaseDate": null,
       "contextSize": 1048576,
@@ -51401,7 +54126,7 @@
       "sellerName": "nano-gpt",
       "modelId": "google/gemini-3.5-flash",
       "name": "Gemini 3.5 Flash",
-      "creator": "gemini",
+      "creator": "Google",
       "description": "Google's speed-focused Gemini Flash model for frontier multimodal intelligence across text, images, audio, video, PDFs, and code. Built for agentic coding, reliable tool use, structured outputs, and long-context workflows. Audio input costs $3.00 per million audio tokens.",
       "releaseDate": null,
       "contextSize": 1048576,
@@ -51432,7 +54157,7 @@
       "sellerName": "nano-gpt",
       "modelId": "google/gemini-3.5-flash-lite",
       "name": "Gemini 3.5 Flash Lite",
-      "creator": "gemini",
+      "creator": "Google",
       "description": "Google's cost-efficient Gemini 3.5 Flash Lite model for high-volume multimodal reasoning, tool use, and structured-output workloads.",
       "releaseDate": null,
       "contextSize": 1048576,
@@ -51463,7 +54188,7 @@
       "sellerName": "nano-gpt",
       "modelId": "google/gemini-3.5-flash-thinking",
       "name": "Gemini 3.5 Flash Thinking",
-      "creator": "gemini",
+      "creator": "Google",
       "description": "Gemini 3.5 Flash with higher thinking enabled for harder reasoning, agentic coding, tool use, multimodal analysis, and long-context workflows. Audio input costs $3.00 per million audio tokens.",
       "releaseDate": null,
       "contextSize": 1048576,
@@ -51494,7 +54219,7 @@
       "sellerName": "nano-gpt",
       "modelId": "google/gemini-3.6-flash",
       "name": "Gemini 3.6 Flash",
-      "creator": "gemini",
+      "creator": "Google",
       "description": "Google's GA Flash model delivers near-Pro coding and agentic capability at Flash-tier speed and cost, with improved token efficiency over Gemini 3.5 Flash. It is optimized for multi-step orchestration, full-stack code refactoring, general reasoning, and multimodal workflows.",
       "releaseDate": null,
       "contextSize": 1048576,
@@ -51525,7 +54250,7 @@
       "sellerName": "nano-gpt",
       "modelId": "google/gemini-3.7-flash",
       "name": "Gemini 3.7 Flash",
-      "creator": "gemini",
+      "creator": "Google",
       "description": "Google's frontier-performance Flash model for multimodal and agentic workloads, including coding, tool use, image understanding, PDF and document extraction, audio, and video. Google reports 65.3% on DeepSWE v1.1, up from 49.0% for Gemini 3.6 Flash, and 34% on GDP.pdf, up from 14%.",
       "releaseDate": null,
       "contextSize": 1048576,
@@ -51556,7 +54281,7 @@
       "sellerName": "nano-gpt",
       "modelId": "google/gemini-3.8-flash",
       "name": "Gemini 3.8 Flash",
-      "creator": "gemini",
+      "creator": "Google",
       "description": "Google's fast multimodal model for agentic workloads, including coding, tool use, image understanding, PDF and document extraction, audio, and video. Its capabilities, limits, reasoning behavior, and pricing currently mirror Gemini 3.7 Flash.",
       "releaseDate": null,
       "contextSize": 1048576,
@@ -51587,7 +54312,7 @@
       "sellerName": "nano-gpt",
       "modelId": "google/gemini-4-argon",
       "name": "Gemini 4 Argon",
-      "creator": "gemini",
+      "creator": "Google",
       "description": "Google's Gemini 4 Argon is a flagship reasoning model for complex software engineering, mathematical and scientific problem solving, and multi-step agents. It accepts text, images, audio, video, and PDFs, with tool calling and structured outputs. Its 1,048,576-token context is shared across input, thinking, and output; synchronous output is capped at 65,536 tokens.",
       "releaseDate": null,
       "contextSize": 1048576,
@@ -51618,7 +54343,7 @@
       "sellerName": "nano-gpt",
       "modelId": "google/gemini-flash-latest",
       "name": "Gemini Flash Latest",
-      "creator": "gemini",
+      "creator": "Google",
       "description": "Compatibility alias that routes to the newest version of Gemini Flash. Currently routes to Gemini 3.8 Flash.",
       "releaseDate": null,
       "contextSize": 1048576,
@@ -51649,7 +54374,7 @@
       "sellerName": "nano-gpt",
       "modelId": "google/gemini-flash-lite-latest",
       "name": "Gemini Flash Lite Latest",
-      "creator": "gemini",
+      "creator": "Google",
       "description": "Compatibility alias that routes to the newest version of Gemini Flash Lite. Currently routes to Gemini 3.5 Flash Lite.",
       "releaseDate": null,
       "contextSize": 1048576,
@@ -51680,7 +54405,7 @@
       "sellerName": "nano-gpt",
       "modelId": "google/gemini-pro-latest",
       "name": "Gemini Pro Latest",
-      "creator": "gemini",
+      "creator": "Google",
       "description": "Compatibility alias that routes to the newest version of Gemini Pro. Currently routes to Gemini 3.1 Pro Preview High.",
       "releaseDate": null,
       "contextSize": 1048576,
@@ -54791,15 +57516,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.3867706013363029,
-        "cached": 0.0651403118040089,
-        "output": 1.6285077951002227,
+        "input": 0.3850779510022272,
+        "cached": 0.06485523385300668,
+        "output": 1.621380846325167,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.43415000000000004,
-          "cached": 0.07311999999999999,
-          "output": 1.828
+          "input": 0.43225,
+          "cached": 0.0728,
+          "output": 1.82
         }
       },
       "pricingTiers": [],
@@ -54822,15 +57547,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.3867706013363029,
-        "cached": 0.0651403118040089,
-        "output": 1.6285077951002227,
+        "input": 0.3850779510022272,
+        "cached": 0.06485523385300668,
+        "output": 1.621380846325167,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.43415000000000004,
-          "cached": 0.07311999999999999,
-          "output": 1.828
+          "input": 0.43225,
+          "cached": 0.0728,
+          "output": 1.82
         }
       },
       "pricingTiers": [],
@@ -61352,7 +64077,7 @@
       "sellerName": "nano-gpt",
       "modelId": "unsloth/gemma-3-12b-it",
       "name": "Gemma 3 12B IT",
-      "creator": "gemini",
+      "creator": "Google",
       "description": "Gemma 3 has a large, 128K context window, multilingual support in over 140 languages, and is available in more sizes than previous versions.",
       "releaseDate": null,
       "contextSize": 131072,
@@ -61383,7 +64108,7 @@
       "sellerName": "nano-gpt",
       "modelId": "unsloth/gemma-3-27b-it",
       "name": "Gemma 3 27B IT",
-      "creator": "gemini",
+      "creator": "Google",
       "description": "Gemma 3 has a large, 128K context window, multilingual support in over 140 languages, and is available in more sizes than previous versions.",
       "releaseDate": null,
       "contextSize": 128000,
@@ -61414,7 +64139,7 @@
       "sellerName": "nano-gpt",
       "modelId": "unsloth/gemma-3-4b-it",
       "name": "Gemma 3 4B IT",
-      "creator": "gemini",
+      "creator": "Google",
       "description": "Gemma 3 has a large, 128K context window, multilingual support in over 140 languages, and is available in more sizes than previous versions.",
       "releaseDate": null,
       "contextSize": 128000,
@@ -84228,15 +86953,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.010155902004454343,
-        "cached": 0.010155902004454343,
-        "output": 0.40089086859688194,
+        "input": 0.008124721603563473,
+        "cached": 0.0029434298440979955,
+        "output": 0.10690423162583518,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0114,
-          "cached": 0.0114,
-          "output": 0.45
+          "input": 0.00912,
+          "cached": 0.003304,
+          "output": 0.12
         }
       },
       "pricingTiers": [],
@@ -84321,15 +87046,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.2129175946547884,
-        "cached": 0.18708240534521156,
-        "output": 10.633407572383073,
+        "input": 0.21202672605790643,
+        "cached": 0.20311804008908685,
+        "output": 14.253897550111358,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.239,
-          "cached": 0.21,
-          "output": 11.936
+          "input": 0.238,
+          "cached": 0.228,
+          "output": 16.0
         }
       },
       "pricingTiers": [],
