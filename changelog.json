@@ -890,22 +890,13 @@
     {
       "date": "2026-10-19",
       "changes": [
-        "\u2212 Vercel AI Gateway: Cat Jam",
-        "+ Mistral AI: Codestral",
-        "+ Mistral AI: Ministral 3 14B",
-        "+ Mistral AI: Ministral 3 3B",
-        "+ Mistral AI: Ministral 3 8B",
-        "+ Mistral AI: Mistral Large 3",
-        "+ Mistral AI: Mistral Large 4",
-        "+ Mistral AI: Mistral Medium 3.5",
-        "+ Mistral AI: Mistral Moderation 2",
-        "+ Mistral AI: Mistral Small 4",
-        "+ Mistral AI: Z.ai GLM 5.3",
-        "\u2192 Kilo \u00b7 DeepSeek: DeepSeek V4 Flash Latest \u2014 input $0.01592\u2192$0.0114 \u00b7 cached $0.003304\u2192$0.0114 \u00b7 output $0.12\u2192$0.45",
-        "\u2192 Kilo \u00b7 Z.ai: GLM Latest \u2014 input $0.057\u2192$0.055 \u00b7 cached $0.036\u2192$0.034",
-        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Pro 0423 \u2014 input $0.3953\u2192$0.392 \u00b7 cached $0.03294\u2192$0.03267 \u00b7 output $0.7907\u2192$0.784",
-        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash Latest \u2014 input $0.0151\u2192$0.0114 \u00b7 cached $0.0151\u2192$0.0114",
-        "\u2192 OpenRouter \u00b7 Z.ai: GLM Latest \u2014 input $0.057\u2192$0.055 \u00b7 cached $0.036\u2192$0.034"
+        "+ Meta: Muse Spark",
+        "+ Meta: Muse Spark",
+        "+ Meta: Muse Spark",
+        "+ Meta: Muse Wonder",
+        "\u2192 Kilo \u00b7 DeepSeek: DeepSeek V4 Flash Latest \u2014 input $0.0114\u2192$0.00912 \u00b7 cached $0.0114\u2192$0.003304 \u00b7 output $0.45\u2192$0.12",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Pro 0423 \u2014 input $0.392\u2192$0.3887 \u00b7 cached $0.03267\u2192$0.03239 \u00b7 output $0.784\u2192$0.7774",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash Latest \u2014 input $0.0114\u2192$0.00912 \u00b7 cached $0.0114\u2192$0.003304 \u00b7 output $0.45\u2192$0.12"
       ]
     }
   ]

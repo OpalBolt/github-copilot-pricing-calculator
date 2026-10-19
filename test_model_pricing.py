@@ -31,6 +31,7 @@ from sources.eurouter import fetch_eurouter_listings
 from sources.helpers import _rates, listing_from_offer, now_utc
 from sources.kilo import _kilo_rates, fetch_kilo_listings
 from sources.llm_gateway import _llm_gateway_rates, fetch_llmgateway_listings
+from sources.meta import fetch_meta_listings, parse_meta_pricing
 from sources.mistral import fetch_mistral_listings, parse_mistral_pricing
 from sources.nearai import (
     _nearai_owner,
@@ -119,6 +120,7 @@ ALL_SELLERS = {
     "openai-direct",
     "xai",
     "mistral",
+    "meta",
 }
 SELLER_KINDS = {
     "cortecs": "router",
@@ -155,6 +157,7 @@ SELLER_KINDS = {
     "openai-direct": "first-party",
     "xai": "first-party",
     "mistral": "first-party",
+    "meta": "first-party",
 }
 
 
@@ -226,6 +229,7 @@ def test_registry_pages():
         "venice",
         "xai",
         "mistral",
+        "meta",
     }
     assert global_pages == ALL_SELLERS
     assert {m["sellerKind"] for m in SOURCES.values()} == set(SELLER_KINDS.values())
@@ -3930,6 +3934,167 @@ def test_mistral_adapter():
     ]
 
 
+def test_meta_adapter():
+    """The committed Meta pricing markdown normalizes to per-million-token
+    USD listings converted with the ECB rate; the Standard-mode price is
+    the headline and the Contributor-mode discount stays in the price
+    note, and image-, hour-, and frame-priced tables stay out."""
+    # Meta's markdown quotes every token rate with a dollar prefix in
+    # columns labeled "per 1M tokens" and publishes no other currency; the
+    # registry records that verified native currency, and the first-party
+    # catalog feeds the global page only.
+    assert SOURCES["meta"]["nativeCurrency"] == "USD"
+    assert SOURCES["meta"]["pages"] == ("global",)
+    assert SOURCES["meta"]["sellerKind"] == "first-party"
+
+    fixture = ROOT / "fixtures" / "meta-pricing.md"
+    markdown = fixture.read_text(encoding="utf-8")
+    # The currency evidence lives in the Seller's own pricing doc: every
+    # rate is dollar-prefixed.
+    assert "Standard mode (per 1M tokens)" in markdown
+    assert "$1.25" in markdown
+
+    with patch("sources.meta.fetch_text", return_value=markdown):
+        listings = fetch_meta_listings({"usdPerEur": 2.0})
+    by_id = {listing["modelId"]: listing for listing in listings}
+    assert set(by_id) == {
+        "muse-wonder-1.0",
+        "muse-spark-1.3",
+        "muse-spark-1.2",
+        "muse-spark-1.1",
+    }
+
+    # The headline rates are the Standard-mode prices as published (USD
+    # per million tokens, converted with the ECB rate); the Contributor-
+    # mode discount stays in the price note instead of the headline.
+    spark13 = by_id["muse-spark-1.3"]
+    assert spark13["key"] == "meta:muse-spark-1.3"
+    assert spark13["seller"] == "meta"
+    assert spark13["sellerName"] == "Meta"
+    assert spark13["name"] == "Muse Spark"
+    assert spark13["creator"] == "Meta"
+    assert spark13["contextSize"] is None
+    assert spark13["rates"]["nativeCurrency"] == "USD"
+    assert spark13["rates"]["native"] == {
+        "input": 1.25,
+        "cached": 0.15,
+        "output": 4.25,
+    }
+    assert math.isclose(spark13["rates"]["input"], 0.625)
+    assert math.isclose(spark13["rates"]["cached"], 0.075)
+    assert math.isclose(spark13["rates"]["output"], 2.125)
+    assert spark13["rates"]["cachedFallback"] is False
+    assert "`muse-spark-1.3-contributor`" in spark13["priceNote"]
+    assert "$0.1 input / $0.002 cached input / $0.2 output" in spark13[
+        "priceNote"
+    ]
+    assert "train" in spark13["priceNote"]
+    assert "ECB" in spark13["priceNote"]
+
+    # The Standard-only Spark version has no contributor variant to pair
+    # with, so it carries the base note without a discount sentence.
+    spark11 = by_id["muse-spark-1.1"]
+    assert spark11["rates"]["native"] == spark13["rates"]["native"]
+    assert spark11["priceNote"] == (
+        "Direct USD API price published by Meta and converted with the "
+        "listed ECB rate."
+    )
+
+    # Muse Wonder's Contributor column reads "Not available": the model is
+    # Standard-only and its note carries no discount sentence.
+    wonder = by_id["muse-wonder-1.0"]
+    assert wonder["name"] == "Muse Wonder"
+    assert wonder["rates"]["native"] == {
+        "input": 4.0,
+        "cached": 0.2,
+        "output": 20.0,
+    }
+    assert "Contributor" not in wonder["priceNote"]
+
+    # No model publishes a long-context premium, so no listing carries
+    # tiers, and per-image tables are not token pricing and stay out.
+    assert all(listing["pricingTiers"] == [] for listing in listings)
+    assert "muse-image-1.0" not in by_id
+
+    # Parser: a zero price stays a price, a "Not available" cell leaves
+    # that mode without that rate, and a missing cached-input row leaves
+    # the cache rate unpublished.
+    stripped = parse_meta_pricing(
+        """### Test Model
+
+Models: `test-model-1` and `test-model-1-contributor`.
+
+| Usage | Standard mode (per 1M tokens) | Contributor mode (per 1M tokens) |
+| --- | --- | --- |
+| Cached input | $0.10 | Not available |
+| Input | $1.00 | $0.05 |
+| Output | $2.00 | Not available |
+
+### Test Free
+
+Model: `test-free-1`.
+
+| Usage | Standard mode (per 1M tokens) | Contributor mode (per 1M tokens) |
+| --- | --- | --- |
+| Input | $0.00 | Not available |
+| Output | $0.00 | Not available |
+
+### Test No Cache
+
+Model: `test-no-cache-1`.
+
+| Usage | Standard mode (per 1M tokens) | Contributor mode (per 1M tokens) |
+| --- | --- | --- |
+| Input | $3.00 | Not available |
+| Output | $9.00 | Not available |
+"""
+    )
+    assert stripped == [
+        {
+            "id": "test-model-1",
+            "name": "Test Model",
+            "input": 1.0,
+            "input_cache": 0.1,
+            "output": 2.0,
+            "contributor": {"input": 0.05},
+        },
+        {
+            "id": "test-free-1",
+            "name": "Test Free",
+            "input": 0.0,
+            "input_cache": None,
+            "output": 0.0,
+        },
+        {
+            "id": "test-no-cache-1",
+            "name": "Test No Cache",
+            "input": 3.0,
+            "input_cache": None,
+            "output": 9.0,
+        },
+    ]
+
+    # The cache fallback carries into the listing: a missing cached-input
+    # row reuses the input rate as an estimate instead of dropping the
+    # model.
+    fallback_markdown = """### Test No Cache
+
+Model: `test-no-cache-1`.
+
+| Usage | Standard mode (per 1M tokens) | Contributor mode (per 1M tokens) |
+| --- | --- | --- |
+| Input | $3.00 | Not available |
+| Output | $9.00 | Not available |
+"""
+    with patch("sources.meta.fetch_text", return_value=fallback_markdown):
+        fallback = fetch_meta_listings({"usdPerEur": 2.0})[0]
+    assert fallback["rates"]["cachedFallback"] is True
+    assert fallback["rates"]["cached"] == fallback["rates"]["input"]
+    assert fallback["rates"]["native"]["cached"] == (
+        fallback["rates"]["native"]["input"]
+    )
+
+
 def test_seven_day_seller_fallback():
     fetched_at = now_utc().isoformat()
     previous = {
@@ -4179,6 +4344,7 @@ def test_aggregate_contract():
             "openai-direct",
             "xai",
             "mistral",
+            "meta",
         )
     } == {"USD"}
 
@@ -4194,6 +4360,7 @@ def test_aggregate_contract():
         "xai",
         "zai-direct",
         "mistral",
+        "meta",
     }
     assert all(
         listing["rates"]["nativeCurrency"] == "USD" for listing in first_party

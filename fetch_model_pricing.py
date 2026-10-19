@@ -32,6 +32,7 @@ from sources.hyper import fetch_hyper_listings
 from sources.inceptron import fetch_inceptron_listings
 from sources.kilo import fetch_kilo_listings
 from sources.llm_gateway import fetch_llmgateway_listings
+from sources.meta import fetch_meta_listings
 from sources.mistral import fetch_mistral_listings
 from sources.nano_gpt import fetch_nano_gpt_listings
 from sources.nearai import fetch_nearai_listings
@@ -101,6 +102,7 @@ ADAPTERS = {
     "openai-direct": lambda exchange_rate: fetch_openai_direct_listings(exchange_rate),
     "xai": lambda exchange_rate: fetch_xai_listings(exchange_rate),
     "mistral": lambda exchange_rate: fetch_mistral_listings(exchange_rate),
+    "meta": lambda exchange_rate: fetch_meta_listings(exchange_rate),
 }
 # Sources that still produce listings when the ECB rate fetch fails.
 RATE_OPTIONAL_SOURCES = {"cortecs", "eurouter"}

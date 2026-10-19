@@ -29,6 +29,7 @@ from sources.hyper import HYPER_URL
 from sources.inceptron import INCEPTRON_URL
 from sources.kilo import KILO_URL
 from sources.llm_gateway import LLM_GATEWAY_URL
+from sources.meta import META_PRICING_URL
 from sources.mistral import MISTRAL_PRICING_URL
 from sources.nano_gpt import NANO_GPT_URL
 from sources.nearai import NEARAI_URL
@@ -468,6 +469,20 @@ SOURCES = {
         # rendered page's currency toggle opens on USD
         # (docs.mistral.ai/inference/pricing/), so the published rates are
         # US dollars per million tokens.
+        "nativeCurrency": "USD",
+        "euClaim": "No EU routing catalog is published.",
+    },
+    "meta": {
+        "name": "Meta",
+        "pages": ("global",),
+        "sellerKind": "first-party",
+        "source": META_PRICING_URL,
+        # Every token rate in Meta's pricing markdown is dollar-prefixed in
+        # columns labeled "Standard mode (per 1M tokens)" and "Contributor
+        # mode (per 1M tokens)" ("| Input | $4.00 | Not available |",
+        # dev.meta.ai/docs/pricing-rate-limits.md), and the docs publish no
+        # other currency, so the published rates are US dollars per million
+        # tokens.
         "nativeCurrency": "USD",
         "euClaim": "No EU routing catalog is published.",
     },
