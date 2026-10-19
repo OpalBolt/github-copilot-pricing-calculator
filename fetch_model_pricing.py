@@ -25,6 +25,7 @@ from sources.openai_direct import fetch_openai_direct_listings
 from sources.opencode import fetch_opencode_listings
 from sources.openrouter import fetch_openrouter_listings
 from sources.requesty import fetch_requesty_listings
+from sources.vercel_gateway import fetch_vercel_gateway_listings
 from sources.zai_direct import fetch_zai_direct_listings
 
 ROOT = Path(__file__).parent
@@ -45,6 +46,9 @@ ADAPTERS = {
     "novita": lambda exchange_rate: fetch_novita_listings(exchange_rate),
     "requesty": lambda exchange_rate: fetch_requesty_listings(exchange_rate),
     "nano-gpt": lambda exchange_rate: fetch_nano_gpt_listings(exchange_rate),
+    "vercel-gateway": lambda exchange_rate: fetch_vercel_gateway_listings(
+        exchange_rate
+    ),
     "deepseek-direct": lambda exchange_rate: fetch_deepseek_direct_listings(
         exchange_rate
     ),

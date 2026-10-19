@@ -19,6 +19,10 @@ from sources.novita import _novita_rates, fetch_novita_listings
 from sources.nano_gpt import _nano_gpt_rates, fetch_nano_gpt_listings
 from sources.opencode import fetch_opencode_listings
 from sources.requesty import _requesty_rates, fetch_requesty_listings
+from sources.vercel_gateway import (
+    _vercel_gateway_rates,
+    fetch_vercel_gateway_listings,
+)
 from sources.openrouter import fetch_openrouter_listings
 from sources.deepseek_direct import fetch_deepseek_direct_listings
 
@@ -36,6 +40,7 @@ ALL_SELLERS = {
     "novita",
     "requesty",
     "nano-gpt",
+    "vercel-gateway",
     "deepseek-direct",
     "zai-direct",
     "claude-direct",
@@ -50,6 +55,7 @@ SELLER_KINDS = {
     "novita": "gateway",
     "requesty": "gateway",
     "nano-gpt": "gateway",
+    "vercel-gateway": "gateway",
     "deepseek-direct": "first-party",
     "zai-direct": "first-party",
     "claude-direct": "first-party",
@@ -103,6 +109,7 @@ def test_registry_pages():
         "novita",
         "requesty",
         "nano-gpt",
+        "vercel-gateway",
     }
     assert global_pages == ALL_SELLERS
     assert {m["sellerKind"] for m in SOURCES.values()} == set(SELLER_KINDS.values())
@@ -636,6 +643,122 @@ def test_nano_gpt_adapter():
         raise AssertionError("note-only pricing should skip the row")
 
 
+def test_vercel_gateway_adapter():
+    """The committed Vercel AI Gateway catalog sample normalizes to
+    per-million-token USD listings converted with the ECB rate; non-text
+    output rows and rows without per-token input and output prices are
+    skipped, not broken."""
+    # Vercel AI Gateway charges the provider's list price with zero markup
+    # and bills it in US dollars (vercel.com/docs/ai-gateway/pricing); the
+    # registry records that verified native currency, and the catalog feeds
+    # the global page only.
+    assert SOURCES["vercel-gateway"]["nativeCurrency"] == "USD"
+    assert SOURCES["vercel-gateway"]["pages"] == ("global",)
+    assert SOURCES["vercel-gateway"]["sellerKind"] == "gateway"
+
+    fixture = ROOT / "fixtures" / "vercel-gateway-models.json"
+    payload = json.loads(fixture.read_text(encoding="utf-8"))
+    with patch("sources.vercel_gateway.fetch_json", return_value=payload):
+        listings = fetch_vercel_gateway_listings({"usdPerEur": 2.0})
+    by_id = {listing["modelId"]: listing for listing in listings}
+    assert set(by_id) == {
+        "alibaba/qwen-3-14b",
+        "alibaba/qwen3-coder",
+        "nvidia/nemotron-3.5-lightning-free",
+        "alibaba/qwen3-vl-instruct",
+    }
+
+    # Vercel's AI Gateway Model List renders the catalog's price fields as
+    # dollars per 1M tokens (inputCost 0.12 for the catalog's
+    # "0.00000012"), so the per-token prices scale by 1,000,000 in dollars
+    # and the ECB rate converts them.
+    qwen = by_id["alibaba/qwen-3-14b"]
+    assert qwen["key"] == "vercel-gateway:alibaba/qwen-3-14b"
+    assert qwen["seller"] == "vercel-gateway"
+    assert qwen["sellerName"] == "Vercel AI Gateway"
+    assert qwen["name"] == "Qwen3-14B"
+    assert qwen["creator"] == "Alibaba"
+    assert qwen["contextSize"] == 40960
+    assert qwen["capabilities"] == {
+        "reasoning": True,
+        "tools": True,
+        "vision": False,
+        "audio": False,
+    }
+    assert qwen["rates"]["nativeCurrency"] == "USD"
+    assert qwen["rates"]["native"] == {
+        "input": 0.12,
+        "cached": 0.12,
+        "output": 0.24,
+    }
+    assert math.isclose(qwen["rates"]["input"], 0.06)
+    assert math.isclose(qwen["rates"]["cached"], 0.06)
+    assert math.isclose(qwen["rates"]["output"], 0.12)
+    assert qwen["rates"]["cachedFallback"] is True
+
+    # The catalog's input_cache_read field prices cached input per token;
+    # rows publishing it use it instead of the input-rate fallback.
+    coder = by_id["alibaba/qwen3-coder"]
+    assert coder["rates"]["native"] == {
+        "input": 0.22,
+        "cached": 0.022,
+        "output": 1.8,
+    }
+    assert coder["rates"]["cachedFallback"] is False
+
+    # Image inputs map to the vision capability through the shared
+    # capability helper.
+    vl = by_id["alibaba/qwen3-vl-instruct"]
+    assert vl["creator"] == "Alibaba"
+    assert vl["capabilities"] == {
+        "reasoning": False,
+        "tools": True,
+        "vision": True,
+        "audio": False,
+    }
+    assert vl["rates"]["native"] == {
+        "input": 0.2,
+        "cached": 0.11,
+        "output": 0.88,
+    }
+
+    # A zero price is a price: the free row normalizes to zero rates
+    # instead of dropping out.
+    free = by_id["nvidia/nemotron-3.5-lightning-free"]
+    assert free["creator"] == "NVIDIA"
+    assert free["rates"]["native"] == {"input": 0, "cached": 0, "output": 0}
+    assert free["rates"]["cachedFallback"] is True
+
+    assert all(
+        listing["rates"]["nativeCurrency"] == "USD" for listing in listings
+    )
+    assert all(
+        "Vercel AI Gateway" in listing["priceNote"]
+        and "ECB" in listing["priceNote"]
+        for listing in listings
+    )
+    zeros = _vercel_gateway_rates(
+        {"pricing": {"input": "0", "output": "0", "input_cache_read": "0"}},
+        2.0,
+    )
+    assert zeros["input"] == zeros["cached"] == zeros["output"] == 0
+    assert zeros["nativeCurrency"] == "USD"
+    assert zeros["cachedFallback"] is False
+    # Rows without per-token input and output prices (the fixture's
+    # embedding row, whose pricing publishes input only) are not
+    # per-million-token priced and stay out of the listings.
+    try:
+        _vercel_gateway_rates({"pricing": {"input": "0.00000001"}}, 2.0)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("missing per-token prices should skip the row")
+    # The fixture's TTS and image rows publish prices but no text output
+    # modality; like the routers' build, only text-output rows list.
+    assert "google/gemini-3.8-flash-tts" not in by_id
+    assert "microsoft/mai-image-2.6" not in by_id
+
+
 def test_seven_day_seller_fallback():
     fetched_at = now_utc().isoformat()
     previous = {
@@ -657,7 +780,7 @@ def test_seven_day_seller_fallback():
 
 @contextmanager
 def _patch_adapters(**behaviors):
-    """Patch the build's ECB fetch and all twelve listings adapters. Values
+    """Patch the build's ECB fetch and all thirteen listings adapters. Values
     are return values for `ok`, exceptions for failing sources."""
     ecb = behaviors.pop("ecb", {"usdPerEur": 1.1, "observationDate": "2026-10-16"})
     patches = [
@@ -852,6 +975,7 @@ def test_aggregate_contract():
     assert native_by_seller["novita"] == "USD"
     assert native_by_seller["requesty"] == "USD"
     assert native_by_seller["nano-gpt"] == "USD"
+    assert native_by_seller["vercel-gateway"] == "USD"
     assert {
         native_by_seller[sid]
         for sid in ("deepseek-direct", "zai-direct", "claude-direct", "openai-direct")
@@ -922,6 +1046,7 @@ def test_generated_page():
         'data-seller="novita"',
         'data-seller="requesty"',
         'data-seller="nano-gpt"',
+        'data-seller="vercel-gateway"',
         'data-seller="deepseek-direct"',
         'data-seller="zai-direct"',
         'data-seller="claude-direct"',
@@ -997,6 +1122,7 @@ def main():
     test_novita_adapter()
     test_requesty_adapter()
     test_nano_gpt_adapter()
+    test_vercel_gateway_adapter()
     test_seven_day_seller_fallback()
     test_broken_source_fails_in_isolation()
     test_build_fails_only_without_usable_data()

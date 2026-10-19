@@ -2,9 +2,9 @@
 
 Each entry describes one pricing source and declares which page(s) it feeds
 via `pages`; each page's build step selects its sources from this field.
-Every source feeds the global Model Price Calculator page. All sources except
-OpenCode Zen and DeepInfra also feed the EU router page: their catalogs
-publish no EU routing and therefore feed only the global page.
+Every source feeds the global Model Price Calculator page. The gateway
+catalogs publish no EU routing and therefore feed only the global page; the
+routers and first-party APIs also feed the EU router page.
 
 `sellerKind` classifies the source as a Seller for the global page (router,
 gateway, or first-party API). `kind` stays the EU page's direct-baseline
@@ -22,6 +22,7 @@ from sources.openai_direct import OPENAI_MODELS_URL, OPENAI_PRICING_URL
 from sources.opencode import OPENCODE_ZEN_URL
 from sources.openrouter import OPENROUTER_URL
 from sources.requesty import REQUESTY_URL
+from sources.vercel_gateway import VERCEL_GATEWAY_URL
 
 SOURCES = {
     "cortecs": {
@@ -73,6 +74,17 @@ SOURCES = {
         "pages": ("global",),
         "sellerKind": "gateway",
         "source": REQUESTY_URL,
+        "nativeCurrency": "USD",
+        "euClaim": "No EU routing catalog is published.",
+    },
+    "vercel-gateway": {
+        "name": "Vercel AI Gateway",
+        "pages": ("global",),
+        "sellerKind": "gateway",
+        "source": VERCEL_GATEWAY_URL,
+        # Vercel AI Gateway charges the provider's list price with zero
+        # markup and bills it in US dollars (vercel.com/docs/ai-gateway/
+        # pricing: "You pay the provider's list price").
         "nativeCurrency": "USD",
         "euClaim": "No EU routing catalog is published.",
     },
