@@ -13,6 +13,7 @@ marker and is unchanged.
 
 from fetch_providers import DEEPSEEK_URL, ZAI_PAYGO_URL
 from sources.aiand import AIAND_URL
+from sources.aimlapi import AIMLAPI_URL
 from sources.claude_direct import CLAUDE_MODELS_URL, CLAUDE_PRICING_URL
 from sources.chutes import CHUTES_URL
 from sources.cortecs import CORTECS_URL
@@ -151,6 +152,21 @@ SOURCES = {
         # platform, not a router. The keyless catalog bills US dollars:
         # every row prices currency "usd" and "Called without an API key,
         # the endpoint returns USD prices" (docs.aiand.com/models/pricing).
+        "nativeCurrency": "USD",
+        "euClaim": "No EU routing catalog is published.",
+    },
+    "aimlapi": {
+        "name": "AI/ML API",
+        "pages": ("global",),
+        "sellerKind": "gateway",
+        "source": AIMLAPI_URL,
+        # AI/ML API self-describes as "One API for 1000+ AI models ... under
+        # one bill" (aimlapi.com) — a gateway, not a router. Its Complete
+        # Model List doc ends the price walkthrough with "Prices are in USD
+        # and are what you are charged" (docs.aimlapi.com/
+        # api-references/service-endpoints/complete-model-list.md), and the
+        # account balance API documents its currency as "balance currency
+        # (always USD)".
         "nativeCurrency": "USD",
         "euClaim": "No EU routing catalog is published.",
     },

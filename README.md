@@ -104,6 +104,7 @@ The router build uses these sources:
 | Chutes catalog | `https://llm.chutes.ai/v1/models` |
 | LLM Gateway catalog | `https://api.llmgateway.io/v1/models` |
 | aiand catalog | `https://api.aiand.com/v1/models` |
+| AI/ML API catalog | `https://api.aimlapi.com/v1/models?include=pricing,modalities` |
 | Claude model catalog | `https://platform.claude.com/docs/en/api/http/beta/models/list.md` |
 | Claude direct API pricing | `https://platform.claude.com/docs/en/about-claude/pricing.md` |
 | DeepSeek direct API | `https://api-docs.deepseek.com/quick_start/pricing/` |

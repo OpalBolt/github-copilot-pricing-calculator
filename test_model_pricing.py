@@ -13,6 +13,7 @@ import fetch_model_pricing
 from fetch_model_pricing import _cached_seller
 from sources import SOURCES
 from sources.aiand import _aiand_rates, fetch_aiand_listings
+from sources.aimlapi import _aimlapi_rates, fetch_aimlapi_listings
 from sources.chutes import _chutes_rates, fetch_chutes_listings
 from sources.deepinfra import _deepinfra_rates, fetch_deepinfra_listings
 from sources.eurouter import fetch_eurouter_listings
@@ -49,6 +50,7 @@ ALL_SELLERS = {
     "chutes",
     "llmgateway",
     "aiand",
+    "aimlapi",
     "deepseek-direct",
     "zai-direct",
     "claude-direct",
@@ -68,6 +70,7 @@ SELLER_KINDS = {
     "chutes": "gateway",
     "llmgateway": "gateway",
     "aiand": "gateway",
+    "aimlapi": "gateway",
     "deepseek-direct": "first-party",
     "zai-direct": "first-party",
     "claude-direct": "first-party",
@@ -126,6 +129,7 @@ def test_registry_pages():
         "chutes",
         "llmgateway",
         "aiand",
+        "aimlapi",
     }
     assert global_pages == ALL_SELLERS
     assert {m["sellerKind"] for m in SOURCES.values()} == set(SELLER_KINDS.values())
@@ -1236,6 +1240,167 @@ def test_aiand_adapter():
         raise AssertionError("missing per-million prices should skip the row")
 
 
+def test_aimlapi_adapter():
+    """The committed AI/ML API catalog sample normalizes to per-million-token
+    USD listings converted with the ECB rate; the same model's other-endpoint
+    rows and rows without text-token input and output prices are skipped, not
+    broken."""
+    # AI/ML API's Complete Model List doc ends the price walkthrough with
+    # "Prices are in USD and are what you are charged"; the registry
+    # records that verified native currency, and the catalog feeds the
+    # global page only.
+    assert SOURCES["aimlapi"]["nativeCurrency"] == "USD"
+    assert SOURCES["aimlapi"]["pages"] == ("global",)
+    assert SOURCES["aimlapi"]["sellerKind"] == "gateway"
+
+    fixture = ROOT / "fixtures" / "aimlapi-models.json"
+    payload = json.loads(fixture.read_text(encoding="utf-8"))
+    with patch("sources.aimlapi.fetch_json", return_value=payload):
+        listings = fetch_aimlapi_listings({"usdPerEur": 2.0})
+    by_id = {listing["modelId"]: listing for listing in listings}
+    assert set(by_id) == {
+        "minimax/minimax-m3.1-flash",
+        "google/gemini-3.8-flash",
+        "reflection/beam-1.0-501b-a23b",
+        "inclusionai/ling-3.1-flash",
+        "openai/gpt-6-luna",
+    }
+
+    # The catalog prices text tokens by `per` basis (1000000 for these
+    # rows), so the provided/cached/generated charges pass through
+    # unmultiplied in dollars and the ECB rate converts them; the generated
+    # reasoning phase repeats the output charge and never moves the rate.
+    minimax = by_id["minimax/minimax-m3.1-flash"]
+    assert minimax["key"] == "aimlapi:minimax/minimax-m3.1-flash"
+    assert minimax["seller"] == "aimlapi"
+    assert minimax["sellerName"] == "AI/ML API"
+    assert minimax["name"] == "MiniMax M3.1 Flash"
+    assert minimax["creator"] == "MiniMax AI"
+    assert minimax["contextSize"] == 1000000
+    assert minimax["capabilities"] == {
+        "reasoning": False,
+        "tools": False,
+        "vision": True,
+        "audio": False,
+    }
+    assert minimax["rates"]["nativeCurrency"] == "USD"
+    assert minimax["rates"]["native"] == {
+        "input": 0.195,
+        "cached": 0.0195,
+        "output": 0.78,
+    }
+    assert math.isclose(minimax["rates"]["input"], 0.0975)
+    assert math.isclose(minimax["rates"]["cached"], 0.00975)
+    assert math.isclose(minimax["rates"]["output"], 0.39)
+    assert minimax["rates"]["cachedFallback"] is False
+
+    # Per-call charges and image/video/audio token streams never stand in
+    # for the text token rates.
+    gemini = by_id["google/gemini-3.8-flash"]
+    assert gemini["creator"] == "Google"
+    assert gemini["rates"]["native"] == {
+        "input": 0.975,
+        "cached": 0.0975,
+        "output": 4.875,
+    }
+    assert gemini["capabilities"]["vision"] is True
+    assert gemini["capabilities"]["audio"] is False
+
+    # Rows without a cached unit fall back to the input rate, and a
+    # developer outside the alias table passes through unaliased.
+    beam = by_id["reflection/beam-1.0-501b-a23b"]
+    assert beam["creator"] == "Reflection"
+    assert beam["rates"]["cachedFallback"] is True
+    assert beam["rates"]["cached"] == beam["rates"]["input"]
+    assert math.isclose(beam["rates"]["native"]["input"], 0.34385)
+
+    # A zero price is a price: the free row's published zero cached price
+    # is a price, not a fallback.
+    ling = by_id["inclusionai/ling-3.1-flash"]
+    assert ling["rates"]["native"] == {"input": 0, "cached": 0, "output": 0}
+    assert ling["rates"]["cachedFallback"] is False
+
+    # The catalog lists one row per model per endpoint: the gpt-6-luna
+    # fixture carries decisions, chat-completions, and responses rows, and
+    # only the chat-completions row's complete prices list.
+    luna = by_id["openai/gpt-6-luna"]
+    assert luna["creator"] == "OpenAI"
+    assert luna["rates"]["native"] == {
+        "input": 0.13,
+        "cached": 0.013,
+        "output": 0.65,
+    }
+    assert luna["rates"]["cachedFallback"] is False
+
+    assert all(
+        listing["rates"]["nativeCurrency"] == "USD" for listing in listings
+    )
+    assert all(
+        "AI/ML API" in listing["priceNote"] and "ECB" in listing["priceNote"]
+        for listing in listings
+    )
+    # A zero price is a price: zero-priced token units normalize to zero
+    # rates instead of dropping out.
+    zeros = _aimlapi_rates(
+        {
+            "pricing": {
+                "units": [
+                    {"name": "token", "content": "text", "origin": "provided", "phase": "inference", "price": 0, "per": 1000000},
+                    {"name": "token", "content": "text", "origin": "cached", "phase": "inference", "price": 0, "per": 1000000},
+                    {"name": "token", "content": "text", "origin": "generated", "phase": "inference", "price": 0, "per": 1000000},
+                ]
+            }
+        },
+        2.0,
+    )
+    assert zeros["input"] == zeros["cached"] == zeros["output"] == 0
+    assert zeros["nativeCurrency"] == "USD"
+    assert zeros["cachedFallback"] is False
+    # Rows without a cached unit fall back to the input rate.
+    fallback = _aimlapi_rates(
+        {
+            "pricing": {
+                "units": [
+                    {"name": "token", "content": "text", "origin": "provided", "phase": "inference", "price": "0.2", "per": 1000000},
+                    {"name": "token", "content": "text", "origin": "generated", "phase": "inference", "price": "1", "per": 1000000},
+                ]
+            }
+        },
+        2.0,
+    )
+    assert fallback["cachedFallback"] is True
+    assert fallback["cached"] == fallback["input"] == 0.1
+    # The doc's per warning: "`1000000` for most token rates, `1000` for
+    # some" — per-1000 rows scale by 1,000, not 1,000,000.
+    thousands = _aimlapi_rates(
+        {
+            "pricing": {
+                "units": [
+                    {"name": "token", "content": "text", "origin": "provided", "phase": "inference", "price": 0.0195, "per": 1000},
+                    {"name": "token", "content": "text", "origin": "generated", "phase": "inference", "price": 0.078, "per": 1000},
+                ]
+            }
+        },
+        2.0,
+    )
+    assert math.isclose(thousands["native"]["input"], 19.5)
+    assert math.isclose(thousands["native"]["output"], 78)
+    # Rows without text-token input and output prices (the dynamic
+    # router's empty units) are not per-million-token priced and stay out
+    # of the listings.
+    try:
+        _aimlapi_rates({"pricing": {"units": []}}, 2.0)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("missing per-token prices should skip the row")
+    # The fixture's non-chat endpoint rows (the image-generations and
+    # text-to-speech endpoints) stay out of the listings.
+    assert "x-ai/grok-imagine-image-2.0" not in by_id
+    assert "openai/tts-1" not in by_id
+    assert "aimlapi/dynamic-router" not in by_id
+
+
 def test_seven_day_seller_fallback():
     fetched_at = now_utc().isoformat()
     previous = {
@@ -1257,7 +1422,7 @@ def test_seven_day_seller_fallback():
 
 @contextmanager
 def _patch_adapters(**behaviors):
-    """Patch the build's ECB fetch and all seventeen listings adapters. Values
+    """Patch the build's ECB fetch and all eighteen listings adapters. Values
     are return values for `ok`, exceptions for failing sources."""
     ecb = behaviors.pop("ecb", {"usdPerEur": 1.1, "observationDate": "2026-10-16"})
     patches = [
@@ -1457,6 +1622,7 @@ def test_aggregate_contract():
     assert native_by_seller["chutes"] == "USD"
     assert native_by_seller["llmgateway"] == "USD"
     assert native_by_seller["aiand"] == "USD"
+    assert native_by_seller["aimlapi"] == "USD"
     assert {
         native_by_seller[sid]
         for sid in ("deepseek-direct", "zai-direct", "claude-direct", "openai-direct")
@@ -1532,6 +1698,7 @@ def test_generated_page():
         'data-seller="chutes"',
         'data-seller="llmgateway"',
         'data-seller="aiand"',
+        'data-seller="aimlapi"',
         'data-seller="deepseek-direct"',
         'data-seller="zai-direct"',
         'data-seller="claude-direct"',
@@ -1612,6 +1779,7 @@ def main():
     test_chutes_adapter()
     test_llm_gateway_adapter()
     test_aiand_adapter()
+    test_aimlapi_adapter()
     test_seven_day_seller_fallback()
     test_broken_source_fails_in_isolation()
     test_build_fails_only_without_usable_data()
