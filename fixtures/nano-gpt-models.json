@@ -1,0 +1,353 @@
+{
+  "object": "list",
+  "data": [
+    {
+      "id": "openai/gpt-5.2",
+      "object": "model",
+      "created": 1765411200,
+      "owned_by": "openai",
+      "name": "GPT 5.2",
+      "description": "GPT-5.2 is an OpenAI GPT-5-series model with strong reasoning and long-context performance.",
+      "context_length": 400000,
+      "max_output_tokens": 128000,
+      "architecture": {
+        "modality": "text+image->text",
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "vision": true,
+        "video_input": false,
+        "audio_input": false,
+        "reasoning": true,
+        "tool_calling": true,
+        "parallel_tool_calls": false,
+        "structured_output": true,
+        "pdf_upload": true,
+        "batch_api": true
+      },
+      "reasoning_efforts": [
+        "none",
+        "low",
+        "medium",
+        "high",
+        "xhigh"
+      ],
+      "supported_service_tiers": [
+        "flex",
+        "fast",
+        "priority"
+      ],
+      "supported_batch_endpoints": [
+        "/v1/chat/completions",
+        "/v1/responses"
+      ],
+      "pricing": {
+        "prompt": 1.75,
+        "completion": 14,
+        "cacheReadInputPer1kTokens": 0.00017500000000000003,
+        "currency": "USD",
+        "unit": "per_million_tokens"
+      },
+      "cost_estimate": 0.016,
+      "icon_url": "/icons/OpenAI.svg",
+      "subscription": {
+        "included": false,
+        "inputTokenMultiplier": 1,
+        "note": "Not included in subscription"
+      }
+    },
+    {
+      "id": "moonshotai/kimi-k2-thinking",
+      "object": "model",
+      "created": 1762387200,
+      "owned_by": "moonshot",
+      "name": "Kimi K2 Thinking",
+      "description": "Moonshot AI's distinct Kimi K2 Thinking checkpoint is a mandatory-reasoning model for long-horizon agentic workflows and multi-step tool use.",
+      "context_length": 262144,
+      "max_output_tokens": 98304,
+      "architecture": {
+        "modality": "text->text",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "vision": false,
+        "video_input": false,
+        "audio_input": false,
+        "reasoning": true,
+        "tool_calling": true,
+        "parallel_tool_calls": false,
+        "structured_output": true,
+        "pdf_upload": false,
+        "batch_api": true
+      },
+      "open_weights": true,
+      "supported_service_tiers": [],
+      "supported_batch_endpoints": [
+        "/v1/chat/completions"
+      ],
+      "pricing": {
+        "prompt": 0.6,
+        "completion": 2.5,
+        "cacheReadInputPer1kTokens": 0.00015,
+        "currency": "USD",
+        "unit": "per_million_tokens"
+      },
+      "cost_estimate": 0.0039,
+      "icon_url": "/icons/MoonshotAI.svg",
+      "category": "More",
+      "providers": [
+        "google",
+        "novita"
+      ],
+      "subscription": {
+        "included": true,
+        "inputTokenMultiplier": 1,
+        "note": "Included in subscription"
+      }
+    },
+    {
+      "id": "openai/gpt-oss-20b",
+      "object": "model",
+      "created": 1754352000,
+      "owned_by": "openai",
+      "name": "GPT OSS 20B",
+      "description": "An open-weight 21B parameter model released under the Apache 2.0 license. It uses a Mixture-of-Experts (MoE) architecture with 3.6B active parameters per forward pass, optimized for lower-latency inference and deployability on consumer or single-GPU hardware. The model is trained in OpenAI's Harmony response format and supports reasoning level configuration, fine-tuning, and agentic capabilities including function calling, tool use, and structured outputs.",
+      "context_length": 131072,
+      "max_output_tokens": 16384,
+      "architecture": {
+        "modality": "text->text",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "vision": false,
+        "video_input": false,
+        "audio_input": false,
+        "reasoning": true,
+        "tool_calling": true,
+        "parallel_tool_calls": false,
+        "structured_output": false,
+        "pdf_upload": false,
+        "batch_api": true
+      },
+      "open_weights": true,
+      "supported_service_tiers": [],
+      "supported_batch_endpoints": [
+        "/v1/chat/completions"
+      ],
+      "pricing": {
+        "prompt": 0.02,
+        "completion": 0.09999999999999999,
+        "currency": "USD",
+        "unit": "per_million_tokens"
+      },
+      "cost_estimate": 0.0012,
+      "icon_url": "/icons/OpenAI.svg",
+      "category": "More",
+      "effective_pricing": {
+        "list_price": {
+          "inputPer1kTokens": 2e-05,
+          "outputPer1kTokens": 0.0001
+        },
+        "effective_price": {
+          "inputPer1kTokens": 2e-05,
+          "outputPer1kTokens": 9.999999999999999e-05
+        },
+        "pricing_type": "observed",
+        "currency": "USD",
+        "unit": "per_1k_tokens",
+        "discount_percentage": 0,
+        "source": "provider_catalog"
+      },
+      "providers": [
+        "darkbloom",
+        "cloudflare",
+        "deepinfra",
+        "akash",
+        "dekallm",
+        "siliconflow",
+        "parasail",
+        "google",
+        "groq",
+        "coreweave",
+        "uomi",
+        "ollama",
+        "hyperfusion",
+        "greenference"
+      ],
+      "subscription": {
+        "included": true,
+        "inputTokenMultiplier": 1,
+        "note": "Included in subscription"
+      }
+    },
+    {
+      "id": "bytedance/doubao-seed-character",
+      "object": "model",
+      "created": 1784332800,
+      "owned_by": "doubao",
+      "name": "Doubao Seed Character",
+      "description": "ByteDance's character-focused Doubao Seed model for roleplay, persona consistency, dialogue, and creative character interactions. It supports text and image input with a 128k context window. Requests route through ZenMux to ByteDance; ZenMux does not publish a model-API zero-retention or training guarantee, so avoid sensitive data.",
+      "context_length": 128000,
+      "max_output_tokens": 32768,
+      "architecture": {
+        "modality": "text+image->text",
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "vision": true,
+        "video_input": false,
+        "audio_input": false,
+        "reasoning": true,
+        "tool_calling": false,
+        "parallel_tool_calls": false,
+        "structured_output": false,
+        "pdf_upload": false,
+        "batch_api": false
+      },
+      "reasoning_efforts": [
+        "none",
+        "high"
+      ],
+      "supported_service_tiers": [],
+      "supported_batch_endpoints": [],
+      "pricing": {
+        "prompt": 0.15,
+        "completion": 0.37,
+        "cacheReadInputPer1kTokens": 3e-05,
+        "cacheWriteInputPer1kTokens": 3e-06,
+        "currency": "USD",
+        "unit": "per_million_tokens"
+      },
+      "cost_estimate": 0.00037,
+      "icon_url": "/icons/Doubao.svg",
+      "category": "Roleplay/storytelling models",
+      "providers": [
+        "zenmux"
+      ],
+      "subscription": {
+        "included": true,
+        "inputTokenMultiplier": 1,
+        "note": "Included in subscription"
+      }
+    },
+    {
+      "id": "nano-gpt-help",
+      "object": "model",
+      "created": 1780704000,
+      "owned_by": "nanogpt",
+      "name": "NanoGPT Help",
+      "description": "Text-only NanoGPT support assistant. Questions are processed by the Help inference provider; do not paste secrets or account credentials. Covers the website, models, API, pricing, memory, media generation, and support.",
+      "context_length": 6000,
+      "max_output_tokens": 512,
+      "architecture": {
+        "modality": "text->text",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "vision": false,
+        "video_input": false,
+        "audio_input": false,
+        "reasoning": false,
+        "tool_calling": false,
+        "parallel_tool_calls": false,
+        "structured_output": false,
+        "pdf_upload": false,
+        "batch_api": false
+      },
+      "supported_service_tiers": [],
+      "supported_batch_endpoints": [],
+      "pricing": {
+        "prompt": 0,
+        "completion": 0,
+        "currency": "USD",
+        "unit": "per_million_tokens"
+      },
+      "cost_estimate": 0,
+      "icon_url": "/icons/icon-192x192.png",
+      "category": "More",
+      "subscription": {
+        "included": true,
+        "inputTokenMultiplier": 1,
+        "note": "Included in subscription"
+      }
+    },
+    {
+      "id": "qwen/qwen3.5-omni-flash",
+      "object": "model",
+      "created": 1774828800,
+      "owned_by": "qwen",
+      "name": "Qwen3.5 Omni Flash",
+      "aliases": [
+        "qwen3.5-omni-flash"
+      ],
+      "description": "Qwen3.5 Omni Flash is Qwen's fast multimodal model. We verified live support for text prompts, images, audio files, and direct video URLs on Alibaba's chat-completions-compatible API. Alibaba describes Flash as a fully evolved version of Qwen3 Omni with audio input support across 60+ languages.",
+      "context_length": 49152,
+      "max_output_tokens": 16384,
+      "architecture": {
+        "modality": "text+image+video+audio->text",
+        "input_modalities": [
+          "text",
+          "image",
+          "video",
+          "audio"
+        ],
+        "output_modalities": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "vision": true,
+        "video_input": true,
+        "audio_input": true,
+        "reasoning": false,
+        "tool_calling": false,
+        "parallel_tool_calls": false,
+        "structured_output": false,
+        "pdf_upload": false,
+        "batch_api": false
+      },
+      "supported_service_tiers": [],
+      "supported_batch_endpoints": [],
+      "pricing": {
+        "currency": "USD",
+        "unit": "per_million_tokens",
+        "note": "varies_by_modality"
+      },
+      "cost_estimate": 0.00105,
+      "icon_url": "/icons/Qwen.svg",
+      "category": "More",
+      "subscription": {
+        "included": false,
+        "inputTokenMultiplier": 1,
+        "note": "Not included in subscription"
+      }
+    }
+  ]
+}

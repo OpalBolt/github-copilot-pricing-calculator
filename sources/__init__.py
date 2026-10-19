@@ -16,6 +16,7 @@ from sources.claude_direct import CLAUDE_MODELS_URL, CLAUDE_PRICING_URL
 from sources.cortecs import CORTECS_URL
 from sources.deepinfra import DEEPINFRA_URL
 from sources.eurouter import EUROUTER_URL
+from sources.nano_gpt import NANO_GPT_URL
 from sources.novita import NOVITA_URL
 from sources.openai_direct import OPENAI_MODELS_URL, OPENAI_PRICING_URL
 from sources.opencode import OPENCODE_ZEN_URL
@@ -72,6 +73,16 @@ SOURCES = {
         "pages": ("global",),
         "sellerKind": "gateway",
         "source": REQUESTY_URL,
+        "nativeCurrency": "USD",
+        "euClaim": "No EU routing catalog is published.",
+    },
+    "nano-gpt": {
+        "name": "nano-gpt",
+        "pages": ("global",),
+        "sellerKind": "gateway",
+        "source": NANO_GPT_URL,
+        # nano-gpt's pricing page bills text API usage "at the model's list
+        # price" in USD; every catalog row prices currency USD.
         "nativeCurrency": "USD",
         "euClaim": "No EU routing catalog is published.",
     },

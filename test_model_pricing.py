@@ -16,6 +16,7 @@ from sources.deepinfra import _deepinfra_rates, fetch_deepinfra_listings
 from sources.eurouter import fetch_eurouter_listings
 from sources.helpers import _rates, listing_from_offer, now_utc
 from sources.novita import _novita_rates, fetch_novita_listings
+from sources.nano_gpt import _nano_gpt_rates, fetch_nano_gpt_listings
 from sources.opencode import fetch_opencode_listings
 from sources.requesty import _requesty_rates, fetch_requesty_listings
 from sources.openrouter import fetch_openrouter_listings
@@ -34,6 +35,7 @@ ALL_SELLERS = {
     "deepinfra",
     "novita",
     "requesty",
+    "nano-gpt",
     "deepseek-direct",
     "zai-direct",
     "claude-direct",
@@ -47,6 +49,7 @@ SELLER_KINDS = {
     "deepinfra": "gateway",
     "novita": "gateway",
     "requesty": "gateway",
+    "nano-gpt": "gateway",
     "deepseek-direct": "first-party",
     "zai-direct": "first-party",
     "claude-direct": "first-party",
@@ -99,6 +102,7 @@ def test_registry_pages():
         "deepinfra",
         "novita",
         "requesty",
+        "nano-gpt",
     }
     assert global_pages == ALL_SELLERS
     assert {m["sellerKind"] for m in SOURCES.values()} == set(SELLER_KINDS.values())
@@ -529,6 +533,109 @@ def test_requesty_adapter():
         raise AssertionError("missing per-token prices should skip the row")
 
 
+def test_nano_gpt_adapter():
+    """The committed nano-gpt catalog sample normalizes to per-million-token
+    USD listings converted with the ECB rate; the catalog's note-only
+    varies_by_modality rows are skipped, not broken."""
+    # nano-gpt's own pricing page bills text API usage "at the model's list
+    # price" in USD, and the catalog rows price currency USD; the registry
+    # records that verified native currency.
+    assert SOURCES["nano-gpt"]["nativeCurrency"] == "USD"
+    assert SOURCES["nano-gpt"]["pages"] == ("global",)
+
+    fixture = ROOT / "fixtures" / "nano-gpt-models.json"
+    payload = json.loads(fixture.read_text(encoding="utf-8"))
+    with patch("sources.nano_gpt.fetch_json", return_value=payload):
+        listings = fetch_nano_gpt_listings({"usdPerEur": 2.0})
+    by_id = {listing["modelId"]: listing for listing in listings}
+    assert set(by_id) == {
+        "openai/gpt-5.2",
+        "moonshotai/kimi-k2-thinking",
+        "openai/gpt-oss-20b",
+        "bytedance/doubao-seed-character",
+        "nano-gpt-help",
+    }
+
+    # The catalog prices every row `per_million_tokens` USD, so prompt and
+    # completion rates pass through unmultiplied in dollars and the ECB
+    # rate converts them; the cache-read field is per 1,000 tokens and
+    # scales by 1,000.
+    gpt = by_id["openai/gpt-5.2"]
+    assert gpt["key"] == "nano-gpt:openai/gpt-5.2"
+    assert gpt["seller"] == "nano-gpt"
+    assert gpt["sellerName"] == "nano-gpt"
+    assert gpt["name"] == "GPT 5.2"
+    assert gpt["creator"] == "OpenAI"
+    assert gpt["contextSize"] == 400000
+    assert gpt["capabilities"] == {
+        "reasoning": True,
+        "tools": True,
+        "vision": True,
+        "audio": False,
+    }
+    assert gpt["rates"]["nativeCurrency"] == "USD"
+    assert gpt["rates"]["native"]["input"] == 1.75
+    assert math.isclose(gpt["rates"]["native"]["cached"], 0.175)
+    assert gpt["rates"]["native"]["output"] == 14.0
+    assert math.isclose(gpt["rates"]["input"], 0.875)
+    assert math.isclose(gpt["rates"]["cached"], 0.0875)
+    assert math.isclose(gpt["rates"]["output"], 7.0)
+    assert gpt["rates"]["cachedFallback"] is False
+
+    kimi = by_id["moonshotai/kimi-k2-thinking"]
+    assert kimi["creator"] == "Moonshot AI"
+    assert kimi["capabilities"] == {
+        "reasoning": True,
+        "tools": True,
+        "vision": False,
+        "audio": False,
+    }
+    assert kimi["rates"]["native"]["input"] == 0.6
+    assert math.isclose(kimi["rates"]["native"]["cached"], 0.15)
+    assert kimi["rates"]["native"]["output"] == 2.5
+
+    # Rows without a cache-read price fall back to the input rate, and the
+    # cache-write field never stands in for the cached-input read.
+    oss = by_id["openai/gpt-oss-20b"]
+    assert oss["rates"]["cachedFallback"] is True
+    assert oss["rates"]["cached"] == oss["rates"]["input"]
+    doubao = by_id["bytedance/doubao-seed-character"]
+    assert math.isclose(doubao["rates"]["native"]["cached"], 0.03)
+    assert not math.isclose(doubao["rates"]["native"]["cached"], 0.003)
+
+    # A zero price is a price: the zero-priced row normalizes to zero
+    # rates instead of dropping out.
+    assert by_id["nano-gpt-help"]["rates"]["native"] == {
+        "input": 0,
+        "cached": 0,
+        "output": 0,
+    }
+    zeros = _nano_gpt_rates(
+        {"pricing": {"prompt": 0, "completion": 0}}, 2.0
+    )
+    assert zeros["input"] == zeros["cached"] == zeros["output"] == 0
+    assert zeros["nativeCurrency"] == "USD"
+
+    assert all(
+        listing["rates"]["nativeCurrency"] == "USD" for listing in listings
+    )
+    assert all(
+        "nano-gpt" in listing["priceNote"] and "ECB" in listing["priceNote"]
+        for listing in listings
+    )
+    # Rows without prompt and completion prices (the catalog's
+    # varies_by_modality note rows) are not per-million-token priced and
+    # stay out of the listings.
+    try:
+        _nano_gpt_rates(
+            {"pricing": {"currency": "USD", "note": "varies_by_modality"}}, 2.0
+        )
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("note-only pricing should skip the row")
+
+
 def test_seven_day_seller_fallback():
     fetched_at = now_utc().isoformat()
     previous = {
@@ -550,7 +657,7 @@ def test_seven_day_seller_fallback():
 
 @contextmanager
 def _patch_adapters(**behaviors):
-    """Patch the build's ECB fetch and all eleven listings adapters. Values
+    """Patch the build's ECB fetch and all twelve listings adapters. Values
     are return values for `ok`, exceptions for failing sources."""
     ecb = behaviors.pop("ecb", {"usdPerEur": 1.1, "observationDate": "2026-10-16"})
     patches = [
@@ -714,6 +821,7 @@ def test_aggregate_contract():
     # is the biggest of the routers.
     assert counts["requesty"] == max(counts.values())
     assert counts["requesty"] > 400
+    assert counts["nano-gpt"] > 600
     assert counts["openrouter"] > 100
     assert counts["cortecs"] > 50
     assert counts["eurouter"] > 50
@@ -743,6 +851,7 @@ def test_aggregate_contract():
     assert native_by_seller["deepinfra"] == "USD"
     assert native_by_seller["novita"] == "USD"
     assert native_by_seller["requesty"] == "USD"
+    assert native_by_seller["nano-gpt"] == "USD"
     assert {
         native_by_seller[sid]
         for sid in ("deepseek-direct", "zai-direct", "claude-direct", "openai-direct")
@@ -812,6 +921,7 @@ def test_generated_page():
         'data-seller="deepinfra"',
         'data-seller="novita"',
         'data-seller="requesty"',
+        'data-seller="nano-gpt"',
         'data-seller="deepseek-direct"',
         'data-seller="zai-direct"',
         'data-seller="claude-direct"',
@@ -886,6 +996,7 @@ def main():
     test_deepinfra_adapter()
     test_novita_adapter()
     test_requesty_adapter()
+    test_nano_gpt_adapter()
     test_seven_day_seller_fallback()
     test_broken_source_fails_in_isolation()
     test_build_fails_only_without_usable_data()

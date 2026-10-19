@@ -19,6 +19,7 @@ from sources.deepinfra import fetch_deepinfra_listings
 from sources.deepseek_direct import fetch_deepseek_direct_listings
 from sources.eurouter import fetch_eurouter_listings
 from sources.helpers import fetch_ecb_rate, now_utc
+from sources.nano_gpt import fetch_nano_gpt_listings
 from sources.novita import fetch_novita_listings
 from sources.openai_direct import fetch_openai_direct_listings
 from sources.opencode import fetch_opencode_listings
@@ -43,6 +44,7 @@ ADAPTERS = {
     "deepinfra": lambda exchange_rate: fetch_deepinfra_listings(exchange_rate),
     "novita": lambda exchange_rate: fetch_novita_listings(exchange_rate),
     "requesty": lambda exchange_rate: fetch_requesty_listings(exchange_rate),
+    "nano-gpt": lambda exchange_rate: fetch_nano_gpt_listings(exchange_rate),
     "deepseek-direct": lambda exchange_rate: fetch_deepseek_direct_listings(
         exchange_rate
     ),
