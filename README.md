@@ -114,6 +114,7 @@ The router build uses these sources:
 | Hyper catalog | `https://hyper.charm.land/v1/models` |
 | Inceptron catalog | `https://api.inceptron.io/v1/models` |
 | NEAR AI catalog | `https://cloud-api.near.ai/v1/models` |
+| OfoxAI catalog | `https://api.ofox.ai/v2/models/catalog?include=provider_price&limit=500` |
 | Claude model catalog | `https://platform.claude.com/docs/en/api/http/beta/models/list.md` |
 | Claude direct API pricing | `https://platform.claude.com/docs/en/about-claude/pricing.md` |
 | DeepSeek direct API | `https://api-docs.deepseek.com/quick_start/pricing/` |

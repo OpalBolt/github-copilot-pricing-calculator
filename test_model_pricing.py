@@ -37,6 +37,11 @@ from sources.nearai import (
     fetch_nearai_listings,
 )
 from sources.novita import _novita_rates, fetch_novita_listings
+from sources.ofox import (
+    _ofox_owner,
+    _ofox_rates,
+    fetch_ofox_listings,
+)
 from sources.nano_gpt import _nano_gpt_rates, fetch_nano_gpt_listings
 from sources.opencode import fetch_opencode_listings
 from sources.requesty import _requesty_rates, fetch_requesty_listings
@@ -76,6 +81,7 @@ ALL_SELLERS = {
     "hyper",
     "inceptron",
     "nearai",
+    "ofox",
     "deepseek-direct",
     "zai-direct",
     "claude-direct",
@@ -105,6 +111,7 @@ SELLER_KINDS = {
     "hyper": "gateway",
     "inceptron": "gateway",
     "nearai": "gateway",
+    "ofox": "gateway",
     "deepseek-direct": "first-party",
     "zai-direct": "first-party",
     "claude-direct": "first-party",
@@ -173,6 +180,7 @@ def test_registry_pages():
         "hyper",
         "inceptron",
         "nearai",
+        "ofox",
     }
     assert global_pages == ALL_SELLERS
     assert {m["sellerKind"] for m in SOURCES.values()} == set(SELLER_KINDS.values())
@@ -2794,6 +2802,178 @@ def test_nearai_adapter():
     assert marked["nativeCurrency"] == "USD"
 
 
+def test_ofox_adapter():
+    """The committed OfoxAI catalog sample normalizes its per-token USD
+    decimal strings into per-million listings converted with the ECB rate;
+    only the catalog's text-model rows ship and serving-platform labels do
+    not become creators."""
+    # OfoxAI self-describes as "One API Key, access to 100+ LLMs"
+    # (ofox.ai/docs) — a multi-model gateway, not a router. It bills US
+    # dollars: the balance API documents the account currency as "currency
+    # string Currency unit, fixed to \"USD\"" and "All amounts are in USD
+    # as 64-bit floats. Internally we track to NanoDollar precision
+    # (10⁻⁹ USD)" (ofox.ai/docs/api/openapi/balance), the pricing doc
+    # bills text models per token with cache-hit input at "a discounted
+    # rate" (ofox.ai/docs/develop/observability/pricing), and the site
+    # renders the catalog's per-token decimals as dollars per 1M tokens
+    # (kimi-k3 "$3 / $15 /M" for pricing "0.000003"/"0.000015"). The
+    # registry records sellerKind gateway, that verified native currency,
+    # and the global page only.
+    assert SOURCES["ofox"]["nativeCurrency"] == "USD"
+    assert SOURCES["ofox"]["pages"] == ("global",)
+    assert SOURCES["ofox"]["sellerKind"] == "gateway"
+
+    fixture = ROOT / "fixtures" / "ofox-models.json"
+    payload = json.loads(fixture.read_text(encoding="utf-8"))
+    with patch("sources.ofox.fetch_json", return_value=payload):
+        listings = fetch_ofox_listings({"usdPerEur": 2.0})
+    by_id = {listing["modelId"]: listing for listing in listings}
+    assert set(by_id) == {
+        "deepseek/deepseek-v4.1-flash-1017",
+        "anthropic/claude-haiku-5.5",
+        "openai/gpt-6-sol",
+        "openai/gpt-5.4",
+        "openai/gpt-5.4-pro",
+        "qwen/qwen3.6-27b",
+        "google/gemini-4-argon",
+        "moonshotai/kimi-k3",
+        "z-ai/glm-5.3-flash",
+        "volcengine/doubao-seed-2.1-pro",
+        "minimax/minimax-m3",
+    }
+    # Only `mode: "chat"` rows are text models billed per token: the
+    # decisions row (zero-priced output), the per-image image row, the
+    # per-second video row, and the per-input-token embedding row skip
+    # instead of shipping a distorted token price.
+    assert "typesafe/jev-latest" not in by_id
+    assert "volcengine/doubao-seedream-5.0-flash" not in by_id
+    assert "alibaba/wan-3.0" not in by_id
+    assert "openai/text-embedding-3-small" not in by_id
+
+    # The catalog's pricing.input, pricing.output, and
+    # pricing.input_cache_read fields are per-token USD decimals (kimi-k3's
+    # "0.000003"/"0.000015" render as "$3 / $15 /M" on OfoxAI's own
+    # pages), so the rates scale by 1,000,000 in dollars and the ECB rate
+    # converts them.
+    haiku = by_id["anthropic/claude-haiku-5.5"]
+    assert haiku["key"] == "ofox:anthropic/claude-haiku-5.5"
+    assert haiku["seller"] == "ofox"
+    assert haiku["sellerName"] == "OfoxAI"
+    assert haiku["name"] == "Anthropic: Claude Haiku 5.5"
+    assert haiku["creator"] == "Anthropic"
+    assert haiku["contextSize"] == 1_000_000
+    assert haiku["pricingTiers"] == []
+    assert haiku["rates"]["nativeCurrency"] == "USD"
+    assert haiku["rates"]["native"] == {
+        "input": 0.1,
+        "cached": 0.01,
+        "output": 0.5,
+    }
+    assert math.isclose(haiku["rates"]["input"], 0.05)
+    assert math.isclose(haiku["rates"]["cached"], 0.005)
+    assert math.isclose(haiku["rates"]["output"], 0.25)
+    assert haiku["rates"]["cachedFallback"] is False
+    # The catalog's own capability flags map onto the shared shape
+    # (function_calling -> tools, audio_input -> audio).
+    assert haiku["capabilities"] == {
+        "reasoning": True,
+        "tools": True,
+        "vision": True,
+        "audio": False,
+    }
+
+    # Serving-platform labels (azure, bedrock, dashscope, openrouter) fall
+    # back to the id's vendor prefix; creator orgs keep their owned_by
+    # spelling, and OfoxAI's Doubao rows attribute to ByteDance.
+    assert by_id["openai/gpt-6-sol"]["creator"] == "OpenAI"
+    assert by_id["openai/gpt-5.4"]["creator"] == "OpenAI"
+    assert by_id["qwen/qwen3.6-27b"]["creator"] == "Alibaba"
+    assert by_id["moonshotai/kimi-k3"]["creator"] == "Moonshot AI"
+    assert by_id["z-ai/glm-5.3-flash"]["creator"] == "Z.ai"
+    assert by_id["deepseek/deepseek-v4.1-flash-1017"]["creator"] == "DeepSeek"
+    assert by_id["google/gemini-4-argon"]["creator"] == "Google"
+    assert by_id["volcengine/doubao-seed-2.1-pro"]["creator"] == "ByteDance"
+    assert by_id["minimax/minimax-m3"]["creator"] == "MiniMax AI"
+    assert "openrouter" not in {listing["creator"] for listing in listings}
+    # A prefix-less id under a serving-platform label carries no creator
+    # signal; the row attributes to the gateway itself instead of an empty
+    # creator.
+    assert _ofox_owner({"id": "gpt-x", "owned_by": "azure"}) == "OfoxAI"
+    assert _ofox_owner({"id": "kimi-x", "owned_by": "MoonshotAI"}) == "Moonshot AI"
+
+    # Rows without input_cache_read fall back to the input rate.
+    pro = by_id["openai/gpt-5.4-pro"]
+    assert pro["rates"]["native"] == {
+        "input": 30.0,
+        "cached": 30.0,
+        "output": 180.0,
+    }
+    assert pro["rates"]["cachedFallback"] is True
+    assert by_id["qwen/qwen3.6-27b"]["rates"]["native"] == {
+        "input": 0.43,
+        "cached": 0.43,
+        "output": 2.57,
+    }
+    assert by_id["qwen/qwen3.6-27b"]["rates"]["cachedFallback"] is True
+
+    # Non-token pricing fields (web_search, audio, per-image rates) are
+    # ignored: gemini-4-argon's token rates come from its input, output,
+    # and input_cache_read fields only.
+    argon = by_id["google/gemini-4-argon"]
+    assert argon["rates"]["native"] == {
+        "input": 4.0,
+        "cached": 0.2,
+        "output": 20.0,
+    }
+
+    # The context-tiered haiku row keeps its base rates: context tiers are
+    # not separate listings.
+    assert haiku["rates"]["native"] == {
+        "input": 0.1,
+        "cached": 0.01,
+        "output": 0.5,
+    }
+
+    assert all(
+        listing["rates"]["nativeCurrency"] == "USD" for listing in listings
+    )
+    assert all(
+        "OfoxAI" in listing["priceNote"] and "ECB" in listing["priceNote"]
+        for listing in listings
+    )
+    # A zero price is a price: zero-priced fields normalize to zero rates
+    # instead of dropping out.
+    zeros = _ofox_rates(
+        {
+            "pricing": {
+                "input": "0",
+                "output": "0",
+                "input_cache_read": "0",
+            }
+        },
+        2.0,
+    )
+    assert zeros["input"] == zeros["cached"] == zeros["output"] == 0
+    assert zeros["nativeCurrency"] == "USD"
+    assert zeros["cachedFallback"] is False
+    # Rows without a cache_read read fall back to the input rate.
+    fallback = _ofox_rates({"pricing": {"input": 1, "output": 2}}, 2.0)
+    assert fallback["native"] == {
+        "input": 1_000_000,
+        "cached": 1_000_000,
+        "output": 2_000_000,
+    }
+    assert fallback["cachedFallback"] is True
+    # Rows without per-token input and output prices are not
+    # per-million-token priced and stay out of the listings.
+    try:
+        _ofox_rates({"pricing": {"input": "0.0000005"}}, 2.0)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("missing per-token prices should skip the row")
+
+
 def test_seven_day_seller_fallback():
     fetched_at = now_utc().isoformat()
     previous = {
@@ -2986,6 +3166,7 @@ def test_aggregate_contract():
     assert counts["openrouter"] > 100
     assert counts["cortecs"] > 50
     assert counts["eurouter"] > 50
+    assert counts["ofox"] > 50
     assert sum(counts.values()) == len(listings) >= 700
 
     # Rate plausibility: USD-native listings convert with the build's ECB
@@ -3028,6 +3209,7 @@ def test_aggregate_contract():
     assert native_by_seller["hyper"] == "USD"
     assert native_by_seller["inceptron"] == "USD"
     assert native_by_seller["nearai"] == "USD"
+    assert native_by_seller["ofox"] == "USD"
     assert {
         native_by_seller[sid]
         for sid in ("deepseek-direct", "zai-direct", "claude-direct", "openai-direct")
@@ -3113,6 +3295,7 @@ def test_generated_page():
         'data-seller="hyper"',
         'data-seller="inceptron"',
         'data-seller="nearai"',
+        'data-seller="ofox"',
         'data-seller="deepseek-direct"',
         'data-seller="zai-direct"',
         'data-seller="claude-direct"',
@@ -3203,6 +3386,7 @@ def main():
     test_hyper_adapter()
     test_inceptron_adapter()
     test_nearai_adapter()
+    test_ofox_adapter()
     test_seven_day_seller_fallback()
     test_broken_source_fails_in_isolation()
     test_build_fails_only_without_usable_data()

@@ -1,0 +1,1003 @@
+{
+  "object": "list",
+  "data": [
+    {
+      "id": "deepseek/deepseek-v4.1-flash-1017",
+      "canonical_slug": "deepseek-v4.1-flash-20261017",
+      "display_name": "DeepSeek V4.1 Flash 1017",
+      "description": "DeepSeek V4.1 Flash 1017 is the October 17, 2026 dated version of DeepSeek V4.1 Flash, served through Volcengine with the pinned upstream model ID deepseek-v4-1-flash-261017. It supports vision, reasoning, tool calls, JSON output and prompt caching, with a 1M-token context window and up to 384K output tokens. Available through Ofox via OpenAI and Anthropic protocols.",
+      "icon": "DeepSeek",
+      "owned_by": "deepseek",
+      "model_protocol": "openai",
+      "series": "deepseek",
+      "mode": "chat",
+      "context_window": 1000000,
+      "max_output_tokens": 384000,
+      "pricing": {
+        "input": "0.0000003",
+        "output": "0.0000012",
+        "input_cache_read": "0.000000006"
+      },
+      "capabilities": {
+        "vision": true,
+        "function_calling": true,
+        "reasoning": true,
+        "prompt_caching": true,
+        "web_search": false,
+        "web_fetch": false,
+        "audio_input": false,
+        "video_input": false,
+        "pdf_input": false
+      },
+      "supported_provider_types": [
+        "volcengine"
+      ],
+      "supported_protocols": [
+        "openai",
+        "anthropic"
+      ],
+      "supported_protocol_endpoints": {
+        "openai": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      "released_at": "2026-10-17T00:00:00Z",
+      "is_deprecated": false,
+      "aliases": [
+        "deepseek-v4.1-flash-1017",
+        "deepseek-v4.1-flash-20261017"
+      ],
+      "provider_price": {
+        "provider_type": "volcengine",
+        "pricing": {
+          "input": "0.0000003",
+          "output": "0.0000012",
+          "input_cache_read": "0.000000006"
+        },
+        "is_override": false
+      }
+    },
+    {
+      "id": "anthropic/claude-haiku-5.5",
+      "canonical_slug": "claude-haiku-5-5",
+      "display_name": "Anthropic: Claude Haiku 5.5",
+      "description": "Claude Haiku 5.5 is Anthropic's fastest and most cost-effective model, successor to Claude Haiku 4.5, built for high-volume, latency-sensitive work such as classification, routing, extraction and sub-agent tasks. It supports a 1M-token context window, up to 128K output tokens and adaptive thinking. Prompts above 100K input tokens are billed at 5x the base rate.",
+      "icon": "Claude",
+      "owned_by": "bedrock",
+      "model_protocol": "anthropic",
+      "series": "claude",
+      "mode": "chat",
+      "context_window": 1000000,
+      "max_output_tokens": 128000,
+      "pricing": {
+        "context_price_tiers": [
+          {
+            "threshold_tokens": 100000,
+            "input": 5e-07,
+            "output": 2.5e-06,
+            "cache_read": 5e-08,
+            "cache_write_5m": 6.25e-07,
+            "cache_write_1h": 1e-06
+          }
+        ],
+        "input": "0.0000001",
+        "output": "0.0000005",
+        "input_cache_read": "0.00000001",
+        "input_cache_write_5m": "0.000000125",
+        "input_cache_write_1h": "0.0000002",
+        "web_search": "0.015"
+      },
+      "capabilities": {
+        "vision": true,
+        "function_calling": true,
+        "reasoning": true,
+        "prompt_caching": true,
+        "web_search": false,
+        "web_fetch": false,
+        "audio_input": false,
+        "video_input": false,
+        "pdf_input": true
+      },
+      "supported_provider_types": [
+        "aws_bedrock"
+      ],
+      "supported_protocols": [
+        "openai",
+        "anthropic"
+      ],
+      "supported_protocol_endpoints": {
+        "openai": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      "released_at": "2026-10-07T00:00:00Z",
+      "is_deprecated": false,
+      "aliases": [
+        "claude-haiku-5-5",
+        "claude-haiku-5.5",
+        "anthropic/claude-haiku-latest",
+        "claude-haiku-latest"
+      ],
+      "provider_price": null
+    },
+    {
+      "id": "openai/gpt-6-sol",
+      "canonical_slug": "openai/gpt-6-sol",
+      "display_name": "OpenAI: GPT-6 Sol",
+      "description": "GPT-6 Sol is the balanced model in OpenAI's GPT-6 family, offering strong reasoning, coding, and agentic performance at a fraction of GPT-6 Astra's cost. It supports text and image inputs with text output, adjustable reasoning effort, a 1.05M-token context window, and up to 128K output tokens.",
+      "icon": "OpenAI",
+      "owned_by": "openrouter",
+      "model_protocol": "openai",
+      "series": "gpt",
+      "mode": "chat",
+      "context_window": 1050000,
+      "max_output_tokens": 128000,
+      "pricing": {
+        "context_price_tiers": [
+          {
+            "threshold_tokens": 272000,
+            "input": 4e-06,
+            "output": 1.5e-05,
+            "cache_read": 4e-07,
+            "cache_write": 5e-06
+          }
+        ],
+        "input": "0.000002",
+        "output": "0.00001",
+        "input_cache_read": "0.0000002",
+        "input_cache_write": "0.0000025",
+        "web_search": "0.01"
+      },
+      "capabilities": {
+        "vision": true,
+        "function_calling": true,
+        "reasoning": true,
+        "prompt_caching": true,
+        "web_search": true,
+        "web_fetch": false,
+        "audio_input": false,
+        "video_input": false,
+        "pdf_input": false
+      },
+      "supported_provider_types": [
+        "openai",
+        "azure_foundry"
+      ],
+      "supported_protocols": [
+        "anthropic",
+        "openai"
+      ],
+      "supported_protocol_endpoints": {
+        "openai": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      "released_at": "2026-09-22T00:00:00Z",
+      "is_deprecated": false,
+      "aliases": [
+        "gpt-6-sol"
+      ],
+      "provider_price": {
+        "provider_type": "openai",
+        "pricing": {
+          "context_price_tiers": [
+            {
+              "threshold_tokens": 272000,
+              "input": 4e-06,
+              "output": 1.5e-05,
+              "cache_read": 4e-07,
+              "cache_write": 5e-06
+            }
+          ],
+          "input": "0.000002",
+          "output": "0.00001",
+          "input_cache_read": "0.0000002",
+          "input_cache_write": "0.0000025",
+          "web_search": "0.01"
+        },
+        "is_override": true
+      }
+    },
+    {
+      "id": "openai/gpt-5.4",
+      "canonical_slug": "gpt-5.4-2026-03-05",
+      "display_name": "OpenAI: GPT-5.4",
+      "description": "GPT-5.4 is OpenAI’s latest frontier model, unifying the Codex and GPT lines into a single system. It features a 1M+ token context window (922K input, 128K output) with support for text and image inputs, enabling high-context reasoning, coding, and multimodal analysis within the same workflow.The model delivers improved performance in coding, document understanding, tool use, and instruction following. It is designed as a strong default for both general-purpose tasks and software engineering, capable of generating production-quality code, synthesizing information across multiple sources, and executing complex multi-step workflows with fewer iterations and greater token efficiency.",
+      "icon": "OpenAI",
+      "owned_by": "azure",
+      "model_protocol": "openai",
+      "series": "gpt",
+      "mode": "chat",
+      "context_window": 1050000,
+      "max_output_tokens": 128000,
+      "pricing": {
+        "context_price_tiers": [
+          {
+            "threshold_tokens": 272000,
+            "input": 5e-06,
+            "output": 2.25e-05,
+            "cache_read": 5e-07
+          }
+        ],
+        "input": "0.0000025",
+        "output": "0.000015",
+        "input_cache_read": "0.00000025",
+        "output_image": "0.000032",
+        "web_search": "0.014"
+      },
+      "capabilities": {
+        "vision": true,
+        "function_calling": true,
+        "reasoning": true,
+        "prompt_caching": true,
+        "web_search": true,
+        "web_fetch": false,
+        "audio_input": false,
+        "video_input": false,
+        "pdf_input": false
+      },
+      "supported_provider_types": [
+        "azure_foundry"
+      ],
+      "supported_protocols": [
+        "openai",
+        "anthropic"
+      ],
+      "supported_protocol_endpoints": {
+        "openai": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      "released_at": "2026-03-05T00:00:00Z",
+      "is_deprecated": false,
+      "aliases": [
+        "gpt-5.4"
+      ],
+      "provider_price": {
+        "provider_type": "azure_foundry",
+        "pricing": {
+          "context_price_tiers": [
+            {
+              "threshold_tokens": 272000,
+              "input": 5e-06,
+              "output": 2.25e-05,
+              "cache_read": 5e-07
+            }
+          ],
+          "input": "0.0000025",
+          "output": "0.000015",
+          "input_cache_read": "0.00000025",
+          "output_image": "0.000032",
+          "web_search": "0.035"
+        },
+        "is_override": true
+      }
+    },
+    {
+      "id": "openai/gpt-5.4-pro",
+      "canonical_slug": "gpt-5.4-pro-2026-03-05",
+      "display_name": "OpenAI: GPT-5.4 Pro",
+      "description": "GPT-5.4 Pro is OpenAI's most advanced model, building on GPT-5.4's unified architecture with enhanced reasoning capabilities for complex, high-stakes tasks. It features a 1M+ token context window (922K input, 128K output) with support for text and image inputs. Optimized for step-by-step reasoning, instruction following, and accuracy, GPT-5.4 Pro excels at agentic coding, long-context workflows, and multi-step problem solving.",
+      "icon": "OpenAI",
+      "owned_by": "azure",
+      "model_protocol": "openai",
+      "series": "gpt",
+      "mode": "chat",
+      "context_window": 1050000,
+      "max_output_tokens": 128000,
+      "pricing": {
+        "context_price_tiers": [
+          {
+            "threshold_tokens": 272000,
+            "input": 6e-05,
+            "output": 0.00027
+          }
+        ],
+        "input": "0.00003",
+        "output": "0.00018",
+        "output_image": "0.000032",
+        "web_search": "0.014"
+      },
+      "capabilities": {
+        "vision": true,
+        "function_calling": true,
+        "reasoning": true,
+        "prompt_caching": false,
+        "web_search": true,
+        "web_fetch": false,
+        "audio_input": false,
+        "video_input": false,
+        "pdf_input": false
+      },
+      "supported_provider_types": [
+        "azure_foundry"
+      ],
+      "supported_protocols": [
+        "openai"
+      ],
+      "supported_protocol_endpoints": {
+        "openai": [
+          "/v1/responses"
+        ]
+      },
+      "released_at": "2026-03-05T00:00:00Z",
+      "is_deprecated": false,
+      "aliases": [
+        "gpt-5.4-pro"
+      ],
+      "provider_price": {
+        "provider_type": "azure_foundry",
+        "pricing": {
+          "context_price_tiers": [
+            {
+              "threshold_tokens": 272000,
+              "input": 6e-05,
+              "output": 0.00027
+            }
+          ],
+          "input": "0.00003",
+          "output": "0.00018",
+          "output_image": "0.000032",
+          "web_search": "0.035"
+        },
+        "is_override": true
+      }
+    },
+    {
+      "id": "qwen/qwen3.6-27b",
+      "canonical_slug": "qwen3.6-27b",
+      "display_name": "Qwen: Qwen3.6 27B",
+      "description": "Qwen3.6系列27B原生视觉语言Dense模型，模型效果相较3.5-27B重点提升了Agentic coding能力、模型STEM与推理能力进一步增强；视觉模态方面在空间智能、物体定位与检测能力上显著增强，视频理解、文档OCR及视觉Agent能力稳步提升。",
+      "icon": "Qwen",
+      "owned_by": "dashscope",
+      "model_protocol": "openai",
+      "series": "qwen",
+      "mode": "chat",
+      "context_window": 256000,
+      "max_output_tokens": 64000,
+      "pricing": {
+        "input": "0.00000043",
+        "output": "0.00000257",
+        "web_search": "0.01"
+      },
+      "capabilities": {
+        "vision": true,
+        "function_calling": true,
+        "reasoning": true,
+        "prompt_caching": true,
+        "web_search": true,
+        "web_fetch": false,
+        "audio_input": false,
+        "video_input": true,
+        "pdf_input": false
+      },
+      "supported_provider_types": [
+        "aliyun",
+        "alicloud"
+      ],
+      "supported_protocols": [
+        "openai",
+        "anthropic"
+      ],
+      "supported_protocol_endpoints": {
+        "openai": [
+          "/v1/chat/completions"
+        ]
+      },
+      "released_at": "2026-04-22T00:00:00Z",
+      "is_deprecated": false,
+      "aliases": [
+        "qwen3.6-27b",
+        "bailian/qwen3.6-27b"
+      ],
+      "provider_price": {
+        "provider_type": "aliyun",
+        "pricing": {
+          "input": "0.00000043",
+          "output": "0.00000257",
+          "web_search": "0.01"
+        },
+        "is_override": false
+      }
+    },
+    {
+      "id": "google/gemini-4-argon",
+      "canonical_slug": "gemini-4-argon",
+      "display_name": "Google: Gemini 4 Argon",
+      "description": "Gemini 4 Argon is Google's flagship reasoning model for coding and agentic workflows. Supports text, image, audio, video and PDF input, tool calling and structured output. Input, thinking and output share a 1,048,576-token window. Thinking levels: low, medium (default), high. Implicit caching only. Standard streaming output up to 65,536 tokens; direct non-streaming REST up to 32,768. Long decode requires continuation support and is not enabled by this catalog entry.",
+      "icon": "Gemini",
+      "owned_by": "google",
+      "model_protocol": "gemini",
+      "series": "gemini",
+      "mode": "chat",
+      "context_window": 1048576,
+      "max_output_tokens": 65536,
+      "pricing": {
+        "input": "0.000004",
+        "output": "0.00002",
+        "audio": "0.000004",
+        "input_cache_read": "0.0000002",
+        "input_cached_audio": "0.0000002",
+        "web_search": "0.014"
+      },
+      "capabilities": {
+        "vision": true,
+        "function_calling": true,
+        "reasoning": true,
+        "prompt_caching": true,
+        "web_search": true,
+        "web_fetch": false,
+        "audio_input": true,
+        "video_input": true,
+        "pdf_input": true
+      },
+      "supported_provider_types": [
+        "google_vertex"
+      ],
+      "supported_protocols": [
+        "openai",
+        "gemini"
+      ],
+      "supported_protocol_endpoints": {
+        "openai": [
+          "/v1/chat/completions"
+        ]
+      },
+      "released_at": "2026-10-13T00:00:00Z",
+      "is_deprecated": false,
+      "aliases": [
+        "gemini-4-argon"
+      ],
+      "provider_price": {
+        "provider_type": "google_vertex",
+        "pricing": {
+          "input": "0.000002",
+          "output": "0.00001",
+          "audio": "0.000002",
+          "input_cache_read": "0.0000001",
+          "input_cached_audio": "0.0000001",
+          "web_search": "0.014"
+        },
+        "is_override": true
+      }
+    },
+    {
+      "id": "moonshotai/kimi-k3",
+      "canonical_slug": "kimi-k3-20260716",
+      "display_name": "MoonshotAI: Kimi K3",
+      "description": "Kimi K3 是 Moonshot 官方 (api.moonshot.cn) 2026-07-16 发布的旗舰模型 (2.8T MoE), 1M token 上下文, 内嵌 thinking (reasoning_content), 支持视觉输入。OpenAI 协议直用; Anthropic 协议不强制 thinking 参数, 经 bifrost 转换正常 (与 K2.7 不同)。",
+      "icon": "Moonshot",
+      "owned_by": "MoonshotAI",
+      "model_protocol": "openai",
+      "series": "kimi",
+      "mode": "chat",
+      "context_window": 1048576,
+      "max_output_tokens": 1048576,
+      "pricing": {
+        "input": "0.000003",
+        "output": "0.000015",
+        "input_cache_read": "0.0000003",
+        "web_search": "0.005"
+      },
+      "capabilities": {
+        "vision": true,
+        "function_calling": true,
+        "reasoning": true,
+        "prompt_caching": true,
+        "web_search": true,
+        "web_fetch": false,
+        "audio_input": false,
+        "video_input": false,
+        "pdf_input": false
+      },
+      "supported_provider_types": [
+        "moonshot",
+        "azure_foundry"
+      ],
+      "supported_protocols": [
+        "openai",
+        "anthropic"
+      ],
+      "supported_protocol_endpoints": {
+        "openai": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      "released_at": "2026-07-16T00:00:00Z",
+      "is_deprecated": false,
+      "aliases": [
+        "kimi-k3"
+      ],
+      "provider_price": {
+        "provider_type": "moonshot",
+        "pricing": {
+          "input": "0.000003",
+          "output": "0.000015",
+          "input_cache_read": "0.0000003",
+          "web_search": "0.005"
+        },
+        "is_override": false
+      }
+    },
+    {
+      "id": "z-ai/glm-5.3-flash",
+      "canonical_slug": "glm-5.3-flash",
+      "display_name": "Z.ai: GLM-5.3-Flash",
+      "description": "GLM-5.3-Flash 是 z.ai 国际站 (api.z.ai) 轻量高速模型, 原生多模态输入 (图片/视频), 面向高效编码与长程 agent 任务. 1M context, 常驻 thinking (不可关闭, 支持 low/high/max 三档 reasoning effort), 支持 prompt caching / tool calling / web search. 通过 OpenAI-compatible + Anthropic 双协议接入 (无 responses 端点).",
+      "icon": "Zhipu",
+      "owned_by": "zhipu",
+      "model_protocol": "openai",
+      "series": "glm",
+      "mode": "chat",
+      "context_window": 1048576,
+      "max_output_tokens": 131072,
+      "pricing": {
+        "input": "0.00000015",
+        "output": "0.0000005",
+        "input_cache_read": "0.00000003",
+        "web_search": "0.01"
+      },
+      "capabilities": {
+        "vision": true,
+        "function_calling": true,
+        "reasoning": true,
+        "prompt_caching": true,
+        "web_search": true,
+        "web_fetch": false,
+        "audio_input": false,
+        "video_input": true,
+        "pdf_input": false
+      },
+      "supported_provider_types": [
+        "zai",
+        "volcengine"
+      ],
+      "supported_protocols": [
+        "anthropic",
+        "openai"
+      ],
+      "supported_protocol_endpoints": {
+        "openai": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      "released_at": "2026-08-26T00:00:00Z",
+      "is_deprecated": false,
+      "aliases": [
+        "glm-5.3-flash"
+      ],
+      "provider_price": {
+        "provider_type": "zai",
+        "pricing": {
+          "input": "0.00000015",
+          "output": "0.0000005",
+          "input_cache_read": "0.00000003",
+          "web_search": "0.01"
+        },
+        "is_override": false
+      }
+    },
+    {
+      "id": "volcengine/doubao-seed-2.1-pro",
+      "canonical_slug": "doubao-seed-2-1-pro-260628",
+      "display_name": "Doubao Seed 2.1 Pro",
+      "description": "火山引擎豆包 Seed 2.1 Pro 旗舰推理模型, 内嵌 thinking。OpenAI + Anthropic 双协议。ARK 真实 id doubao-seed-2-1-pro-260628。",
+      "icon": "Doubao",
+      "owned_by": "volcengine",
+      "model_protocol": "openai",
+      "series": "doubao",
+      "mode": "chat",
+      "context_window": 256000,
+      "max_output_tokens": 256000,
+      "pricing": {
+        "input": "0.000000884",
+        "output": "0.00000442",
+        "input_cache_read": "0.000000177",
+        "input_cache_write": "0.0000000025",
+        "web_search": "0.0012"
+      },
+      "capabilities": {
+        "vision": true,
+        "function_calling": true,
+        "reasoning": true,
+        "prompt_caching": true,
+        "web_search": true,
+        "web_fetch": false,
+        "audio_input": false,
+        "video_input": true,
+        "pdf_input": false
+      },
+      "supported_provider_types": [
+        "volcengine"
+      ],
+      "supported_protocols": [
+        "anthropic",
+        "openai"
+      ],
+      "supported_protocol_endpoints": {
+        "openai": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      "released_at": "2026-06-23T00:00:00Z",
+      "is_deprecated": false,
+      "aliases": [
+        "doubao-seed-2.1-pro"
+      ],
+      "provider_price": {
+        "provider_type": "volcengine",
+        "pricing": {
+          "input": "0.0000007072",
+          "output": "0.000003536",
+          "input_cache_read": "0.0000001416",
+          "input_cache_write": "0.000000002",
+          "web_search": "0.0012"
+        },
+        "is_override": true
+      }
+    },
+    {
+      "id": "minimax/minimax-m3",
+      "canonical_slug": "minimax-m3-2026-05-31",
+      "display_name": "MiniMax: MiniMax M3",
+      "description": "MiniMax-M3 是 MiniMax 官方渠道 (api.minimaxi.com) 旗舰推理模型, 1M context, 内嵌 thinking (<think> 标签), 支持 prompt caching 与 tool calling. 通过 OpenAI-compatible + Anthropic 双协议接入 ofox china 池.",
+      "icon": "Minimax",
+      "owned_by": "minimax",
+      "model_protocol": "openai",
+      "series": "minimax",
+      "mode": "chat",
+      "context_window": 1131000,
+      "max_output_tokens": 131000,
+      "pricing": {
+        "input": "0.0000006",
+        "output": "0.0000024",
+        "input_cache_read": "0.00000012"
+      },
+      "capabilities": {
+        "vision": true,
+        "function_calling": true,
+        "reasoning": true,
+        "prompt_caching": true,
+        "web_search": true,
+        "web_fetch": false,
+        "audio_input": false,
+        "video_input": false,
+        "pdf_input": false
+      },
+      "supported_provider_types": [
+        "minimax"
+      ],
+      "supported_protocols": [
+        "anthropic",
+        "openai"
+      ],
+      "supported_protocol_endpoints": {
+        "openai": [
+          "/v1/chat/completions",
+          "/v1/responses"
+        ]
+      },
+      "released_at": "2026-06-01T00:00:00Z",
+      "is_deprecated": false,
+      "aliases": [
+        "minimax-m3"
+      ],
+      "provider_price": {
+        "provider_type": "minimax",
+        "pricing": {
+          "input": "0.0000006",
+          "output": "0.0000024",
+          "input_cache_read": "0.00000012"
+        },
+        "is_override": false
+      }
+    },
+    {
+      "id": "typesafe/jev-latest",
+      "canonical_slug": "jev-latest",
+      "display_name": "TypeSafe: Jev",
+      "description": "TypeSafe Jev evaluates text or structured state using predicate, choice and score questions. Available through /v1/decisions, /openai/v1/decisions and /typesafe/v1/systemone.",
+      "icon": "TypeSafe",
+      "owned_by": "typesafe",
+      "model_protocol": "openai",
+      "series": "jev",
+      "mode": "decisions",
+      "context_window": 64000,
+      "max_output_tokens": 0,
+      "pricing": {
+        "input": "0.000000042",
+        "output": "0"
+      },
+      "capabilities": {
+        "vision": false,
+        "function_calling": false,
+        "reasoning": false,
+        "prompt_caching": false,
+        "web_search": false,
+        "web_fetch": false,
+        "audio_input": false,
+        "video_input": false,
+        "pdf_input": false
+      },
+      "supported_provider_types": [
+        "typesafe"
+      ],
+      "supported_protocols": [
+        "openai"
+      ],
+      "supported_protocol_endpoints": {
+        "openai": [
+          "/openai/v1/decisions",
+          "/typesafe/v1/systemone",
+          "/v1/decisions"
+        ]
+      },
+      "released_at": "2026-09-23T00:00:00Z",
+      "is_deprecated": false,
+      "aliases": [
+        "jev-latest"
+      ],
+      "provider_price": {
+        "provider_type": "typesafe",
+        "pricing": {
+          "input": "0.000000042",
+          "output": "0"
+        },
+        "is_override": true
+      }
+    },
+    {
+      "id": "volcengine/doubao-seedream-5.0-flash",
+      "canonical_slug": "doubao-seedream-5-0-flash-260915",
+      "display_name": "Doubao Seedream 5.0 Flash",
+      "description": "Seedream 5.0 Flash 是字节跳动的快速图像生成模型，支持文生图和参考图编辑。支持 1K、1.5K、2K 分辨率及 PNG、JPEG 输出，提示词优化仅支持 standard 模式。",
+      "icon": "Doubao",
+      "owned_by": "volcengine",
+      "model_protocol": "openai",
+      "series": "doubao",
+      "mode": "image_generation",
+      "context_window": 100000,
+      "max_output_tokens": 100000,
+      "pricing": {
+        "input": "0",
+        "output": "0",
+        "output_image_per_num": "0.02"
+      },
+      "capabilities": {
+        "vision": true,
+        "function_calling": false,
+        "reasoning": false,
+        "prompt_caching": false,
+        "web_search": false,
+        "web_fetch": false,
+        "audio_input": false,
+        "video_input": false,
+        "pdf_input": false
+      },
+      "supported_provider_types": [
+        "volcengine"
+      ],
+      "supported_protocols": [
+        "openai"
+      ],
+      "supported_protocol_endpoints": {
+        "openai": [
+          "/v1/images/generations"
+        ]
+      },
+      "released_at": "2026-09-15T00:00:00Z",
+      "is_deprecated": false,
+      "aliases": [
+        "doubao-seedream-5.0-flash",
+        "doubao-seedream-5-0-flash",
+        "doubao-seedream-5-0-flash-260915"
+      ],
+      "image_attributes": {
+        "supported_params": [
+          "prompt",
+          "image",
+          "size",
+          "watermark",
+          "output_format",
+          "response_format",
+          "optimize_prompt_options"
+        ],
+        "sizes": [
+          "1K",
+          "1.5K",
+          "2K"
+        ],
+        "output_formats": [
+          "png",
+          "jpeg"
+        ],
+        "optimize_prompt_modes": [
+          "standard"
+        ],
+        "family": "seedream"
+      },
+      "provider_price": {
+        "provider_type": "volcengine",
+        "pricing": {
+          "input": "0",
+          "output": "0",
+          "output_image_per_num": "0.02"
+        },
+        "is_override": true
+      }
+    },
+    {
+      "id": "alibaba/wan-3.0",
+      "canonical_slug": "alibaba/wan-3.0-20260824",
+      "display_name": "Wan 3.0",
+      "description": "阿里通义万相 3.0 视频生成模型，单模型统一支持文生视频、图生视频（首帧/首尾帧）与参考生视频，可混合输入文本、图片、视频、音频等多模态素材（最多 10 张参考图、5 段参考视频/音频）。480P/720P/1080P 分辨率、2-30 秒时长、6 种宽高比与自适应，默认输出同步音频，支持视频续写与编辑。",
+      "icon": "Qwen",
+      "owned_by": "openai",
+      "model_protocol": "openai",
+      "series": "wan",
+      "mode": "video_generation",
+      "context_window": 0,
+      "max_output_tokens": 0,
+      "pricing": {
+        "input": "0",
+        "output": "0",
+        "output_video_per_second": "0.054",
+        "video_pricing": {
+          "unit": "per_second",
+          "tiers": [
+            {
+              "resolution": "480p",
+              "price": "0.054"
+            },
+            {
+              "resolution": "720p",
+              "price": "0.11"
+            },
+            {
+              "resolution": "1080p",
+              "price": "0.21"
+            },
+            {
+              "price": "0.21"
+            }
+          ]
+        }
+      },
+      "capabilities": {
+        "vision": false,
+        "function_calling": false,
+        "reasoning": false,
+        "prompt_caching": false,
+        "web_search": false,
+        "web_fetch": false,
+        "audio_input": false,
+        "video_input": true,
+        "pdf_input": false
+      },
+      "supported_provider_types": [
+        "aliyun",
+        "alicloud"
+      ],
+      "supported_protocols": [
+        "openai"
+      ],
+      "supported_protocol_endpoints": {
+        "openai": [
+          "/v1/videos"
+        ]
+      },
+      "released_at": "2026-08-24T00:00:00Z",
+      "is_deprecated": false,
+      "aliases": [
+        "wan-3.0",
+        "wan-3.0-20260824"
+      ],
+      "video_attributes": {
+        "modes": [
+          "t2v",
+          "i2v",
+          "v2v"
+        ],
+        "resolutions": [
+          "480p",
+          "720p",
+          "1080p"
+        ],
+        "default_resolution": "1080p",
+        "min_duration_seconds": 2,
+        "max_duration_seconds": 30,
+        "supports_audio": true,
+        "aspect_ratios": [
+          "16:9",
+          "4:3",
+          "1:1",
+          "3:4",
+          "9:16",
+          "adaptive"
+        ]
+      },
+      "provider_price": {
+        "provider_type": "alicloud",
+        "pricing": {
+          "input": "0",
+          "output": "0",
+          "output_video_per_second": "0.054",
+          "video_pricing": {
+            "unit": "per_second",
+            "tiers": [
+              {
+                "resolution": "480p",
+                "price": "0.054"
+              },
+              {
+                "resolution": "720p",
+                "price": "0.11"
+              },
+              {
+                "resolution": "1080p",
+                "price": "0.21"
+              },
+              {
+                "price": "0.21"
+              }
+            ]
+          }
+        },
+        "is_override": false
+      }
+    },
+    {
+      "id": "openai/text-embedding-3-small",
+      "canonical_slug": "text-embedding-3-small",
+      "display_name": "OpenAI: Text Embedding 3 Small",
+      "description": "text-embedding-3-small is OpenAI's improved, more performant version of the ada embedding model. Embeddings are a numerical representation of text that can be used to measure the relatedness between two pieces of text. Embeddings are useful for search, clustering, recommendations, anomaly detection, and classification tasks.",
+      "icon": "OpenAI",
+      "owned_by": "azure",
+      "model_protocol": "openai",
+      "series": "gpt",
+      "mode": "embedding",
+      "context_window": 8200,
+      "max_output_tokens": 8200,
+      "pricing": {
+        "input": "0.00000002",
+        "output": "0",
+        "web_search": "0.014"
+      },
+      "capabilities": {
+        "vision": false,
+        "function_calling": false,
+        "reasoning": false,
+        "prompt_caching": false,
+        "web_search": false,
+        "web_fetch": false,
+        "audio_input": false,
+        "video_input": false,
+        "pdf_input": false
+      },
+      "supported_provider_types": [
+        "azure_foundry"
+      ],
+      "supported_protocols": [
+        "openai"
+      ],
+      "supported_protocol_endpoints": {
+        "openai": [
+          "/v1/embeddings"
+        ]
+      },
+      "released_at": "2025-10-30T00:00:00Z",
+      "is_deprecated": false,
+      "aliases": [
+        "text-embedding-3-small"
+      ],
+      "provider_price": null
+    }
+  ]
+}

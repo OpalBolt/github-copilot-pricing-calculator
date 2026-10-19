@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-19T17:39:10.037545+00:00",
+  "generatedAt": "2026-10-19T17:58:51.095692+00:00",
   "currency": "EUR",
   "exchangeRate": {
     "series": "EXR.D.USD.EUR.SP00.A",
@@ -15,7 +15,7 @@
       "source": "https://api.cortecs.ai/v1/models?extended=true&currency=EUR",
       "id": "cortecs",
       "nativeCurrency": "EUR",
-      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
+      "fetchedAt": "2026-10-19T17:58:51.095692+00:00",
       "stale": false
     },
     {
@@ -24,7 +24,7 @@
       "source": "https://api.eurouter.ai/api/v1/models",
       "id": "eurouter",
       "nativeCurrency": "mixed",
-      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
+      "fetchedAt": "2026-10-19T17:58:51.095692+00:00",
       "stale": false
     },
     {
@@ -33,7 +33,7 @@
       "source": "https://openrouter.ai/api/v1/models",
       "id": "openrouter",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
+      "fetchedAt": "2026-10-19T17:58:51.095692+00:00",
       "stale": false
     },
     {
@@ -42,7 +42,7 @@
       "source": "https://opencode.ai/zen/v1/models",
       "id": "opencode",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
+      "fetchedAt": "2026-10-19T17:58:51.095692+00:00",
       "stale": false
     },
     {
@@ -51,7 +51,7 @@
       "source": "https://api.deepinfra.com/v1/models",
       "nativeCurrency": "USD",
       "id": "deepinfra",
-      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
+      "fetchedAt": "2026-10-19T17:58:51.095692+00:00",
       "stale": false
     },
     {
@@ -60,7 +60,7 @@
       "source": "https://api.novita.ai/v3/openai/models",
       "nativeCurrency": "USD",
       "id": "novita",
-      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
+      "fetchedAt": "2026-10-19T17:58:51.095692+00:00",
       "stale": false
     },
     {
@@ -69,7 +69,7 @@
       "source": "https://router.requesty.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "requesty",
-      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
+      "fetchedAt": "2026-10-19T17:58:51.095692+00:00",
       "stale": false
     },
     {
@@ -78,7 +78,7 @@
       "source": "https://ai-gateway.vercel.sh/v1/models",
       "nativeCurrency": "USD",
       "id": "vercel-gateway",
-      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
+      "fetchedAt": "2026-10-19T17:58:51.095692+00:00",
       "stale": false
     },
     {
@@ -87,7 +87,7 @@
       "source": "https://api.kilo.ai/api/gateway/models",
       "nativeCurrency": "USD",
       "id": "kilo",
-      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
+      "fetchedAt": "2026-10-19T17:58:51.095692+00:00",
       "stale": false
     },
     {
@@ -96,7 +96,7 @@
       "source": "https://nano-gpt.com/api/v1/models?detailed=true",
       "nativeCurrency": "USD",
       "id": "nano-gpt",
-      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
+      "fetchedAt": "2026-10-19T17:58:51.095692+00:00",
       "stale": false
     },
     {
@@ -105,7 +105,7 @@
       "source": "https://llm.chutes.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "chutes",
-      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
+      "fetchedAt": "2026-10-19T17:58:51.095692+00:00",
       "stale": false
     },
     {
@@ -114,7 +114,7 @@
       "source": "https://api.llmgateway.io/v1/models",
       "nativeCurrency": "USD",
       "id": "llmgateway",
-      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
+      "fetchedAt": "2026-10-19T17:58:51.095692+00:00",
       "stale": false
     },
     {
@@ -123,7 +123,7 @@
       "source": "https://api.aiand.com/v1/models",
       "nativeCurrency": "USD",
       "id": "aiand",
-      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
+      "fetchedAt": "2026-10-19T17:58:51.095692+00:00",
       "stale": false
     },
     {
@@ -132,7 +132,7 @@
       "source": "https://api.aimlapi.com/v1/models?include=pricing,modalities",
       "nativeCurrency": "USD",
       "id": "aimlapi",
-      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
+      "fetchedAt": "2026-10-19T17:58:51.095692+00:00",
       "stale": false
     },
     {
@@ -141,7 +141,7 @@
       "source": "https://api.ambient.xyz/v1/models",
       "nativeCurrency": "USD",
       "id": "ambient",
-      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
+      "fetchedAt": "2026-10-19T17:58:51.095692+00:00",
       "stale": false
     },
     {
@@ -150,7 +150,7 @@
       "source": "https://www.crossmodel.ai/api/models",
       "nativeCurrency": "USD",
       "id": "crossmodel",
-      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
+      "fetchedAt": "2026-10-19T17:58:51.095692+00:00",
       "stale": false
     },
     {
@@ -159,7 +159,7 @@
       "source": "https://api.edenai.run/v3/models",
       "nativeCurrency": "USD",
       "id": "edenai",
-      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
+      "fetchedAt": "2026-10-19T17:58:51.095692+00:00",
       "stale": false
     },
     {
@@ -168,7 +168,7 @@
       "source": "https://api.empiriolabs.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "empiriolabs",
-      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
+      "fetchedAt": "2026-10-19T17:58:51.095692+00:00",
       "stale": false
     },
     {
@@ -177,7 +177,7 @@
       "source": "https://api.engy.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "engy",
-      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
+      "fetchedAt": "2026-10-19T17:58:51.095692+00:00",
       "stale": false
     },
     {
@@ -186,7 +186,7 @@
       "source": "https://api.friendli.ai/serverless/v1/models",
       "nativeCurrency": "USD",
       "id": "friendli",
-      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
+      "fetchedAt": "2026-10-19T17:58:51.095692+00:00",
       "stale": false
     },
     {
@@ -195,7 +195,7 @@
       "source": "https://hyper.charm.land/v1/models",
       "nativeCurrency": "USD",
       "id": "hyper",
-      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
+      "fetchedAt": "2026-10-19T17:58:51.095692+00:00",
       "stale": false
     },
     {
@@ -204,7 +204,7 @@
       "source": "https://api.inceptron.io/v1/models",
       "nativeCurrency": "USD",
       "id": "inceptron",
-      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
+      "fetchedAt": "2026-10-19T17:58:51.095692+00:00",
       "stale": false
     },
     {
@@ -213,7 +213,16 @@
       "source": "https://cloud-api.near.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "nearai",
-      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
+      "fetchedAt": "2026-10-19T17:58:51.095692+00:00",
+      "stale": false
+    },
+    {
+      "name": "OfoxAI",
+      "sellerKind": "gateway",
+      "source": "https://api.ofox.ai/v2/models/catalog?include=provider_price&limit=500",
+      "nativeCurrency": "USD",
+      "id": "ofox",
+      "fetchedAt": "2026-10-19T17:58:51.095692+00:00",
       "stale": false
     },
     {
@@ -222,7 +231,7 @@
       "sellerKind": "first-party",
       "id": "deepseek-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
+      "fetchedAt": "2026-10-19T17:58:51.095692+00:00",
       "stale": false
     },
     {
@@ -231,7 +240,7 @@
       "sellerKind": "first-party",
       "id": "zai-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
+      "fetchedAt": "2026-10-19T17:58:51.095692+00:00",
       "stale": false
     },
     {
@@ -240,7 +249,7 @@
       "sellerKind": "first-party",
       "id": "claude-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
+      "fetchedAt": "2026-10-19T17:58:51.095692+00:00",
       "stale": false
     },
     {
@@ -249,7 +258,7 @@
       "sellerKind": "first-party",
       "id": "openai-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
+      "fetchedAt": "2026-10-19T17:58:51.095692+00:00",
       "stale": false
     }
   ],
@@ -80766,15 +80775,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.010155902004454343,
-        "cached": 0.010155902004454343,
-        "output": 0.40089086859688194,
+        "input": 0.006129175946547884,
+        "cached": 0.0029434298440979955,
+        "output": 0.10690423162583518,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0114,
-          "cached": 0.0114,
-          "output": 0.45
+          "input": 0.00688,
+          "cached": 0.003304,
+          "output": 0.12
         }
       },
       "pricingTiers": [],
@@ -81108,13 +81117,13 @@
       },
       "rates": {
         "input": 0.042761692650334075,
-        "cached": 0.008552338530066815,
+        "cached": 0.005345211581291759,
         "output": 0.14253897550111358,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
           "input": 0.048,
-          "cached": 0.0096,
+          "cached": 0.006,
           "output": 0.16
         }
       },
@@ -81934,7 +81943,7 @@
       "modelId": "deepseek-v4.1-flash",
       "name": "DeepSeek V4.1 Flash",
       "creator": "DeepSeek",
-      "description": "deepseek-v4.1-flash provided by deepseek, alibaba, deepinfra, fireworks, together-ai, novita, baidu, consensusprotocol, scx-ai-gp, runware, luminal, sciforium, entrim",
+      "description": "deepseek-v4.1-flash provided by deepseek, alibaba, deepinfra, fireworks, together-ai, novita, baidu, consensusprotocol, runware, scx-ai-gp, luminal, sciforium, entrim",
       "releaseDate": null,
       "contextSize": 1050000,
       "capabilities": {
@@ -83267,7 +83276,7 @@
       "modelId": "glm-5.2",
       "name": "GLM-5.2",
       "creator": "Z.ai",
-      "description": "glm-5.2 provided by zai, novita, canopywave, embercloud, bytedance, alibaba, nebius, baidu, tencent, runware, scx-ai-gp",
+      "description": "glm-5.2 provided by zai, novita, canopywave, embercloud, bytedance, alibaba, nebius, baidu, tencent, scx-ai-gp, runware",
       "releaseDate": null,
       "contextSize": 1048576,
       "capabilities": {
@@ -113827,6 +113836,3695 @@
       "priceNote": "USD price published in Novita's model catalog and converted with the listed ECB rate."
     },
     {
+      "key": "ofox:anthropic/claude-fable-5",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "anthropic/claude-fable-5",
+      "name": "Anthropic: Claude Fable 5",
+      "creator": "Anthropic",
+      "description": "Anthropic Claude Fable 5 - Mythos-class, long-horizon agentic autonomy",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 8.908685968819599,
+        "cached": 0.8908685968819599,
+        "output": 44.54342984409799,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 10.0,
+          "cached": 1.0,
+          "output": 50.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:anthropic/claude-fable-5.1",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "anthropic/claude-fable-5.1",
+      "name": "Anthropic: Claude Fable 5.1",
+      "creator": "Anthropic",
+      "description": "Anthropic Claude Fable 5.1 - Mythos-class frontier model (successor to Fable 5): ambitious coding, long-horizon agents, enterprise knowledge work; adaptive thinking always on",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 8.908685968819599,
+        "cached": 0.22271714922048996,
+        "output": 44.54342984409799,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 10.0,
+          "cached": 0.25,
+          "output": 50.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:anthropic/claude-haiku-4.5",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "anthropic/claude-haiku-4.5",
+      "name": "Anthropic: Claude Haiku 4.5",
+      "creator": "Anthropic",
+      "description": "Anthropic's fastest and most cost-effective model optimized for near-instant responsiveness. Features extended thinking capabilities and excels at coding tasks.",
+      "releaseDate": null,
+      "contextSize": 200000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.8908685968819599,
+        "cached": 0.08908685968819599,
+        "output": 4.4543429844097995,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.0,
+          "cached": 0.1,
+          "output": 5.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:anthropic/claude-haiku-5.5",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "anthropic/claude-haiku-5.5",
+      "name": "Anthropic: Claude Haiku 5.5",
+      "creator": "Anthropic",
+      "description": "Claude Haiku 5.5 is Anthropic's fastest and most cost-effective model, successor to Claude Haiku 4.5, built for high-volume, latency-sensitive work such as classification, routing, extraction and sub-agent tasks. It supports a 1M-token context window, up to 128K output tokens and adaptive thinking. Prompts above 100K input tokens are billed at 5x the base rate.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.08908685968819599,
+        "cached": 0.008908685968819599,
+        "output": 0.4454342984409799,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.1,
+          "cached": 0.01,
+          "output": 0.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:anthropic/claude-opus-4.6",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "anthropic/claude-opus-4.6",
+      "name": "Anthropic: Claude Opus 4.6",
+      "creator": "Anthropic",
+      "description": "Opus 4.6 is Anthropic\u2019s strongest model for coding and long-running professional tasks. It is built for agents that operate across entire workflows rather than single prompts, making it especially effective for large codebases, complex refactors, and multi-step debugging that unfolds over time. The model shows deeper contextual understanding, stronger problem decomposition, and greater reliability on hard engineering tasks than prior generations.Beyond coding, Opus 4.6 excels at sustained knowledge work. It produces near-production-ready documents, plans, and analyses in a single pass, and maintains coherence across very long outputs and extended sessions. This makes it a strong default for tasks that require persistence, judgment, and follow-through, such as technical design, migration planning, and end-to-end project execution.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 4.4543429844097995,
+        "cached": 0.4454342984409799,
+        "output": 22.271714922048996,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 5.0,
+          "cached": 0.5,
+          "output": 25.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:anthropic/claude-opus-4.7",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "anthropic/claude-opus-4.7",
+      "name": "Anthropic: Claude Opus 4.7",
+      "creator": "Anthropic",
+      "description": "Opus 4.7 is the next generation of Anthropic's Opus family, built for long-running, asynchronous agents. Building on the coding and agentic strengths of Opus 4.6, it delivers stronger performance on complex, multi-step tasks and more reliable agentic execution across extended workflows. It is especially effective for asynchronous agent pipelines where tasks unfold over time - large codebases, multi-stage debugging, and end-to-end project orchestration.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 4.4543429844097995,
+        "cached": 0.4454342984409799,
+        "output": 22.271714922048996,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 5.0,
+          "cached": 0.5,
+          "output": 25.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:anthropic/claude-opus-4.8",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "anthropic/claude-opus-4.8",
+      "name": "Anthropic: Claude Opus 4.8",
+      "creator": "Anthropic",
+      "description": "Claude Opus 4.8 is Anthropic's most capable generally available model in the Opus family. It supports text, image, and file inputs with text output, with reasoning support and a 1M-token context window. It is suited for highly autonomous agents, long-horizon agentic work, knowledge work, and memory-driven tasks where coherence over extended sessions matters. It is particularly strong on multi-step reasoning, complex coding, and end-to-end project orchestration - large codebases, multi-stage debugging, and long-running asynchronous agent pipelines. Beyond coding, it handles knowledge work such as drafting documents, building presentations, and analyzing data, maintaining quality across very long outputs.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 4.4543429844097995,
+        "cached": 0.4454342984409799,
+        "output": 22.271714922048996,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 5.0,
+          "cached": 0.5,
+          "output": 25.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:anthropic/claude-opus-5",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "anthropic/claude-opus-5",
+      "name": "Anthropic: Claude Opus 5",
+      "creator": "Anthropic",
+      "description": "Claude Opus 5 is Anthropic's flagship model for demanding reasoning, coding, and long-horizon agentic work. It supports text, image, and file inputs with text output, with reasoning support and a 1M-token context window. It is particularly strong at end-to-end software tasks - implementing features, code review and bug finding, multi-stage debugging - as well as visual analysis of documents and diagrams, and coordinating multiple agents on complex deliverables. It maintains strong instruction-following and tool use across extended interactions, and remains efficient for latency-sensitive workloads.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 4.4543429844097995,
+        "cached": 0.4454342984409799,
+        "output": 22.271714922048996,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 5.0,
+          "cached": 0.5,
+          "output": 25.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:anthropic/claude-opus-5.5",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "anthropic/claude-opus-5.5",
+      "name": "Anthropic: Claude Opus 5.5",
+      "creator": "Anthropic",
+      "description": "Claude Opus 5.5 is the successor to Claude Opus 5 in Anthropic's Opus line, for demanding reasoning, coding, and long-horizon agentic work. It supports text, image, and file inputs with text output, with always-on adaptive reasoning (effort is the only control), a 1M-token context window, and up to 128K output tokens, at a lower per-token price than Claude Opus 5.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 3.5634743875278394,
+        "cached": 0.17817371937639198,
+        "output": 17.817371937639198,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 4.0,
+          "cached": 0.2,
+          "output": 20.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:anthropic/claude-sonnet-4.6",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "anthropic/claude-sonnet-4.6",
+      "name": "Anthropic: Claude Sonnet 4.6",
+      "creator": "Anthropic",
+      "description": "Sonnet 4.6 is Anthropic's most capable Sonnet-class model yet, with frontier performance across coding, agents, and professional work. It excels at iterative development, complex codebase navigation, end-to-end project management with memory, polished document creation, and confident computer use for web QA and workflow automation.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 2.6726057906458798,
+        "cached": 0.26726057906458794,
+        "output": 13.363028953229398,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 3.0,
+          "cached": 0.3,
+          "output": 15.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:anthropic/claude-sonnet-5",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "anthropic/claude-sonnet-5",
+      "name": "Anthropic: Claude Sonnet 5",
+      "creator": "Anthropic",
+      "description": "Anthropic Claude Sonnet 5 \u2014 2026-07-01 \u53d1\u5e03\u7684 Sonnet \u7cfb\u65d7\u8230, 1M \u4e0a\u4e0b\u6587, \u652f\u6301 adaptive thinking / vision / prompt caching / tools\u3002\u8d70\u6807\u51c6 Bedrock Converse\u3002",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 0.17817371937639198,
+        "output": 8.908685968819599,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 0.2,
+          "output": 10.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:anthropic/claude-sonnet-5.5",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "anthropic/claude-sonnet-5.5",
+      "name": "Anthropic: Claude Sonnet 5.5",
+      "creator": "Anthropic",
+      "description": "Claude Sonnet 5.5 is Anthropic's Sonnet-tier model, offering a balance of speed and intelligence for coding, reasoning, and agentic workloads. It supports text, image, and file inputs with text output, with a 1M-token context window and up to 128K output tokens, at a lower per-token price than Claude Opus 5.5.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 0.17817371937639198,
+        "output": 8.908685968819599,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 0.2,
+          "output": 10.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:deepseek/deepseek-v3.2",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "deepseek/deepseek-v3.2",
+      "name": "DeepSeek V3.2",
+      "creator": "DeepSeek",
+      "description": "DeepSeek's latest model building upon instruction following and coding abilities. Pre-trained on 15 trillion tokens with excellent cost-performance ratio.",
+      "releaseDate": null,
+      "contextSize": 128000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.25835189309576834,
+        "cached": 0.05345211581291759,
+        "output": 0.38307349665924273,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.29,
+          "cached": 0.06,
+          "output": 0.43
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:deepseek/deepseek-v4-flash-0423",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "deepseek/deepseek-v4-flash-0423",
+      "name": "DeepSeek V4 Flash 0423",
+      "creator": "DeepSeek",
+      "description": "DeepSeek V4 Flash is an efficiency-optimized Mixture-of-Experts model from DeepSeek with 284B total parameters and 13B activated parameters, supporting a 1M-token context window. It is designed for fast inference and high-throughput workloads, while maintaining strong reasoning and coding performance.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.16926503340757237,
+        "cached": 0.024944320712694878,
+        "output": 0.45434298440979953,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.19,
+          "cached": 0.028,
+          "output": 0.51
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:deepseek/deepseek-v4-flash-0731",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "deepseek/deepseek-v4-flash-0731",
+      "name": "DeepSeek V4 Flash 0731",
+      "creator": "DeepSeek",
+      "description": "DeepSeek V4 Flash is an efficiency-optimized Mixture-of-Experts model from DeepSeek with 284B total parameters and 13B activated parameters, supporting a 1M-token context window. It is designed for fast inference and high-throughput workloads, while maintaining strong reasoning and coding performance.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.39198218262806234,
+        "cached": 0.012472160356347439,
+        "output": 1.175946547884187,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.44,
+          "cached": 0.014,
+          "output": 1.32
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:deepseek/deepseek-v4-pro-0423",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "deepseek/deepseek-v4-pro-0423",
+      "name": "DeepSeek V4 Pro 0423",
+      "creator": "DeepSeek",
+      "description": "DeepSeek V4 Pro is a large-scale Mixture-of-Experts model from DeepSeek with 1.6T total parameters and 49B activated parameters, supporting a 1M-token context window. It is designed for advanced reasoning, coding, and long-horizon agent workflows, with strong performance across knowledge, math, and software engineering benchmarks.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.175946547884187,
+        "cached": 0.13363028953229397,
+        "output": 3.527839643652561,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.32,
+          "cached": 0.15,
+          "output": 3.96
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:deepseek/deepseek-v4-pro-0813",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "deepseek/deepseek-v4-pro-0813",
+      "name": "DeepSeek V4 Pro 0813",
+      "creator": "DeepSeek",
+      "description": "DeepSeek V4 Pro (0813) is the official release of DeepSeek's flagship Mixture-of-Experts model with 1.6T total parameters and 49B activated parameters, supporting a 1M-token context window. This version greatly enhances agent capabilities \u2014 tool use, code execution, and long-horizon multi-step workflows \u2014 alongside strong reasoning, coding, and software engineering performance.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.175946547884187,
+        "cached": 0.039198218262806235,
+        "output": 3.527839643652561,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.32,
+          "cached": 0.044,
+          "output": 3.96
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:deepseek/deepseek-v4.1-flash",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "deepseek/deepseek-v4.1-flash",
+      "name": "DeepSeek V4.1 Flash",
+      "creator": "DeepSeek",
+      "description": "DeepSeek V4.1 Flash is DeepSeek's latest efficiency-optimized Mixture-of-Experts model with a 1M-token context window and up to 384K output tokens. It adds native multimodal vision understanding, supports thinking mode (on by default), tool calls, JSON output and prompt caching, and per DeepSeek surpasses V4 Pro on quality, cost and speed. Served upstream under the official model id deepseek-flash.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.26726057906458794,
+        "cached": 0.005345211581291759,
+        "output": 1.0690423162583518,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3,
+          "cached": 0.006,
+          "output": 1.2
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:deepseek/deepseek-v4.1-flash-1017",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "deepseek/deepseek-v4.1-flash-1017",
+      "name": "DeepSeek V4.1 Flash 1017",
+      "creator": "DeepSeek",
+      "description": "DeepSeek V4.1 Flash 1017 is the October 17, 2026 dated version of DeepSeek V4.1 Flash, served through Volcengine with the pinned upstream model ID deepseek-v4-1-flash-261017. It supports vision, reasoning, tool calls, JSON output and prompt caching, with a 1M-token context window and up to 384K output tokens. Available through Ofox via OpenAI and Anthropic protocols.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.26726057906458794,
+        "cached": 0.005345211581291759,
+        "output": 1.0690423162583518,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3,
+          "cached": 0.006,
+          "output": 1.2
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:google/gemini-2.5-flash",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "google/gemini-2.5-flash",
+      "name": "Google: Gemini 2.5 Flash",
+      "creator": "Google",
+      "description": "Fast and cost-effective Gemini 2.5 with 1M context. Features toggleable reasoning capabilities and full multimodal support at significantly lower cost than Pro.",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 0.26726057906458794,
+        "cached": 0.026726057906458794,
+        "output": 2.2271714922048997,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3,
+          "cached": 0.03,
+          "output": 2.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:google/gemini-2.5-flash-lite",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "google/gemini-2.5-flash-lite",
+      "name": "Google: Gemini 2.5 Flash Lite",
+      "creator": "Google",
+      "description": "Gemini 2.5 Flash-Lite is a lightweight reasoning model in the Gemini 2.5 family, optimized for ultra-low latency and cost efficiency. It offers improved throughput, faster token generation, and better performance across common benchmarks compared to earlier Flash models. By default, [thinking] (i.e. multi-pass reasoning) is disabled to prioritize speed, but developers can enable it via the Reasoning API parameter to selectively trade off cost for intelligence.",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.08908685968819599,
+        "cached": 0.008908685968819599,
+        "output": 0.35634743875278396,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.1,
+          "cached": 0.01,
+          "output": 0.4
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:google/gemini-2.5-pro",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "google/gemini-2.5-pro",
+      "name": "Google: Gemini 2.5 Pro",
+      "creator": "Google",
+      "description": "Google's flagship Gemini model with 1M context, thinking/reasoning capabilities, and full multimodal support (text, image, video, audio). Excels at complex analysis and creative tasks.",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 1.1135857461024499,
+        "cached": 0.11135857461024498,
+        "output": 8.908685968819599,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.25,
+          "cached": 0.125,
+          "output": 10.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:google/gemini-3-flash-preview",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "google/gemini-3-flash-preview",
+      "name": "Google: Gemini 3 Flash Preview",
+      "creator": "Google",
+      "description": "Gemini 3 Flash Preview is a high speed, high value thinking model designed for agentic workflows, multi turn chat, and coding assistance. It delivers near Pro level reasoning and tool use performance with substantially lower latency than larger Gemini variants, making it well suited for interactive development, long running agent loops, and collaborative coding tasks. Compared to Gemini 2.5 Flash, it provides broad quality improvements across reasoning, multimodal understanding, and reliability.",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 0.4454342984409799,
+        "cached": 0.044543429844097995,
+        "output": 2.6726057906458798,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.5,
+          "cached": 0.05,
+          "output": 3.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:google/gemini-3.1-flash-lite",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "google/gemini-3.1-flash-lite",
+      "name": "Google: Gemini 3.1 Flash Lite",
+      "creator": "Google",
+      "description": "Gemini 3.1 Flash Lite (GA) is Google's high-efficiency multimodal model optimized for low-latency, high-volume workloads. GA version of the preview model. Supports full thinking levels (minimal, low, medium, high) for cost/performance trade-offs. Priced at half the cost of Gemini 3 Flash. Released May 7, 2026.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 0.22271714922048996,
+        "cached": 0.022271714922048998,
+        "output": 1.3363028953229399,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.25,
+          "cached": 0.025,
+          "output": 1.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:google/gemini-3.1-pro-preview",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "google/gemini-3.1-pro-preview",
+      "name": "Google: Gemini 3.1 Pro Preview",
+      "creator": "Google",
+      "description": "Gemini 3.1 Pro is the next generation in the Gemini series of models, a suite of highly-capable, natively multimodal, reasoning models. Gemini 3 Pro is now Google\u2019s most advanced model for complex tasks, and can comprehend vast datasets, challenging problems from different information sources, including text, audio, images, video, and entire code repositories",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 0.17817371937639198,
+        "output": 10.690423162583519,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 0.2,
+          "output": 12.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:google/gemini-3.5-flash",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "google/gemini-3.5-flash",
+      "name": "Google: Gemini 3.5 Flash",
+      "creator": "Google",
+      "description": "Gemini 3.5 Flash is Google's efficient multimodal model delivering near-Pro level coding and reasoning at Flash-tier cost and speed. Optimized for coding tasks and parallel agent execution with configurable thinking levels. Released May 20, 2026.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 1.3363028953229399,
+        "cached": 0.13363028953229397,
+        "output": 8.017817371937639,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.5,
+          "cached": 0.15,
+          "output": 9.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:google/gemini-3.5-flash-lite",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "google/gemini-3.5-flash-lite",
+      "name": "Google: Gemini 3.5 Flash Lite",
+      "creator": "Google",
+      "description": "Gemini 3.5 Flash-Lite is Google's high-throughput, low-latency multimodal model with upgraded agentic capabilities, suited for subagents executing focused tasks within complex multi-agent workflows, agentic search, and document processing. All input modalities (text/image/video/audio) unified at $0.30/1M; batch tier at 50% discount. Successor to Gemini 3.1 Flash Lite. Released July 21, 2026.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 0.26726057906458794,
+        "cached": 0.026726057906458794,
+        "output": 2.2271714922048997,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3,
+          "cached": 0.03,
+          "output": 2.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:google/gemini-3.6-flash",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "google/gemini-3.6-flash",
+      "name": "Google: Gemini 3.6 Flash",
+      "creator": "Google",
+      "description": "Gemini 3.6 Flash is Google's token-efficient workhorse model: 17% fewer output tokens than 3.5 Flash, fewer reasoning steps and tool calls in multi-step agentic workflows, and higher-precision code edits with reduced execution loops. All input modalities (text/image/video/audio) unified at $1.50/1M; batch tier at 50% discount. Thinking model with configurable levels. Released July 21, 2026.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 0.6681514476614699,
+        "cached": 0.06681514476614699,
+        "output": 3.3407572383073494,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.75,
+          "cached": 0.075,
+          "output": 3.75
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:google/gemini-3.7-flash",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "google/gemini-3.7-flash",
+      "name": "Google: Gemini 3.7 Flash",
+      "creator": "Google",
+      "description": "Gemini 3.7 Flash is Google's multimodal workhorse model for fast agentic workflows, coding, and complex multi-step reasoning, improving on 3.6 Flash in agentic benchmarks (GPQA Diamond ~94%, TAU-Bench ~80%). All input modalities (text/image/video/audio) unified pricing; batch tier at 50% discount. Thinking model with configurable levels. 1M context. Released August 13, 2026.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 1.3363028953229399,
+        "cached": 0.13363028953229397,
+        "output": 6.681514476614699,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.5,
+          "cached": 0.15,
+          "output": 7.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:google/gemini-3.8-flash",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "google/gemini-3.8-flash",
+      "name": "Google: Gemini 3.8 Flash",
+      "creator": "Google",
+      "description": "Gemini 3.8 Flash is Google's most intelligent Flash model, with significant gains over 3.7 Flash across software engineering, agentic tasks, and multi-step reasoning. All input modalities (text/image/video/audio) unified pricing; batch tier at 50% discount. Thinking model with configurable levels. 1M context. Released September 2, 2026.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 1.3363028953229399,
+        "cached": 0.13363028953229397,
+        "output": 6.681514476614699,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.5,
+          "cached": 0.15,
+          "output": 7.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:google/gemini-4-argon",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "google/gemini-4-argon",
+      "name": "Google: Gemini 4 Argon",
+      "creator": "Google",
+      "description": "Gemini 4 Argon is Google's flagship reasoning model for coding and agentic workflows. Supports text, image, audio, video and PDF input, tool calling and structured output. Input, thinking and output share a 1,048,576-token window. Thinking levels: low, medium (default), high. Implicit caching only. Standard streaming output up to 65,536 tokens; direct non-streaming REST up to 32,768. Long decode requires continuation support and is not enabled by this catalog entry.",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 3.5634743875278394,
+        "cached": 0.17817371937639198,
+        "output": 17.817371937639198,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 4.0,
+          "cached": 0.2,
+          "output": 20.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:minimax/m2-her",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "minimax/m2-her",
+      "name": "MiniMax: MiniMax M2 Her",
+      "creator": "MiniMax AI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 200000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.26726057906458794,
+        "cached": 0.26726057906458794,
+        "output": 1.0690423162583518,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3,
+          "cached": 0.3,
+          "output": 1.2
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:minimax/minimax-m2",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "minimax/minimax-m2",
+      "name": "MiniMax: MiniMax M2",
+      "creator": "MiniMax AI",
+      "description": "MiniMax-M2 is a compact, high-efficiency large language model optimized for end-to-end coding and agentic workflows. With 10 billion activated parameters (230 billion total), it delivers near-frontier intelligence across general reasoning, tool use, and multi-step task execution while maintaining low latency and deployment efficiency.",
+      "releaseDate": null,
+      "contextSize": 204800,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.26726057906458794,
+        "cached": 0.026726057906458794,
+        "output": 1.0690423162583518,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3,
+          "cached": 0.03,
+          "output": 1.2
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:minimax/minimax-m2.1",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "minimax/minimax-m2.1",
+      "name": "MiniMax: MiniMax M2.1",
+      "creator": "MiniMax AI",
+      "description": "MiniMax-M2.1 is a lightweight, state-of-the-art large language model optimized for coding, agentic workflows, and modern application development. With only 10 billion activated parameters, it delivers a major jump in real-world capability while maintaining exceptional latency, scalability, and cost efficiency.",
+      "releaseDate": null,
+      "contextSize": 204800,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.26726057906458794,
+        "cached": 0.026726057906458794,
+        "output": 1.0690423162583518,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3,
+          "cached": 0.03,
+          "output": 1.2
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:minimax/minimax-m2.1-lightning",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "minimax/minimax-m2.1-lightning",
+      "name": "MiniMax: MiniMax M2.1 Lightning",
+      "creator": "MiniMax AI",
+      "description": "MiniMax-M2.1 is a lightweight, state-of-the-art large language model optimized for coding, agentic workflows, and modern application development. With only 10 billion activated parameters, it delivers a major jump in real-world capability while maintaining exceptional latency, scalability, and cost efficiency.",
+      "releaseDate": null,
+      "contextSize": 204800,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.26726057906458794,
+        "cached": 0.026726057906458794,
+        "output": 2.1380846325167036,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3,
+          "cached": 0.03,
+          "output": 2.4
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:minimax/minimax-m2.5",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "minimax/minimax-m2.5",
+      "name": "MiniMax: MiniMax M2.5",
+      "creator": "MiniMax AI",
+      "description": "MiniMax-M2.5 is a SOTA large language model designed for real-world productivity. Trained in a diverse range of complex real-world digital working environments, M2.5 builds upon the coding expertise of M2.1 to extend into general office work, reaching fluency in generating and operating Word, Excel, and Powerpoint files, context switching between diverse software environments, and working across different agent and human teams. Scoring 80.2% on SWE-Bench Verified, 51.3% on Multi-SWE-Bench, and 76.3% on BrowseComp, M2.5 is also more token efficient than previous generations, having been trained to optimize its actions and output through planning.",
+      "releaseDate": null,
+      "contextSize": 200000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.26726057906458794,
+        "cached": 0.026726057906458794,
+        "output": 1.0690423162583518,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3,
+          "cached": 0.03,
+          "output": 1.2
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:minimax/minimax-m2.5-lightning",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "minimax/minimax-m2.5-lightning",
+      "name": "MiniMax: MiniMax M2.5 Lightning",
+      "creator": "MiniMax AI",
+      "description": "MiniMax-M2.5 is a SOTA large language model designed for real-world productivity. Trained in a diverse range of complex real-world digital working environments, M2.5 builds upon the coding expertise of M2.1 to extend into general office work, reaching fluency in generating and operating Word, Excel, and Powerpoint files, context switching between diverse software environments, and working across different agent and human teams. Scoring 80.2% on SWE-Bench Verified, 51.3% on Multi-SWE-Bench, and 76.3% on BrowseComp, M2.5 is also more token efficient than previous generations, having been trained to optimize its actions and output through planning.",
+      "releaseDate": null,
+      "contextSize": 200000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.26726057906458794,
+        "cached": 0.026726057906458794,
+        "output": 2.1380846325167036,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3,
+          "cached": 0.03,
+          "output": 2.4
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:minimax/minimax-m2.7",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "minimax/minimax-m2.7",
+      "name": "MiniMax: MiniMax M2.7",
+      "creator": "MiniMax AI",
+      "description": "M2.7 delivers outstanding performance in real-world software engineering, including end-to-end complete project delivery, log analysis and bug triaging, code security, machine learning, and more. On the benchmark SWE-Pro, M2.7 scores 56.22%, nearly matching the level of Opus. This capability also extends to end-to-end complete project delivery scenarios (VIBE-Pro 55.6%) and deep understanding of complex engineering systems on Terminal Bench 2 (57.0%).",
+      "releaseDate": null,
+      "contextSize": 200000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.26726057906458794,
+        "cached": 0.05345211581291759,
+        "output": 1.0690423162583518,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3,
+          "cached": 0.06,
+          "output": 1.2
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:minimax/minimax-m2.7-highspeed",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "minimax/minimax-m2.7-highspeed",
+      "name": "MiniMax: MiniMax M2.7 Highspeed",
+      "creator": "MiniMax AI",
+      "description": "M2.7 highspeed: Same performance, faster, more agile",
+      "releaseDate": null,
+      "contextSize": 200000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.5345211581291759,
+        "cached": 0.05345211581291759,
+        "output": 2.1380846325167036,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.6,
+          "cached": 0.06,
+          "output": 2.4
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:minimax/minimax-m3",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "minimax/minimax-m3",
+      "name": "MiniMax: MiniMax M3",
+      "creator": "MiniMax AI",
+      "description": "MiniMax-M3 \u662f MiniMax \u5b98\u65b9\u6e20\u9053 (api.minimaxi.com) \u65d7\u8230\u63a8\u7406\u6a21\u578b, 1M context, \u5185\u5d4c thinking (<think> \u6807\u7b7e), \u652f\u6301 prompt caching \u4e0e tool calling. \u901a\u8fc7 OpenAI-compatible + Anthropic \u53cc\u534f\u8bae\u63a5\u5165 ofox china \u6c60.",
+      "releaseDate": null,
+      "contextSize": 1131000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.5345211581291759,
+        "cached": 0.10690423162583518,
+        "output": 2.1380846325167036,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.6,
+          "cached": 0.12,
+          "output": 2.4
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:moonshotai/kimi-k2.6",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "moonshotai/kimi-k2.6",
+      "name": "MoonshotAI: Kimi K2.6",
+      "creator": "Moonshot AI",
+      "description": "Kimi K2.6 \u662f Kimi \u6700\u65b0\u6700\u667a\u80fd\u7684\u6a21\u578b\uff0cKimi K2.6 \u7684\u901a\u7528 Agent\u3001\u4ee3\u7801\u3001\u89c6\u89c9\u7406\u89e3\u7b49\u7efc\u5408\u80fd\u529b\u5f97\u5230\u5168\u9762\u63d0\u5347\uff0c\u5176\u4e2d\u5728\u535a\u58eb\u7ea7\u96be\u5ea6\u7684\u5b8c\u6574\u7248\u4eba\u7c7b\u6700\u540e\u7684\u8003\u8bd5\uff08Humanity\u2019s Last Exam\uff09\u3001\u5728\u8003\u5bdf\u6a21\u578b\u771f\u5b9e\u8f6f\u4ef6\u5de5\u7a0b\u80fd\u529b\u7684 SWE-Bench Pro\u3001\u8bc4\u4f30 Agent \u6df1\u5ea6\u68c0\u7d22\u80fd\u529b\u7684 DeepSearchQA \u7b49\u57fa\u51c6\u6d4b\u8bd5\u4e2d\u5747\u53d6\u5f97\u884c\u4e1a\u9886\u5148\u7684\u6210\u7ee9\uff0c\u540c\u65f6\u652f\u6301\u6587\u672c\u3001\u56fe\u7247\u4e0e\u89c6\u9891\u8f93\u5165\uff0c\u601d\u8003\u4e0e\u975e\u601d\u8003\u6a21\u5f0f\uff0c\u5bf9\u8bdd\u4e0e Agent \u4efb\u52a1\u3002",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.8463251670378619,
+        "cached": 0.14253897550111358,
+        "output": 3.5634743875278394,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.95,
+          "cached": 0.16,
+          "output": 4.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:moonshotai/kimi-k2.7-code",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "moonshotai/kimi-k2.7-code",
+      "name": "MoonshotAI: Kimi K2.7 Code",
+      "creator": "Moonshot AI",
+      "description": "Kimi K2.7 Code \u662f Moonshot \u5b98\u65b9 (api.moonshot.cn) \u5f3a\u7f16\u7a0b\u63a8\u7406\u6a21\u578b, \u5185\u5d4c thinking\u3002OpenAI \u534f\u8bae\u76f4\u7528; Anthropic \u534f\u8bae\u9700 thinking:type=enabled (bifrost \u8f6c\u6362\u5f85\u4fee, \u89c1 issue 2026-06-24)\u3002",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.8463251670378619,
+        "cached": 0.16926503340757237,
+        "output": 3.5634743875278394,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.95,
+          "cached": 0.19,
+          "output": 4.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:moonshotai/kimi-k2.7-code-highspeed",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "moonshotai/kimi-k2.7-code-highspeed",
+      "name": "MoonshotAI: Kimi K2.7 Code Highspeed",
+      "creator": "Moonshot AI",
+      "description": "Kimi K2.7 Code \u9ad8\u901f\u6863, \u540c\u6a21\u578b\u52a0\u901f\u63a8\u7406\u3002OpenAI \u534f\u8bae\u76f4\u7528; Anthropic \u534f\u8bae\u540c code (bifrost thinking \u5f85\u4fee)\u3002",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.6926503340757237,
+        "cached": 0.33853006681514475,
+        "output": 7.126948775055679,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.9,
+          "cached": 0.38,
+          "output": 8.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:moonshotai/kimi-k3",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "moonshotai/kimi-k3",
+      "name": "MoonshotAI: Kimi K3",
+      "creator": "Moonshot AI",
+      "description": "Kimi K3 \u662f Moonshot \u5b98\u65b9 (api.moonshot.cn) 2026-07-16 \u53d1\u5e03\u7684\u65d7\u8230\u6a21\u578b (2.8T MoE), 1M token \u4e0a\u4e0b\u6587, \u5185\u5d4c thinking (reasoning_content), \u652f\u6301\u89c6\u89c9\u8f93\u5165\u3002OpenAI \u534f\u8bae\u76f4\u7528; Anthropic \u534f\u8bae\u4e0d\u5f3a\u5236 thinking \u53c2\u6570, \u7ecf bifrost \u8f6c\u6362\u6b63\u5e38 (\u4e0e K2.7 \u4e0d\u540c)\u3002",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 2.6726057906458798,
+        "cached": 0.26726057906458794,
+        "output": 13.363028953229398,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 3.0,
+          "cached": 0.3,
+          "output": 15.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:openai/gpt-4.1",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "openai/gpt-4.1",
+      "name": "GPT-4.1",
+      "creator": "OpenAI",
+      "description": "OpenAI's flagship large language model optimized for advanced instruction following, real-world software engineering, and long-context reasoning. Features 1M context window for complex document analysis and code generation.",
+      "releaseDate": null,
+      "contextSize": 1047576,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 0.4454342984409799,
+        "output": 7.126948775055679,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 0.5,
+          "output": 8.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:openai/gpt-4.1-mini",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "openai/gpt-4.1-mini",
+      "name": "GPT-4.1 Mini",
+      "creator": "OpenAI",
+      "description": "Mid-sized GPT-4.1 variant with GPT-4o performance at lower latency and cost. Features 1M context window, supports structured outputs and vision understanding at reduced pricing.",
+      "releaseDate": null,
+      "contextSize": 1047576,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.35634743875278396,
+        "cached": 0.08908685968819599,
+        "output": 1.4253897550111359,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.4,
+          "cached": 0.1,
+          "output": 1.6
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:openai/gpt-4o",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "openai/gpt-4o",
+      "name": "GPT-4o",
+      "creator": "OpenAI",
+      "description": "OpenAI's flagship multimodal model supporting text and image inputs with text outputs. Maintains GPT-4 Turbo intelligence at 2x speed and 50% lower cost. Optimized for complex reasoning, coding, and visual understanding tasks.",
+      "releaseDate": null,
+      "contextSize": 128000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 2.2271714922048997,
+        "cached": 1.1135857461024499,
+        "output": 8.908685968819599,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.5,
+          "cached": 1.25,
+          "output": 10.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:openai/gpt-4o-mini",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "openai/gpt-4o-mini",
+      "name": "GPT-4o Mini",
+      "creator": "OpenAI",
+      "description": "OpenAI's advanced small model, 60% cheaper than GPT-3.5 Turbo while scoring 82% on MMLU. Optimized for cost-effective tasks requiring strong language understanding and generation capabilities.",
+      "releaseDate": null,
+      "contextSize": 128000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.13363028953229397,
+        "cached": 0.06681514476614699,
+        "output": 0.5345211581291759,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.15,
+          "cached": 0.075,
+          "output": 0.6
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:openai/gpt-5",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "openai/gpt-5",
+      "name": "GPT-5",
+      "creator": "OpenAI",
+      "description": "OpenAI's next-generation flagship model with 256K context window and advanced multimodal capabilities. Features enhanced reasoning, agentic workflows, and state-of-the-art performance across all benchmarks.",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 1.1135857461024499,
+        "cached": 0.11581291759465479,
+        "output": 8.908685968819599,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.25,
+          "cached": 0.13,
+          "output": 10.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:openai/gpt-5-mini",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "openai/gpt-5-mini",
+      "name": "GPT-5 Mini",
+      "creator": "OpenAI",
+      "description": "Cost-effective GPT-5 variant with 256K context. Balanced performance for everyday tasks while maintaining strong reasoning and vision capabilities at reduced cost.",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 0.22271714922048996,
+        "cached": 0.026726057906458794,
+        "output": 1.7817371937639197,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.25,
+          "cached": 0.03,
+          "output": 2.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:openai/gpt-5-nano",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "openai/gpt-5-nano",
+      "name": "GPT-5 Nano",
+      "creator": "OpenAI",
+      "description": "Ultra-efficient GPT-5 variant optimized for maximum throughput at minimal cost. Features 128K context and low-latency design for high-volume automation tasks.",
+      "releaseDate": null,
+      "contextSize": 128000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.044543429844097995,
+        "cached": 0.008908685968819599,
+        "output": 0.35634743875278396,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.05,
+          "cached": 0.01,
+          "output": 0.4
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:openai/gpt-5.1",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "openai/gpt-5.1",
+      "name": "OpenAI: GPT-5.1",
+      "creator": "OpenAI",
+      "description": "OpenAI's enhanced GPT-5.1 model with improved reasoning and multimodal capabilities. Features 256K context with better instruction following and coding performance.",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 1.1135857461024499,
+        "cached": 0.11581291759465479,
+        "output": 8.908685968819599,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.25,
+          "cached": 0.13,
+          "output": 10.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:openai/gpt-5.1-codex-max",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "openai/gpt-5.1-codex-max",
+      "name": "OpenAI: GPT-5.1 Codex Max",
+      "creator": "OpenAI",
+      "description": "GPT-5.1-Codex-Max is OpenAI\u2019s latest agentic coding model, designed for long-running, high-context software development tasks. It is based on an updated version of the 5.1 reasoning stack and trained on agentic workflows spanning software engineering, mathematics, and research.",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 1.1135857461024499,
+        "cached": 0.11581291759465479,
+        "output": 8.908685968819599,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.25,
+          "cached": 0.13,
+          "output": 10.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:openai/gpt-5.1-codex-mini",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "openai/gpt-5.1-codex-mini",
+      "name": "GPT-5.1 Codex Mini",
+      "creator": "OpenAI",
+      "description": "GPT-5.1-Codex-Mini is a smaller and faster version of GPT-5.1-Codex",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 0.22271714922048996,
+        "cached": 0.026726057906458794,
+        "output": 1.7817371937639197,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.25,
+          "cached": 0.03,
+          "output": 2.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:openai/gpt-5.2",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "openai/gpt-5.2",
+      "name": "OpenAI: GPT-5.2",
+      "creator": "OpenAI",
+      "description": "OpenAI's latest GPT-5.2 model with 512K context window. Most advanced capabilities including enhanced reasoning, full multimodal support, and web search integration.",
+      "releaseDate": null,
+      "contextSize": 512000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 1.5590200445434297,
+        "cached": 0.16035634743875277,
+        "output": 12.472160356347437,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.75,
+          "cached": 0.18,
+          "output": 14.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:openai/gpt-5.2-codex",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "openai/gpt-5.2-codex",
+      "name": "OpenAI: GPT-5.2 Codex",
+      "creator": "OpenAI",
+      "description": "GPT-5.2-Codex is an upgraded version of GPT-5.1-Codex optimized for software engineering and coding workflows. It is designed for both interactive development sessions and long, independent execution of complex engineering tasks. The model supports building projects from scratch, feature development, debugging, large-scale refactoring, and code review. Compared to GPT-5.1-Codex, 5.2-Codex is more steerable, adheres closely to developer instructions, and produces cleaner, higher-quality code outputs. Reasoning effort can be adjusted with the reasoning.effort parameter.",
+      "releaseDate": null,
+      "contextSize": 512000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 1.5590200445434297,
+        "cached": 0.16035634743875277,
+        "output": 12.472160356347437,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.75,
+          "cached": 0.18,
+          "output": 14.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:openai/gpt-5.3-codex",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "openai/gpt-5.3-codex",
+      "name": "OpenAI: GPT-5.3 Codex",
+      "creator": "OpenAI",
+      "description": "GPT-5.3-Codex is OpenAI\u2019s most advanced agentic coding model, combining the frontier software engineering performance of GPT-5.2-Codex with the broader reasoning and professional knowledge capabilities of GPT-5.2. It achieves state-of-the-art results on SWE-Bench Pro and strong performance on Terminal-Bench 2.0 and OSWorld-Verified, reflecting improved multi-language coding, terminal proficiency, and real-world computer-use skills.",
+      "releaseDate": null,
+      "contextSize": 512000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 1.5590200445434297,
+        "cached": 0.16035634743875277,
+        "output": 12.472160356347437,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.75,
+          "cached": 0.18,
+          "output": 14.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:openai/gpt-5.4",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "openai/gpt-5.4",
+      "name": "OpenAI: GPT-5.4",
+      "creator": "OpenAI",
+      "description": "GPT-5.4 is OpenAI\u2019s latest frontier model, unifying the Codex and GPT lines into a single system. It features a 1M+ token context window (922K input, 128K output) with support for text and image inputs, enabling high-context reasoning, coding, and multimodal analysis within the same workflow.The model delivers improved performance in coding, document understanding, tool use, and instruction following. It is designed as a strong default for both general-purpose tasks and software engineering, capable of generating production-quality code, synthesizing information across multiple sources, and executing complex multi-step workflows with fewer iterations and greater token efficiency.",
+      "releaseDate": null,
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 2.2271714922048997,
+        "cached": 0.22271714922048996,
+        "output": 13.363028953229398,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.5,
+          "cached": 0.25,
+          "output": 15.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:openai/gpt-5.4-mini",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "openai/gpt-5.4-mini",
+      "name": "OpenAI: GPT-5.4 Mini",
+      "creator": "OpenAI",
+      "description": "GPT-5.4 mini brings the core capabilities of GPT-5.4 to a faster, more efficient model optimized for high-throughput workloads. It supports text and image inputs with strong performance across reasoning, coding, and tool use, while reducing latency and cost for large-scale deployments.",
+      "releaseDate": null,
+      "contextSize": 400000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.6681514476614699,
+        "cached": 0.06681514476614699,
+        "output": 4.008908685968819,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.75,
+          "cached": 0.075,
+          "output": 4.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:openai/gpt-5.4-nano",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "openai/gpt-5.4-nano",
+      "name": "OpenAI: GPT-5.4 Nano",
+      "creator": "OpenAI",
+      "description": "GPT-5.4 nano is the most lightweight and cost-efficient variant of the GPT-5.4 family, optimized for speed-critical and high-volume tasks. It supports text and image inputs and is designed for low-latency use cases such as classification, data extraction, ranking, and sub-agent execution.",
+      "releaseDate": null,
+      "contextSize": 400000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.17817371937639198,
+        "cached": 0.017817371937639197,
+        "output": 1.1135857461024499,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.2,
+          "cached": 0.02,
+          "output": 1.25
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:openai/gpt-5.4-pro",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "openai/gpt-5.4-pro",
+      "name": "OpenAI: GPT-5.4 Pro",
+      "creator": "OpenAI",
+      "description": "GPT-5.4 Pro is OpenAI's most advanced model, building on GPT-5.4's unified architecture with enhanced reasoning capabilities for complex, high-stakes tasks. It features a 1M+ token context window (922K input, 128K output) with support for text and image inputs. Optimized for step-by-step reasoning, instruction following, and accuracy, GPT-5.4 Pro excels at agentic coding, long-context workflows, and multi-step problem solving.",
+      "releaseDate": null,
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 26.726057906458795,
+        "cached": 26.726057906458795,
+        "output": 160.35634743875278,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 30.0,
+          "cached": 30.0,
+          "output": 180.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:openai/gpt-5.5",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "openai/gpt-5.5",
+      "name": "OpenAI: GPT-5.5",
+      "creator": "OpenAI",
+      "description": "GPT-5.5 is OpenAI\u2019s frontier model designed for complex professional workloads, building on GPT-5.4 with stronger reasoning, higher reliability, and improved token efficiency on hard tasks. It features a 1M+ token context window (922K input, 128K output) with support for text and image inputs, enabling large-scale reasoning, coding, and multimodal workflows within a single system.",
+      "releaseDate": null,
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 4.4543429844097995,
+        "cached": 0.4454342984409799,
+        "output": 26.726057906458795,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 5.0,
+          "cached": 0.5,
+          "output": 30.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:openai/gpt-5.6-luna",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "openai/gpt-5.6-luna",
+      "name": "OpenAI: GPT-5.6 Luna",
+      "creator": "OpenAI",
+      "description": "GPT-5.6 Luna is a fast, cost-efficient model in OpenAI's GPT-5.6 series. It is suited for high-volume, latency-sensitive tasks such as chat, classification, and lightweight agentic workflows, providing capable reasoning for its price tier.",
+      "releaseDate": null,
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.17817371937639198,
+        "cached": 0.017817371937639197,
+        "output": 1.0690423162583518,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.2,
+          "cached": 0.02,
+          "output": 1.2
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:openai/gpt-5.6-sol",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "openai/gpt-5.6-sol",
+      "name": "OpenAI: GPT-5.6 Sol",
+      "creator": "OpenAI",
+      "description": "GPT-5.6 Sol is the flagship model in OpenAI's GPT-5.6 series. It is suited for complex reasoning, coding, and agentic workflows, and is particularly strong at command-line and multi-step coding tasks and long-horizon problem solving.",
+      "releaseDate": null,
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 3.5634743875278394,
+        "cached": 0.35634743875278396,
+        "output": 17.817371937639198,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 4.0,
+          "cached": 0.4,
+          "output": 20.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:openai/gpt-5.6-terra",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "openai/gpt-5.6-terra",
+      "name": "OpenAI: GPT-5.6 Terra",
+      "creator": "OpenAI",
+      "description": "GPT-5.6 Terra is a balanced model in OpenAI's GPT-5.6 series, positioned between the flagship Sol tier and the cost-efficient Luna tier. It is suited for everyday coding, reasoning, and agentic tasks where capability and cost need to be balanced, offering strong performance at roughly half the cost of Sol.",
+      "releaseDate": null,
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 0.17817371937639198,
+        "output": 10.690423162583519,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 0.2,
+          "output": 12.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:openai/gpt-6-astra",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "openai/gpt-6-astra",
+      "name": "OpenAI: GPT-6 Astra",
+      "creator": "OpenAI",
+      "description": "GPT-6 Astra is OpenAI's flagship model for demanding end-to-end work. It is suited for advanced analysis, software engineering, deep research, scientific work, and document creation, with particular strengths in long-horizon tasks.",
+      "releaseDate": null,
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 8.908685968819599,
+        "cached": 0.8908685968819599,
+        "output": 44.54342984409799,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 10.0,
+          "cached": 1.0,
+          "output": 50.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:openai/gpt-6-luna",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "openai/gpt-6-luna",
+      "name": "OpenAI: GPT-6 Luna",
+      "creator": "OpenAI",
+      "description": "GPT-6 Luna is the fastest and most cost-efficient model in OpenAI's GPT-6 family, built for high-volume, latency-sensitive workloads such as classification, extraction, and lightweight agents. It supports text and image inputs with text output, adjustable reasoning effort, a 1.05M-token context window, and up to 128K output tokens.",
+      "releaseDate": null,
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.08908685968819599,
+        "cached": 0.008908685968819599,
+        "output": 0.4454342984409799,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.1,
+          "cached": 0.01,
+          "output": 0.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:openai/gpt-6-sol",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "openai/gpt-6-sol",
+      "name": "OpenAI: GPT-6 Sol",
+      "creator": "OpenAI",
+      "description": "GPT-6 Sol is the balanced model in OpenAI's GPT-6 family, offering strong reasoning, coding, and agentic performance at a fraction of GPT-6 Astra's cost. It supports text and image inputs with text output, adjustable reasoning effort, a 1.05M-token context window, and up to 128K output tokens.",
+      "releaseDate": null,
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 0.17817371937639198,
+        "output": 8.908685968819599,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 0.2,
+          "output": 10.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:openai/gpt-6.1-sol",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "openai/gpt-6.1-sol",
+      "name": "OpenAI: GPT-6.1 Sol",
+      "creator": "OpenAI",
+      "description": "GPT-6.1 Sol is OpenAI's balanced model for complex coding, computer use, and professional work. It offers near-Astra performance at lower cost, supports text and image inputs with text output, adjustable reasoning effort, a 1.05M-token context window, and up to 128K output tokens.",
+      "releaseDate": null,
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 0.08908685968819599,
+        "output": 8.908685968819599,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 0.1,
+          "output": 10.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:qwen/qwen-flash",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "qwen/qwen-flash",
+      "name": "Qwen Flash",
+      "creator": "Alibaba",
+      "description": "Alibaba Qwen Flash via Dashscope. Ultra-fast inference for latency-sensitive tasks. Lowest cost option in the Qwen family.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.019599109131403118,
+        "cached": 0.0038307349665924273,
+        "output": 0.19599109131403117,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.022,
+          "cached": 0.0043,
+          "output": 0.22
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:qwen/qwen-max",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "qwen/qwen-max",
+      "name": "Qwen Max",
+      "creator": "Alibaba",
+      "description": "Alibaba Qwen Max via Dashscope. High-performance model for complex tasks requiring sophisticated reasoning and generation.",
+      "releaseDate": null,
+      "contextSize": 32000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.3118040089086859,
+        "cached": 0.06146993318485523,
+        "output": 1.2293986636971046,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.35,
+          "cached": 0.069,
+          "output": 1.38
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:qwen/qwen-plus",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "qwen/qwen-plus",
+      "name": "Qwen Plus",
+      "creator": "Alibaba",
+      "description": "Alibaba Qwen Plus via Dashscope. Balanced performance and cost for general tasks. Strong Chinese and English bilingual capabilities.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.10690423162583518,
+        "cached": 0.020489977728285078,
+        "output": 0.25835189309576834,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.12,
+          "cached": 0.023,
+          "output": 0.29
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:qwen/qwen-turbo",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "qwen/qwen-turbo",
+      "name": "Qwen Turbo",
+      "creator": "Alibaba",
+      "description": "Alibaba Qwen Turbo via Dashscope. Fast and cost-effective for simple tasks requiring quick responses. Optimized for Chinese language understanding.",
+      "releaseDate": null,
+      "contextSize": 128000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.03830734966592427,
+        "cached": 0.007661469933184855,
+        "output": 0.08017817371937638,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.043,
+          "cached": 0.0086,
+          "output": 0.09
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:qwen/qwen-vl-max",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "qwen/qwen-vl-max",
+      "name": "Qwen VL Max",
+      "creator": "Alibaba",
+      "description": "Alibaba Qwen VL Max via Dashscope. Top-tier vision-language model for multimodal tasks including image understanding and visual reasoning.",
+      "releaseDate": null,
+      "contextSize": 128000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.20489977728285078,
+        "cached": 0.020489977728285078,
+        "output": 0.5167037861915367,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.23,
+          "cached": 0.023,
+          "output": 0.58
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:qwen/qwen3-coder-flash",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "qwen/qwen3-coder-flash",
+      "name": "Qwen3 Coder Flash",
+      "creator": "Alibaba",
+      "description": "\u57fa\u4e8eQwen3\u7684\u4ee3\u7801\u751f\u6210\u6a21\u578b\uff0c\u7ee7\u627fQwen3-Coder-Plus\u7684coding agent\u80fd\u529b\uff0c\u652f\u6301\u591a\u8f6e\u5de5\u5177\u4ea4\u4e92\uff0c\u91cd\u70b9\u4f18\u5316\u4ed3\u5e93\u7ea7\u522b\u7406\u89e3\u80fd\u529b\u5e76\u589e\u52a0\u5de5\u5177\u8c03\u7528\u7a33\u5b9a\u6027\u3002",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.4454342984409799,
+        "cached": 0.05345211581291759,
+        "output": 2.2271714922048997,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.5,
+          "cached": 0.06,
+          "output": 2.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:qwen/qwen3-coder-next",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "qwen/qwen3-coder-next",
+      "name": "Qwen3 Coder Next",
+      "creator": "Alibaba",
+      "description": "Qwen3\u7cfb\u5217\u65b0\u4e00\u4ee3\u4ee3\u7801\u751f\u6210\u6a21\u578b\uff0c\u6548\u679c\u63a5\u8fd1Qwen3-Coder-Plus\u517c\u5177\u66f4\u4f18\u6027\u80fd\u3002\u6a21\u578b\u91cd\u70b9\u4f18\u5316\u4ed3\u5e93\u7ea7\u522b\u7406\u89e3\u3001\u652f\u6301\u591a\u8f6e\u5de5\u5177\u4ea4\u4e92\u3001\u63d0\u5347\u5bf9\u4e8eagentic coding\u7c7b\u5de5\u5177\u7684\u9002\u914d\u80fd\u529b\u3002",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.17817371937639198,
+        "cached": 0.17817371937639198,
+        "output": 1.3363028953229399,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.2,
+          "cached": 0.2,
+          "output": 1.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:qwen/qwen3-coder-plus",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "qwen/qwen3-coder-plus",
+      "name": "Qwen3 Coder Plus",
+      "creator": "Alibaba",
+      "description": "\u57fa\u4e8eQwen3\u7684\u4ee3\u7801\u751f\u6210\u6a21\u578b\uff0c\u5177\u6709\u5f3a\u5927\u7684Coding Agent\u80fd\u529b\uff0c\u64c5\u957f\u5de5\u5177\u8c03\u7528\u548c\u73af\u5883\u4ea4\u4e92\uff0c\u80fd\u591f\u5b9e\u73b0\u81ea\u4e3b\u7f16\u7a0b\u3001\u4ee3\u7801\u80fd\u529b\u5353\u8d8a\u7684\u540c\u65f6\u517c\u5177\u901a\u7528\u80fd\u529b\u3002",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.6035634743875278,
+        "cached": 0.17817371937639198,
+        "output": 8.017817371937639,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.8,
+          "cached": 0.2,
+          "output": 9.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:qwen/qwen3-max",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "qwen/qwen3-max",
+      "name": "Qwen3 Max",
+      "creator": "Alibaba",
+      "description": "Alibaba Qwen3 Max via Dashscope. Latest flagship model with strong reasoning, long context, and enhanced coding capabilities.",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.32071269487750553,
+        "cached": 0.06414253897550111,
+        "output": 1.2739420935412025,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.36,
+          "cached": 0.072,
+          "output": 1.43
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:qwen/qwen3.5-122b-a10b",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "qwen/qwen3.5-122b-a10b",
+      "name": "Qwen: Qwen3.5 122B A10B",
+      "creator": "Alibaba",
+      "description": "Qwen3.5\u7cfb\u5217122B-A10B\u539f\u751f\u89c6\u89c9\u8bed\u8a00\u6a21\u578b\uff0c\u57fa\u4e8e\u6df7\u5408\u67b6\u6784\u8bbe\u8ba1\uff0c\u878d\u5408\u4e86\u7ebf\u6027\u6ce8\u610f\u529b\u673a\u5236\u4e0e\u7a00\u758f\u6df7\u5408\u4e13\u5bb6\u6a21\u578b\uff0c\u5b9e\u73b0\u4e86\u66f4\u9ad8\u7684\u63a8\u7406\u6548\u7387\u3002\u8be5\u6a21\u578b\u7684\u7efc\u5408\u8868\u73b0\u4ec5\u6b21\u4e8eQwen3.5-397B-A17B\uff0c\u6587\u672c\u80fd\u529b\u663e\u8457\u4f18\u4e8eQwen3-235B-2507\uff0c\u89c6\u89c9\u80fd\u529b\u4f18\u4e8eQwen3-VL-235B\u3002",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.25835189309576834,
+        "cached": 0.25835189309576834,
+        "output": 2.040089086859688,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.29,
+          "cached": 0.29,
+          "output": 2.29
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:qwen/qwen3.5-27b",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "qwen/qwen3.5-27b",
+      "name": "Qwen: Qwen3.5 27B",
+      "creator": "Alibaba",
+      "description": "Qwen3.5\u7cfb\u521727B\u539f\u751f\u89c6\u89c9\u8bed\u8a00Dense\u6a21\u578b\uff0c\u878d\u5408\u4e86\u7ebf\u6027\u6ce8\u610f\u529b\u673a\u5236\uff1b\u54cd\u5e94\u901f\u5ea6\u5feb\uff0c\u517c\u5177\u63a8\u7406\u901f\u5ea6\u548c\u6027\u80fd\u3002\u8be5\u6a21\u578b\u7684\u7efc\u5408\u80fd\u529b\u63a5\u8fd1\u4e8eQwen3.5-122B-A10B\u3002",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.25835189309576834,
+        "cached": 0.25835189309576834,
+        "output": 1.8262806236080176,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.29,
+          "cached": 0.29,
+          "output": 2.05
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:qwen/qwen3.5-35b-a3b",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "qwen/qwen3.5-35b-a3b",
+      "name": "Qwen: Qwen3.5 35B A3B",
+      "creator": "Alibaba",
+      "description": "Qwen3.5\u7cfb\u521735B-A3B\u539f\u751f\u89c6\u89c9\u8bed\u8a00\u6a21\u578b\uff0c\u57fa\u4e8e\u6df7\u5408\u67b6\u6784\u8bbe\u8ba1\uff0c\u878d\u5408\u4e86\u7ebf\u6027\u6ce8\u610f\u529b\u673a\u5236\u4e0e\u7a00\u758f\u6df7\u5408\u4e13\u5bb6\u6a21\u578b\uff0c\u5b9e\u73b0\u4e86\u66f4\u9ad8\u7684\u63a8\u7406\u6548\u7387\u3002\u8be5\u6a21\u578b\u7684\u7efc\u5408\u8868\u73b0\u63a5\u8fd1\u4e8eQwen3.5-27B\u3002",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.25835189309576834,
+        "cached": 0.25835189309576834,
+        "output": 1.6302895322939865,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.29,
+          "cached": 0.29,
+          "output": 1.83
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:qwen/qwen3.5-397b-a17b",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "qwen/qwen3.5-397b-a17b",
+      "name": "Qwen: Qwen3.5 397B A17B",
+      "creator": "Alibaba",
+      "description": "Qwen3.5\u7cfb\u5217397B-A17B\u539f\u751f\u89c6\u89c9\u8bed\u8a00\u6a21\u578b\uff0c\u57fa\u4e8e\u6df7\u5408\u67b6\u6784\u8bbe\u8ba1\uff0c\u878d\u5408\u4e86\u7ebf\u6027\u6ce8\u610f\u529b\u673a\u5236\u4e0e\u7a00\u758f\u6df7\u5408\u4e13\u5bb6\u6a21\u578b\uff0c\u5b9e\u73b0\u4e86\u66f4\u9ad8\u7684\u63a8\u7406\u6548\u7387\u3002\u5728\u8bed\u8a00\u7406\u89e3\u3001\u903b\u8f91\u63a8\u7406\u3001\u4ee3\u7801\u751f\u6210\u3001\u667a\u80fd\u4f53\u4efb\u52a1\u3001\u56fe\u50cf\u7406\u89e3\u3001\u89c6\u9891\u7406\u89e3\u3001\u56fe\u5f62\u7528\u6237\u754c\u9762\uff08GUI\uff09\u7b49\u591a\u79cd\u4efb\u52a1\u4e2d\uff0c\u5747\u5c55\u73b0\u51fa\u4e0e\u5f53\u524d\u9876\u5c16\u524d\u6cbf\u6a21\u578b\u76f8\u5ab2\u7f8e\u7684\u5353\u8d8a\u6027\u80fd\u3002\u5177\u5907\u5f3a\u5927\u7684\u4ee3\u7801\u751f\u6210\u4e0e\u667a\u80fd\u4f53\u80fd\u529b\uff0c\u5bf9\u4e8e\u5404\u7c7b\u667a\u80fd\u4f53\u573a\u666f\u5177\u6709\u826f\u597d\u7684\u6cdb\u5316\u6027\u3002",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.48997772828507796,
+        "cached": 0.48997772828507796,
+        "output": 3.1180400890868594,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.55,
+          "cached": 0.55,
+          "output": 3.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:qwen/qwen3.5-flash",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "qwen/qwen3.5-flash",
+      "name": "Qwen: Qwen3.5 Flash",
+      "creator": "Alibaba",
+      "description": "Qwen3.5\u539f\u751f\u89c6\u89c9\u8bed\u8a00\u7cfb\u5217Flash\u6a21\u578b\uff0c\u57fa\u4e8e\u6df7\u5408\u67b6\u6784\u8bbe\u8ba1\uff0c\u878d\u5408\u4e86\u7ebf\u6027\u6ce8\u610f\u529b\u673a\u5236\u4e0e\u7a00\u758f\u6df7\u5408\u4e13\u5bb6\u6a21\u578b\uff0c\u5b9e\u73b0\u4e86\u66f4\u9ad8\u7684\u63a8\u7406\u6548\u7387\u3002\u6a21\u578b\u6548\u679c\u5728\u7eaf\u6587\u672c\u4e0e\u591a\u6a21\u6001\u65b9\u9762\u76f8\u8f833\u7cfb\u5217\u5747\u5b9e\u73b0\u98de\u8dc3\u5f0f\u8fdb\u6b65\uff1b\u54cd\u5e94\u901f\u5ea6\u5feb\uff0c\u517c\u5177\u63a8\u7406\u901f\u5ea6\u548c\u6027\u80fd\u3002",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.08908685968819599,
+        "cached": 0.008908685968819599,
+        "output": 0.35634743875278396,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.1,
+          "cached": 0.01,
+          "output": 0.4
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:qwen/qwen3.5-plus",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "qwen/qwen3.5-plus",
+      "name": "Qwen3.5 Plus",
+      "creator": "Alibaba",
+      "description": "Qwen3.5\u539f\u751f\u89c6\u89c9\u8bed\u8a00\u7cfb\u5217Plus\u6a21\u578b\uff0c\u57fa\u4e8e\u6df7\u5408\u67b6\u6784\u8bbe\u8ba1\uff0c\u878d\u5408\u4e86\u7ebf\u6027\u6ce8\u610f\u529b\u673a\u5236\u4e0e\u7a00\u758f\u6df7\u5408\u4e13\u5bb6\u6a21\u578b\uff0c\u5b9e\u73b0\u4e86\u66f4\u9ad8\u7684\u63a8\u7406\u6548\u7387\u3002\u5728\u591a\u9879\u4efb\u52a1\u8bc4\u6d4b\u4e2d\uff0c3.5\u7cfb\u5217\u5747\u5c55\u73b0\u51fa\u4e0e\u5f53\u524d\u9876\u5c16\u524d\u6cbf\u6a21\u578b\u76f8\u5ab2\u7f8e\u7684\u5353\u8d8a\u6027\u80fd\uff0c\u6a21\u578b\u6548\u679c\u5728\u7eaf\u6587\u672c\u4e0e\u591a\u6a21\u6001\u65b9\u9762\u76f8\u8f833\u7cfb\u5217\u5747\u5b9e\u73b0\u98de\u8dc3\u5f0f\u8fdb\u6b65\u3002",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.35634743875278396,
+        "cached": 0.035634743875278395,
+        "output": 2.1380846325167036,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.4,
+          "cached": 0.04,
+          "output": 2.4
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:qwen/qwen3.6-27b",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "qwen/qwen3.6-27b",
+      "name": "Qwen: Qwen3.6 27B",
+      "creator": "Alibaba",
+      "description": "Qwen3.6\u7cfb\u521727B\u539f\u751f\u89c6\u89c9\u8bed\u8a00Dense\u6a21\u578b\uff0c\u6a21\u578b\u6548\u679c\u76f8\u8f833.5-27B\u91cd\u70b9\u63d0\u5347\u4e86Agentic coding\u80fd\u529b\u3001\u6a21\u578bSTEM\u4e0e\u63a8\u7406\u80fd\u529b\u8fdb\u4e00\u6b65\u589e\u5f3a\uff1b\u89c6\u89c9\u6a21\u6001\u65b9\u9762\u5728\u7a7a\u95f4\u667a\u80fd\u3001\u7269\u4f53\u5b9a\u4f4d\u4e0e\u68c0\u6d4b\u80fd\u529b\u4e0a\u663e\u8457\u589e\u5f3a\uff0c\u89c6\u9891\u7406\u89e3\u3001\u6587\u6863OCR\u53ca\u89c6\u89c9Agent\u80fd\u529b\u7a33\u6b65\u63d0\u5347\u3002",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.38307349665924273,
+        "cached": 0.38307349665924273,
+        "output": 2.2895322939866367,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.43,
+          "cached": 0.43,
+          "output": 2.57
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:qwen/qwen3.6-flash",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "qwen/qwen3.6-flash",
+      "name": "Qwen: Qwen3.6 Flash",
+      "creator": "Alibaba",
+      "description": "Qwen3.6\u539f\u751f\u89c6\u89c9\u8bed\u8a00\u7cfb\u5217Flash\u6a21\u578b\uff0c\u6a21\u578b\u6548\u679c\u76f8\u8f833.5-Flash\u663e\u8457\u63d0\u5347\u3002\u672c\u6a21\u578b\u91cd\u70b9\u63d0\u5347agentic coding\u80fd\u529b\uff08\u5728\u591a\u9879\u4ee3\u7801\u667a\u80fd\u4f53\u57fa\u51c6\u4e0a\u5927\u5e45\u8d85\u8d8a\u524d\u4ee3\uff09\u3001\u6570\u5b66\u63a8\u7406\u548c\u4ee3\u7801\u63a8\u7406\u80fd\u529b\uff1b\u89c6\u89c9\u65b9\u9762\u5728\u7a7a\u95f4\u667a\u80fd\u80fd\u529b\u4e0a\u663e\u8457\u589e\u5f3a\uff0c\u7269\u4f53\u5b9a\u4f4d\u4e0e\u76ee\u6807\u68c0\u6d4b\u63d0\u5347\u5c24\u4e3a\u7a81\u51fa\u3002",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.22271714922048996,
+        "cached": 0.022271714922048998,
+        "output": 1.3363028953229399,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.25,
+          "cached": 0.025,
+          "output": 1.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:qwen/qwen3.6-max-preview",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "qwen/qwen3.6-max-preview",
+      "name": "Qwen3.6 Max Preview",
+      "creator": "Alibaba",
+      "description": "Qwen3.6\u7cfb\u5217\u4e2d\u89c4\u6a21\u6700\u5927\u3001\u7efc\u5408\u80fd\u529b\u6700\u5f3a\u7684Max\u6a21\u578bPreview\u7248\u672c\uff0c\u5f53\u524d\u5f00\u653e\u7eaf\u6587\u672c\u6a21\u578b\u80fd\u529b\u4f9b\u4f53\u9a8c\u3002\u76f8\u8f83\u4e8e\u6b64\u524d\u53d1\u5e03\u7684Qwen3-Max\u548cQwen3.6-Plus\uff0c\u672c\u6a21\u578b\u5728vibe coding\u80fd\u529b\u4e0a\u8fdb\u4e00\u6b65\u63d0\u5347\u3001coding agent\u6267\u884c\u66f4\u52a0\u9ad8\u6548\u3001\u524d\u7aef\u7f16\u7a0b\u5f00\u53d1\u80fd\u529b\u663e\u8457\u63d0\u5347\uff1b\u957f\u5c3e\u77e5\u8bc6\u80fd\u529b\u8fdb\u4e00\u6b65\u5347\u7ea7\u3002",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 0.17817371937639198,
+        "output": 10.690423162583519,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 0.2,
+          "output": 12.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:qwen/qwen3.6-plus",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "qwen/qwen3.6-plus",
+      "name": "Qwen: Qwen3.6 Plus",
+      "creator": "Alibaba",
+      "description": "Qwen3.6\u539f\u751f\u89c6\u89c9\u8bed\u8a00\u7cfb\u5217Plus\u6a21\u578b\uff0c\u5c55\u73b0\u51fa\u4e0e\u5f53\u524d\u9876\u5c16\u524d\u6cbf\u6a21\u578b\u76f8\u5ab2\u7f8e\u7684\u5353\u8d8a\u6027\u80fd\uff0c\u6a21\u578b\u6548\u679c\u76f8\u8f833.5\u7cfb\u5217\u663e\u8457\u63d0\u5347\u3002\u6a21\u578b\u5728Agentic coding\u3001\u524d\u7aef\u7f16\u7a0b\u3001Vibe coding\u7b49\u4ee3\u7801\u80fd\u529b\u3001\u591a\u6a21\u6001\u4e07\u7269\u8bc6\u522b\u3001OCR\u3001\u7269\u4f53\u5b9a\u4f4d\u7b49\u80fd\u529b\u4e0a\u663e\u8457\u589e\u5f3a\u3002",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.4454342984409799,
+        "cached": 0.044543429844097995,
+        "output": 2.6726057906458798,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.5,
+          "cached": 0.05,
+          "output": 3.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:qwen/qwen3.7-max",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "qwen/qwen3.7-max",
+      "name": "Qwen: Qwen3.7 Max",
+      "creator": "Alibaba",
+      "description": "\u963f\u91cc\u4e91\u767e\u70bc Qwen3.7 \u7cfb\u5217 Max \u6a21\u578b, 1M context, \u652f\u6301\u6df1\u5ea6\u63a8\u7406 (reasoning_content), \u5f3a\u7f16\u7801\u4e0e\u957f\u7a0b\u81ea\u6cbb\u6267\u884c\u80fd\u529b. \u901a\u8fc7 DashScope OpenAI-compatible \u7aef\u70b9\u63d0\u4f9b.",
+      "releaseDate": null,
+      "contextSize": 1064000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.5233853006681513,
+        "cached": 0.1514476614699332,
+        "output": 4.579064587973273,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.71,
+          "cached": 0.17,
+          "output": 5.14
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:qwen/qwen3.7-plus",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "qwen/qwen3.7-plus",
+      "name": "Qwen3.7 Plus",
+      "creator": "Alibaba",
+      "description": "\u963f\u91cc\u4e91\u767e\u70bc Qwen3.7 \u7cfb\u5217 Plus \u6a21\u578b, 1M context, \u652f\u6301\u6df1\u5ea6\u63a8\u7406 (reasoning), \u6027\u4ef7\u6bd4\u5747\u8861\u5b9a\u4f4d (input $0.4/output $1.6). \u901a\u8fc7 DashScope OpenAI-compatible + Anthropic + Responses \u4e09\u534f\u8bae\u63a5\u5165 ofox china \u6c60.",
+      "releaseDate": null,
+      "contextSize": 1064000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.35634743875278396,
+        "cached": 0.07126948775055679,
+        "output": 1.4253897550111359,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.4,
+          "cached": 0.08,
+          "output": 1.6
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:qwen/qwen3.8-27b",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "qwen/qwen3.8-27b",
+      "name": "Qwen: Qwen3.8 27B",
+      "creator": "Alibaba",
+      "description": "\u963f\u91cc\u4e91\u767e\u70bc Qwen3.8 \u7cfb\u5217 27B \u539f\u751f\u89c6\u89c9\u8bed\u8a00 Dense \u6a21\u578b, 1M context, \u652f\u6301\u56fe\u50cf/\u89c6\u9891\u7406\u89e3\u4e0e\u6df1\u5ea6\u63a8\u7406 (reasoning_content, \u53ef\u6309\u8bf7\u6c42\u5f00\u5173), \u76f8\u6bd4 3.6-27B \u91cd\u70b9\u63d0\u5347\u6587\u672c\u4e0e\u89c6\u89c9\u6a21\u6001\u4e0b\u7684\u7f16\u7a0b\u4e0e\u529e\u516c\u573a\u666f\u80fd\u529b. \u901a\u8fc7 DashScope OpenAI-compatible \u7aef\u70b9\u63d0\u4f9b.",
+      "releaseDate": null,
+      "contextSize": 1131072,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.4454342984409799,
+        "cached": 0.03830734966592427,
+        "output": 1.5233853006681513,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.5,
+          "cached": 0.043,
+          "output": 1.71
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:qwen/qwen3.8-flash",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "qwen/qwen3.8-flash",
+      "name": "Qwen: Qwen3.8 Flash",
+      "creator": "Alibaba",
+      "description": "\u963f\u91cc\u4e91\u767e\u70bc Qwen3.8 \u7cfb\u5217 Flash \u8f7b\u91cf\u9ad8\u901f\u539f\u751f\u591a\u6a21\u6001\u6a21\u578b, 1M context, \u652f\u6301\u56fe\u50cf/\u89c6\u9891\u7406\u89e3\u4e0e\u6df1\u5ea6\u63a8\u7406 (reasoning_content, \u53ef\u6309\u8bf7\u6c42\u5f00\u5173), \u9762\u5411\u9ad8\u5e76\u53d1\u4f4e\u6210\u672c\u573a\u666f, \u517c\u987e\u7f16\u7a0b\u4e0e\u529e\u516c\u4efb\u52a1. \u901a\u8fc7 DashScope OpenAI-compatible \u7aef\u70b9\u63d0\u4f9b.",
+      "releaseDate": null,
+      "contextSize": 1131072,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.09799554565701558,
+        "cached": 0.009799554565701559,
+        "output": 0.34743875278396436,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.11,
+          "cached": 0.011,
+          "output": 0.39
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:qwen/qwen3.8-max",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "qwen/qwen3.8-max",
+      "name": "Qwen: Qwen3.8 Max",
+      "creator": "Alibaba",
+      "description": "\u963f\u91cc\u4e91\u767e\u70bc Qwen3.8 \u7cfb\u5217 Max \u65d7\u8230\u6a21\u578b, 1M context, \u652f\u6301\u6df1\u5ea6\u63a8\u7406 (reasoning_content) \u4e0e\u66f4\u957f\u601d\u7ef4\u94fe, \u5f3a\u7f16\u7801\u4e0e\u957f\u7a0b\u81ea\u6cbb\u6267\u884c\u80fd\u529b. \u901a\u8fc7 DashScope OpenAI-compatible \u7aef\u70b9\u63d0\u4f9b.",
+      "releaseDate": null,
+      "contextSize": 1131072,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.5233853006681513,
+        "cached": 0.1514476614699332,
+        "output": 4.579064587973273,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.71,
+          "cached": 0.17,
+          "output": 5.14
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:qwen/qwen3.8-max-0902",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "qwen/qwen3.8-max-0902",
+      "name": "Qwen: Qwen3.8 Max 0902",
+      "creator": "Alibaba",
+      "description": "\u963f\u91cc\u4e91\u767e\u70bc Qwen3.8 Max 2026-09-02 \u5347\u7ea7\u5feb\u7167: \u7f16\u7801\u4e0e\u534f\u4f5c Agent \u80fd\u529b\u663e\u8457\u589e\u5f3a, \u89c6\u89c9\u7406\u89e3\u4f18\u5316; \u4fdd\u7559 1M context\u3001\u6df1\u5ea6\u63a8\u7406 (\u601d\u8003\u6a21\u5f0f) \u4e0e\u56fe\u50cf/\u89c6\u9891\u8f93\u5165. \u901a\u8fc7 DashScope OpenAI-compatible \u7aef\u70b9\u63d0\u4f9b.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.5233853006681513,
+        "cached": 0.1514476614699332,
+        "output": 4.579064587973273,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.71,
+          "cached": 0.17,
+          "output": 5.14
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:volcengine/doubao-seed-2.0-code",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "volcengine/doubao-seed-2.0-code",
+      "name": "Doubao Seed 2.0 Code",
+      "creator": "ByteDance",
+      "description": "Doubao-Seed-2.0-Code \u9762\u5411\u4f01\u4e1a\u7ea7\u7f16\u7a0b\u9700\u6c42\u4f18\u5316\uff0c\u5728 Seed 2.0 \u4f18\u79c0\u7684 Agent\u3001VLM \u80fd\u529b\u57fa\u7840\u4e0a\uff0c\u7279\u522b\u589e\u5f3a\u4e86\u4ee3\u7801\u80fd\u529b\uff0c\u4e0d\u4ec5\u524d\u7aef\u80fd\u529b\u8868\u73b0\u51fa\u4f17\uff0c\u4e5f\u5bf9\u4f01\u4e1a\u5e38\u89c1\u7684\u591a\u8bed\u8a00\u7f16\u7801\u9700\u6c42\u505a\u4e86\u7279\u522b\u4f18\u5316\uff0c\u9002\u5408\u63a5\u5165\u5404\u79cd AI \u7f16\u7a0b\u5de5\u5177\u4f7f\u7528\u3002",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.5968819599109132,
+        "cached": 0.12472160356347439,
+        "output": 2.993318485523385,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.67,
+          "cached": 0.14,
+          "output": 3.36
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:volcengine/doubao-seed-2.0-lite",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "volcengine/doubao-seed-2.0-lite",
+      "name": "Doubao Seed 2.0 Lite",
+      "creator": "ByteDance",
+      "description": "Doubao-Seed-2.0-lite \u662f\u9762\u5411\u9ad8\u9891\u4f01\u4e1a\u573a\u666f\u517c\u987e\u6027\u80fd\u4e0e\u6210\u672c\u7684\u5747\u8861\u578b\u6a21\u578b\uff0c\u7efc\u5408\u80fd\u529b\u8d85\u8d8a\u4e0a\u4e00\u4ee3Doubao-Seed-1.8\u3002\u80dc\u4efb\u975e\u7ed3\u6784\u5316\u4fe1\u606f\u5904\u7406\u3001\u5185\u5bb9\u521b\u4f5c\u3001\u641c\u7d22\u63a8\u8350\u3001\u6570\u636e\u5206\u6790\u7b49\u751f\u4ea7\u578b\u5de5\u4f5c\uff0c\u652f\u6301\u957f\u4e0a\u4e0b\u6587\u3001\u591a\u6e90\u4fe1\u606f\u878d\u5408\u3001\u591a\u6b65\u6307\u4ee4\u6267\u884c\u4e0e\u9ad8\u4fdd\u771f\u7ed3\u6784\u5316\u8f93\u51fa\u3002\u5728\u4fdd\u969c\u7a33\u5b9a\u6548\u679c\u7684\u540c\u65f6\u663e\u8457\u4f18\u5316\u6210\u672c\u3002",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.11581291759465479,
+        "cached": 0.026726057906458794,
+        "output": 0.6770601336302895,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.13,
+          "cached": 0.03,
+          "output": 0.76
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:volcengine/doubao-seed-2.0-mini",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "volcengine/doubao-seed-2.0-mini",
+      "name": "Doubao Seed 2.0 Mini",
+      "creator": "ByteDance",
+      "description": "Doubao-Seed-2.0-mini \u9762\u5411\u4f4e\u65f6\u5ef6\u3001\u9ad8\u5e76\u53d1\u4e0e\u6210\u672c\u654f\u611f\u573a\u666f\uff0c\u5f3a\u8c03\u5feb\u901f\u54cd\u5e94\u4e0e\u7075\u6d3b\u63a8\u7406\u90e8\u7f72\u3002\u6a21\u578b\u6548\u679c\u4e0eDoubao-Seed-1.6\u76f8\u5f53\u3002\u652f\u6301256k\u4e0a\u4e0b\u6587\u30014\u6863\u601d\u8003\u957f\u5ea6\u548c\u591a\u6a21\u6001\u7406\u89e3\uff0c\u9002\u5408\u6210\u672c\u548c\u901f\u5ea6\u4f18\u5148\u7684\u8f7b\u91cf\u7ea7\u4efb\u52a1\u3002",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.05345211581291759,
+        "cached": 0.017817371937639197,
+        "output": 0.49888641425389757,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.06,
+          "cached": 0.02,
+          "output": 0.56
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:volcengine/doubao-seed-2.0-pro",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "volcengine/doubao-seed-2.0-pro",
+      "name": "Doubao Seed 2.0 Pro",
+      "creator": "ByteDance",
+      "description": "Doubao-Seed-2.0-pro\u662f\u65d7\u8230\u7ea7\u5168\u80fd\u901a\u7528\u6a21\u578b\uff0c\u9762\u5411 Agent \u65f6\u4ee3\u7684\u590d\u6742\u63a8\u7406\u4e0e\u957f\u94fe\u8def\u4efb\u52a1\u6267\u884c\u573a\u666f\u3002\u5f3a\u8c03\u591a\u6a21\u6001\u7406\u89e3\u3001\u957f\u4e0a\u4e0b\u6587\u63a8\u7406\u3001\u7ed3\u6784\u5316\u751f\u6210\u4e0e\u5de5\u5177\u589e\u5f3a\u6267\u884c\u3002\u590d\u6742\u6307\u4ee4\u4e0e\u591a\u7ea6\u675f\u6267\u884c\u80fd\u529b\u7a81\u51fa\uff0c\u53ef\u7a33\u5b9a\u5e94\u5bf9\u591a\u6b65\u590d\u6742\u89c4\u5212\u3001\u590d\u6742\u56fe\u6587\u63a8\u7406\u3001\u89c6\u9891\u5185\u5bb9\u7406\u89e3\u4e0e\u9ad8\u96be\u5ea6\u5206\u6790\u7b49\u573a\u666f\u3002",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.5968819599109132,
+        "cached": 0.12472160356347439,
+        "output": 2.993318485523385,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.67,
+          "cached": 0.14,
+          "output": 3.36
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:volcengine/doubao-seed-2.1-pro",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "volcengine/doubao-seed-2.1-pro",
+      "name": "Doubao Seed 2.1 Pro",
+      "creator": "ByteDance",
+      "description": "\u706b\u5c71\u5f15\u64ce\u8c46\u5305 Seed 2.1 Pro \u65d7\u8230\u63a8\u7406\u6a21\u578b, \u5185\u5d4c thinking\u3002OpenAI + Anthropic \u53cc\u534f\u8bae\u3002ARK \u771f\u5b9e id doubao-seed-2-1-pro-260628\u3002",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.7875278396436526,
+        "cached": 0.1576837416481069,
+        "output": 3.9376391982182626,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.884,
+          "cached": 0.177,
+          "output": 4.42
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:volcengine/doubao-seed-2.1-turbo",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "volcengine/doubao-seed-2.1-turbo",
+      "name": "Doubao Seed 2.1 Turbo",
+      "creator": "ByteDance",
+      "description": "\u706b\u5c71\u5f15\u64ce\u8c46\u5305 Seed 2.1 Turbo \u9ad8\u901f\u63a8\u7406\u6a21\u578b, \u5185\u5d4c thinking\u3002OpenAI + Anthropic \u53cc\u534f\u8bae\u3002ARK \u771f\u5b9e id doubao-seed-2-1-turbo-260628\u3002",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.3937639198218263,
+        "cached": 0.0757238307349666,
+        "output": 1.9706013363028954,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.442,
+          "cached": 0.085,
+          "output": 2.212
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:volcengine/doubao-seed-character",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "volcengine/doubao-seed-character",
+      "name": "Doubao Seed Character",
+      "creator": "ByteDance",
+      "description": "\u706b\u5c71\u5f15\u64ce\u8c46\u5305 Seed Character \u89d2\u8272\u5bf9\u8bdd\u6a21\u578b\u3002\u4ec5 OpenAI \u534f\u8bae (Anthropic messages_api \u706b\u5c71\u4fa7\u672a\u6388\u6743, \u89c1 issue 2026-06-24)\u3002ARK \u771f\u5b9e id doubao-seed-character-260628\u3002",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.1576837416481069,
+        "cached": 0.021380846325167038,
+        "output": 0.7875278396436526,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.177,
+          "cached": 0.024,
+          "output": 0.884
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:volcengine/doubao-seed-evolving",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "volcengine/doubao-seed-evolving",
+      "name": "Doubao Seed Evolving",
+      "creator": "ByteDance",
+      "description": "\u706b\u5c71\u5f15\u64ce\u8c46\u5305 Seed Evolving \u5feb\u901f\u8fed\u4ee3\u63a8\u7406\u6a21\u578b (latest-version \u6eda\u52a8\u66f4\u65b0), \u5185\u5d4c thinking\u3002OpenAI + Anthropic + Responses \u4e09\u7aef\u70b9\u3002ARK id doubao-seed-evolving \u89e3\u6790\u4e3a -latest-version\u3002",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.7875278396436526,
+        "cached": 0.1576837416481069,
+        "output": 3.9376391982182626,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.884,
+          "cached": 0.177,
+          "output": 4.42
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:x-ai/grok-4.1-fast",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "x-ai/grok-4.1-fast",
+      "name": "xAI: Grok 4.1 Fast",
+      "creator": "xAI",
+      "description": "xAI Grok 4.1 Fast - latest version with improved tool calling and 2M context. Best agentic performance from xAI without explicit reasoning.",
+      "releaseDate": null,
+      "contextSize": 2000000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.17817371937639198,
+        "cached": 0.044543429844097995,
+        "output": 0.4454342984409799,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.2,
+          "cached": 0.05,
+          "output": 0.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:x-ai/grok-4.20",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "x-ai/grok-4.20",
+      "name": "xAI: Grok 4.20",
+      "creator": "xAI",
+      "description": "Grok 4.20 is xAI's newest flagship model with industry-leading speed and agentic tool calling capabilities. It combines the lowest hallucination rate on the market with strict prompt adherance, delivering consistently precise and truthful responses.",
+      "releaseDate": null,
+      "contextSize": 2000000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 3.5634743875278394,
+        "cached": 0.35634743875278396,
+        "output": 10.690423162583519,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 4.0,
+          "cached": 0.4,
+          "output": 12.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:x-ai/grok-4.3",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "x-ai/grok-4.3",
+      "name": "xAI: Grok 4.3",
+      "creator": "xAI",
+      "description": "Grok 4.3 is a reasoning model from xAI. It accepts text and image inputs with text output, and is suited for agentic workflows, instruction-following tasks, and applications requiring high factual...",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.1135857461024499,
+        "cached": 0.17817371937639198,
+        "output": 2.2271714922048997,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.25,
+          "cached": 0.2,
+          "output": 2.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:x-ai/grok-4.5",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "x-ai/grok-4.5",
+      "name": "xAI: Grok 4.5",
+      "creator": "xAI",
+      "description": "Grok 4.5 is xAI's frontier model with strong performance on coding, knowledge work, and STEM. 500K context, reasoning model, prompt caching supported. OpenAI-compatible protocol. Released July 8, 2026.",
+      "releaseDate": null,
+      "contextSize": 500000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 0.26726057906458794,
+        "output": 5.3452115812917596,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 0.3,
+          "output": 6.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:x-ai/grok-4.6",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "x-ai/grok-4.6",
+      "name": "xAI: Grok 4.6",
+      "creator": "xAI",
+      "description": "Grok 4.6 is xAI's most intelligent and fastest model, with frontier performance on coding, knowledge work, and STEM. 500K context, reasoning model, prompt caching supported. OpenAI-compatible protocol. Released August 12, 2026.",
+      "releaseDate": null,
+      "contextSize": 500000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 0.4454342984409799,
+        "output": 5.3452115812917596,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 0.5,
+          "output": 6.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:x-ai/grok-4.7",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "x-ai/grok-4.7",
+      "name": "xAI: Grok 4.7",
+      "creator": "xAI",
+      "description": "Grok 4.7 is xAI's latest reasoning model, succeeding Grok 4.6 for coding, agentic tool use, and general chat. It supports a 500K-token context window with always-on reasoning, function calling, structured outputs, and prompt caching; requests of 200K prompt tokens or more are billed at the long-context rate.",
+      "releaseDate": null,
+      "contextSize": 500000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 0.4454342984409799,
+        "output": 5.3452115812917596,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 0.5,
+          "output": 6.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:z-ai/glm-4.6",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "z-ai/glm-4.6",
+      "name": "Z.ai: GLM-4.6",
+      "creator": "Z.ai",
+      "description": "Zhipu GLM-4.6 with 128K context and strong instruction following. Excellent balance of performance and cost for Chinese language tasks.",
+      "releaseDate": null,
+      "contextSize": 200000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.5345211581291759,
+        "cached": 0.09799554565701558,
+        "output": 1.9599109131403119,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.6,
+          "cached": 0.11,
+          "output": 2.2
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:z-ai/glm-4.7",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "z-ai/glm-4.7",
+      "name": "Z.ai: GLM 4.7",
+      "creator": "Z.ai",
+      "description": "Zhipu GLM-4.7 - latest flagship model with advanced reasoning, 128K context, and web search capabilities. Best-in-class Chinese language understanding.",
+      "releaseDate": null,
+      "contextSize": 200000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.35634743875278396,
+        "cached": 0.09799554565701558,
+        "output": 1.9599109131403119,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.4,
+          "cached": 0.11,
+          "output": 2.2
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:z-ai/glm-4.7-flashx",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "z-ai/glm-4.7-flashx",
+      "name": "Z.ai: GLM-4.7 FlashX",
+      "creator": "Z.ai",
+      "description": "As a 30B-class SOTA model, GLM-4.7-Flash offers a new option that balances performance and efficiency. It is further optimized for agentic coding use cases, strengthening coding capabilities, long-horizon task planning, and tool collaboration, and has achieved leading performance among open-source models of the same size on several current public benchmark leaderboards.",
+      "releaseDate": null,
+      "contextSize": 200000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.06414253897550111,
+        "cached": 0.008908685968819599,
+        "output": 0.35634743875278396,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.072,
+          "cached": 0.01,
+          "output": 0.4
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:z-ai/glm-5",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "z-ai/glm-5",
+      "name": "Z.ai: GLM-5",
+      "creator": "Z.ai",
+      "description": "GLM-5 is Z.ai\u2019s flagship open-source foundation model engineered for complex systems design and long-horizon agent workflows. Built for expert developers, it delivers production-grade performance on large-scale programming tasks, rivaling leading closed-source models. With advanced agentic planning, deep backend reasoning, and iterative self-correction, GLM-5 moves beyond code generation to full-system construction and autonomous execution.",
+      "releaseDate": null,
+      "contextSize": 200000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.8908685968819599,
+        "cached": 0.17817371937639198,
+        "output": 2.8507795100222717,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.0,
+          "cached": 0.2,
+          "output": 3.2
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:z-ai/glm-5-turbo",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "z-ai/glm-5-turbo",
+      "name": "Z.ai: GLM-5-Turbo",
+      "creator": "Z.ai",
+      "description": "GLM-5-Turbo is a foundation model deeply optimized for the OpenClaw scenario. It has been specifically optimized for the core requirements of OpenClaw tasks since the training phase, enhancing key capabilities such as tool invocation, command following, timed and persistent tasks, and long-chain execution.",
+      "releaseDate": null,
+      "contextSize": 200000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.0690423162583518,
+        "cached": 0.21380846325167036,
+        "output": 3.5634743875278394,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.2,
+          "cached": 0.24,
+          "output": 4.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:z-ai/glm-5.1",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "z-ai/glm-5.1",
+      "name": "Z.ai: GLM 5.1",
+      "creator": "Z.ai",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 200000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.2472160356347437,
+        "cached": 0.23162583518930957,
+        "output": 3.9198218262806237,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.4,
+          "cached": 0.26,
+          "output": 4.4
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:z-ai/glm-5.2",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "z-ai/glm-5.2",
+      "name": "Z.ai: GLM-5.2",
+      "creator": "Z.ai",
+      "description": "GLM-5.2 \u662f z.ai \u56fd\u9645\u7ad9 (api.z.ai) \u65d7\u8230\u63a8\u7406\u6a21\u578b, MoE \u67b6\u6784 open-weights, 1M context, \u5185\u5d4c thinking (reasoning_content), \u652f\u6301 prompt caching / tool calling / web search. \u5f3a\u7f16\u7801\u4e0e\u957f\u7a0b\u81ea\u6cbb\u6267\u884c. \u901a\u8fc7 OpenAI-compatible + Anthropic \u53cc\u534f\u8bae\u63a5\u5165 (\u65e0 responses \u7aef\u70b9).",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.2472160356347437,
+        "cached": 0.23162583518930957,
+        "output": 3.9198218262806237,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.4,
+          "cached": 0.26,
+          "output": 4.4
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:z-ai/glm-5.3",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "z-ai/glm-5.3",
+      "name": "Z.ai: GLM-5.3",
+      "creator": "Z.ai",
+      "description": "GLM-5.3 \u662f z.ai \u56fd\u9645\u7ad9 (api.z.ai) \u65d7\u8230\u63a8\u7406\u6a21\u578b, \u5728 GLM-5.2 \u57fa\u7840\u4e0a\u63d0\u5347\u7f16\u7801\u80fd\u529b\u4e0e\u6027\u80fd/token \u6548\u7387\u5e73\u8861, \u9762\u5411\u590d\u6742\u8f6f\u4ef6\u5de5\u7a0b\u4e0e\u957f\u7a0b agent \u4efb\u52a1. 1M context, \u5e38\u9a7b thinking (\u4e0d\u53ef\u5173\u95ed, \u652f\u6301 low/high/max \u4e09\u6863 reasoning effort), \u652f\u6301 prompt caching / tool calling / web search. \u901a\u8fc7 OpenAI-compatible + Anthropic \u53cc\u534f\u8bae\u63a5\u5165 (\u65e0 responses \u7aef\u70b9).",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.2472160356347437,
+        "cached": 0.23162583518930957,
+        "output": 3.9198218262806237,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.4,
+          "cached": 0.26,
+          "output": 4.4
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:z-ai/glm-5.3-flash",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "z-ai/glm-5.3-flash",
+      "name": "Z.ai: GLM-5.3-Flash",
+      "creator": "Z.ai",
+      "description": "GLM-5.3-Flash \u662f z.ai \u56fd\u9645\u7ad9 (api.z.ai) \u8f7b\u91cf\u9ad8\u901f\u6a21\u578b, \u539f\u751f\u591a\u6a21\u6001\u8f93\u5165 (\u56fe\u7247/\u89c6\u9891), \u9762\u5411\u9ad8\u6548\u7f16\u7801\u4e0e\u957f\u7a0b agent \u4efb\u52a1. 1M context, \u5e38\u9a7b thinking (\u4e0d\u53ef\u5173\u95ed, \u652f\u6301 low/high/max \u4e09\u6863 reasoning effort), \u652f\u6301 prompt caching / tool calling / web search. \u901a\u8fc7 OpenAI-compatible + Anthropic \u53cc\u534f\u8bae\u63a5\u5165 (\u65e0 responses \u7aef\u70b9).",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.13363028953229397,
+        "cached": 0.026726057906458794,
+        "output": 0.4454342984409799,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.15,
+          "cached": 0.03,
+          "output": 0.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:z-ai/glm-5.3-flashx",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "z-ai/glm-5.3-flashx",
+      "name": "Z.ai: GLM-5.3-FlashX",
+      "creator": "Z.ai",
+      "description": "GLM-5.3-FlashX \u662f z.ai \u56fd\u9645\u7ad9\uff08api.z.ai\uff09\u9762\u5411\u9ad8\u6548\u7f16\u7801\u4e0e\u957f\u7a0b Agent \u4efb\u52a1\u7684\u8f7b\u91cf\u9ad8\u901f\u6a21\u578b\uff0c\u63a8\u7406\u901f\u5ea6\u53ef\u8fbe 200 tokens/s\uff0c\u63d0\u4f9b\u66f4\u5feb\u3001\u66f4\u6d41\u7545\u7684\u6a21\u578b\u4f53\u9a8c\u3002\u652f\u6301\u539f\u751f\u591a\u6a21\u6001\u8f93\u5165\uff08\u56fe\u7247\u3001\u89c6\u9891\uff09\u30011M \u4e0a\u4e0b\u6587\u3001\u5e38\u9a7b thinking\uff08\u4e0d\u53ef\u5173\u95ed\uff0c\u652f\u6301 low\u3001high\u3001max \u4e09\u6863 reasoning effort\uff09\u3001prompt caching\u3001tool calling \u4e0e web search\uff0c\u5e76\u901a\u8fc7 OpenAI-compatible \u548c Anthropic \u53cc\u534f\u8bae\u63a5\u5165\uff08\u4e0d\u652f\u6301 Responses \u7aef\u70b9\uff09\u3002",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.32962138084632514,
+        "cached": 0.06681514476614699,
+        "output": 1.1135857461024499,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.37,
+          "cached": 0.075,
+          "output": 1.25
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "ofox:z-ai/glm-5v-turbo",
+      "seller": "ofox",
+      "sellerName": "OfoxAI",
+      "modelId": "z-ai/glm-5v-turbo",
+      "name": "GLM-5V-Turbo",
+      "creator": "Z.ai",
+      "description": "GLM-5V-Turbo is Z.AI\u2019s first multimodal coding foundation model, built for vision-based coding tasks. It can natively process multimodal inputs such as images, video, and text, while also excelling at long-horizon planning, complex coding, and action execution. ",
+      "releaseDate": null,
+      "contextSize": 200000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.0690423162583518,
+        "cached": 0.21380846325167036,
+        "output": 3.5634743875278394,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.2,
+          "cached": 0.24,
+          "output": 4.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OfoxAI's model catalog and converted with the listed ECB rate."
+    },
+    {
       "key": "openai-direct:babbage-002",
       "seller": "openai-direct",
       "sellerName": "OpenAI API",
@@ -119937,15 +123635,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.36737639198218264,
-        "cached": 0.03061469933184855,
-        "output": 0.7347527839643653,
+        "input": 0.3627260579064588,
+        "cached": 0.0302271714922049,
+        "output": 0.7254521158129176,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.41238,
-          "cached": 0.034365,
-          "output": 0.82476
+          "input": 0.40716,
+          "cached": 0.03393,
+          "output": 0.81432
         }
       },
       "pricingTiers": [],
@@ -131439,13 +135137,13 @@
       },
       "rates": {
         "input": 0.042761692650334075,
-        "cached": 0.008552338530066815,
+        "cached": 0.005345211581291759,
         "output": 0.14253897550111358,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
           "input": 0.048,
-          "cached": 0.0096,
+          "cached": 0.006,
           "output": 0.16
         }
       },
@@ -131810,15 +135508,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.010155902004454343,
-        "cached": 0.010155902004454343,
-        "output": 0.40089086859688194,
+        "input": 0.006129175946547884,
+        "cached": 0.0029434298440979955,
+        "output": 0.10690423162583518,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0114,
-          "cached": 0.0114,
-          "output": 0.45
+          "input": 0.00688,
+          "cached": 0.003304,
+          "output": 0.12
         }
       },
       "pricingTiers": [],
@@ -132152,13 +135850,13 @@
       },
       "rates": {
         "input": 0.042761692650334075,
-        "cached": 0.008552338530066815,
+        "cached": 0.005345211581291759,
         "output": 0.14253897550111358,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
           "input": 0.048,
-          "cached": 0.0096,
+          "cached": 0.006,
           "output": 0.16
         }
       },

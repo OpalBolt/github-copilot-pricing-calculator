@@ -51,6 +51,9 @@ OWNER_ALIASES = {
     "qwen": "Alibaba",
     # spill: slice 05 — Novita ids use the `sao10k/` prefix in both cases.
     "sao10k": "Sao10K",
+    # spill: slice 23 — OfoxAI's Doubao rows name their serving platform
+    # `volcengine` (ByteDance's cloud) as owned_by.
+    "volcengine": "ByteDance",
     "xiaomi": "Xiaomi",
     # spill: slice 05 — Novita ids use the `xiaomimimo/` prefix.
     "xiaomimimo": "XiaomiMiMo",

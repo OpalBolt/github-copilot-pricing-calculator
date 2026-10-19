@@ -32,6 +32,7 @@ from sources.llm_gateway import LLM_GATEWAY_URL
 from sources.nano_gpt import NANO_GPT_URL
 from sources.nearai import NEARAI_URL
 from sources.novita import NOVITA_URL
+from sources.ofox import OFOX_URL
 from sources.openai_direct import OPENAI_MODELS_URL, OPENAI_PRICING_URL
 from sources.opencode import OPENCODE_ZEN_URL
 from sources.openrouter import OPENROUTER_URL
@@ -321,6 +322,22 @@ SOURCES = {
         # billionth of a dollar)" (docs.near.ai/api-reference/models/
         # list-models-with-pricing), and every DecimalPrice in the public
         # /v1/model/list response carries currency "USD".
+        "nativeCurrency": "USD",
+        "euClaim": "No EU routing catalog is published.",
+    },
+    "ofox": {
+        "name": "OfoxAI",
+        "pages": ("global",),
+        "sellerKind": "gateway",
+        "source": OFOX_URL,
+        # OfoxAI self-describes as "One API Key, access to 100+ LLMs"
+        # (ofox.ai/docs) — a multi-model gateway, not a router. It bills a
+        # US-dollar pay-as-you-go wallet: the balance API documents the
+        # account currency as "Currency unit, fixed to \"USD\"" with "All
+        # amounts are in USD as 64-bit floats. Internally we track to
+        # NanoDollar precision (10⁻⁹ USD)" (ofox.ai/docs/api/openapi/
+        # balance), and the catalog's per-token decimals render as dollars
+        # per 1M tokens on its own model pages (kimi-k3 "$3 / $15 /M").
         "nativeCurrency": "USD",
         "euClaim": "No EU routing catalog is published.",
     },
