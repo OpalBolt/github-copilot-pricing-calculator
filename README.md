@@ -126,6 +126,7 @@ The router build uses these sources:
 | OpenAI direct API pricing | `https://developers.openai.com/api/docs/pricing.md` |
 | z.ai direct API | `https://docs.z.ai/guides/overview/pricing.md` |
 | xAI direct API pricing | `https://docs.x.ai/developers/pricing.md` |
+| Mistral direct API pricing | `https://docs.mistral.ai/inference/pricing.md` |
 | ECB USD per EUR | `https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A` |
 
 The build uses EUrouter offers that publish EUR or USD prices. It converts USD

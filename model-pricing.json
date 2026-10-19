@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-19T19:13:22.646282+00:00",
+  "generatedAt": "2026-10-19T19:29:08.318260+00:00",
   "currency": "EUR",
   "exchangeRate": {
     "series": "EXR.D.USD.EUR.SP00.A",
@@ -15,7 +15,7 @@
       "source": "https://api.cortecs.ai/v1/models?extended=true&currency=EUR",
       "id": "cortecs",
       "nativeCurrency": "EUR",
-      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
+      "fetchedAt": "2026-10-19T19:29:08.318260+00:00",
       "stale": false
     },
     {
@@ -24,7 +24,7 @@
       "source": "https://api.eurouter.ai/api/v1/models",
       "id": "eurouter",
       "nativeCurrency": "mixed",
-      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
+      "fetchedAt": "2026-10-19T19:29:08.318260+00:00",
       "stale": false
     },
     {
@@ -33,7 +33,7 @@
       "source": "https://openrouter.ai/api/v1/models",
       "id": "openrouter",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
+      "fetchedAt": "2026-10-19T19:29:08.318260+00:00",
       "stale": false
     },
     {
@@ -42,7 +42,7 @@
       "source": "https://opencode.ai/zen/v1/models",
       "id": "opencode",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
+      "fetchedAt": "2026-10-19T19:29:08.318260+00:00",
       "stale": false
     },
     {
@@ -51,7 +51,7 @@
       "source": "https://api.deepinfra.com/v1/models",
       "nativeCurrency": "USD",
       "id": "deepinfra",
-      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
+      "fetchedAt": "2026-10-19T19:29:08.318260+00:00",
       "stale": false
     },
     {
@@ -60,7 +60,7 @@
       "source": "https://api.novita.ai/v3/openai/models",
       "nativeCurrency": "USD",
       "id": "novita",
-      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
+      "fetchedAt": "2026-10-19T19:29:08.318260+00:00",
       "stale": false
     },
     {
@@ -69,7 +69,7 @@
       "source": "https://router.requesty.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "requesty",
-      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
+      "fetchedAt": "2026-10-19T19:29:08.318260+00:00",
       "stale": false
     },
     {
@@ -78,7 +78,7 @@
       "source": "https://ai-gateway.vercel.sh/v1/models",
       "nativeCurrency": "USD",
       "id": "vercel-gateway",
-      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
+      "fetchedAt": "2026-10-19T19:29:08.318260+00:00",
       "stale": false
     },
     {
@@ -87,7 +87,7 @@
       "source": "https://api.kilo.ai/api/gateway/models",
       "nativeCurrency": "USD",
       "id": "kilo",
-      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
+      "fetchedAt": "2026-10-19T19:29:08.318260+00:00",
       "stale": false
     },
     {
@@ -96,7 +96,7 @@
       "source": "https://nano-gpt.com/api/v1/models?detailed=true",
       "nativeCurrency": "USD",
       "id": "nano-gpt",
-      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
+      "fetchedAt": "2026-10-19T19:29:08.318260+00:00",
       "stale": false
     },
     {
@@ -105,7 +105,7 @@
       "source": "https://llm.chutes.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "chutes",
-      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
+      "fetchedAt": "2026-10-19T19:29:08.318260+00:00",
       "stale": false
     },
     {
@@ -114,7 +114,7 @@
       "source": "https://api.llmgateway.io/v1/models",
       "nativeCurrency": "USD",
       "id": "llmgateway",
-      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
+      "fetchedAt": "2026-10-19T19:29:08.318260+00:00",
       "stale": false
     },
     {
@@ -123,7 +123,7 @@
       "source": "https://api.aiand.com/v1/models",
       "nativeCurrency": "USD",
       "id": "aiand",
-      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
+      "fetchedAt": "2026-10-19T19:29:08.318260+00:00",
       "stale": false
     },
     {
@@ -132,7 +132,7 @@
       "source": "https://api.aimlapi.com/v1/models?include=pricing,modalities",
       "nativeCurrency": "USD",
       "id": "aimlapi",
-      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
+      "fetchedAt": "2026-10-19T19:29:08.318260+00:00",
       "stale": false
     },
     {
@@ -141,7 +141,7 @@
       "source": "https://api.ambient.xyz/v1/models",
       "nativeCurrency": "USD",
       "id": "ambient",
-      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
+      "fetchedAt": "2026-10-19T19:29:08.318260+00:00",
       "stale": false
     },
     {
@@ -150,7 +150,7 @@
       "source": "https://www.crossmodel.ai/api/models",
       "nativeCurrency": "USD",
       "id": "crossmodel",
-      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
+      "fetchedAt": "2026-10-19T19:29:08.318260+00:00",
       "stale": false
     },
     {
@@ -159,7 +159,7 @@
       "source": "https://api.edenai.run/v3/models",
       "nativeCurrency": "USD",
       "id": "edenai",
-      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
+      "fetchedAt": "2026-10-19T19:29:08.318260+00:00",
       "stale": false
     },
     {
@@ -168,7 +168,7 @@
       "source": "https://api.empiriolabs.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "empiriolabs",
-      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
+      "fetchedAt": "2026-10-19T19:29:08.318260+00:00",
       "stale": false
     },
     {
@@ -177,7 +177,7 @@
       "source": "https://api.engy.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "engy",
-      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
+      "fetchedAt": "2026-10-19T19:29:08.318260+00:00",
       "stale": false
     },
     {
@@ -186,7 +186,7 @@
       "source": "https://api.friendli.ai/serverless/v1/models",
       "nativeCurrency": "USD",
       "id": "friendli",
-      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
+      "fetchedAt": "2026-10-19T19:29:08.318260+00:00",
       "stale": false
     },
     {
@@ -195,7 +195,7 @@
       "source": "https://hyper.charm.land/v1/models",
       "nativeCurrency": "USD",
       "id": "hyper",
-      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
+      "fetchedAt": "2026-10-19T19:29:08.318260+00:00",
       "stale": false
     },
     {
@@ -204,7 +204,7 @@
       "source": "https://api.inceptron.io/v1/models",
       "nativeCurrency": "USD",
       "id": "inceptron",
-      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
+      "fetchedAt": "2026-10-19T19:29:08.318260+00:00",
       "stale": false
     },
     {
@@ -213,7 +213,7 @@
       "source": "https://cloud-api.near.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "nearai",
-      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
+      "fetchedAt": "2026-10-19T19:29:08.318260+00:00",
       "stale": false
     },
     {
@@ -222,7 +222,7 @@
       "source": "https://api.ofox.ai/v2/models/catalog?include=provider_price&limit=500",
       "nativeCurrency": "USD",
       "id": "ofox",
-      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
+      "fetchedAt": "2026-10-19T19:29:08.318260+00:00",
       "stale": false
     },
     {
@@ -231,7 +231,7 @@
       "source": "https://api.fastino.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "pioneer",
-      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
+      "fetchedAt": "2026-10-19T19:29:08.318260+00:00",
       "stale": false
     },
     {
@@ -240,7 +240,7 @@
       "source": "https://api.pinference.ai/api/v1/models",
       "nativeCurrency": "USD",
       "id": "prime",
-      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
+      "fetchedAt": "2026-10-19T19:29:08.318260+00:00",
       "stale": false
     },
     {
@@ -249,7 +249,7 @@
       "source": "https://inference.tinfoil.sh/v1/models",
       "nativeCurrency": "USD",
       "id": "tinfoil",
-      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
+      "fetchedAt": "2026-10-19T19:29:08.318260+00:00",
       "stale": false
     },
     {
@@ -258,7 +258,7 @@
       "source": "https://api.venice.ai/api/v1/models?type=text",
       "nativeCurrency": "USD",
       "id": "venice",
-      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
+      "fetchedAt": "2026-10-19T19:29:08.318260+00:00",
       "stale": false
     },
     {
@@ -267,7 +267,7 @@
       "sellerKind": "first-party",
       "id": "deepseek-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
+      "fetchedAt": "2026-10-19T19:29:08.318260+00:00",
       "stale": false
     },
     {
@@ -276,7 +276,7 @@
       "sellerKind": "first-party",
       "id": "zai-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
+      "fetchedAt": "2026-10-19T19:29:08.318260+00:00",
       "stale": false
     },
     {
@@ -285,7 +285,7 @@
       "sellerKind": "first-party",
       "id": "claude-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
+      "fetchedAt": "2026-10-19T19:29:08.318260+00:00",
       "stale": false
     },
     {
@@ -294,7 +294,7 @@
       "sellerKind": "first-party",
       "id": "openai-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
+      "fetchedAt": "2026-10-19T19:29:08.318260+00:00",
       "stale": false
     },
     {
@@ -303,7 +303,16 @@
       "source": "https://docs.x.ai/developers/pricing.md",
       "nativeCurrency": "USD",
       "id": "xai",
-      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
+      "fetchedAt": "2026-10-19T19:29:08.318260+00:00",
+      "stale": false
+    },
+    {
+      "name": "Mistral AI",
+      "sellerKind": "first-party",
+      "source": "https://docs.mistral.ai/inference/pricing.md",
+      "nativeCurrency": "USD",
+      "id": "mistral",
+      "fetchedAt": "2026-10-19T19:29:08.318260+00:00",
       "stale": false
     }
   ],
@@ -80820,15 +80829,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.014182628062360801,
-        "cached": 0.0029434298440979955,
-        "output": 0.10690423162583518,
+        "input": 0.010155902004454343,
+        "cached": 0.010155902004454343,
+        "output": 0.40089086859688194,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.01592,
-          "cached": 0.003304,
-          "output": 0.12
+          "input": 0.0114,
+          "cached": 0.0114,
+          "output": 0.45
         }
       },
       "pricingTiers": [],
@@ -81192,14 +81201,14 @@
         "audio": false
       },
       "rates": {
-        "input": 0.05077951002227171,
-        "cached": 0.032071269487750555,
+        "input": 0.04899777282850779,
+        "cached": 0.030289532293986638,
         "output": 5.3452115812917596,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.057,
-          "cached": 0.036,
+          "input": 0.055,
+          "cached": 0.034,
           "output": 6.0
         }
       },
@@ -81926,7 +81935,7 @@
       "modelId": "deepseek-v4-flash",
       "name": "DeepSeek V4 Flash",
       "creator": "DeepSeek",
-      "description": "deepseek-v4-flash provided by deepseek, novita, alibaba, deepinfra, bytedance, fireworks, together-ai, ranoai, canopywave, baidu, tencent, runware, consensusprotocol",
+      "description": "deepseek-v4-flash provided by deepseek, novita, alibaba, deepinfra, bytedance, fireworks, together-ai, ranoai, canopywave, baidu, tencent, consensusprotocol, runware",
       "releaseDate": null,
       "contextSize": 1050000,
       "capabilities": {
@@ -81988,7 +81997,7 @@
       "modelId": "deepseek-v4.1-flash",
       "name": "DeepSeek V4.1 Flash",
       "creator": "DeepSeek",
-      "description": "deepseek-v4.1-flash provided by deepseek, alibaba, deepinfra, fireworks, together-ai, novita, baidu, luminal, entrim, runware, consensusprotocol, scx-ai-gp, sciforium",
+      "description": "deepseek-v4.1-flash provided by deepseek, alibaba, deepinfra, fireworks, together-ai, novita, baidu, entrim, luminal, runware, consensusprotocol, scx-ai-gp, sciforium",
       "releaseDate": null,
       "contextSize": 1050000,
       "capabilities": {
@@ -83383,7 +83392,7 @@
       "modelId": "glm-5.3",
       "name": "GLM-5.3",
       "creator": "Z.ai",
-      "description": "glm-5.3 provided by zai, novita, baidu, alibaba, fireworks, inference.net, mistral, deepinfra, together-ai, runware, reka-ai, entrim, scx-ai-gp",
+      "description": "glm-5.3 provided by zai, novita, baidu, alibaba, fireworks, inference.net, mistral, deepinfra, together-ai, entrim, runware, reka-ai, scx-ai-gp",
       "releaseDate": null,
       "contextSize": 1048576,
       "capabilities": {
@@ -88769,6 +88778,316 @@
       },
       "pricingTiers": [],
       "priceNote": "USD price published in LLM Gateway's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "mistral:codestral-2508",
+      "seller": "mistral",
+      "sellerName": "Mistral AI",
+      "modelId": "codestral-2508",
+      "name": "Codestral",
+      "creator": "Mistral AI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.26726057906458794,
+        "cached": 0.26726057906458794,
+        "output": 0.8017817371937639,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3,
+          "cached": 0.3,
+          "output": 0.9
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "Direct USD API price published by Mistral AI and converted with the listed ECB rate."
+    },
+    {
+      "key": "mistral:ministral-14b-2512",
+      "seller": "mistral",
+      "sellerName": "Mistral AI",
+      "modelId": "ministral-14b-2512",
+      "name": "Ministral 3 14B",
+      "creator": "Mistral AI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.17817371937639198,
+        "cached": 0.17817371937639198,
+        "output": 0.17817371937639198,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.2,
+          "cached": 0.2,
+          "output": 0.2
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "Direct USD API price published by Mistral AI and converted with the listed ECB rate."
+    },
+    {
+      "key": "mistral:ministral-3b-2512",
+      "seller": "mistral",
+      "sellerName": "Mistral AI",
+      "modelId": "ministral-3b-2512",
+      "name": "Ministral 3 3B",
+      "creator": "Mistral AI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.08908685968819599,
+        "cached": 0.08908685968819599,
+        "output": 0.08908685968819599,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.1,
+          "cached": 0.1,
+          "output": 0.1
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "Direct USD API price published by Mistral AI and converted with the listed ECB rate."
+    },
+    {
+      "key": "mistral:ministral-8b-2512",
+      "seller": "mistral",
+      "sellerName": "Mistral AI",
+      "modelId": "ministral-8b-2512",
+      "name": "Ministral 3 8B",
+      "creator": "Mistral AI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.13363028953229397,
+        "cached": 0.13363028953229397,
+        "output": 0.13363028953229397,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.15,
+          "cached": 0.15,
+          "output": 0.15
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "Direct USD API price published by Mistral AI and converted with the listed ECB rate."
+    },
+    {
+      "key": "mistral:mistral-large-2512",
+      "seller": "mistral",
+      "sellerName": "Mistral AI",
+      "modelId": "mistral-large-2512",
+      "name": "Mistral Large 3",
+      "creator": "Mistral AI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.4454342984409799,
+        "cached": 0.4454342984409799,
+        "output": 1.3363028953229399,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.5,
+          "cached": 0.5,
+          "output": 1.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "Direct USD API price published by Mistral AI and converted with the listed ECB rate."
+    },
+    {
+      "key": "mistral:mistral-large-4",
+      "seller": "mistral",
+      "sellerName": "Mistral AI",
+      "modelId": "mistral-large-4",
+      "name": "Mistral Large 4",
+      "creator": "Mistral AI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.2115812917594655,
+        "cached": 0.12472160356347439,
+        "output": 3.723830734966592,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.36,
+          "cached": 0.14,
+          "output": 4.18
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "Direct USD API price published by Mistral AI and converted with the listed ECB rate. Mistral currently advertises a sale price of $0.68 input / $0.07 cached input / $2.09 output per million tokens."
+    },
+    {
+      "key": "mistral:mistral-medium-3-5",
+      "seller": "mistral",
+      "sellerName": "Mistral AI",
+      "modelId": "mistral-medium-3-5",
+      "name": "Mistral Medium 3.5",
+      "creator": "Mistral AI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.3363028953229399,
+        "cached": 1.3363028953229399,
+        "output": 6.681514476614699,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.5,
+          "cached": 1.5,
+          "output": 7.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "Direct USD API price published by Mistral AI and converted with the listed ECB rate."
+    },
+    {
+      "key": "mistral:mistral-moderation-2603",
+      "seller": "mistral",
+      "sellerName": "Mistral AI",
+      "modelId": "mistral-moderation-2603",
+      "name": "Mistral Moderation 2",
+      "creator": "Mistral AI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.0,
+        "cached": 0.0,
+        "output": 0.0,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.0,
+          "cached": 0.0,
+          "output": 0.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "Direct USD API price published by Mistral AI and converted with the listed ECB rate."
+    },
+    {
+      "key": "mistral:mistral-small-2603",
+      "seller": "mistral",
+      "sellerName": "Mistral AI",
+      "modelId": "mistral-small-2603",
+      "name": "Mistral Small 4",
+      "creator": "Mistral AI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.13363028953229397,
+        "cached": 0.13363028953229397,
+        "output": 0.5345211581291759,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.15,
+          "cached": 0.15,
+          "output": 0.6
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "Direct USD API price published by Mistral AI and converted with the listed ECB rate."
+    },
+    {
+      "key": "mistral:zai-glm-5-3",
+      "seller": "mistral",
+      "sellerName": "Mistral AI",
+      "modelId": "zai-glm-5-3",
+      "name": "Z.ai GLM 5.3",
+      "creator": "Z.ai",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.2472160356347437,
+        "cached": 0.12472160356347439,
+        "output": 3.9198218262806237,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.4,
+          "cached": 0.14,
+          "output": 4.4
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "Direct USD API price published by Mistral AI and converted with the listed ECB rate."
     },
     {
       "key": "nano-gpt:Doctor-Shotgun/MS3.2-24B-Magnum-Diamond",
@@ -123742,15 +124061,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.35218530066815146,
-        "cached": 0.029348775055679288,
-        "output": 0.7043706013363029,
+        "input": 0.34924008908685966,
+        "cached": 0.02910334075723831,
+        "output": 0.6984801781737193,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.395328,
-          "cached": 0.032944,
-          "output": 0.790656
+          "input": 0.392022,
+          "cached": 0.0326685,
+          "output": 0.784044
         }
       },
       "pricingTiers": [],
@@ -135615,14 +135934,14 @@
         "audio": false
       },
       "rates": {
-        "input": 0.013452115812917595,
-        "cached": 0.013452115812917595,
+        "input": 0.010155902004454343,
+        "cached": 0.010155902004454343,
         "output": 0.40089086859688194,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0151,
-          "cached": 0.0151,
+          "input": 0.0114,
+          "cached": 0.0114,
           "output": 0.45
         }
       },
@@ -135987,14 +136306,14 @@
         "audio": false
       },
       "rates": {
-        "input": 0.05077951002227171,
-        "cached": 0.032071269487750555,
+        "input": 0.04899777282850779,
+        "cached": 0.030289532293986638,
         "output": 5.3452115812917596,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.057,
-          "cached": 0.036,
+          "input": 0.055,
+          "cached": 0.034,
           "output": 6.0
         }
       },
@@ -179712,37 +180031,6 @@
           "input": 1.0,
           "cached": 0.2,
           "output": 2.0
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Vercel AI Gateway's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "vercel-gateway:stealth/cat-jam",
-      "seller": "vercel-gateway",
-      "sellerName": "Vercel AI Gateway",
-      "modelId": "stealth/cat-jam",
-      "name": "Cat Jam",
-      "creator": "stealth",
-      "description": "Cat Jam is a reasoning model for coding and agentic workflows, combining strong coding capabilities with fast, low-latency inference. Prompts and responses may be used for training and model improvement.",
-      "releaseDate": null,
-      "contextSize": 1048576,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.0,
-        "cached": 0.0,
-        "output": 0.0,
-        "cachedFallback": true,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.0,
-          "cached": 0.0,
-          "output": 0.0
         }
       },
       "pricingTiers": [],

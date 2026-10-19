@@ -31,6 +31,7 @@ from sources.eurouter import fetch_eurouter_listings
 from sources.helpers import _rates, listing_from_offer, now_utc
 from sources.kilo import _kilo_rates, fetch_kilo_listings
 from sources.llm_gateway import _llm_gateway_rates, fetch_llmgateway_listings
+from sources.mistral import fetch_mistral_listings, parse_mistral_pricing
 from sources.nearai import (
     _nearai_owner,
     _nearai_rates,
@@ -117,6 +118,7 @@ ALL_SELLERS = {
     "claude-direct",
     "openai-direct",
     "xai",
+    "mistral",
 }
 SELLER_KINDS = {
     "cortecs": "router",
@@ -152,6 +154,7 @@ SELLER_KINDS = {
     "claude-direct": "first-party",
     "openai-direct": "first-party",
     "xai": "first-party",
+    "mistral": "first-party",
 }
 
 
@@ -222,6 +225,7 @@ def test_registry_pages():
         "tinfoil",
         "venice",
         "xai",
+        "mistral",
     }
     assert global_pages == ALL_SELLERS
     assert {m["sellerKind"] for m in SOURCES.values()} == set(SELLER_KINDS.values())
@@ -3794,6 +3798,138 @@ def test_xai_adapter():
     )
 
 
+def test_mistral_adapter():
+    """The committed Mistral pricing markdown normalizes to per-million-token
+    USD listings converted with the ECB rate; the regular price is the
+    headline and the advertised sale price stays in the price note, and
+    page-, minute-, character-, and input-only rows stay out."""
+    # Mistral's markdown quotes every rate with a dollar prefix and the
+    # rendered page's currency toggle opens on USD; the registry records
+    # that verified native currency, and the first-party catalog feeds the
+    # global page only.
+    assert SOURCES["mistral"]["nativeCurrency"] == "USD"
+    assert SOURCES["mistral"]["pages"] == ("global",)
+    assert SOURCES["mistral"]["sellerKind"] == "first-party"
+
+    fixture = ROOT / "fixtures" / "mistral-pricing.md"
+    markdown = fixture.read_text(encoding="utf-8")
+    # The currency evidence lives in the Seller's own pricing doc: every
+    # rate is dollar-prefixed.
+    assert "Input $0.68 /M Tokens" in markdown
+
+    with patch("sources.mistral.fetch_text", return_value=markdown):
+        listings = fetch_mistral_listings({"usdPerEur": 2.0})
+    by_id = {listing["modelId"]: listing for listing in listings}
+    assert set(by_id) == {
+        "mistral-large-4",
+        "mistral-large-2512",
+        "ministral-3b-2512",
+        "mistral-moderation-2603",
+        "zai-glm-5-3",
+        "codestral-2508",
+    }
+
+    # The headline rates are the regular prices as published (USD per
+    # million tokens, converted with the ECB rate); the advertised sale
+    # price stays in the price note instead of the headline.
+    large4 = by_id["mistral-large-4"]
+    assert large4["key"] == "mistral:mistral-large-4"
+    assert large4["seller"] == "mistral"
+    assert large4["sellerName"] == "Mistral AI"
+    assert large4["name"] == "Mistral Large 4"
+    assert large4["creator"] == "Mistral AI"
+    assert large4["contextSize"] is None
+    assert large4["pricingTiers"] == []
+    assert large4["rates"]["nativeCurrency"] == "USD"
+    assert large4["rates"]["native"] == {
+        "input": 1.36,
+        "cached": 0.14,
+        "output": 4.18,
+    }
+    assert math.isclose(large4["rates"]["input"], 0.68)
+    assert math.isclose(large4["rates"]["cached"], 0.07)
+    assert math.isclose(large4["rates"]["output"], 2.09)
+    assert large4["rates"]["cachedFallback"] is False
+    assert (
+        "sale price of $0.68 input / $0.07 cached input / $2.09 output"
+        in large4["priceNote"]
+    )
+    assert "ECB" in large4["priceNote"]
+
+    # A plain row headlines its rates and carries no sale sentence; the
+    # missing cached rate falls back to the input estimate.
+    large3 = by_id["mistral-large-2512"]
+    assert large3["creator"] == "Mistral AI"
+    assert large3["rates"]["native"] == {
+        "input": 0.5,
+        "cached": 0.5,
+        "output": 1.5,
+    }
+    assert large3["rates"]["cachedFallback"] is True
+    assert "sale" not in large3["priceNote"]
+    assert large3["priceNote"] == (
+        "Direct USD API price published by Mistral AI and converted with "
+        "the listed ECB rate."
+    )
+
+    # The third-party hosted row keeps the model operator's own creator;
+    # the seller stays Mistral AI.
+    glm = by_id["zai-glm-5-3"]
+    assert glm["seller"] == "mistral"
+    assert glm["creator"] == "Z.ai"
+    assert glm["rates"]["native"] == {
+        "input": 1.4,
+        "cached": 0.14,
+        "output": 4.4,
+    }
+
+    # The published free moderation model keeps its zero prices, with the
+    # cached estimate falling back to the zero input rate.
+    moderation = by_id["mistral-moderation-2603"]
+    assert moderation["rates"]["native"] == {"input": 0, "cached": 0, "output": 0}
+    assert moderation["rates"]["cachedFallback"] is True
+
+    # Per-page, per-minute, per-character, and input-only rows are not
+    # chat token pricing and stay out of the listings.
+    assert "mistral-ocr-4-1" not in by_id
+    assert "voxtral-mini-2602" not in by_id
+    assert "voxtral-mini-tts-2603" not in by_id
+    assert "codestral-embed-2505" not in by_id
+
+    # Parser: a sale on some fields only headlines the regular price and
+    # keeps the advertised sale prices beside it, the free row's unlabeled
+    # zero is the published price in both directions, and an input-only
+    # row has no output price to list.
+    stripped = parse_mistral_pricing(
+        """## Flagship models
+| Model | API name | Price |
+| --- | --- | --- |
+| [Test Model](/models/test-model) | `test-model` | Input $0.2 /M Tokens (sale price, regular $0.5)<br>Output $1 /M Tokens |
+| [Test Free](/models/test-free) | `test-free` | Free<br>$0 /M Tokens |
+| [Test Embed](/models/test-embed) | `test-embed` | Input $0.15 /M Tokens |
+"""
+    )
+    assert stripped == [
+        {
+            "id": "test-model",
+            "name": "Test Model",
+            "owner": "mistralai",
+            "input": 0.5,
+            "input_cache": None,
+            "output": 1.0,
+            "sale": {"input": 0.2},
+        },
+        {
+            "id": "test-free",
+            "name": "Test Free",
+            "owner": "mistralai",
+            "input": 0.0,
+            "input_cache": None,
+            "output": 0.0,
+        },
+    ]
+
+
 def test_seven_day_seller_fallback():
     fetched_at = now_utc().isoformat()
     previous = {
@@ -4042,6 +4178,7 @@ def test_aggregate_contract():
             "claude-direct",
             "openai-direct",
             "xai",
+            "mistral",
         )
     } == {"USD"}
 
@@ -4056,6 +4193,7 @@ def test_aggregate_contract():
         "openai-direct",
         "xai",
         "zai-direct",
+        "mistral",
     }
     assert all(
         listing["rates"]["nativeCurrency"] == "USD" for listing in first_party

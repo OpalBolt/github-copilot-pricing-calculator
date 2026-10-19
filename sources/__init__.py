@@ -29,6 +29,7 @@ from sources.hyper import HYPER_URL
 from sources.inceptron import INCEPTRON_URL
 from sources.kilo import KILO_URL
 from sources.llm_gateway import LLM_GATEWAY_URL
+from sources.mistral import MISTRAL_PRICING_URL
 from sources.nano_gpt import NANO_GPT_URL
 from sources.nearai import NEARAI_URL
 from sources.novita import NOVITA_URL
@@ -454,6 +455,19 @@ SOURCES = {
         # table bills "Input / 1M tokens", "Cached input / 1M tokens", and
         # "Output / 1M tokens" (docs.x.ai/developers/pricing.md), so the
         # published rates are US dollars per million tokens.
+        "nativeCurrency": "USD",
+        "euClaim": "No EU routing catalog is published.",
+    },
+    "mistral": {
+        "name": "Mistral AI",
+        "pages": ("global",),
+        "sellerKind": "first-party",
+        "source": MISTRAL_PRICING_URL,
+        # Every rate on Mistral's API-pricing markdown is dollar-prefixed
+        # ("Input $0.68 /M Tokens (sale price, regular $1.36)"), and the
+        # rendered page's currency toggle opens on USD
+        # (docs.mistral.ai/inference/pricing/), so the published rates are
+        # US dollars per million tokens.
         "nativeCurrency": "USD",
         "euClaim": "No EU routing catalog is published.",
     },

@@ -890,18 +890,22 @@
     {
       "date": "2026-10-19",
       "changes": [
-        "+ xAI: grok-4.20-0309-non-reasoning",
-        "+ xAI: grok-4.20-0309-reasoning",
-        "+ xAI: grok-4.20-multi-agent-0309",
-        "+ xAI: grok-4.3",
-        "+ xAI: grok-4.5",
-        "+ xAI: grok-4.6",
-        "+ xAI: grok-4.7",
-        "+ xAI: grok-build-0.1",
-        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash 0731 \u2014 input $0.15\u2192$0.1298 \u00b7 cached $0.042\u2192$0.00413 \u00b7 output $0.15\u2192$0.3894",
-        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Pro 0423 \u2014 input $0.3988\u2192$0.3953 \u00b7 cached $0.03323\u2192$0.03294 \u00b7 output $0.7976\u2192$0.7907",
-        "\u2192 OpenRouter \u00b7 Google: Gemma 4 26B A4B \u2014 input $0.09\u2192$0.0765 \u00b7 cached $0.05\u2192$0.0425 \u00b7 output $0.3\u2192$0.255",
-        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash Latest \u2014 input $0.01592\u2192$0.0151 \u00b7 cached $0.003304\u2192$0.0151 \u00b7 output $0.12\u2192$0.45"
+        "\u2212 Vercel AI Gateway: Cat Jam",
+        "+ Mistral AI: Codestral",
+        "+ Mistral AI: Ministral 3 14B",
+        "+ Mistral AI: Ministral 3 3B",
+        "+ Mistral AI: Ministral 3 8B",
+        "+ Mistral AI: Mistral Large 3",
+        "+ Mistral AI: Mistral Large 4",
+        "+ Mistral AI: Mistral Medium 3.5",
+        "+ Mistral AI: Mistral Moderation 2",
+        "+ Mistral AI: Mistral Small 4",
+        "+ Mistral AI: Z.ai GLM 5.3",
+        "\u2192 Kilo \u00b7 DeepSeek: DeepSeek V4 Flash Latest \u2014 input $0.01592\u2192$0.0114 \u00b7 cached $0.003304\u2192$0.0114 \u00b7 output $0.12\u2192$0.45",
+        "\u2192 Kilo \u00b7 Z.ai: GLM Latest \u2014 input $0.057\u2192$0.055 \u00b7 cached $0.036\u2192$0.034",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Pro 0423 \u2014 input $0.3953\u2192$0.392 \u00b7 cached $0.03294\u2192$0.03267 \u00b7 output $0.7907\u2192$0.784",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash Latest \u2014 input $0.0151\u2192$0.0114 \u00b7 cached $0.0151\u2192$0.0114",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM Latest \u2014 input $0.057\u2192$0.055 \u00b7 cached $0.036\u2192$0.034"
       ]
     }
   ]
