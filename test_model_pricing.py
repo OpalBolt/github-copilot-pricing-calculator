@@ -31,6 +31,11 @@ from sources.eurouter import fetch_eurouter_listings
 from sources.helpers import _rates, listing_from_offer, now_utc
 from sources.kilo import _kilo_rates, fetch_kilo_listings
 from sources.llm_gateway import _llm_gateway_rates, fetch_llmgateway_listings
+from sources.nearai import (
+    _nearai_owner,
+    _nearai_rates,
+    fetch_nearai_listings,
+)
 from sources.novita import _novita_rates, fetch_novita_listings
 from sources.nano_gpt import _nano_gpt_rates, fetch_nano_gpt_listings
 from sources.opencode import fetch_opencode_listings
@@ -70,6 +75,7 @@ ALL_SELLERS = {
     "friendli",
     "hyper",
     "inceptron",
+    "nearai",
     "deepseek-direct",
     "zai-direct",
     "claude-direct",
@@ -98,6 +104,7 @@ SELLER_KINDS = {
     "friendli": "gateway",
     "hyper": "gateway",
     "inceptron": "gateway",
+    "nearai": "gateway",
     "deepseek-direct": "first-party",
     "zai-direct": "first-party",
     "claude-direct": "first-party",
@@ -165,6 +172,7 @@ def test_registry_pages():
         "friendli",
         "hyper",
         "inceptron",
+        "nearai",
     }
     assert global_pages == ALL_SELLERS
     assert {m["sellerKind"] for m in SOURCES.values()} == set(SELLER_KINDS.values())
@@ -2589,6 +2597,203 @@ def test_inceptron_adapter():
         raise AssertionError("missing per-token prices should skip the row")
 
 
+def test_nearai_adapter():
+    """The committed NEAR AI catalog sample normalizes its per-token USD
+    decimal strings into per-million listings converted with the ECB rate;
+    rows without text output or with a non-USD currency marker stay out,
+    and zero prices are kept."""
+    # NEAR AI Cloud self-describes as "private, verifiable AI inference in
+    # Trusted Execution Environments through an OpenAI-compatible API"
+    # (docs.near.ai) whose gateway routes third-party models — a gateway,
+    # not a router. It bills US dollars: the pricing API's DecimalPrice doc
+    # says the system uses "a fixed scale of 9 (nano-dollars = 1 billionth
+    # of a dollar)" (docs.near.ai/api-reference/models/
+    # list-models-with-pricing), every DecimalPrice in the public
+    # /v1/model/list response carries currency "USD", and the catalog's
+    # numeric input and output fields equal prompt and completion times
+    # 1,000,000 on every row, so the per-token decimal strings scale into
+    # dollars per 1M tokens. The registry records sellerKind gateway, that
+    # verified native currency, and the global page only.
+    assert SOURCES["nearai"]["nativeCurrency"] == "USD"
+    assert SOURCES["nearai"]["pages"] == ("global",)
+    assert SOURCES["nearai"]["sellerKind"] == "gateway"
+
+    fixture = ROOT / "fixtures" / "nearai-models.json"
+    payload = json.loads(fixture.read_text(encoding="utf-8"))
+    with patch("sources.nearai.fetch_json", return_value=payload):
+        listings = fetch_nearai_listings({"usdPerEur": 2.0})
+    by_id = {listing["modelId"]: listing for listing in listings}
+    assert set(by_id) == {
+        "openai/gpt-5.4",
+        "anthropic/claude-fable-5",
+        "google/gemini-2.5-flash",
+        "openai/privacy-filter",
+        "deepseek/deepseek-v3.2",
+        "Qwen/Qwen3.6-35B-A3B-FP8",
+        "x-ai/grok-4.6",
+        "z-ai/glm-5.3-flash",
+        "moonshotai/kimi-k2.6",
+    }
+    # Image, embedding, and non-token-priced outputs skip the row instead
+    # of breaking the build.
+    assert "black-forest-labs/FLUX.2-klein-4B" not in by_id
+    assert "Qwen/Qwen3-Embedding-0.6B" not in by_id
+    assert "typesafe/jev-1.13" not in by_id
+    # A textPricing.currency marker naming anything but USD skips the row:
+    # the sample's EUR-marked row is text-output with per-token prices, so
+    # only the currency check keeps it from shipping as a distorted dollar
+    # price.
+    assert "mistralai/mistral-large-3" not in by_id
+    # USD-marked rows pass: their currency marker agrees with the
+    # catalog's verified USD nano-dollar scaling.
+    assert "openai/gpt-5.4" in by_id
+    assert "x-ai/grok-4.6" in by_id
+
+    # The catalog's prompt, completion, and input_cache_read fields are
+    # per-token decimals (claude-fable-5's pricing API row stores
+    # inputCostPerToken 10000 at scale 9 for the catalog's prompt
+    # "0.00001"), so the rates scale by 1,000,000 in dollars and the ECB
+    # rate converts them.
+    claude = by_id["anthropic/claude-fable-5"]
+    assert claude["key"] == "nearai:anthropic/claude-fable-5"
+    assert claude["seller"] == "nearai"
+    assert claude["sellerName"] == "NEAR AI"
+    assert claude["name"] == "Claude Fable 5"
+    assert claude["creator"] == "Anthropic"
+    assert claude["contextSize"] == 1_000_000
+    assert claude["pricingTiers"] == []
+    assert claude["rates"]["nativeCurrency"] == "USD"
+    assert claude["rates"]["native"] == {
+        "input": 10.0,
+        "cached": 1.0,
+        "output": 50.0,
+    }
+    assert math.isclose(claude["rates"]["input"], 5.0)
+    assert math.isclose(claude["rates"]["cached"], 0.5)
+    assert math.isclose(claude["rates"]["output"], 25.0)
+    assert claude["rates"]["cachedFallback"] is False
+    # The shared capability helper reads the catalog's supported_features
+    # flags and image inputs.
+    assert claude["capabilities"] == {
+        "reasoning": True,
+        "tools": True,
+        "vision": True,
+        "audio": False,
+    }
+
+    # Text-only rows keep vision off; owned_by maps to the canonical
+    # creator spellings.
+    gpt = by_id["openai/gpt-5.4"]
+    assert gpt["creator"] == "OpenAI"
+    assert gpt["capabilities"]["vision"] is False
+    assert gpt["rates"]["native"] == {
+        "input": 2.5,
+        "cached": 0.25,
+        "output": 15.0,
+    }
+    assert by_id["x-ai/grok-4.6"]["creator"] == "xAI"
+    assert by_id["x-ai/grok-4.6"]["rates"]["native"] == {
+        "input": 2.0,
+        "cached": 0.5,
+        "output": 6.0,
+    }
+    assert by_id["z-ai/glm-5.3-flash"]["creator"] == "Z.ai"
+    assert by_id["z-ai/glm-5.3-flash"]["rates"]["native"] == {
+        "input": 0.08,
+        "cached": 0.012,
+        "output": 0.5,
+    }
+    # NEAR AI's own hosting label and its "attested 3p" privacy tier name
+    # the serving fleet, not the creator; the id's vendor prefix does.
+    assert by_id["Qwen/Qwen3.6-35B-A3B-FP8"]["creator"] == "Alibaba"
+    assert by_id["openai/privacy-filter"]["creator"] == "OpenAI"
+    assert by_id["deepseek/deepseek-v3.2"]["creator"] == "DeepSeek"
+    assert by_id["moonshotai/kimi-k2.6"]["creator"] == "Moonshot AI"
+    assert "attested 3p" not in {listing["creator"] for listing in listings}
+    # A prefix-less id under a hosting label carries no creator signal; the
+    # row attributes to the gateway itself instead of an empty creator.
+    assert _nearai_owner({"id": "privacy-filter", "owned_by": "nearai"}) == "NEAR AI"
+    assert _nearai_owner({"id": "privacy-filter", "owned_by": "attested 3p"}) == "NEAR AI"
+
+    # Rows without input_cache_read fall back to the input rate.
+    gemini = by_id["google/gemini-2.5-flash"]
+    assert gemini["rates"]["native"] == {
+        "input": 0.3,
+        "cached": 0.3,
+        "output": 2.5,
+    }
+    assert gemini["rates"]["cachedFallback"] is True
+
+    assert all(
+        listing["rates"]["nativeCurrency"] == "USD" for listing in listings
+    )
+    assert all(
+        "NEAR AI" in listing["priceNote"] and "ECB" in listing["priceNote"]
+        for listing in listings
+    )
+    # A zero price is a price: the catalog's zero-priced completion rows
+    # normalize to a zero output rate instead of dropping out.
+    zeros = _nearai_rates(
+        {
+            "pricing": {
+                "prompt": "0",
+                "completion": "0",
+                "input_cache_read": "0",
+            }
+        },
+        2.0,
+    )
+    assert zeros["input"] == zeros["cached"] == zeros["output"] == 0
+    assert zeros["nativeCurrency"] == "USD"
+    assert zeros["cachedFallback"] is False
+    assert by_id["openai/privacy-filter"]["rates"]["native"] == {
+        "input": 0.01,
+        "cached": 0.01,
+        "output": 0.0,
+    }
+    assert by_id["openai/privacy-filter"]["rates"]["output"] == 0.0
+    # Rows without a cache_read read fall back to the input rate.
+    fallback = _nearai_rates({"pricing": {"prompt": 1, "completion": 2}}, 2.0)
+    assert fallback["native"] == {
+        "input": 1_000_000,
+        "cached": 1_000_000,
+        "output": 2_000_000,
+    }
+    assert fallback["cachedFallback"] is True
+    # Rows without per-token input and output prices are not
+    # per-million-token priced and stay out of the listings.
+    try:
+        _nearai_rates({"pricing": {"prompt": "0.0000005"}}, 2.0)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("missing per-token prices should skip the row")
+    # A textPricing.currency marker naming another currency raises the
+    # ValueError that skips the row instead of assuming USD silently.
+    try:
+        _nearai_rates(
+            {
+                "pricing": {"prompt": "0.000001", "completion": "0.000003"},
+                "textPricing": {"currency": "EUR"},
+            },
+            2.0,
+        )
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("non-USD currency marker should skip the row")
+    # A USD currency marker raises nothing: the row prices normally.
+    marked = _nearai_rates(
+        {
+            "pricing": {"prompt": "0.000001", "completion": "0.000003"},
+            "textPricing": {"currency": "USD"},
+        },
+        2.0,
+    )
+    assert marked["native"] == {"input": 1.0, "cached": 1.0, "output": 3.0}
+    assert marked["nativeCurrency"] == "USD"
+
+
 def test_seven_day_seller_fallback():
     fetched_at = now_utc().isoformat()
     previous = {
@@ -2822,6 +3027,7 @@ def test_aggregate_contract():
     assert native_by_seller["friendli"] == "USD"
     assert native_by_seller["hyper"] == "USD"
     assert native_by_seller["inceptron"] == "USD"
+    assert native_by_seller["nearai"] == "USD"
     assert {
         native_by_seller[sid]
         for sid in ("deepseek-direct", "zai-direct", "claude-direct", "openai-direct")
@@ -2906,6 +3112,7 @@ def test_generated_page():
         'data-seller="friendli"',
         'data-seller="hyper"',
         'data-seller="inceptron"',
+        'data-seller="nearai"',
         'data-seller="deepseek-direct"',
         'data-seller="zai-direct"',
         'data-seller="claude-direct"',
@@ -2995,6 +3202,7 @@ def main():
     test_friendli_adapter()
     test_hyper_adapter()
     test_inceptron_adapter()
+    test_nearai_adapter()
     test_seven_day_seller_fallback()
     test_broken_source_fails_in_isolation()
     test_build_fails_only_without_usable_data()

@@ -1,0 +1,746 @@
+{
+  "object": "list",
+  "data": [
+    {
+      "id": "openai/gpt-5.4",
+      "object": "model",
+      "created": 1778671374,
+      "owned_by": "openai",
+      "name": "GPT-5.4",
+      "pricing": {
+        "input": 2.5,
+        "output": 15.0,
+        "prompt": "0.0000025",
+        "completion": "0.000015",
+        "image": "0",
+        "request": "0",
+        "input_cache_read": "0.00000025"
+      },
+      "textPricing": {
+        "version": 1,
+        "currency": "USD",
+        "unit": "million_tokens",
+        "longContextThreshold": 272000,
+        "tiers": {
+          "default": {
+            "short": {
+              "uncachedInput": "2.50",
+              "cachedInput": "0.25",
+              "output": "15.00"
+            },
+            "long": {
+              "uncachedInput": "5.00",
+              "cachedInput": "0.50",
+              "output": "22.50"
+            }
+          },
+          "flex": {
+            "short": {
+              "uncachedInput": "1.25",
+              "cachedInput": "0.13",
+              "output": "7.50"
+            },
+            "long": {
+              "uncachedInput": "2.50",
+              "cachedInput": "0.25",
+              "output": "11.25"
+            }
+          },
+          "priority": {
+            "short": {
+              "uncachedInput": "5.00",
+              "cachedInput": "0.50",
+              "output": "30.00"
+            }
+          }
+        }
+      },
+      "context_length": 1050000,
+      "max_output_length": 16384,
+      "architecture": {
+        "inputModalities": [
+          "text"
+        ],
+        "outputModalities": [
+          "text"
+        ]
+      },
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "supported_sampling_parameters": [
+        "temperature",
+        "top_p",
+        "frequency_penalty",
+        "presence_penalty",
+        "max_tokens",
+        "stop",
+        "seed"
+      ],
+      "supported_features": [
+        "tools",
+        "structured_outputs",
+        "json_mode",
+        "reasoning"
+      ],
+      "is_ready": false,
+      "description": "GPT-5.4 is OpenAI\u2019s latest frontier model, unifying the Codex and GPT lines into a single system. It features a 1M+ token context window (922K input, 128K output) with support for...",
+      "top_provider": {
+        "context_length": 1050000,
+        "max_completion_tokens": 16384,
+        "is_moderated": false
+      }
+    },
+    {
+      "id": "anthropic/claude-fable-5",
+      "object": "model",
+      "created": 1785525829,
+      "owned_by": "anthropic",
+      "name": "Claude Fable 5",
+      "pricing": {
+        "input": 10.0,
+        "output": 50.0,
+        "prompt": "0.00001",
+        "completion": "0.00005",
+        "image": "0",
+        "request": "0",
+        "input_cache_read": "0.000001"
+      },
+      "context_length": 1000000,
+      "max_output_length": 128000,
+      "architecture": {
+        "inputModalities": [
+          "text",
+          "image"
+        ],
+        "outputModalities": [
+          "text"
+        ]
+      },
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "supported_sampling_parameters": [
+        "max_tokens",
+        "stop"
+      ],
+      "supported_features": [
+        "tools",
+        "structured_outputs",
+        "reasoning"
+      ],
+      "description": "Anthropic's most capable widely released model for long-running agents, advanced reasoning, coding, and demanding knowledge work.",
+      "top_provider": {
+        "context_length": 1000000,
+        "max_completion_tokens": 128000,
+        "is_moderated": false
+      }
+    },
+    {
+      "id": "google/gemini-2.5-flash",
+      "object": "model",
+      "created": 1778671374,
+      "owned_by": "google",
+      "name": "Gemini 2.5 Flash",
+      "pricing": {
+        "input": 0.3,
+        "output": 2.5,
+        "prompt": "0.0000003",
+        "completion": "0.0000025",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 1000000,
+      "max_output_length": 8192,
+      "architecture": {
+        "inputModalities": [
+          "text",
+          "image"
+        ],
+        "outputModalities": [
+          "text"
+        ]
+      },
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "supported_sampling_parameters": [
+        "temperature",
+        "top_p",
+        "top_k",
+        "max_tokens",
+        "stop"
+      ],
+      "supported_features": [
+        "tools",
+        "structured_outputs",
+        "json_mode"
+      ],
+      "is_ready": false,
+      "description": "Google's fast hybrid reasoning model with 1M token context window. Optimized for speed and cost while maintaining strong performance across tasks.",
+      "top_provider": {
+        "context_length": 1000000,
+        "max_completion_tokens": 8192,
+        "is_moderated": false
+      }
+    },
+    {
+      "id": "openai/privacy-filter",
+      "object": "model",
+      "created": 1779129892,
+      "owned_by": "nearai",
+      "name": "Privacy Filter",
+      "pricing": {
+        "input": 0.01,
+        "output": 0.0,
+        "prompt": "0.00000001",
+        "completion": "0",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 512,
+      "max_output_length": 1024,
+      "architecture": {
+        "inputModalities": [
+          "text"
+        ],
+        "outputModalities": [
+          "text"
+        ]
+      },
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "supported_sampling_parameters": [],
+      "supported_features": [],
+      "description": "PII detection (token classification) \u2014 returns spans for emails, phones, addresses, names, account numbers, secrets. NEAR AI runs this model in a TEE; prompts are not anonymized by the model itself, the cloud-api wraps it to do redaction.",
+      "top_provider": {
+        "context_length": 512,
+        "max_completion_tokens": 1024,
+        "is_moderated": false
+      },
+      "datacenters": [
+        {
+          "country_code": "US"
+        }
+      ]
+    },
+    {
+      "id": "deepseek/deepseek-v3.2",
+      "object": "model",
+      "created": 1781515743,
+      "owned_by": "attested 3p",
+      "name": "deepseek-v3.2",
+      "pricing": {
+        "input": 1.1,
+        "output": 1.1,
+        "prompt": "0.0000011",
+        "completion": "0.0000011",
+        "image": "0",
+        "request": "0",
+        "input_cache_read": "0.00000055"
+      },
+      "context_length": 128000,
+      "architecture": {
+        "inputModalities": [
+          "text"
+        ],
+        "outputModalities": [
+          "text"
+        ]
+      },
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "supported_sampling_parameters": [
+        "temperature",
+        "top_p",
+        "frequency_penalty",
+        "presence_penalty",
+        "stop",
+        "seed",
+        "max_tokens"
+      ],
+      "supported_features": [
+        "tools",
+        "json_mode"
+      ],
+      "is_ready": false,
+      "description": "Attested model served via Chutes TEE (verified end-to-end by NEAR AI).",
+      "top_provider": {
+        "context_length": 128000,
+        "is_moderated": false
+      }
+    },
+    {
+      "id": "Qwen/Qwen3.6-35B-A3B-FP8",
+      "object": "model",
+      "created": 1778743164,
+      "owned_by": "nearai",
+      "name": "Qwen 3.6 35B A3B FP8",
+      "hugging_face_id": "Qwen/Qwen3.6-35B-A3B-FP8",
+      "quantization": "fp8",
+      "pricing": {
+        "input": 0.17,
+        "output": 1.1,
+        "prompt": "0.00000017",
+        "completion": "0.0000011",
+        "image": "0",
+        "request": "0",
+        "input_cache_read": "0.000000056"
+      },
+      "context_length": 262144,
+      "max_output_length": 8192,
+      "architecture": {
+        "inputModalities": [
+          "text"
+        ],
+        "outputModalities": [
+          "text"
+        ]
+      },
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "supported_sampling_parameters": [
+        "temperature",
+        "top_p",
+        "top_k",
+        "min_p",
+        "frequency_penalty",
+        "presence_penalty",
+        "repetition_penalty",
+        "stop",
+        "seed",
+        "max_tokens",
+        "logit_bias"
+      ],
+      "supported_features": [
+        "tools",
+        "json_mode",
+        "structured_outputs",
+        "logprobs",
+        "reasoning"
+      ],
+      "is_ready": true,
+      "description": "Qwen 3.6 35B is a fast mixture-of-experts language model with ~3B active parameters per token. Strong at reasoning, coding, and multilingual tasks with 32K context window.",
+      "top_provider": {
+        "context_length": 262144,
+        "max_completion_tokens": 8192,
+        "is_moderated": false
+      },
+      "datacenters": [
+        {
+          "country_code": "US"
+        }
+      ],
+      "openrouter": {
+        "slug": "qwen/qwen3.6-35b-a3b"
+      }
+    },
+    {
+      "id": "x-ai/grok-4.6",
+      "object": "model",
+      "created": 1789094166,
+      "owned_by": "x-ai",
+      "name": "Grok 4.6",
+      "pricing": {
+        "input": 2.0,
+        "output": 6.0,
+        "prompt": "0.000002",
+        "completion": "0.000006",
+        "image": "0",
+        "request": "0",
+        "input_cache_read": "0.0000005"
+      },
+      "textPricing": {
+        "version": 1,
+        "currency": "USD",
+        "unit": "million_tokens",
+        "longContextThreshold": 199999,
+        "tiers": {
+          "default": {
+            "short": {
+              "uncachedInput": "2.00",
+              "cachedInput": "0.50",
+              "output": "6.00"
+            },
+            "long": {
+              "uncachedInput": "4.00",
+              "cachedInput": "1.00",
+              "output": "12.00"
+            }
+          }
+        }
+      },
+      "context_length": 500000,
+      "max_output_length": 450000,
+      "architecture": {
+        "inputModalities": [
+          "text",
+          "image"
+        ],
+        "outputModalities": [
+          "text"
+        ]
+      },
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "supported_sampling_parameters": [
+        "temperature",
+        "top_p",
+        "max_tokens",
+        "seed"
+      ],
+      "supported_features": [
+        "tools",
+        "structured_outputs",
+        "json_mode",
+        "reasoning",
+        "logprobs"
+      ],
+      "is_ready": true,
+      "description": "xAI model for reasoning, coding, knowledge work, and image understanding.",
+      "top_provider": {
+        "context_length": 500000,
+        "max_completion_tokens": 450000,
+        "is_moderated": false
+      }
+    },
+    {
+      "id": "z-ai/glm-5.3-flash",
+      "object": "model",
+      "created": 1788287675,
+      "owned_by": "nearai",
+      "name": "GLM 5.3 Flash",
+      "hugging_face_id": "zai-org/GLM-5.3-Flash",
+      "quantization": "fp8",
+      "pricing": {
+        "input": 0.08,
+        "output": 0.5,
+        "prompt": "0.00000008",
+        "completion": "0.0000005",
+        "image": "0",
+        "request": "0",
+        "input_cache_read": "0.000000012"
+      },
+      "context_length": 1048576,
+      "max_output_length": 1048576,
+      "architecture": {
+        "inputModalities": [
+          "text",
+          "image"
+        ],
+        "outputModalities": [
+          "text"
+        ]
+      },
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "supported_sampling_parameters": [
+        "temperature",
+        "top_p",
+        "top_k",
+        "min_p",
+        "frequency_penalty",
+        "presence_penalty",
+        "repetition_penalty",
+        "max_tokens",
+        "stop",
+        "seed",
+        "logit_bias"
+      ],
+      "supported_features": [
+        "tools",
+        "structured_outputs",
+        "reasoning",
+        "json_mode"
+      ],
+      "is_ready": true,
+      "description": "GLM-5.3-Flash is a native multimodal mixture-of-experts model for coding, agentic workflows, reasoning, tool use, and visual understanding.",
+      "top_provider": {
+        "context_length": 1048576,
+        "max_completion_tokens": 1048576,
+        "is_moderated": false
+      },
+      "openrouter": {
+        "slug": "z-ai/glm-5.3-flash"
+      }
+    },
+    {
+      "id": "moonshotai/kimi-k2.6",
+      "object": "model",
+      "created": 1779449813,
+      "owned_by": "attested 3p",
+      "name": "Kimi K2.6",
+      "hugging_face_id": "moonshotai/Kimi-K2.6",
+      "pricing": {
+        "input": 0.81,
+        "output": 3.85,
+        "prompt": "0.00000081",
+        "completion": "0.00000385",
+        "image": "0",
+        "request": "0",
+        "input_cache_read": "0.00000041"
+      },
+      "context_length": 262144,
+      "max_output_length": 8192,
+      "architecture": {
+        "inputModalities": [
+          "text",
+          "image"
+        ],
+        "outputModalities": [
+          "text"
+        ]
+      },
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "supported_sampling_parameters": [
+        "temperature",
+        "top_p",
+        "top_k",
+        "frequency_penalty",
+        "presence_penalty",
+        "max_tokens",
+        "stop",
+        "seed"
+      ],
+      "supported_features": [
+        "tools",
+        "structured_outputs"
+      ],
+      "is_ready": true,
+      "description": "Moonshot AI's frontier MoE model with 256K context window. Excels at complex reasoning, math, coding, and multilingual tasks with native vision support.",
+      "top_provider": {
+        "context_length": 262144,
+        "max_completion_tokens": 8192,
+        "is_moderated": false
+      }
+    },
+    {
+      "id": "mistralai/mistral-large-3",
+      "object": "model",
+      "created": 1790985600,
+      "owned_by": "mistralai",
+      "name": "Mistral Large 3",
+      "pricing": {
+        "input": 1.0,
+        "output": 3.0,
+        "prompt": "0.000001",
+        "completion": "0.000003",
+        "image": "0",
+        "request": "0"
+      },
+      "textPricing": {
+        "version": 1,
+        "currency": "EUR",
+        "unit": "million_tokens",
+        "tiers": {
+          "default": {
+            "short": {
+              "uncachedInput": "1.00",
+              "cachedInput": "0.30",
+              "output": "3.00"
+            }
+          }
+        }
+      },
+      "context_length": 256000,
+      "max_output_length": 8192,
+      "architecture": {
+        "inputModalities": [
+          "text"
+        ],
+        "outputModalities": [
+          "text"
+        ]
+      },
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "supported_sampling_parameters": [
+        "temperature",
+        "top_p"
+      ],
+      "supported_features": [
+        "tools"
+      ],
+      "description": "Frontier text model whose sample row carries a non-USD textPricing currency marker.",
+      "top_provider": {
+        "context_length": 256000,
+        "max_completion_tokens": 8192,
+        "is_moderated": false
+      }
+    },
+    {
+      "id": "Qwen/Qwen3-Embedding-0.6B",
+      "object": "model",
+      "created": 1774015272,
+      "owned_by": "nearai",
+      "name": "Qwen3-Embedding-0.6B",
+      "hugging_face_id": "Qwen/Qwen3-Embedding-0.6B",
+      "quantization": "bf16",
+      "pricing": {
+        "input": 0.01,
+        "output": 0.01,
+        "prompt": "0.00000001",
+        "completion": "0.00000001",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 32768,
+      "max_output_length": 1024,
+      "architecture": {
+        "inputModalities": [
+          "text"
+        ],
+        "outputModalities": [
+          "embedding"
+        ]
+      },
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "embedding"
+      ],
+      "supported_sampling_parameters": [],
+      "supported_features": [],
+      "description": "The Qwen3 Embedding model series is the latest proprietary model of the Qwen family, specifically designed for text embedding tasks.",
+      "top_provider": {
+        "context_length": 32768,
+        "max_completion_tokens": 1024,
+        "is_moderated": false
+      },
+      "datacenters": [
+        {
+          "country_code": "US"
+        }
+      ]
+    },
+    {
+      "id": "black-forest-labs/FLUX.2-klein-4B",
+      "object": "model",
+      "created": 1769640850,
+      "owned_by": "nearai",
+      "name": "FLUX.2-klein-4B",
+      "hugging_face_id": "black-forest-labs/FLUX.2-klein-4B",
+      "quantization": "bf16",
+      "pricing": {
+        "input": 1.0,
+        "output": 1.0,
+        "prompt": "0.000001",
+        "completion": "0.000001",
+        "image": "0.012",
+        "request": "0"
+      },
+      "context_length": 128000,
+      "max_output_length": 1,
+      "architecture": {
+        "inputModalities": [
+          "text"
+        ],
+        "outputModalities": [
+          "image"
+        ]
+      },
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "image"
+      ],
+      "supported_sampling_parameters": [
+        "seed"
+      ],
+      "supported_features": [],
+      "description": "The FLUX.2 [klein] model family are our fastest image models to date. FLUX.2 [klein] unifies generation and editing in a single compact architecture, delivering state-of-the-art quality with end-to-end inference in as low as under a second. Built for applications that require real-time image generation without sacrificing quality.",
+      "top_provider": {
+        "context_length": 128000,
+        "max_completion_tokens": 1,
+        "is_moderated": false
+      },
+      "datacenters": [
+        {
+          "country_code": "US"
+        }
+      ]
+    },
+    {
+      "id": "typesafe/jev-1.13",
+      "object": "model",
+      "created": 1790347682,
+      "owned_by": "typesafe",
+      "name": "Jev 1.13",
+      "pricing": {
+        "input": 0.042,
+        "output": 0.0,
+        "prompt": "0.000000042",
+        "completion": "0",
+        "image": "0",
+        "request": "0"
+      },
+      "context_length": 32000,
+      "architecture": {
+        "inputModalities": [
+          "text"
+        ],
+        "outputModalities": [
+          "decisions"
+        ]
+      },
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "decisions"
+      ],
+      "supported_sampling_parameters": [],
+      "supported_features": [],
+      "description": "Jev is a structured decision model from TypeSafe, and the first of its System One models. System One models make fast, structured decisions for software, returning a typed choice rather than free-form text. It is suited for routing, classification, and other decision points inside an application where a fast, predictable answer matters more than generated prose.\n\nLearn more in TypeSafe's docs: https://docs.typesafe.ai/concepts/system-one",
+      "top_provider": {
+        "context_length": 32000,
+        "is_moderated": false
+      }
+    }
+  ]
+}

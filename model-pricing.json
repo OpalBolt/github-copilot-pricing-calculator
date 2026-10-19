@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-19T17:27:06.107568+00:00",
+  "generatedAt": "2026-10-19T17:39:10.037545+00:00",
   "currency": "EUR",
   "exchangeRate": {
     "series": "EXR.D.USD.EUR.SP00.A",
@@ -15,7 +15,7 @@
       "source": "https://api.cortecs.ai/v1/models?extended=true&currency=EUR",
       "id": "cortecs",
       "nativeCurrency": "EUR",
-      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
+      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
       "stale": false
     },
     {
@@ -24,7 +24,7 @@
       "source": "https://api.eurouter.ai/api/v1/models",
       "id": "eurouter",
       "nativeCurrency": "mixed",
-      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
+      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
       "stale": false
     },
     {
@@ -33,7 +33,7 @@
       "source": "https://openrouter.ai/api/v1/models",
       "id": "openrouter",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
+      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
       "stale": false
     },
     {
@@ -42,7 +42,7 @@
       "source": "https://opencode.ai/zen/v1/models",
       "id": "opencode",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
+      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
       "stale": false
     },
     {
@@ -51,7 +51,7 @@
       "source": "https://api.deepinfra.com/v1/models",
       "nativeCurrency": "USD",
       "id": "deepinfra",
-      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
+      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
       "stale": false
     },
     {
@@ -60,7 +60,7 @@
       "source": "https://api.novita.ai/v3/openai/models",
       "nativeCurrency": "USD",
       "id": "novita",
-      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
+      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
       "stale": false
     },
     {
@@ -69,7 +69,7 @@
       "source": "https://router.requesty.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "requesty",
-      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
+      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
       "stale": false
     },
     {
@@ -78,7 +78,7 @@
       "source": "https://ai-gateway.vercel.sh/v1/models",
       "nativeCurrency": "USD",
       "id": "vercel-gateway",
-      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
+      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
       "stale": false
     },
     {
@@ -87,7 +87,7 @@
       "source": "https://api.kilo.ai/api/gateway/models",
       "nativeCurrency": "USD",
       "id": "kilo",
-      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
+      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
       "stale": false
     },
     {
@@ -96,7 +96,7 @@
       "source": "https://nano-gpt.com/api/v1/models?detailed=true",
       "nativeCurrency": "USD",
       "id": "nano-gpt",
-      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
+      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
       "stale": false
     },
     {
@@ -105,7 +105,7 @@
       "source": "https://llm.chutes.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "chutes",
-      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
+      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
       "stale": false
     },
     {
@@ -114,7 +114,7 @@
       "source": "https://api.llmgateway.io/v1/models",
       "nativeCurrency": "USD",
       "id": "llmgateway",
-      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
+      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
       "stale": false
     },
     {
@@ -123,7 +123,7 @@
       "source": "https://api.aiand.com/v1/models",
       "nativeCurrency": "USD",
       "id": "aiand",
-      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
+      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
       "stale": false
     },
     {
@@ -132,7 +132,7 @@
       "source": "https://api.aimlapi.com/v1/models?include=pricing,modalities",
       "nativeCurrency": "USD",
       "id": "aimlapi",
-      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
+      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
       "stale": false
     },
     {
@@ -141,7 +141,7 @@
       "source": "https://api.ambient.xyz/v1/models",
       "nativeCurrency": "USD",
       "id": "ambient",
-      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
+      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
       "stale": false
     },
     {
@@ -150,7 +150,7 @@
       "source": "https://www.crossmodel.ai/api/models",
       "nativeCurrency": "USD",
       "id": "crossmodel",
-      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
+      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
       "stale": false
     },
     {
@@ -159,7 +159,7 @@
       "source": "https://api.edenai.run/v3/models",
       "nativeCurrency": "USD",
       "id": "edenai",
-      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
+      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
       "stale": false
     },
     {
@@ -168,7 +168,7 @@
       "source": "https://api.empiriolabs.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "empiriolabs",
-      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
+      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
       "stale": false
     },
     {
@@ -177,7 +177,7 @@
       "source": "https://api.engy.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "engy",
-      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
+      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
       "stale": false
     },
     {
@@ -186,7 +186,7 @@
       "source": "https://api.friendli.ai/serverless/v1/models",
       "nativeCurrency": "USD",
       "id": "friendli",
-      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
+      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
       "stale": false
     },
     {
@@ -195,7 +195,7 @@
       "source": "https://hyper.charm.land/v1/models",
       "nativeCurrency": "USD",
       "id": "hyper",
-      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
+      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
       "stale": false
     },
     {
@@ -204,7 +204,16 @@
       "source": "https://api.inceptron.io/v1/models",
       "nativeCurrency": "USD",
       "id": "inceptron",
-      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
+      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
+      "stale": false
+    },
+    {
+      "name": "NEAR AI",
+      "sellerKind": "gateway",
+      "source": "https://cloud-api.near.ai/v1/models",
+      "nativeCurrency": "USD",
+      "id": "nearai",
+      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
       "stale": false
     },
     {
@@ -213,7 +222,7 @@
       "sellerKind": "first-party",
       "id": "deepseek-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
+      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
       "stale": false
     },
     {
@@ -222,7 +231,7 @@
       "sellerKind": "first-party",
       "id": "zai-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
+      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
       "stale": false
     },
     {
@@ -231,7 +240,7 @@
       "sellerKind": "first-party",
       "id": "claude-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
+      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
       "stale": false
     },
     {
@@ -240,7 +249,7 @@
       "sellerKind": "first-party",
       "id": "openai-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
+      "fetchedAt": "2026-10-19T17:39:10.037545+00:00",
       "stale": false
     }
   ],
@@ -80757,15 +80766,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.010761692650334076,
-        "cached": 0.0029434298440979955,
-        "output": 0.10690423162583518,
+        "input": 0.010155902004454343,
+        "cached": 0.010155902004454343,
+        "output": 0.40089086859688194,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.01208,
-          "cached": 0.003304,
-          "output": 0.12
+          "input": 0.0114,
+          "cached": 0.0114,
+          "output": 0.45
         }
       },
       "pricingTiers": [],
@@ -109199,6 +109208,1742 @@
       "priceNote": "USD price published in nano-gpt's model catalog and converted with the listed ECB rate."
     },
     {
+      "key": "nearai:Qwen/Qwen3-Reranker-0.6B",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "Qwen/Qwen3-Reranker-0.6B",
+      "name": "Qwen3-Reranker-0.6B",
+      "creator": "Alibaba",
+      "description": "The Qwen3 Embedding model series is the latest proprietary model of the Qwen family, specifically designed for text embedding and ranking tasks.",
+      "releaseDate": null,
+      "contextSize": 40960,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.008908685968819599,
+        "cached": 0.008908685968819599,
+        "output": 0.008908685968819599,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.01,
+          "cached": 0.01,
+          "output": 0.01
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:Qwen/Qwen3-VL-30B-A3B-Instruct",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "Qwen/Qwen3-VL-30B-A3B-Instruct",
+      "name": "Qwen3-VL-30B-A3B-Instruct",
+      "creator": "Alibaba",
+      "description": "Qwen3-VL-30B-A3B-Instruct is a vision-language model supporting text and image inputs.",
+      "releaseDate": null,
+      "contextSize": 16384,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.13363028953229397,
+        "cached": 0.026726057906458794,
+        "output": 0.48997772828507796,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.15,
+          "cached": 0.03,
+          "output": 0.55
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:Qwen/Qwen3.6-35B-A3B-FP8",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "Qwen/Qwen3.6-35B-A3B-FP8",
+      "name": "Qwen 3.6 35B A3B FP8",
+      "creator": "Alibaba",
+      "description": "Qwen 3.6 35B is a fast mixture-of-experts language model with ~3B active parameters per token. Strong at reasoning, coding, and multilingual tasks with 32K context window.",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.1514476614699332,
+        "cached": 0.049888641425389756,
+        "output": 0.9799554565701559,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.17,
+          "cached": 0.056,
+          "output": 1.1
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:Qwen/Qwen3.8-27B",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "Qwen/Qwen3.8-27B",
+      "name": "Qwen 3.8 27B",
+      "creator": "Alibaba",
+      "description": "Qwen 3.8 27B is a dense FP8 multimodal model with reasoning, coding, tool use, vision, and a 262K context window.",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.035634743875278395,
+        "cached": 0.016035634743875277,
+        "output": 1.2026726057906458,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.04,
+          "cached": 0.018,
+          "output": 1.35
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:anthropic/claude-fable-5",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "anthropic/claude-fable-5",
+      "name": "Claude Fable 5",
+      "creator": "Anthropic",
+      "description": "Anthropic's most capable widely released model for long-running agents, advanced reasoning, coding, and demanding knowledge work.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 8.908685968819599,
+        "cached": 0.8908685968819599,
+        "output": 44.54342984409799,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 10.0,
+          "cached": 1.0,
+          "output": 50.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:anthropic/claude-fable-5-1",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "anthropic/claude-fable-5-1",
+      "name": "Claude Fable 5.1",
+      "creator": "Anthropic",
+      "description": "Anthropic's most capable model for real-world agents and coding.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 8.908685968819599,
+        "cached": 0.22271714922048996,
+        "output": 44.54342984409799,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 10.0,
+          "cached": 0.25,
+          "output": 50.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:anthropic/claude-haiku-4-5",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "anthropic/claude-haiku-4-5",
+      "name": "Claude Haiku 4.5",
+      "creator": "Anthropic",
+      "description": "Anthropic's fastest model with near-frontier intelligence for high-throughput, cost-sensitive workloads.",
+      "releaseDate": null,
+      "contextSize": 200000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.8908685968819599,
+        "cached": 0.08908685968819599,
+        "output": 4.4543429844097995,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.0,
+          "cached": 0.1,
+          "output": 5.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:anthropic/claude-haiku-5-5",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "anthropic/claude-haiku-5-5",
+      "name": "Claude Haiku 5.5",
+      "creator": "Anthropic",
+      "description": "Anthropic's fastest and most cost-efficient model for high-volume work such as classification, extraction, routing, and sub-agent tasks, with adaptive reasoning and a 1M-token context window. Prompts over 100K tokens are billed at a higher rate.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.08908685968819599,
+        "cached": 0.008908685968819599,
+        "output": 0.4454342984409799,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.1,
+          "cached": 0.01,
+          "output": 0.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:anthropic/claude-opus-4-6",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "anthropic/claude-opus-4-6",
+      "name": "Claude Opus 4.6",
+      "creator": "Anthropic",
+      "description": "Anthropic's most intelligent model for building agents and coding",
+      "releaseDate": null,
+      "contextSize": 200000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 4.4543429844097995,
+        "cached": 0.4454342984409799,
+        "output": 22.271714922048996,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 5.0,
+          "cached": 0.5,
+          "output": 25.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:anthropic/claude-opus-4-7",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "anthropic/claude-opus-4-7",
+      "name": "Claude Opus 4.7",
+      "creator": "Anthropic",
+      "description": "Anthropic's most capable model. Next-generation built for long-running agents and complex coding tasks. 1M token context window with 128K max output.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 4.4543429844097995,
+        "cached": 0.4454342984409799,
+        "output": 22.271714922048996,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 5.0,
+          "cached": 0.5,
+          "output": 25.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:anthropic/claude-opus-4-8",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "anthropic/claude-opus-4-8",
+      "name": "Claude Opus 4.8",
+      "creator": "Anthropic",
+      "description": "Anthropic's most capable model. Next-generation built for long-running agents and complex coding tasks. 1M token context window with 128K max output.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 4.4543429844097995,
+        "cached": 0.4454342984409799,
+        "output": 22.271714922048996,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 5.0,
+          "cached": 0.5,
+          "output": 25.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:anthropic/claude-opus-5",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "anthropic/claude-opus-5",
+      "name": "Claude Opus 5",
+      "creator": "Anthropic",
+      "description": "Anthropic model for complex agentic coding and enterprise work, with adaptive reasoning and a 1M-token context window.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 4.4543429844097995,
+        "cached": 0.4454342984409799,
+        "output": 22.271714922048996,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 5.0,
+          "cached": 0.5,
+          "output": 25.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:anthropic/claude-opus-5-5",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "anthropic/claude-opus-5-5",
+      "name": "Claude Opus 5.5",
+      "creator": "Anthropic",
+      "description": "Anthropic model for long-running agentic coding and knowledge work, with always-on adaptive reasoning and a 1M-token context window.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 3.5634743875278394,
+        "cached": 0.17817371937639198,
+        "output": 17.817371937639198,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 4.0,
+          "cached": 0.2,
+          "output": 20.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:anthropic/claude-sonnet-4-5",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "anthropic/claude-sonnet-4-5",
+      "name": "Claude Sonnet 4.5",
+      "creator": "Anthropic",
+      "description": "Anthropic's Claude Sonnet 4.5 - a powerful, efficient model balancing intelligence and speed. Excels at complex reasoning, coding, and creative tasks with 200K context window. Anonymized, not TEE-protected.",
+      "releaseDate": null,
+      "contextSize": 200000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 2.6726057906458798,
+        "cached": 0.26726057906458794,
+        "output": 13.363028953229398,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 3.0,
+          "cached": 0.3,
+          "output": 15.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:anthropic/claude-sonnet-4-6",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "anthropic/claude-sonnet-4-6",
+      "name": "Claude Sonnet 4.6",
+      "creator": "Anthropic",
+      "description": "Anthropic's best balance of speed and intelligence. Extended thinking support with 1M token context window and 64K max output. Ideal for most production workloads.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 2.6726057906458798,
+        "cached": 0.26726057906458794,
+        "output": 13.363028953229398,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 3.0,
+          "cached": 0.3,
+          "output": 15.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:anthropic/claude-sonnet-5",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "anthropic/claude-sonnet-5",
+      "name": "Claude Sonnet 5",
+      "creator": "Anthropic",
+      "description": "Anthropic's best combination of speed and intelligence for coding, agents, and professional workloads, with adaptive reasoning.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 0.17817371937639198,
+        "output": 8.908685968819599,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 0.2,
+          "output": 10.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:anthropic/claude-sonnet-5-5",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "anthropic/claude-sonnet-5-5",
+      "name": "Claude Sonnet 5.5",
+      "creator": "Anthropic",
+      "description": "Anthropic's latest Sonnet model, balancing speed and intelligence for everyday coding, agents, and enterprise work, with adaptive reasoning and a 1M-token context window.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 0.08908685968819599,
+        "output": 8.908685968819599,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 0.1,
+          "output": 10.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:deepseek/deepseek-v3.2",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "deepseek/deepseek-v3.2",
+      "name": "deepseek-v3.2",
+      "creator": "DeepSeek",
+      "description": "Attested model served via Chutes TEE (verified end-to-end by NEAR AI).",
+      "releaseDate": null,
+      "contextSize": 128000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.9799554565701559,
+        "cached": 0.48997772828507796,
+        "output": 0.9799554565701559,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.1,
+          "cached": 0.55,
+          "output": 1.1
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:deepseek/deepseek-v4.1-flash",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "deepseek/deepseek-v4.1-flash",
+      "name": "DeepSeek V4.1 Flash",
+      "creator": "DeepSeek",
+      "description": "DeepSeek reasoning and coding model with image understanding. Served through OpenRouter using ZDR inference endpoints.",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.26726057906458794,
+        "cached": 0.005345211581291759,
+        "output": 1.0690423162583518,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3,
+          "cached": 0.006,
+          "output": 1.2
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:deepseek/deepseek-v4.1-flash-1017",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "deepseek/deepseek-v4.1-flash-1017",
+      "name": "DeepSeek V4.1 Flash 1017",
+      "creator": "DeepSeek",
+      "description": "October 17, 2026 snapshot of DeepSeek V4.1 Flash, a reasoning and coding model with image understanding. Served through OpenRouter using zero data retention inference endpoints.",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.26726057906458794,
+        "cached": 0.005345211581291759,
+        "output": 1.0690423162583518,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3,
+          "cached": 0.006,
+          "output": 1.2
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:google/gemini-2.5-flash",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "google/gemini-2.5-flash",
+      "name": "Gemini 2.5 Flash",
+      "creator": "Google",
+      "description": "Google's fast hybrid reasoning model with 1M token context window. Optimized for speed and cost while maintaining strong performance across tasks.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.26726057906458794,
+        "cached": 0.26726057906458794,
+        "output": 2.2271714922048997,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3,
+          "cached": 0.3,
+          "output": 2.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:google/gemini-2.5-flash-lite",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "google/gemini-2.5-flash-lite",
+      "name": "Gemini 2.5 Flash Lite",
+      "creator": "Google",
+      "description": "Gemini 2.5 Flash-Lite is a lightweight reasoning model in the Gemini 2.5 family, optimized for ultra-low latency and cost efficiency. It offers improved throughput, faster token generation, and better performance...",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.08908685968819599,
+        "cached": 0.08908685968819599,
+        "output": 0.35634743875278396,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.1,
+          "cached": 0.1,
+          "output": 0.4
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:google/gemini-2.5-pro",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "google/gemini-2.5-pro",
+      "name": "Gemini 2.5 Pro",
+      "creator": "Google",
+      "description": "Google's strongest reasoning model. Excels at coding, math, and complex analysis with 1M token context window. Supports text and image input.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.1135857461024499,
+        "cached": 1.1135857461024499,
+        "output": 8.908685968819599,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.25,
+          "cached": 1.25,
+          "output": 10.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:google/gemini-3.1-flash-lite",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "google/gemini-3.1-flash-lite",
+      "name": "Gemini 3.1 Flash Lite",
+      "creator": "Google",
+      "description": "Gemini 3.1 Flash Lite is Google\u2019s GA high-efficiency multimodal model optimized for low-latency, high-volume workloads. It supports text, image, video, audio, and PDF inputs, and is designed for lightweight agentic...",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.22271714922048996,
+        "cached": 0.22271714922048996,
+        "output": 1.3363028953229399,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.25,
+          "cached": 0.25,
+          "output": 1.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:google/gemini-3.5-flash",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "google/gemini-3.5-flash",
+      "name": "Gemini 3.5 Flash",
+      "creator": "Google",
+      "description": "Google's high-efficiency multimodal model with 1M token context. Strong agentic and coding performance, rivaling larger flagship models on many tasks.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.3363028953229399,
+        "cached": 0.13363028953229397,
+        "output": 8.017817371937639,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.5,
+          "cached": 0.15,
+          "output": 9.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:google/gemini-3.8-flash",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "google/gemini-3.8-flash",
+      "name": "Gemini 3.8 Flash",
+      "creator": "Google",
+      "description": "Google's stable, high-efficiency Gemini 3.8 Flash model for agentic coding, multimodal understanding, and high-throughput workloads, with a 1M-token context window.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.6681514476614699,
+        "cached": 0.06681514476614699,
+        "output": 3.3407572383073494,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.75,
+          "cached": 0.075,
+          "output": 3.75
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:moonshotai/kimi-k2.6",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "moonshotai/kimi-k2.6",
+      "name": "Kimi K2.6",
+      "creator": "Moonshot AI",
+      "description": "Moonshot AI's frontier MoE model with 256K context window. Excels at complex reasoning, math, coding, and multilingual tasks with native vision support.",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.7216035634743876,
+        "cached": 0.3652561247216035,
+        "output": 3.4298440979955456,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.81,
+          "cached": 0.41,
+          "output": 3.85
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:moonshotai/kimi-k3",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "moonshotai/kimi-k3",
+      "name": "Kimi K3",
+      "creator": "Moonshot AI",
+      "description": "Moonshot AI native multimodal agentic model with a 1M-token context window, built for long-horizon coding, knowledge work, and reasoning.",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 2.9398663697104674,
+        "cached": 0.29398663697104677,
+        "output": 14.699331848552339,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 3.3,
+          "cached": 0.33,
+          "output": 16.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:openai/gpt-4.1",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "openai/gpt-4.1",
+      "name": "OpenAI GPT-4.1",
+      "creator": "OpenAI",
+      "description": "OpenAI's flagship production model with 1M token context window. Excels at instruction following, coding, and long-context tasks. 75% cheaper cached input reads.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 0.4454342984409799,
+        "output": 7.126948775055679,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 0.5,
+          "output": 8.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:openai/gpt-4.1-mini",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "openai/gpt-4.1-mini",
+      "name": "OpenAI GPT-4.1 Mini",
+      "creator": "OpenAI",
+      "description": "Cost-effective version of GPT-4.1 with the same 1M token context window. Great balance of capability and cost for production workloads.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.35634743875278396,
+        "cached": 0.08908685968819599,
+        "output": 1.4253897550111359,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.4,
+          "cached": 0.1,
+          "output": 1.6
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:openai/gpt-4.1-nano",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "openai/gpt-4.1-nano",
+      "name": "OpenAI GPT-4.1 Nano",
+      "creator": "OpenAI",
+      "description": "OpenAI's most cost-efficient model with 1M token context. Ideal for classification, extraction, and high-volume tasks where cost matters most.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.08908685968819599,
+        "cached": 0.022271714922048998,
+        "output": 0.35634743875278396,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.1,
+          "cached": 0.025,
+          "output": 0.4
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:openai/gpt-5",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "openai/gpt-5",
+      "name": "OpenAI GPT-5",
+      "creator": "OpenAI",
+      "description": "OpenAI's next-generation model with enhanced reasoning and 400K context window. Strong performance across coding, math, and creative tasks.",
+      "releaseDate": null,
+      "contextSize": 400000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.1135857461024499,
+        "cached": 0.11135857461024498,
+        "output": 8.908685968819599,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.25,
+          "cached": 0.125,
+          "output": 10.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:openai/gpt-5-mini",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "openai/gpt-5-mini",
+      "name": "GPT-5 Mini",
+      "creator": "OpenAI",
+      "description": "GPT-5 Mini is a compact version of GPT-5, designed to handle lighter-weight reasoning tasks. It provides the same instruction-following and safety-tuning benefits as GPT-5, but with reduced latency and cost....",
+      "releaseDate": null,
+      "contextSize": 400000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.22271714922048996,
+        "cached": 0.022271714922048998,
+        "output": 1.7817371937639197,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.25,
+          "cached": 0.025,
+          "output": 2.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:openai/gpt-5-nano",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "openai/gpt-5-nano",
+      "name": "GPT-5 Nano",
+      "creator": "OpenAI",
+      "description": "GPT-5-Nano is the smallest and fastest variant in the GPT-5 system, optimized for developer tools, rapid interactions, and ultra-low latency environments. While limited in reasoning depth compared to its larger...",
+      "releaseDate": null,
+      "contextSize": 400000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.044543429844097995,
+        "cached": 0.004454342984409799,
+        "output": 0.35634743875278396,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.05,
+          "cached": 0.005,
+          "output": 0.4
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:openai/gpt-5.1",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "openai/gpt-5.1",
+      "name": "GPT-5.1",
+      "creator": "OpenAI",
+      "description": "GPT-5.1 is the latest frontier-grade model in the GPT-5 series, offering stronger general-purpose reasoning, improved instruction adherence, and a more natural conversational style compared to GPT-5. It uses adaptive reasoning...",
+      "releaseDate": null,
+      "contextSize": 400000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.1135857461024499,
+        "cached": 0.11135857461024498,
+        "output": 8.908685968819599,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.25,
+          "cached": 0.125,
+          "output": 10.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:openai/gpt-5.2",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "openai/gpt-5.2",
+      "name": "OpenAI GPT-5.2",
+      "creator": "OpenAI",
+      "description": "OpenAI GPT-5.2 with 400k context window. Anonymized endpoint optimized for deep reasoning and large-context workflows.",
+      "releaseDate": null,
+      "contextSize": 400000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.5590200445434297,
+        "cached": 0.15590200445434296,
+        "output": 12.472160356347437,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.75,
+          "cached": 0.175,
+          "output": 14.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:openai/gpt-5.4",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "openai/gpt-5.4",
+      "name": "GPT-5.4",
+      "creator": "OpenAI",
+      "description": "GPT-5.4 is OpenAI\u2019s latest frontier model, unifying the Codex and GPT lines into a single system. It features a 1M+ token context window (922K input, 128K output) with support for...",
+      "releaseDate": null,
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 2.2271714922048997,
+        "cached": 0.22271714922048996,
+        "output": 13.363028953229398,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.5,
+          "cached": 0.25,
+          "output": 15.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:openai/gpt-5.4-mini",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "openai/gpt-5.4-mini",
+      "name": "GPT-5.4 Mini",
+      "creator": "OpenAI",
+      "description": "GPT-5.4 mini brings the core capabilities of GPT-5.4 to a faster, more efficient model optimized for high-throughput workloads. It supports text and image inputs with strong performance across reasoning, coding,...",
+      "releaseDate": null,
+      "contextSize": 400000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.6681514476614699,
+        "cached": 0.06681514476614699,
+        "output": 4.008908685968819,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.75,
+          "cached": 0.075,
+          "output": 4.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:openai/gpt-5.4-nano",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "openai/gpt-5.4-nano",
+      "name": "GPT-5.4 Nano",
+      "creator": "OpenAI",
+      "description": "GPT-5.4 nano is the most lightweight and cost-efficient variant of the GPT-5.4 family, optimized for speed-critical and high-volume tasks. It supports text and image inputs and is designed for low-latency...",
+      "releaseDate": null,
+      "contextSize": 400000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.17817371937639198,
+        "cached": 0.017817371937639197,
+        "output": 1.1135857461024499,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.2,
+          "cached": 0.02,
+          "output": 1.25
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:openai/gpt-5.5",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "openai/gpt-5.5",
+      "name": "GPT-5.5",
+      "creator": "OpenAI",
+      "description": "GPT-5.5 is OpenAI\u2019s frontier model designed for complex professional workloads, building on GPT-5.4 with stronger reasoning, higher reliability, and improved token efficiency on hard tasks. It features a 1M+ token...",
+      "releaseDate": null,
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 4.4543429844097995,
+        "cached": 0.4454342984409799,
+        "output": 26.726057906458795,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 5.0,
+          "cached": 0.5,
+          "output": 30.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:openai/gpt-5.6-luna",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "openai/gpt-5.6-luna",
+      "name": "GPT-5.6 Luna",
+      "creator": "OpenAI",
+      "description": "OpenAI GPT-5.6 model optimized for cost-sensitive workloads",
+      "releaseDate": null,
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.17817371937639198,
+        "cached": 0.017817371937639197,
+        "output": 1.0690423162583518,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.2,
+          "cached": 0.02,
+          "output": 1.2
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:openai/gpt-5.6-sol",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "openai/gpt-5.6-sol",
+      "name": "GPT-5.6 Sol",
+      "creator": "OpenAI",
+      "description": "OpenAI frontier model for complex professional work",
+      "releaseDate": null,
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 3.5634743875278394,
+        "cached": 0.35634743875278396,
+        "output": 17.817371937639198,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 4.0,
+          "cached": 0.4,
+          "output": 20.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:openai/gpt-6-astra",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "openai/gpt-6-astra",
+      "name": "GPT-6 Astra",
+      "creator": "OpenAI",
+      "description": "OpenAI model for complex reasoning, coding, research, and document creation. Tool calling is not currently supported through NEAR AI Cloud.",
+      "releaseDate": null,
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": false,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 8.908685968819599,
+        "cached": 0.8908685968819599,
+        "output": 44.54342984409799,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 10.0,
+          "cached": 1.0,
+          "output": 50.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:openai/gpt-6-luna",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "openai/gpt-6-luna",
+      "name": "GPT-6 Luna",
+      "creator": "OpenAI",
+      "description": "OpenAI GPT-6 model optimized for focused, high-volume workloads. Tool calling is not currently advertised through NEAR AI Cloud.",
+      "releaseDate": null,
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": false,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.08908685968819599,
+        "cached": 0.008908685968819599,
+        "output": 0.4454342984409799,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.1,
+          "cached": 0.01,
+          "output": 0.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:openai/gpt-6-sol",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "openai/gpt-6-sol",
+      "name": "GPT-6 Sol",
+      "creator": "OpenAI",
+      "description": "OpenAI GPT-6 model for complex coding and agentic workflows. Tool calling is not currently advertised through NEAR AI Cloud.",
+      "releaseDate": null,
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": false,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 0.17817371937639198,
+        "output": 8.908685968819599,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 0.2,
+          "output": 10.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:openai/gpt-6.1-sol",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "openai/gpt-6.1-sol",
+      "name": "GPT-6.1 Sol",
+      "creator": "OpenAI",
+      "description": "OpenAI GPT-6.1 model for complex coding and agentic workflows. Tool calling is not currently advertised through NEAR AI Cloud.",
+      "releaseDate": null,
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": false,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 0.08908685968819599,
+        "output": 8.908685968819599,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 0.1,
+          "output": 10.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:openai/o3",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "openai/o3",
+      "name": "OpenAI o3",
+      "creator": "OpenAI",
+      "description": "OpenAI's flagship reasoning model. Uses chain-of-thought to solve complex math, coding, and logic problems. 200K context window.",
+      "releaseDate": null,
+      "contextSize": 200000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 0.4454342984409799,
+        "output": 7.126948775055679,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 0.5,
+          "output": 8.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:openai/o3-mini",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "openai/o3-mini",
+      "name": "o3 Mini",
+      "creator": "OpenAI",
+      "description": "OpenAI o3-mini is a cost-efficient language model optimized for STEM reasoning tasks, particularly excelling in science, mathematics, and coding. This model supports the `reasoning_effort` parameter, which can be set to...",
+      "releaseDate": null,
+      "contextSize": 200000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.9799554565701559,
+        "cached": 0.48997772828507796,
+        "output": 3.9198218262806237,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.1,
+          "cached": 0.55,
+          "output": 4.4
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:openai/o4-mini",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "openai/o4-mini",
+      "name": "OpenAI o4 Mini",
+      "creator": "OpenAI",
+      "description": "OpenAI's cost-effective reasoning model. Strong performance on math, coding, and scientific reasoning at a fraction of o3's cost. 200K context window.",
+      "releaseDate": null,
+      "contextSize": 200000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.9799554565701559,
+        "cached": 0.24498886414253898,
+        "output": 3.9198218262806237,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.1,
+          "cached": 0.275,
+          "output": 4.4
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:openai/privacy-filter",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "openai/privacy-filter",
+      "name": "Privacy Filter",
+      "creator": "OpenAI",
+      "description": "PII detection (token classification) \u2014 returns spans for emails, phones, addresses, names, account numbers, secrets. NEAR AI runs this model in a TEE; prompts are not anonymized by the model itself, the cloud-api wraps it to do redaction.",
+      "releaseDate": null,
+      "contextSize": 512,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.008908685968819599,
+        "cached": 0.008908685968819599,
+        "output": 0.0,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.01,
+          "cached": 0.01,
+          "output": 0.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:openai/whisper-large-v3",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "openai/whisper-large-v3",
+      "name": "Whisper Large v3",
+      "creator": "OpenAI",
+      "description": "Whisper is a state-of-the-art model for automatic speech recognition (ASR) and speech translation.",
+      "releaseDate": null,
+      "contextSize": 448,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": true
+      },
+      "rates": {
+        "input": 0.008908685968819599,
+        "cached": 0.008908685968819599,
+        "output": 0.008908685968819599,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.01,
+          "cached": 0.01,
+          "output": 0.01
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:qwen/qwen3.5-397b-a17b",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "qwen/qwen3.5-397b-a17b",
+      "name": "qwen3.5-397b-a17b",
+      "creator": "Alibaba",
+      "description": "Attested model served via Chutes TEE (verified end-to-end by NEAR AI).",
+      "releaseDate": null,
+      "contextSize": 128000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.4454342984409799,
+        "cached": 0.22271714922048996,
+        "output": 2.9398663697104674,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.5,
+          "cached": 0.25,
+          "output": 3.3
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:qwen/qwen3.7-max",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "qwen/qwen3.7-max",
+      "name": "Qwen3.7 Max",
+      "creator": "Alibaba",
+      "description": "Qwen's most capable proprietary model with 1M context window. Strong at reasoning, coding, math, and multilingual tasks.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 2.4944320712694874,
+        "cached": 2.4944320712694874,
+        "output": 6.681514476614699,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.8,
+          "cached": 2.8,
+          "output": 7.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:x-ai/grok-4.6",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "x-ai/grok-4.6",
+      "name": "Grok 4.6",
+      "creator": "xAI",
+      "description": "xAI model for reasoning, coding, knowledge work, and image understanding.",
+      "releaseDate": null,
+      "contextSize": 500000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 0.4454342984409799,
+        "output": 5.3452115812917596,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 0.5,
+          "output": 6.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:x-ai/grok-4.7",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "x-ai/grok-4.7",
+      "name": "Grok 4.7",
+      "creator": "xAI",
+      "description": "xAI frontier model for coding, agentic tasks, knowledge work, and image understanding.",
+      "releaseDate": null,
+      "contextSize": 500000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 0.4454342984409799,
+        "output": 5.3452115812917596,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 0.5,
+          "output": 6.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nearai:z-ai/glm-5.3-flash",
+      "seller": "nearai",
+      "sellerName": "NEAR AI",
+      "modelId": "z-ai/glm-5.3-flash",
+      "name": "GLM 5.3 Flash",
+      "creator": "Z.ai",
+      "description": "GLM-5.3-Flash is a native multimodal mixture-of-experts model for coding, agentic workflows, reasoning, tool use, and visual understanding.",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.07126948775055679,
+        "cached": 0.010690423162583519,
+        "output": 0.4454342984409799,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.08,
+          "cached": 0.012,
+          "output": 0.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
+    },
+    {
       "key": "novita:Sao10K/L3-8B-Stheno-v3.2",
       "seller": "novita",
       "sellerName": "Novita",
@@ -130065,15 +131810,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.010761692650334076,
-        "cached": 0.0029434298440979955,
-        "output": 0.10690423162583518,
+        "input": 0.010155902004454343,
+        "cached": 0.010155902004454343,
+        "output": 0.40089086859688194,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.01208,
-          "cached": 0.003304,
-          "output": 0.12
+          "input": 0.0114,
+          "cached": 0.0114,
+          "output": 0.45
         }
       },
       "pricingTiers": [],

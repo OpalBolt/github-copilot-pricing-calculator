@@ -30,6 +30,7 @@ from sources.inceptron import INCEPTRON_URL
 from sources.kilo import KILO_URL
 from sources.llm_gateway import LLM_GATEWAY_URL
 from sources.nano_gpt import NANO_GPT_URL
+from sources.nearai import NEARAI_URL
 from sources.novita import NOVITA_URL
 from sources.openai_direct import OPENAI_MODELS_URL, OPENAI_PRICING_URL
 from sources.opencode import OPENCODE_ZEN_URL
@@ -303,6 +304,23 @@ SOURCES = {
         # inceptron.io/models), and its pricing page pitches commitment
         # discounts as lowering "your effective $/token and $/hr"
         # (inceptron.io/pricing).
+        "nativeCurrency": "USD",
+        "euClaim": "No EU routing catalog is published.",
+    },
+    "nearai": {
+        "name": "NEAR AI",
+        "pages": ("global",),
+        "sellerKind": "gateway",
+        "source": NEARAI_URL,
+        # NEAR AI Cloud self-describes as "private, verifiable AI inference
+        # in Trusted Execution Environments through an OpenAI-compatible
+        # API" (docs.near.ai) and routes third-party models "through the
+        # NEAR AI Gateway" (docs.near.ai/cloud/models) — a gateway, not a
+        # router. It bills US dollars: the pricing API's DecimalPrice doc
+        # says the system uses "a fixed scale of 9 (nano-dollars = 1
+        # billionth of a dollar)" (docs.near.ai/api-reference/models/
+        # list-models-with-pricing), and every DecimalPrice in the public
+        # /v1/model/list response carries currency "USD".
         "nativeCurrency": "USD",
         "euClaim": "No EU routing catalog is published.",
     },

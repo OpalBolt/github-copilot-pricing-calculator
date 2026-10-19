@@ -33,6 +33,7 @@ from sources.inceptron import fetch_inceptron_listings
 from sources.kilo import fetch_kilo_listings
 from sources.llm_gateway import fetch_llmgateway_listings
 from sources.nano_gpt import fetch_nano_gpt_listings
+from sources.nearai import fetch_nearai_listings
 from sources.novita import fetch_novita_listings
 from sources.openai_direct import fetch_openai_direct_listings
 from sources.opencode import fetch_opencode_listings
@@ -79,6 +80,7 @@ ADAPTERS = {
     "friendli": lambda exchange_rate: fetch_friendli_listings(exchange_rate),
     "hyper": lambda exchange_rate: fetch_hyper_listings(exchange_rate),
     "inceptron": lambda exchange_rate: fetch_inceptron_listings(exchange_rate),
+    "nearai": lambda exchange_rate: fetch_nearai_listings(exchange_rate),
     "deepseek-direct": lambda exchange_rate: fetch_deepseek_direct_listings(
         exchange_rate
     ),

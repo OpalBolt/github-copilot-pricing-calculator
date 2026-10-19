@@ -113,6 +113,7 @@ The router build uses these sources:
 | FriendliAI catalog | `https://api.friendli.ai/serverless/v1/models` |
 | Hyper catalog | `https://hyper.charm.land/v1/models` |
 | Inceptron catalog | `https://api.inceptron.io/v1/models` |
+| NEAR AI catalog | `https://cloud-api.near.ai/v1/models` |
 | Claude model catalog | `https://platform.claude.com/docs/en/api/http/beta/models/list.md` |
 | Claude direct API pricing | `https://platform.claude.com/docs/en/about-claude/pricing.md` |
 | DeepSeek direct API | `https://api-docs.deepseek.com/quick_start/pricing/` |
