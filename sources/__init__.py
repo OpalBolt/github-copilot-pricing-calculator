@@ -33,6 +33,7 @@ from sources.nano_gpt import NANO_GPT_URL
 from sources.nearai import NEARAI_URL
 from sources.novita import NOVITA_URL
 from sources.ofox import OFOX_URL
+from sources.pioneer import PIONEER_URL
 from sources.openai_direct import OPENAI_MODELS_URL, OPENAI_PRICING_URL
 from sources.opencode import OPENCODE_ZEN_URL
 from sources.openrouter import OPENROUTER_URL
@@ -338,6 +339,23 @@ SOURCES = {
         # NanoDollar precision (10⁻⁹ USD)" (ofox.ai/docs/api/openapi/
         # balance), and the catalog's per-token decimals render as dollars
         # per 1M tokens on its own model pages (kimi-k3 "$3 / $15 /M").
+        "nativeCurrency": "USD",
+        "euClaim": "No EU routing catalog is published.",
+    },
+    "pioneer": {
+        "name": "Pioneer (Fastino)",
+        "pages": ("global",),
+        "sellerKind": "gateway",
+        "source": PIONEER_URL,
+        # Pioneer (models.dev's name for Fastino's keyless catalog at
+        # api.fastino.ai) serves Fastino's own specialized models from its
+        # own inference API: "Run specialized inference models or train your
+        # own with Fastino's Inference and Training APIs"
+        # (docs.fastino.ai/introduction.md) — a hosted inference platform,
+        # not a router. Its pricing page bills US dollars: "Token prices
+        # are USD per 1M tokens" (docs.fastino.ai/pricing), and the same
+        # page's inference table repeats the catalog's per-million fields
+        # ($0.08 input / $0.45 output for Nemotron 3.5 Super VL).
         "nativeCurrency": "USD",
         "euClaim": "No EU routing catalog is published.",
     },

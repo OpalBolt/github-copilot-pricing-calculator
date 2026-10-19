@@ -1,0 +1,184 @@
+{
+  "data": [
+    {
+      "id": "nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-NVFP4",
+      "type": "model",
+      "display_name": "Nvidia Nemotron 3.5 Super Vl 120b A12b Nvfp4",
+      "created_at": "2024-01-01T00:00:00Z",
+      "max_input_tokens": 262144,
+      "max_tokens": 4096,
+      "deprecated": false,
+      "capabilities": {
+        "batch": {
+          "supported": false
+        },
+        "citations": {
+          "supported": false
+        },
+        "code_execution": {
+          "supported": false
+        },
+        "image_input": {
+          "supported": false
+        },
+        "pdf_input": {
+          "supported": false
+        },
+        "structured_outputs": {
+          "supported": false
+        },
+        "thinking": {
+          "supported": false
+        },
+        "web_search": {
+          "supported": false
+        },
+        "web_fetch": {
+          "supported": false
+        }
+      },
+      "object": "model",
+      "created": 1704067200,
+      "owned_by": "nvidia",
+      "input_price_per_million": 0.08,
+      "output_price_per_million": 0.45,
+      "cache_read_price_per_million": 0.04,
+      "cache_write_price_per_million": 0.08
+    },
+    {
+      "id": "fastino/Fastino-Nemotron-3.5-Lightning-Finance",
+      "type": "model",
+      "display_name": "Fastino Nemotron 3.5 Lightning Finance",
+      "created_at": "2024-01-01T00:00:00Z",
+      "max_input_tokens": 8192,
+      "max_tokens": 4096,
+      "deprecated": false,
+      "capabilities": {
+        "batch": {
+          "supported": false
+        },
+        "citations": {
+          "supported": false
+        },
+        "code_execution": {
+          "supported": false
+        },
+        "image_input": {
+          "supported": false
+        },
+        "pdf_input": {
+          "supported": false
+        },
+        "structured_outputs": {
+          "supported": false
+        },
+        "thinking": {
+          "supported": false
+        },
+        "web_search": {
+          "supported": false
+        },
+        "web_fetch": {
+          "supported": false
+        }
+      },
+      "object": "model",
+      "created": 1704067200,
+      "owned_by": "fastino",
+      "input_price_per_million": 0.5,
+      "output_price_per_million": 0.5,
+      "cache_read_price_per_million": 0.5,
+      "cache_write_price_per_million": 0.5
+    },
+    {
+      "id": "fastino/GLiNER-2.5-Decide",
+      "type": "model",
+      "display_name": "Gliner 2.5 Decide",
+      "created_at": "2024-01-01T00:00:00Z",
+      "max_input_tokens": 8192,
+      "max_tokens": 8192,
+      "deprecated": false,
+      "capabilities": {
+        "batch": {
+          "supported": false
+        },
+        "citations": {
+          "supported": false
+        },
+        "code_execution": {
+          "supported": false
+        },
+        "image_input": {
+          "supported": false
+        },
+        "pdf_input": {
+          "supported": false
+        },
+        "structured_outputs": {
+          "supported": false
+        },
+        "thinking": {
+          "supported": false
+        },
+        "web_search": {
+          "supported": false
+        },
+        "web_fetch": {
+          "supported": false
+        }
+      },
+      "object": "model",
+      "created": 1704067200,
+      "owned_by": "fastino",
+      "input_price_per_million": 0.03,
+      "output_price_per_million": 0.0,
+      "cache_read_price_per_million": 0.03,
+      "cache_write_price_per_million": 0.03
+    },
+    {
+      "id": "fastino/gliguard-PII-multi",
+      "type": "model",
+      "display_name": "Gliguard Pii Multi",
+      "created_at": "2024-01-01T00:00:00Z",
+      "max_input_tokens": 8192,
+      "max_tokens": 8192,
+      "deprecated": false,
+      "capabilities": {
+        "batch": {
+          "supported": false
+        },
+        "citations": {
+          "supported": false
+        },
+        "code_execution": {
+          "supported": false
+        },
+        "image_input": {
+          "supported": false
+        },
+        "pdf_input": {
+          "supported": false
+        },
+        "structured_outputs": {
+          "supported": false
+        },
+        "thinking": {
+          "supported": false
+        },
+        "web_search": {
+          "supported": false
+        },
+        "web_fetch": {
+          "supported": false
+        }
+      },
+      "object": "model",
+      "created": 1704067200,
+      "owned_by": "fastino",
+      "input_price_per_million": 0.15,
+      "output_price_per_million": 0.15,
+      "cache_read_price_per_million": 0.15,
+      "cache_write_price_per_million": 0.15
+    }
+  ]
+}

@@ -31,6 +31,9 @@ OWNER_ALIASES = {
     "deepseek": "DeepSeek",
     # spill: slice 04 — DeepInfra ids use the `deepseek-ai/` prefix.
     "deepseekai": "DeepSeek",
+    # spill: slice 24 — Pioneer (Fastino) rows name their own models'
+    # operator `fastino` in owned_by.
+    "fastino": "Fastino",
     # spill: slice 15 — Crossmodel ids use the `gemini/` prefix for Google
     # models.
     "gemini": "Google",

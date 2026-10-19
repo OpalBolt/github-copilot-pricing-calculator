@@ -42,6 +42,11 @@ from sources.ofox import (
     _ofox_rates,
     fetch_ofox_listings,
 )
+from sources.pioneer import (
+    _pioneer_capabilities,
+    _pioneer_rates,
+    fetch_pioneer_listings,
+)
 from sources.nano_gpt import _nano_gpt_rates, fetch_nano_gpt_listings
 from sources.opencode import fetch_opencode_listings
 from sources.requesty import _requesty_rates, fetch_requesty_listings
@@ -82,6 +87,7 @@ ALL_SELLERS = {
     "inceptron",
     "nearai",
     "ofox",
+    "pioneer",
     "deepseek-direct",
     "zai-direct",
     "claude-direct",
@@ -112,6 +118,7 @@ SELLER_KINDS = {
     "inceptron": "gateway",
     "nearai": "gateway",
     "ofox": "gateway",
+    "pioneer": "gateway",
     "deepseek-direct": "first-party",
     "zai-direct": "first-party",
     "claude-direct": "first-party",
@@ -181,6 +188,7 @@ def test_registry_pages():
         "inceptron",
         "nearai",
         "ofox",
+        "pioneer",
     }
     assert global_pages == ALL_SELLERS
     assert {m["sellerKind"] for m in SOURCES.values()} == set(SELLER_KINDS.values())
@@ -2974,6 +2982,119 @@ def test_ofox_adapter():
         raise AssertionError("missing per-token prices should skip the row")
 
 
+def test_pioneer_adapter():
+    """The committed Pioneer (Fastino) catalog sample normalizes to
+    per-million-token USD listings converted with the ECB rate; rows without
+    per-million input and output prices are skipped, not broken."""
+    # Fastino's pricing page states "Token prices are USD per 1M tokens"
+    # (docs.fastino.ai/pricing); the registry records that verified native
+    # currency, and the catalog feeds the global page only.
+    assert SOURCES["pioneer"]["nativeCurrency"] == "USD"
+    assert SOURCES["pioneer"]["pages"] == ("global",)
+    assert SOURCES["pioneer"]["sellerKind"] == "gateway"
+
+    fixture = ROOT / "fixtures" / "pioneer-models.json"
+    payload = json.loads(fixture.read_text(encoding="utf-8"))
+    with patch("sources.pioneer.fetch_json", return_value=payload):
+        listings = fetch_pioneer_listings({"usdPerEur": 2.0})
+    by_id = {listing["modelId"]: listing for listing in listings}
+    assert set(by_id) == {
+        "nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-NVFP4",
+        "fastino/Fastino-Nemotron-3.5-Lightning-Finance",
+        "fastino/GLiNER-2.5-Decide",
+        "fastino/gliguard-PII-multi",
+    }
+
+    # The catalog's fields are already dollars per 1M tokens ("Token prices
+    # are USD per 1M tokens", docs.fastino.ai/pricing; the doc's inference
+    # table repeats the catalog's $0.08 input / $0.45 output for Nemotron
+    # 3.5 Super VL), so the rates pass through unmultiplied and the ECB
+    # rate converts them.
+    nemotron = by_id["nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-NVFP4"]
+    assert (
+        nemotron["key"]
+        == "pioneer:nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-NVFP4"
+    )
+    assert nemotron["seller"] == "pioneer"
+    assert nemotron["sellerName"] == "Pioneer (Fastino)"
+    assert nemotron["name"] == "Nvidia Nemotron 3.5 Super Vl 120b A12b Nvfp4"
+    assert nemotron["creator"] == "NVIDIA"
+    assert nemotron["contextSize"] == 262144
+    assert nemotron["capabilities"] == {
+        "reasoning": False,
+        "tools": False,
+        "vision": False,
+        "audio": False,
+    }
+    assert nemotron["rates"]["nativeCurrency"] == "USD"
+    assert nemotron["rates"]["native"] == {
+        "input": 0.08,
+        "cached": 0.04,
+        "output": 0.45,
+    }
+    assert math.isclose(nemotron["rates"]["input"], 0.04)
+    assert math.isclose(nemotron["rates"]["cached"], 0.02)
+    assert math.isclose(nemotron["rates"]["output"], 0.225)
+    assert nemotron["rates"]["cachedFallback"] is False
+
+    # The catalog's capability flags nest as {"supported": bool} dicts.
+    caps = _pioneer_capabilities(
+        {
+            "capabilities": {
+                "thinking": {"supported": True},
+                "image_input": {"supported": True},
+            }
+        }
+    )
+    assert caps == {
+        "reasoning": True,
+        "tools": False,
+        "vision": True,
+        "audio": False,
+    }
+
+    # A zero price is a price: the GLiNER rows price output at zero instead
+    # of dropping out, and Fastino's own rows attribute to Fastino.
+    gliner = by_id["fastino/GLiNER-2.5-Decide"]
+    assert gliner["creator"] == "Fastino"
+    assert gliner["rates"]["native"] == {
+        "input": 0.03,
+        "cached": 0.03,
+        "output": 0,
+    }
+    assert gliner["rates"]["output"] == 0
+    assert gliner["rates"]["cachedFallback"] is False
+
+    assert all(
+        listing["rates"]["nativeCurrency"] == "USD" for listing in listings
+    )
+    assert all(
+        "Fastino" in listing["priceNote"] and "ECB" in listing["priceNote"]
+        for listing in listings
+    )
+    # A row without a cache_read_price_per_million falls back to the input
+    # rate.
+    fallback = _pioneer_rates(
+        {"input_price_per_million": 0.1, "output_price_per_million": 0.2},
+        2.0,
+    )
+    assert fallback["native"] == {
+        "input": 0.1,
+        "cached": 0.1,
+        "output": 0.2,
+    }
+    assert fallback["cachedFallback"] is True
+    assert fallback["nativeCurrency"] == "USD"
+    # Rows without per-million input and output prices are not token-priced
+    # and stay out of the listings.
+    try:
+        _pioneer_rates({"input_price_per_million": 0.1}, 2.0)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("missing per-million prices should skip the row")
+
+
 def test_seven_day_seller_fallback():
     fetched_at = now_utc().isoformat()
     previous = {
@@ -3210,6 +3331,7 @@ def test_aggregate_contract():
     assert native_by_seller["inceptron"] == "USD"
     assert native_by_seller["nearai"] == "USD"
     assert native_by_seller["ofox"] == "USD"
+    assert native_by_seller["pioneer"] == "USD"
     assert {
         native_by_seller[sid]
         for sid in ("deepseek-direct", "zai-direct", "claude-direct", "openai-direct")
@@ -3296,6 +3418,7 @@ def test_generated_page():
         'data-seller="inceptron"',
         'data-seller="nearai"',
         'data-seller="ofox"',
+        'data-seller="pioneer"',
         'data-seller="deepseek-direct"',
         'data-seller="zai-direct"',
         'data-seller="claude-direct"',
@@ -3387,6 +3510,7 @@ def main():
     test_inceptron_adapter()
     test_nearai_adapter()
     test_ofox_adapter()
+    test_pioneer_adapter()
     test_seven_day_seller_fallback()
     test_broken_source_fails_in_isolation()
     test_build_fails_only_without_usable_data()
