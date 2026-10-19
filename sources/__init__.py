@@ -22,6 +22,7 @@ from sources.crossmodel import CROSSMODEL_URL
 from sources.deepinfra import DEEPINFRA_URL
 from sources.edenai import EDENAI_URL
 from sources.empiriolabs import EMPIRIOLABS_URL
+from sources.engy import ENGY_URL
 from sources.eurouter import EUROUTER_URL
 from sources.kilo import KILO_URL
 from sources.llm_gateway import LLM_GATEWAY_URL
@@ -233,6 +234,22 @@ SOURCES = {
         # (empiriolabs.ai/pricing), and the catalog's pricing_rows render
         # the per-token decimals as dollars per 1M tokens ("$1.40 per 1M
         # prompt tokens" for prompt "0.0000014").
+        "nativeCurrency": "USD",
+        "euClaim": "No EU routing catalog is published.",
+    },
+    "engy": {
+        "name": "Engy",
+        "pages": ("global",),
+        "sellerKind": "gateway",
+        "source": ENGY_URL,
+        # Engy self-describes as "OpenAI-compatible inference for frontier
+        # open-source LLMs, with a cryptographic proof of correct inference
+        # on every response" (engy.ai) and calls itself "the engy gateway"
+        # in its docs (engy.ai/docs) — a gateway, not a router. Its pricing
+        # page bills "$ per 1M tokens" and states "Prices are live from
+        # the billing engine. The API reports the same numbers at https://
+        # api.engy.ai/v1/models" (engy.ai/pricing), so the catalog's
+        # per-token decimals are US dollars.
         "nativeCurrency": "USD",
         "euClaim": "No EU routing catalog is published.",
     },

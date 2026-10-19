@@ -23,6 +23,7 @@ from sources.empiriolabs import (
     _empiriolabs_rates,
     fetch_empiriolabs_listings,
 )
+from sources.engy import _engy_rates, fetch_engy_listings
 from sources.eurouter import fetch_eurouter_listings
 from sources.helpers import _rates, listing_from_offer, now_utc
 from sources.kilo import _kilo_rates, fetch_kilo_listings
@@ -62,6 +63,7 @@ ALL_SELLERS = {
     "crossmodel",
     "edenai",
     "empiriolabs",
+    "engy",
     "deepseek-direct",
     "zai-direct",
     "claude-direct",
@@ -86,6 +88,7 @@ SELLER_KINDS = {
     "crossmodel": "gateway",
     "edenai": "gateway",
     "empiriolabs": "gateway",
+    "engy": "gateway",
     "deepseek-direct": "first-party",
     "zai-direct": "first-party",
     "claude-direct": "first-party",
@@ -149,6 +152,7 @@ def test_registry_pages():
         "crossmodel",
         "edenai",
         "empiriolabs",
+        "engy",
     }
     assert global_pages == ALL_SELLERS
     assert {m["sellerKind"] for m in SOURCES.values()} == set(SELLER_KINDS.values())
@@ -2083,6 +2087,124 @@ def test_empiriolabs_adapter():
         raise AssertionError("missing per-token prices should skip the row")
 
 
+def test_engy_adapter():
+    """The committed Engy catalog sample normalizes its per-token USD
+    decimal strings into per-million listings converted with the ECB rate;
+    the per-request and image fees stay out of the token rates."""
+    # Engy's pricing page bills "$ per 1M tokens" and states "Prices are
+    # live from the billing engine. The API reports the same numbers at
+    # https://api.engy.ai/v1/models" (engy.ai/pricing); the registry
+    # records that verified native currency, and the catalog feeds the
+    # global page only.
+    assert SOURCES["engy"]["nativeCurrency"] == "USD"
+    assert SOURCES["engy"]["pages"] == ("global",)
+    assert SOURCES["engy"]["sellerKind"] == "gateway"
+
+    fixture = ROOT / "fixtures" / "engy-models.json"
+    payload = json.loads(fixture.read_text(encoding="utf-8"))
+    with patch("sources.engy.fetch_json", return_value=payload):
+        listings = fetch_engy_listings({"usdPerEur": 2.0})
+    by_id = {listing["modelId"]: listing for listing in listings}
+    assert set(by_id) == {
+        "deepseek-v4-flash-0731",
+        "glm-5.2",
+        "kimi-k3",
+        "qwen3.8-27b",
+    }
+
+    # The catalog's prompt, completion, and input_cache_read fields are
+    # per-token decimals (the pricing page renders "0.000000045" as
+    # "$0.045" in its "$ per 1M tokens" table), so the rates scale by
+    # 1,000,000 in dollars and the ECB rate converts them.
+    deepseek = by_id["deepseek-v4-flash-0731"]
+    assert deepseek["key"] == "engy:deepseek-v4-flash-0731"
+    assert deepseek["seller"] == "engy"
+    assert deepseek["sellerName"] == "Engy"
+    assert deepseek["name"] == "deepseek-v4-flash-0731"
+    assert deepseek["creator"] == "engy"
+    assert deepseek["contextSize"] == 1_048_576
+    assert deepseek["pricingTiers"] == []
+    assert deepseek["rates"]["nativeCurrency"] == "USD"
+    assert deepseek["rates"]["native"] == {
+        "input": 0.045,
+        "cached": 0.009,
+        "output": 0.09,
+    }
+    assert math.isclose(deepseek["rates"]["input"], 0.0225)
+    assert math.isclose(deepseek["rates"]["cached"], 0.0045)
+    assert math.isclose(deepseek["rates"]["output"], 0.045)
+    assert deepseek["rates"]["cachedFallback"] is False
+    assert deepseek["capabilities"] == {
+        "reasoning": False,
+        "tools": False,
+        "vision": False,
+        "audio": False,
+    }
+
+    # Image-input rows carry vision capability from input_modalities.
+    qwen = by_id["qwen3.8-27b"]
+    assert qwen["contextSize"] == 1_001_536
+    assert qwen["rates"]["native"] == {
+        "input": 0.045,
+        "cached": 0.015,
+        "output": 0.32,
+    }
+    assert qwen["capabilities"] == {
+        "reasoning": False,
+        "tools": False,
+        "vision": True,
+        "audio": False,
+    }
+
+    kimi = by_id["kimi-k3"]
+    assert kimi["rates"]["native"] == {
+        "input": 1.95,
+        "cached": 0.195,
+        "output": 9.75,
+    }
+    assert math.isclose(kimi["rates"]["input"], 0.975)
+    assert math.isclose(kimi["rates"]["cached"], 0.0975)
+    assert math.isclose(kimi["rates"]["output"], 4.875)
+    assert kimi["capabilities"]["vision"] is True
+
+    glm = by_id["glm-5.2"]
+    assert glm["contextSize"] == 262_144
+    assert glm["rates"]["native"] == {
+        "input": 0.68,
+        "cached": 0.18,
+        "output": 1.5,
+    }
+
+    assert all(listing["rates"]["nativeCurrency"] == "USD" for listing in listings)
+    assert all(
+        "Engy" in listing["priceNote"] and "ECB" in listing["priceNote"]
+        for listing in listings
+    )
+    # A zero price is a price: zero token rows normalize to zero rates
+    # instead of dropping out.
+    zeros = _engy_rates(
+        {"prompt": "0", "completion": "0", "input_cache_read": "0"}, 2.0
+    )
+    assert zeros["input"] == zeros["cached"] == zeros["output"] == 0
+    assert zeros["nativeCurrency"] == "USD"
+    assert zeros["cachedFallback"] is False
+    # The per-request and image fees stay out of the token rates.
+    assert "request" not in deepseek["rates"]["native"]
+    assert "image" not in deepseek["rates"]["native"]
+    # Rows without input_cache_read fall back to the input rate.
+    fallback = _engy_rates({"prompt": "0.000001", "completion": "0.000002"}, 2.0)
+    assert fallback["native"] == {"input": 1.0, "cached": 1.0, "output": 2.0}
+    assert fallback["cachedFallback"] is True
+    # Rows without per-token prompt and completion prices are not
+    # per-million-token priced and stay out of the listings.
+    try:
+        _engy_rates({"prompt": "0.000001"}, 2.0)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("missing per-token prices should skip the row")
+
+
 def test_seven_day_seller_fallback():
     fetched_at = now_utc().isoformat()
     previous = {
@@ -2312,6 +2434,7 @@ def test_aggregate_contract():
     assert native_by_seller["crossmodel"] == "USD"
     assert native_by_seller["edenai"] == "USD"
     assert native_by_seller["empiriolabs"] == "USD"
+    assert native_by_seller["engy"] == "USD"
     assert {
         native_by_seller[sid]
         for sid in ("deepseek-direct", "zai-direct", "claude-direct", "openai-direct")
@@ -2392,6 +2515,7 @@ def test_generated_page():
         'data-seller="crossmodel"',
         'data-seller="edenai"',
         'data-seller="empiriolabs"',
+        'data-seller="engy"',
         'data-seller="deepseek-direct"',
         'data-seller="zai-direct"',
         'data-seller="claude-direct"',
@@ -2477,6 +2601,7 @@ def main():
     test_crossmodel_adapter()
     test_edenai_adapter()
     test_empiriolabs_adapter()
+    test_engy_adapter()
     test_seven_day_seller_fallback()
     test_broken_source_fails_in_isolation()
     test_build_fails_only_without_usable_data()
