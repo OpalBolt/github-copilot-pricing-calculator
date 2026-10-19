@@ -1,0 +1,156 @@
+{
+  "object": "list",
+  "data": [
+    {
+      "id": "google/gemma-4-31B-turbo-TEE",
+      "object": "model",
+      "created": 1792420333,
+      "owned_by": "sglang",
+      "price": {
+        "input": {
+          "tao": 0.00044727153183790575,
+          "usd": 0.12
+        },
+        "output": {
+          "tao": 0.0013790872231668762,
+          "usd": 0.37
+        },
+        "input_cache_read": {
+          "tao": 4.472715318379056e-05,
+          "usd": 0.011999999999999997
+        }
+      },
+      "pricing": {
+        "prompt": 0.12,
+        "completion": 0.37,
+        "input_cache_read": 0.011999999999999997
+      },
+      "chute_id": "42ee92ba-a537-5a73-8741-876067750db7",
+      "quantization": "fp4",
+      "context_length": 131072,
+      "max_model_len": 262144,
+      "max_output_length": 65536,
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "supported_features": [
+        "json_mode",
+        "tools",
+        "structured_outputs",
+        "reasoning"
+      ]
+    },
+    {
+      "id": "deepseek-ai/DeepSeek-V3.2-TEE",
+      "object": "model",
+      "created": 1792420333,
+      "owned_by": "sglang",
+      "price": {
+        "input": {
+          "tao": 0.0037272627653158817,
+          "usd": 1.0
+        },
+        "output": {
+          "tao": 0.0037272627653158817,
+          "usd": 1.0
+        },
+        "input_cache_read": {
+          "tao": 0.0003727262765315881,
+          "usd": 0.09999999999999998
+        }
+      },
+      "pricing": {
+        "prompt": 1.0,
+        "completion": 1.0,
+        "input_cache_read": 0.09999999999999998
+      },
+      "chute_id": "398651e1-5f85-5e50-a513-7c5324e8e839",
+      "quantization": "fp8",
+      "context_length": 131072,
+      "max_model_len": 131072,
+      "max_output_length": 65536,
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "supported_features": [
+        "json_mode",
+        "tools",
+        "reasoning",
+        "structured_outputs"
+      ]
+    },
+    {
+      "id": "unsloth/Mistral-Nemo-Instruct-2407-TEE",
+      "object": "model",
+      "created": 1792420332,
+      "owned_by": "sglang",
+      "price": {
+        "input": {
+          "tao": 9.131793775023911e-05,
+          "usd": 0.0245
+        },
+        "output": {
+          "tao": 0.0003645262984478932,
+          "usd": 0.0978
+        },
+        "input_cache_read": {
+          "tao": 9.131793775023907e-06,
+          "usd": 0.0024499999999999995
+        }
+      },
+      "pricing": {
+        "prompt": 0.0245,
+        "completion": 0.0978,
+        "input_cache_read": 0.0024499999999999995
+      },
+      "chute_id": "7725a31d-28df-5bb7-9d29-c23b49df5472",
+      "quantization": null,
+      "context_length": null,
+      "max_model_len": 131072,
+      "max_output_length": null,
+      "input_modalities": null,
+      "output_modalities": null,
+      "supported_features": null
+    },
+    {
+      "id": "Nemotron-3-Nano-Omni-30B-TEE",
+      "object": "model",
+      "created": 1792420333,
+      "owned_by": "sglang",
+      "price": {
+        "input": {
+          "tao": 9.131793775023911e-05,
+          "usd": 0.0245
+        },
+        "output": {
+          "tao": 0.0003645262984478932,
+          "usd": 0.0978
+        },
+        "input_cache_read": {
+          "tao": 9.131793775023907e-06,
+          "usd": 0.0024499999999999995
+        }
+      },
+      "pricing": {
+        "prompt": 0.0245,
+        "completion": 0.0978,
+        "input_cache_read": 0.0024499999999999995
+      },
+      "chute_id": "761ccdab-2e3d-5268-ab03-55f8ba94a80c",
+      "quantization": null,
+      "context_length": null,
+      "max_model_len": 131072,
+      "max_output_length": null,
+      "input_modalities": null,
+      "output_modalities": null,
+      "supported_features": null
+    }
+  ]
+}

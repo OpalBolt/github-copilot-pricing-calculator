@@ -14,6 +14,7 @@ from pathlib import Path
 
 from sources import SOURCES
 from sources.claude_direct import fetch_claude_direct_listings
+from sources.chutes import fetch_chutes_listings
 from sources.cortecs import fetch_cortecs_listings
 from sources.deepinfra import fetch_deepinfra_listings
 from sources.deepseek_direct import fetch_deepseek_direct_listings
@@ -47,6 +48,7 @@ ADAPTERS = {
     "novita": lambda exchange_rate: fetch_novita_listings(exchange_rate),
     "requesty": lambda exchange_rate: fetch_requesty_listings(exchange_rate),
     "nano-gpt": lambda exchange_rate: fetch_nano_gpt_listings(exchange_rate),
+    "chutes": lambda exchange_rate: fetch_chutes_listings(exchange_rate),
     "vercel-gateway": lambda exchange_rate: fetch_vercel_gateway_listings(
         exchange_rate
     ),

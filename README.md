@@ -101,6 +101,7 @@ The router build uses these sources:
 | nano-gpt catalog | `https://nano-gpt.com/api/v1/models?detailed=true` |
 | Vercel AI Gateway catalog | `https://ai-gateway.vercel.sh/v1/models` |
 | Kilo catalog | `https://api.kilo.ai/api/gateway/models` |
+| Chutes catalog | `https://llm.chutes.ai/v1/models` |
 | Claude model catalog | `https://platform.claude.com/docs/en/api/http/beta/models/list.md` |
 | Claude direct API pricing | `https://platform.claude.com/docs/en/about-claude/pricing.md` |
 | DeepSeek direct API | `https://api-docs.deepseek.com/quick_start/pricing/` |

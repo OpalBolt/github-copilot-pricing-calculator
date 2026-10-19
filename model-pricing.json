@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-19T14:31:26.124120+00:00",
+  "generatedAt": "2026-10-19T14:45:04.907827+00:00",
   "currency": "EUR",
   "exchangeRate": {
     "series": "EXR.D.USD.EUR.SP00.A",
@@ -15,7 +15,7 @@
       "source": "https://api.cortecs.ai/v1/models?extended=true&currency=EUR",
       "id": "cortecs",
       "nativeCurrency": "EUR",
-      "fetchedAt": "2026-10-19T14:31:26.124120+00:00",
+      "fetchedAt": "2026-10-19T14:45:04.907827+00:00",
       "stale": false
     },
     {
@@ -24,7 +24,7 @@
       "source": "https://api.eurouter.ai/api/v1/models",
       "id": "eurouter",
       "nativeCurrency": "mixed",
-      "fetchedAt": "2026-10-19T14:31:26.124120+00:00",
+      "fetchedAt": "2026-10-19T14:45:04.907827+00:00",
       "stale": false
     },
     {
@@ -33,7 +33,7 @@
       "source": "https://openrouter.ai/api/v1/models",
       "id": "openrouter",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T14:31:26.124120+00:00",
+      "fetchedAt": "2026-10-19T14:45:04.907827+00:00",
       "stale": false
     },
     {
@@ -42,7 +42,7 @@
       "source": "https://opencode.ai/zen/v1/models",
       "id": "opencode",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T14:31:26.124120+00:00",
+      "fetchedAt": "2026-10-19T14:45:04.907827+00:00",
       "stale": false
     },
     {
@@ -51,7 +51,7 @@
       "source": "https://api.deepinfra.com/v1/models",
       "nativeCurrency": "USD",
       "id": "deepinfra",
-      "fetchedAt": "2026-10-19T14:31:26.124120+00:00",
+      "fetchedAt": "2026-10-19T14:45:04.907827+00:00",
       "stale": false
     },
     {
@@ -60,7 +60,7 @@
       "source": "https://api.novita.ai/v3/openai/models",
       "nativeCurrency": "USD",
       "id": "novita",
-      "fetchedAt": "2026-10-19T14:31:26.124120+00:00",
+      "fetchedAt": "2026-10-19T14:45:04.907827+00:00",
       "stale": false
     },
     {
@@ -69,7 +69,7 @@
       "source": "https://router.requesty.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "requesty",
-      "fetchedAt": "2026-10-19T14:31:26.124120+00:00",
+      "fetchedAt": "2026-10-19T14:45:04.907827+00:00",
       "stale": false
     },
     {
@@ -78,7 +78,7 @@
       "source": "https://ai-gateway.vercel.sh/v1/models",
       "nativeCurrency": "USD",
       "id": "vercel-gateway",
-      "fetchedAt": "2026-10-19T14:31:26.124120+00:00",
+      "fetchedAt": "2026-10-19T14:45:04.907827+00:00",
       "stale": false
     },
     {
@@ -87,7 +87,7 @@
       "source": "https://api.kilo.ai/api/gateway/models",
       "nativeCurrency": "USD",
       "id": "kilo",
-      "fetchedAt": "2026-10-19T14:31:26.124120+00:00",
+      "fetchedAt": "2026-10-19T14:45:04.907827+00:00",
       "stale": false
     },
     {
@@ -96,7 +96,16 @@
       "source": "https://nano-gpt.com/api/v1/models?detailed=true",
       "nativeCurrency": "USD",
       "id": "nano-gpt",
-      "fetchedAt": "2026-10-19T14:31:26.124120+00:00",
+      "fetchedAt": "2026-10-19T14:45:04.907827+00:00",
+      "stale": false
+    },
+    {
+      "name": "Chutes",
+      "sellerKind": "gateway",
+      "source": "https://llm.chutes.ai/v1/models",
+      "nativeCurrency": "USD",
+      "id": "chutes",
+      "fetchedAt": "2026-10-19T14:45:04.907827+00:00",
       "stale": false
     },
     {
@@ -105,7 +114,7 @@
       "sellerKind": "first-party",
       "id": "deepseek-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T14:31:26.124120+00:00",
+      "fetchedAt": "2026-10-19T14:45:04.907827+00:00",
       "stale": false
     },
     {
@@ -114,7 +123,7 @@
       "sellerKind": "first-party",
       "id": "zai-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T14:31:26.124120+00:00",
+      "fetchedAt": "2026-10-19T14:45:04.907827+00:00",
       "stale": false
     },
     {
@@ -123,7 +132,7 @@
       "sellerKind": "first-party",
       "id": "claude-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T14:31:26.124120+00:00",
+      "fetchedAt": "2026-10-19T14:45:04.907827+00:00",
       "stale": false
     },
     {
@@ -132,12 +141,446 @@
       "sellerKind": "first-party",
       "id": "openai-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T14:31:26.124120+00:00",
+      "fetchedAt": "2026-10-19T14:45:04.907827+00:00",
       "stale": false
     }
   ],
   "omittedSellers": [],
   "listings": [
+    {
+      "key": "chutes:Nemotron-3-Nano-Omni-30B-TEE",
+      "seller": "chutes",
+      "sellerName": "Chutes",
+      "modelId": "Nemotron-3-Nano-Omni-30B-TEE",
+      "name": "Nemotron-3-Nano-Omni-30B-TEE",
+      "creator": "",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 131072,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.021826280623608016,
+        "cached": 0.0021826280623608012,
+        "output": 0.08712694877505567,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.0245,
+          "cached": 0.0024499999999999995,
+          "output": 0.0978
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in the Chutes model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "chutes:Qwen/Qwen3-235B-A22B-Thinking-2507-TEE",
+      "seller": "chutes",
+      "sellerName": "Chutes",
+      "modelId": "Qwen/Qwen3-235B-A22B-Thinking-2507-TEE",
+      "name": "Qwen/Qwen3-235B-A22B-Thinking-2507-TEE",
+      "creator": "Alibaba",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.2662806236080178,
+        "cached": 0.026628062360801775,
+        "output": 1.0652115812917593,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.2989,
+          "cached": 0.029889999999999993,
+          "output": 1.1957
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in the Chutes model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "chutes:Qwen/Qwen3-32B-TEE",
+      "seller": "chutes",
+      "sellerName": "Chutes",
+      "modelId": "Qwen/Qwen3-32B-TEE",
+      "name": "Qwen/Qwen3-32B-TEE",
+      "creator": "Alibaba",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 40960,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.09265033407572382,
+        "cached": 0.009265033407572381,
+        "output": 0.37060133630289527,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.104,
+          "cached": 0.010399999999999998,
+          "output": 0.416
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in the Chutes model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "chutes:Qwen/Qwen3.5-397B-A17B-TEE",
+      "seller": "chutes",
+      "sellerName": "Chutes",
+      "modelId": "Qwen/Qwen3.5-397B-A17B-TEE",
+      "name": "Qwen/Qwen3.5-397B-A17B-TEE",
+      "creator": "Alibaba",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.40089086859688194,
+        "cached": 0.040089086859688185,
+        "output": 2.6726057906458798,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.45,
+          "cached": 0.04499999999999999,
+          "output": 3.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in the Chutes model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "chutes:Qwen/Qwen3.6-27B-TEE",
+      "seller": "chutes",
+      "sellerName": "Chutes",
+      "modelId": "Qwen/Qwen3.6-27B-TEE",
+      "name": "Qwen/Qwen3.6-27B-TEE",
+      "creator": "Alibaba",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.22271714922048996,
+        "cached": 0.02227171492204899,
+        "output": 1.7817371937639197,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.25,
+          "cached": 0.024999999999999994,
+          "output": 2.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in the Chutes model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "chutes:Qwen/Qwen3.8-27B-TEE",
+      "seller": "chutes",
+      "sellerName": "Chutes",
+      "modelId": "Qwen/Qwen3.8-27B-TEE",
+      "name": "Qwen/Qwen3.8-27B-TEE",
+      "creator": "Alibaba",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.03474387527839643,
+        "cached": 0.0034743875278396424,
+        "output": 1.1135857461024499,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.039,
+          "cached": 0.003899999999999999,
+          "output": 1.25
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in the Chutes model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "chutes:deepseek-ai/DeepSeek-V3.2-TEE",
+      "seller": "chutes",
+      "sellerName": "Chutes",
+      "modelId": "deepseek-ai/DeepSeek-V3.2-TEE",
+      "name": "deepseek-ai/DeepSeek-V3.2-TEE",
+      "creator": "DeepSeek",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 131072,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.8908685968819599,
+        "cached": 0.08908685968819596,
+        "output": 0.8908685968819599,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.0,
+          "cached": 0.09999999999999998,
+          "output": 1.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in the Chutes model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "chutes:deepseek-ai/DeepSeek-V4-Flash-0731-TEE",
+      "seller": "chutes",
+      "sellerName": "Chutes",
+      "modelId": "deepseek-ai/DeepSeek-V4-Flash-0731-TEE",
+      "name": "deepseek-ai/DeepSeek-V4-Flash-0731-TEE",
+      "creator": "DeepSeek",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.39198218262806234,
+        "cached": 0.03919821826280623,
+        "output": 1.175946547884187,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.44,
+          "cached": 0.04399999999999999,
+          "output": 1.32
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in the Chutes model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "chutes:google/gemma-4-31B-turbo-TEE",
+      "seller": "chutes",
+      "sellerName": "Chutes",
+      "modelId": "google/gemma-4-31B-turbo-TEE",
+      "name": "google/gemma-4-31B-turbo-TEE",
+      "creator": "Google",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 131072,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.10690423162583518,
+        "cached": 0.010690423162583515,
+        "output": 0.32962138084632514,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.12,
+          "cached": 0.011999999999999997,
+          "output": 0.37
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in the Chutes model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "chutes:moonshotai/Kimi-K2.6-TEE",
+      "seller": "chutes",
+      "sellerName": "Chutes",
+      "modelId": "moonshotai/Kimi-K2.6-TEE",
+      "name": "moonshotai/Kimi-K2.6-TEE",
+      "creator": "Moonshot AI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.40089086859688194,
+        "cached": 0.040089086859688185,
+        "output": 1.7371937639198216,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.45,
+          "cached": 0.04499999999999999,
+          "output": 1.95
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in the Chutes model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "chutes:moonshotai/Kimi-K3-TEE",
+      "seller": "chutes",
+      "sellerName": "Chutes",
+      "modelId": "moonshotai/Kimi-K3-TEE",
+      "name": "moonshotai/Kimi-K3-TEE",
+      "creator": "Moonshot AI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.6481069042316259,
+        "cached": 0.16481069042316254,
+        "output": 8.463251670378618,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.85,
+          "cached": 0.18499999999999997,
+          "output": 9.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in the Chutes model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "chutes:unsloth/Mistral-Nemo-Instruct-2407-TEE",
+      "seller": "chutes",
+      "sellerName": "Chutes",
+      "modelId": "unsloth/Mistral-Nemo-Instruct-2407-TEE",
+      "name": "unsloth/Mistral-Nemo-Instruct-2407-TEE",
+      "creator": "unsloth",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 131072,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.021826280623608016,
+        "cached": 0.0021826280623608012,
+        "output": 0.08712694877505567,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.0245,
+          "cached": 0.0024499999999999995,
+          "output": 0.0978
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in the Chutes model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "chutes:zai-org/GLM-5.1-TEE",
+      "seller": "chutes",
+      "sellerName": "Chutes",
+      "modelId": "zai-org/GLM-5.1-TEE",
+      "name": "zai-org/GLM-5.1-TEE",
+      "creator": "Z.ai",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 202752,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.8730512249443206,
+        "cached": 0.08730512249443205,
+        "output": 2.7438752783964366,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.98,
+          "cached": 0.09799999999999998,
+          "output": 3.08
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in the Chutes model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "chutes:zai-org/GLM-5.2-TEE",
+      "seller": "chutes",
+      "sellerName": "Chutes",
+      "modelId": "zai-org/GLM-5.2-TEE",
+      "name": "zai-org/GLM-5.2-TEE",
+      "creator": "Z.ai",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.1135857461024499,
+        "cached": 0.11135857461024495,
+        "output": 3.5189309576837418,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.25,
+          "cached": 0.12499999999999997,
+          "output": 3.95
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in the Chutes model catalog and converted with the listed ECB rate."
+    },
     {
       "key": "claude-direct:claude-fable-5",
       "seller": "claude-direct",
@@ -22320,13 +22763,13 @@
         "audio": false
       },
       "rates": {
-        "input": 0.008124721603563473,
+        "input": 0.006129175946547884,
         "cached": 0.0029434298440979955,
         "output": 0.10690423162583518,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.00912,
+          "input": 0.00688,
           "cached": 0.003304,
           "output": 0.12
         }
@@ -52191,15 +52634,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.3884579064587973,
-        "cached": 0.03237149220489978,
-        "output": 0.7769158129175946,
+        "input": 0.3869077951002227,
+        "cached": 0.032242316258351895,
+        "output": 0.7738155902004454,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.436044,
-          "cached": 0.036337,
-          "output": 0.872088
+          "input": 0.434304,
+          "cached": 0.036192,
+          "output": 0.868608
         }
       },
       "pricingTiers": [],
@@ -64033,13 +64476,13 @@
         "audio": false
       },
       "rates": {
-        "input": 0.008124721603563473,
+        "input": 0.006129175946547884,
         "cached": 0.0029434298440979955,
         "output": 0.10690423162583518,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.00912,
+          "input": 0.00688,
           "cached": 0.003304,
           "output": 0.12
         }

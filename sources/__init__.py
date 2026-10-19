@@ -13,6 +13,7 @@ marker and is unchanged.
 
 from fetch_providers import DEEPSEEK_URL, ZAI_PAYGO_URL
 from sources.claude_direct import CLAUDE_MODELS_URL, CLAUDE_PRICING_URL
+from sources.chutes import CHUTES_URL
 from sources.cortecs import CORTECS_URL
 from sources.deepinfra import DEEPINFRA_URL
 from sources.eurouter import EUROUTER_URL
@@ -108,6 +109,20 @@ SOURCES = {
         "source": NANO_GPT_URL,
         # nano-gpt's pricing page bills text API usage "at the model's list
         # price" in USD; every catalog row prices currency USD.
+        "nativeCurrency": "USD",
+        "euClaim": "No EU routing catalog is published.",
+    },
+    "chutes": {
+        "name": "Chutes",
+        "pages": ("global",),
+        "sellerKind": "gateway",
+        "source": CHUTES_URL,
+        # Chutes calls itself "a decentralized, serverless inference
+        # platform for open-source AI models" (chutes.ai). Its pricing page
+        # quotes the catalog rows in dollars per 1M tokens ("Costs are
+        # charged per million tokens, separately for input and output"),
+        # with TAO only an alternative payment method, and the catalog's
+        # price fields name the currency usd (chutes.ai/pricing).
         "nativeCurrency": "USD",
         "euClaim": "No EU routing catalog is published.",
     },

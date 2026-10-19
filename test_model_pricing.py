@@ -12,6 +12,7 @@ from unittest.mock import patch
 import fetch_model_pricing
 from fetch_model_pricing import _cached_seller
 from sources import SOURCES
+from sources.chutes import _chutes_rates, fetch_chutes_listings
 from sources.deepinfra import _deepinfra_rates, fetch_deepinfra_listings
 from sources.eurouter import fetch_eurouter_listings
 from sources.helpers import _rates, listing_from_offer, now_utc
@@ -43,6 +44,7 @@ ALL_SELLERS = {
     "nano-gpt",
     "vercel-gateway",
     "kilo",
+    "chutes",
     "deepseek-direct",
     "zai-direct",
     "claude-direct",
@@ -59,6 +61,7 @@ SELLER_KINDS = {
     "nano-gpt": "gateway",
     "vercel-gateway": "gateway",
     "kilo": "gateway",
+    "chutes": "gateway",
     "deepseek-direct": "first-party",
     "zai-direct": "first-party",
     "claude-direct": "first-party",
@@ -114,6 +117,7 @@ def test_registry_pages():
         "nano-gpt",
         "vercel-gateway",
         "kilo",
+        "chutes",
     }
     assert global_pages == ALL_SELLERS
     assert {m["sellerKind"] for m in SOURCES.values()} == set(SELLER_KINDS.values())
@@ -878,6 +882,110 @@ def test_kilo_adapter():
     assert "kilo-auto/efficient" not in by_id
 
 
+def test_chutes_adapter():
+    """The committed Chutes catalog sample normalizes to per-million-token
+    USD listings converted with the ECB rate; rows without prompt and
+    completion prices are skipped, not broken."""
+    # Chutes's pricing page charges "per million tokens, separately for
+    # input and output" and quotes the catalog rows as dollars per 1M
+    # tokens ($0.12 per 1M tokens for pricing.prompt 0.12), with TAO only
+    # an alternative payment method; the registry records that verified
+    # native currency, and the catalog feeds the global page only.
+    assert SOURCES["chutes"]["nativeCurrency"] == "USD"
+    assert SOURCES["chutes"]["pages"] == ("global",)
+    assert SOURCES["chutes"]["sellerKind"] == "gateway"
+
+    fixture = ROOT / "fixtures" / "chutes-models.json"
+    payload = json.loads(fixture.read_text(encoding="utf-8"))
+    with patch("sources.chutes.fetch_json", return_value=payload):
+        listings = fetch_chutes_listings({"usdPerEur": 2.0})
+    by_id = {listing["modelId"]: listing for listing in listings}
+    assert set(by_id) == {
+        "google/gemma-4-31B-turbo-TEE",
+        "deepseek-ai/DeepSeek-V3.2-TEE",
+        "unsloth/Mistral-Nemo-Instruct-2407-TEE",
+        "Nemotron-3-Nano-Omni-30B-TEE",
+    }
+
+    # The catalog's pricing fields are already dollars per 1M tokens (the
+    # pricing page quotes pricing.prompt 0.12 as "$0.12 per 1M tokens"), so
+    # they pass through unmultiplied and the ECB rate converts them.
+    gemma = by_id["google/gemma-4-31B-turbo-TEE"]
+    assert gemma["key"] == "chutes:google/gemma-4-31B-turbo-TEE"
+    assert gemma["seller"] == "chutes"
+    assert gemma["sellerName"] == "Chutes"
+    assert gemma["name"] == "google/gemma-4-31B-turbo-TEE"
+    assert gemma["creator"] == "Google"
+    assert gemma["contextSize"] == 131072
+    assert gemma["capabilities"] == {
+        "reasoning": True,
+        "tools": True,
+        "vision": True,
+        "audio": False,
+    }
+    assert gemma["rates"]["nativeCurrency"] == "USD"
+    assert gemma["rates"]["native"] == {
+        "input": 0.12,
+        "cached": 0.011999999999999997,
+        "output": 0.37,
+    }
+    assert math.isclose(gemma["rates"]["input"], 0.06)
+    assert math.isclose(gemma["rates"]["cached"], 0.006)
+    assert math.isclose(gemma["rates"]["output"], 0.185)
+    assert gemma["rates"]["cachedFallback"] is False
+
+    # The canonical creator spelling comes from the id's vendor prefix; the
+    # catalog's owned_by field names the serving engine, not the creator.
+    assert by_id["deepseek-ai/DeepSeek-V3.2-TEE"]["creator"] == "DeepSeek"
+    assert by_id["unsloth/Mistral-Nemo-Instruct-2407-TEE"]["creator"] == "unsloth"
+    # A slash-less id has no vendor prefix and no creator.
+    assert by_id["Nemotron-3-Nano-Omni-30B-TEE"]["creator"] == ""
+
+    # The pricing page's Context column reads context_length and falls back
+    # to max_model_len when the catalog leaves it null; rows without
+    # modalities and supported_features derive no capabilities.
+    nemo = by_id["unsloth/Mistral-Nemo-Instruct-2407-TEE"]
+    assert nemo["contextSize"] == 131072
+    assert nemo["capabilities"] == {
+        "reasoning": False,
+        "tools": False,
+        "vision": False,
+        "audio": False,
+    }
+
+    assert all(
+        listing["rates"]["nativeCurrency"] == "USD" for listing in listings
+    )
+    assert all(
+        "Chutes" in listing["priceNote"] and "ECB" in listing["priceNote"]
+        for listing in listings
+    )
+    # A zero price is a price: zero-priced token rows normalize to zero
+    # rates instead of dropping out.
+    zeros = _chutes_rates(
+        {"pricing": {"prompt": 0, "completion": 0, "input_cache_read": 0}},
+        2.0,
+    )
+    assert zeros["input"] == zeros["cached"] == zeros["output"] == 0
+    assert zeros["nativeCurrency"] == "USD"
+    assert zeros["cachedFallback"] is False
+    # Rows without an input_cache_read component fall back to the input
+    # rate.
+    fallback = _chutes_rates(
+        {"pricing": {"prompt": "0.2", "completion": "1"}}, 2.0
+    )
+    assert fallback["cachedFallback"] is True
+    assert fallback["cached"] == fallback["input"] == 0.1
+    # Rows without prompt and completion prices are not token-priced and
+    # stay out of the listings.
+    try:
+        _chutes_rates({"pricing": {}}, 2.0)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("missing per-token prices should skip the row")
+
+
 def test_seven_day_seller_fallback():
     fetched_at = now_utc().isoformat()
     previous = {
@@ -899,7 +1007,7 @@ def test_seven_day_seller_fallback():
 
 @contextmanager
 def _patch_adapters(**behaviors):
-    """Patch the build's ECB fetch and all fourteen listings adapters. Values
+    """Patch the build's ECB fetch and all fifteen listings adapters. Values
     are return values for `ok`, exceptions for failing sources."""
     ecb = behaviors.pop("ecb", {"usdPerEur": 1.1, "observationDate": "2026-10-16"})
     patches = [
@@ -1096,6 +1204,7 @@ def test_aggregate_contract():
     assert native_by_seller["nano-gpt"] == "USD"
     assert native_by_seller["vercel-gateway"] == "USD"
     assert native_by_seller["kilo"] == "USD"
+    assert native_by_seller["chutes"] == "USD"
     assert {
         native_by_seller[sid]
         for sid in ("deepseek-direct", "zai-direct", "claude-direct", "openai-direct")
@@ -1168,6 +1277,7 @@ def test_generated_page():
         'data-seller="nano-gpt"',
         'data-seller="vercel-gateway"',
         'data-seller="kilo"',
+        'data-seller="chutes"',
         'data-seller="deepseek-direct"',
         'data-seller="zai-direct"',
         'data-seller="claude-direct"',
@@ -1245,6 +1355,7 @@ def main():
     test_nano_gpt_adapter()
     test_vercel_gateway_adapter()
     test_kilo_adapter()
+    test_chutes_adapter()
     test_seven_day_seller_fallback()
     test_broken_source_fails_in_isolation()
     test_build_fails_only_without_usable_data()
