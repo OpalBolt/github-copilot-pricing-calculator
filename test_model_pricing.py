@@ -74,6 +74,7 @@ from sources.vercel_gateway import (
     _vercel_gateway_rates,
     fetch_vercel_gateway_listings,
 )
+from sources.xai import fetch_xai_listings, parse_xai_pricing
 from sources.openrouter import fetch_openrouter_listings
 from sources.deepseek_direct import fetch_deepseek_direct_listings
 
@@ -115,6 +116,7 @@ ALL_SELLERS = {
     "zai-direct",
     "claude-direct",
     "openai-direct",
+    "xai",
 }
 SELLER_KINDS = {
     "cortecs": "router",
@@ -149,6 +151,7 @@ SELLER_KINDS = {
     "zai-direct": "first-party",
     "claude-direct": "first-party",
     "openai-direct": "first-party",
+    "xai": "first-party",
 }
 
 
@@ -218,6 +221,7 @@ def test_registry_pages():
         "prime",
         "tinfoil",
         "venice",
+        "xai",
     }
     assert global_pages == ALL_SELLERS
     assert {m["sellerKind"] for m in SOURCES.values()} == set(SELLER_KINDS.values())
@@ -3661,6 +3665,135 @@ def test_venice_adapter():
     }
 
 
+def test_xai_adapter():
+    """The committed xAI pricing markdown normalizes to per-million-token
+    USD listings converted with the ECB rate; the published long-context
+    rows become tiers so the headline never hides the threshold, and
+    non-token tables plus rows without token prices stay out."""
+    # xAI's pricing doc opens "All prices are in USD" and bills the text
+    # API per 1M tokens; the registry records that verified native
+    # currency, and the first-party catalog feeds the global page only.
+    assert SOURCES["xai"]["nativeCurrency"] == "USD"
+    assert SOURCES["xai"]["pages"] == ("global",)
+    assert SOURCES["xai"]["sellerKind"] == "first-party"
+
+    fixture = ROOT / "fixtures" / "xai-pricing.md"
+    markdown = fixture.read_text(encoding="utf-8")
+    # The currency evidence lives in the Seller's own pricing doc.
+    assert "All prices are in USD" in markdown
+
+    with patch("sources.xai.fetch_text", return_value=markdown):
+        listings = fetch_xai_listings({"usdPerEur": 2.0})
+    by_id = {listing["modelId"]: listing for listing in listings}
+    assert set(by_id) == {"grok-4.7", "grok-4.3", "grok-build-0.1"}
+
+    # The headline rates are the short-context row as published (USD per
+    # million tokens, converted with the ECB rate); the tier carries the
+    # long-context row so the condition stays visible in price details.
+    grok47 = by_id["grok-4.7"]
+    assert grok47["key"] == "xai:grok-4.7"
+    assert grok47["seller"] == "xai"
+    assert grok47["sellerName"] == "xAI"
+    assert grok47["creator"] == "xAI"
+    assert grok47["contextSize"] == 512_000
+    assert grok47["rates"]["nativeCurrency"] == "USD"
+    assert grok47["rates"]["native"] == {
+        "input": 2.0,
+        "cached": 0.5,
+        "output": 6.0,
+    }
+    assert math.isclose(grok47["rates"]["input"], 1.0)
+    assert math.isclose(grok47["rates"]["cached"], 0.25)
+    assert math.isclose(grok47["rates"]["output"], 3.0)
+    assert grok47["rates"]["cachedFallback"] is False
+    assert grok47["pricingTiers"] == [
+        {
+            "contextAbove": 200_000,
+            "input": 2.0,
+            "cached": 0.5,
+            "output": 6.0,
+            "cachedFallback": False,
+            "nativeCurrency": "USD",
+            "native": {"input": 4.0, "cached": 1.0, "output": 12.0},
+        }
+    ]
+
+    # grok-4.3's long-context row is trimmed from the fixture, so the
+    # single-row model keeps its headline rates and publishes no tiers.
+    grok43 = by_id["grok-4.3"]
+    assert grok43["contextSize"] == 1_048_576
+    assert grok43["rates"]["native"] == {
+        "input": 1.25,
+        "cached": 0.2,
+        "output": 2.5,
+    }
+    assert grok43["pricingTiers"] == []
+
+    assert all(
+        "xAI" in listing["priceNote"] and "ECB" in listing["priceNote"]
+        for listing in listings
+    )
+    # Imagine and voice rates are not token prices: their tables are
+    # skipped rather than misread as listings.
+    assert not any(
+        listing["modelId"].startswith("grok-imagine") for listing in listings
+    )
+
+    # Parser: a missing cache price falls back to the input rate, a
+    # published zero stays a price, and a long-context row without a
+    # short-context row has no listing to attach to.
+    stripped = parse_xai_pricing(
+        """### Text API Pricing
+| Model | Context | Input / 1M tokens | Cached input / 1M tokens | Output / 1M tokens |
+| --- | --- | --- | --- | --- |
+| grok-test (< 200k prompt tokens) | 2M | $1.00 | - | $2.00 |
+| grok-test (≥ 200k prompt tokens) | 2M | $2.00 | $0.50 | $4.00 |
+| grok-free | 256k | $0.00 | $0.00 | $0.00 |
+| grok-orphan (≥ 128k prompt tokens) | 256k | $3.00 | $1.00 | $9.00 |
+"""
+    )
+    assert stripped == [
+        {
+            "id": "grok-test",
+            "name": "grok-test",
+            "context": 2_097_152,
+            "input": 1.0,
+            "input_cache": None,
+            "output": 2.0,
+            "long_context": {
+                "contextAbove": 200_000,
+                "input": 2.0,
+                "input_cache": 0.5,
+                "output": 4.0,
+            },
+        },
+        {
+            "id": "grok-free",
+            "name": "grok-free",
+            "context": 262_144,
+            "input": 0.0,
+            "input_cache": 0.0,
+            "output": 0.0,
+        },
+    ]
+
+    # The cache fallback carries into the listing: a missing cached-input
+    # cell reuses the input rate as an estimate instead of dropping the
+    # row.
+    fallback_markdown = """### Text API Pricing
+| Model | Context | Input / 1M tokens | Cached input / 1M tokens | Output / 1M tokens |
+| --- | --- | --- | --- | --- |
+| grok-test (< 200k prompt tokens) | 2M | $1.00 | - | $2.00 |
+"""
+    with patch("sources.xai.fetch_text", return_value=fallback_markdown):
+        fallback = fetch_xai_listings({"usdPerEur": 2.0})[0]
+    assert fallback["rates"]["cachedFallback"] is True
+    assert fallback["rates"]["cached"] == fallback["rates"]["input"]
+    assert fallback["rates"]["native"]["cached"] == (
+        fallback["rates"]["native"]["input"]
+    )
+
+
 def test_seven_day_seller_fallback():
     fetched_at = now_utc().isoformat()
     previous = {
@@ -3903,7 +4036,13 @@ def test_aggregate_contract():
     assert native_by_seller["venice"] == "USD"
     assert {
         native_by_seller[sid]
-        for sid in ("deepseek-direct", "zai-direct", "claude-direct", "openai-direct")
+        for sid in (
+            "deepseek-direct",
+            "zai-direct",
+            "claude-direct",
+            "openai-direct",
+            "xai",
+        )
     } == {"USD"}
 
     first_party = [
@@ -3915,6 +4054,7 @@ def test_aggregate_contract():
         "claude-direct",
         "deepseek-direct",
         "openai-direct",
+        "xai",
         "zai-direct",
     }
     assert all(

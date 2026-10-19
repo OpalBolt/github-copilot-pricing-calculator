@@ -42,6 +42,7 @@ from sources.requesty import REQUESTY_URL
 from sources.tinfoil import TINFOIL_URL
 from sources.venice import VENICE_URL
 from sources.vercel_gateway import VERCEL_GATEWAY_URL
+from sources.xai import XAI_PRICING_URL
 
 SOURCES = {
     "cortecs": {
@@ -443,5 +444,17 @@ SOURCES = {
         "kind": "direct",
         "sellerKind": "first-party",
         "euClaim": "Direct API baseline; no router or EU routing mode.",
+    },
+    "xai": {
+        "name": "xAI",
+        "pages": ("global",),
+        "sellerKind": "first-party",
+        "source": XAI_PRICING_URL,
+        # xAI's pricing doc opens "All prices are in USD" and its text-API
+        # table bills "Input / 1M tokens", "Cached input / 1M tokens", and
+        # "Output / 1M tokens" (docs.x.ai/developers/pricing.md), so the
+        # published rates are US dollars per million tokens.
+        "nativeCurrency": "USD",
+        "euClaim": "No EU routing catalog is published.",
     },
 }

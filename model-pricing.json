@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-19T18:59:10.859515+00:00",
+  "generatedAt": "2026-10-19T19:13:22.646282+00:00",
   "currency": "EUR",
   "exchangeRate": {
     "series": "EXR.D.USD.EUR.SP00.A",
@@ -15,7 +15,7 @@
       "source": "https://api.cortecs.ai/v1/models?extended=true&currency=EUR",
       "id": "cortecs",
       "nativeCurrency": "EUR",
-      "fetchedAt": "2026-10-19T18:59:10.859515+00:00",
+      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
       "stale": false
     },
     {
@@ -24,7 +24,7 @@
       "source": "https://api.eurouter.ai/api/v1/models",
       "id": "eurouter",
       "nativeCurrency": "mixed",
-      "fetchedAt": "2026-10-19T18:59:10.859515+00:00",
+      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
       "stale": false
     },
     {
@@ -33,7 +33,7 @@
       "source": "https://openrouter.ai/api/v1/models",
       "id": "openrouter",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T18:59:10.859515+00:00",
+      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
       "stale": false
     },
     {
@@ -42,7 +42,7 @@
       "source": "https://opencode.ai/zen/v1/models",
       "id": "opencode",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T18:59:10.859515+00:00",
+      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
       "stale": false
     },
     {
@@ -51,7 +51,7 @@
       "source": "https://api.deepinfra.com/v1/models",
       "nativeCurrency": "USD",
       "id": "deepinfra",
-      "fetchedAt": "2026-10-19T18:59:10.859515+00:00",
+      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
       "stale": false
     },
     {
@@ -60,7 +60,7 @@
       "source": "https://api.novita.ai/v3/openai/models",
       "nativeCurrency": "USD",
       "id": "novita",
-      "fetchedAt": "2026-10-19T18:59:10.859515+00:00",
+      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
       "stale": false
     },
     {
@@ -69,7 +69,7 @@
       "source": "https://router.requesty.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "requesty",
-      "fetchedAt": "2026-10-19T18:59:10.859515+00:00",
+      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
       "stale": false
     },
     {
@@ -78,7 +78,7 @@
       "source": "https://ai-gateway.vercel.sh/v1/models",
       "nativeCurrency": "USD",
       "id": "vercel-gateway",
-      "fetchedAt": "2026-10-19T18:59:10.859515+00:00",
+      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
       "stale": false
     },
     {
@@ -87,7 +87,7 @@
       "source": "https://api.kilo.ai/api/gateway/models",
       "nativeCurrency": "USD",
       "id": "kilo",
-      "fetchedAt": "2026-10-19T18:59:10.859515+00:00",
+      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
       "stale": false
     },
     {
@@ -96,7 +96,7 @@
       "source": "https://nano-gpt.com/api/v1/models?detailed=true",
       "nativeCurrency": "USD",
       "id": "nano-gpt",
-      "fetchedAt": "2026-10-19T18:59:10.859515+00:00",
+      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
       "stale": false
     },
     {
@@ -105,7 +105,7 @@
       "source": "https://llm.chutes.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "chutes",
-      "fetchedAt": "2026-10-19T18:59:10.859515+00:00",
+      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
       "stale": false
     },
     {
@@ -114,10 +114,8 @@
       "source": "https://api.llmgateway.io/v1/models",
       "nativeCurrency": "USD",
       "id": "llmgateway",
-      "fetchedAt": "2026-10-19T18:21:52.284067+00:00",
-      "stale": true,
-      "error": "HTTP Error 500: Internal Server Error",
-      "fallbackAttemptedAt": "2026-10-19T18:59:10.859515+00:00"
+      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
+      "stale": false
     },
     {
       "name": "aiand",
@@ -125,7 +123,7 @@
       "source": "https://api.aiand.com/v1/models",
       "nativeCurrency": "USD",
       "id": "aiand",
-      "fetchedAt": "2026-10-19T18:59:10.859515+00:00",
+      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
       "stale": false
     },
     {
@@ -134,7 +132,7 @@
       "source": "https://api.aimlapi.com/v1/models?include=pricing,modalities",
       "nativeCurrency": "USD",
       "id": "aimlapi",
-      "fetchedAt": "2026-10-19T18:59:10.859515+00:00",
+      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
       "stale": false
     },
     {
@@ -143,7 +141,7 @@
       "source": "https://api.ambient.xyz/v1/models",
       "nativeCurrency": "USD",
       "id": "ambient",
-      "fetchedAt": "2026-10-19T18:59:10.859515+00:00",
+      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
       "stale": false
     },
     {
@@ -152,7 +150,7 @@
       "source": "https://www.crossmodel.ai/api/models",
       "nativeCurrency": "USD",
       "id": "crossmodel",
-      "fetchedAt": "2026-10-19T18:59:10.859515+00:00",
+      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
       "stale": false
     },
     {
@@ -161,7 +159,7 @@
       "source": "https://api.edenai.run/v3/models",
       "nativeCurrency": "USD",
       "id": "edenai",
-      "fetchedAt": "2026-10-19T18:59:10.859515+00:00",
+      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
       "stale": false
     },
     {
@@ -170,7 +168,7 @@
       "source": "https://api.empiriolabs.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "empiriolabs",
-      "fetchedAt": "2026-10-19T18:59:10.859515+00:00",
+      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
       "stale": false
     },
     {
@@ -179,7 +177,7 @@
       "source": "https://api.engy.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "engy",
-      "fetchedAt": "2026-10-19T18:59:10.859515+00:00",
+      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
       "stale": false
     },
     {
@@ -188,7 +186,7 @@
       "source": "https://api.friendli.ai/serverless/v1/models",
       "nativeCurrency": "USD",
       "id": "friendli",
-      "fetchedAt": "2026-10-19T18:59:10.859515+00:00",
+      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
       "stale": false
     },
     {
@@ -197,7 +195,7 @@
       "source": "https://hyper.charm.land/v1/models",
       "nativeCurrency": "USD",
       "id": "hyper",
-      "fetchedAt": "2026-10-19T18:59:10.859515+00:00",
+      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
       "stale": false
     },
     {
@@ -206,7 +204,7 @@
       "source": "https://api.inceptron.io/v1/models",
       "nativeCurrency": "USD",
       "id": "inceptron",
-      "fetchedAt": "2026-10-19T18:59:10.859515+00:00",
+      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
       "stale": false
     },
     {
@@ -215,7 +213,7 @@
       "source": "https://cloud-api.near.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "nearai",
-      "fetchedAt": "2026-10-19T18:59:10.859515+00:00",
+      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
       "stale": false
     },
     {
@@ -224,7 +222,7 @@
       "source": "https://api.ofox.ai/v2/models/catalog?include=provider_price&limit=500",
       "nativeCurrency": "USD",
       "id": "ofox",
-      "fetchedAt": "2026-10-19T18:59:10.859515+00:00",
+      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
       "stale": false
     },
     {
@@ -233,7 +231,7 @@
       "source": "https://api.fastino.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "pioneer",
-      "fetchedAt": "2026-10-19T18:59:10.859515+00:00",
+      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
       "stale": false
     },
     {
@@ -242,7 +240,7 @@
       "source": "https://api.pinference.ai/api/v1/models",
       "nativeCurrency": "USD",
       "id": "prime",
-      "fetchedAt": "2026-10-19T18:59:10.859515+00:00",
+      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
       "stale": false
     },
     {
@@ -251,7 +249,7 @@
       "source": "https://inference.tinfoil.sh/v1/models",
       "nativeCurrency": "USD",
       "id": "tinfoil",
-      "fetchedAt": "2026-10-19T18:59:10.859515+00:00",
+      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
       "stale": false
     },
     {
@@ -260,7 +258,7 @@
       "source": "https://api.venice.ai/api/v1/models?type=text",
       "nativeCurrency": "USD",
       "id": "venice",
-      "fetchedAt": "2026-10-19T18:59:10.859515+00:00",
+      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
       "stale": false
     },
     {
@@ -269,7 +267,7 @@
       "sellerKind": "first-party",
       "id": "deepseek-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T18:59:10.859515+00:00",
+      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
       "stale": false
     },
     {
@@ -278,7 +276,7 @@
       "sellerKind": "first-party",
       "id": "zai-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T18:59:10.859515+00:00",
+      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
       "stale": false
     },
     {
@@ -287,7 +285,7 @@
       "sellerKind": "first-party",
       "id": "claude-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T18:59:10.859515+00:00",
+      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
       "stale": false
     },
     {
@@ -296,7 +294,16 @@
       "sellerKind": "first-party",
       "id": "openai-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T18:59:10.859515+00:00",
+      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
+      "stale": false
+    },
+    {
+      "name": "xAI",
+      "sellerKind": "first-party",
+      "source": "https://docs.x.ai/developers/pricing.md",
+      "nativeCurrency": "USD",
+      "id": "xai",
+      "fetchedAt": "2026-10-19T19:13:22.646282+00:00",
       "stale": false
     }
   ],
@@ -81981,7 +81988,7 @@
       "modelId": "deepseek-v4.1-flash",
       "name": "DeepSeek V4.1 Flash",
       "creator": "DeepSeek",
-      "description": "deepseek-v4.1-flash provided by deepseek, alibaba, deepinfra, fireworks, together-ai, novita, baidu, runware, scx-ai-gp, consensusprotocol, luminal, sciforium, entrim",
+      "description": "deepseek-v4.1-flash provided by deepseek, alibaba, deepinfra, fireworks, together-ai, novita, baidu, luminal, entrim, runware, consensusprotocol, scx-ai-gp, sciforium",
       "releaseDate": null,
       "contextSize": 1050000,
       "capabilities": {
@@ -82818,7 +82825,7 @@
       "modelId": "gemma-4-31b-it",
       "name": "Gemma 4 31B IT",
       "creator": "Google",
-      "description": "gemma-4-31b-it provided by deepinfra, novita, together-ai, cerebras, ranoai, runware, consensusprotocol",
+      "description": "gemma-4-31b-it provided by deepinfra, novita, together-ai, cerebras, ranoai, consensusprotocol, runware",
       "releaseDate": null,
       "contextSize": 262144,
       "capabilities": {
@@ -83314,7 +83321,7 @@
       "modelId": "glm-5.2",
       "name": "GLM-5.2",
       "creator": "Z.ai",
-      "description": "glm-5.2 provided by zai, novita, canopywave, embercloud, bytedance, alibaba, nebius, baidu, tencent, scx-ai-gp, runware",
+      "description": "glm-5.2 provided by zai, novita, canopywave, embercloud, bytedance, alibaba, nebius, baidu, tencent, runware, scx-ai-gp",
       "releaseDate": null,
       "contextSize": 1048576,
       "capabilities": {
@@ -83376,7 +83383,7 @@
       "modelId": "glm-5.3",
       "name": "GLM-5.3",
       "creator": "Z.ai",
-      "description": "glm-5.3 provided by zai, novita, baidu, alibaba, fireworks, inference.net, mistral, deepinfra, together-ai, runware, reka-ai, scx-ai-gp, entrim",
+      "description": "glm-5.3 provided by zai, novita, baidu, alibaba, fireworks, inference.net, mistral, deepinfra, together-ai, runware, reka-ai, entrim, scx-ai-gp",
       "releaseDate": null,
       "contextSize": 1048576,
       "capabilities": {
@@ -83438,7 +83445,7 @@
       "modelId": "glm-5.3-flash",
       "name": "GLM-5.3 Flash",
       "creator": "Z.ai",
-      "description": "glm-5.3-flash provided by zai, novita, fireworks, inference.net, together-ai, runware, scx-ai-gp, consensusprotocol, entrim",
+      "description": "glm-5.3-flash provided by zai, novita, fireworks, inference.net, together-ai, entrim, runware, scx-ai-gp, consensusprotocol",
       "releaseDate": null,
       "contextSize": 1048576,
       "capabilities": {
@@ -123673,15 +123680,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.13363028953229397,
-        "cached": 0.037416481069042315,
-        "output": 0.13363028953229397,
+        "input": 0.11563474387527839,
+        "cached": 0.0036792873051224944,
+        "output": 0.34690423162583517,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.15,
-          "cached": 0.042,
-          "output": 0.15
+          "input": 0.1298,
+          "cached": 0.00413,
+          "output": 0.3894
         }
       },
       "pricingTiers": [],
@@ -123735,15 +123742,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.35528552338530067,
-        "cached": 0.029607126948775053,
-        "output": 0.7105710467706013,
+        "input": 0.35218530066815146,
+        "cached": 0.029348775055679288,
+        "output": 0.7043706013363029,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.398808,
-          "cached": 0.033234,
-          "output": 0.797616
+          "input": 0.395328,
+          "cached": 0.032944,
+          "output": 0.790656
         }
       },
       "pricingTiers": [],
@@ -125161,15 +125168,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.08017817371937638,
-        "cached": 0.044543429844097995,
-        "output": 0.26726057906458794,
+        "input": 0.06815144766146992,
+        "cached": 0.0378619153674833,
+        "output": 0.22717149220489977,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.09,
-          "cached": 0.05,
-          "output": 0.3
+          "input": 0.0765,
+          "cached": 0.0425,
+          "output": 0.255
         }
       },
       "pricingTiers": [],
@@ -135608,15 +135615,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.014182628062360801,
-        "cached": 0.0029434298440979955,
-        "output": 0.10690423162583518,
+        "input": 0.013452115812917595,
+        "cached": 0.013452115812917595,
+        "output": 0.40089086859688194,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.01592,
-          "cached": 0.003304,
-          "output": 0.12
+          "input": 0.0151,
+          "cached": 0.0151,
+          "output": 0.45
         }
       },
       "pricingTiers": [],
@@ -180825,6 +180832,366 @@
       },
       "pricingTiers": [],
       "priceNote": "USD price published in Vercel AI Gateway's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "xai:grok-4.20-0309-non-reasoning",
+      "seller": "xai",
+      "sellerName": "xAI",
+      "modelId": "grok-4.20-0309-non-reasoning",
+      "name": "grok-4.20-0309-non-reasoning",
+      "creator": "xAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.1135857461024499,
+        "cached": 0.17817371937639198,
+        "output": 2.2271714922048997,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.25,
+          "cached": 0.2,
+          "output": 2.5
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 200000,
+          "input": 2.2271714922048997,
+          "cached": 0.35634743875278396,
+          "output": 4.4543429844097995,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 2.5,
+            "cached": 0.4,
+            "output": 5.0
+          }
+        }
+      ],
+      "priceNote": "Direct USD API price published by xAI and converted with the listed ECB rate."
+    },
+    {
+      "key": "xai:grok-4.20-0309-reasoning",
+      "seller": "xai",
+      "sellerName": "xAI",
+      "modelId": "grok-4.20-0309-reasoning",
+      "name": "grok-4.20-0309-reasoning",
+      "creator": "xAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.1135857461024499,
+        "cached": 0.17817371937639198,
+        "output": 2.2271714922048997,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.25,
+          "cached": 0.2,
+          "output": 2.5
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 200000,
+          "input": 2.2271714922048997,
+          "cached": 0.35634743875278396,
+          "output": 4.4543429844097995,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 2.5,
+            "cached": 0.4,
+            "output": 5.0
+          }
+        }
+      ],
+      "priceNote": "Direct USD API price published by xAI and converted with the listed ECB rate."
+    },
+    {
+      "key": "xai:grok-4.20-multi-agent-0309",
+      "seller": "xai",
+      "sellerName": "xAI",
+      "modelId": "grok-4.20-multi-agent-0309",
+      "name": "grok-4.20-multi-agent-0309",
+      "creator": "xAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.1135857461024499,
+        "cached": 0.17817371937639198,
+        "output": 2.2271714922048997,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.25,
+          "cached": 0.2,
+          "output": 2.5
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 200000,
+          "input": 2.2271714922048997,
+          "cached": 0.35634743875278396,
+          "output": 4.4543429844097995,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 2.5,
+            "cached": 0.4,
+            "output": 5.0
+          }
+        }
+      ],
+      "priceNote": "Direct USD API price published by xAI and converted with the listed ECB rate."
+    },
+    {
+      "key": "xai:grok-4.3",
+      "seller": "xai",
+      "sellerName": "xAI",
+      "modelId": "grok-4.3",
+      "name": "grok-4.3",
+      "creator": "xAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.1135857461024499,
+        "cached": 0.17817371937639198,
+        "output": 2.2271714922048997,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.25,
+          "cached": 0.2,
+          "output": 2.5
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 200000,
+          "input": 2.2271714922048997,
+          "cached": 0.35634743875278396,
+          "output": 4.4543429844097995,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 2.5,
+            "cached": 0.4,
+            "output": 5.0
+          }
+        }
+      ],
+      "priceNote": "Direct USD API price published by xAI and converted with the listed ECB rate."
+    },
+    {
+      "key": "xai:grok-4.5",
+      "seller": "xai",
+      "sellerName": "xAI",
+      "modelId": "grok-4.5",
+      "name": "grok-4.5",
+      "creator": "xAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 512000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 0.26726057906458794,
+        "output": 5.3452115812917596,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 0.3,
+          "output": 6.0
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 200000,
+          "input": 3.5634743875278394,
+          "cached": 0.5345211581291759,
+          "output": 10.690423162583519,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 4.0,
+            "cached": 0.6,
+            "output": 12.0
+          }
+        }
+      ],
+      "priceNote": "Direct USD API price published by xAI and converted with the listed ECB rate."
+    },
+    {
+      "key": "xai:grok-4.6",
+      "seller": "xai",
+      "sellerName": "xAI",
+      "modelId": "grok-4.6",
+      "name": "grok-4.6",
+      "creator": "xAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 512000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 0.4454342984409799,
+        "output": 5.3452115812917596,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 0.5,
+          "output": 6.0
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 200000,
+          "input": 3.5634743875278394,
+          "cached": 0.8908685968819599,
+          "output": 10.690423162583519,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 4.0,
+            "cached": 1.0,
+            "output": 12.0
+          }
+        }
+      ],
+      "priceNote": "Direct USD API price published by xAI and converted with the listed ECB rate."
+    },
+    {
+      "key": "xai:grok-4.7",
+      "seller": "xai",
+      "sellerName": "xAI",
+      "modelId": "grok-4.7",
+      "name": "grok-4.7",
+      "creator": "xAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 512000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 0.4454342984409799,
+        "output": 5.3452115812917596,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 0.5,
+          "output": 6.0
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 200000,
+          "input": 3.5634743875278394,
+          "cached": 0.8908685968819599,
+          "output": 10.690423162583519,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 4.0,
+            "cached": 1.0,
+            "output": 12.0
+          }
+        }
+      ],
+      "priceNote": "Direct USD API price published by xAI and converted with the listed ECB rate."
+    },
+    {
+      "key": "xai:grok-build-0.1",
+      "seller": "xai",
+      "sellerName": "xAI",
+      "modelId": "grok-build-0.1",
+      "name": "grok-build-0.1",
+      "creator": "xAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.8908685968819599,
+        "cached": 0.17817371937639198,
+        "output": 1.7817371937639197,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.0,
+          "cached": 0.2,
+          "output": 2.0
+        }
+      },
+      "pricingTiers": [
+        {
+          "contextAbove": 200000,
+          "input": 1.7817371937639197,
+          "cached": 0.35634743875278396,
+          "output": 3.5634743875278394,
+          "cachedFallback": false,
+          "nativeCurrency": "USD",
+          "native": {
+            "input": 2.0,
+            "cached": 0.4,
+            "output": 4.0
+          }
+        }
+      ],
+      "priceNote": "Direct USD API price published by xAI and converted with the listed ECB rate."
     },
     {
       "key": "zai-direct:glm-4.6",

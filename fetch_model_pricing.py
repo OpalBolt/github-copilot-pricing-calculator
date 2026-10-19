@@ -45,6 +45,7 @@ from sources.requesty import fetch_requesty_listings
 from sources.tinfoil import fetch_tinfoil_listings
 from sources.venice import fetch_venice_listings
 from sources.vercel_gateway import fetch_vercel_gateway_listings
+from sources.xai import fetch_xai_listings
 from sources.zai_direct import fetch_zai_direct_listings
 
 ROOT = Path(__file__).parent
@@ -97,6 +98,7 @@ ADAPTERS = {
     "zai-direct": lambda exchange_rate: fetch_zai_direct_listings(exchange_rate),
     "claude-direct": lambda exchange_rate: fetch_claude_direct_listings(exchange_rate),
     "openai-direct": lambda exchange_rate: fetch_openai_direct_listings(exchange_rate),
+    "xai": lambda exchange_rate: fetch_xai_listings(exchange_rate),
 }
 # Sources that still produce listings when the ECB rate fetch fails.
 RATE_OPTIONAL_SOURCES = {"cortecs", "eurouter"}
