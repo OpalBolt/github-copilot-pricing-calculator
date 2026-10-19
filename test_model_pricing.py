@@ -14,6 +14,7 @@ from fetch_model_pricing import _cached_seller
 from sources import SOURCES
 from sources.aiand import _aiand_rates, fetch_aiand_listings
 from sources.aimlapi import _aimlapi_rates, fetch_aimlapi_listings
+from sources.ambient import _ambient_rates, fetch_ambient_listings
 from sources.chutes import _chutes_rates, fetch_chutes_listings
 from sources.deepinfra import _deepinfra_rates, fetch_deepinfra_listings
 from sources.eurouter import fetch_eurouter_listings
@@ -51,6 +52,7 @@ ALL_SELLERS = {
     "llmgateway",
     "aiand",
     "aimlapi",
+    "ambient",
     "deepseek-direct",
     "zai-direct",
     "claude-direct",
@@ -71,6 +73,7 @@ SELLER_KINDS = {
     "llmgateway": "gateway",
     "aiand": "gateway",
     "aimlapi": "gateway",
+    "ambient": "gateway",
     "deepseek-direct": "first-party",
     "zai-direct": "first-party",
     "claude-direct": "first-party",
@@ -130,6 +133,7 @@ def test_registry_pages():
         "llmgateway",
         "aiand",
         "aimlapi",
+        "ambient",
     }
     assert global_pages == ALL_SELLERS
     assert {m["sellerKind"] for m in SOURCES.values()} == set(SELLER_KINDS.values())
@@ -1401,6 +1405,144 @@ def test_aimlapi_adapter():
     assert "aimlapi/dynamic-router" not in by_id
 
 
+def test_ambient_adapter():
+    """The committed Ambient catalog sample normalizes to per-million-token
+    USD listings converted with the ECB rate; rows without per-million input
+    and output prices are skipped, not broken."""
+    # Ambient's docs publish the catalog's per-model prices "as USD per
+    # million tokens (pricing.input and pricing.output)" (ambient.xyz/docs/
+    # build/models); the registry records that verified native currency,
+    # and the catalog feeds the global page only.
+    assert SOURCES["ambient"]["nativeCurrency"] == "USD"
+    assert SOURCES["ambient"]["pages"] == ("global",)
+    assert SOURCES["ambient"]["sellerKind"] == "gateway"
+
+    fixture = ROOT / "fixtures" / "ambient-models.json"
+    payload = json.loads(fixture.read_text(encoding="utf-8"))
+    with patch("sources.ambient.fetch_json", return_value=payload):
+        listings = fetch_ambient_listings({"usdPerEur": 2.0})
+    by_id = {listing["modelId"]: listing for listing in listings}
+    assert set(by_id) == {
+        "z-ai/glm-5.2",
+        "qwen/qwen3.8-27b",
+        "minimax/minimax-m3",
+        "unsloth/qwen3.8-27b-gguf",
+        "ambient/large",
+    }
+
+    # The catalog's pricing.input and pricing.output fields are already
+    # dollars per 1M tokens (the docs' catalog table quotes GLM 5.2 at
+    # "$0.60 / M" and "$2.00 / M" for input 0.6 and output 2.0), so they
+    # pass through unmultiplied and the ECB rate converts them; the
+    # input_cache_read decimal is the per-token sibling of the row's prompt
+    # and completion decimals and scales by 1,000,000.
+    glm = by_id["z-ai/glm-5.2"]
+    assert glm["key"] == "ambient:z-ai/glm-5.2"
+    assert glm["seller"] == "ambient"
+    assert glm["sellerName"] == "Ambient"
+    assert glm["name"] == "GLM 5.2"
+    assert glm["creator"] == "Z.ai"
+    assert glm["contextSize"] == 202752
+    assert glm["capabilities"] == {
+        "reasoning": True,
+        "tools": True,
+        "vision": False,
+        "audio": False,
+    }
+    assert glm["rates"]["nativeCurrency"] == "USD"
+    assert glm["rates"]["native"] == {
+        "input": 0.6,
+        "cached": 0.15,
+        "output": 2.0,
+    }
+    assert math.isclose(glm["rates"]["input"], 0.3)
+    assert math.isclose(glm["rates"]["cached"], 0.075)
+    assert math.isclose(glm["rates"]["output"], 1.0)
+    assert glm["rates"]["cachedFallback"] is False
+
+    # Image inputs map to the vision capability through the shared
+    # capability helper, and the id's qwen prefix maps to Alibaba.
+    qwen = by_id["qwen/qwen3.8-27b"]
+    assert qwen["creator"] == "Alibaba"
+    assert qwen["capabilities"]["vision"] is True
+    assert qwen["rates"]["native"] == {
+        "input": 0.32,
+        "cached": 0.16,
+        "output": 3.2,
+    }
+
+    # The is_ready flag is a routing flag consumed by OpenRouter, "not a
+    # served/not-served signal", so the is_ready-false row lists like the
+    # rest of the catalog.
+    minimax = by_id["minimax/minimax-m3"]
+    assert minimax["creator"] == "MiniMax AI"
+    assert minimax["rates"]["native"] == {
+        "input": 0.23,
+        "cached": 0.05,
+        "output": 0.96,
+    }
+
+    # A zero price is a price: the GGUF row's published zero cache-read
+    # price stays a zero rate instead of falling back to the input rate.
+    gguf = by_id["unsloth/qwen3.8-27b-gguf"]
+    assert gguf["name"] == "qwen3.8-27b-4q"
+    assert gguf["creator"] == "unsloth"
+    assert gguf["rates"]["native"] == {
+        "input": 0.001,
+        "cached": 0,
+        "output": 0.001,
+    }
+    assert gguf["rates"]["cachedFallback"] is False
+    assert gguf["capabilities"] == {
+        "reasoning": False,
+        "tools": True,
+        "vision": False,
+        "audio": False,
+    }
+
+    # The ambient/large alias lists under its own id from its own live
+    # catalog entry, and a vendor prefix outside the alias table passes
+    # through unaliased.
+    alias = by_id["ambient/large"]
+    assert alias["key"] == "ambient:ambient/large"
+    assert alias["creator"] == "ambient"
+    assert alias["rates"]["native"] == glm["rates"]["native"]
+
+    assert all(
+        listing["rates"]["nativeCurrency"] == "USD" for listing in listings
+    )
+    assert all(
+        "Ambient" in listing["priceNote"] and "ECB" in listing["priceNote"]
+        for listing in listings
+    )
+    # A zero price is a price: zero-priced rows normalize to zero rates
+    # instead of dropping out.
+    zeros = _ambient_rates(
+        {"pricing": {"input": 0, "output": 0, "input_cache_read": "0"}}, 2.0
+    )
+    assert zeros["input"] == zeros["cached"] == zeros["output"] == 0
+    assert zeros["nativeCurrency"] == "USD"
+    assert zeros["cachedFallback"] is False
+    # Rows without an input_cache_read field fall back to the input rate.
+    fallback = _ambient_rates({"pricing": {"input": "0.2", "output": 1}}, 2.0)
+    assert fallback["cachedFallback"] is True
+    assert fallback["cached"] == fallback["input"] == 0.1
+    # Rows without per-million input and output prices are not
+    # per-million-token priced and stay out of the listings.
+    try:
+        _ambient_rates({"pricing": {"input": 0.2}}, 2.0)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("missing per-million prices should skip the row")
+    try:
+        _ambient_rates({}, 2.0)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("missing pricing should skip the row")
+
+
 def test_seven_day_seller_fallback():
     fetched_at = now_utc().isoformat()
     previous = {
@@ -1422,7 +1564,7 @@ def test_seven_day_seller_fallback():
 
 @contextmanager
 def _patch_adapters(**behaviors):
-    """Patch the build's ECB fetch and all eighteen listings adapters. Values
+    """Patch the build's ECB fetch and all nineteen listings adapters. Values
     are return values for `ok`, exceptions for failing sources."""
     ecb = behaviors.pop("ecb", {"usdPerEur": 1.1, "observationDate": "2026-10-16"})
     patches = [
@@ -1623,6 +1765,7 @@ def test_aggregate_contract():
     assert native_by_seller["llmgateway"] == "USD"
     assert native_by_seller["aiand"] == "USD"
     assert native_by_seller["aimlapi"] == "USD"
+    assert native_by_seller["ambient"] == "USD"
     assert {
         native_by_seller[sid]
         for sid in ("deepseek-direct", "zai-direct", "claude-direct", "openai-direct")
@@ -1699,6 +1842,7 @@ def test_generated_page():
         'data-seller="llmgateway"',
         'data-seller="aiand"',
         'data-seller="aimlapi"',
+        'data-seller="ambient"',
         'data-seller="deepseek-direct"',
         'data-seller="zai-direct"',
         'data-seller="claude-direct"',
@@ -1780,6 +1924,7 @@ def main():
     test_llm_gateway_adapter()
     test_aiand_adapter()
     test_aimlapi_adapter()
+    test_ambient_adapter()
     test_seven_day_seller_fallback()
     test_broken_source_fails_in_isolation()
     test_build_fails_only_without_usable_data()

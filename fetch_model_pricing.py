@@ -15,6 +15,7 @@ from pathlib import Path
 from sources import SOURCES
 from sources.aiand import fetch_aiand_listings
 from sources.aimlapi import fetch_aimlapi_listings
+from sources.ambient import fetch_ambient_listings
 from sources.claude_direct import fetch_claude_direct_listings
 from sources.chutes import fetch_chutes_listings
 from sources.cortecs import fetch_cortecs_listings
@@ -61,6 +62,7 @@ ADAPTERS = {
     ),
     "aiand": lambda exchange_rate: fetch_aiand_listings(exchange_rate),
     "aimlapi": lambda exchange_rate: fetch_aimlapi_listings(exchange_rate),
+    "ambient": lambda exchange_rate: fetch_ambient_listings(exchange_rate),
     "deepseek-direct": lambda exchange_rate: fetch_deepseek_direct_listings(
         exchange_rate
     ),

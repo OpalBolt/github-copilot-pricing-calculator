@@ -14,6 +14,7 @@ marker and is unchanged.
 from fetch_providers import DEEPSEEK_URL, ZAI_PAYGO_URL
 from sources.aiand import AIAND_URL
 from sources.aimlapi import AIMLAPI_URL
+from sources.ambient import AMBIENT_URL
 from sources.claude_direct import CLAUDE_MODELS_URL, CLAUDE_PRICING_URL
 from sources.chutes import CHUTES_URL
 from sources.cortecs import CORTECS_URL
@@ -167,6 +168,19 @@ SOURCES = {
         # api-references/service-endpoints/complete-model-list.md), and the
         # account balance API documents its currency as "balance currency
         # (always USD)".
+        "nativeCurrency": "USD",
+        "euClaim": "No EU routing catalog is published.",
+    },
+    "ambient": {
+        "name": "Ambient",
+        "pages": ("global",),
+        "sellerKind": "gateway",
+        "source": AMBIENT_URL,
+        # Ambient "serves verified AI inference" itself on its open network
+        # (ambient.xyz/docs/learn/what-is-ambient) — a hosted inference
+        # platform, not a router. Its docs publish the catalog's per-model
+        # prices "as USD per million tokens (pricing.input and pricing.
+        # output)" (ambient.xyz/docs/build/models).
         "nativeCurrency": "USD",
         "euClaim": "No EU routing catalog is published.",
     },
