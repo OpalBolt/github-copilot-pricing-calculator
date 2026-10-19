@@ -7,6 +7,10 @@ calculator estimates the cost of a token mix.
 Live version: [`docs/index.html`](docs/index.html) — the hub, published via GitHub
 Pages.
 
+> [!NOTE]
+> This project is 100% vibe coded. An AI agent wrote the code. A human gave
+> directions, reviewed the results, and tested the site. No line was hand-written.
+
 ## The tools
 
 ### GitHub Copilot calculator
