@@ -1,0 +1,708 @@
+{
+  "object": "list",
+  "data": [
+    {
+      "id": "gpt-4o-mini",
+      "name": "GPT-4o Mini",
+      "display_name": "GPT-4o Mini",
+      "created": 1721260800,
+      "description": "gpt-4o-mini provided by openai, azure",
+      "family": "openai",
+      "architecture": {
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": "GPT"
+      },
+      "top_provider": {
+        "is_moderated": true
+      },
+      "providers": [
+        {
+          "providerId": "openai",
+          "externalId": "gpt-4o-mini",
+          "pricing": {
+            "prompt": "0.15e-6",
+            "completion": "0.6e-6",
+            "image": "0",
+            "request": "0",
+            "input_cache_read": "0.075e-6",
+            "input_cache_write": "0",
+            "input_cache_write_1h": "0"
+          },
+          "streaming": true,
+          "vision": true,
+          "cancellation": true,
+          "tools": true,
+          "parallelToolCalls": false,
+          "reasoning": false,
+          "max_output": 16384
+        },
+        {
+          "providerId": "azure",
+          "externalId": "gpt-4o-mini",
+          "pricing": {
+            "prompt": "0.15e-6",
+            "completion": "0.6e-6",
+            "image": "0",
+            "request": "0",
+            "input_cache_read": "0.075e-6",
+            "input_cache_write": "0",
+            "input_cache_write_1h": "0"
+          },
+          "streaming": true,
+          "vision": true,
+          "cancellation": true,
+          "tools": true,
+          "parallelToolCalls": false,
+          "reasoning": false,
+          "max_output": 16384
+        }
+      ],
+      "pricing": {
+        "prompt": "0.15e-6",
+        "completion": "0.6e-6",
+        "image": "0",
+        "request": "0",
+        "input_cache_read": "0.075e-6",
+        "input_cache_write": "0",
+        "input_cache_write_1h": "0",
+        "web_search": "0",
+        "internal_reasoning": "0"
+      },
+      "context_length": 128000,
+      "max_output": 16384,
+      "supported_parameters": [
+        "temperature",
+        "max_tokens",
+        "top_p",
+        "frequency_penalty",
+        "presence_penalty",
+        "response_format",
+        "tools",
+        "tool_choice"
+      ],
+      "json_output": true,
+      "structured_outputs": true,
+      "free": false
+    },
+    {
+      "id": "kimi-k2-thinking",
+      "name": "Kimi K2 Thinking",
+      "display_name": "Kimi K2 Thinking",
+      "created": 1762387200,
+      "description": "kimi-k2-thinking provided by moonshot, bytedance, alibaba, vertex-openai",
+      "family": "moonshot",
+      "architecture": {
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": "GPT"
+      },
+      "top_provider": {
+        "is_moderated": true
+      },
+      "providers": [
+        {
+          "providerId": "moonshot",
+          "externalId": "kimi-k2-thinking",
+          "pricing": {
+            "prompt": "0.6e-6",
+            "completion": "2.5e-6",
+            "image": "0",
+            "request": "0",
+            "input_cache_read": "0.15e-6",
+            "input_cache_write": "0",
+            "input_cache_write_1h": "0"
+          },
+          "streaming": true,
+          "vision": false,
+          "cancellation": true,
+          "tools": true,
+          "parallelToolCalls": false,
+          "reasoning": true,
+          "max_output": 262144
+        },
+        {
+          "providerId": "bytedance",
+          "externalId": "kimi-k2-thinking-251104",
+          "pricing": {
+            "prompt": "0.6e-6",
+            "completion": "2.5e-6",
+            "image": "0",
+            "request": "0",
+            "input_cache_read": "0.12e-6",
+            "input_cache_write": "0",
+            "input_cache_write_1h": "0"
+          },
+          "streaming": true,
+          "vision": false,
+          "cancellation": true,
+          "tools": true,
+          "parallelToolCalls": false,
+          "reasoning": true,
+          "max_output": 32768
+        },
+        {
+          "providerId": "alibaba",
+          "externalId": "kimi-k2-thinking",
+          "pricing": {
+            "prompt": "0.574e-6",
+            "completion": "2.294e-6",
+            "image": "0",
+            "request": "0",
+            "input_cache_read": "0",
+            "input_cache_write": "0",
+            "input_cache_write_1h": "0"
+          },
+          "streaming": true,
+          "vision": false,
+          "cancellation": true,
+          "tools": true,
+          "parallelToolCalls": false,
+          "reasoning": true,
+          "max_output": 16384
+        },
+        {
+          "providerId": "vertex-openai",
+          "externalId": "moonshotai/kimi-k2-thinking-maas",
+          "pricing": {
+            "prompt": "0.6e-6",
+            "completion": "2.5e-6",
+            "image": "0",
+            "request": "0",
+            "input_cache_read": "0.06e-6",
+            "input_cache_write": "0",
+            "input_cache_write_1h": "0"
+          },
+          "streaming": true,
+          "vision": false,
+          "cancellation": true,
+          "tools": true,
+          "parallelToolCalls": false,
+          "reasoning": true,
+          "max_output": 32768
+        }
+      ],
+      "pricing": {
+        "prompt": "0.6e-6",
+        "completion": "2.5e-6",
+        "image": "0",
+        "request": "0",
+        "input_cache_read": "0.06e-6",
+        "input_cache_write": "0",
+        "input_cache_write_1h": "0",
+        "web_search": "0",
+        "internal_reasoning": "0"
+      },
+      "context_length": 262144,
+      "max_output": 32768,
+      "supported_parameters": [
+        "temperature",
+        "max_tokens",
+        "top_p",
+        "frequency_penalty",
+        "presence_penalty",
+        "response_format",
+        "tools",
+        "tool_choice",
+        "reasoning"
+      ],
+      "json_output": true,
+      "structured_outputs": false,
+      "free": false,
+      "deactivated_at": "2026-10-21T00:00:00.000Z"
+    },
+    {
+      "id": "deepseek-v3.2",
+      "name": "DeepSeek V3.2",
+      "display_name": "DeepSeek V3.2",
+      "created": 1759104000,
+      "description": "deepseek-v3.2 provided by deepseek, novita, alibaba, bytedance, nebius, deepinfra, vertex-openai",
+      "family": "deepseek",
+      "architecture": {
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": "GPT"
+      },
+      "top_provider": {
+        "is_moderated": true
+      },
+      "providers": [
+        {
+          "providerId": "deepseek",
+          "externalId": "deepseek-chat",
+          "pricing": {
+            "prompt": "0.28e-6",
+            "completion": "0.42e-6",
+            "image": "0",
+            "request": "0",
+            "input_cache_read": "0.028e-6",
+            "input_cache_write": "0",
+            "input_cache_write_1h": "0"
+          },
+          "streaming": true,
+          "vision": false,
+          "cancellation": true,
+          "tools": true,
+          "parallelToolCalls": false,
+          "reasoning": false
+        },
+        {
+          "providerId": "novita",
+          "externalId": "deepseek/deepseek-v3.2",
+          "pricing": {
+            "prompt": "0.269e-6",
+            "completion": "0.4e-6",
+            "image": "0",
+            "request": "0",
+            "input_cache_read": "0.1345e-6",
+            "input_cache_write": "0",
+            "input_cache_write_1h": "0"
+          },
+          "streaming": true,
+          "vision": false,
+          "cancellation": true,
+          "tools": true,
+          "parallelToolCalls": false,
+          "reasoning": true,
+          "max_output": 65536
+        },
+        {
+          "providerId": "alibaba",
+          "externalId": "deepseek-v3.2",
+          "pricing": {
+            "prompt": "0.57e-6",
+            "completion": "1.71e-6",
+            "image": "0",
+            "request": "0",
+            "input_cache_read": "0.114e-6",
+            "input_cache_write": "0",
+            "input_cache_write_1h": "0"
+          },
+          "streaming": true,
+          "vision": false,
+          "cancellation": true,
+          "tools": true,
+          "parallelToolCalls": false,
+          "reasoning": false,
+          "max_output": 65536
+        },
+        {
+          "providerId": "bytedance",
+          "externalId": "deepseek-v3-2-251201",
+          "pricing": {
+            "prompt": "0.28e-6",
+            "completion": "0.42e-6",
+            "image": "0",
+            "request": "0",
+            "input_cache_read": "0.056e-6",
+            "input_cache_write": "0",
+            "input_cache_write_1h": "0"
+          },
+          "streaming": true,
+          "vision": false,
+          "cancellation": true,
+          "tools": true,
+          "parallelToolCalls": false,
+          "reasoning": true,
+          "max_output": 32768
+        },
+        {
+          "providerId": "nebius",
+          "externalId": "deepseek-ai/DeepSeek-V3.2",
+          "pricing": {
+            "prompt": "0.3e-6",
+            "completion": "0.45e-6",
+            "image": "0",
+            "request": "0",
+            "input_cache_read": "0",
+            "input_cache_write": "0",
+            "input_cache_write_1h": "0"
+          },
+          "streaming": true,
+          "vision": false,
+          "cancellation": true,
+          "tools": true,
+          "parallelToolCalls": false,
+          "reasoning": false,
+          "max_output": 32768
+        },
+        {
+          "providerId": "deepinfra",
+          "externalId": "deepseek-ai/DeepSeek-V3.2",
+          "pricing": {
+            "prompt": "0.26e-6",
+            "completion": "0.38e-6",
+            "image": "0",
+            "request": "0",
+            "input_cache_read": "0.13e-6",
+            "input_cache_write": "0",
+            "input_cache_write_1h": "0"
+          },
+          "streaming": true,
+          "vision": false,
+          "cancellation": true,
+          "tools": true,
+          "parallelToolCalls": false,
+          "reasoning": false,
+          "max_output": 65536
+        },
+        {
+          "providerId": "vertex-openai",
+          "externalId": "deepseek-ai/deepseek-v3.2-maas",
+          "pricing": {
+            "prompt": "0.56e-6",
+            "completion": "1.68e-6",
+            "image": "0",
+            "request": "0",
+            "input_cache_read": "0.056e-6",
+            "input_cache_write": "0",
+            "input_cache_write_1h": "0"
+          },
+          "streaming": true,
+          "vision": false,
+          "cancellation": true,
+          "tools": true,
+          "parallelToolCalls": false,
+          "reasoning": false,
+          "max_output": 65536,
+          "stability": "unstable"
+        }
+      ],
+      "pricing": {
+        "prompt": "0.26e-6",
+        "completion": "0.38e-6",
+        "image": "0",
+        "request": "0",
+        "input_cache_read": "0.13e-6",
+        "input_cache_write": "0",
+        "input_cache_write_1h": "0",
+        "web_search": "0",
+        "internal_reasoning": "0"
+      },
+      "context_length": 163840,
+      "max_output": 32768,
+      "supported_parameters": [
+        "temperature",
+        "max_tokens",
+        "top_p",
+        "frequency_penalty",
+        "presence_penalty",
+        "stop",
+        "stream",
+        "response_format",
+        "tools",
+        "reasoning"
+      ],
+      "json_output": true,
+      "structured_outputs": false,
+      "free": false
+    },
+    {
+      "id": "ling-3.1-flash",
+      "name": "Ling 3.1 Flash",
+      "display_name": "Ling 3.1 Flash",
+      "created": 1790899200,
+      "description": "ling-3.1-flash provided by novita",
+      "family": "inclusionai",
+      "architecture": {
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": "GPT"
+      },
+      "top_provider": {
+        "is_moderated": true
+      },
+      "providers": [
+        {
+          "providerId": "novita",
+          "externalId": "inclusionai/ling-3.1-flash",
+          "pricing": {
+            "prompt": "0",
+            "completion": "0",
+            "image": "0",
+            "request": "0",
+            "input_cache_read": "0",
+            "input_cache_write": "0",
+            "input_cache_write_1h": "0"
+          },
+          "streaming": true,
+          "vision": false,
+          "cancellation": true,
+          "tools": true,
+          "parallelToolCalls": false,
+          "reasoning": true,
+          "reasoning_efforts": [
+            "none",
+            "low",
+            "medium",
+            "high"
+          ],
+          "max_output": 32768,
+          "stability": "unstable"
+        }
+      ],
+      "pricing": {
+        "prompt": "0",
+        "completion": "0",
+        "image": "0",
+        "request": "0",
+        "input_cache_read": "0",
+        "input_cache_write": "0",
+        "input_cache_write_1h": "0",
+        "web_search": "0",
+        "internal_reasoning": "0"
+      },
+      "context_length": 262144,
+      "max_output": 32768,
+      "supported_parameters": [
+        "temperature",
+        "max_tokens",
+        "top_p",
+        "frequency_penalty",
+        "presence_penalty",
+        "stream",
+        "reasoning_effort",
+        "tools",
+        "tool_choice",
+        "reasoning"
+      ],
+      "json_output": false,
+      "structured_outputs": false,
+      "free": true,
+      "stability": "unstable"
+    },
+    {
+      "id": "custom",
+      "name": "Custom Model",
+      "display_name": "Custom Model",
+      "created": 1704067200,
+      "description": "custom provided by llmgateway",
+      "family": "llmgateway",
+      "architecture": {
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": "GPT"
+      },
+      "top_provider": {
+        "is_moderated": true
+      },
+      "providers": [
+        {
+          "providerId": "llmgateway",
+          "externalId": "custom",
+          "streaming": true,
+          "vision": true,
+          "cancellation": true,
+          "tools": true,
+          "parallelToolCalls": false,
+          "reasoning": false
+        }
+      ],
+      "pricing": {
+        "prompt": "0",
+        "completion": "0",
+        "image": "0",
+        "request": "0",
+        "input_cache_read": "0",
+        "input_cache_write": "0",
+        "input_cache_write_1h": "0",
+        "web_search": "0",
+        "internal_reasoning": "0"
+      },
+      "context_length": 0,
+      "supported_parameters": [
+        "temperature",
+        "max_tokens",
+        "top_p",
+        "frequency_penalty",
+        "presence_penalty"
+      ],
+      "json_output": true,
+      "structured_outputs": false,
+      "free": false
+    },
+    {
+      "id": "veo-3.1-generate-preview",
+      "name": "Veo 3.1",
+      "display_name": "Veo 3.1",
+      "created": 1773446400,
+      "description": "veo-3.1-generate-preview provided by google-vertex",
+      "family": "google",
+      "architecture": {
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "video"
+        ],
+        "tokenizer": "GPT"
+      },
+      "top_provider": {
+        "is_moderated": true
+      },
+      "providers": [
+        {
+          "providerId": "google-vertex",
+          "externalId": "veo-3.1-generate-001",
+          "supportedVideoSizes": [
+            "1280x720",
+            "720x1280",
+            "1920x1080",
+            "1080x1920",
+            "3840x2160",
+            "2160x3840"
+          ],
+          "supportsVideoAudio": true,
+          "supportsVideoWithoutAudio": true,
+          "pricing": {
+            "prompt": "0",
+            "completion": "0",
+            "image": "0",
+            "per_second": {
+              "default_audio": "0.4",
+              "default_video": "0.2",
+              "4k_audio": "0.6",
+              "4k_video": "0.4"
+            },
+            "request": "0",
+            "input_cache_read": "0",
+            "input_cache_write": "0",
+            "input_cache_write_1h": "0"
+          },
+          "streaming": false,
+          "vision": false,
+          "cancellation": true,
+          "tools": false,
+          "parallelToolCalls": false,
+          "reasoning": false,
+          "max_output": 1,
+          "stability": "beta"
+        }
+      ],
+      "pricing": {
+        "prompt": "0",
+        "completion": "0",
+        "image": "0",
+        "per_second": {
+          "default_audio": "0.4",
+          "default_video": "0.2",
+          "4k_audio": "0.6",
+          "4k_video": "0.4"
+        },
+        "request": "0",
+        "input_cache_read": "0",
+        "input_cache_write": "0",
+        "input_cache_write_1h": "0",
+        "web_search": "0",
+        "internal_reasoning": "0"
+      },
+      "context_length": 32768,
+      "max_output": 1,
+      "per_request_limits": {
+        "max_video_duration_seconds": "10"
+      },
+      "supported_parameters": [
+        "temperature",
+        "max_tokens",
+        "top_p",
+        "frequency_penalty",
+        "presence_penalty",
+        "response_format",
+        "tools",
+        "tool_choice"
+      ],
+      "json_output": false,
+      "structured_outputs": false,
+      "free": false,
+      "stability": "beta"
+    },
+    {
+      "id": "text-embedding-3-small",
+      "name": "Text Embedding 3 Small",
+      "display_name": "Text Embedding 3 Small",
+      "created": 1706140800,
+      "description": "text-embedding-3-small provided by openai",
+      "family": "openai",
+      "architecture": {
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "embedding"
+        ],
+        "tokenizer": "GPT"
+      },
+      "top_provider": {
+        "is_moderated": true
+      },
+      "providers": [
+        {
+          "providerId": "openai",
+          "externalId": "text-embedding-3-small",
+          "pricing": {
+            "prompt": "0.02e-6",
+            "completion": "0",
+            "image": "0",
+            "request": "0",
+            "input_cache_read": "0",
+            "input_cache_write": "0",
+            "input_cache_write_1h": "0"
+          },
+          "streaming": false,
+          "vision": false,
+          "cancellation": true,
+          "tools": false,
+          "parallelToolCalls": false,
+          "reasoning": false
+        }
+      ],
+      "pricing": {
+        "prompt": "0.02e-6",
+        "completion": "0",
+        "image": "0",
+        "request": "0",
+        "input_cache_read": "0",
+        "input_cache_write": "0",
+        "input_cache_write_1h": "0",
+        "web_search": "0",
+        "internal_reasoning": "0"
+      },
+      "context_length": 8192,
+      "supported_parameters": [
+        "temperature",
+        "max_tokens",
+        "top_p",
+        "frequency_penalty",
+        "presence_penalty",
+        "response_format",
+        "tools",
+        "tool_choice"
+      ],
+      "json_output": false,
+      "structured_outputs": false,
+      "free": false
+    }
+  ]
+}

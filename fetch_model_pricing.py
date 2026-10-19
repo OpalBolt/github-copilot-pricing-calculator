@@ -21,6 +21,7 @@ from sources.deepseek_direct import fetch_deepseek_direct_listings
 from sources.eurouter import fetch_eurouter_listings
 from sources.helpers import fetch_ecb_rate, now_utc
 from sources.kilo import fetch_kilo_listings
+from sources.llm_gateway import fetch_llmgateway_listings
 from sources.nano_gpt import fetch_nano_gpt_listings
 from sources.novita import fetch_novita_listings
 from sources.openai_direct import fetch_openai_direct_listings
@@ -53,6 +54,9 @@ ADAPTERS = {
         exchange_rate
     ),
     "kilo": lambda exchange_rate: fetch_kilo_listings(exchange_rate),
+    "llmgateway": lambda exchange_rate: fetch_llmgateway_listings(
+        exchange_rate
+    ),
     "deepseek-direct": lambda exchange_rate: fetch_deepseek_direct_listings(
         exchange_rate
     ),

@@ -18,6 +18,7 @@ from sources.cortecs import CORTECS_URL
 from sources.deepinfra import DEEPINFRA_URL
 from sources.eurouter import EUROUTER_URL
 from sources.kilo import KILO_URL
+from sources.llm_gateway import LLM_GATEWAY_URL
 from sources.nano_gpt import NANO_GPT_URL
 from sources.novita import NOVITA_URL
 from sources.openai_direct import OPENAI_MODELS_URL, OPENAI_PRICING_URL
@@ -123,6 +124,19 @@ SOURCES = {
         # charged per million tokens, separately for input and output"),
         # with TAO only an alternative payment method, and the catalog's
         # price fields name the currency usd (chutes.ai/pricing).
+        "nativeCurrency": "USD",
+        "euClaim": "No EU routing catalog is published.",
+    },
+    "llmgateway": {
+        "name": "LLM Gateway",
+        "pages": ("global",),
+        "sellerKind": "gateway",
+        "source": LLM_GATEWAY_URL,
+        # LLM Gateway's model directory renders the catalog's per-token
+        # decimals as dollars per 1M tokens ("Input $0.15 /M tokens Cache
+        # Read $0.075 /M tokens Output $0.6 /M tokens" for gpt-4o-mini,
+        # llmgateway.io/models/gpt-4o-mini), and the pricing page bills
+        # add-ons like data retention at $0.01 per 1M tokens.
         "nativeCurrency": "USD",
         "euClaim": "No EU routing catalog is published.",
     },

@@ -17,6 +17,7 @@ from sources.deepinfra import _deepinfra_rates, fetch_deepinfra_listings
 from sources.eurouter import fetch_eurouter_listings
 from sources.helpers import _rates, listing_from_offer, now_utc
 from sources.kilo import _kilo_rates, fetch_kilo_listings
+from sources.llm_gateway import _llm_gateway_rates, fetch_llmgateway_listings
 from sources.novita import _novita_rates, fetch_novita_listings
 from sources.nano_gpt import _nano_gpt_rates, fetch_nano_gpt_listings
 from sources.opencode import fetch_opencode_listings
@@ -45,6 +46,7 @@ ALL_SELLERS = {
     "vercel-gateway",
     "kilo",
     "chutes",
+    "llmgateway",
     "deepseek-direct",
     "zai-direct",
     "claude-direct",
@@ -62,6 +64,7 @@ SELLER_KINDS = {
     "vercel-gateway": "gateway",
     "kilo": "gateway",
     "chutes": "gateway",
+    "llmgateway": "gateway",
     "deepseek-direct": "first-party",
     "zai-direct": "first-party",
     "claude-direct": "first-party",
@@ -118,6 +121,7 @@ def test_registry_pages():
         "vercel-gateway",
         "kilo",
         "chutes",
+        "llmgateway",
     }
     assert global_pages == ALL_SELLERS
     assert {m["sellerKind"] for m in SOURCES.values()} == set(SELLER_KINDS.values())
@@ -986,6 +990,129 @@ def test_chutes_adapter():
         raise AssertionError("missing per-token prices should skip the row")
 
 
+def test_llm_gateway_adapter():
+    """The committed LLM Gateway catalog sample normalizes to
+    per-million-token USD listings converted with the ECB rate; non-text
+    output rows (video, embedding) are skipped, not broken."""
+    # LLM Gateway's model directory renders the catalog's per-token price
+    # fields as dollars per 1M tokens ("Input $0.15 /M tokens Cache Read
+    # $0.075 /M tokens Output $0.6 /M tokens" for gpt-4o-mini), and the
+    # pricing page bills add-ons like data retention at $0.01 per 1M
+    # tokens; the registry records that verified native currency, and the
+    # catalog feeds the global page only.
+    assert SOURCES["llmgateway"]["nativeCurrency"] == "USD"
+    assert SOURCES["llmgateway"]["pages"] == ("global",)
+    assert SOURCES["llmgateway"]["sellerKind"] == "gateway"
+
+    fixture = ROOT / "fixtures" / "llmgateway-models.json"
+    payload = json.loads(fixture.read_text(encoding="utf-8"))
+    with patch("sources.llm_gateway.fetch_json", return_value=payload):
+        listings = fetch_llmgateway_listings({"usdPerEur": 2.0})
+    by_id = {listing["modelId"]: listing for listing in listings}
+    assert set(by_id) == {
+        "gpt-4o-mini",
+        "kimi-k2-thinking",
+        "deepseek-v3.2",
+        "ling-3.1-flash",
+        "custom",
+    }
+
+    # The catalog prices prompt, completion, and input_cache_read per token
+    # in USD (gpt-4o-mini's row prices prompt "0.15e-6" where the model
+    # directory quotes "$0.15 /M tokens"), so the per-token decimals scale
+    # by 1,000,000 in dollars and the ECB rate converts them.
+    gpt = by_id["gpt-4o-mini"]
+    assert gpt["key"] == "llmgateway:gpt-4o-mini"
+    assert gpt["seller"] == "llmgateway"
+    assert gpt["sellerName"] == "LLM Gateway"
+    assert gpt["name"] == "GPT-4o Mini"
+    assert gpt["creator"] == "OpenAI"
+    assert gpt["contextSize"] == 128000
+    assert gpt["capabilities"] == {
+        "reasoning": False,
+        "tools": True,
+        "vision": True,
+        "audio": False,
+    }
+    assert gpt["rates"]["nativeCurrency"] == "USD"
+    assert gpt["rates"]["native"] == {
+        "input": 0.15,
+        "cached": 0.075,
+        "output": 0.6,
+    }
+    assert math.isclose(gpt["rates"]["input"], 0.075)
+    assert math.isclose(gpt["rates"]["cached"], 0.0375)
+    assert math.isclose(gpt["rates"]["output"], 0.3)
+    assert gpt["rates"]["cachedFallback"] is False
+
+    # The canonical creator spelling comes from the catalog's family field.
+    kimi = by_id["kimi-k2-thinking"]
+    assert kimi["creator"] == "Moonshot AI"
+    assert kimi["capabilities"] == {
+        "reasoning": True,
+        "tools": True,
+        "vision": False,
+        "audio": False,
+    }
+    assert kimi["rates"]["native"] == {
+        "input": 0.6,
+        "cached": 0.06,
+        "output": 2.5,
+    }
+    deepseek = by_id["deepseek-v3.2"]
+    assert deepseek["creator"] == "DeepSeek"
+    assert deepseek["rates"]["native"] == {
+        "input": 0.26,
+        "cached": 0.13,
+        "output": 0.38,
+    }
+
+    # A zero price is a price: the zero-priced rows normalize to zero rates
+    # with their published zero cache-read price, so no fallback applies.
+    ling = by_id["ling-3.1-flash"]
+    assert ling["rates"]["native"] == {"input": 0, "cached": 0, "output": 0}
+    assert ling["rates"]["cachedFallback"] is False
+    routing = by_id["custom"]
+    assert routing["creator"] == "llmgateway"
+    assert routing["contextSize"] == 0
+    assert routing["capabilities"]["vision"] is True
+    assert routing["rates"]["native"] == {"input": 0, "cached": 0, "output": 0}
+
+    assert all(
+        listing["rates"]["nativeCurrency"] == "USD" for listing in listings
+    )
+    assert all(
+        "LLM Gateway" in listing["priceNote"]
+        and "ECB" in listing["priceNote"]
+        for listing in listings
+    )
+    zeros = _llm_gateway_rates(
+        {"pricing": {"prompt": "0", "completion": "0", "input_cache_read": "0"}},
+        2.0,
+    )
+    assert zeros["input"] == zeros["cached"] == zeros["output"] == 0
+    assert zeros["nativeCurrency"] == "USD"
+    assert zeros["cachedFallback"] is False
+    # Rows without a published cache-read price fall back to the input rate.
+    fallback = _llm_gateway_rates(
+        {"pricing": {"prompt": "0.0000002", "completion": "0.000001"}}, 2.0
+    )
+    assert fallback["cachedFallback"] is True
+    assert fallback["cached"] == fallback["input"] == 0.1
+    # Rows without prompt and completion prices are not token-priced and
+    # stay out of the listings.
+    try:
+        _llm_gateway_rates({"pricing": {}}, 2.0)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("missing per-token prices should skip the row")
+    # The fixture's video and embedding rows publish no text output
+    # modality; like the other gateway adapters, only text-output rows list.
+    assert "veo-3.1-generate-preview" not in by_id
+    assert "text-embedding-3-small" not in by_id
+
+
 def test_seven_day_seller_fallback():
     fetched_at = now_utc().isoformat()
     previous = {
@@ -1007,7 +1134,7 @@ def test_seven_day_seller_fallback():
 
 @contextmanager
 def _patch_adapters(**behaviors):
-    """Patch the build's ECB fetch and all fifteen listings adapters. Values
+    """Patch the build's ECB fetch and all sixteen listings adapters. Values
     are return values for `ok`, exceptions for failing sources."""
     ecb = behaviors.pop("ecb", {"usdPerEur": 1.1, "observationDate": "2026-10-16"})
     patches = [
@@ -1205,6 +1332,7 @@ def test_aggregate_contract():
     assert native_by_seller["vercel-gateway"] == "USD"
     assert native_by_seller["kilo"] == "USD"
     assert native_by_seller["chutes"] == "USD"
+    assert native_by_seller["llmgateway"] == "USD"
     assert {
         native_by_seller[sid]
         for sid in ("deepseek-direct", "zai-direct", "claude-direct", "openai-direct")
@@ -1278,6 +1406,7 @@ def test_generated_page():
         'data-seller="vercel-gateway"',
         'data-seller="kilo"',
         'data-seller="chutes"',
+        'data-seller="llmgateway"',
         'data-seller="deepseek-direct"',
         'data-seller="zai-direct"',
         'data-seller="claude-direct"',
@@ -1356,6 +1485,7 @@ def main():
     test_vercel_gateway_adapter()
     test_kilo_adapter()
     test_chutes_adapter()
+    test_llm_gateway_adapter()
     test_seven_day_seller_fallback()
     test_broken_source_fails_in_isolation()
     test_build_fails_only_without_usable_data()
