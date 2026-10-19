@@ -9,13 +9,10 @@ from pathlib import Path
 from unittest.mock import patch
 
 import fetch_router_pricing
-from fetch_router_pricing import (
-    _cached_router,
+from fetch_router_pricing import _cached_router
+from sources.helpers import (
     _creator,
     _direct_api_offer,
-    _openrouter_rates,
-    _opencode_owner,
-    _opencode_tiers,
     _per_million_rates,
     _provider,
     _rates,
@@ -23,6 +20,8 @@ from fetch_router_pricing import (
     parse_claude_pricing,
     parse_openai_pricing,
 )
+from sources.opencode import _opencode_owner, _opencode_tiers
+from sources.openrouter import _openrouter_rates
 
 ROOT = Path(__file__).parent
 DATA = ROOT / "router-pricing.json"

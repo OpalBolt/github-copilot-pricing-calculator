@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-19T11:14:06.157298+00:00",
+  "generatedAt": "2026-10-19T11:28:43.564374+00:00",
   "currency": "EUR",
   "exchangeRate": {
     "series": "EXR.D.USD.EUR.SP00.A",
@@ -14,7 +14,7 @@
       "source": "https://api.cortecs.ai/v1/models?extended=true&currency=EUR",
       "euClaim": "EU catalog: providers based and regulated within the EU.",
       "id": "cortecs",
-      "fetchedAt": "2026-10-19T11:14:06.157298+00:00",
+      "fetchedAt": "2026-10-19T11:28:43.564374+00:00",
       "stale": false
     },
     {
@@ -22,7 +22,7 @@
       "source": "https://api.eurouter.ai/api/v1/models",
       "euClaim": "EU handling is EUrouter's baseline routing guarantee.",
       "id": "eurouter",
-      "fetchedAt": "2026-10-19T11:14:06.157298+00:00",
+      "fetchedAt": "2026-10-19T11:28:43.564374+00:00",
       "stale": false
     },
     {
@@ -30,7 +30,7 @@
       "source": "https://openrouter.ai/api/v1/models",
       "euClaim": "EU regional routing; Business or Enterprise plan required.",
       "id": "openrouter",
-      "fetchedAt": "2026-10-19T11:14:06.157298+00:00",
+      "fetchedAt": "2026-10-19T11:28:43.564374+00:00",
       "stale": false
     },
     {
@@ -38,7 +38,7 @@
       "source": "https://opencode.ai/zen/v1/models",
       "euClaim": "No EU routing catalog is published.",
       "id": "opencode",
-      "fetchedAt": "2026-10-19T11:14:06.157298+00:00",
+      "fetchedAt": "2026-10-19T11:28:43.564374+00:00",
       "stale": false
     },
     {
@@ -47,7 +47,7 @@
       "kind": "direct",
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "deepseek-direct",
-      "fetchedAt": "2026-10-19T11:14:06.157298+00:00",
+      "fetchedAt": "2026-10-19T11:28:43.564374+00:00",
       "stale": false
     },
     {
@@ -56,7 +56,7 @@
       "kind": "direct",
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "zai-direct",
-      "fetchedAt": "2026-10-19T11:14:06.157298+00:00",
+      "fetchedAt": "2026-10-19T11:28:43.564374+00:00",
       "stale": false
     },
     {
@@ -66,7 +66,7 @@
       "kind": "direct",
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "claude-direct",
-      "fetchedAt": "2026-10-19T11:14:06.157298+00:00",
+      "fetchedAt": "2026-10-19T11:28:43.564374+00:00",
       "stale": false
     },
     {
@@ -76,7 +76,7 @@
       "kind": "direct",
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "openai-direct",
-      "fetchedAt": "2026-10-19T11:14:06.157298+00:00",
+      "fetchedAt": "2026-10-19T11:28:43.564374+00:00",
       "stale": false
     }
   ],
@@ -30779,13 +30779,13 @@
       "eu": {
         "input": 0.4887585532746824,
         "cached": 0.15995734470807785,
-        "output": 0.888651915044877,
+        "output": 1.2441126810628276,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
           "input": 0.55,
           "cached": 0.18,
-          "output": 1.0
+          "output": 1.4
         }
       },
       "quantization": null,
@@ -31242,14 +31242,14 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.007642406469385942,
-        "cached": 0.007642406469385942,
+        "input": 0.0057762374477917,
+        "cached": 0.0057762374477917,
         "output": 0.39989336177019463,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0086,
-          "cached": 0.0086,
+          "input": 0.0065,
+          "cached": 0.0065,
           "output": 0.45
         }
       },
