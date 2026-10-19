@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-18T10:18:12.303734+00:00",
+  "generatedAt": "2026-10-19T11:14:06.157298+00:00",
   "currency": "EUR",
   "exchangeRate": {
     "series": "EXR.D.USD.EUR.SP00.A",
-    "source": "https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A?format=csvdata&startPeriod=2026-10-04",
+    "source": "https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A?format=csvdata&startPeriod=2026-10-05",
     "observationDate": "2026-10-16",
     "usdPerEur": 1.1253
   },
@@ -14,7 +14,7 @@
       "source": "https://api.cortecs.ai/v1/models?extended=true&currency=EUR",
       "euClaim": "EU catalog: providers based and regulated within the EU.",
       "id": "cortecs",
-      "fetchedAt": "2026-10-18T10:18:12.303734+00:00",
+      "fetchedAt": "2026-10-19T11:14:06.157298+00:00",
       "stale": false
     },
     {
@@ -22,7 +22,7 @@
       "source": "https://api.eurouter.ai/api/v1/models",
       "euClaim": "EU handling is EUrouter's baseline routing guarantee.",
       "id": "eurouter",
-      "fetchedAt": "2026-10-18T10:18:12.303734+00:00",
+      "fetchedAt": "2026-10-19T11:14:06.157298+00:00",
       "stale": false
     },
     {
@@ -30,7 +30,7 @@
       "source": "https://openrouter.ai/api/v1/models",
       "euClaim": "EU regional routing; Business or Enterprise plan required.",
       "id": "openrouter",
-      "fetchedAt": "2026-10-18T10:18:12.303734+00:00",
+      "fetchedAt": "2026-10-19T11:14:06.157298+00:00",
       "stale": false
     },
     {
@@ -38,7 +38,7 @@
       "source": "https://opencode.ai/zen/v1/models",
       "euClaim": "No EU routing catalog is published.",
       "id": "opencode",
-      "fetchedAt": "2026-10-18T10:18:12.303734+00:00",
+      "fetchedAt": "2026-10-19T11:14:06.157298+00:00",
       "stale": false
     },
     {
@@ -47,7 +47,7 @@
       "kind": "direct",
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "deepseek-direct",
-      "fetchedAt": "2026-10-18T10:18:12.303734+00:00",
+      "fetchedAt": "2026-10-19T11:14:06.157298+00:00",
       "stale": false
     },
     {
@@ -56,7 +56,7 @@
       "kind": "direct",
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "zai-direct",
-      "fetchedAt": "2026-10-18T10:18:12.303734+00:00",
+      "fetchedAt": "2026-10-19T11:14:06.157298+00:00",
       "stale": false
     },
     {
@@ -66,7 +66,7 @@
       "kind": "direct",
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "claude-direct",
-      "fetchedAt": "2026-10-18T10:18:12.303734+00:00",
+      "fetchedAt": "2026-10-19T11:14:06.157298+00:00",
       "stale": false
     },
     {
@@ -76,7 +76,7 @@
       "kind": "direct",
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "openai-direct",
-      "fetchedAt": "2026-10-18T10:18:12.303734+00:00",
+      "fetchedAt": "2026-10-19T11:14:06.157298+00:00",
       "stale": false
     }
   ],
@@ -1154,14 +1154,14 @@
         "Tensorix",
         "Inceptron",
         "Scaleway",
-        "entrim",
+        "Entrim",
         "sference"
       ],
       "euProviders": [
         "Tensorix",
         "Inceptron",
         "Scaleway",
-        "entrim"
+        "Entrim"
       ],
       "default": {
         "input": 0.081,
@@ -1278,15 +1278,14 @@
         "Tensorix",
         "arkane",
         "aki",
-        "entrim",
-        "sference",
+        "Entrim",
         "Scaleway"
       ],
       "euProviders": [
         "Tensorix",
         "arkane",
         "aki",
-        "entrim",
+        "Entrim",
         "Scaleway"
       ],
       "default": {
@@ -1323,7 +1322,8 @@
         "audio": false
       },
       "providers": [
-        "Tensorix"
+        "Tensorix",
+        "sference"
       ],
       "euProviders": [
         "Tensorix"
@@ -1968,14 +1968,14 @@
       "providers": [
         "Tensorix",
         "berget",
-        "entrim",
+        "Entrim",
         "Inceptron",
         "sference"
       ],
       "euProviders": [
         "Tensorix",
         "berget",
-        "entrim",
+        "Entrim",
         "Inceptron"
       ],
       "default": {
@@ -4255,7 +4255,7 @@
         "aki",
         "ionos",
         "ovh",
-        "entrim",
+        "Entrim",
         "Scaleway",
         "arkane"
       ],
@@ -4265,7 +4265,7 @@
         "aki",
         "ionos",
         "ovh",
-        "entrim",
+        "Entrim",
         "Scaleway",
         "arkane"
       ],
@@ -5612,6 +5612,55 @@
           "input": 1.75,
           "cached": 0.4375,
           "output": 3.5
+        }
+      },
+      "quantization": null,
+      "priceNote": "USD Router Price published by EUrouter and converted with the listed ECB rate."
+    },
+    {
+      "key": "eurouter:deepseek-v4.1-flash-1017",
+      "router": "eurouter",
+      "routerName": "EUrouter",
+      "modelId": "deepseek-v4.1-flash-1017",
+      "name": "DeepSeek V4.1 Flash 1017",
+      "owner": "DeepSeek",
+      "description": "DeepSeek V4.1 Flash 1017 is a minor update to DeepSeek V4.1 Flash with stronger reasoning, coding, agentic and visual performance and shorter outputs. An open-weight multimodal mixture-of-experts model with text and image input, a 1M-token context window, function calling, and optional reasoning.",
+      "releaseDate": "2026-10-17",
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [
+        "Tensorix"
+      ],
+      "euProviders": [
+        "Tensorix"
+      ],
+      "default": {
+        "input": 0.4443259575224385,
+        "cached": 0.11108148938060962,
+        "output": 1.3329778725673154,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.5,
+          "cached": 0.125,
+          "output": 1.5
+        }
+      },
+      "eu": {
+        "input": 0.4443259575224385,
+        "cached": 0.11108148938060962,
+        "output": 1.3329778725673154,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.5,
+          "cached": 0.125,
+          "output": 1.5
         }
       },
       "quantization": null,
@@ -17001,41 +17050,6 @@
       "priceNote": "USD Router Price converted with the listed ECB rate."
     },
     {
-      "key": "openrouter:deepseek/deepseek-r1",
-      "router": "openrouter",
-      "routerName": "OpenRouter",
-      "modelId": "deepseek/deepseek-r1",
-      "name": "DeepSeek: R1",
-      "owner": "DeepSeek",
-      "description": "DeepSeek R1 is here: Performance on par with [OpenAI o1](/openai/o1), but open-sourced and with fully open reasoning tokens. It's 671B parameters in size, with 37B active in an inference pass....",
-      "releaseDate": null,
-      "contextSize": 64000,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": false,
-        "audio": false
-      },
-      "providers": [],
-      "euProviders": [],
-      "default": {
-        "input": 0.6220563405314138,
-        "cached": 0.6220563405314138,
-        "output": 2.2216297876121924,
-        "cachedFallback": true,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.7,
-          "cached": 0.7,
-          "output": 2.5
-        }
-      },
-      "eu": null,
-      "quantization": null,
-      "euPlan": "Business or Enterprise",
-      "priceNote": "USD Router Price converted with the listed ECB rate."
-    },
-    {
       "key": "openrouter:deepseek/deepseek-r1-0528",
       "router": "openrouter",
       "routerName": "OpenRouter",
@@ -17229,27 +17243,27 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.007642406469385942,
-        "cached": 0.007642406469385942,
-        "output": 0.39989336177019463,
+        "input": 0.13329778725673153,
+        "cached": 0.03732338043188484,
+        "output": 0.13329778725673153,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0086,
-          "cached": 0.0086,
-          "output": 0.45
+          "input": 0.15,
+          "cached": 0.042,
+          "output": 0.15
         }
       },
       "eu": {
         "input": 0.115524748955834,
         "cached": 0.023993601706211676,
-        "output": 0.42495334577446015,
+        "output": 0.35510530525193285,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
           "input": 0.13,
           "cached": 0.027,
-          "output": 0.4782
+          "output": 0.3996
         }
       },
       "quantization": null,
@@ -17310,15 +17324,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.1855505198613703,
-        "cached": 0.015462543321780858,
-        "output": 0.3711010397227406,
+        "input": 0.8488936283657692,
+        "cached": 0.07074113569714742,
+        "output": 1.6977872567315384,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.2088,
-          "cached": 0.0174,
-          "output": 0.4176
+          "input": 0.95526,
+          "cached": 0.079605,
+          "output": 1.91052
         }
       },
       "eu": null,
@@ -17380,15 +17394,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.05758464409490802,
+        "input": 0.03554607660179508,
         "cached": 0.001421843064071803,
-        "output": 0.12796587576646226,
+        "output": 0.07109215320359016,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0648,
+          "input": 0.04,
           "cached": 0.0016,
-          "output": 0.144
+          "output": 0.08
         }
       },
       "eu": null,
@@ -18986,15 +19000,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.059984004265529196,
-        "cached": 0.03332444681418288,
-        "output": 0.19994668088509732,
+        "input": 0.07997867235403892,
+        "cached": 0.04443259575224385,
+        "output": 0.26659557451346305,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0675,
-          "cached": 0.0375,
-          "output": 0.225
+          "input": 0.09,
+          "cached": 0.05,
+          "output": 0.3
         }
       },
       "eu": null,
@@ -19791,15 +19805,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.04443259575224385,
-        "cached": 0.04443259575224385,
-        "output": 0.2932551319648094,
+        "input": 0.04523238247578424,
+        "cached": 0.04523238247578424,
+        "output": 0.2976983915400338,
         "cachedFallback": true,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.05,
-          "cached": 0.05,
-          "output": 0.33
+          "input": 0.0509,
+          "cached": 0.0509,
+          "output": 0.335
         }
       },
       "eu": null,
@@ -19851,7 +19865,7 @@
       "owner": "Meta",
       "description": "Llama 4 Maverick 17B Instruct (128E) is a high-capacity multimodal language model from Meta, built on a mixture-of-experts (MoE) architecture with 128 experts and 17 billion active parameters per forward...",
       "releaseDate": null,
-      "contextSize": 1048576,
+      "contextSize": 524288,
       "capabilities": {
         "reasoning": false,
         "tools": true,
@@ -20255,41 +20269,6 @@
           "input": 0.07,
           "cached": 0.07,
           "output": 0.14
-        }
-      },
-      "eu": null,
-      "quantization": null,
-      "euPlan": "Business or Enterprise",
-      "priceNote": "USD Router Price converted with the listed ECB rate."
-    },
-    {
-      "key": "openrouter:microsoft/wizardlm-2-8x22b",
-      "router": "openrouter",
-      "routerName": "OpenRouter",
-      "modelId": "microsoft/wizardlm-2-8x22b",
-      "name": "WizardLM-2 8x22B",
-      "owner": "microsoft",
-      "description": "WizardLM-2 8x22B is Microsoft AI's most advanced Wizard model. It demonstrates highly competitive performance compared to leading proprietary models, and it consistently outperforms all existing state-of-the-art opensource models. It is...",
-      "releaseDate": null,
-      "contextSize": 65535,
-      "capabilities": {
-        "reasoning": false,
-        "tools": false,
-        "vision": false,
-        "audio": false
-      },
-      "providers": [],
-      "euProviders": [],
-      "default": {
-        "input": 0.5509641873278237,
-        "cached": 0.5509641873278237,
-        "output": 0.5509641873278237,
-        "cachedFallback": true,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.62,
-          "cached": 0.62,
-          "output": 0.62
         }
       },
       "eu": null,
@@ -21926,14 +21905,14 @@
         }
       },
       "eu": {
-        "input": 0.38416422287390034,
-        "cached": 0.14129565449213544,
+        "input": 0.3918954945347907,
+        "cached": 0.10797120767795254,
         "output": 2.8436861281436063,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.4323,
-          "cached": 0.159,
+          "input": 0.441,
+          "cached": 0.1215,
           "output": 3.2
         }
       },
@@ -22006,13 +21985,13 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.27015018217364256,
+        "input": 0.21238780769572557,
         "cached": 0.18661690215942414,
         "output": 10.606949257975652,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.304,
+          "input": 0.239,
           "cached": 0.21,
           "output": 11.936
         }
@@ -22066,7 +22045,7 @@
       "owner": "morph",
       "description": "Morph's fastest apply model for code edits. ~10,500 tokens/sec with 96% accuracy for rapid code transformations. The model requires the prompt to be in the following format: <instruction>{instruction}</instruction> <code>{initial_code}</code> <update>{edit_snippet}</update>...",
       "releaseDate": null,
-      "contextSize": 81920,
+      "contextSize": 262144,
       "capabilities": {
         "reasoning": false,
         "tools": false,
@@ -27870,15 +27849,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.231049497911668,
-        "cached": 0.231049497911668,
-        "output": 2.31049497911668,
-        "cachedFallback": true,
+        "input": 0.23993601706211679,
+        "cached": 0.23993601706211679,
+        "output": 1.9194881364969343,
+        "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.26,
-          "cached": 0.26,
-          "output": 2.6
+          "input": 0.27,
+          "cached": 0.27,
+          "output": 2.16
         }
       },
       "eu": null,
@@ -28964,41 +28943,6 @@
           "input": 0.85,
           "cached": 0.85,
           "output": 0.85
-        }
-      },
-      "eu": null,
-      "quantization": null,
-      "euPlan": "Business or Enterprise",
-      "priceNote": "USD Router Price converted with the listed ECB rate."
-    },
-    {
-      "key": "openrouter:sao10k/l3.3-euryale-70b",
-      "router": "openrouter",
-      "routerName": "OpenRouter",
-      "modelId": "sao10k/l3.3-euryale-70b",
-      "name": "Sao10K: Llama 3.3 Euryale 70B",
-      "owner": "sao10k",
-      "description": "Euryale L3.3 70B is a model focused on creative roleplay from [Sao10k](https://ko-fi.com/sao10k). It is the successor of [Euryale L3 70B v2.2](/models/sao10k/l3-euryale-70b).",
-      "releaseDate": null,
-      "contextSize": 131072,
-      "capabilities": {
-        "reasoning": false,
-        "tools": false,
-        "vision": false,
-        "audio": false
-      },
-      "providers": [],
-      "euProviders": [],
-      "default": {
-        "input": 0.57762374477917,
-        "cached": 0.57762374477917,
-        "output": 0.6664889362836577,
-        "cachedFallback": true,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.65,
-          "cached": 0.65,
-          "output": 0.75
         }
       },
       "eu": null,
@@ -30530,15 +30474,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.4443259575224385,
-        "cached": 0.0888651915044877,
-        "output": 1.777303830089754,
+        "input": 0.4887585532746824,
+        "cached": 0.09775171065493646,
+        "output": 1.9550342130987295,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.5,
-          "cached": 0.1,
-          "output": 2.0
+          "input": 0.55,
+          "cached": 0.11,
+          "output": 2.2
         }
       },
       "eu": null,
@@ -30789,13 +30733,13 @@
       "eu": {
         "input": 0.6131698213809651,
         "cached": 0.12441126810628278,
-        "output": 0.9237536656891496,
+        "output": 2.23940282591309,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
           "input": 0.69,
           "cached": 0.14,
-          "output": 1.0395
+          "output": 2.52
         }
       },
       "quantization": null,
@@ -30823,25 +30767,25 @@
       "default": {
         "input": 0.07020350128854529,
         "cached": 0.0693148493735004,
-        "output": 2.2216297876121924,
+        "output": 1.2441126810628276,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
           "input": 0.079,
           "cached": 0.078,
-          "output": 2.5
+          "output": 1.4
         }
       },
       "eu": {
         "input": 0.4887585532746824,
         "cached": 0.15995734470807785,
-        "output": 1.3374211321425398,
+        "output": 0.888651915044877,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
           "input": 0.55,
           "cached": 0.18,
-          "output": 1.505
+          "output": 1.0
         }
       },
       "quantization": null,
@@ -30869,25 +30813,25 @@
       "default": {
         "input": 0.042655291922154094,
         "cached": 0.005331911490269262,
-        "output": 0.1777303830089754,
+        "output": 0.14218430640718033,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
           "input": 0.048,
           "cached": 0.006,
-          "output": 0.2
+          "output": 0.16
         }
       },
       "eu": {
         "input": 0.0888651915044877,
         "cached": 0.06664889362836576,
-        "output": 0.6131698213809651,
+        "output": 0.4905358571047721,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
           "input": 0.1,
           "cached": 0.075,
-          "output": 0.69
+          "output": 0.552
         }
       },
       "quantization": null,
@@ -31229,14 +31173,14 @@
       "euProviders": [],
       "default": {
         "input": 0.04443259575224385,
-        "cached": 0.007109215320359016,
-        "output": 0.5331911490269261,
+        "cached": 0.010663822980538524,
+        "output": 0.13329778725673153,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
           "input": 0.05,
-          "cached": 0.008,
-          "output": 0.6
+          "cached": 0.012,
+          "output": 0.15
         }
       },
       "eu": null,
@@ -31263,14 +31207,14 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.10663822980538523,
-        "cached": 0.10663822980538523,
+        "input": 0.19994668088509732,
+        "cached": 0.20438994046032172,
         "output": 7.109215320359016,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.12,
-          "cached": 0.12,
+          "input": 0.225,
+          "cached": 0.23,
           "output": 8.0
         }
       },
@@ -31298,15 +31242,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.0061139251755087535,
-        "cached": 0.0013534168666133476,
-        "output": 0.12762463343108504,
+        "input": 0.007642406469385942,
+        "cached": 0.007642406469385942,
+        "output": 0.39989336177019463,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.00688,
-          "cached": 0.001523,
-          "output": 0.143616
+          "input": 0.0086,
+          "cached": 0.0086,
+          "output": 0.45
         }
       },
       "eu": null,
@@ -31403,15 +31347,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.23993601706211679,
-        "cached": 0.23993601706211679,
-        "output": 12.441126810628278,
+        "input": 0.2114991557806807,
+        "cached": 0.20261263663023196,
+        "output": 11.5524748955834,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.27,
-          "cached": 0.27,
-          "output": 14.0
+          "input": 0.238,
+          "cached": 0.228,
+          "output": 13.0
         }
       },
       "eu": null,
@@ -31685,13 +31629,13 @@
       "default": {
         "input": 0.042655291922154094,
         "cached": 0.005331911490269262,
-        "output": 0.1777303830089754,
+        "output": 0.14218430640718033,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
           "input": 0.048,
           "cached": 0.006,
-          "output": 0.2
+          "output": 0.16
         }
       },
       "eu": null,
@@ -31718,15 +31662,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.05616280103083623,
-        "cached": 0.052252732604638766,
-        "output": 3.910068426197459,
+        "input": 0.04176664000710922,
+        "cached": 0.025770905536301434,
+        "output": 5.3319114902692615,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0632,
-          "cached": 0.0588,
-          "output": 4.4
+          "input": 0.047,
+          "cached": 0.029,
+          "output": 6.0
         }
       },
       "eu": null,

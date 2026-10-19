@@ -74,6 +74,7 @@ OWNER_ALIASES = {
 }
 
 PROVIDER_ALIASES = {
+    "entrim": "Entrim",
     "inceptron": "Inceptron",
     "infercom": "Infercom",
     "nebius": "Nebius",
