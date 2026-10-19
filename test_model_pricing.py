@@ -15,6 +15,7 @@ from sources import SOURCES
 from sources.deepinfra import _deepinfra_rates, fetch_deepinfra_listings
 from sources.eurouter import fetch_eurouter_listings
 from sources.helpers import _rates, listing_from_offer, now_utc
+from sources.novita import _novita_rates, fetch_novita_listings
 from sources.opencode import fetch_opencode_listings
 from sources.openrouter import fetch_openrouter_listings
 from sources.deepseek_direct import fetch_deepseek_direct_listings
@@ -30,6 +31,7 @@ ALL_SELLERS = {
     "openrouter",
     "opencode",
     "deepinfra",
+    "novita",
     "deepseek-direct",
     "zai-direct",
     "claude-direct",
@@ -41,6 +43,7 @@ SELLER_KINDS = {
     "openrouter": "router",
     "opencode": "gateway",
     "deepinfra": "gateway",
+    "novita": "gateway",
     "deepseek-direct": "first-party",
     "zai-direct": "first-party",
     "claude-direct": "first-party",
@@ -88,7 +91,7 @@ def _offer(**overrides) -> dict:
 def test_registry_pages():
     router_pages = {sid for sid, m in SOURCES.items() if "router" in m["pages"]}
     global_pages = {sid for sid, m in SOURCES.items() if "global" in m["pages"]}
-    assert router_pages == ALL_SELLERS - {"opencode", "deepinfra"}
+    assert router_pages == ALL_SELLERS - {"opencode", "deepinfra", "novita"}
     assert global_pages == ALL_SELLERS
     assert {m["sellerKind"] for m in SOURCES.values()} == set(SELLER_KINDS.values())
     assert {sid: m["sellerKind"] for sid, m in SOURCES.items()} == SELLER_KINDS
@@ -313,6 +316,105 @@ def test_deepinfra_adapter():
     assert "XiaomiMiMo/MiMo-V2.5-tts" not in by_id
 
 
+def test_novita_adapter():
+    """The committed Novita catalog sample normalizes to per-million-token
+    USD listings converted with the ECB rate; rows without prompt and
+    completion prices are skipped, not broken."""
+    fixture = ROOT / "fixtures" / "novita-models.json"
+    payload = json.loads(fixture.read_text(encoding="utf-8"))
+    with patch("sources.novita.fetch_json", return_value=payload):
+        listings = fetch_novita_listings({"usdPerEur": 2.0})
+    by_id = {listing["modelId"]: listing for listing in listings}
+    assert set(by_id) == {
+        "deepseek/deepseek-v4.1-flash-1017",
+        "minimax/minimax-m3",
+        "meta-llama/llama-3.3-70b-instruct",
+        "qwen/qwen3-omni-30b-a3b-thinking",
+    }
+
+    # Novita's pricing page quotes these same catalog rows as "$ per Mt":
+    # the price_per_m_decimal values pass through unmultiplied in dollars
+    # and the ECB rate converts them.
+    deepseek = by_id["deepseek/deepseek-v4.1-flash-1017"]
+    assert deepseek["key"] == "novita:deepseek/deepseek-v4.1-flash-1017"
+    assert deepseek["seller"] == "novita"
+    assert deepseek["sellerName"] == "Novita"
+    assert deepseek["name"] == "DeepSeek V4.1 Flash 1017"
+    assert deepseek["creator"] == "DeepSeek"
+    assert deepseek["contextSize"] == 1048576
+    assert deepseek["capabilities"] == {
+        "reasoning": True,
+        "tools": True,
+        "vision": True,
+        "audio": False,
+    }
+    assert deepseek["rates"]["nativeCurrency"] == "USD"
+    assert deepseek["rates"]["native"] == {
+        "input": 0.3,
+        "cached": 0.006,
+        "output": 1.2,
+    }
+    assert math.isclose(deepseek["rates"]["input"], 0.15)
+    assert math.isclose(deepseek["rates"]["cached"], 0.003)
+    assert math.isclose(deepseek["rates"]["output"], 0.6)
+    assert deepseek["rates"]["cachedFallback"] is False
+
+    # Tiered-billing rows keep the base (first-tier) rates the catalog's
+    # top-level pricing publishes; rows without an input_cache_read
+    # component fall back to the input rate.
+    minimax = by_id["minimax/minimax-m3"]
+    assert minimax["creator"] == "MiniMax AI"
+    assert minimax["rates"]["native"] == {
+        "input": 0.3,
+        "cached": 0.06,
+        "output": 1.2,
+    }
+    assert minimax["rates"]["cachedFallback"] is False
+    omni = by_id["qwen/qwen3-omni-30b-a3b-thinking"]
+    assert omni["creator"] == "Alibaba"
+    assert omni["rates"]["native"] == {
+        "input": 0.25,
+        "cached": 0.25,
+        "output": 0.97,
+    }
+    assert omni["rates"]["cachedFallback"] is True
+    assert omni["capabilities"]["audio"] is True
+    assert by_id["meta-llama/llama-3.3-70b-instruct"]["creator"] == "Meta"
+
+    assert all(
+        listing["rates"]["nativeCurrency"] == "USD" for listing in listings
+    )
+    assert all(
+        "Novita" in listing["priceNote"]
+        and "ECB" in listing["priceNote"]
+        for listing in listings
+    )
+    # A zero price is a price: zero-priced components normalize to zero
+    # rates, and rows without prompt and completion prices stay out of the
+    # token-priced listings.
+    zeros = _novita_rates(
+        {
+            "prompt": {"price_per_m_decimal": "0"},
+            "completion": {"price_per_m_decimal": "0"},
+            "input_cache_read": {"price_per_m_decimal": "0"},
+        },
+        2.0,
+    )
+    assert zeros["input"] == zeros["cached"] == zeros["output"] == 0
+    assert zeros["nativeCurrency"] == "USD"
+    assert zeros["cachedFallback"] is False
+    assert "bunny" not in by_id
+    # The integer price_per_m is the decimal quote in 1/10000 units; with
+    # no input_cache_read component the cached rate falls back to input.
+    integers = _novita_rates(
+        {"prompt": {"price_per_m": 3000}, "completion": {"price_per_m": 12000}},
+        2.0,
+    )
+    assert math.isclose(integers["native"]["input"], 0.3)
+    assert math.isclose(integers["native"]["output"], 1.2)
+    assert integers["cachedFallback"] is True
+
+
 def test_seven_day_seller_fallback():
     fetched_at = now_utc().isoformat()
     previous = {
@@ -334,7 +436,7 @@ def test_seven_day_seller_fallback():
 
 @contextmanager
 def _patch_adapters(**behaviors):
-    """Patch the build's ECB fetch and all nine listings adapters. Values
+    """Patch the build's ECB fetch and all ten listings adapters. Values
     are return values for `ok`, exceptions for failing sources."""
     ecb = behaviors.pop("ecb", {"usdPerEur": 1.1, "observationDate": "2026-10-16"})
     patches = [
@@ -522,6 +624,7 @@ def test_aggregate_contract():
     assert native_by_seller["openrouter"] == "USD"
     assert native_by_seller["opencode"] == "USD"
     assert native_by_seller["deepinfra"] == "USD"
+    assert native_by_seller["novita"] == "USD"
     assert {
         native_by_seller[sid]
         for sid in ("deepseek-direct", "zai-direct", "claude-direct", "openai-direct")
@@ -589,6 +692,7 @@ def test_generated_page():
         'data-seller="openrouter"',
         'data-seller="opencode"',
         'data-seller="deepinfra"',
+        'data-seller="novita"',
         'data-seller="deepseek-direct"',
         'data-seller="zai-direct"',
         'data-seller="claude-direct"',
@@ -661,6 +765,7 @@ def main():
     test_listing_from_offer()
     test_listing_notes_name_the_sellers_own_source()
     test_deepinfra_adapter()
+    test_novita_adapter()
     test_seven_day_seller_fallback()
     test_broken_source_fails_in_isolation()
     test_build_fails_only_without_usable_data()

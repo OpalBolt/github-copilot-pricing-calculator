@@ -1,0 +1,359 @@
+{
+  "data": [
+    {
+      "created": 1792375957,
+      "id": "deepseek/deepseek-v4.1-flash-1017",
+      "object": "model",
+      "owned_by": "novita",
+      "permission": null,
+      "root": "",
+      "parent": "",
+      "input_token_price_per_m": 3000,
+      "output_token_price_per_m": 12000,
+      "pricing": {
+        "prompt": {
+          "origin_price_per_m": 3000,
+          "price_per_m": 3000,
+          "origin_price_per_m_decimal": "0.3",
+          "price_per_m_decimal": "0.3"
+        },
+        "completion": {
+          "origin_price_per_m": 12000,
+          "price_per_m": 12000,
+          "origin_price_per_m_decimal": "1.2",
+          "price_per_m_decimal": "1.2"
+        },
+        "input_cache_read": {
+          "origin_price_per_m": 60,
+          "price_per_m": 60,
+          "origin_price_per_m_decimal": "0.006",
+          "price_per_m_decimal": "0.006"
+        }
+      },
+      "is_tiered_billing": false,
+      "title": "deepseek/deepseek-v4.1-flash-1017",
+      "description": "",
+      "tags": [],
+      "context_size": 1048576,
+      "status": 1,
+      "display_name": "DeepSeek V4.1 Flash 1017",
+      "model_type": "chat",
+      "max_output_tokens": 393216,
+      "features": [
+        "serverless",
+        "function-calling",
+        "structured-outputs",
+        "reasoning"
+      ],
+      "endpoints": [
+        "chat/completions",
+        "anthropic",
+        "responses"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ]
+    },
+    {
+      "created": 1780282959,
+      "id": "minimax/minimax-m3",
+      "object": "model",
+      "owned_by": "novita",
+      "permission": null,
+      "root": "",
+      "parent": "",
+      "input_token_price_per_m": 3000,
+      "output_token_price_per_m": 12000,
+      "pricing": {
+        "prompt": {
+          "origin_price_per_m": 3000,
+          "price_per_m": 3000,
+          "origin_price_per_m_decimal": "0.3",
+          "price_per_m_decimal": "0.3"
+        },
+        "completion": {
+          "origin_price_per_m": 12000,
+          "price_per_m": 12000,
+          "origin_price_per_m_decimal": "1.2",
+          "price_per_m_decimal": "1.2"
+        },
+        "input_cache_read": {
+          "origin_price_per_m": 600,
+          "price_per_m": 600,
+          "origin_price_per_m_decimal": "0.06",
+          "price_per_m_decimal": "0.06"
+        }
+      },
+      "is_tiered_billing": true,
+      "tiered_billing_configs": [
+        {
+          "min_tokens": 1,
+          "max_tokens": 524288,
+          "pricing": {
+            "prompt": {
+              "origin_price_per_m": 3000,
+              "price_per_m": 3000,
+              "origin_price_per_m_decimal": "0.3",
+              "price_per_m_decimal": "0.3"
+            },
+            "completion": {
+              "origin_price_per_m": 12000,
+              "price_per_m": 12000,
+              "origin_price_per_m_decimal": "1.2",
+              "price_per_m_decimal": "1.2"
+            },
+            "input_cache_read": {
+              "origin_price_per_m": 600,
+              "price_per_m": 600,
+              "origin_price_per_m_decimal": "0.06",
+              "price_per_m_decimal": "0.06"
+            }
+          }
+        },
+        {
+          "min_tokens": 524288,
+          "max_tokens": 1000000,
+          "pricing": {
+            "prompt": {
+              "origin_price_per_m": 6000,
+              "price_per_m": 6000,
+              "origin_price_per_m_decimal": "0.6",
+              "price_per_m_decimal": "0.6"
+            },
+            "completion": {
+              "origin_price_per_m": 24000,
+              "price_per_m": 24000,
+              "origin_price_per_m_decimal": "2.4",
+              "price_per_m_decimal": "2.4"
+            },
+            "input_cache_read": {
+              "origin_price_per_m": 1200,
+              "price_per_m": 1200,
+              "origin_price_per_m_decimal": "0.12",
+              "price_per_m_decimal": "0.12"
+            }
+          }
+        }
+      ],
+      "title": "minimax/minimax-m3",
+      "description": "",
+      "tags": [],
+      "context_size": 1000000,
+      "status": 1,
+      "display_name": "MiniMax M3",
+      "model_type": "chat",
+      "max_output_tokens": 131072,
+      "features": [
+        "serverless",
+        "function-calling",
+        "structured-outputs",
+        "reasoning"
+      ],
+      "endpoints": [
+        "chat/completions",
+        "anthropic"
+      ],
+      "input_modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "output_modalities": [
+        "text"
+      ]
+    },
+    {
+      "created": 1775817236,
+      "id": "bunny",
+      "object": "model",
+      "owned_by": "novita",
+      "permission": null,
+      "root": "",
+      "parent": "",
+      "input_token_price_per_m": 0,
+      "output_token_price_per_m": 0,
+      "is_tiered_billing": false,
+      "title": "bunny",
+      "description": "",
+      "tags": [],
+      "context_size": 262144,
+      "status": 1,
+      "display_name": "Bunny",
+      "model_type": "chat",
+      "max_output_tokens": 32768,
+      "features": [
+        "serverless",
+        "function-calling",
+        "structured-outputs"
+      ],
+      "endpoints": [
+        "chat/completions"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ]
+    },
+    {
+      "created": 1733560109,
+      "id": "meta-llama/llama-3.3-70b-instruct",
+      "object": "model",
+      "owned_by": "novita",
+      "permission": null,
+      "root": "",
+      "parent": "",
+      "input_token_price_per_m": 1350,
+      "output_token_price_per_m": 4000,
+      "pricing": {
+        "prompt": {
+          "origin_price_per_m": 1350,
+          "price_per_m": 1350,
+          "origin_price_per_m_decimal": "0.135",
+          "price_per_m_decimal": "0.135"
+        },
+        "completion": {
+          "origin_price_per_m": 4000,
+          "price_per_m": 4000,
+          "origin_price_per_m_decimal": "0.4",
+          "price_per_m_decimal": "0.4"
+        }
+      },
+      "is_tiered_billing": false,
+      "title": "meta-llama/llama-3.3-70b-instruct",
+      "description": "The Meta Llama 3.3 multilingual large language model (LLM) is a pretrained and instruction tuned generative model in 70B (text in/text out). The Llama 3.3 instruction tuned text only model is optimized for multilingual dialogue use cases and outperforms many of the available open source and closed chat models on common industry benchmarks.\n\nSupported languages: English, German, French, Italian, Portuguese, Hindi, Spanish, and Thai.",
+      "tags": [],
+      "context_size": 12288,
+      "status": 1,
+      "display_name": "Llama 3.3 70B Instruct",
+      "model_type": "chat",
+      "max_output_tokens": 12288,
+      "features": [
+        "function-calling",
+        "structured-outputs",
+        "serverless"
+      ],
+      "endpoints": [
+        "chat/completions",
+        "completions"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ]
+    },
+    {
+      "created": 1758695093,
+      "id": "qwen/qwen3-omni-30b-a3b-thinking",
+      "object": "model",
+      "owned_by": "novita",
+      "permission": null,
+      "root": "",
+      "parent": "",
+      "input_token_price_per_m": 2500,
+      "output_token_price_per_m": 9700,
+      "pricing": {
+        "prompt": {
+          "origin_price_per_m": 2500,
+          "price_per_m": 2500,
+          "origin_price_per_m_decimal": "0.25",
+          "price_per_m_decimal": "0.25"
+        },
+        "completion": {
+          "origin_price_per_m": 9700,
+          "price_per_m": 9700,
+          "origin_price_per_m_decimal": "0.97",
+          "price_per_m_decimal": "0.97"
+        },
+        "multimodal_input": [
+          {
+            "modals": [
+              "text"
+            ],
+            "input_token_base_price": 2500,
+            "input_token_discount_price": 2500
+          },
+          {
+            "modals": [
+              "audio"
+            ],
+            "input_token_base_price": 22000,
+            "input_token_discount_price": 22000
+          },
+          {
+            "modals": [
+              "image"
+            ],
+            "input_token_base_price": 4600,
+            "input_token_discount_price": 4600
+          },
+          {
+            "modals": [
+              "video"
+            ],
+            "input_token_base_price": 4600,
+            "input_token_discount_price": 4600
+          },
+          {
+            "modals": [
+              "image",
+              "video"
+            ],
+            "input_token_base_price": 4600,
+            "input_token_discount_price": 4600
+          }
+        ],
+        "multimodal_output": [
+          {
+            "modals": [
+              "text"
+            ],
+            "output_token_base_price": 9700,
+            "output_token_discount_price": 9700
+          },
+          {
+            "modals": [
+              "audio"
+            ],
+            "output_token_base_price": 17880,
+            "output_token_discount_price": 17880
+          }
+        ]
+      },
+      "is_tiered_billing": false,
+      "title": "qwen/qwen3-omni-30b-a3b-thinking",
+      "description": "The Qwen-Omni model accepts combined inputs of text and a single additional modality (image, audio, or video) to generate responses in text or speech. It offers a variety of human-like voices, supports speech output in multiple languages and dialects, and is suitable for applications such as text creation, visual recognition, and voice assistants",
+      "tags": [],
+      "context_size": 65536,
+      "status": 1,
+      "display_name": "Qwen3 Omni 30B A3B Thinking",
+      "model_type": "chat",
+      "max_output_tokens": 16384,
+      "features": [
+        "function-calling",
+        "structured-outputs",
+        "reasoning",
+        "serverless"
+      ],
+      "endpoints": [
+        "chat/completions"
+      ],
+      "input_modalities": [
+        "text",
+        "audio",
+        "video",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ]
+    }
+  ]
+}

@@ -43,7 +43,11 @@ OWNER_ALIASES = {
     "nvidia": "NVIDIA",
     "openai": "OpenAI",
     "qwen": "Alibaba",
+    # spill: slice 05 — Novita ids use the `sao10k/` prefix in both cases.
+    "sao10k": "Sao10K",
     "xiaomi": "Xiaomi",
+    # spill: slice 05 — Novita ids use the `xiaomimimo/` prefix.
+    "xiaomimimo": "XiaomiMiMo",
     "xai": "xAI",
     "zai": "Z.ai",
     # spill: slice 04 — DeepInfra ids use the `zai-org/` prefix.

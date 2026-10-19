@@ -16,6 +16,7 @@ from sources.claude_direct import CLAUDE_MODELS_URL, CLAUDE_PRICING_URL
 from sources.cortecs import CORTECS_URL
 from sources.deepinfra import DEEPINFRA_URL
 from sources.eurouter import EUROUTER_URL
+from sources.novita import NOVITA_URL
 from sources.openai_direct import OPENAI_MODELS_URL, OPENAI_PRICING_URL
 from sources.opencode import OPENCODE_ZEN_URL
 from sources.openrouter import OPENROUTER_URL
@@ -54,6 +55,14 @@ SOURCES = {
         "pages": ("global",),
         "sellerKind": "gateway",
         "source": DEEPINFRA_URL,
+        "nativeCurrency": "USD",
+        "euClaim": "No EU routing catalog is published.",
+    },
+    "novita": {
+        "name": "Novita",
+        "pages": ("global",),
+        "sellerKind": "gateway",
+        "source": NOVITA_URL,
         "nativeCurrency": "USD",
         "euClaim": "No EU routing catalog is published.",
     },
