@@ -1,0 +1,156 @@
+{
+  "object": "list",
+  "data": [
+    {
+      "context_window": 1048576,
+      "created": 1789084800,
+      "description": "DeepSeek's efficient MoE model with a 1M-token context window, image input, Engram memory, built-in speculative decoding, and tool calling",
+      "endpoints": [
+        "/v1/chat/completions",
+        "/v1/responses"
+      ],
+      "id": "deepseek-v4-1-flash",
+      "multimodal": true,
+      "name": "DeepSeek V4.1 Flash",
+      "object": "model",
+      "owned_by": "tinfoil",
+      "pricing": {
+        "cachedInputTokenPricePer1M": 0.13,
+        "inputTokenPricePer1M": 0.65,
+        "outputTokenPricePer1M": 1.45,
+        "requestPrice": 0
+      },
+      "reasoning": true,
+      "tool_calling": true,
+      "type": "chat"
+    },
+    {
+      "context_window": 131072,
+      "created": 1721764788,
+      "description": "High-performance multilingual language model optimized for dialogue",
+      "endpoints": [
+        "/v1/chat/completions"
+      ],
+      "id": "llama3-3-70b",
+      "multimodal": false,
+      "name": "Llama 3.3 70B",
+      "object": "model",
+      "owned_by": "tinfoil",
+      "pricing": {
+        "inputTokenPricePer1M": 1.75,
+        "outputTokenPricePer1M": 2.75,
+        "requestPrice": 0
+      },
+      "reasoning": false,
+      "tool_calling": true,
+      "type": "chat"
+    },
+    {
+      "context_window": 131072,
+      "created": 1737676800,
+      "description": "Safety reasoning model for content classification and trust & safety applications",
+      "endpoints": [
+        "/v1/chat/completions",
+        "/v1/responses"
+      ],
+      "id": "gpt-oss-safeguard-120b",
+      "multimodal": false,
+      "name": "GPT-OSS Safeguard 120B",
+      "object": "model",
+      "owned_by": "tinfoil",
+      "pricing": {
+        "inputTokenPricePer1M": 0.15,
+        "outputTokenPricePer1M": 0.6,
+        "requestPrice": 0
+      },
+      "reasoning": false,
+      "tool_calling": true,
+      "type": "safety"
+    },
+    {
+      "context_window": 8192,
+      "created": 1756512000,
+      "description": "PII span detection and redaction inside a secure enclave.",
+      "endpoints": [
+        "/redact"
+      ],
+      "id": "pii-filter",
+      "multimodal": false,
+      "name": "Privacy Filter",
+      "object": "model",
+      "owned_by": "tinfoil",
+      "pricing": {
+        "inputTokenPricePer1M": 0,
+        "outputTokenPricePer1M": 0,
+        "requestPrice": 0.005
+      },
+      "reasoning": false,
+      "tool_calling": false,
+      "type": "safety"
+    },
+    {
+      "context_window": 8192,
+      "created": 1713509298,
+      "description": "Open-source text embedding model that outperforms OpenAI models on key benchmarks",
+      "endpoints": [
+        "/v1/embeddings"
+      ],
+      "id": "nomic-embed-text",
+      "multimodal": false,
+      "name": "Nomic Embed Text",
+      "object": "model",
+      "owned_by": "tinfoil",
+      "pricing": {
+        "inputTokenPricePer1M": 0.05,
+        "outputTokenPricePer1M": 0,
+        "requestPrice": 0
+      },
+      "reasoning": false,
+      "tool_calling": false,
+      "type": "embedding"
+    },
+    {
+      "context_window": 32768,
+      "created": 1737590400,
+      "description": "Audio-capable model built on Mistral Small 3.1 for transcription, translation, and spoken queries",
+      "endpoints": [
+        "/v1/audio/transcriptions",
+        "/v1/audio/translations",
+        "/v1/chat/completions"
+      ],
+      "id": "voxtral-small-24b",
+      "multimodal": false,
+      "name": "Voxtral Small 24B",
+      "object": "model",
+      "owned_by": "tinfoil",
+      "pricing": {
+        "inputTokenPricePer1M": 0.2,
+        "outputTokenPricePer1M": 0.6,
+        "requestPrice": 0
+      },
+      "reasoning": false,
+      "tool_calling": false,
+      "type": "audio"
+    },
+    {
+      "created": 1716699056,
+      "description": "High-performance speech recognition and transcription model",
+      "endpoints": [
+        "/v1/audio/transcriptions"
+      ],
+      "id": "whisper-large-v3-turbo",
+      "multimodal": false,
+      "name": "Whisper Large V3 Turbo",
+      "object": "model",
+      "owned_by": "tinfoil",
+      "pricing": {
+        "inputTokenPricePer1M": 0,
+        "outputTokenPricePer1M": 0,
+        "requestPrice": 0.01
+      },
+      "reasoning": false,
+      "tool_calling": false,
+      "type": "audio"
+    }
+  ]
+}

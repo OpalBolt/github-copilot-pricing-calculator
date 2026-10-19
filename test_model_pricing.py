@@ -56,6 +56,13 @@ from sources.prime import (
     fetch_prime_listings,
 )
 from sources.requesty import _requesty_rates, fetch_requesty_listings
+from sources.tinfoil import (
+    _tinfoil_capabilities,
+    _tinfoil_is_chat_priced,
+    _tinfoil_owner,
+    _tinfoil_rates,
+    fetch_tinfoil_listings,
+)
 from sources.vercel_gateway import (
     _vercel_gateway_rates,
     fetch_vercel_gateway_listings,
@@ -95,6 +102,7 @@ ALL_SELLERS = {
     "ofox",
     "pioneer",
     "prime",
+    "tinfoil",
     "deepseek-direct",
     "zai-direct",
     "claude-direct",
@@ -127,6 +135,7 @@ SELLER_KINDS = {
     "ofox": "gateway",
     "pioneer": "gateway",
     "prime": "gateway",
+    "tinfoil": "gateway",
     "deepseek-direct": "first-party",
     "zai-direct": "first-party",
     "claude-direct": "first-party",
@@ -198,6 +207,7 @@ def test_registry_pages():
         "ofox",
         "pioneer",
         "prime",
+        "tinfoil",
     }
     assert global_pages == ALL_SELLERS
     assert {m["sellerKind"] for m in SOURCES.values()} == set(SELLER_KINDS.values())
@@ -3299,6 +3309,175 @@ def test_prime_adapter():
     assert _prime_is_text_output({"id": "gateway-only-model", "specs": None})
 
 
+def test_tinfoil_adapter():
+    """The committed Tinfoil catalog sample normalizes to per-million-token
+    USD listings converted with the ECB rate; per-request-billed rows and
+    the chat-endpoint-less embedding row are skipped, not broken."""
+    # Tinfoil bills in US dollars: its admin API documents that "Cost
+    # fields are reported in nanodollars (1000000000 = $1.00)", key spend
+    # caps are "in dollars", and request reconciliation reads "cost_usd"
+    # (docs.tinfoil.sh/admin/admin-api.md). It hosts "a range of
+    # open-source AI models" in its own secure enclaves (docs.tinfoil.sh/
+    # models/overview.md) — a hosted inference platform, not a router — so
+    # the registry records sellerKind gateway, that verified native
+    # currency, and the global page only.
+    assert SOURCES["tinfoil"]["nativeCurrency"] == "USD"
+    assert SOURCES["tinfoil"]["pages"] == ("global",)
+    assert SOURCES["tinfoil"]["sellerKind"] == "gateway"
+
+    fixture = ROOT / "fixtures" / "tinfoil-models.json"
+    payload = json.loads(fixture.read_text(encoding="utf-8"))
+    with patch("sources.tinfoil.fetch_json", return_value=payload):
+        listings = fetch_tinfoil_listings({"usdPerEur": 2.0})
+    by_id = {listing["modelId"]: listing for listing in listings}
+    assert set(by_id) == {
+        "deepseek-v4-1-flash",
+        "llama3-3-70b",
+        "gpt-oss-safeguard-120b",
+        "voxtral-small-24b",
+    }
+
+    # The catalog's price fields are named *TokenPricePer1M — already
+    # dollars per 1M tokens — so the rates pass through unmultiplied and
+    # the ECB rate converts them.
+    deepseek = by_id["deepseek-v4-1-flash"]
+    assert deepseek["key"] == "tinfoil:deepseek-v4-1-flash"
+    assert deepseek["seller"] == "tinfoil"
+    assert deepseek["sellerName"] == "Tinfoil"
+    assert deepseek["name"] == "DeepSeek V4.1 Flash"
+    assert deepseek["creator"] == "Tinfoil"
+    assert deepseek["contextSize"] == 1_048_576
+    assert deepseek["pricingTiers"] == []
+    assert deepseek["rates"]["nativeCurrency"] == "USD"
+    assert deepseek["rates"]["native"] == {
+        "input": 0.65,
+        "cached": 0.13,
+        "output": 1.45,
+    }
+    assert math.isclose(deepseek["rates"]["input"], 0.325)
+    assert math.isclose(deepseek["rates"]["cached"], 0.065)
+    assert math.isclose(deepseek["rates"]["output"], 0.725)
+    assert deepseek["rates"]["cachedFallback"] is False
+    # The catalog's declared flags drive the capabilities: multimodal
+    # marks image input and tool_calling names the tools capability.
+    assert deepseek["capabilities"] == {
+        "reasoning": True,
+        "tools": True,
+        "vision": True,
+        "audio": False,
+    }
+
+    # A missing cachedInputTokenPricePer1M falls back to the input rate.
+    llama = by_id["llama3-3-70b"]
+    assert llama["rates"]["native"] == {
+        "input": 1.75,
+        "cached": 1.75,
+        "output": 2.75,
+    }
+    assert llama["rates"]["cachedFallback"] is True
+    assert llama["capabilities"]["vision"] is False
+
+    # The audio-typed row ships on its chat endpoint and per-token prices;
+    # the audio model type marks the audio capability.
+    voxtral = by_id["voxtral-small-24b"]
+    assert voxtral["capabilities"]["audio"] is True
+    assert voxtral["contextSize"] == 32768
+    assert voxtral["rates"]["native"] == {
+        "input": 0.2,
+        "cached": 0.2,
+        "output": 0.6,
+    }
+
+    assert all(
+        listing["rates"]["nativeCurrency"] == "USD" for listing in listings
+    )
+    assert all(
+        "Tinfoil" in listing["priceNote"] and "ECB" in listing["priceNote"]
+        for listing in listings
+    )
+
+    # A zero price is a price: zero token fields normalize to zero rates
+    # instead of dropping out.
+    zeros = _tinfoil_rates(
+        {
+            "pricing": {
+                "inputTokenPricePer1M": 0,
+                "cachedInputTokenPricePer1M": 0,
+                "outputTokenPricePer1M": 0,
+                "requestPrice": 0,
+            }
+        },
+        2.0,
+    )
+    assert zeros["input"] == zeros["cached"] == zeros["output"] == 0
+    assert zeros["nativeCurrency"] == "USD"
+    assert zeros["cachedFallback"] is False
+    # Rows without published input and output prices are not
+    # per-million-token priced and stay out of the listings.
+    try:
+        _tinfoil_rates({"pricing": {}}, 2.0)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("missing per-1M prices should skip the row")
+
+    # Per-request-billed rows (privacy filter, document processing, web
+    # search, transcription, TTS, realtime) and the chat-endpoint-less
+    # embedding row are not per-token chat usage; a safeguard-typed row
+    # with a chat endpoint stays in.
+    assert not _tinfoil_is_chat_priced(
+        {
+            "id": "pii-filter",
+            "pricing": {
+                "inputTokenPricePer1M": 0,
+                "outputTokenPricePer1M": 0,
+                "requestPrice": 0.005,
+            },
+            "endpoints": ["/v1/chat/completions"],
+        }
+    )
+    assert not _tinfoil_is_chat_priced(
+        {
+            "id": "nomic-embed-text",
+            "pricing": {
+                "inputTokenPricePer1M": 0.05,
+                "outputTokenPricePer1M": 0,
+                "requestPrice": 0,
+            },
+            "endpoints": ["/v1/embeddings"],
+        }
+    )
+    assert _tinfoil_is_chat_priced(
+        {
+            "id": "gpt-oss-safeguard-120b",
+            "pricing": {"inputTokenPricePer1M": 0.15, "requestPrice": 0},
+            "endpoints": ["/v1/chat/completions"],
+        }
+    )
+
+    # The catalog names every row owned_by the serving platform, so rows
+    # attribute to Tinfoil's display name instead of a bare platform
+    # string.
+    assert _tinfoil_owner({"owned_by": "tinfoil"}) == "Tinfoil"
+    assert _tinfoil_owner({"owned_by": ""}) == "Tinfoil"
+
+    # The declared flags drive the capability derivation the shared
+    # helper cannot read from this catalog's shape.
+    assert _tinfoil_capabilities(
+        {
+            "reasoning": True,
+            "tool_calling": True,
+            "multimodal": True,
+            "type": "chat",
+        }
+    ) == {
+        "reasoning": True,
+        "tools": True,
+        "vision": True,
+        "audio": False,
+    }
+
+
 def test_seven_day_seller_fallback():
     fetched_at = now_utc().isoformat()
     previous = {
@@ -3537,6 +3716,7 @@ def test_aggregate_contract():
     assert native_by_seller["ofox"] == "USD"
     assert native_by_seller["pioneer"] == "USD"
     assert native_by_seller["prime"] == "USD"
+    assert native_by_seller["tinfoil"] == "USD"
     assert {
         native_by_seller[sid]
         for sid in ("deepseek-direct", "zai-direct", "claude-direct", "openai-direct")
@@ -3625,6 +3805,7 @@ def test_generated_page():
         'data-seller="ofox"',
         'data-seller="pioneer"',
         'data-seller="prime"',
+        'data-seller="tinfoil"',
         'data-seller="deepseek-direct"',
         'data-seller="zai-direct"',
         'data-seller="claude-direct"',

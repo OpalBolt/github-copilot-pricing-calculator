@@ -39,6 +39,7 @@ from sources.opencode import OPENCODE_ZEN_URL
 from sources.openrouter import OPENROUTER_URL
 from sources.prime import PRIME_URL
 from sources.requesty import REQUESTY_URL
+from sources.tinfoil import TINFOIL_URL
 from sources.vercel_gateway import VERCEL_GATEWAY_URL
 
 SOURCES = {
@@ -372,6 +373,23 @@ SOURCES = {
         # It bills US dollars: "Currently, most billing occurs in USD"
         # (docs.primeintellect.ai/faq.md), and every catalog price field
         # names the unit USD per million tokens (input_usd_per_mtok).
+        "nativeCurrency": "USD",
+        "euClaim": "No EU routing catalog is published.",
+    },
+    "tinfoil": {
+        "name": "Tinfoil",
+        "pages": ("global",),
+        "sellerKind": "gateway",
+        "source": TINFOIL_URL,
+        # Tinfoil self-describes as "a private AI platform" whose inference
+        # platform "supports an OpenAI-compatible API for a variety of
+        # open-source models" hosted in its own secure enclaves (docs.
+        # tinfoil.sh/introduction.md, docs.tinfoil.sh/models/overview.md)
+        # — a hosted inference platform, not a router. It bills US dollars:
+        # its admin API documents that "Cost fields are reported in
+        # nanodollars (1000000000 = $1.00)", key spend caps are "in
+        # dollars", and request reconciliation reads "cost_usd" (docs.
+        # tinfoil.sh/admin/admin-api.md).
         "nativeCurrency": "USD",
         "euClaim": "No EU routing catalog is published.",
     },
