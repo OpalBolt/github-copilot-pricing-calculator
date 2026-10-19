@@ -1,0 +1,48 @@
+provider         verdict           models  currency   url
+----------------------------------------------------------------------------------------------------
+openrouter       LIVE-PRICED          471  -          https://openrouter.ai/api/v1/models
+cortecs          LIVE-PRICED          105  EUR        https://api.cortecs.ai/v1/models?extended=true&currency=EUR
+eurouter         LIVE-PRICED          152  EUR        https://api.eurouter.ai/api/v1/models
+zen              LIVE-NO-PRICES        85  -          https://opencode.ai/zen/v1/models - We will use models.dev as that is opencodes own resource
+deepinfra        LIVE-PRICED          180  -          https://api.deepinfra.com/v1/models
+novita           LIVE-PRICED           96  -          https://api.novita.ai/v3/openai/models
+requesty         LIVE-PRICED          799  -          https://router.requesty.ai/v1/models
+nano-gpt-basic   LIVE-NO-PRICES       663  -          https://nano-gpt.com/v1/models - You found the solution!
+nano-gpt         LIVE-PRICED          663  USD        https://nano-gpt.com/api/v1/models?detailed=true
+vercel-gateway   LIVE-PRICED          476  -          https://ai-gateway.vercel.sh/v1/models
+kilo             LIVE-PRICED          402  -          https://api.kilo.ai/api/gateway/models
+chutes           LIVE-PRICED           14  -          https://llm.chutes.ai/v1/models
+llmgateway       LIVE-PRICED          299  -          https://api.llmgateway.io/v1/models
+aiand            JSON-NO-CATALOG        0  -          https://api.aiand.com/v1/api.json - https://api.aiand.com/v1/models provides models and prices.
+aimlapi          LIVE-PRICED          939  USD        https://api.aimlapi.com/v1/models?include=pricing,modalities
+ambient          LIVE-PRICED            9  -          https://api.ambient.xyz/v1/models
+anthropic        AUTH-REQUIRED          0  -          https://api.anthropic.com/v1/models - We are already pulling this via markdown i beleive, if not then we should: https://platform.claude.com/docs/en/about-claude/pricing.md
+baseten          AUTH-REQUIRED          0  -          https://inference.baseten.co/v1/models - Lets skip this one.
+crossmodel       LIVE-PRICED           75  USD        https://www.crossmodel.ai/api/models
+digitalocean     AUTH-REQUIRED          0  -          https://api.digitalocean.com/v2/gen-ai/models?per_page=200 - Lets skip this one.
+edenai           LIVE-PRICED         1204  -          https://api.edenai.run/v3/models
+empiriolabs      LIVE-PRICED          211  -          https://api.empiriolabs.ai/v1/models
+engy             LIVE-PRICED            9  -          https://api.engy.ai/v1/models
+friendli         LIVE-PRICED            7  -          https://api.friendli.ai/serverless/v1/models
+github-copilot-yml NOT-JSON               0  -          https://raw.githubusercontent.com/github/docs/main/data/tables/copilot/models-and-pricing.yml - We are already scraping this one.
+google           AUTH-REQUIRED          0  -          https://generativelanguage.googleapis.com/v1beta/models
+huggingface      LIVE-NO-PRICES       136  -          https://router.huggingface.co/v1/models - Lets skip this one.
+hyper            LIVE-PRICED           22  -          https://hyper.charm.land/v1/models
+inceptron        LIVE-PRICED            6  -          https://api.inceptron.io/v1/models
+merge-gateway    AUTH-REQUIRED          0  -          https://api-gateway.merge.dev/v1/models - We will skip this one as well.
+meta-docs        NOT-JSON               0  -          https://dev.meta.ai/docs/pricing-rate-limits.md - Lets see if we can scrape the markdown
+mistral          AUTH-REQUIRED          0  -          https://api.mistral.ai/v1/models - I will provide a API key via the env.
+nearai           LIVE-PRICED           59  USD        https://cloud-api.near.ai/v1/models
+ofox             LIVE-PRICED          165  -          https://api.ofox.ai/v2/models/catalog?include=provider_price&limit=500
+ollama-cloud     LIVE-NO-PRICES        22  -          https://ollama.com/v1/models - Lets skip this one.
+openai           AUTH-REQUIRED          0  -          https://api.openai.com/v1/models - I believe we are already scraping data from md files?
+pioneer          LIVE-PRICED           14  -          https://api.fastino.ai/v1/models
+prime            LIVE-PRICED          131  -          https://api.pinference.ai/api/v1/models
+tinfoil          LIVE-PRICED           16  -          https://inference.tinfoil.sh/v1/models
+venice           LIVE-PRICED          136  -          https://api.venice.ai/api/v1/models?type=text
+wandb            JSON-NO-CATALOG        0  -          https://trace.wandb.ai/inference/modelsdev/models - Lets skip this one.
+xai              AUTH-REQUIRED          0  -          https://api.x.ai/v1/models - Lets scrape the MD version: https://docs.x.ai/developers/pricing.md
+together         AUTH-REQUIRED          0  -          https://api.together.xyz/v1/models - Skip this
+groq             AUTH-REQUIRED          0  -          https://api.groq.com/openai/v1/models - Scraped via xai
+fireworks        AUTH-REQUIRED          0  -          https://api.fireworks.ai/inference/v1/models - Skip this.
+

@@ -1,8 +1,12 @@
-# Router Pricing
+# Pricing Calculators
 
-This context compares model prices across customer-facing AI routing services. It keeps router offers separate and describes where inference runs.
+This glossary serves the site's price comparison tools. It keeps router offers separate from direct model listings, and it fixes where prices come from.
 
-## Language
+## Router Pricing
+
+This calculator compares model prices across customer-facing AI routing services with EU routing as its identity.
+
+### Language
 
 **Router**:
 A customer-facing service that sells access to models and selects an inference backend. Cortecs, EUrouter, and OpenRouter are routers.
@@ -51,3 +55,21 @@ _Avoid_: Current data, fresh data
 **Listed availability**:
 A Router Model published by its router at the recorded fetch time. It does not guarantee live capacity, account access, or request-time routing.
 _Avoid_: Available now, live availability
+
+## Model Pricing
+
+This calculator compares model listings from every Seller the build can query directly: routers, gateways, and first-party APIs.
+
+### Language
+
+**Seller**:
+A service whose live model catalog or pricing docs the calculator fetches directly. Routers, gateways, and first-party APIs are Sellers.
+_Avoid_: Provider, vendor, marketplace
+
+**Model Listing**:
+One model row published by one Seller. The same model on two Sellers is two Model Listings.
+_Avoid_: Offer, row, model offer
+
+**Usage ranking**:
+OpenRouter's daily ranking of most-used models, fetched with a key. It selects the default view only and is never a price source.
+_Avoid_: Popularity list, trending models
