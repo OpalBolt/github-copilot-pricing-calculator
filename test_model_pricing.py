@@ -18,6 +18,7 @@ from sources.ambient import _ambient_rates, fetch_ambient_listings
 from sources.chutes import _chutes_rates, fetch_chutes_listings
 from sources.crossmodel import _crossmodel_rates, fetch_crossmodel_listings
 from sources.deepinfra import _deepinfra_rates, fetch_deepinfra_listings
+from sources.edenai import _edenai_rates, fetch_edenai_listings
 from sources.eurouter import fetch_eurouter_listings
 from sources.helpers import _rates, listing_from_offer, now_utc
 from sources.kilo import _kilo_rates, fetch_kilo_listings
@@ -55,6 +56,7 @@ ALL_SELLERS = {
     "aimlapi",
     "ambient",
     "crossmodel",
+    "edenai",
     "deepseek-direct",
     "zai-direct",
     "claude-direct",
@@ -77,6 +79,7 @@ SELLER_KINDS = {
     "aimlapi": "gateway",
     "ambient": "gateway",
     "crossmodel": "gateway",
+    "edenai": "gateway",
     "deepseek-direct": "first-party",
     "zai-direct": "first-party",
     "claude-direct": "first-party",
@@ -138,6 +141,7 @@ def test_registry_pages():
         "aimlapi",
         "ambient",
         "crossmodel",
+        "edenai",
     }
     assert global_pages == ALL_SELLERS
     assert {m["sellerKind"] for m in SOURCES.values()} == set(SELLER_KINDS.values())
@@ -1709,6 +1713,192 @@ def test_crossmodel_adapter():
         raise AssertionError("missing pricing should skip the row")
 
 
+def test_edenai_adapter():
+    """The committed Eden AI catalog sample normalizes its per-token USD
+    prices into per-million listings converted with the ECB rate; the
+    billed discounted prices win over list_pricing and zero prices are
+    kept."""
+    # Eden AI bills a prepaid credit balance in US dollars ("Every API
+    # response includes a cost field showing the charge in USD for that
+    # request", edenai.co/docs/v3/general/buying-credits); the registry
+    # records that verified native currency, and the catalog feeds the
+    # global page only.
+    assert SOURCES["edenai"]["nativeCurrency"] == "USD"
+    assert SOURCES["edenai"]["pages"] == ("global",)
+    assert SOURCES["edenai"]["sellerKind"] == "gateway"
+
+    fixture = ROOT / "fixtures" / "edenai-models.json"
+    payload = json.loads(fixture.read_text(encoding="utf-8"))
+    with patch("sources.edenai.fetch_json", return_value=payload):
+        listings = fetch_edenai_listings({"usdPerEur": 2.0})
+    by_id = {listing["modelId"]: listing for listing in listings}
+    assert set(by_id) == {
+        "minimax/MiniMax-M3.1-Flash",
+        "cohere/c4ai-aya-expanse-32b",
+        "qwen/deepseek-v4.1-flash-1017",
+        "google/gemini-4-argon",
+        "together_ai/together/Tev1-4B-experimental",
+        "google/gemma-4-31b-it",
+        "google/gemini-pro-latest",
+        "google/gemini-3.1-flash-lite-image",
+    }
+
+    # The catalog's *_cost_per_token fields are per-token amounts (the
+    # model-listing doc's "input_cost_per_token": 1.5e-06 sample), so the
+    # rates scale by 1,000,000 in dollars and the ECB rate converts them.
+    minimax = by_id["minimax/MiniMax-M3.1-Flash"]
+    assert minimax["key"] == "edenai:minimax/MiniMax-M3.1-Flash"
+    assert minimax["seller"] == "edenai"
+    assert minimax["sellerName"] == "Eden AI"
+    assert minimax["name"] == "MiniMax-M3.1-Flash"
+    assert minimax["creator"] == "MiniMax AI"
+    assert minimax["contextSize"] is None
+    assert minimax["pricingTiers"] == []
+    assert minimax["rates"]["nativeCurrency"] == "USD"
+    assert minimax["rates"]["native"] == {
+        "input": 0.15,
+        "cached": 0.015,
+        "output": 0.6,
+    }
+    assert math.isclose(minimax["rates"]["input"], 0.075)
+    assert math.isclose(minimax["rates"]["cached"], 0.0075)
+    assert math.isclose(minimax["rates"]["output"], 0.3)
+    assert minimax["rates"]["cachedFallback"] is False
+    assert minimax["capabilities"] == {
+        "reasoning": False,
+        "tools": False,
+        "vision": False,
+        "audio": False,
+    }
+
+    # Rows without cache_read_input_token_cost fall back to the input
+    # rate, and an owned_by outside the alias table passes through
+    # unaliased.
+    aya = by_id["cohere/c4ai-aya-expanse-32b"]
+    assert aya["creator"] == "cohere"
+    assert aya["rates"]["native"] == {"input": 0.5, "cached": 0.5, "output": 1.5}
+    assert aya["rates"]["cachedFallback"] is True
+
+    # Discounted rows bill `pricing` — `discount` is the fraction off
+    # `list_pricing` — so the billed 65% rates convert, not the list
+    # rates, and the catalog's audio, image, reasoning, and grounding
+    # price fields stay out of the text-token rates.
+    flash = by_id["qwen/deepseek-v4.1-flash-1017"]
+    assert flash["creator"] == "Alibaba"
+    assert math.isclose(flash["rates"]["native"]["input"], 0.0975)
+    assert math.isclose(flash["rates"]["native"]["output"], 0.39)
+    assert math.isclose(flash["rates"]["native"]["cached"], 0.00975)
+    argon = by_id["google/gemini-4-argon"]
+    assert argon["rates"]["native"] == {
+        "input": 2.0,
+        "cached": 0.1,
+        "output": 10.0,
+    }
+    assert argon["contextSize"] == 1_048_576
+    assert argon["capabilities"] == {
+        "reasoning": True,
+        "tools": True,
+        "vision": True,
+        "audio": True,
+    }
+
+    # A zero price is a price: the free rows normalize to zero rates
+    # instead of dropping out.
+    tev1 = by_id["together_ai/together/Tev1-4B-experimental"]
+    assert tev1["rates"]["native"] == {
+        "input": 0.042,
+        "cached": 0.042,
+        "output": 0,
+    }
+    assert tev1["rates"]["cachedFallback"] is True
+    free = by_id["google/gemma-4-31b-it"]
+    assert free["rates"]["native"] == {"input": 0, "cached": 0, "output": 0}
+    assert free["capabilities"] == {
+        "reasoning": True,
+        "tools": True,
+        "vision": True,
+        "audio": False,
+    }
+
+    # Alias rows (alias_of set) list like any other endpoint.
+    alias = by_id["google/gemini-pro-latest"]
+    assert alias["rates"]["native"] == {
+        "input": 2.0,
+        "cached": 0.1,
+        "output": 10.0,
+    }
+
+    # Image-and-text output rows still list: the published
+    # output_cost_per_token prices their text tokens.
+    image = by_id["google/gemini-3.1-flash-lite-image"]
+    assert image["rates"]["native"] == {
+        "input": 0.25,
+        "cached": 0.25,
+        "output": 1.5,
+    }
+    assert image["capabilities"] == {
+        "reasoning": True,
+        "tools": False,
+        "vision": True,
+        "audio": False,
+    }
+
+    # Image-only rows stay out even with per-token prices published: no
+    # "text" in output_modalities means no token-priced listing.
+    assert "black-forest-labs/flux-2-pro" not in by_id
+
+    assert all(
+        listing["rates"]["nativeCurrency"] == "USD" for listing in listings
+    )
+    assert all(
+        "Eden AI" in listing["priceNote"] and "ECB" in listing["priceNote"]
+        for listing in listings
+    )
+    zeros = _edenai_rates(
+        {
+            "pricing": {
+                "input_cost_per_token": 0,
+                "output_cost_per_token": 0,
+                "cache_read_input_token_cost": 0,
+            }
+        },
+        2.0,
+    )
+    assert zeros["input"] == zeros["cached"] == zeros["output"] == 0
+    assert zeros["nativeCurrency"] == "USD"
+    assert zeros["cachedFallback"] is False
+    # Rows without per-token input and output prices are not
+    # per-million-token priced and stay out of the listings.
+    try:
+        _edenai_rates({"pricing": {"input_cost_per_token": 1e-06}}, 2.0)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("missing per-token prices should skip the row")
+    # The live catalog repeats a few ids with differing rows; the listing
+    # key is the id, so only the first repeat survives the dedup.
+    repeated = {"object": "list", "data": [payload["data"][0], payload["data"][0]]}
+    with patch("sources.edenai.fetch_json", return_value=repeated):
+        assert len(fetch_edenai_listings({"usdPerEur": 2.0})) == 1
+    # Differing repeats are first-wins: the re-priced duplicate never
+    # overwrites the first row's rates.
+    first = payload["data"][0]
+    repriced = {
+        **first,
+        "pricing": {
+            **first["pricing"],
+            "input_cost_per_token": first["pricing"]["input_cost_per_token"]
+            * 10,
+        },
+    }
+    conflicting = {"object": "list", "data": [first, repriced]}
+    with patch("sources.edenai.fetch_json", return_value=conflicting):
+        kept = fetch_edenai_listings({"usdPerEur": 2.0})
+    assert len(kept) == 1
+    assert kept[0]["modelId"] == first["id"]
+    assert kept[0]["rates"]["native"]["input"] == 0.15
+
+
 def test_seven_day_seller_fallback():
     fetched_at = now_utc().isoformat()
     previous = {
@@ -1730,8 +1920,8 @@ def test_seven_day_seller_fallback():
 
 @contextmanager
 def _patch_adapters(**behaviors):
-    """Patch the build's ECB fetch and all nineteen listings adapters. Values
-    are return values for `ok`, exceptions for failing sources."""
+    """Patch the build's ECB fetch and every registered listings adapter.
+    Values are return values for `ok`, exceptions for failing sources."""
     ecb = behaviors.pop("ecb", {"usdPerEur": 1.1, "observationDate": "2026-10-16"})
     patches = [
         patch.object(fetch_model_pricing, "fetch_ecb_rate", **ecb),
@@ -1890,9 +2080,11 @@ def test_aggregate_contract():
         if rates["cachedFallback"]:
             assert rates["cached"] == rates["input"]
     assert all(count > 0 for count in counts.values())
-    # Requesty's catalog is the site's biggest at ~800 rows; OpenRouter's
-    # is the biggest of the routers.
-    assert counts["requesty"] == max(counts.values())
+    # Eden AI's endpoint view lists one row per selling provider, so its
+    # catalog is the site's biggest; Requesty's is the next biggest and
+    # OpenRouter's the biggest of the routers.
+    assert counts["edenai"] == max(counts.values())
+    assert counts["edenai"] > 1000
     assert counts["requesty"] > 400
     assert counts["nano-gpt"] > 600
     assert counts["openrouter"] > 100
@@ -1933,6 +2125,7 @@ def test_aggregate_contract():
     assert native_by_seller["aimlapi"] == "USD"
     assert native_by_seller["ambient"] == "USD"
     assert native_by_seller["crossmodel"] == "USD"
+    assert native_by_seller["edenai"] == "USD"
     assert {
         native_by_seller[sid]
         for sid in ("deepseek-direct", "zai-direct", "claude-direct", "openai-direct")
@@ -2011,6 +2204,7 @@ def test_generated_page():
         'data-seller="aimlapi"',
         'data-seller="ambient"',
         'data-seller="crossmodel"',
+        'data-seller="edenai"',
         'data-seller="deepseek-direct"',
         'data-seller="zai-direct"',
         'data-seller="claude-direct"',
@@ -2094,6 +2288,7 @@ def main():
     test_aimlapi_adapter()
     test_ambient_adapter()
     test_crossmodel_adapter()
+    test_edenai_adapter()
     test_seven_day_seller_fallback()
     test_broken_source_fails_in_isolation()
     test_build_fails_only_without_usable_data()

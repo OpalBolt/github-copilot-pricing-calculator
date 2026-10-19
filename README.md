@@ -107,6 +107,7 @@ The router build uses these sources:
 | AI/ML API catalog | `https://api.aimlapi.com/v1/models?include=pricing,modalities` |
 | Ambient catalog | `https://api.ambient.xyz/v1/models` |
 | Crossmodel catalog | `https://www.crossmodel.ai/api/models` |
+| Eden AI catalog | `https://api.edenai.run/v3/models` |
 | Claude model catalog | `https://platform.claude.com/docs/en/api/http/beta/models/list.md` |
 | Claude direct API pricing | `https://platform.claude.com/docs/en/about-claude/pricing.md` |
 | DeepSeek direct API | `https://api-docs.deepseek.com/quick_start/pricing/` |

@@ -20,6 +20,7 @@ from sources.chutes import CHUTES_URL
 from sources.cortecs import CORTECS_URL
 from sources.crossmodel import CROSSMODEL_URL
 from sources.deepinfra import DEEPINFRA_URL
+from sources.edenai import EDENAI_URL
 from sources.eurouter import EUROUTER_URL
 from sources.kilo import KILO_URL
 from sources.llm_gateway import LLM_GATEWAY_URL
@@ -200,6 +201,23 @@ SOURCES = {
         # "USD".
         "nativeCurrency": "USD",
         "euClaim": "No EU routing catalog is published.",
+    },
+    "edenai": {
+        "name": "Eden AI",
+        "pages": ("global",),
+        "sellerKind": "gateway",
+        "source": EDENAI_URL,
+        # Eden AI self-describes as "One API to Route Best AI Models"
+        # (edenai.co) — a multi-provider gateway, not a router. It bills a
+        # prepaid credit balance in US dollars: "Every API response
+        # includes a cost field showing the charge in USD for that
+        # request" and "This is the amount in USD deducted from your
+        # balance for that request" (edenai.co/docs/v3/general/
+        # buying-credits), and monthly statements cover "one UTC calendar
+        # month, in USD" (edenai.co/docs/v3/general/usage-statements).
+        "nativeCurrency": "USD",
+        "euClaim": "EU data-residency endpoint documented; no EU routing "
+        "catalog.",
     },
     "deepseek-direct": {
         "name": "DeepSeek API",
