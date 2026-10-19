@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-19T18:09:25.772316+00:00",
+  "generatedAt": "2026-10-19T18:37:36.467127+00:00",
   "currency": "EUR",
   "exchangeRate": {
     "series": "EXR.D.USD.EUR.SP00.A",
@@ -15,7 +15,7 @@
       "source": "https://api.cortecs.ai/v1/models?extended=true&currency=EUR",
       "id": "cortecs",
       "nativeCurrency": "EUR",
-      "fetchedAt": "2026-10-19T18:09:25.772316+00:00",
+      "fetchedAt": "2026-10-19T18:37:36.467127+00:00",
       "stale": false
     },
     {
@@ -24,7 +24,7 @@
       "source": "https://api.eurouter.ai/api/v1/models",
       "id": "eurouter",
       "nativeCurrency": "mixed",
-      "fetchedAt": "2026-10-19T18:09:25.772316+00:00",
+      "fetchedAt": "2026-10-19T18:37:36.467127+00:00",
       "stale": false
     },
     {
@@ -33,7 +33,7 @@
       "source": "https://openrouter.ai/api/v1/models",
       "id": "openrouter",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T18:09:25.772316+00:00",
+      "fetchedAt": "2026-10-19T18:37:36.467127+00:00",
       "stale": false
     },
     {
@@ -42,7 +42,7 @@
       "source": "https://opencode.ai/zen/v1/models",
       "id": "opencode",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T18:09:25.772316+00:00",
+      "fetchedAt": "2026-10-19T18:37:36.467127+00:00",
       "stale": false
     },
     {
@@ -51,7 +51,7 @@
       "source": "https://api.deepinfra.com/v1/models",
       "nativeCurrency": "USD",
       "id": "deepinfra",
-      "fetchedAt": "2026-10-19T18:09:25.772316+00:00",
+      "fetchedAt": "2026-10-19T18:37:36.467127+00:00",
       "stale": false
     },
     {
@@ -60,7 +60,7 @@
       "source": "https://api.novita.ai/v3/openai/models",
       "nativeCurrency": "USD",
       "id": "novita",
-      "fetchedAt": "2026-10-19T18:09:25.772316+00:00",
+      "fetchedAt": "2026-10-19T18:37:36.467127+00:00",
       "stale": false
     },
     {
@@ -69,7 +69,7 @@
       "source": "https://router.requesty.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "requesty",
-      "fetchedAt": "2026-10-19T18:09:25.772316+00:00",
+      "fetchedAt": "2026-10-19T18:37:36.467127+00:00",
       "stale": false
     },
     {
@@ -78,7 +78,7 @@
       "source": "https://ai-gateway.vercel.sh/v1/models",
       "nativeCurrency": "USD",
       "id": "vercel-gateway",
-      "fetchedAt": "2026-10-19T18:09:25.772316+00:00",
+      "fetchedAt": "2026-10-19T18:37:36.467127+00:00",
       "stale": false
     },
     {
@@ -87,7 +87,7 @@
       "source": "https://api.kilo.ai/api/gateway/models",
       "nativeCurrency": "USD",
       "id": "kilo",
-      "fetchedAt": "2026-10-19T18:09:25.772316+00:00",
+      "fetchedAt": "2026-10-19T18:37:36.467127+00:00",
       "stale": false
     },
     {
@@ -96,7 +96,7 @@
       "source": "https://nano-gpt.com/api/v1/models?detailed=true",
       "nativeCurrency": "USD",
       "id": "nano-gpt",
-      "fetchedAt": "2026-10-19T18:09:25.772316+00:00",
+      "fetchedAt": "2026-10-19T18:37:36.467127+00:00",
       "stale": false
     },
     {
@@ -105,7 +105,7 @@
       "source": "https://llm.chutes.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "chutes",
-      "fetchedAt": "2026-10-19T18:09:25.772316+00:00",
+      "fetchedAt": "2026-10-19T18:37:36.467127+00:00",
       "stale": false
     },
     {
@@ -114,8 +114,10 @@
       "source": "https://api.llmgateway.io/v1/models",
       "nativeCurrency": "USD",
       "id": "llmgateway",
-      "fetchedAt": "2026-10-19T18:09:25.772316+00:00",
-      "stale": false
+      "fetchedAt": "2026-10-19T18:21:52.284067+00:00",
+      "stale": true,
+      "error": "HTTP Error 500: Internal Server Error",
+      "fallbackAttemptedAt": "2026-10-19T18:37:36.467127+00:00"
     },
     {
       "name": "aiand",
@@ -123,7 +125,7 @@
       "source": "https://api.aiand.com/v1/models",
       "nativeCurrency": "USD",
       "id": "aiand",
-      "fetchedAt": "2026-10-19T18:09:25.772316+00:00",
+      "fetchedAt": "2026-10-19T18:37:36.467127+00:00",
       "stale": false
     },
     {
@@ -132,7 +134,7 @@
       "source": "https://api.aimlapi.com/v1/models?include=pricing,modalities",
       "nativeCurrency": "USD",
       "id": "aimlapi",
-      "fetchedAt": "2026-10-19T18:09:25.772316+00:00",
+      "fetchedAt": "2026-10-19T18:37:36.467127+00:00",
       "stale": false
     },
     {
@@ -141,7 +143,7 @@
       "source": "https://api.ambient.xyz/v1/models",
       "nativeCurrency": "USD",
       "id": "ambient",
-      "fetchedAt": "2026-10-19T18:09:25.772316+00:00",
+      "fetchedAt": "2026-10-19T18:37:36.467127+00:00",
       "stale": false
     },
     {
@@ -150,7 +152,7 @@
       "source": "https://www.crossmodel.ai/api/models",
       "nativeCurrency": "USD",
       "id": "crossmodel",
-      "fetchedAt": "2026-10-19T18:09:25.772316+00:00",
+      "fetchedAt": "2026-10-19T18:37:36.467127+00:00",
       "stale": false
     },
     {
@@ -159,7 +161,7 @@
       "source": "https://api.edenai.run/v3/models",
       "nativeCurrency": "USD",
       "id": "edenai",
-      "fetchedAt": "2026-10-19T18:09:25.772316+00:00",
+      "fetchedAt": "2026-10-19T18:37:36.467127+00:00",
       "stale": false
     },
     {
@@ -168,7 +170,7 @@
       "source": "https://api.empiriolabs.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "empiriolabs",
-      "fetchedAt": "2026-10-19T18:09:25.772316+00:00",
+      "fetchedAt": "2026-10-19T18:37:36.467127+00:00",
       "stale": false
     },
     {
@@ -177,7 +179,7 @@
       "source": "https://api.engy.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "engy",
-      "fetchedAt": "2026-10-19T18:09:25.772316+00:00",
+      "fetchedAt": "2026-10-19T18:37:36.467127+00:00",
       "stale": false
     },
     {
@@ -186,7 +188,7 @@
       "source": "https://api.friendli.ai/serverless/v1/models",
       "nativeCurrency": "USD",
       "id": "friendli",
-      "fetchedAt": "2026-10-19T18:09:25.772316+00:00",
+      "fetchedAt": "2026-10-19T18:37:36.467127+00:00",
       "stale": false
     },
     {
@@ -195,7 +197,7 @@
       "source": "https://hyper.charm.land/v1/models",
       "nativeCurrency": "USD",
       "id": "hyper",
-      "fetchedAt": "2026-10-19T18:09:25.772316+00:00",
+      "fetchedAt": "2026-10-19T18:37:36.467127+00:00",
       "stale": false
     },
     {
@@ -204,7 +206,7 @@
       "source": "https://api.inceptron.io/v1/models",
       "nativeCurrency": "USD",
       "id": "inceptron",
-      "fetchedAt": "2026-10-19T18:09:25.772316+00:00",
+      "fetchedAt": "2026-10-19T18:37:36.467127+00:00",
       "stale": false
     },
     {
@@ -213,7 +215,7 @@
       "source": "https://cloud-api.near.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "nearai",
-      "fetchedAt": "2026-10-19T18:09:25.772316+00:00",
+      "fetchedAt": "2026-10-19T18:37:36.467127+00:00",
       "stale": false
     },
     {
@@ -222,7 +224,7 @@
       "source": "https://api.ofox.ai/v2/models/catalog?include=provider_price&limit=500",
       "nativeCurrency": "USD",
       "id": "ofox",
-      "fetchedAt": "2026-10-19T18:09:25.772316+00:00",
+      "fetchedAt": "2026-10-19T18:37:36.467127+00:00",
       "stale": false
     },
     {
@@ -231,7 +233,16 @@
       "source": "https://api.fastino.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "pioneer",
-      "fetchedAt": "2026-10-19T18:09:25.772316+00:00",
+      "fetchedAt": "2026-10-19T18:37:36.467127+00:00",
+      "stale": false
+    },
+    {
+      "name": "Prime",
+      "sellerKind": "gateway",
+      "source": "https://api.pinference.ai/api/v1/models",
+      "nativeCurrency": "USD",
+      "id": "prime",
+      "fetchedAt": "2026-10-19T18:37:36.467127+00:00",
       "stale": false
     },
     {
@@ -240,7 +251,7 @@
       "sellerKind": "first-party",
       "id": "deepseek-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T18:09:25.772316+00:00",
+      "fetchedAt": "2026-10-19T18:37:36.467127+00:00",
       "stale": false
     },
     {
@@ -249,7 +260,7 @@
       "sellerKind": "first-party",
       "id": "zai-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T18:09:25.772316+00:00",
+      "fetchedAt": "2026-10-19T18:37:36.467127+00:00",
       "stale": false
     },
     {
@@ -258,7 +269,7 @@
       "sellerKind": "first-party",
       "id": "claude-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T18:09:25.772316+00:00",
+      "fetchedAt": "2026-10-19T18:37:36.467127+00:00",
       "stale": false
     },
     {
@@ -267,7 +278,7 @@
       "sellerKind": "first-party",
       "id": "openai-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T18:09:25.772316+00:00",
+      "fetchedAt": "2026-10-19T18:37:36.467127+00:00",
       "stale": false
     }
   ],
@@ -68221,7 +68232,7 @@
       "creator": "DeepSeek",
       "description": "",
       "releaseDate": null,
-      "contextSize": 1048576,
+      "contextSize": 1000000,
       "capabilities": {
         "reasoning": true,
         "tools": false,
@@ -68252,7 +68263,7 @@
       "creator": "DeepSeek",
       "description": "",
       "releaseDate": null,
-      "contextSize": 1048576,
+      "contextSize": 1000000,
       "capabilities": {
         "reasoning": true,
         "tools": false,
@@ -80784,14 +80795,14 @@
         "audio": false
       },
       "rates": {
-        "input": 0.0057906458797327386,
-        "cached": 0.0057906458797327386,
+        "input": 0.004365256124721603,
+        "cached": 0.004365256124721603,
         "output": 0.40089086859688194,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0065,
-          "cached": 0.0065,
+          "input": 0.0049,
+          "cached": 0.0049,
           "output": 0.45
         }
       },
@@ -81952,7 +81963,7 @@
       "modelId": "deepseek-v4.1-flash",
       "name": "DeepSeek V4.1 Flash",
       "creator": "DeepSeek",
-      "description": "deepseek-v4.1-flash provided by deepseek, alibaba, deepinfra, fireworks, together-ai, novita, baidu, consensusprotocol, runware, scx-ai-gp, entrim, luminal, sciforium",
+      "description": "deepseek-v4.1-flash provided by deepseek, alibaba, deepinfra, fireworks, together-ai, novita, baidu, runware, scx-ai-gp, consensusprotocol, luminal, sciforium, entrim",
       "releaseDate": null,
       "contextSize": 1050000,
       "capabilities": {
@@ -83285,7 +83296,7 @@
       "modelId": "glm-5.2",
       "name": "GLM-5.2",
       "creator": "Z.ai",
-      "description": "glm-5.2 provided by zai, novita, canopywave, embercloud, bytedance, alibaba, nebius, baidu, tencent, runware, scx-ai-gp",
+      "description": "glm-5.2 provided by zai, novita, canopywave, embercloud, bytedance, alibaba, nebius, baidu, tencent, scx-ai-gp, runware",
       "releaseDate": null,
       "contextSize": 1048576,
       "capabilities": {
@@ -83347,7 +83358,7 @@
       "modelId": "glm-5.3",
       "name": "GLM-5.3",
       "creator": "Z.ai",
-      "description": "glm-5.3 provided by zai, novita, baidu, alibaba, fireworks, inference.net, mistral, deepinfra, together-ai, runware, reka-ai, entrim, scx-ai-gp",
+      "description": "glm-5.3 provided by zai, novita, baidu, alibaba, fireworks, inference.net, mistral, deepinfra, together-ai, runware, reka-ai, scx-ai-gp, entrim",
       "releaseDate": null,
       "contextSize": 1048576,
       "capabilities": {
@@ -123675,15 +123686,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.3627260579064588,
-        "cached": 0.0302271714922049,
-        "output": 0.7254521158129176,
+        "input": 0.35683563474387525,
+        "cached": 0.029736302895322936,
+        "output": 0.7136712694877505,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.40716,
-          "cached": 0.03393,
-          "output": 0.81432
+          "input": 0.400548,
+          "cached": 0.033379,
+          "output": 0.801096
         }
       },
       "pricingTiers": [],
@@ -135548,15 +135559,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.006129175946547884,
-        "cached": 0.0029434298440979955,
-        "output": 0.10690423162583518,
+        "input": 0.004365256124721603,
+        "cached": 0.004365256124721603,
+        "output": 0.40089086859688194,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.00688,
-          "cached": 0.003304,
-          "output": 0.12
+          "input": 0.0049,
+          "cached": 0.0049,
+          "output": 0.45
         }
       },
       "pricingTiers": [],
@@ -135920,14 +135931,14 @@
         "audio": false
       },
       "rates": {
-        "input": 0.05256124721603563,
-        "cached": 0.03296213808463251,
+        "input": 0.05077951002227171,
+        "cached": 0.032071269487750555,
         "output": 5.3452115812917596,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.059,
-          "cached": 0.037,
+          "input": 0.057,
+          "cached": 0.036,
           "output": 6.0
         }
       },
@@ -136367,6 +136378,4067 @@
       },
       "pricingTiers": [],
       "priceNote": "USD price published in Fastino's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:Qwen/Qwen3-235B-A22B-Instruct-2507",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "Qwen/Qwen3-235B-A22B-Instruct-2507",
+      "name": "Qwen3 235B A22B Instruct 2507",
+      "creator": "Alibaba",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.22271714922048996,
+        "cached": 0.22271714922048996,
+        "output": 0.8908685968819599,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.25,
+          "cached": 0.25,
+          "output": 1.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:Qwen/Qwen3-235B-A22B-Thinking-2507",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "Qwen/Qwen3-235B-A22B-Thinking-2507",
+      "name": "Qwen3 235B A22B Thinking 2507",
+      "creator": "Alibaba",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 128000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.26726057906458794,
+        "cached": 0.26726057906458794,
+        "output": 2.6726057906458798,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3,
+          "cached": 0.3,
+          "output": 3.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:Qwen/Qwen3-VL-30B-A3B-Thinking",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "Qwen/Qwen3-VL-30B-A3B-Thinking",
+      "name": "Qwen3 VL 30B A3B Thinking",
+      "creator": "Alibaba",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.17817371937639198,
+        "cached": 0.17817371937639198,
+        "output": 2.1380846325167036,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.2,
+          "cached": 0.2,
+          "output": 2.4
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:Qwen/Qwen3.5-0.8B",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "Qwen/Qwen3.5-0.8B",
+      "name": "Qwen/Qwen3.5-0.8B",
+      "creator": "Alibaba",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.035634743875278395,
+        "cached": 0.0035634743875278397,
+        "output": 0.07126948775055679,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.04,
+          "cached": 0.004,
+          "output": 0.08
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:Qwen/Qwen3.5-2B",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "Qwen/Qwen3.5-2B",
+      "name": "Qwen/Qwen3.5-2B",
+      "creator": "Alibaba",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.05345211581291759,
+        "cached": 0.005345211581291759,
+        "output": 0.16035634743875277,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.06,
+          "cached": 0.006,
+          "output": 0.18
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:Qwen/Qwen3.5-4B",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "Qwen/Qwen3.5-4B",
+      "name": "Qwen/Qwen3.5-4B",
+      "creator": "Alibaba",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.08908685968819599,
+        "cached": 0.008908685968819599,
+        "output": 0.26726057906458794,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.1,
+          "cached": 0.01,
+          "output": 0.3
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:Qwen/Qwen3.5-9B",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "Qwen/Qwen3.5-9B",
+      "name": "Qwen/Qwen3.5-9B",
+      "creator": "Alibaba",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.16035634743875277,
+        "cached": 0.016035634743875277,
+        "output": 0.48106904231625836,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.18,
+          "cached": 0.018,
+          "output": 0.54
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:alibaba/qwen3.5-flash",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "alibaba/qwen3.5-flash",
+      "name": "alibaba/qwen3.5-flash",
+      "creator": "Alibaba",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.13363028953229397,
+        "cached": 0.13363028953229397,
+        "output": 0.5345211581291759,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.15,
+          "cached": 0.15,
+          "output": 0.6
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:alibaba/qwen3.7-max",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "alibaba/qwen3.7-max",
+      "name": "alibaba/qwen3.7-max",
+      "creator": "Alibaba",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 3.3407572383073494,
+        "cached": 3.3407572383073494,
+        "output": 10.022271714922049,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 3.75,
+          "cached": 3.75,
+          "output": 11.25
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:alibaba/qwen3.7-plus",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "alibaba/qwen3.7-plus",
+      "name": "alibaba/qwen3.7-plus",
+      "creator": "Alibaba",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.5345211581291759,
+        "cached": 0.5345211581291759,
+        "output": 2.1380846325167036,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.6,
+          "cached": 0.6,
+          "output": 2.4
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:alibaba/qwen3.8-flash",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "alibaba/qwen3.8-flash",
+      "name": "alibaba/qwen3.8-flash",
+      "creator": "Alibaba",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.20044543429844097,
+        "cached": 0.20044543429844097,
+        "output": 0.6280623608017817,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.225,
+          "cached": 0.225,
+          "output": 0.705
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:anthropic/claude-fable-5",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "anthropic/claude-fable-5",
+      "name": "Claude Fable 5",
+      "creator": "Anthropic",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 8.908685968819599,
+        "cached": 8.908685968819599,
+        "output": 44.54342984409799,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 10.0,
+          "cached": 10.0,
+          "output": 50.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:anthropic/claude-fable-5.1",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "anthropic/claude-fable-5.1",
+      "name": "Claude Fable 5.1",
+      "creator": "Anthropic",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 8.908685968819599,
+        "cached": 8.908685968819599,
+        "output": 44.54342984409799,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 10.0,
+          "cached": 10.0,
+          "output": 50.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:anthropic/claude-haiku-4.5",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "anthropic/claude-haiku-4.5",
+      "name": "Claude Haiku 4.5",
+      "creator": "Anthropic",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 200000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.8908685968819599,
+        "cached": 0.8908685968819599,
+        "output": 4.4543429844097995,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.0,
+          "cached": 1.0,
+          "output": 5.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:anthropic/claude-opus-4.1",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "anthropic/claude-opus-4.1",
+      "name": "Claude Opus 4.1",
+      "creator": "Anthropic",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 200000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 13.363028953229398,
+        "cached": 13.363028953229398,
+        "output": 66.81514476614699,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 15.0,
+          "cached": 15.0,
+          "output": 75.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:anthropic/claude-opus-4.5",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "anthropic/claude-opus-4.5",
+      "name": "Claude Opus 4.5",
+      "creator": "Anthropic",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 200000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 4.4543429844097995,
+        "cached": 4.4543429844097995,
+        "output": 22.271714922048996,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 5.0,
+          "cached": 5.0,
+          "output": 25.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:anthropic/claude-opus-4.6",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "anthropic/claude-opus-4.6",
+      "name": "Claude Opus 4.6",
+      "creator": "Anthropic",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 4.4543429844097995,
+        "cached": 4.4543429844097995,
+        "output": 22.271714922048996,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 5.0,
+          "cached": 5.0,
+          "output": 25.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:anthropic/claude-opus-4.7",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "anthropic/claude-opus-4.7",
+      "name": "Claude Opus 4.7",
+      "creator": "Anthropic",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 4.4543429844097995,
+        "cached": 4.4543429844097995,
+        "output": 22.271714922048996,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 5.0,
+          "cached": 5.0,
+          "output": 25.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:anthropic/claude-opus-4.8",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "anthropic/claude-opus-4.8",
+      "name": "Claude Opus 4.8",
+      "creator": "Anthropic",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 4.4543429844097995,
+        "cached": 4.4543429844097995,
+        "output": 22.271714922048996,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 5.0,
+          "cached": 5.0,
+          "output": 25.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:anthropic/claude-opus-5",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "anthropic/claude-opus-5",
+      "name": "Claude Opus 5",
+      "creator": "Anthropic",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 4.4543429844097995,
+        "cached": 4.4543429844097995,
+        "output": 22.271714922048996,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 5.0,
+          "cached": 5.0,
+          "output": 25.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:anthropic/claude-opus-5.5",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "anthropic/claude-opus-5.5",
+      "name": "Claude Opus 5.5",
+      "creator": "Anthropic",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 3.5634743875278394,
+        "cached": 3.5634743875278394,
+        "output": 17.817371937639198,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 4.0,
+          "cached": 4.0,
+          "output": 20.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:anthropic/claude-sonnet-4.5",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "anthropic/claude-sonnet-4.5",
+      "name": "Claude Sonnet 4.5",
+      "creator": "Anthropic",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 2.6726057906458798,
+        "cached": 2.6726057906458798,
+        "output": 13.363028953229398,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 3.0,
+          "cached": 3.0,
+          "output": 15.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:anthropic/claude-sonnet-4.6",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "anthropic/claude-sonnet-4.6",
+      "name": "Claude Sonnet 4.6",
+      "creator": "Anthropic",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 2.6726057906458798,
+        "cached": 2.6726057906458798,
+        "output": 13.363028953229398,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 3.0,
+          "cached": 3.0,
+          "output": 15.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:anthropic/claude-sonnet-5",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "anthropic/claude-sonnet-5",
+      "name": "Claude Sonnet 5",
+      "creator": "Anthropic",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 1.7817371937639197,
+        "output": 8.908685968819599,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 2.0,
+          "output": 10.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:anthropic/claude-sonnet-5.5",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "anthropic/claude-sonnet-5.5",
+      "name": "Claude Sonnet 5.5",
+      "creator": "Anthropic",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 1.7817371937639197,
+        "output": 8.908685968819599,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 2.0,
+          "output": 10.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:cloudflare/clef",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "cloudflare/clef",
+      "name": "Clef",
+      "creator": "cloudflare",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.037416481069042315,
+        "cached": 0.037416481069042315,
+        "output": 0.0,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.042,
+          "cached": 0.042,
+          "output": 0.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:cloudflare/clef-flash",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "cloudflare/clef-flash",
+      "name": "Clef Flash",
+      "creator": "cloudflare",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.018708240534521157,
+        "cached": 0.018708240534521157,
+        "output": 0.0,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.021,
+          "cached": 0.021,
+          "output": 0.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:deepseek/deepseek-chat-v3.1",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "deepseek/deepseek-chat-v3.1",
+      "name": "DeepSeek V3.1",
+      "creator": "DeepSeek",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 163840,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.5345211581291759,
+        "cached": 0.5345211581291759,
+        "output": 1.5144766146993318,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.6,
+          "cached": 0.6,
+          "output": 1.7
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:deepseek/deepseek-v3.1-terminus",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "deepseek/deepseek-v3.1-terminus",
+      "name": "DeepSeek V3.1 Terminus",
+      "creator": "DeepSeek",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 163840,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.24053452115812918,
+        "cached": 0.24053452115812918,
+        "output": 0.8908685968819599,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.27,
+          "cached": 0.27,
+          "output": 1.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:deepseek/deepseek-v3.2",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "deepseek/deepseek-v3.2",
+      "name": "DeepSeek V3.2",
+      "creator": "DeepSeek",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 163840,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.3300668151447661,
+        "cached": 0.3300668151447661,
+        "output": 0.9902004454342983,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3705,
+          "cached": 0.3705,
+          "output": 1.1115
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:deepseek/deepseek-v3.2-exp",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "deepseek/deepseek-v3.2-exp",
+      "name": "DeepSeek V3.2 Exp",
+      "creator": "DeepSeek",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 163840,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.24053452115812918,
+        "cached": 0.24053452115812918,
+        "output": 0.3652561247216035,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.27,
+          "cached": 0.27,
+          "output": 0.41
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:deepseek/deepseek-v4-flash",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "deepseek/deepseek-v4-flash",
+      "name": "DeepSeek V4 Flash 0423",
+      "creator": "DeepSeek",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.39198218262806234,
+        "cached": 0.39198218262806234,
+        "output": 1.175946547884187,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.44,
+          "cached": 0.44,
+          "output": 1.32
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:deepseek/deepseek-v4-flash-0731",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "deepseek/deepseek-v4-flash-0731",
+      "name": "DeepSeek V4 Flash 0731",
+      "creator": "DeepSeek",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.39198218262806234,
+        "cached": 0.39198218262806234,
+        "output": 1.175946547884187,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.44,
+          "cached": 0.44,
+          "output": 1.32
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:deepseek/deepseek-v4-pro",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "deepseek/deepseek-v4-pro",
+      "name": "DeepSeek V4 Pro 0423",
+      "creator": "DeepSeek",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.7015590200445432,
+        "cached": 1.7015590200445432,
+        "output": 3.4120267260579062,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.91,
+          "cached": 1.91,
+          "output": 3.83
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:deepseek/deepseek-v4.1-flash",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "deepseek/deepseek-v4.1-flash",
+      "name": "DeepSeek V4.1 Flash",
+      "creator": "DeepSeek",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.26726057906458794,
+        "cached": 0.026726057906458794,
+        "output": 1.0690423162583518,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3,
+          "cached": 0.03,
+          "output": 1.2
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:deepseek/deepseek-v4.1-flash-1017",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "deepseek/deepseek-v4.1-flash-1017",
+      "name": "DeepSeek V4.1 Flash 1017",
+      "creator": "DeepSeek",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.26726057906458794,
+        "cached": 0.005345211581291759,
+        "output": 1.0690423162583518,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3,
+          "cached": 0.006,
+          "output": 1.2
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:google/gemini-2.5-flash",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "google/gemini-2.5-flash",
+      "name": "Gemini 2.5 Flash",
+      "creator": "Google",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 0.26726057906458794,
+        "cached": 0.26726057906458794,
+        "output": 2.2271714922048997,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3,
+          "cached": 0.3,
+          "output": 2.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:google/gemini-2.5-flash-lite",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "google/gemini-2.5-flash-lite",
+      "name": "Gemini 2.5 Flash Lite",
+      "creator": "Google",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 0.08908685968819599,
+        "cached": 0.08908685968819599,
+        "output": 0.35634743875278396,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.1,
+          "cached": 0.1,
+          "output": 0.4
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:google/gemini-2.5-pro",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "google/gemini-2.5-pro",
+      "name": "Gemini 2.5 Pro",
+      "creator": "Google",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 1.1135857461024499,
+        "cached": 1.1135857461024499,
+        "output": 8.908685968819599,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.25,
+          "cached": 1.25,
+          "output": 10.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:google/gemini-3-flash-preview",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "google/gemini-3-flash-preview",
+      "name": "Gemini 3 Flash Preview",
+      "creator": "Google",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 0.4454342984409799,
+        "cached": 0.4454342984409799,
+        "output": 2.6726057906458798,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.5,
+          "cached": 0.5,
+          "output": 3.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:google/gemini-3.1-pro-preview",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "google/gemini-3.1-pro-preview",
+      "name": "Gemini 3.1 Pro Preview",
+      "creator": "Google",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 1.7817371937639197,
+        "output": 10.690423162583519,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 2.0,
+          "output": 12.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:google/gemini-3.5-flash",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "google/gemini-3.5-flash",
+      "name": "Gemini 3.5 Flash",
+      "creator": "Google",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 1.3363028953229399,
+        "cached": 1.3363028953229399,
+        "output": 8.017817371937639,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.5,
+          "cached": 1.5,
+          "output": 9.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:google/gemini-3.6-flash",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "google/gemini-3.6-flash",
+      "name": "Gemini 3.6 Flash",
+      "creator": "Google",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 1.3363028953229399,
+        "cached": 1.3363028953229399,
+        "output": 6.681514476614699,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.5,
+          "cached": 1.5,
+          "output": 7.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:google/gemini-3.7-flash",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "google/gemini-3.7-flash",
+      "name": "Gemini 3.7 Flash",
+      "creator": "Google",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 1.2026726057906458,
+        "cached": 1.2026726057906458,
+        "output": 6.013363028953229,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.35,
+          "cached": 1.35,
+          "output": 6.75
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:google/gemini-3.8-flash",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "google/gemini-3.8-flash",
+      "name": "Gemini 3.8 Flash",
+      "creator": "Google",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 0.6681514476614699,
+        "cached": 0.6681514476614699,
+        "output": 3.3407572383073494,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.75,
+          "cached": 0.75,
+          "output": 3.75
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:google/gemini-4-argon",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "google/gemini-4-argon",
+      "name": "Gemini 4 Argon",
+      "creator": "Google",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 1.7817371937639197,
+        "output": 8.908685968819599,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 2.0,
+          "output": 10.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:google/gemma-3-27b-it",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "google/gemma-3-27b-it",
+      "name": "Gemma 3 27B",
+      "creator": "Google",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 131072,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.10601336302895321,
+        "cached": 0.10601336302895321,
+        "output": 0.26726057906458794,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.119,
+          "cached": 0.119,
+          "output": 0.3
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:meta-llama/Llama-3.2-1B-Instruct",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "meta-llama/Llama-3.2-1B-Instruct",
+      "name": "Llama 3.2 1B Instruct",
+      "creator": "Meta",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 60000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.024053452115812918,
+        "cached": 0.024053452115812918,
+        "output": 0.17906458797327393,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.027,
+          "cached": 0.027,
+          "output": 0.201
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:meta-llama/Llama-3.2-3B-Instruct",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "meta-llama/Llama-3.2-3B-Instruct",
+      "name": "Llama 3.2 3B Instruct",
+      "creator": "Meta",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 131072,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.04534521158129176,
+        "cached": 0.04534521158129176,
+        "output": 0.2984409799554566,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.0509,
+          "cached": 0.0509,
+          "output": 0.335
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:meta-llama/llama-3.3-70b-instruct",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "meta-llama/llama-3.3-70b-instruct",
+      "name": "Llama 3.3 70B Instruct",
+      "creator": "Meta",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 131072,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.9265033407572383,
+        "cached": 0.9265033407572383,
+        "output": 2.007126948775056,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.04,
+          "cached": 1.04,
+          "output": 2.253
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:meta-llama/llama-4-maverick",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "meta-llama/llama-4-maverick",
+      "name": "Llama 4 Maverick",
+      "creator": "Meta",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 524288,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.3118040089086859,
+        "cached": 0.3118040089086859,
+        "output": 1.0244988864142537,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.35,
+          "cached": 0.35,
+          "output": 1.15
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:meta/muse-spark-open",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "meta/muse-spark-open",
+      "name": "Muse Spark Open",
+      "creator": "Meta",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 1.1135857461024499,
+        "cached": 1.1135857461024499,
+        "output": 3.7861915367483294,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.25,
+          "cached": 1.25,
+          "output": 4.25
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:minimax/minimax-m2.5",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "minimax/minimax-m2.5",
+      "name": "MiniMax M2.5",
+      "creator": "MiniMax AI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 204800,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.5345211581291759,
+        "cached": 0.5345211581291759,
+        "output": 2.1380846325167036,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.6,
+          "cached": 0.6,
+          "output": 2.4
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:minimax/minimax-m2.7",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "minimax/minimax-m2.7",
+      "name": "MiniMax M2.7",
+      "creator": "MiniMax AI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 204800,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.5345211581291759,
+        "cached": 0.5345211581291759,
+        "output": 2.1380846325167036,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.6,
+          "cached": 0.6,
+          "output": 2.4
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:minimax/minimax-m3",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "minimax/minimax-m3",
+      "name": "MiniMax M3",
+      "creator": "MiniMax AI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.26726057906458794,
+        "cached": 0.26726057906458794,
+        "output": 1.0690423162583518,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3,
+          "cached": 0.3,
+          "output": 1.2
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:mistralai/mistral-large-2512",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "mistralai/mistral-large-2512",
+      "name": "Mistral Large 3 2512",
+      "creator": "Mistral AI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.4454342984409799,
+        "cached": 0.4454342984409799,
+        "output": 1.3363028953229399,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.5,
+          "cached": 0.5,
+          "output": 1.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:mistralai/mistral-nemo",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "mistralai/mistral-nemo",
+      "name": "Mistral Nemo",
+      "creator": "Mistral AI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 131072,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.14699331848552338,
+        "cached": 0.14699331848552338,
+        "output": 0.1514476614699332,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.165,
+          "cached": 0.165,
+          "output": 0.17
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:mistralai/mistral-small-2603",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "mistralai/mistral-small-2603",
+      "name": "Mistral Small 4",
+      "creator": "Mistral AI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.14699331848552338,
+        "cached": 0.14699331848552338,
+        "output": 0.5879732739420935,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.165,
+          "cached": 0.165,
+          "output": 0.66
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:mistralai/mixtral-8x22b-instruct",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "mistralai/mixtral-8x22b-instruct",
+      "name": "Mixtral 8x22B Instruct",
+      "creator": "Mistral AI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 65536,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.9599109131403119,
+        "cached": 1.9599109131403119,
+        "output": 5.879732739420935,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.2,
+          "cached": 2.2,
+          "output": 6.6
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:moondream/moondream3-preview",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "moondream/moondream3-preview",
+      "name": "Moondream 3 Preview",
+      "creator": "moondream",
+      "description": "Preview release of Moondream 3, a 9B-parameter vision-language model with 2B active parameters for visual question answering, captioning, OCR, and visual reasoning.",
+      "releaseDate": null,
+      "contextSize": 32000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": false,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.26726057906458794,
+        "cached": 0.26726057906458794,
+        "output": 2.2271714922048997,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3,
+          "cached": 0.3,
+          "output": 2.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:moondream/moondream3.1-9b-a2b",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "moondream/moondream3.1-9b-a2b",
+      "name": "Moondream 3.1",
+      "creator": "moondream",
+      "description": "Moondream 3.1 vision-language model for visual question answering, captioning, OCR, and visual reasoning.",
+      "releaseDate": null,
+      "contextSize": 32000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": false,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.26726057906458794,
+        "cached": 0.26726057906458794,
+        "output": 2.2271714922048997,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3,
+          "cached": 0.3,
+          "output": 2.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:moonshotai/kimi-k2-0905",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "moonshotai/kimi-k2-0905",
+      "name": "Kimi K2 0905",
+      "creator": "Moonshot AI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.5345211581291759,
+        "cached": 0.5345211581291759,
+        "output": 2.2271714922048997,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.6,
+          "cached": 0.6,
+          "output": 2.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:moonshotai/kimi-k2.5",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "moonshotai/kimi-k2.5",
+      "name": "Kimi K2.5",
+      "creator": "Moonshot AI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.5345211581291759,
+        "cached": 0.5345211581291759,
+        "output": 2.6726057906458798,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.6,
+          "cached": 0.6,
+          "output": 3.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:moonshotai/kimi-k2.6",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "moonshotai/kimi-k2.6",
+      "name": "Kimi K2.6",
+      "creator": "Moonshot AI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.8463251670378619,
+        "cached": 0.8463251670378619,
+        "output": 3.5634743875278394,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.95,
+          "cached": 0.95,
+          "output": 4.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:moonshotai/kimi-k2.7-code",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "moonshotai/kimi-k2.7-code",
+      "name": "Kimi K2.7 Code",
+      "creator": "Moonshot AI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.6926503340757237,
+        "cached": 1.6926503340757237,
+        "output": 7.126948775055679,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.9,
+          "cached": 1.9,
+          "output": 8.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:moonshotai/kimi-k3",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "moonshotai/kimi-k3",
+      "name": "Kimi K3",
+      "creator": "Moonshot AI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 3.0734966592427617,
+        "cached": 3.0734966592427617,
+        "output": 15.367483296213807,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 3.45,
+          "cached": 3.45,
+          "output": 17.25
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:nvidia/nemotron-3-nano-30b-a3b",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "nvidia/nemotron-3-nano-30b-a3b",
+      "name": "Nemotron 3 Nano 30B A3B",
+      "creator": "NVIDIA",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.05345211581291759,
+        "cached": 0.05345211581291759,
+        "output": 0.21380846325167036,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.06,
+          "cached": 0.06,
+          "output": 0.24
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:nvidia/nemotron-3.5-lightning",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "nvidia/nemotron-3.5-lightning",
+      "name": "Nemotron 3.5 Lightning",
+      "creator": "NVIDIA",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.062360801781737196,
+        "cached": 0.062360801781737196,
+        "output": 0.17817371937639198,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.07,
+          "cached": 0.07,
+          "output": 0.2
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:openai/gpt-4.1",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "openai/gpt-4.1",
+      "name": "GPT-4.1",
+      "creator": "OpenAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1047576,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 1.7817371937639197,
+        "output": 7.126948775055679,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 2.0,
+          "output": 8.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:openai/gpt-4.1-mini",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "openai/gpt-4.1-mini",
+      "name": "GPT-4.1 Mini",
+      "creator": "OpenAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1047576,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.35634743875278396,
+        "cached": 0.35634743875278396,
+        "output": 1.4253897550111359,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.4,
+          "cached": 0.4,
+          "output": 1.6
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:openai/gpt-4.1-nano",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "openai/gpt-4.1-nano",
+      "name": "GPT-4.1 Nano",
+      "creator": "OpenAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1047576,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.08908685968819599,
+        "cached": 0.08908685968819599,
+        "output": 0.35634743875278396,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.1,
+          "cached": 0.1,
+          "output": 0.4
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:openai/gpt-4o",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "openai/gpt-4o",
+      "name": "GPT-4o",
+      "creator": "OpenAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 128000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 2.2271714922048997,
+        "cached": 2.2271714922048997,
+        "output": 8.908685968819599,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.5,
+          "cached": 2.5,
+          "output": 10.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:openai/gpt-4o-mini",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "openai/gpt-4o-mini",
+      "name": "GPT-4o-mini",
+      "creator": "OpenAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 128000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.13363028953229397,
+        "cached": 0.13363028953229397,
+        "output": 0.5345211581291759,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.15,
+          "cached": 0.15,
+          "output": 0.6
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:openai/gpt-5",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "openai/gpt-5",
+      "name": "GPT-5",
+      "creator": "OpenAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 400000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.1135857461024499,
+        "cached": 1.1135857461024499,
+        "output": 8.908685968819599,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.25,
+          "cached": 1.25,
+          "output": 10.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:openai/gpt-5-mini",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "openai/gpt-5-mini",
+      "name": "GPT-5 Mini",
+      "creator": "OpenAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 400000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.22271714922048996,
+        "cached": 0.22271714922048996,
+        "output": 1.7817371937639197,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.25,
+          "cached": 0.25,
+          "output": 2.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:openai/gpt-5-nano",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "openai/gpt-5-nano",
+      "name": "GPT-5 Nano",
+      "creator": "OpenAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 400000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.044543429844097995,
+        "cached": 0.044543429844097995,
+        "output": 0.35634743875278396,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.05,
+          "cached": 0.05,
+          "output": 0.4
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:openai/gpt-5.1",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "openai/gpt-5.1",
+      "name": "GPT-5.1",
+      "creator": "OpenAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 400000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.1135857461024499,
+        "cached": 1.1135857461024499,
+        "output": 8.908685968819599,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.25,
+          "cached": 1.25,
+          "output": 10.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:openai/gpt-5.2",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "openai/gpt-5.2",
+      "name": "GPT-5.2",
+      "creator": "OpenAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 400000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.5590200445434297,
+        "cached": 1.5590200445434297,
+        "output": 12.472160356347437,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.75,
+          "cached": 1.75,
+          "output": 14.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:openai/gpt-5.3-codex",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "openai/gpt-5.3-codex",
+      "name": "GPT-5.3-Codex",
+      "creator": "OpenAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 400000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.5590200445434297,
+        "cached": 1.5590200445434297,
+        "output": 12.472160356347437,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.75,
+          "cached": 1.75,
+          "output": 14.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:openai/gpt-5.4",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "openai/gpt-5.4",
+      "name": "GPT-5.4",
+      "creator": "OpenAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 2.2271714922048997,
+        "cached": 2.2271714922048997,
+        "output": 13.363028953229398,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.5,
+          "cached": 2.5,
+          "output": 15.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:openai/gpt-5.4-mini",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "openai/gpt-5.4-mini",
+      "name": "GPT-5.4 Mini",
+      "creator": "OpenAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 400000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.6681514476614699,
+        "cached": 0.6681514476614699,
+        "output": 4.008908685968819,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.75,
+          "cached": 0.75,
+          "output": 4.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:openai/gpt-5.4-nano",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "openai/gpt-5.4-nano",
+      "name": "GPT-5.4 Nano",
+      "creator": "OpenAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 400000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.17817371937639198,
+        "cached": 0.17817371937639198,
+        "output": 1.1135857461024499,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.2,
+          "cached": 0.2,
+          "output": 1.25
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:openai/gpt-5.4-pro",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "openai/gpt-5.4-pro",
+      "name": "GPT-5.4 Pro",
+      "creator": "OpenAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 26.726057906458795,
+        "cached": 26.726057906458795,
+        "output": 160.35634743875278,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 30.0,
+          "cached": 30.0,
+          "output": 180.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:openai/gpt-5.5",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "openai/gpt-5.5",
+      "name": "GPT-5.5",
+      "creator": "OpenAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 4.4543429844097995,
+        "cached": 4.4543429844097995,
+        "output": 26.726057906458795,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 5.0,
+          "cached": 5.0,
+          "output": 30.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:openai/gpt-5.6",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "openai/gpt-5.6",
+      "name": "openai/gpt-5.6",
+      "creator": "OpenAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 4.4543429844097995,
+        "cached": 4.4543429844097995,
+        "output": 26.726057906458795,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 5.0,
+          "cached": 5.0,
+          "output": 30.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:openai/gpt-5.6-luna",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "openai/gpt-5.6-luna",
+      "name": "GPT-5.6 Luna",
+      "creator": "OpenAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.17817371937639198,
+        "cached": 0.17817371937639198,
+        "output": 1.0690423162583518,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.2,
+          "cached": 0.2,
+          "output": 1.2
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:openai/gpt-5.6-luna-pro",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "openai/gpt-5.6-luna-pro",
+      "name": "GPT-5.6 Luna Pro",
+      "creator": "OpenAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.8908685968819599,
+        "cached": 0.8908685968819599,
+        "output": 5.3452115812917596,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.0,
+          "cached": 1.0,
+          "output": 6.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:openai/gpt-5.6-sol",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "openai/gpt-5.6-sol",
+      "name": "GPT-5.6 Sol",
+      "creator": "OpenAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 4.4543429844097995,
+        "cached": 4.4543429844097995,
+        "output": 26.726057906458795,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 5.0,
+          "cached": 5.0,
+          "output": 30.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:openai/gpt-5.6-sol-pro",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "openai/gpt-5.6-sol-pro",
+      "name": "GPT-5.6 Sol Pro",
+      "creator": "OpenAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 4.4543429844097995,
+        "cached": 4.4543429844097995,
+        "output": 26.726057906458795,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 5.0,
+          "cached": 5.0,
+          "output": 30.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:openai/gpt-5.6-terra",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "openai/gpt-5.6-terra",
+      "name": "GPT-5.6 Terra",
+      "creator": "OpenAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 2.2271714922048997,
+        "cached": 2.2271714922048997,
+        "output": 13.363028953229398,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.5,
+          "cached": 2.5,
+          "output": 15.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:openai/gpt-5.6-terra-pro",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "openai/gpt-5.6-terra-pro",
+      "name": "GPT-5.6 Terra Pro",
+      "creator": "OpenAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 2.2271714922048997,
+        "cached": 2.2271714922048997,
+        "output": 13.363028953229398,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.5,
+          "cached": 2.5,
+          "output": 15.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:openai/gpt-6-astra",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "openai/gpt-6-astra",
+      "name": "GPT-6 Astra",
+      "creator": "OpenAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 8.908685968819599,
+        "cached": 8.908685968819599,
+        "output": 44.54342984409799,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 10.0,
+          "cached": 10.0,
+          "output": 50.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:openai/gpt-6-luna",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "openai/gpt-6-luna",
+      "name": "GPT-6 Luna",
+      "creator": "OpenAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.08908685968819599,
+        "cached": 0.08908685968819599,
+        "output": 0.4454342984409799,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.1,
+          "cached": 0.1,
+          "output": 0.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:openai/gpt-6-sol",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "openai/gpt-6-sol",
+      "name": "GPT-6 Sol",
+      "creator": "OpenAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 1.7817371937639197,
+        "output": 8.908685968819599,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 2.0,
+          "output": 10.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:openai/gpt-6.1-sol",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "openai/gpt-6.1-sol",
+      "name": "GPT-6.1 Sol",
+      "creator": "OpenAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 1.7817371937639197,
+        "output": 8.908685968819599,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 2.0,
+          "output": 10.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:openai/gpt-6.1-sol-pro",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "openai/gpt-6.1-sol-pro",
+      "name": "GPT-6.1 Sol Pro",
+      "creator": "OpenAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 1.7817371937639197,
+        "output": 8.908685968819599,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 2.0,
+          "output": 10.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:openai/gpt-oss-120b",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "openai/gpt-oss-120b",
+      "name": "gpt-oss-120b",
+      "creator": "OpenAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 131072,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.3118040089086859,
+        "cached": 0.3118040089086859,
+        "output": 0.6681514476614699,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.35,
+          "cached": 0.35,
+          "output": 0.75
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:openai/gpt-oss-20b",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "openai/gpt-oss-20b",
+      "name": "gpt-oss-20b",
+      "creator": "OpenAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 131072,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.062360801781737196,
+        "cached": 0.062360801781737196,
+        "output": 0.26726057906458794,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.07,
+          "cached": 0.07,
+          "output": 0.3
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:poolside/laguna-s-2.1",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "poolside/laguna-s-2.1",
+      "name": "Laguna S 2.1",
+      "creator": "poolside",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.08017817371937638,
+        "cached": 0.08017817371937638,
+        "output": 0.16035634743875277,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.09,
+          "cached": 0.09,
+          "output": 0.18
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:poolside/laguna-xs-2.1",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "poolside/laguna-xs-2.1",
+      "name": "Laguna XS 2.1",
+      "creator": "poolside",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.05345211581291759,
+        "cached": 0.05345211581291759,
+        "output": 0.10690423162583518,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.06,
+          "cached": 0.06,
+          "output": 0.12
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:qwen/qwen3-235b-a22b-2507",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "qwen/qwen3-235b-a22b-2507",
+      "name": "Qwen3 235B A22B Instruct 2507",
+      "creator": "Alibaba",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.22271714922048996,
+        "cached": 0.22271714922048996,
+        "output": 0.8908685968819599,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.25,
+          "cached": 0.25,
+          "output": 1.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:qwen/qwen3-30b-a3b-instruct-2507",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "qwen/qwen3-30b-a3b-instruct-2507",
+      "name": "Qwen3 30B A3B Instruct 2507",
+      "creator": "Alibaba",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.11581291759465479,
+        "cached": 0.11581291759465479,
+        "output": 0.46325167037861914,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.13,
+          "cached": 0.13,
+          "output": 0.52
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:qwen/qwen3-coder",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "qwen/qwen3-coder",
+      "name": "Qwen3 Coder 480B A35B",
+      "creator": "Alibaba",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.8685968819599108,
+        "cached": 0.8685968819599108,
+        "output": 4.342984409799555,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.975,
+          "cached": 0.975,
+          "output": 4.875
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:qwen/qwen3-coder-next",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "qwen/qwen3-coder-next",
+      "name": "Qwen3 Coder Next",
+      "creator": "Alibaba",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.26726057906458794,
+        "cached": 0.26726057906458794,
+        "output": 1.3363028953229399,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3,
+          "cached": 0.3,
+          "output": 1.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:qwen/qwen3-vl-235b-a22b-instruct",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "qwen/qwen3-vl-235b-a22b-instruct",
+      "name": "Qwen3 VL 235B A22B Instruct",
+      "creator": "Alibaba",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.26726057906458794,
+        "cached": 0.26726057906458794,
+        "output": 1.3363028953229399,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3,
+          "cached": 0.3,
+          "output": 1.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:qwen/qwen3-vl-30b-a3b-instruct",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "qwen/qwen3-vl-30b-a3b-instruct",
+      "name": "Qwen3 VL 30B A3B Instruct",
+      "creator": "Alibaba",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.17817371937639198,
+        "cached": 0.17817371937639198,
+        "output": 0.6236080178173719,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.2,
+          "cached": 0.2,
+          "output": 0.7
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:qwen/qwen3-vl-8b-instruct",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "qwen/qwen3-vl-8b-instruct",
+      "name": "Qwen3 VL 8B Instruct",
+      "creator": "Alibaba",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": false,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.10423162583518931,
+        "cached": 0.10423162583518931,
+        "output": 0.4053452115812918,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.117,
+          "cached": 0.117,
+          "output": 0.455
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:qwen/qwen3.5-35b-a3b",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "qwen/qwen3.5-35b-a3b",
+      "name": "Qwen3.5-35B-A3B",
+      "creator": "Alibaba",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.22271714922048996,
+        "cached": 0.22271714922048996,
+        "output": 1.158129175946548,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.25,
+          "cached": 0.25,
+          "output": 1.3
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:qwen/qwen3.5-397b-a17b",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "qwen/qwen3.5-397b-a17b",
+      "name": "Qwen3.5 397B A17B",
+      "creator": "Alibaba",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.5345211581291759,
+        "cached": 0.5345211581291759,
+        "output": 3.2071269487750556,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.6,
+          "cached": 0.6,
+          "output": 3.6
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:qwen/qwen3.6-27b",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "qwen/qwen3.6-27b",
+      "name": "Qwen3.6 27B",
+      "creator": "Alibaba",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.5345211581291759,
+        "cached": 0.5345211581291759,
+        "output": 3.2071269487750556,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.6,
+          "cached": 0.6,
+          "output": 3.6
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:qwen/qwen3.6-35b-a3b",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "qwen/qwen3.6-35b-a3b",
+      "name": "Qwen3.6 35B A3B",
+      "creator": "Alibaba",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.22271714922048996,
+        "cached": 0.22271714922048996,
+        "output": 1.1135857461024499,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.25,
+          "cached": 0.25,
+          "output": 1.25
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:qwen/qwen3.7-flash",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "qwen/qwen3.7-flash",
+      "name": "Qwen3.7 Flash",
+      "creator": "Alibaba",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.026726057906458794,
+        "cached": 0.026726057906458794,
+        "output": 0.11581291759465479,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.03,
+          "cached": 0.03,
+          "output": 0.13
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:qwen/qwen3.8-27b",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "qwen/qwen3.8-27b",
+      "name": "Qwen3.8 27B",
+      "creator": "Alibaba",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.8819599109131403,
+        "cached": 0.8819599109131403,
+        "output": 2.8507795100222717,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.99,
+          "cached": 0.99,
+          "output": 3.2
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:qwen/qwen3.8-max",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "qwen/qwen3.8-max",
+      "name": "qwen/qwen3.8-max",
+      "creator": "Alibaba",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 1.7817371937639197,
+        "output": 5.3452115812917596,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 2.0,
+          "output": 6.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:x-ai/grok-4.20",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "x-ai/grok-4.20",
+      "name": "Grok 4.20",
+      "creator": "xAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 2000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 1.7817371937639197,
+        "output": 5.3452115812917596,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 2.0,
+          "output": 6.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:x-ai/grok-4.20-multi-agent",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "x-ai/grok-4.20-multi-agent",
+      "name": "Grok 4.20 Multi-Agent",
+      "creator": "xAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 2000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": false,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 1.7817371937639197,
+        "output": 5.3452115812917596,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 2.0,
+          "output": 6.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:x-ai/grok-4.6",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "x-ai/grok-4.6",
+      "name": "Grok 4.6",
+      "creator": "xAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 500000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 1.7817371937639197,
+        "output": 5.3452115812917596,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 2.0,
+          "output": 6.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:x-ai/grok-4.7",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "x-ai/grok-4.7",
+      "name": "Grok 4.7",
+      "creator": "xAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 500000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.4253897550111359,
+        "cached": 1.4253897550111359,
+        "output": 4.276169265033407,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.6,
+          "cached": 1.6,
+          "output": 4.8
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:xiaomi/mimo-v2.5",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "xiaomi/mimo-v2.5",
+      "name": "MiMo-V2.5",
+      "creator": "Xiaomi",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 0.14966592427616926,
+        "cached": 0.14966592427616926,
+        "output": 0.2993318485523385,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.168,
+          "cached": 0.168,
+          "output": 0.336
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:xiaomi/mimo-v2.5-pro",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "xiaomi/mimo-v2.5-pro",
+      "name": "MiMo-V2.5-Pro",
+      "creator": "Xiaomi",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.4278307349665924,
+        "cached": 0.4278307349665924,
+        "output": 1.3363028953229399,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.48024,
+          "cached": 0.48024,
+          "output": 1.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:z-ai/glm-4.5",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "z-ai/glm-4.5",
+      "name": "GLM 4.5",
+      "creator": "Z.ai",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 131072,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.5345211581291759,
+        "cached": 0.5345211581291759,
+        "output": 1.9599109131403119,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.6,
+          "cached": 0.6,
+          "output": 2.2
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:z-ai/glm-4.5-air",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "z-ai/glm-4.5-air",
+      "name": "GLM 4.5 Air",
+      "creator": "Z.ai",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 131072,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.17817371937639198,
+        "cached": 0.17817371937639198,
+        "output": 0.9799554565701559,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.2,
+          "cached": 0.2,
+          "output": 1.1
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:z-ai/glm-4.6",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "z-ai/glm-4.6",
+      "name": "GLM 4.6",
+      "creator": "Z.ai",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 204800,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.5345211581291759,
+        "cached": 0.5345211581291759,
+        "output": 1.9599109131403119,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.6,
+          "cached": 0.6,
+          "output": 2.2
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:z-ai/glm-4.7",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "z-ai/glm-4.7",
+      "name": "GLM 4.7",
+      "creator": "Z.ai",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 204800,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.5345211581291759,
+        "cached": 0.5345211581291759,
+        "output": 1.9599109131403119,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.6,
+          "cached": 0.6,
+          "output": 2.2
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:z-ai/glm-4.7-flash",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "z-ai/glm-4.7-flash",
+      "name": "GLM 4.7 Flash",
+      "creator": "Z.ai",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 200000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.062360801781737196,
+        "cached": 0.062360801781737196,
+        "output": 0.35634743875278396,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.07,
+          "cached": 0.07,
+          "output": 0.4
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:z-ai/glm-5",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "z-ai/glm-5",
+      "name": "GLM 5",
+      "creator": "Z.ai",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 204800,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.8908685968819599,
+        "cached": 0.8908685968819599,
+        "output": 2.8507795100222717,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.0,
+          "cached": 1.0,
+          "output": 3.2
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:z-ai/glm-5.1",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "z-ai/glm-5.1",
+      "name": "GLM 5.1",
+      "creator": "Z.ai",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 204800,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.2472160356347437,
+        "cached": 1.2472160356347437,
+        "output": 3.9198218262806237,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.4,
+          "cached": 1.4,
+          "output": 4.4
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:z-ai/glm-5.2",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "z-ai/glm-5.2",
+      "name": "GLM 5.2",
+      "creator": "Z.ai",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.3719376391982183,
+        "cached": 1.3719376391982183,
+        "output": 4.311804008908686,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.54,
+          "cached": 1.54,
+          "output": 4.84
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:z-ai/glm-5.3",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "z-ai/glm-5.3",
+      "name": "GLM 5.3",
+      "creator": "Z.ai",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.2472160356347437,
+        "cached": 0.23162583518930957,
+        "output": 3.9198218262806237,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.4,
+          "cached": 0.26,
+          "output": 4.4
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:z-ai/glm-5.3-flash",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "z-ai/glm-5.3-flash",
+      "name": "GLM 5.3 Flash",
+      "creator": "Z.ai",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.13363028953229397,
+        "cached": 0.026726057906458794,
+        "output": 0.4454342984409799,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.15,
+          "cached": 0.03,
+          "output": 0.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:zai-org/GLM-4.7",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "zai-org/GLM-4.7",
+      "name": "GLM 4.7",
+      "creator": "Z.ai",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 204800,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.5345211581291759,
+        "cached": 0.5345211581291759,
+        "output": 1.9599109131403119,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.6,
+          "cached": 0.6,
+          "output": 2.2
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
     },
     {
       "key": "requesty:alibaba/qwen-max",

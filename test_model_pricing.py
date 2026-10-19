@@ -49,6 +49,12 @@ from sources.pioneer import (
 )
 from sources.nano_gpt import _nano_gpt_rates, fetch_nano_gpt_listings
 from sources.opencode import fetch_opencode_listings
+from sources.prime import (
+    _prime_is_text_output,
+    _prime_owner,
+    _prime_rates,
+    fetch_prime_listings,
+)
 from sources.requesty import _requesty_rates, fetch_requesty_listings
 from sources.vercel_gateway import (
     _vercel_gateway_rates,
@@ -88,6 +94,7 @@ ALL_SELLERS = {
     "nearai",
     "ofox",
     "pioneer",
+    "prime",
     "deepseek-direct",
     "zai-direct",
     "claude-direct",
@@ -119,6 +126,7 @@ SELLER_KINDS = {
     "nearai": "gateway",
     "ofox": "gateway",
     "pioneer": "gateway",
+    "prime": "gateway",
     "deepseek-direct": "first-party",
     "zai-direct": "first-party",
     "claude-direct": "first-party",
@@ -189,6 +197,7 @@ def test_registry_pages():
         "nearai",
         "ofox",
         "pioneer",
+        "prime",
     }
     assert global_pages == ALL_SELLERS
     assert {m["sellerKind"] for m in SOURCES.values()} == set(SELLER_KINDS.values())
@@ -3095,6 +3104,201 @@ def test_pioneer_adapter():
         raise AssertionError("missing per-million prices should skip the row")
 
 
+def test_prime_adapter():
+    """The committed Prime catalog sample normalizes to per-million-token
+    USD listings converted with the ECB rate; rows without published input
+    and output prices are skipped, not broken."""
+    # Prime bills in US dollars ("Currently, most billing occurs in USD",
+    # docs.primeintellect.ai/faq.md) and its catalog price fields name the
+    # unit USD per million tokens (input_usd_per_mtok); the registry
+    # records that verified native currency, and the catalog feeds the
+    # global page only.
+    assert SOURCES["prime"]["nativeCurrency"] == "USD"
+    assert SOURCES["prime"]["pages"] == ("global",)
+    assert SOURCES["prime"]["sellerKind"] == "gateway"
+
+    fixture = ROOT / "fixtures" / "prime-models.json"
+    payload = json.loads(fixture.read_text(encoding="utf-8"))
+    with patch("sources.prime.fetch_json", return_value=payload):
+        listings = fetch_prime_listings({"usdPerEur": 2.0})
+    by_id = {listing["modelId"]: listing for listing in listings}
+    assert set(by_id) == {
+        "alibaba/qwen3.5-flash",
+        "anthropic/claude-fable-5",
+        "cloudflare/clef",
+        "deepseek/deepseek-v4.1-flash",
+        "moondream/moondream3.1-9b-a2b",
+    }
+    # The image-output row bills images, not tokens: its declared output
+    # modalities carry no text and it publishes no token prices, so the
+    # text-output filter keeps it out of the listings.
+    assert "black-forest-labs/flux-3-pro" not in by_id
+
+    # The catalog's price fields are named *_usd_per_mtok — already
+    # dollars per 1M tokens — so the rates pass through unmultiplied and
+    # the ECB rate converts them.
+    qwen = by_id["alibaba/qwen3.5-flash"]
+    assert qwen["key"] == "prime:alibaba/qwen3.5-flash"
+    assert qwen["seller"] == "prime"
+    assert qwen["sellerName"] == "Prime"
+    assert qwen["name"] == "alibaba/qwen3.5-flash"
+    assert qwen["creator"] == "Alibaba"
+    assert qwen["contextSize"] is None
+    assert qwen["capabilities"] == {
+        "reasoning": False,
+        "tools": False,
+        "vision": False,
+        "audio": False,
+    }
+    assert qwen["rates"]["nativeCurrency"] == "USD"
+    assert qwen["rates"]["native"] == {
+        "input": 0.15,
+        "cached": 0.15,
+        "output": 0.6,
+    }
+    assert math.isclose(qwen["rates"]["input"], 0.075)
+    assert math.isclose(qwen["rates"]["cached"], 0.075)
+    assert math.isclose(qwen["rates"]["output"], 0.3)
+    assert qwen["rates"]["cachedFallback"] is True
+
+    # A published cache_read_usd_per_mtok prices cached input instead of
+    # the input-rate fallback; the specs.modalities image input maps to
+    # the vision capability through the adapter's local derivation.
+    deepseek = by_id["deepseek/deepseek-v4.1-flash"]
+    assert deepseek["name"] == "DeepSeek V4.1 Flash"
+    assert deepseek["creator"] == "DeepSeek"
+    assert deepseek["contextSize"] == 1048576
+    assert deepseek["capabilities"] == {
+        "reasoning": True,
+        "tools": True,
+        "vision": True,
+        "audio": False,
+    }
+    assert deepseek["rates"]["native"] == {
+        "input": 0.3,
+        "cached": 0.03,
+        "output": 1.2,
+    }
+    assert deepseek["rates"]["cachedFallback"] is False
+
+    # The catalog leaves owned_by empty, so canonical creator spellings
+    # come from the id prefixes; the specs.modalities image input maps to
+    # the vision capability through the adapter's local derivation.
+    fable = by_id["anthropic/claude-fable-5"]
+    assert fable["name"] == "Claude Fable 5"
+    assert fable["creator"] == "Anthropic"
+    assert fable["contextSize"] == 1000000
+    assert fable["capabilities"] == {
+        "reasoning": True,
+        "tools": True,
+        "vision": True,
+        "audio": False,
+    }
+
+    # Image inputs map to the vision capability through the adapter's
+    # local derivation (the hosted row also mirrors its modalities at the
+    # top level).
+    moondream = by_id["moondream/moondream3.1-9b-a2b"]
+    assert moondream["creator"] == "moondream"
+    assert moondream["contextSize"] == 32000
+    assert moondream["capabilities"] == {
+        "reasoning": True,
+        "tools": False,
+        "vision": True,
+        "audio": False,
+    }
+    assert moondream["rates"]["native"] == {
+        "input": 0.3,
+        "cached": 0.3,
+        "output": 2.5,
+    }
+
+    # A zero price is a price: the zero-output row normalizes to a zero
+    # output rate instead of dropping out. Clef's declared output
+    # modalities are decisions-only, so it ships for its published token
+    # prices — the zero output is a price, not an absence — and its
+    # specs.modalities image input maps to the vision capability.
+    clef = by_id["cloudflare/clef"]
+    assert clef["name"] == "Clef"
+    assert clef["creator"] == "cloudflare"
+    assert clef["capabilities"] == {
+        "reasoning": False,
+        "tools": False,
+        "vision": True,
+        "audio": False,
+    }
+    assert clef["rates"]["native"] == {
+        "input": 0.042,
+        "cached": 0.042,
+        "output": 0,
+    }
+    assert clef["rates"]["cachedFallback"] is True
+
+    # A prefix-less id carries no creator signal; the row attributes to
+    # Prime Intellect itself instead of shipping an empty creator.
+    assert _prime_owner({"id": "intellect-3"}) == "Prime Intellect"
+
+    assert all(
+        listing["rates"]["nativeCurrency"] == "USD" for listing in listings
+    )
+    assert all(
+        "Prime" in listing["priceNote"] and "ECB" in listing["priceNote"]
+        for listing in listings
+    )
+    zeros = _prime_rates(
+        {
+            "input_usd_per_mtok": 0,
+            "output_usd_per_mtok": 0,
+            "cache_read_usd_per_mtok": 0,
+        },
+        2.0,
+    )
+    assert zeros["input"] == zeros["cached"] == zeros["output"] == 0
+    assert zeros["nativeCurrency"] == "USD"
+    assert zeros["cachedFallback"] is False
+    # Rows without published input and output prices are not
+    # per-million-token priced and stay out of the listings.
+    try:
+        _prime_rates({}, 2.0)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("missing per-token prices should skip the row")
+
+    # Output modalities drive the text-output filter: an image-output row
+    # with no published token prices stays out, the decisions-only clef
+    # ships on its published token prices (zero output is a price), and
+    # rows without declared outputs keep the text default.
+    assert not _prime_is_text_output(
+        {
+            "id": "black-forest-labs/flux-3-pro",
+            "pricing": None,
+            "specs": {
+                "modalities": {
+                    "input": ["text", "image"],
+                    "output": ["image"],
+                }
+            },
+        }
+    )
+    assert _prime_is_text_output(
+        {
+            "id": "cloudflare/clef",
+            "pricing": {
+                "input_usd_per_mtok": 0.042,
+                "output_usd_per_mtok": 0.0,
+            },
+            "specs": {
+                "modalities": {
+                    "input": ["text", "image"],
+                    "output": ["decisions"],
+                }
+            },
+        }
+    )
+    assert _prime_is_text_output({"id": "gateway-only-model", "specs": None})
+
+
 def test_seven_day_seller_fallback():
     fetched_at = now_utc().isoformat()
     previous = {
@@ -3332,6 +3536,7 @@ def test_aggregate_contract():
     assert native_by_seller["nearai"] == "USD"
     assert native_by_seller["ofox"] == "USD"
     assert native_by_seller["pioneer"] == "USD"
+    assert native_by_seller["prime"] == "USD"
     assert {
         native_by_seller[sid]
         for sid in ("deepseek-direct", "zai-direct", "claude-direct", "openai-direct")
@@ -3419,6 +3624,7 @@ def test_generated_page():
         'data-seller="nearai"',
         'data-seller="ofox"',
         'data-seller="pioneer"',
+        'data-seller="prime"',
         'data-seller="deepseek-direct"',
         'data-seller="zai-direct"',
         'data-seller="claude-direct"',
@@ -3511,6 +3717,7 @@ def main():
     test_nearai_adapter()
     test_ofox_adapter()
     test_pioneer_adapter()
+    test_prime_adapter()
     test_seven_day_seller_fallback()
     test_broken_source_fails_in_isolation()
     test_build_fails_only_without_usable_data()

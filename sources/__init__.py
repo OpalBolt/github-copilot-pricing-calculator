@@ -37,6 +37,7 @@ from sources.pioneer import PIONEER_URL
 from sources.openai_direct import OPENAI_MODELS_URL, OPENAI_PRICING_URL
 from sources.opencode import OPENCODE_ZEN_URL
 from sources.openrouter import OPENROUTER_URL
+from sources.prime import PRIME_URL
 from sources.requesty import REQUESTY_URL
 from sources.vercel_gateway import VERCEL_GATEWAY_URL
 
@@ -356,6 +357,21 @@ SOURCES = {
         # are USD per 1M tokens" (docs.fastino.ai/pricing), and the same
         # page's inference table repeats the catalog's per-million fields
         # ($0.08 input / $0.45 output for Nemotron 3.5 Super VL).
+        "nativeCurrency": "USD",
+        "euClaim": "No EU routing catalog is published.",
+    },
+    "prime": {
+        "name": "Prime",
+        "pages": ("global",),
+        "sellerKind": "gateway",
+        "source": PRIME_URL,
+        # Prime Intellect's inference docs describe "one OpenAI-compatible
+        # API for both hosted and gateway models" whose gateway serving
+        # "routes the request to an external inference provider" (docs.
+        # primeintellect.ai/inference/overview) — a gateway, not a router.
+        # It bills US dollars: "Currently, most billing occurs in USD"
+        # (docs.primeintellect.ai/faq.md), and every catalog price field
+        # names the unit USD per million tokens (input_usd_per_mtok).
         "nativeCurrency": "USD",
         "euClaim": "No EU routing catalog is published.",
     },
