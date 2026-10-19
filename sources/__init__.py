@@ -12,6 +12,7 @@ marker and is unchanged.
 """
 
 from fetch_providers import DEEPSEEK_URL, ZAI_PAYGO_URL
+from sources.aiand import AIAND_URL
 from sources.claude_direct import CLAUDE_MODELS_URL, CLAUDE_PRICING_URL
 from sources.chutes import CHUTES_URL
 from sources.cortecs import CORTECS_URL
@@ -137,6 +138,19 @@ SOURCES = {
         # Read $0.075 /M tokens Output $0.6 /M tokens" for gpt-4o-mini,
         # llmgateway.io/models/gpt-4o-mini), and the pricing page bills
         # add-ons like data retention at $0.01 per 1M tokens.
+        "nativeCurrency": "USD",
+        "euClaim": "No EU routing catalog is published.",
+    },
+    "aiand": {
+        "name": "aiand",
+        "pages": ("global",),
+        "sellerKind": "gateway",
+        "source": AIAND_URL,
+        # ai& "serves open-weight LLMs from our own infrastructure ... with
+        # per-token credit billing" (docs.aiand.com) — a hosted inference
+        # platform, not a router. The keyless catalog bills US dollars:
+        # every row prices currency "usd" and "Called without an API key,
+        # the endpoint returns USD prices" (docs.aiand.com/models/pricing).
         "nativeCurrency": "USD",
         "euClaim": "No EU routing catalog is published.",
     },

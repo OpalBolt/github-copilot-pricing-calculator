@@ -12,6 +12,7 @@ from unittest.mock import patch
 import fetch_model_pricing
 from fetch_model_pricing import _cached_seller
 from sources import SOURCES
+from sources.aiand import _aiand_rates, fetch_aiand_listings
 from sources.chutes import _chutes_rates, fetch_chutes_listings
 from sources.deepinfra import _deepinfra_rates, fetch_deepinfra_listings
 from sources.eurouter import fetch_eurouter_listings
@@ -47,6 +48,7 @@ ALL_SELLERS = {
     "kilo",
     "chutes",
     "llmgateway",
+    "aiand",
     "deepseek-direct",
     "zai-direct",
     "claude-direct",
@@ -65,6 +67,7 @@ SELLER_KINDS = {
     "kilo": "gateway",
     "chutes": "gateway",
     "llmgateway": "gateway",
+    "aiand": "gateway",
     "deepseek-direct": "first-party",
     "zai-direct": "first-party",
     "claude-direct": "first-party",
@@ -122,6 +125,7 @@ def test_registry_pages():
         "kilo",
         "chutes",
         "llmgateway",
+        "aiand",
     }
     assert global_pages == ALL_SELLERS
     assert {m["sellerKind"] for m in SOURCES.values()} == set(SELLER_KINDS.values())
@@ -1113,6 +1117,125 @@ def test_llm_gateway_adapter():
     assert "text-embedding-3-small" not in by_id
 
 
+def test_aiand_adapter():
+    """The committed aiand catalog sample normalizes to per-million-token
+    USD listings converted with the ECB rate; rows without per-million
+    input and output prices are skipped, not broken."""
+    # ai&'s pricing doc: the catalog's *_per_1m fields are "prices per 1
+    # million tokens" and "Called without an API key, the endpoint returns
+    # USD prices"; the registry records that verified native currency, and
+    # the catalog feeds the global page only.
+    assert SOURCES["aiand"]["nativeCurrency"] == "USD"
+    assert SOURCES["aiand"]["pages"] == ("global",)
+    assert SOURCES["aiand"]["sellerKind"] == "gateway"
+
+    fixture = ROOT / "fixtures" / "aiand-models.json"
+    payload = json.loads(fixture.read_text(encoding="utf-8"))
+    with patch("sources.aiand.fetch_json", return_value=payload):
+        listings = fetch_aiand_listings({"usdPerEur": 2.0})
+    by_id = {listing["modelId"]: listing for listing in listings}
+    assert set(by_id) == {
+        "deepseek-ai/deepseek-v4.1-flash",
+        "zai-org/glm-5.3",
+        "moonshotai/kimi-k3",
+        "qwen/qwen3.8-27b",
+        "motif-technologies/motif-3",
+        "openai/gpt-oss-120b",
+    }
+
+    # ai&'s pricing formula bills "(input_tokens / 1_000_000) ×
+    # input_per_1m", so the catalog's input_per_1m, output_per_1m, and
+    # cached_input_per_1m fields pass through unmultiplied in dollars and
+    # the ECB rate converts them.
+    deepseek = by_id["deepseek-ai/deepseek-v4.1-flash"]
+    assert deepseek["key"] == "aiand:deepseek-ai/deepseek-v4.1-flash"
+    assert deepseek["seller"] == "aiand"
+    assert deepseek["sellerName"] == "aiand"
+    assert deepseek["name"] == "deepseek-ai/DeepSeek-V4.1-Flash"
+    assert deepseek["creator"] == "DeepSeek"
+    assert deepseek["contextSize"] == 1048576
+    assert deepseek["capabilities"] == {
+        "reasoning": True,
+        "tools": True,
+        "vision": True,
+        "audio": False,
+    }
+    assert deepseek["rates"]["nativeCurrency"] == "USD"
+    assert deepseek["rates"]["native"] == {
+        "input": 0.3,
+        "cached": 0.02,
+        "output": 0.6,
+    }
+    assert math.isclose(deepseek["rates"]["input"], 0.15)
+    assert math.isclose(deepseek["rates"]["cached"], 0.01)
+    assert math.isclose(deepseek["rates"]["output"], 0.3)
+    assert deepseek["rates"]["cachedFallback"] is False
+
+    # The canonical creator spelling comes from the catalog's provider
+    # field, "the lab that released the open weights"; the documented
+    # vision, video, and document input capabilities map to vision.
+    glm = by_id["zai-org/glm-5.3"]
+    assert glm["creator"] == "Z.ai"
+    assert glm["rates"]["native"] == {
+        "input": 1.0,
+        "cached": 0.3,
+        "output": 4.0,
+    }
+    assert glm["capabilities"]["vision"] is False
+    kimi = by_id["moonshotai/kimi-k3"]
+    assert kimi["creator"] == "Moonshot AI"
+    assert kimi["rates"]["native"] == {
+        "input": 3.0,
+        "cached": 0.5,
+        "output": 12.5,
+    }
+    assert kimi["capabilities"] == {
+        "reasoning": True,
+        "tools": True,
+        "vision": True,
+        "audio": False,
+    }
+    assert by_id["qwen/qwen3.8-27b"]["creator"] == "Alibaba"
+    # A provider outside the alias table passes through unaliased.
+    assert by_id["motif-technologies/motif-3"]["creator"] == (
+        "Motif-Technologies"
+    )
+    assert by_id["openai/gpt-oss-120b"]["creator"] == "OpenAI"
+
+    assert all(
+        listing["rates"]["nativeCurrency"] == "USD" for listing in listings
+    )
+    assert all(
+        "aiand" in listing["priceNote"] and "ECB" in listing["priceNote"]
+        for listing in listings
+    )
+    # A zero price is a price: zero-priced rows normalize to zero rates
+    # instead of dropping out.
+    zeros = _aiand_rates(
+        {
+            "input_per_1m": "0",
+            "output_per_1m": "0",
+            "cached_input_per_1m": "0",
+        },
+        2.0,
+    )
+    assert zeros["input"] == zeros["cached"] == zeros["output"] == 0
+    assert zeros["nativeCurrency"] == "USD"
+    assert zeros["cachedFallback"] is False
+    # Rows without a cached_input_per_1m fall back to the input rate.
+    fallback = _aiand_rates({"input_per_1m": "0.2", "output_per_1m": "1"}, 2.0)
+    assert fallback["cachedFallback"] is True
+    assert fallback["cached"] == fallback["input"] == 0.1
+    # Rows without per-million input and output prices are not
+    # per-million-token priced and stay out of the listings.
+    try:
+        _aiand_rates({}, 2.0)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("missing per-million prices should skip the row")
+
+
 def test_seven_day_seller_fallback():
     fetched_at = now_utc().isoformat()
     previous = {
@@ -1134,7 +1257,7 @@ def test_seven_day_seller_fallback():
 
 @contextmanager
 def _patch_adapters(**behaviors):
-    """Patch the build's ECB fetch and all sixteen listings adapters. Values
+    """Patch the build's ECB fetch and all seventeen listings adapters. Values
     are return values for `ok`, exceptions for failing sources."""
     ecb = behaviors.pop("ecb", {"usdPerEur": 1.1, "observationDate": "2026-10-16"})
     patches = [
@@ -1333,6 +1456,7 @@ def test_aggregate_contract():
     assert native_by_seller["kilo"] == "USD"
     assert native_by_seller["chutes"] == "USD"
     assert native_by_seller["llmgateway"] == "USD"
+    assert native_by_seller["aiand"] == "USD"
     assert {
         native_by_seller[sid]
         for sid in ("deepseek-direct", "zai-direct", "claude-direct", "openai-direct")
@@ -1407,6 +1531,7 @@ def test_generated_page():
         'data-seller="kilo"',
         'data-seller="chutes"',
         'data-seller="llmgateway"',
+        'data-seller="aiand"',
         'data-seller="deepseek-direct"',
         'data-seller="zai-direct"',
         'data-seller="claude-direct"',
@@ -1486,6 +1611,7 @@ def main():
     test_kilo_adapter()
     test_chutes_adapter()
     test_llm_gateway_adapter()
+    test_aiand_adapter()
     test_seven_day_seller_fallback()
     test_broken_source_fails_in_isolation()
     test_build_fails_only_without_usable_data()

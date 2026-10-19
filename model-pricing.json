@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-19T14:59:50.992012+00:00",
+  "generatedAt": "2026-10-19T15:15:49.375011+00:00",
   "currency": "EUR",
   "exchangeRate": {
     "series": "EXR.D.USD.EUR.SP00.A",
@@ -15,7 +15,7 @@
       "source": "https://api.cortecs.ai/v1/models?extended=true&currency=EUR",
       "id": "cortecs",
       "nativeCurrency": "EUR",
-      "fetchedAt": "2026-10-19T14:59:50.992012+00:00",
+      "fetchedAt": "2026-10-19T15:15:49.375011+00:00",
       "stale": false
     },
     {
@@ -24,7 +24,7 @@
       "source": "https://api.eurouter.ai/api/v1/models",
       "id": "eurouter",
       "nativeCurrency": "mixed",
-      "fetchedAt": "2026-10-19T14:59:50.992012+00:00",
+      "fetchedAt": "2026-10-19T15:15:49.375011+00:00",
       "stale": false
     },
     {
@@ -33,7 +33,7 @@
       "source": "https://openrouter.ai/api/v1/models",
       "id": "openrouter",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T14:59:50.992012+00:00",
+      "fetchedAt": "2026-10-19T15:15:49.375011+00:00",
       "stale": false
     },
     {
@@ -42,7 +42,7 @@
       "source": "https://opencode.ai/zen/v1/models",
       "id": "opencode",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T14:59:50.992012+00:00",
+      "fetchedAt": "2026-10-19T15:15:49.375011+00:00",
       "stale": false
     },
     {
@@ -51,7 +51,7 @@
       "source": "https://api.deepinfra.com/v1/models",
       "nativeCurrency": "USD",
       "id": "deepinfra",
-      "fetchedAt": "2026-10-19T14:59:50.992012+00:00",
+      "fetchedAt": "2026-10-19T15:15:49.375011+00:00",
       "stale": false
     },
     {
@@ -60,7 +60,7 @@
       "source": "https://api.novita.ai/v3/openai/models",
       "nativeCurrency": "USD",
       "id": "novita",
-      "fetchedAt": "2026-10-19T14:59:50.992012+00:00",
+      "fetchedAt": "2026-10-19T15:15:49.375011+00:00",
       "stale": false
     },
     {
@@ -69,7 +69,7 @@
       "source": "https://router.requesty.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "requesty",
-      "fetchedAt": "2026-10-19T14:59:50.992012+00:00",
+      "fetchedAt": "2026-10-19T15:15:49.375011+00:00",
       "stale": false
     },
     {
@@ -78,7 +78,7 @@
       "source": "https://ai-gateway.vercel.sh/v1/models",
       "nativeCurrency": "USD",
       "id": "vercel-gateway",
-      "fetchedAt": "2026-10-19T14:59:50.992012+00:00",
+      "fetchedAt": "2026-10-19T15:15:49.375011+00:00",
       "stale": false
     },
     {
@@ -87,7 +87,7 @@
       "source": "https://api.kilo.ai/api/gateway/models",
       "nativeCurrency": "USD",
       "id": "kilo",
-      "fetchedAt": "2026-10-19T14:59:50.992012+00:00",
+      "fetchedAt": "2026-10-19T15:15:49.375011+00:00",
       "stale": false
     },
     {
@@ -96,7 +96,7 @@
       "source": "https://nano-gpt.com/api/v1/models?detailed=true",
       "nativeCurrency": "USD",
       "id": "nano-gpt",
-      "fetchedAt": "2026-10-19T14:59:50.992012+00:00",
+      "fetchedAt": "2026-10-19T15:15:49.375011+00:00",
       "stale": false
     },
     {
@@ -105,7 +105,7 @@
       "source": "https://llm.chutes.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "chutes",
-      "fetchedAt": "2026-10-19T14:59:50.992012+00:00",
+      "fetchedAt": "2026-10-19T15:15:49.375011+00:00",
       "stale": false
     },
     {
@@ -114,7 +114,16 @@
       "source": "https://api.llmgateway.io/v1/models",
       "nativeCurrency": "USD",
       "id": "llmgateway",
-      "fetchedAt": "2026-10-19T14:59:50.992012+00:00",
+      "fetchedAt": "2026-10-19T15:15:49.375011+00:00",
+      "stale": false
+    },
+    {
+      "name": "aiand",
+      "sellerKind": "gateway",
+      "source": "https://api.aiand.com/v1/models",
+      "nativeCurrency": "USD",
+      "id": "aiand",
+      "fetchedAt": "2026-10-19T15:15:49.375011+00:00",
       "stale": false
     },
     {
@@ -123,7 +132,7 @@
       "sellerKind": "first-party",
       "id": "deepseek-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T14:59:50.992012+00:00",
+      "fetchedAt": "2026-10-19T15:15:49.375011+00:00",
       "stale": false
     },
     {
@@ -132,7 +141,7 @@
       "sellerKind": "first-party",
       "id": "zai-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T14:59:50.992012+00:00",
+      "fetchedAt": "2026-10-19T15:15:49.375011+00:00",
       "stale": false
     },
     {
@@ -141,7 +150,7 @@
       "sellerKind": "first-party",
       "id": "claude-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T14:59:50.992012+00:00",
+      "fetchedAt": "2026-10-19T15:15:49.375011+00:00",
       "stale": false
     },
     {
@@ -150,12 +159,415 @@
       "sellerKind": "first-party",
       "id": "openai-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T14:59:50.992012+00:00",
+      "fetchedAt": "2026-10-19T15:15:49.375011+00:00",
       "stale": false
     }
   ],
   "omittedSellers": [],
   "listings": [
+    {
+      "key": "aiand:deepseek-ai/deepseek-v4-flash",
+      "seller": "aiand",
+      "sellerName": "aiand",
+      "modelId": "deepseek-ai/deepseek-v4-flash",
+      "name": "deepseek-ai/DeepSeek-V4-Flash",
+      "creator": "DeepSeek",
+      "description": "Fast DeepSeek V4 lane for economical reasoning, coding, and long-context work",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.13363028953229397,
+        "cached": 0.07126948775055679,
+        "output": 0.22271714922048996,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.15,
+          "cached": 0.08,
+          "output": 0.25
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in aiand's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "aiand:deepseek-ai/deepseek-v4-pro",
+      "seller": "aiand",
+      "sellerName": "aiand",
+      "modelId": "deepseek-ai/deepseek-v4-pro",
+      "name": "deepseek-ai/DeepSeek-V4-Pro",
+      "creator": "DeepSeek",
+      "description": "Open MoE flagship with million-token context for coding and long agent runs",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.8908685968819599,
+        "cached": 0.22271714922048996,
+        "output": 2.2271714922048997,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.0,
+          "cached": 0.25,
+          "output": 2.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in aiand's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "aiand:deepseek-ai/deepseek-v4.1-flash",
+      "seller": "aiand",
+      "sellerName": "aiand",
+      "modelId": "deepseek-ai/deepseek-v4.1-flash",
+      "name": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "creator": "DeepSeek",
+      "description": "DeepSeek V4.1 Flash lane for economical reasoning, coding and long-context work",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.26726057906458794,
+        "cached": 0.017817371937639197,
+        "output": 0.5345211581291759,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3,
+          "cached": 0.02,
+          "output": 0.6
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in aiand's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "aiand:google/gemma-4-31b-it",
+      "seller": "aiand",
+      "sellerName": "aiand",
+      "modelId": "google/gemma-4-31b-it",
+      "name": "google/gemma-4-31b-it",
+      "creator": "Google",
+      "description": "Largest Gemma 4 instruction model for open, self-hosted chat and reasoning",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.17817371937639198,
+        "cached": 0.044543429844097995,
+        "output": 0.4454342984409799,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.2,
+          "cached": 0.05,
+          "output": 0.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in aiand's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "aiand:moonshotai/kimi-k2.7-code",
+      "seller": "aiand",
+      "sellerName": "aiand",
+      "modelId": "moonshotai/kimi-k2.7-code",
+      "name": "moonshotai/kimi-k2.7-code",
+      "creator": "Moonshot AI",
+      "description": "Coding-focused Kimi model, stronger on long-horizon repo work with less overthinking",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.6681514476614699,
+        "cached": 0.17817371937639198,
+        "output": 3.1180400890868594,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.75,
+          "cached": 0.2,
+          "output": 3.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in aiand's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "aiand:moonshotai/kimi-k3",
+      "seller": "aiand",
+      "sellerName": "aiand",
+      "modelId": "moonshotai/kimi-k3",
+      "name": "moonshotai/kimi-k3",
+      "creator": "Moonshot AI",
+      "description": "Multimodal Kimi model with 1M context and toggleable max-effort thinking for long-horizon agent work",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 2.6726057906458798,
+        "cached": 0.4454342984409799,
+        "output": 11.135857461024498,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 3.0,
+          "cached": 0.5,
+          "output": 12.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in aiand's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "aiand:motif-technologies/motif-3",
+      "seller": "aiand",
+      "sellerName": "aiand",
+      "modelId": "motif-technologies/motif-3",
+      "name": "Motif-Technologies/Motif-3",
+      "creator": "Motif-Technologies",
+      "description": "Motif 3 is a large-scale, decoder-only Mixture-of-Experts (MoE) language model with 314 billion total parameters and 13.2 billion parameters activated per token.",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.4454342984409799,
+        "cached": 0.17817371937639198,
+        "output": 1.7817371937639197,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.5,
+          "cached": 0.2,
+          "output": 2.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in aiand's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "aiand:openai/gpt-oss-120b",
+      "seller": "aiand",
+      "sellerName": "aiand",
+      "modelId": "openai/gpt-oss-120b",
+      "name": "openai/gpt-oss-120b",
+      "creator": "OpenAI",
+      "description": "Open GPT reasoning model for self-hosted agents and controllable deployments",
+      "releaseDate": null,
+      "contextSize": 131072,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.13363028953229397,
+        "cached": 0.07126948775055679,
+        "output": 0.5345211581291759,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.15,
+          "cached": 0.08,
+          "output": 0.6
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in aiand's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "aiand:qwen/qwen3.6-27b",
+      "seller": "aiand",
+      "sellerName": "aiand",
+      "modelId": "qwen/qwen3.6-27b",
+      "name": "qwen/qwen3.6-27b",
+      "creator": "Alibaba",
+      "description": "Qwen vision-language model for visual reasoning, documents, and agent tasks",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.28507795100222716,
+        "cached": 0.17817371937639198,
+        "output": 2.8507795100222717,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.32,
+          "cached": 0.2,
+          "output": 3.2
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in aiand's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "aiand:qwen/qwen3.8-27b",
+      "seller": "aiand",
+      "sellerName": "aiand",
+      "modelId": "qwen/qwen3.8-27b",
+      "name": "qwen/qwen3.8-27b",
+      "creator": "Alibaba",
+      "description": "Dense 27B vision-language model for coding, agent tasks, and image and video understanding",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.35634743875278396,
+        "cached": 0.17817371937639198,
+        "output": 2.6726057906458798,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.4,
+          "cached": 0.2,
+          "output": 3.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in aiand's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "aiand:zai-org/glm-5.2",
+      "seller": "aiand",
+      "sellerName": "aiand",
+      "modelId": "zai-org/glm-5.2",
+      "name": "zai-org/glm-5.2",
+      "creator": "Z.ai",
+      "description": "Open flagship GLM for long-horizon coding agents and million-token context work",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.8908685968819599,
+        "cached": 0.26726057906458794,
+        "output": 3.5634743875278394,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.0,
+          "cached": 0.3,
+          "output": 4.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in aiand's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "aiand:zai-org/glm-5.3",
+      "seller": "aiand",
+      "sellerName": "aiand",
+      "modelId": "zai-org/glm-5.3",
+      "name": "zai-org/glm-5.3",
+      "creator": "Z.ai",
+      "description": "Flagship GLM model for long-horizon coding, agents, and complex project delivery",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.8908685968819599,
+        "cached": 0.26726057906458794,
+        "output": 3.5634743875278394,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.0,
+          "cached": 0.3,
+          "output": 4.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in aiand's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "aiand:zai-org/glm-5.3-flash",
+      "seller": "aiand",
+      "sellerName": "aiand",
+      "modelId": "zai-org/glm-5.3-flash",
+      "name": "zai-org/glm-5.3-flash",
+      "creator": "Z.ai",
+      "description": "Multimodal GLM model for coding and agents with a million-token context",
+      "releaseDate": null,
+      "contextSize": 1048550,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.13363028953229397,
+        "cached": 0.026726057906458794,
+        "output": 0.4454342984409799,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.15,
+          "cached": 0.03,
+          "output": 0.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in aiand's model catalog and converted with the listed ECB rate."
+    },
     {
       "key": "chutes:Nemotron-3-Nano-Omni-30B-TEE",
       "seller": "chutes",
@@ -22772,13 +23184,13 @@
         "audio": false
       },
       "rates": {
-        "input": 0.004632516703786191,
+        "input": 0.0034922048997772827,
         "cached": 0.0029434298440979955,
         "output": 0.10690423162583518,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0052,
+          "input": 0.00392,
           "cached": 0.003304,
           "output": 0.12
         }
@@ -23940,7 +24352,7 @@
       "modelId": "deepseek-v4.1-flash",
       "name": "DeepSeek V4.1 Flash",
       "creator": "DeepSeek",
-      "description": "deepseek-v4.1-flash provided by deepseek, alibaba, deepinfra, fireworks, together-ai, novita, baidu, consensusprotocol, sciforium, luminal, entrim, scx-ai-gp, runware",
+      "description": "deepseek-v4.1-flash provided by deepseek, alibaba, deepinfra, fireworks, together-ai, novita, baidu, consensusprotocol, scx-ai-gp, sciforium, luminal, entrim, runware",
       "releaseDate": null,
       "contextSize": 1050000,
       "capabilities": {
@@ -25397,7 +25809,7 @@
       "modelId": "glm-5.3-flash",
       "name": "GLM-5.3 Flash",
       "creator": "Z.ai",
-      "description": "glm-5.3-flash provided by zai, novita, fireworks, inference.net, together-ai, runware, consensusprotocol, scx-ai-gp, entrim",
+      "description": "glm-5.3-flash provided by zai, novita, fireworks, inference.net, together-ai, consensusprotocol, runware, scx-ai-gp, entrim",
       "releaseDate": null,
       "contextSize": 1048576,
       "capabilities": {
@@ -42612,15 +43024,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.3884632516703786,
-        "cached": 0.06542538975501114,
-        "output": 1.6356347438752783,
+        "input": 0.3867706013363029,
+        "cached": 0.0651403118040089,
+        "output": 1.6285077951002227,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.43605,
-          "cached": 0.07344,
-          "output": 1.836
+          "input": 0.43415000000000004,
+          "cached": 0.07311999999999999,
+          "output": 1.828
         }
       },
       "pricingTiers": [],
@@ -42643,15 +43055,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.3884632516703786,
-        "cached": 0.06542538975501114,
-        "output": 1.6356347438752783,
+        "input": 0.3867706013363029,
+        "cached": 0.0651403118040089,
+        "output": 1.6285077951002227,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.43605,
-          "cached": 0.07344,
-          "output": 1.836
+          "input": 0.43415000000000004,
+          "cached": 0.07311999999999999,
+          "output": 1.828
         }
       },
       "pricingTiers": [],
@@ -60207,15 +60619,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.3869077951002227,
-        "cached": 0.032242316258351895,
-        "output": 0.7738155902004454,
+        "input": 0.38380757238307345,
+        "cached": 0.03198396436525613,
+        "output": 0.7676151447661469,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.434304,
-          "cached": 0.036192,
-          "output": 0.868608
+          "input": 0.430824,
+          "cached": 0.035902,
+          "output": 0.861648
         }
       },
       "pricingTiers": [],
@@ -72049,13 +72461,13 @@
         "audio": false
       },
       "rates": {
-        "input": 0.004632516703786191,
+        "input": 0.0034922048997772827,
         "cached": 0.0029434298440979955,
         "output": 0.10690423162583518,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0052,
+          "input": 0.00392,
           "cached": 0.003304,
           "output": 0.12
         }
