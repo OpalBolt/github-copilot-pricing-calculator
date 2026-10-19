@@ -63,6 +63,13 @@ from sources.tinfoil import (
     _tinfoil_rates,
     fetch_tinfoil_listings,
 )
+from sources.venice import (
+    _venice_capabilities,
+    _venice_owner,
+    _venice_pricing_tiers,
+    _venice_rates,
+    fetch_venice_listings,
+)
 from sources.vercel_gateway import (
     _vercel_gateway_rates,
     fetch_vercel_gateway_listings,
@@ -103,6 +110,7 @@ ALL_SELLERS = {
     "pioneer",
     "prime",
     "tinfoil",
+    "venice",
     "deepseek-direct",
     "zai-direct",
     "claude-direct",
@@ -136,6 +144,7 @@ SELLER_KINDS = {
     "pioneer": "gateway",
     "prime": "gateway",
     "tinfoil": "gateway",
+    "venice": "gateway",
     "deepseek-direct": "first-party",
     "zai-direct": "first-party",
     "claude-direct": "first-party",
@@ -208,6 +217,7 @@ def test_registry_pages():
         "pioneer",
         "prime",
         "tinfoil",
+        "venice",
     }
     assert global_pages == ALL_SELLERS
     assert {m["sellerKind"] for m in SOURCES.values()} == set(SELLER_KINDS.values())
@@ -3478,6 +3488,179 @@ def test_tinfoil_adapter():
     }
 
 
+def test_venice_adapter():
+    """The committed Venice catalog sample normalizes to per-million-token
+    USD listings converted with the ECB rate; its long-context extended
+    tiers ship as pricing tiers, and rows without usd prices stay out."""
+    # Venice bills in US dollars: the API reference describes every
+    # model_spec.pricing field as "USD cost per million input tokens"
+    # (docs.venice.ai/api-reference/endpoint/models/list), and its pricing
+    # page opens "Prices per 1M tokens unless noted. All prices in USD."
+    # (docs.venice.ai/overview/pricing). It "provides permissionless
+    # access to AI models" through one OpenAI-compatible API (docs.
+    # venice.ai) — a gateway, not a router — so the registry records
+    # sellerKind gateway, that verified native currency, and the global
+    # page only.
+    assert SOURCES["venice"]["nativeCurrency"] == "USD"
+    assert SOURCES["venice"]["pages"] == ("global",)
+    assert SOURCES["venice"]["sellerKind"] == "gateway"
+
+    fixture = ROOT / "fixtures" / "venice-models.json"
+    payload = json.loads(fixture.read_text(encoding="utf-8"))
+    with patch("sources.venice.fetch_json", return_value=payload):
+        listings = fetch_venice_listings({"usdPerEur": 2.0})
+    by_id = {listing["modelId"]: listing for listing in listings}
+    assert set(by_id) == {
+        "claude-opus-4-8",
+        "venice-uncensored-1-2",
+        "openai-gpt-54",
+        "gemini-4-argon",
+    }
+
+    # The catalog's usd fields are already dollars per 1M tokens, so the
+    # rates pass through unmultiplied and the ECB rate converts them.
+    claude = by_id["claude-opus-4-8"]
+    assert claude["key"] == "venice:claude-opus-4-8"
+    assert claude["seller"] == "venice"
+    assert claude["sellerName"] == "Venice"
+    assert claude["name"] == "Claude Opus 4.8"
+    assert claude["creator"] == "Venice"
+    assert claude["contextSize"] == 1_000_000
+    assert claude["rates"]["nativeCurrency"] == "USD"
+    assert claude["rates"]["native"] == {
+        "input": 5.0,
+        "cached": 0.5,
+        "output": 25.0,
+    }
+    assert math.isclose(claude["rates"]["input"], 2.5)
+    assert math.isclose(claude["rates"]["cached"], 0.25)
+    assert math.isclose(claude["rates"]["output"], 12.5)
+    assert claude["rates"]["cachedFallback"] is False
+    assert claude["pricingTiers"] == []
+    # The catalog's declared flags drive the capabilities: supportsReasoning,
+    # supportsFunctionCalling, supportsVision, and supportsAudioInput name
+    # their capabilities directly.
+    assert claude["capabilities"] == {
+        "reasoning": True,
+        "tools": True,
+        "vision": True,
+        "audio": False,
+    }
+
+    # A missing cache_input falls back to the input rate; the cache_write
+    # field has no listing rate and is not silently billed as cached
+    # input.
+    uncensored = by_id["venice-uncensored-1-2"]
+    assert uncensored["rates"]["native"] == {
+        "input": 0.2,
+        "cached": 0.2,
+        "output": 0.9,
+    }
+    assert uncensored["rates"]["cachedFallback"] is True
+    assert uncensored["contextSize"] == 128_000
+
+    # pricing.extended is the long-context tier: the same usd fields with
+    # the input token count above which they apply.
+    gpt54 = by_id["openai-gpt-54"]
+    assert gpt54["rates"]["native"] == {
+        "input": 2.5,
+        "cached": 0.25,
+        "output": 15.0,
+    }
+    assert len(gpt54["pricingTiers"]) == 1
+    tier = gpt54["pricingTiers"][0]
+    assert tier["contextAbove"] == 272_000
+    assert tier["nativeCurrency"] == "USD"
+    assert tier["native"] == {"input": 5.0, "cached": 0.5, "output": 22.5}
+    assert math.isclose(tier["input"], 2.5)
+    assert math.isclose(tier["output"], 11.25)
+
+    # The audio flag on supported models marks the audio capability.
+    assert by_id["gemini-4-argon"]["capabilities"]["audio"] is True
+
+    assert all(
+        listing["rates"]["nativeCurrency"] == "USD" for listing in listings
+    )
+    assert all(
+        "Venice" in listing["priceNote"] and "ECB" in listing["priceNote"]
+        for listing in listings
+    )
+
+    # A zero price is a price: zero usd fields normalize to zero rates
+    # instead of dropping out, and the diem twin never stands in for the
+    # USD field the calculator bills.
+    zeros = _venice_rates(
+        {
+            "input": {"usd": 0, "diem": 0},
+            "output": {"usd": 0, "diem": 0},
+            "cache_input": {"usd": 0, "diem": 0},
+        },
+        2.0,
+    )
+    assert zeros["input"] == zeros["cached"] == zeros["output"] == 0
+    assert zeros["nativeCurrency"] == "USD"
+    assert zeros["cachedFallback"] is False
+    assert _venice_rates(
+        {"input": {"usd": 1, "diem": 10}, "output": {"usd": 2, "diem": 20}},
+        2.0,
+    )["native"] == {"input": 1, "cached": 1, "output": 2}
+    # Rows without published input and output usd prices are not
+    # per-million-token priced and stay out of the listings.
+    try:
+        _venice_rates({"output": {"usd": 2}}, 2.0)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("missing usd prices should skip the row")
+
+    # A tier without a threshold is no tier; the threshold numbers the
+    # context above which the extended prices apply.
+    assert _venice_pricing_tiers({"input": {"usd": 1}}, 2.0) == []
+    assert _venice_pricing_tiers(
+        {
+            "extended": {
+                "context_token_threshold": 200_000,
+                "input": {"usd": 11},
+                "output": {"usd": 41.25},
+            }
+        },
+        2.0,
+    )[0]["contextAbove"] == 200_000
+
+    # The catalog names every row owned_by the serving platform, so rows
+    # attribute to Venice's display name instead of a bare platform
+    # string.
+    assert _venice_owner({"owned_by": "venice.ai"}) == "Venice"
+    assert _venice_owner({"owned_by": ""}) == "Venice"
+
+    # The declared flags drive the capability derivation the shared
+    # helper cannot read from this catalog's shape; missing flags stay
+    # false.
+    assert _venice_capabilities(
+        {
+            "model_spec": {
+                "capabilities": {
+                    "supportsReasoning": True,
+                    "supportsFunctionCalling": False,
+                    "supportsVision": False,
+                    "supportsAudioInput": False,
+                }
+            }
+        }
+    ) == {
+        "reasoning": True,
+        "tools": False,
+        "vision": False,
+        "audio": False,
+    }
+    assert _venice_capabilities({}) == {
+        "reasoning": False,
+        "tools": False,
+        "vision": False,
+        "audio": False,
+    }
+
+
 def test_seven_day_seller_fallback():
     fetched_at = now_utc().isoformat()
     previous = {
@@ -3717,6 +3900,7 @@ def test_aggregate_contract():
     assert native_by_seller["pioneer"] == "USD"
     assert native_by_seller["prime"] == "USD"
     assert native_by_seller["tinfoil"] == "USD"
+    assert native_by_seller["venice"] == "USD"
     assert {
         native_by_seller[sid]
         for sid in ("deepseek-direct", "zai-direct", "claude-direct", "openai-direct")
@@ -3806,6 +3990,7 @@ def test_generated_page():
         'data-seller="pioneer"',
         'data-seller="prime"',
         'data-seller="tinfoil"',
+        'data-seller="venice"',
         'data-seller="deepseek-direct"',
         'data-seller="zai-direct"',
         'data-seller="claude-direct"',
@@ -3899,6 +4084,8 @@ def main():
     test_ofox_adapter()
     test_pioneer_adapter()
     test_prime_adapter()
+    test_tinfoil_adapter()
+    test_venice_adapter()
     test_seven_day_seller_fallback()
     test_broken_source_fails_in_isolation()
     test_build_fails_only_without_usable_data()

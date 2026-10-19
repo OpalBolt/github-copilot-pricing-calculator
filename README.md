@@ -118,6 +118,7 @@ The router build uses these sources:
 | Pioneer (Fastino) catalog | `https://api.fastino.ai/v1/models` |
 | Prime catalog | `https://api.pinference.ai/api/v1/models` |
 | Tinfoil catalog | `https://inference.tinfoil.sh/v1/models` |
+| Venice catalog | `https://api.venice.ai/api/v1/models?type=text` |
 | Claude model catalog | `https://platform.claude.com/docs/en/api/http/beta/models/list.md` |
 | Claude direct API pricing | `https://platform.claude.com/docs/en/about-claude/pricing.md` |
 | DeepSeek direct API | `https://api-docs.deepseek.com/quick_start/pricing/` |

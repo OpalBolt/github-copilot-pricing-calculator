@@ -40,6 +40,7 @@ from sources.openrouter import OPENROUTER_URL
 from sources.prime import PRIME_URL
 from sources.requesty import REQUESTY_URL
 from sources.tinfoil import TINFOIL_URL
+from sources.venice import VENICE_URL
 from sources.vercel_gateway import VERCEL_GATEWAY_URL
 
 SOURCES = {
@@ -390,6 +391,22 @@ SOURCES = {
         # nanodollars (1000000000 = $1.00)", key spend caps are "in
         # dollars", and request reconciliation reads "cost_usd" (docs.
         # tinfoil.sh/admin/admin-api.md).
+        "nativeCurrency": "USD",
+        "euClaim": "No EU routing catalog is published.",
+    },
+    "venice": {
+        "name": "Venice",
+        "pages": ("global",),
+        "sellerKind": "gateway",
+        "source": VENICE_URL,
+        # Venice "provides permissionless access to AI models" through one
+        # OpenAI-compatible API, serving third-party models anonymized or
+        # in TEE/E2EE enclaves (docs.venice.ai) — a gateway, not a router.
+        # It bills US dollars: the API reference describes every
+        # model_spec.pricing field as "USD cost per million input tokens"
+        # (docs.venice.ai/api-reference/endpoint/models/list), and its
+        # pricing page opens "Prices per 1M tokens unless noted. All
+        # prices in USD." (docs.venice.ai/overview/pricing).
         "nativeCurrency": "USD",
         "euClaim": "No EU routing catalog is published.",
     },

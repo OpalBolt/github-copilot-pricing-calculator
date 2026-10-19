@@ -43,6 +43,7 @@ from sources.opencode import fetch_opencode_listings
 from sources.openrouter import fetch_openrouter_listings
 from sources.requesty import fetch_requesty_listings
 from sources.tinfoil import fetch_tinfoil_listings
+from sources.venice import fetch_venice_listings
 from sources.vercel_gateway import fetch_vercel_gateway_listings
 from sources.zai_direct import fetch_zai_direct_listings
 
@@ -89,6 +90,7 @@ ADAPTERS = {
     "pioneer": lambda exchange_rate: fetch_pioneer_listings(exchange_rate),
     "prime": lambda exchange_rate: fetch_prime_listings(exchange_rate),
     "tinfoil": lambda exchange_rate: fetch_tinfoil_listings(exchange_rate),
+    "venice": lambda exchange_rate: fetch_venice_listings(exchange_rate),
     "deepseek-direct": lambda exchange_rate: fetch_deepseek_direct_listings(
         exchange_rate
     ),
