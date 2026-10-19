@@ -28,6 +28,7 @@ from sources.friendli import fetch_friendli_listings
 from sources.deepseek_direct import fetch_deepseek_direct_listings
 from sources.eurouter import fetch_eurouter_listings
 from sources.helpers import fetch_ecb_rate, now_utc
+from sources.hyper import fetch_hyper_listings
 from sources.kilo import fetch_kilo_listings
 from sources.llm_gateway import fetch_llmgateway_listings
 from sources.nano_gpt import fetch_nano_gpt_listings
@@ -75,6 +76,7 @@ ADAPTERS = {
     ),
     "engy": lambda exchange_rate: fetch_engy_listings(exchange_rate),
     "friendli": lambda exchange_rate: fetch_friendli_listings(exchange_rate),
+    "hyper": lambda exchange_rate: fetch_hyper_listings(exchange_rate),
     "deepseek-direct": lambda exchange_rate: fetch_deepseek_direct_listings(
         exchange_rate
     ),

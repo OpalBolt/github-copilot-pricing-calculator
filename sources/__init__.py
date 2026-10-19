@@ -25,6 +25,7 @@ from sources.empiriolabs import EMPIRIOLABS_URL
 from sources.engy import ENGY_URL
 from sources.eurouter import EUROUTER_URL
 from sources.friendli import FRIENDLI_URL
+from sources.hyper import HYPER_URL
 from sources.kilo import KILO_URL
 from sources.llm_gateway import LLM_GATEWAY_URL
 from sources.nano_gpt import NANO_GPT_URL
@@ -269,6 +270,21 @@ SOURCES = {
         # per-token decimals as dollars per 1M tokens (rate card unit
         # "1M tokens"; GLM-5.3: inputPrice 1.4 for the catalog's
         # "0.0000014").
+        "nativeCurrency": "USD",
+        "euClaim": "No EU routing catalog is published.",
+    },
+    "hyper": {
+        "name": "Hyper",
+        "pages": ("global",),
+        "sellerKind": "gateway",
+        "source": HYPER_URL,
+        # Charm Hyper self-describes as "fast, cost-effective inference
+        # built for agentic coding" with one API key and prepaid credits
+        # (hyper.charm.land/docs) — a multi-model gateway, not a router.
+        # It bills US dollars: its credits doc points at the /v1/models
+        # endpoint "for per-model pricing in dollars per million tokens",
+        # and the chat-completions usage doc prices each request through
+        # "usage.cost.usd — Cost of this request in USD".
         "nativeCurrency": "USD",
         "euClaim": "No EU routing catalog is published.",
     },

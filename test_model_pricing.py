@@ -25,6 +25,7 @@ from sources.empiriolabs import (
 )
 from sources.engy import _engy_rates, fetch_engy_listings
 from sources.friendli import _friendli_rates, fetch_friendli_listings
+from sources.hyper import _hyper_rates, fetch_hyper_listings
 from sources.eurouter import fetch_eurouter_listings
 from sources.helpers import _rates, listing_from_offer, now_utc
 from sources.kilo import _kilo_rates, fetch_kilo_listings
@@ -66,6 +67,7 @@ ALL_SELLERS = {
     "empiriolabs",
     "engy",
     "friendli",
+    "hyper",
     "deepseek-direct",
     "zai-direct",
     "claude-direct",
@@ -92,6 +94,7 @@ SELLER_KINDS = {
     "empiriolabs": "gateway",
     "engy": "gateway",
     "friendli": "gateway",
+    "hyper": "gateway",
     "deepseek-direct": "first-party",
     "zai-direct": "first-party",
     "claude-direct": "first-party",
@@ -157,6 +160,7 @@ def test_registry_pages():
         "empiriolabs",
         "engy",
         "friendli",
+        "hyper",
     }
     assert global_pages == ALL_SELLERS
     assert {m["sellerKind"] for m in SOURCES.values()} == set(SELLER_KINDS.values())
@@ -2332,6 +2336,118 @@ def test_friendli_adapter():
         raise AssertionError("missing per-token prices should skip the row")
 
 
+def test_hyper_adapter():
+    """The committed Hyper catalog sample normalizes to per-million-token
+    USD listings converted with the ECB rate; rows without input and
+    output prices are skipped, not broken."""
+    # Charm Hyper's own docs bill the catalog in US dollars: the credits
+    # doc points at the /v1/models endpoint "for per-model pricing in
+    # dollars per million tokens" and usage costs flow through
+    # "usage.cost.usd"; the registry records that verified native
+    # currency, and the catalog feeds the global page only.
+    assert SOURCES["hyper"]["nativeCurrency"] == "USD"
+    assert SOURCES["hyper"]["pages"] == ("global",)
+    assert SOURCES["hyper"]["sellerKind"] == "gateway"
+
+    fixture = ROOT / "fixtures" / "hyper-models.json"
+    payload = json.loads(fixture.read_text(encoding="utf-8"))
+    with patch("sources.hyper.fetch_json", return_value=payload):
+        listings = fetch_hyper_listings({"usdPerEur": 2.0})
+    by_id = {listing["modelId"]: listing for listing in listings}
+    assert set(by_id) == {
+        "prism",
+        "deepseek-v4.1-flash",
+        "kimi-k3",
+        "glm-5.3",
+        "minimax-m3",
+        "gpt-oss-120b",
+        "gemma-4-26b-a4b-it",
+    }
+
+    # The catalog's pricing fields are already dollars per 1M tokens (the
+    # List Models doc calls `pricing` "Per-million-token pricing"), so the
+    # rates pass through unmultiplied in dollars and the ECB rate converts
+    # them; the cached-input read price is `cache_hit`.
+    deepseek = by_id["deepseek-v4.1-flash"]
+    assert deepseek["key"] == "hyper:deepseek-v4.1-flash"
+    assert deepseek["seller"] == "hyper"
+    assert deepseek["sellerName"] == "Hyper"
+    assert deepseek["name"] == "DeepSeek V4.1 Flash"
+    assert deepseek["creator"] == "DeepSeek"
+    assert deepseek["contextSize"] == 1048576
+    assert deepseek["capabilities"] == {
+        "reasoning": True,
+        "tools": False,
+        "vision": True,
+        "audio": False,
+    }
+    assert deepseek["rates"]["nativeCurrency"] == "USD"
+    assert deepseek["rates"]["native"] == {
+        "input": 0.33,
+        "cached": 0.03,
+        "output": 1.31,
+    }
+    assert math.isclose(deepseek["rates"]["input"], 0.165)
+    assert math.isclose(deepseek["rates"]["cached"], 0.015)
+    assert math.isclose(deepseek["rates"]["output"], 0.655)
+    assert deepseek["rates"]["cachedFallback"] is False
+
+    # The catalog's zero-priced cache_create write field never stands in
+    # for the cached read, and models without a reasoning block are not
+    # reasoning models.
+    prism = by_id["prism"]
+    assert prism["creator"] == "Charm"
+    assert prism["capabilities"]["reasoning"] is False
+    assert prism["capabilities"]["vision"] is True
+    assert prism["rates"]["native"] == {
+        "input": 3.2664,
+        "cached": 0.32664,
+        "output": 16.332,
+    }
+    assert prism["rates"]["cachedFallback"] is False
+
+    # The `producer` field maps to the canonical creator spellings.
+    assert by_id["kimi-k3"]["creator"] == "Moonshot AI"
+    assert by_id["glm-5.3"]["creator"] == "Z.ai"
+    assert by_id["minimax-m3"]["creator"] == "MiniMax AI"
+    assert by_id["gpt-oss-120b"]["creator"] == "OpenAI"
+    assert by_id["gemma-4-26b-a4b-it"]["creator"] == "Google"
+    assert by_id["gemma-4-26b-a4b-it"]["capabilities"] == {
+        "reasoning": False,
+        "tools": False,
+        "vision": False,
+        "audio": False,
+    }
+
+    assert all(
+        listing["rates"]["nativeCurrency"] == "USD" for listing in listings
+    )
+    assert all(
+        "Hyper" in listing["priceNote"] and "ECB" in listing["priceNote"]
+        for listing in listings
+    )
+    # A zero price is a price: a zero cache_hit read normalizes to a zero
+    # cached rate instead of falling back to the input rate.
+    zeros = _hyper_rates(
+        {"pricing": {"input": 0, "output": 0, "cache_hit": 0}}, 2.0
+    )
+    assert zeros["input"] == zeros["cached"] == zeros["output"] == 0
+    assert zeros["nativeCurrency"] == "USD"
+    assert zeros["cachedFallback"] is False
+    # Rows without a cache_hit read fall back to the input rate.
+    fallback = _hyper_rates({"pricing": {"input": 1, "output": 2}}, 2.0)
+    assert fallback["native"] == {"input": 1, "cached": 1, "output": 2}
+    assert fallback["cachedFallback"] is True
+    # Rows without input and output prices are not per-million-token
+    # priced and stay out of the listings.
+    try:
+        _hyper_rates({"pricing": {"cache_hit": 0.1}}, 2.0)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("missing input and output prices should skip the row")
+
+
 def test_seven_day_seller_fallback():
     fetched_at = now_utc().isoformat()
     previous = {
@@ -2563,6 +2679,7 @@ def test_aggregate_contract():
     assert native_by_seller["empiriolabs"] == "USD"
     assert native_by_seller["engy"] == "USD"
     assert native_by_seller["friendli"] == "USD"
+    assert native_by_seller["hyper"] == "USD"
     assert {
         native_by_seller[sid]
         for sid in ("deepseek-direct", "zai-direct", "claude-direct", "openai-direct")
@@ -2645,6 +2762,7 @@ def test_generated_page():
         'data-seller="empiriolabs"',
         'data-seller="engy"',
         'data-seller="friendli"',
+        'data-seller="hyper"',
         'data-seller="deepseek-direct"',
         'data-seller="zai-direct"',
         'data-seller="claude-direct"',
@@ -2732,6 +2850,7 @@ def main():
     test_empiriolabs_adapter()
     test_engy_adapter()
     test_friendli_adapter()
+    test_hyper_adapter()
     test_seven_day_seller_fallback()
     test_broken_source_fails_in_isolation()
     test_build_fails_only_without_usable_data()

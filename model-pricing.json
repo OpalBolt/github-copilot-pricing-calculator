@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-19T17:03:01.208271+00:00",
+  "generatedAt": "2026-10-19T17:17:44.680526+00:00",
   "currency": "EUR",
   "exchangeRate": {
     "series": "EXR.D.USD.EUR.SP00.A",
@@ -15,7 +15,7 @@
       "source": "https://api.cortecs.ai/v1/models?extended=true&currency=EUR",
       "id": "cortecs",
       "nativeCurrency": "EUR",
-      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
+      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
       "stale": false
     },
     {
@@ -24,7 +24,7 @@
       "source": "https://api.eurouter.ai/api/v1/models",
       "id": "eurouter",
       "nativeCurrency": "mixed",
-      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
+      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
       "stale": false
     },
     {
@@ -33,7 +33,7 @@
       "source": "https://openrouter.ai/api/v1/models",
       "id": "openrouter",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
+      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
       "stale": false
     },
     {
@@ -42,7 +42,7 @@
       "source": "https://opencode.ai/zen/v1/models",
       "id": "opencode",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
+      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
       "stale": false
     },
     {
@@ -51,7 +51,7 @@
       "source": "https://api.deepinfra.com/v1/models",
       "nativeCurrency": "USD",
       "id": "deepinfra",
-      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
+      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
       "stale": false
     },
     {
@@ -60,7 +60,7 @@
       "source": "https://api.novita.ai/v3/openai/models",
       "nativeCurrency": "USD",
       "id": "novita",
-      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
+      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
       "stale": false
     },
     {
@@ -69,7 +69,7 @@
       "source": "https://router.requesty.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "requesty",
-      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
+      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
       "stale": false
     },
     {
@@ -78,7 +78,7 @@
       "source": "https://ai-gateway.vercel.sh/v1/models",
       "nativeCurrency": "USD",
       "id": "vercel-gateway",
-      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
+      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
       "stale": false
     },
     {
@@ -87,7 +87,7 @@
       "source": "https://api.kilo.ai/api/gateway/models",
       "nativeCurrency": "USD",
       "id": "kilo",
-      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
+      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
       "stale": false
     },
     {
@@ -96,7 +96,7 @@
       "source": "https://nano-gpt.com/api/v1/models?detailed=true",
       "nativeCurrency": "USD",
       "id": "nano-gpt",
-      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
+      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
       "stale": false
     },
     {
@@ -105,7 +105,7 @@
       "source": "https://llm.chutes.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "chutes",
-      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
+      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
       "stale": false
     },
     {
@@ -114,7 +114,7 @@
       "source": "https://api.llmgateway.io/v1/models",
       "nativeCurrency": "USD",
       "id": "llmgateway",
-      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
+      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
       "stale": false
     },
     {
@@ -123,7 +123,7 @@
       "source": "https://api.aiand.com/v1/models",
       "nativeCurrency": "USD",
       "id": "aiand",
-      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
+      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
       "stale": false
     },
     {
@@ -132,7 +132,7 @@
       "source": "https://api.aimlapi.com/v1/models?include=pricing,modalities",
       "nativeCurrency": "USD",
       "id": "aimlapi",
-      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
+      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
       "stale": false
     },
     {
@@ -141,7 +141,7 @@
       "source": "https://api.ambient.xyz/v1/models",
       "nativeCurrency": "USD",
       "id": "ambient",
-      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
+      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
       "stale": false
     },
     {
@@ -150,7 +150,7 @@
       "source": "https://www.crossmodel.ai/api/models",
       "nativeCurrency": "USD",
       "id": "crossmodel",
-      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
+      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
       "stale": false
     },
     {
@@ -159,7 +159,7 @@
       "source": "https://api.edenai.run/v3/models",
       "nativeCurrency": "USD",
       "id": "edenai",
-      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
+      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
       "stale": false
     },
     {
@@ -168,7 +168,7 @@
       "source": "https://api.empiriolabs.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "empiriolabs",
-      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
+      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
       "stale": false
     },
     {
@@ -177,7 +177,7 @@
       "source": "https://api.engy.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "engy",
-      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
+      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
       "stale": false
     },
     {
@@ -186,7 +186,16 @@
       "source": "https://api.friendli.ai/serverless/v1/models",
       "nativeCurrency": "USD",
       "id": "friendli",
-      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
+      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
+      "stale": false
+    },
+    {
+      "name": "Hyper",
+      "sellerKind": "gateway",
+      "source": "https://hyper.charm.land/v1/models",
+      "nativeCurrency": "USD",
+      "id": "hyper",
+      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
       "stale": false
     },
     {
@@ -195,7 +204,7 @@
       "sellerKind": "first-party",
       "id": "deepseek-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
+      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
       "stale": false
     },
     {
@@ -204,7 +213,7 @@
       "sellerKind": "first-party",
       "id": "zai-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
+      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
       "stale": false
     },
     {
@@ -213,7 +222,7 @@
       "sellerKind": "first-party",
       "id": "claude-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
+      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
       "stale": false
     },
     {
@@ -222,7 +231,7 @@
       "sellerKind": "first-party",
       "id": "openai-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T17:03:01.208271+00:00",
+      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
       "stale": false
     }
   ],
@@ -19462,68 +19471,6 @@
           "input": 0.28,
           "cached": 0.05600000000000001,
           "output": 1.1
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in DeepInfra's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "deepinfra:NousResearch/Hermes-3-Llama-3.1-405B",
-      "seller": "deepinfra",
-      "sellerName": "DeepInfra",
-      "modelId": "NousResearch/Hermes-3-Llama-3.1-405B",
-      "name": "NousResearch/Hermes-3-Llama-3.1-405B",
-      "creator": "Nous Research",
-      "description": "Hermes 3 is a cutting-edge language model that offers advanced capabilities in roleplaying, reasoning, and conversation. It's a fine-tuned version of the Llama-3.1 405B foundation model, designed to align with user needs and provide powerful control. Key features include reliable function calling, structured output, generalist assistant capabilities, and improved code generation. Hermes 3 is competitive with Llama-3.1 Instruct models, with its own strengths and weaknesses.",
-      "releaseDate": null,
-      "contextSize": 131072,
-      "capabilities": {
-        "reasoning": false,
-        "tools": false,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.8908685968819599,
-        "cached": 0.8908685968819599,
-        "output": 0.8908685968819599,
-        "cachedFallback": true,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 1.0,
-          "cached": 1.0,
-          "output": 1.0
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in DeepInfra's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "deepinfra:NousResearch/Hermes-3-Llama-3.1-70B",
-      "seller": "deepinfra",
-      "sellerName": "DeepInfra",
-      "modelId": "NousResearch/Hermes-3-Llama-3.1-70B",
-      "name": "NousResearch/Hermes-3-Llama-3.1-70B",
-      "creator": "Nous Research",
-      "description": "Hermes 3 is a generalist language model with many improvements over Hermes 2, including advanced agentic capabilities, much better roleplaying, reasoning, multi-turn conversation, long context coherence, and improvements across the board.",
-      "releaseDate": null,
-      "contextSize": 131072,
-      "capabilities": {
-        "reasoning": false,
-        "tools": false,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.6236080178173719,
-        "cached": 0.6236080178173719,
-        "output": 0.6236080178173719,
-        "cachedFallback": true,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.7,
-          "cached": 0.7,
-          "output": 0.7
         }
       },
       "pricingTiers": [],
@@ -68168,6 +68115,719 @@
       "priceNote": "USD price published in FriendliAI's model catalog and converted with the listed ECB rate."
     },
     {
+      "key": "hyper:deepseek-v4-flash-0731",
+      "seller": "hyper",
+      "sellerName": "Hyper",
+      "modelId": "deepseek-v4-flash-0731",
+      "name": "DeepSeek V4 Flash 0731",
+      "creator": "DeepSeek",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.39198218262806234,
+        "cached": 0.039198218262806235,
+        "output": 1.175946547884187,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.44,
+          "cached": 0.044,
+          "output": 1.32
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Hyper's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "hyper:deepseek-v4-pro-0813",
+      "seller": "hyper",
+      "sellerName": "Hyper",
+      "modelId": "deepseek-v4-pro-0813",
+      "name": "DeepSeek V4 Pro 0813",
+      "creator": "DeepSeek",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.280370601336303,
+        "cached": 0.04267884187082405,
+        "output": 3.8411118040089085,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.437216,
+          "cached": 0.047907,
+          "output": 4.311648
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Hyper's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "hyper:deepseek-v4.1-flash",
+      "seller": "hyper",
+      "sellerName": "Hyper",
+      "modelId": "deepseek-v4.1-flash",
+      "name": "DeepSeek V4.1 Flash",
+      "creator": "DeepSeek",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": false,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.29398663697104677,
+        "cached": 0.026726057906458794,
+        "output": 1.1670378619153674,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.33,
+          "cached": 0.03,
+          "output": 1.31
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Hyper's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "hyper:deepseek-v4.1-flash-1017",
+      "seller": "hyper",
+      "sellerName": "Hyper",
+      "modelId": "deepseek-v4.1-flash-1017",
+      "name": "DeepSeek V4.1 Flash 1017",
+      "creator": "DeepSeek",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": false,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.29398663697104677,
+        "cached": 0.026726057906458794,
+        "output": 1.1670378619153674,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.33,
+          "cached": 0.03,
+          "output": 1.31
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Hyper's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "hyper:gemma-4-26b-a4b-it",
+      "seller": "hyper",
+      "sellerName": "Hyper",
+      "modelId": "gemma-4-26b-a4b-it",
+      "name": "Gemma 4 26B A4B",
+      "creator": "Google",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.08730512249443206,
+        "cached": 0.04365256124721603,
+        "output": 0.2975501113585746,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.098,
+          "cached": 0.049,
+          "output": 0.334
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Hyper's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "hyper:glm-5.2",
+      "seller": "hyper",
+      "sellerName": "Hyper",
+      "modelId": "glm-5.2",
+      "name": "GLM-5.2",
+      "creator": "Z.ai",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.3579688195991089,
+        "cached": 0.1357968819599109,
+        "output": 4.267902004454343,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.52432,
+          "cached": 0.152432,
+          "output": 4.79072
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Hyper's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "hyper:glm-5.3",
+      "seller": "hyper",
+      "sellerName": "Hyper",
+      "modelId": "glm-5.3",
+      "name": "GLM 5.3",
+      "creator": "Z.ai",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.3579688195991089,
+        "cached": 0.25219420935412024,
+        "output": 4.267902004454343,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.52432,
+          "cached": 0.283088,
+          "output": 4.79072
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Hyper's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "hyper:glm-5.3-flash",
+      "seller": "hyper",
+      "sellerName": "Hyper",
+      "modelId": "glm-5.3-flash",
+      "name": "GLM 5.3 Flash",
+      "creator": "Z.ai",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": false,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.14549665924276167,
+        "cached": 0.02812917594654788,
+        "output": 0.48498886414253894,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.16332,
+          "cached": 0.031575,
+          "output": 0.5444
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Hyper's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "hyper:gpt-oss-120b",
+      "seller": "hyper",
+      "sellerName": "Hyper",
+      "modelId": "gpt-oss-120b",
+      "name": "gpt-oss-120b",
+      "creator": "OpenAI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 131072,
+      "capabilities": {
+        "reasoning": true,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.15857461024498884,
+        "cached": 0.07928730512249442,
+        "output": 0.6057906458797327,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.178,
+          "cached": 0.089,
+          "output": 0.68
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Hyper's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "hyper:inkling",
+      "seller": "hyper",
+      "sellerName": "Hyper",
+      "modelId": "inkling",
+      "name": "Inkling",
+      "creator": "Thinking Machines",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": false,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.9699777282850779,
+        "cached": 0.16489621380846325,
+        "output": 3.928409799554565,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.0888,
+          "cached": 0.185096,
+          "output": 4.40964
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Hyper's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "hyper:kimi-k2-thinking",
+      "seller": "hyper",
+      "sellerName": "Hyper",
+      "modelId": "kimi-k2-thinking",
+      "name": "Kimi K2 Thinking",
+      "creator": "Moonshot AI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.5345211581291759,
+        "cached": 0.26726057906458794,
+        "output": 2.2271714922048997,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.6,
+          "cached": 0.3,
+          "output": 2.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Hyper's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "hyper:kimi-k2.7-code",
+      "seller": "hyper",
+      "sellerName": "Hyper",
+      "modelId": "kimi-k2.7-code",
+      "name": "Kimi K2.7 Code",
+      "creator": "Moonshot AI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 256000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.921478841870824,
+        "cached": 0.1842957683741648,
+        "output": 3.8799109131403116,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.03436,
+          "cached": 0.206872,
+          "output": 4.3552
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Hyper's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "hyper:kimi-k3",
+      "seller": "hyper",
+      "sellerName": "Hyper",
+      "modelId": "kimi-k3",
+      "name": "Kimi K3",
+      "creator": "Moonshot AI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": false,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 2.909933184855234,
+        "cached": 0.29099331848552334,
+        "output": 14.54966592427617,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 3.2664,
+          "cached": 0.32664,
+          "output": 16.332
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Hyper's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "hyper:minimax-m2.7",
+      "seller": "hyper",
+      "sellerName": "Hyper",
+      "modelId": "minimax-m2.7",
+      "name": "MiniMax M2.7",
+      "creator": "MiniMax AI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 262100,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.43118040089086856,
+        "cached": 0.21559020044543428,
+        "output": 1.6498886414253897,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.484,
+          "cached": 0.242,
+          "output": 1.852
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Hyper's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "hyper:minimax-m3",
+      "seller": "hyper",
+      "sellerName": "Hyper",
+      "modelId": "minimax-m3",
+      "name": "MiniMax M3",
+      "creator": "MiniMax AI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 512000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": false,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.29099331848552334,
+        "cached": 0.05722850779510023,
+        "output": 1.1639732739420934,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.32664,
+          "cached": 0.064239,
+          "output": 1.30656
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Hyper's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "hyper:prism",
+      "seller": "hyper",
+      "sellerName": "Hyper",
+      "modelId": "prism",
+      "name": "Prism",
+      "creator": "Charm",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 2.909933184855234,
+        "cached": 0.29099331848552334,
+        "output": 14.54966592427617,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 3.2664,
+          "cached": 0.32664,
+          "output": 16.332
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Hyper's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "hyper:qwen3.7-flash",
+      "seller": "hyper",
+      "sellerName": "Hyper",
+      "modelId": "qwen3.7-flash",
+      "name": "Qwen3.7-Flash",
+      "creator": "Alibaba",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": false,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.17817371937639198,
+        "cached": 0.035634743875278395,
+        "output": 0.7126948775055679,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.2,
+          "cached": 0.04,
+          "output": 0.8
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Hyper's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "hyper:qwen3.7-max",
+      "seller": "hyper",
+      "sellerName": "Hyper",
+      "modelId": "qwen3.7-max",
+      "name": "Qwen3.7-Max",
+      "creator": "Alibaba",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 2.2271714922048997,
+        "cached": 0.4454342984409799,
+        "output": 6.681514476614699,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.5,
+          "cached": 0.5,
+          "output": 7.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Hyper's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "hyper:qwen3.7-plus",
+      "seller": "hyper",
+      "sellerName": "Hyper",
+      "modelId": "qwen3.7-plus",
+      "name": "Qwen3.7-Plus",
+      "creator": "Alibaba",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": false,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.0690423162583518,
+        "cached": 0.21380846325167036,
+        "output": 4.276169265033407,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.2,
+          "cached": 0.24,
+          "output": 4.8
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Hyper's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "hyper:qwen3.8-2.4t-a95b",
+      "seller": "hyper",
+      "sellerName": "Hyper",
+      "modelId": "qwen3.8-2.4t-a95b",
+      "name": "Qwen3.8-2.4T-A95B",
+      "creator": "Alibaba",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 0.22271714922048996,
+        "output": 5.3452115812917596,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 0.25,
+          "output": 6.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Hyper's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "hyper:qwen3.8-27b",
+      "seller": "hyper",
+      "sellerName": "Hyper",
+      "modelId": "qwen3.8-27b",
+      "name": "Qwen3.8-27B",
+      "creator": "Alibaba",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": false,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.4454342984409799,
+        "cached": 0.08908685968819599,
+        "output": 2.6726057906458798,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.5,
+          "cached": 0.1,
+          "output": 3.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Hyper's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "hyper:qwen3.8-flash",
+      "seller": "hyper",
+      "sellerName": "Hyper",
+      "modelId": "qwen3.8-flash",
+      "name": "Qwen3.8-Flash",
+      "creator": "Alibaba",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": false,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.13363028953229397,
+        "cached": 0.014253897550111359,
+        "output": 0.4187082405345211,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.15,
+          "cached": 0.016,
+          "output": 0.47
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Hyper's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "hyper:qwen3.8-max",
+      "seller": "hyper",
+      "sellerName": "Hyper",
+      "modelId": "qwen3.8-max",
+      "name": "Qwen3.8-Max",
+      "creator": "Alibaba",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": false,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.7817371937639197,
+        "cached": 0.22271714922048996,
+        "output": 5.3452115812917596,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 0.25,
+          "output": 6.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Hyper's model catalog and converted with the listed ECB rate."
+    },
+    {
       "key": "kilo:aion-labs/aion-2.0",
       "seller": "kilo",
       "sellerName": "Kilo",
@@ -73287,7 +73947,7 @@
       "seller": "kilo",
       "sellerName": "Kilo",
       "modelId": "nousresearch/hermes-3-llama-3.1-405b",
-      "name": "Nous: Hermes 3 405B Instruct",
+      "name": "Nous: Hermes 3 405B Instruct (retires Nov 2)",
       "creator": "Nous Research",
       "description": "Hermes 3 is a generalist language model with many improvements over Hermes 2, including advanced agentic capabilities, much better roleplaying, reasoning, multi-turn conversation, long context coherence, and improvements across the...",
       "releaseDate": null,
@@ -73318,7 +73978,7 @@
       "seller": "kilo",
       "sellerName": "Kilo",
       "modelId": "nousresearch/hermes-3-llama-3.1-70b",
-      "name": "Nous: Hermes 3 70B Instruct",
+      "name": "Nous: Hermes 3 70B Instruct (retires Nov 2)",
       "creator": "Nous Research",
       "description": "Hermes 3 is a generalist language model with many improvements over [Hermes 2](/models/nousresearch/nous-hermes-2-mistral-7b-dpo), including advanced agentic capabilities, much better roleplaying, reasoning, multi-turn conversation, long context coherence, and improvements across the...",
       "releaseDate": null,
@@ -79840,13 +80500,13 @@
         "audio": false
       },
       "rates": {
-        "input": 0.03652561247216036,
+        "input": 0.035634743875278395,
         "cached": 0.004454342984409799,
         "output": 0.5345211581291759,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.041,
+          "input": 0.04,
           "cached": 0.005,
           "output": 0.6
         }
@@ -79902,15 +80562,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.0034922048997772827,
-        "cached": 0.0029434298440979955,
-        "output": 0.10690423162583518,
+        "input": 0.013452115812917595,
+        "cached": 0.013452115812917595,
+        "output": 0.40089086859688194,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.00392,
-          "cached": 0.003304,
-          "output": 0.12
+          "input": 0.0151,
+          "cached": 0.0151,
+          "output": 0.45
         }
       },
       "pricingTiers": [],
@@ -80274,14 +80934,14 @@
         "audio": false
       },
       "rates": {
-        "input": 0.04721603563474387,
-        "cached": 0.029398663697104678,
+        "input": 0.05256124721603563,
+        "cached": 0.03296213808463251,
         "output": 5.3452115812917596,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.053,
-          "cached": 0.033,
+          "input": 0.059,
+          "cached": 0.037,
           "output": 6.0
         }
       },
@@ -82403,7 +83063,7 @@
       "modelId": "glm-5.2",
       "name": "GLM-5.2",
       "creator": "Z.ai",
-      "description": "glm-5.2 provided by zai, novita, canopywave, embercloud, bytedance, alibaba, nebius, baidu, tencent, runware, scx-ai-gp",
+      "description": "glm-5.2 provided by zai, novita, canopywave, embercloud, bytedance, alibaba, nebius, baidu, tencent, scx-ai-gp, runware",
       "releaseDate": null,
       "contextSize": 1048576,
       "capabilities": {
@@ -82465,7 +83125,7 @@
       "modelId": "glm-5.3",
       "name": "GLM-5.3",
       "creator": "Z.ai",
-      "description": "glm-5.3 provided by zai, novita, baidu, alibaba, fireworks, inference.net, mistral, deepinfra, together-ai, runware, reka-ai, entrim, scx-ai-gp",
+      "description": "glm-5.3 provided by zai, novita, baidu, alibaba, fireworks, inference.net, mistral, deepinfra, together-ai, runware, reka-ai, scx-ai-gp, entrim",
       "releaseDate": null,
       "contextSize": 1048576,
       "capabilities": {
@@ -82527,7 +83187,7 @@
       "modelId": "glm-5.3-flash",
       "name": "GLM-5.3 Flash",
       "creator": "Z.ai",
-      "description": "glm-5.3-flash provided by zai, novita, fireworks, inference.net, together-ai, runware, consensusprotocol, scx-ai-gp, entrim",
+      "description": "glm-5.3-flash provided by zai, novita, fireworks, inference.net, together-ai, runware, scx-ai-gp, consensusprotocol, entrim",
       "releaseDate": null,
       "contextSize": 1048576,
       "capabilities": {
@@ -117337,15 +117997,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.3732668151447661,
-        "cached": 0.031105567928730513,
-        "output": 0.7465336302895322,
+        "input": 0.3703216035634744,
+        "cached": 0.03086013363028953,
+        "output": 0.7406432071269488,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.418992,
-          "cached": 0.034916,
-          "output": 0.837984
+          "input": 0.415686,
+          "cached": 0.0346405,
+          "output": 0.831372
         }
       },
       "pricingTiers": [],
@@ -129210,13 +129870,13 @@
         "audio": false
       },
       "rates": {
-        "input": 0.0034922048997772827,
+        "input": 0.014182628062360801,
         "cached": 0.0029434298440979955,
         "output": 0.10690423162583518,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.00392,
+          "input": 0.01592,
           "cached": 0.003304,
           "output": 0.12
         }
@@ -129582,14 +130242,14 @@
         "audio": false
       },
       "rates": {
-        "input": 0.04721603563474387,
-        "cached": 0.029398663697104678,
+        "input": 0.05256124721603563,
+        "cached": 0.03296213808463251,
         "output": 5.3452115812917596,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.053,
-          "cached": 0.033,
+          "input": 0.059,
+          "cached": 0.037,
           "output": 6.0
         }
       },
@@ -158142,37 +158802,6 @@
           "input": 0.04,
           "cached": 0.004,
           "output": 0.15
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Vercel AI Gateway's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "vercel-gateway:inception/mercury-3",
-      "seller": "vercel-gateway",
-      "sellerName": "Vercel AI Gateway",
-      "modelId": "inception/mercury-3",
-      "name": "Mercury 3",
-      "creator": "inception",
-      "description": "Mercury 3 is Inception\u2019s most capable model for agentic workflows and real-time applications. It is one of the world\u2019s fastest models, powered by diffusion.",
-      "releaseDate": null,
-      "contextSize": 1000000,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.08908685968819599,
-        "cached": 0.008908685968819599,
-        "output": 0.3118040089086859,
-        "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.1,
-          "cached": 0.01,
-          "output": 0.35
         }
       },
       "pricingTiers": [],
