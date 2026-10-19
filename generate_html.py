@@ -160,7 +160,7 @@ def main():
 
     pricing_path = Path(__file__).parent / "pricing.json"
     comparison_path = Path(__file__).parent / "model_comparison.json"
-    router_pricing_path = Path(__file__).parent / "router-pricing.json"
+    router_pricing_path = Path(__file__).parent / "eu-router-pricing.json"
 
     # Fetch pricing if not --no-fetch
     if not args.no_fetch:
@@ -230,11 +230,11 @@ def main():
             print(f"Updated {router_pricing_path}")
         except Exception as e:
             print(
-                f"Warning: router fetch failed ({e}), will use existing router-pricing.json",
+                f"Warning: router fetch failed ({e}), will use existing eu-router-pricing.json",
                 file=sys.stderr,
             )
             if not router_pricing_path.exists():
-                print("Error: router-pricing.json not found", file=sys.stderr)
+                print("Error: eu-router-pricing.json not found", file=sys.stderr)
                 sys.exit(1)
 
     # Record today's data changes (vs git HEAD) for the page changelogs.
@@ -289,17 +289,17 @@ def main():
     print(f"Generated {landing_out}")
 
     if not router_pricing_path.exists():
-        print("Error: router-pricing.json not found", file=sys.stderr)
+        print("Error: eu-router-pricing.json not found", file=sys.stderr)
         sys.exit(1)
 
     router_data = json.loads(router_pricing_path.read_text(encoding="utf-8"))
     offers = router_data.get("offers", [])
     if not offers:
-        print("Error: router-pricing.json has no offers", file=sys.stderr)
+        print("Error: eu-router-pricing.json has no offers", file=sys.stderr)
         sys.exit(1)
     routers = router_data.get("routers", [])
     exchange_rate = router_data.get("exchangeRate")
-    router_template = env.get_template("router-pricing.html.j2")
+    router_template = env.get_template("eu-router-pricing.html.j2")
     router_html = router_template.render(
         generatedAt=router_data.get("generatedAt", "unknown"),
         routers=routers,
@@ -319,7 +319,7 @@ def main():
         changelog_entries=newest_changelog(changelog_log, "router"),
     )
     router_html = "\n".join(line.rstrip() for line in router_html.splitlines()) + "\n"
-    router_out = Path(__file__).parent / "docs" / "router-pricing.html"
+    router_out = Path(__file__).parent / "docs" / "eu-router-pricing.html"
     router_out.write_text(router_html, encoding="utf-8")
     print(f"Generated {router_out} ({len(offers)} router model offers)")
 

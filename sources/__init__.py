@@ -1,8 +1,9 @@
 """Source registry for the shared fetch layer.
 
 Each entry describes one pricing source and declares which page(s) it feeds
-via `pages`. Today every source feeds only the EU router page, and the build
-step does not branch on `pages` yet.
+via `pages`; each page's build step selects its sources from this field.
+Every source feeds the EU router page except OpenCode Zen, whose catalog
+publishes no EU routing and which therefore feeds only the global page.
 """
 
 from fetch_providers import DEEPSEEK_URL, ZAI_PAYGO_URL
@@ -34,7 +35,7 @@ SOURCES = {
     },
     "opencode": {
         "name": "OpenCode Zen",
-        "pages": ("router",),
+        "pages": ("global",),
         "source": OPENCODE_ZEN_URL,
         "euClaim": "No EU routing catalog is published.",
     },

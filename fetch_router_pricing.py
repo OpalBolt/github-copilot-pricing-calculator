@@ -17,13 +17,29 @@ from sources.deepseek_direct import fetch_deepseek_direct
 from sources.eurouter import fetch_eurouter
 from sources.helpers import fetch_ecb_rate, now_utc
 from sources.openai_direct import fetch_openai_direct
-from sources.opencode import fetch_opencode
 from sources.openrouter import fetch_openrouter
 from sources.zai_direct import fetch_zai_direct
 
 ROOT = Path(__file__).parent
-OUTPUT_PATH = ROOT / "router-pricing.json"
+OUTPUT_PATH = ROOT / "eu-router-pricing.json"
 MAX_STALE_AGE = timedelta(days=7)
+
+# This page's registry key and one adapter per selected source. Sources are
+# chosen through the registry's `pages` field in build(); OpenCode Zen is
+# absent because its registry `pages` is global-only. Each lambda resolves
+# its fetch function at call time so tests can patch the module attribute.
+ROUTER_PAGE = "router"
+ADAPTERS = {
+    "cortecs": lambda _exchange_rate: fetch_cortecs(),
+    "eurouter": lambda exchange_rate: fetch_eurouter(exchange_rate),
+    "openrouter": lambda exchange_rate: fetch_openrouter(exchange_rate),
+    "deepseek-direct": lambda exchange_rate: fetch_deepseek_direct(exchange_rate),
+    "zai-direct": lambda exchange_rate: fetch_zai_direct(exchange_rate),
+    "claude-direct": lambda exchange_rate: fetch_claude_direct(exchange_rate),
+    "openai-direct": lambda exchange_rate: fetch_openai_direct(exchange_rate),
+}
+# Sources that still produce offers when the ECB rate fetch fails.
+RATE_OPTIONAL_SOURCES = {"cortecs", "eurouter"}
 
 
 def _parse_time(value: str) -> datetime:
@@ -80,27 +96,18 @@ def build(previous: dict | None = None) -> dict:
         ecb_error = error
         exchange_rate = previous.get("exchangeRate")
 
-    adapters = {
-        "cortecs": fetch_cortecs,
-        "eurouter": lambda: fetch_eurouter(exchange_rate),
-    }
-    if exchange_rate and not ecb_error:
-        adapters["openrouter"] = lambda: fetch_openrouter(exchange_rate)
-        adapters["opencode"] = lambda: fetch_opencode(exchange_rate)
-        adapters["deepseek-direct"] = lambda: fetch_deepseek_direct(exchange_rate)
-        adapters["zai-direct"] = lambda: fetch_zai_direct(exchange_rate)
-        adapters["claude-direct"] = lambda: fetch_claude_direct(exchange_rate)
-        adapters["openai-direct"] = lambda: fetch_openai_direct(exchange_rate)
-    elif ecb_error:
-        def unavailable_openrouter():
-            raise RuntimeError(f"ECB: {ecb_error}")
+    adapters = {}
+    for source_id, metadata in SOURCES.items():
+        if ROUTER_PAGE not in metadata["pages"]:
+            continue
+        if ecb_error and source_id not in RATE_OPTIONAL_SOURCES:
 
-        adapters["openrouter"] = unavailable_openrouter
-        adapters["opencode"] = unavailable_openrouter
-        adapters["deepseek-direct"] = unavailable_openrouter
-        adapters["zai-direct"] = unavailable_openrouter
-        adapters["claude-direct"] = unavailable_openrouter
-        adapters["openai-direct"] = unavailable_openrouter
+            def unavailable(error=ecb_error):
+                raise RuntimeError(f"ECB: {error}")
+
+            adapters[source_id] = unavailable
+        else:
+            adapters[source_id] = lambda sid=source_id: ADAPTERS[sid](exchange_rate)
 
     for router_id, adapter in adapters.items():
         try:
@@ -120,14 +127,7 @@ def build(previous: dict | None = None) -> dict:
                 metadata, router_offers = cached
                 routers.append(metadata)
                 offers.extend(router_offers)
-                if router_id in {
-                    "openrouter",
-                    "opencode",
-                    "deepseek-direct",
-                    "zai-direct",
-                    "claude-direct",
-                    "openai-direct",
-                }:
+                if router_id not in RATE_OPTIONAL_SOURCES:
                     exchange_rate = previous.get("exchangeRate")
             else:
                 omitted.append({"id": router_id, "reason": str(error)})

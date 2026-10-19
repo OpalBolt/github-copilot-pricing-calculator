@@ -8,7 +8,6 @@
     regular: { input: 5.45, cached: 86.36, output: 8.18 },
   };
   const state = {
-    mode: 'default',
     sortCol: 'cost',
     sortDir: 'asc',
     search: '',
@@ -28,9 +27,14 @@
   const fmtMoney = n => n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   const fmtRuns = n => n.toLocaleString('en-US', { maximumFractionDigits: 1 });
   const rate = n => n === 0 ? 'Free' : `€${fmt(n)}`;
+  // EU view is locked on: use the router's published EU Router Price when it
+  // exists, otherwise the unrestricted price with the no-EU-routing marker.
+  // Default-fallback offers keep the long-context tiers: when input plus
+  // cached tokens cross a tier's contextAbove threshold, that tier's higher
+  // rates apply. EU-priced offers stay at the flat EU Router Price.
   const activeRates = (model, cfg = null) => {
-    const base = model[state.mode];
-    if (!base || state.mode !== 'default' || !cfg || !model.pricingTiers?.length) return base;
+    const base = model.eu || model.default;
+    if (model.eu || !base || !cfg || !model.pricingTiers?.length) return base;
     const contextTokens = cfg.inputTokens + cfg.cachedTokens;
     return model.pricingTiers.reduce(
       (rates, tier) => contextTokens > tier.contextAbove ? tier : rates,
@@ -78,8 +82,8 @@
     if (model.direct) result += '<span class="direct-chip" title="Direct provider API price; this offer is not routed">Direct API</span>';
     if (rates.cachedFallback && !isFree(rates)) result += '<span class="warning-chip" title="No cached-input rate is published. The estimate uses the normal input rate.">⚠</span>';
     if (model.quantization) result += `<span class="warning-chip" title="A provider matching this price uses heavy quantization">${model.quantization}</span>`;
-    if (state.mode === 'default' && model.eu) result += '<span class="router-chip" title="EU price available">EU</span>';
-    if (state.mode === 'eu') result += '<span class="router-chip" title="Using EU routing">EU</span>';
+    if (model.eu) result += '<span class="router-chip" title="Using EU routing">EU</span>';
+    else result += '<span class="no-eu-chip" title="No EU routing price is published; estimated at the unrestricted price">No EU routing</span>';
     return result;
   }
 
@@ -167,7 +171,7 @@
 
   function detailHtml(model) {
     const prices = activeRates(model, getConfig());
-    const providers = (state.mode === 'eu' ? model.euProviders : model.providers) || [];
+    const providers = model.euProviders || [];
     const router = ROUTERS.find(item => item.id === model.router);
     const free = isFree(prices);
     const native = prices.native && !free
@@ -182,7 +186,7 @@
     const euDetails = model.eu
       ? `<div class="detail-item"><strong>EU Router Price</strong>${rate(model.eu.input)} input · ${rate(model.eu.cached)} cached${model.eu.cachedFallback && !euFree ? ' (estimate)' : ''} · ${rate(model.eu.output)} output</div>
          <div class="detail-item"><strong>EU providers in bulk catalog</strong>${model.euProviders?.length ? model.euProviders.map(esc).join(', ') : 'Not supplied'}</div>`
-      : '<div class="detail-item"><strong>EU routing</strong>Not listed for this router model offer</div>';
+      : '<div class="detail-item"><strong>EU routing</strong>Not published for this offer</div>';
     const euClaim = model.eu && router
       ? `<p class="detail-note"><strong>EU routing meaning:</strong> ${esc(router.euClaim)}</p>`
       : '';
@@ -200,7 +204,7 @@
         <div class="detail-item"><strong>Model creator</strong>${esc(model.owner || 'Not supplied')}</div>
         <div class="detail-item"><strong>Context</strong>${model.contextSize ? model.contextSize.toLocaleString() + ' tokens' : 'Not supplied'}</div>
         <div class="detail-item"><strong>Release date</strong>${esc(model.releaseDate || 'Not supplied')}</div>
-        <div class="detail-item"><strong>Access type</strong>${model.direct ? 'Direct API (not routed)' : state.mode === 'eu' ? 'EU routing' : 'Unrestricted inference'}</div>
+        <div class="detail-item"><strong>Access type</strong>${model.direct ? 'Direct API (not routed)' : model.eu ? 'EU routing' : 'Unrestricted inference'}</div>
         <div class="detail-item"><strong>EUR per 1M</strong>€${fmt(prices.input)} input · €${fmt(prices.cached)} cached${prices.cachedFallback && !free ? ' (estimate)' : ''} · €${fmt(prices.output)} output</div>
         <div class="detail-item"><strong>Providers in bulk catalog</strong>${providers.length ? providers.map(esc).join(', ') : 'Not supplied'}</div>
         <div class="detail-item"><strong>Capabilities</strong>${capabilities(model, false) || 'None explicitly published'}</div>
@@ -246,9 +250,6 @@
     cards.innerHTML = selected.map(model => {
       const prices = activeRates(model, cfg);
       const remove = `<button class="cmp-card-remove" onclick="toggleCompare(decodeURIComponent('${encoded(model.key)}'))">✕</button>`;
-      if (!prices) {
-        return `<div class="cmp-card">${remove}<div class="cmp-card-name">${esc(model.name)}</div><div class="cmp-card-provider">${esc(model.routerName)}</div><p class="unavailable">Unavailable with EU routing</p></div>`;
-      }
       const cost = estimateCost(prices, cfg);
       const runs = cost > 0 ? cfg.budget / cost : null;
       return `<div class="cmp-card">
@@ -288,11 +289,6 @@
     render();
   }
 
-  document.getElementById('eu-routing-filter').addEventListener('click', event => {
-    state.mode = state.mode === 'default' ? 'eu' : 'default';
-    event.currentTarget.classList.toggle('active', state.mode === 'eu');
-    render();
-  });
   document.getElementById('router-filters').addEventListener('click', event => {
     const button = event.target.closest('[data-router]');
     if (!button) return;

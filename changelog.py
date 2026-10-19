@@ -8,7 +8,7 @@ per category per day:
 
     copilot    pricing.json        (GitHub Copilot per-model prices)
     providers  providers.json      (deepseek / z.ai / devpack / opencode go)
-    router     router-pricing.json (per-router model offers)
+    router     eu-router-pricing.json (per-router model offers)
 
 Called by generate_html.py after the fetch step and before rendering; the
 entries become the Changelog tab on each page. Re-running the same day
@@ -165,7 +165,7 @@ def diff_providers(old: dict, new: dict) -> list[str]:
     return changes
 
 
-# ── router: router-pricing.json ──────────────────────────────────────
+# ── router: eu-router-pricing.json ──────────────────────────────────
 
 def mode_prices(offer: dict, mode: str) -> dict:
     """A mode's input/cached/output, preferring native-currency prices so
@@ -201,7 +201,7 @@ def diff_router(old: dict, new: dict) -> list[str]:
 CATEGORIES = {
     "copilot": ("pricing.json", diff_copilot),
     "providers": ("providers.json", diff_providers),
-    "router": ("router-pricing.json", diff_router),
+    "router": ("eu-router-pricing.json", diff_router),
 }
 
 

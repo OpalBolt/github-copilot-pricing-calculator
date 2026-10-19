@@ -1,7 +1,7 @@
 # Token cost calculator
 
 A static, three-tool site for comparing model prices. A landing hub links to
-three calculators: GitHub Copilot, AI routers, and provider plans. Each
+three calculators: GitHub Copilot, EU router pricing, and provider plans. Each
 calculator estimates the cost of a token mix.
 
 Live version: [`docs/index.html`](docs/index.html) — the hub, published via GitHub
@@ -20,12 +20,13 @@ $0.01. Enter a token mix and a budget. The table shows the estimated cost, a
 relative-cost bar, and how many runs fit the budget. Pick up to five models to
 compare in a bottom tray. A task guide recommends models for each kind of work.
 
-### AI Router Price Calculator
+### EU Router Price Calculator
 
-Compares Router Prices from Cortecs, EUrouter, OpenCode Zen, and OpenRouter in
-euros, with direct Claude, DeepSeek, OpenAI, and z.ai API prices as marked
-baselines. Router rows are router model offers. The EU routing filter uses each
-router's published EU price and hides offers without one.
+Compares EU routing prices from Cortecs, EUrouter, and OpenRouter in euros,
+with direct Claude, DeepSeek, OpenAI, and z.ai API prices as marked baselines.
+Router rows are router model offers. Every row either uses the router's
+published EU Router Price or carries its unrestricted price with a
+no-EU-routing marker.
 
 The calculator keeps search, sorting, capability filters, budget presets,
 column controls, and a five-offer comparison tray. Price details explain the
@@ -44,17 +45,16 @@ The three tools fetch data differently.
 
 - **GitHub Copilot** — scrapes the GitHub Copilot docs into `pricing.json` and
   `model_comparison.json`.
-- **AI routers** — reads the public bulk model catalogs from Cortecs, EUrouter,
-  OpenCode Zen, and OpenRouter. It also reads the Cortecs and OpenRouter EU
-  catalogs. OpenCode Zen model IDs are joined with OpenCode's `models.dev`
-  metadata for prices and capabilities. The same build scrapes direct Claude,
+- **EU router page** — reads the public bulk model catalogs from Cortecs, EUrouter,
+  and OpenRouter. It also reads the Cortecs and OpenRouter EU
+  catalogs. The same build scrapes direct Claude,
   DeepSeek, OpenAI, and z.ai API prices as non-router comparison baselines.
 - **ECB exchange rate** — reads series `EXR.D.USD.EUR.SP00.A`. The build divides
   USD prices by the latest USD-per-EUR observation.
 - **Provider comparison** — scrapes DeepSeek, z.ai, and OpenCode Go pricing pages into
   `providers.json`.
 
-`fetch_router_pricing.py` writes `router-pricing.json`. If one router fails,
+`fetch_router_pricing.py` writes `eu-router-pricing.json`. If one router fails,
 the script can keep that router's cached data for seven days. It marks cached
 data as stale. It omits the router after seven days and fails only when no
 router data remains.
@@ -71,8 +71,6 @@ The router build uses these sources:
 | EUrouter | `https://api.eurouter.ai/api/v1/models` |
 | OpenRouter unrestricted | `https://openrouter.ai/api/v1/models` |
 | OpenRouter EU routing | `https://eu.openrouter.ai/api/v1/models` |
-| OpenCode Zen availability | `https://opencode.ai/zen/v1/models` |
-| OpenCode model metadata | `https://models.dev/api.json` |
 | Claude model catalog | `https://platform.claude.com/docs/en/api/http/beta/models/list.md` |
 | Claude direct API pricing | `https://platform.claude.com/docs/en/about-claude/pricing.md` |
 | DeepSeek direct API | `https://api-docs.deepseek.com/quick_start/pricing/` |
@@ -91,20 +89,20 @@ estimate and appears with a warning in the calculator.
 ```text
 fetch_pricing.py            # GitHub Copilot docs -> pricing.json
 fetch_model_comparison.py   # GitHub Copilot docs -> model_comparison.json
-fetch_router_pricing.py     # Router catalogs + ECB -> router-pricing.json
+fetch_router_pricing.py     # Router catalogs + ECB -> eu-router-pricing.json
 fetch_providers.py          # DeepSeek + z.ai scrapers -> providers.json
 changelog.py                # Diffs fetched data vs git HEAD -> changelog.json
 generate_html.py            # Renders the hub + all three tools
 pricing.json                # GitHub Copilot pricing (checked in)
 model_comparison.json       # GitHub Copilot task data (checked in)
-router-pricing.json         # Normalized router offers (checked in)
+eu-router-pricing.json      # Normalized EU router offers (checked in)
 providers.json              # Provider comparison data (checked in)
 changelog.json              # Per-category change log rendered into each page (checked in)
 templates/                  # Jinja2 templates + shared CSS/JS for the three pages
 docs/
   index.html                # The landing hub (what gets published)
   copilot.html              # GitHub Copilot calculator
-  router-pricing.html       # AI Router Price Calculator
+  eu-router-pricing.html    # EU Router Price Calculator
   cortecs.html              # Compatibility redirect
   provider-compare.html     # Provider comparison
 mise.toml                   # Tool versions and project tasks

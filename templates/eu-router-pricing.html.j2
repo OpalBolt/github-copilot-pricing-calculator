@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Router Price Calculator</title>
+  <title>EU Router Price Calculator</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&family=Source+Serif+4:ital,wght@1,500&display=swap" rel="stylesheet" />
@@ -43,7 +43,6 @@
     #router-table tr.router-cortecs td:first-child { border-left: 3px solid #7e9cd8; }
     #router-table tr.router-eurouter td:first-child { border-left: 3px solid #98bb6c; }
     #router-table tr.router-openrouter td:first-child { border-left: 3px solid #d27e99; }
-    #router-table tr.router-opencode td:first-child { border-left: 3px solid #e6c384; }
     #router-table tr.router-deepseek-direct td:first-child,
     #router-table tr.router-zai-direct td:first-child,
     #router-table tr.router-claude-direct td:first-child,
@@ -56,7 +55,7 @@
     .detail-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 8px 20px; }
     .detail-item strong { display: block; color: var(--slate-5); font-size: 10px; letter-spacing: .06em; text-transform: uppercase; }
     .detail-note { margin-top: 10px; }
-    .cap, .router-chip, .warning-chip, .direct-chip {
+    .cap, .router-chip, .warning-chip, .direct-chip, .no-eu-chip {
       display: inline-block; font-size: 10px; font-weight: 600;
       letter-spacing: 0.04em; text-transform: uppercase;
       padding: 1px 4px; margin: 0 2px 0 0; border-radius: 3px;
@@ -65,6 +64,7 @@
     }
     .warning-chip { border-style: dashed; color: var(--efi-yellow); }
     .direct-chip { border-style: dashed; color: var(--slate-7); }
+    .no-eu-chip { border-style: dashed; color: var(--slate-5); }
     .cap-reasoning { color: #dca561; border-color: #dca561; }
     .cap-tools { color: #7e9cd8; border-color: #7e9cd8; }
     .cap-vision { color: #957fb8; border-color: #957fb8; }
@@ -72,7 +72,6 @@
     .router-cortecs .router-chip { color: #7e9cd8; border-color: #7e9cd8; }
     .router-eurouter .router-chip { color: #98bb6c; border-color: #98bb6c; }
     .router-openrouter .router-chip { color: #d27e99; border-color: #d27e99; }
-    .router-opencode .router-chip { color: #e6c384; border-color: #e6c384; }
     .router-deepseek-direct .router-chip,
     .router-zai-direct .router-chip,
     .router-claude-direct .router-chip,
@@ -94,15 +93,12 @@
       max-width: 900px; margin: 14px 0 0; padding: 9px 12px;
       border: 1px solid var(--efi-yellow); color: var(--slate-6); font-size: 13px;
     }
-    .routing-mode { margin-bottom: 12px; }
-    .routing-mode .filter-chip { font-size: 14px; }
     .compact-filter {
       width: 150px; padding: 6px 9px; border: 1px solid var(--slate-3);
       border-radius: 2px; background: var(--canvas); color: var(--nordic-black);
       font: inherit; font-size: 13px; outline: none;
     }
     .compact-filter:focus { border-color: var(--efi-yellow); }
-    .unavailable { color: var(--slate-5); font-style: italic; }
     @media (max-width: 1000px) {
       #router-table .bar-cell { display: none; }
     }
@@ -111,9 +107,9 @@
 <body>
 {{ m.disclaimer() }}
 <header class="page-header">
-  <p class="eyebrow">Routers · Direct API baselines</p>
-  <h1>AI Router Price Calculator</h1>
-  <p>Compare router-published model prices with direct Claude, DeepSeek, OpenAI, and z.ai API prices in euros. Direct API rows are baselines and are not routed offers.</p>
+  <p class="eyebrow">EU routing · Direct API baselines</p>
+  <h1>EU Router Price Calculator</h1>
+  <p>Compare EU routing prices from Cortecs, EUrouter, and OpenRouter with direct Claude, DeepSeek, OpenAI, and z.ai API prices in euros. Offers without a published EU routing price carry their unrestricted price and a no-EU-routing marker.</p>
   <p class="meta">
     <a href="index.html">← All tools</a> · Data built: {{ generatedAt }}
     {% if exchangeRate %}
@@ -160,15 +156,12 @@
     <div id="pct-warning" class="build-warning" style="display:none">Input, Cached, and Output percentages should sum to 100%. The calculator normalizes them.</div>
   </div>
 
-  <div class="routing-mode">
-    <button class="filter-chip" id="eu-routing-filter" title="Use each router's published EU Router Price and hide offers without one">EU routing</button>
-    <span class="dim">OpenRouter EU routing requires a Business or Enterprise plan.</span>
-  </div>
   <div class="table-legend" aria-label="Table legend">
     <span class="legend-title">Legend</span>
     <span class="legend-item"><span class="router-chip legend-cortecs">EU</span> Cortecs EU catalog</span>
     <span class="legend-item"><span class="router-chip legend-eurouter">EU</span> EUrouter baseline</span>
     <span class="legend-item"><span class="router-chip legend-openrouter">EU</span> OpenRouter EU region</span>
+    <span class="legend-item"><span class="no-eu-chip">No EU routing</span> unrestricted price, no EU routing published</span>
     <span class="legend-item"><span class="direct-chip">Direct API</span> provider price, not routed</span>
     <span class="legend-item"><span class="warning-chip">⚠</span> cache rate not published</span>
     <span class="legend-item"><span class="cap cap-reasoning">R</span> reasoning</span>
@@ -247,9 +240,8 @@
   </div>
 
   <p class="page-note">
-    Router rows are model-level Router Prices recorded at build time; direct API rows use the provider's published token prices and are explicitly marked as not routed.
-    EU routing means the documented mode of each router: Cortecs uses its <code>eu_native=true</code> catalog, EUrouter uses its baseline EU guarantee, and OpenRouter uses its EU regional catalog. OpenCode Zen does not publish an EU catalog.
-    OpenCode Zen, OpenRouter, Claude, DeepSeek, OpenAI, and z.ai USD prices are converted with the unrounded ECB reference rate shown above. Calculations use unrounded values and display rounding only.
+    EU routing means the documented mode of each router: Cortecs uses its <code>eu_native=true</code> catalog, EUrouter uses its baseline EU guarantee, and OpenRouter uses its EU regional catalog; OpenRouter EU routing requires a Business or Enterprise plan. Offers without a published EU routing price carry their unrestricted price and are marked as not EU-routed.
+    OpenRouter, Claude, DeepSeek, OpenAI, and z.ai USD prices are converted with the unrounded ECB reference rate shown above. Calculations use unrounded values and display rounding only.
     When no cached-input price is published, the input rate is used as an estimate and marked with ⚠. This does not mean the router publishes or supports prompt caching. Fully free offers do not show this warning because the fallback cannot change their cost.
   </p>
   </div>
@@ -261,7 +253,7 @@
 </main>
 
 <footer class="page-footer">
-  <span>AI Router Price Calculator · router-published bulk catalogs</span>
+  <span>EU Router Price Calculator · EU routing prices and direct API baselines</span>
   {% if exchangeRate %}<a href="{{ exchangeRate.source }}" target="_blank">ECB exchange-rate source →</a>{% endif %}
 </footer>
 
@@ -275,6 +267,6 @@
 
 {{ m.tab_switcher_js() }}
 
-{% include 'router-pricing.app.js.j2' %}
+{% include 'eu-router-pricing.app.js.j2' %}
 </body>
 </html>

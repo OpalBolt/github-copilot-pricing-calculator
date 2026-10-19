@@ -24,8 +24,8 @@ from sources.opencode import _opencode_owner, _opencode_tiers
 from sources.openrouter import _openrouter_rates
 
 ROOT = Path(__file__).parent
-DATA = ROOT / "router-pricing.json"
-HTML = ROOT / "docs" / "router-pricing.html"
+DATA = ROOT / "eu-router-pricing.json"
+HTML = ROOT / "docs" / "eu-router-pricing.html"
 REDIRECT = ROOT / "docs" / "cortecs.html"
 
 
@@ -232,7 +232,6 @@ def test_aggregate_contract():
         "cortecs",
         "deepseek-direct",
         "eurouter",
-        "opencode",
         "openai-direct",
         "openrouter",
         "claude-direct",
@@ -317,17 +316,6 @@ def test_aggregate_contract():
             assert prices["nativeCurrency"] == "USD"
             assert math.isclose(prices["input"], prices["native"]["input"] / rate)
 
-    opencode_offers = [item for item in offers if item["router"] == "opencode"]
-    assert opencode_offers
-    assert all(offer["eu"] is None for offer in opencode_offers)
-    assert any(offer["pricingTiers"] for offer in opencode_offers)
-    for offer in opencode_offers:
-        assert offer["default"]["nativeCurrency"] == "USD"
-        assert math.isclose(
-            offer["default"]["input"],
-            offer["default"]["native"]["input"] / rate,
-        )
-
     direct_offers = [item for item in offers if item.get("direct")]
     assert {offer["router"] for offer in direct_offers} == {
         "claude-direct",
@@ -341,27 +329,41 @@ def test_aggregate_contract():
         for offer in direct_offers
     )
 
+    tiered_offers = [item for item in offers if item.get("pricingTiers")]
+    assert {offer["key"] for offer in tiered_offers} == {
+        "openai-direct:gpt-5.4",
+        "openai-direct:gpt-5.4-pro",
+        "openai-direct:gpt-5.5",
+        "openai-direct:gpt-5.5-pro",
+    }
+    for offer in tiered_offers:
+        assert offer["eu"] is None
+        for tier in offer["pricingTiers"]:
+            assert tier["contextAbove"] > 0
+            assert tier["input"] > offer["default"]["input"]
+            assert tier["output"] > offer["default"]["output"]
+            assert tier["nativeCurrency"] == "USD"
+            assert math.isclose(tier["input"], tier["native"]["input"] / rate)
+            if tier["cachedFallback"]:
+                assert tier["cached"] == tier["input"]
+
 
 def test_generated_pages():
     html = HTML.read_text(encoding="utf-8")
     redirect = REDIRECT.read_text(encoding="utf-8")
     for marker in (
-        "AI Router Price Calculator",
-        'id="eu-routing-filter"',
+        "EU Router Price Calculator",
         'id="router-filters"',
         'data-router="cortecs"',
         'data-router="eurouter"',
         'data-router="openrouter"',
-        'data-router="opencode"',
         'data-router="deepseek-direct"',
         'data-router="zai-direct"',
         'data-router="claude-direct"',
         'data-router="openai-direct"',
         '.router-deepseek-direct .router-chip',
         '.router-zai-direct .router-chip',
-        '.router-opencode .router-chip',
         '#router-table tr.router-deepseek-direct td:first-child',
-        '#router-table tr.router-opencode td:first-child',
         'data-filter="reasoning"',
         'data-filter="tools"',
         'data-filter="vision"',
@@ -382,23 +384,35 @@ def test_generated_pages():
         "cache not published",
         "Cache rate not published",
         "This is an estimate, not a published cache price",
+        "Long-context pricing:",
+        "tier.contextAbove.toLocaleString()",
         "Free offer:",
         "Cache-price fallback does not change the estimate",
         'aria-label="Table legend"',
         "Cortecs EU catalog",
         "EUrouter baseline",
         "OpenRouter EU region",
+        "no-eu-chip",
+        "No EU routing",
+        "model.eu || model.default",
+        "contextTokens > tier.contextAbove",
+        "pricingTiers.reduce",
         "Direct API",
         "provider price, not routed",
         "EU Router Price",
         "EU routing meaning:",
-        "Not listed for this router model offer",
-        "Unavailable with EU routing",
+        "Not published for this offer",
         "Listed at the router's recorded fetch time",
         "const ALL_MODELS =",
     ):
         assert marker in html
-    assert '#router-filters [data-router="opencode"]' not in html
+    assert 'id="eu-routing-filter"' not in html
+    assert "state.mode" not in html
+    # Zen is gone from the page's live content: no offers, filter chip, CSS,
+    # or copy. Dated changelog.json history entries may still mention it.
+    assert '"router": "opencode"' not in html
+    assert "data-router=\"opencode\"" not in html
+    assert "router-opencode" not in html
     assert '#router-filters [data-router="cortecs"]' not in html
     assert '#router-filters [data-router="openrouter"]' not in html
     assert "ZDR" not in html
@@ -412,8 +426,8 @@ def test_generated_pages():
     assert "td.model-id { overflow: hidden" not in html
     assert "@media (max-width: 1000px)" in html
     assert 'http-equiv="refresh"' in redirect
-    assert 'rel="canonical" href="router-pricing.html"' in redirect
-    assert "window.location.replace('router-pricing.html')" in redirect
+    assert 'rel="canonical" href="eu-router-pricing.html"' in redirect
+    assert "window.location.replace('eu-router-pricing.html')" in redirect
 
 
 def main():
