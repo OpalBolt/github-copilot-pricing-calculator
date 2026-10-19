@@ -26,6 +26,7 @@ from sources.engy import ENGY_URL
 from sources.eurouter import EUROUTER_URL
 from sources.friendli import FRIENDLI_URL
 from sources.hyper import HYPER_URL
+from sources.inceptron import INCEPTRON_URL
 from sources.kilo import KILO_URL
 from sources.llm_gateway import LLM_GATEWAY_URL
 from sources.nano_gpt import NANO_GPT_URL
@@ -285,6 +286,23 @@ SOURCES = {
         # endpoint "for per-model pricing in dollars per million tokens",
         # and the chat-completions usage doc prices each request through
         # "usage.cost.usd — Cost of this request in USD".
+        "nativeCurrency": "USD",
+        "euClaim": "No EU routing catalog is published.",
+    },
+    "inceptron": {
+        "name": "Inceptron",
+        "pages": ("global",),
+        "sellerKind": "gateway",
+        "source": INCEPTRON_URL,
+        # Inceptron self-describes as a platform to "run and optimize LLMs
+        # on Inceptron's compiler-accelerated platform" with "serverless
+        # endpoints" and "elastic GPUs" (inceptron.io) — a hosted inference
+        # platform, not a router. It bills in US dollars: its models page
+        # quotes every rate card in dollars per 1M tokens ("Input tokens,
+        # 1M $1.40 Output tokens, 1M $4.40 Cache read $0.26" for GLM-5.3,
+        # inceptron.io/models), and its pricing page pitches commitment
+        # discounts as lowering "your effective $/token and $/hr"
+        # (inceptron.io/pricing).
         "nativeCurrency": "USD",
         "euClaim": "No EU routing catalog is published.",
     },

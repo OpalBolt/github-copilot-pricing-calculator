@@ -26,6 +26,7 @@ from sources.empiriolabs import (
 from sources.engy import _engy_rates, fetch_engy_listings
 from sources.friendli import _friendli_rates, fetch_friendli_listings
 from sources.hyper import _hyper_rates, fetch_hyper_listings
+from sources.inceptron import _inceptron_rates, fetch_inceptron_listings
 from sources.eurouter import fetch_eurouter_listings
 from sources.helpers import _rates, listing_from_offer, now_utc
 from sources.kilo import _kilo_rates, fetch_kilo_listings
@@ -68,6 +69,7 @@ ALL_SELLERS = {
     "engy",
     "friendli",
     "hyper",
+    "inceptron",
     "deepseek-direct",
     "zai-direct",
     "claude-direct",
@@ -95,6 +97,7 @@ SELLER_KINDS = {
     "engy": "gateway",
     "friendli": "gateway",
     "hyper": "gateway",
+    "inceptron": "gateway",
     "deepseek-direct": "first-party",
     "zai-direct": "first-party",
     "claude-direct": "first-party",
@@ -161,6 +164,7 @@ def test_registry_pages():
         "engy",
         "friendli",
         "hyper",
+        "inceptron",
     }
     assert global_pages == ALL_SELLERS
     assert {m["sellerKind"] for m in SOURCES.values()} == set(SELLER_KINDS.values())
@@ -2448,6 +2452,143 @@ def test_hyper_adapter():
         raise AssertionError("missing input and output prices should skip the row")
 
 
+def test_inceptron_adapter():
+    """The committed Inceptron catalog sample normalizes its per-token USD
+    decimal strings into per-million listings converted with the ECB rate;
+    rows without input and output prices are skipped, not broken."""
+    # Inceptron bills in US dollars: its models page quotes every serverless
+    # rate card in dollars per 1M tokens ("Input tokens, 1M $1.40 Output
+    # tokens, 1M $4.40 Cache read $0.26" for GLM-5.3, inceptron.io/models)
+    # and its pricing page pitches commitment discounts as lowering "your
+    # effective $/token and $/hr" (inceptron.io/pricing). It self-describes
+    # as a platform to "run and optimize LLMs on Inceptron's
+    # compiler-accelerated platform" with "serverless endpoints" and
+    # "elastic GPUs" — a hosted inference platform, not a router — so the
+    # registry records sellerKind gateway, that verified native currency,
+    # and the global page only.
+    assert SOURCES["inceptron"]["nativeCurrency"] == "USD"
+    assert SOURCES["inceptron"]["pages"] == ("global",)
+    assert SOURCES["inceptron"]["sellerKind"] == "gateway"
+
+    fixture = ROOT / "fixtures" / "inceptron-models.json"
+    payload = json.loads(fixture.read_text(encoding="utf-8"))
+    with patch("sources.inceptron.fetch_json", return_value=payload):
+        listings = fetch_inceptron_listings({"usdPerEur": 2.0})
+    by_id = {listing["modelId"]: listing for listing in listings}
+    assert set(by_id) == {
+        "zai-org/GLM-5.2",
+        "zai-org/GLM-5.3",
+        "moonshotai/Kimi-K2.6",
+        "moonshotai/Kimi-K2.7-Code",
+        "deepseek-ai/DeepSeek-V4-Flash-0731",
+        "zai-org/GLM-5.3-Flash",
+    }
+
+    # The catalog's prompt, completion, and input_cache_reads fields are
+    # per-token decimals (the models page's GLM-5.3 rate card prices
+    # "Input tokens, 1M" in dollars), so the rates scale by 1,000,000 in
+    # dollars and the ECB rate converts them.
+    glm = by_id["zai-org/GLM-5.3"]
+    assert glm["key"] == "inceptron:zai-org/GLM-5.3"
+    assert glm["seller"] == "inceptron"
+    assert glm["sellerName"] == "Inceptron"
+    assert glm["name"] == "GLM 5.3"
+    assert glm["creator"] == "Z.ai"
+    assert glm["contextSize"] == 1_048_576
+    assert glm["pricingTiers"] == []
+    assert glm["rates"]["nativeCurrency"] == "USD"
+    assert glm["rates"]["native"] == {
+        "input": 0.55,
+        "cached": 0.18,
+        "output": 1.4,
+    }
+    assert math.isclose(glm["rates"]["input"], 0.275)
+    assert math.isclose(glm["rates"]["cached"], 0.09)
+    assert math.isclose(glm["rates"]["output"], 0.7)
+    assert glm["rates"]["cachedFallback"] is False
+    # The shared capability helper reads the catalog's supported_features
+    # flags and input modalities.
+    assert glm["capabilities"] == {
+        "reasoning": True,
+        "tools": True,
+        "vision": False,
+        "audio": False,
+    }
+
+    # Image inputs map to the vision capability; owned_by maps to the
+    # canonical creator spellings.
+    kimi = by_id["moonshotai/Kimi-K2.6"]
+    assert kimi["creator"] == "Moonshot AI"
+    assert kimi["capabilities"]["vision"] is True
+    assert kimi["rates"]["native"] == {
+        "input": 0.4323,
+        "cached": 0.159,
+        "output": 3.2,
+    }
+    assert by_id["moonshotai/Kimi-K2.7-Code"]["rates"]["native"] == {
+        "input": 0.6712,
+        "cached": 0.18,
+        "output": 3.35,
+    }
+    assert by_id["deepseek-ai/DeepSeek-V4-Flash-0731"]["creator"] == "DeepSeek"
+    assert by_id["deepseek-ai/DeepSeek-V4-Flash-0731"]["rates"]["native"] == {
+        "input": 0.13,
+        "cached": 0.027,
+        "output": 0.3996,
+    }
+    assert by_id["zai-org/GLM-5.2"]["rates"]["native"] == {
+        "input": 0.69,
+        "cached": 0.14,
+        "output": 2.52,
+    }
+    assert by_id["zai-org/GLM-5.3-Flash"]["rates"]["native"] == {
+        "input": 0.1,
+        "cached": 0.075,
+        "output": 0.69,
+    }
+
+    assert all(
+        listing["rates"]["nativeCurrency"] == "USD" for listing in listings
+    )
+    assert all(
+        "Inceptron" in listing["priceNote"] and "ECB" in listing["priceNote"]
+        for listing in listings
+    )
+    # A zero price is a price: zero token rows normalize to zero rates
+    # instead of dropping out, and the catalog's zero-priced
+    # input_cache_writes write field never stands in for the read.
+    zeros = _inceptron_rates(
+        {
+            "pricing": {
+                "prompt": "0",
+                "completion": "0",
+                "input_cache_reads": "0",
+                "input_cache_writes": "0",
+            }
+        },
+        2.0,
+    )
+    assert zeros["input"] == zeros["cached"] == zeros["output"] == 0
+    assert zeros["nativeCurrency"] == "USD"
+    assert zeros["cachedFallback"] is False
+    # Rows without input_cache_reads fall back to the input rate.
+    fallback = _inceptron_rates({"pricing": {"prompt": 1, "completion": 2}}, 2.0)
+    assert fallback["native"] == {
+        "input": 1_000_000,
+        "cached": 1_000_000,
+        "output": 2_000_000,
+    }
+    assert fallback["cachedFallback"] is True
+    # Rows without per-token input and output prices are not
+    # per-million-token priced and stay out of the listings.
+    try:
+        _inceptron_rates({"pricing": {"prompt": "0.0000005"}}, 2.0)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("missing per-token prices should skip the row")
+
+
 def test_seven_day_seller_fallback():
     fetched_at = now_utc().isoformat()
     previous = {
@@ -2680,6 +2821,7 @@ def test_aggregate_contract():
     assert native_by_seller["engy"] == "USD"
     assert native_by_seller["friendli"] == "USD"
     assert native_by_seller["hyper"] == "USD"
+    assert native_by_seller["inceptron"] == "USD"
     assert {
         native_by_seller[sid]
         for sid in ("deepseek-direct", "zai-direct", "claude-direct", "openai-direct")
@@ -2763,6 +2905,7 @@ def test_generated_page():
         'data-seller="engy"',
         'data-seller="friendli"',
         'data-seller="hyper"',
+        'data-seller="inceptron"',
         'data-seller="deepseek-direct"',
         'data-seller="zai-direct"',
         'data-seller="claude-direct"',
@@ -2851,6 +2994,7 @@ def main():
     test_engy_adapter()
     test_friendli_adapter()
     test_hyper_adapter()
+    test_inceptron_adapter()
     test_seven_day_seller_fallback()
     test_broken_source_fails_in_isolation()
     test_build_fails_only_without_usable_data()

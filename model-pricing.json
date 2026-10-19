@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-19T17:17:44.680526+00:00",
+  "generatedAt": "2026-10-19T17:27:06.107568+00:00",
   "currency": "EUR",
   "exchangeRate": {
     "series": "EXR.D.USD.EUR.SP00.A",
@@ -15,7 +15,7 @@
       "source": "https://api.cortecs.ai/v1/models?extended=true&currency=EUR",
       "id": "cortecs",
       "nativeCurrency": "EUR",
-      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
+      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
       "stale": false
     },
     {
@@ -24,7 +24,7 @@
       "source": "https://api.eurouter.ai/api/v1/models",
       "id": "eurouter",
       "nativeCurrency": "mixed",
-      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
+      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
       "stale": false
     },
     {
@@ -33,7 +33,7 @@
       "source": "https://openrouter.ai/api/v1/models",
       "id": "openrouter",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
+      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
       "stale": false
     },
     {
@@ -42,7 +42,7 @@
       "source": "https://opencode.ai/zen/v1/models",
       "id": "opencode",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
+      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
       "stale": false
     },
     {
@@ -51,7 +51,7 @@
       "source": "https://api.deepinfra.com/v1/models",
       "nativeCurrency": "USD",
       "id": "deepinfra",
-      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
+      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
       "stale": false
     },
     {
@@ -60,7 +60,7 @@
       "source": "https://api.novita.ai/v3/openai/models",
       "nativeCurrency": "USD",
       "id": "novita",
-      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
+      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
       "stale": false
     },
     {
@@ -69,7 +69,7 @@
       "source": "https://router.requesty.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "requesty",
-      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
+      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
       "stale": false
     },
     {
@@ -78,7 +78,7 @@
       "source": "https://ai-gateway.vercel.sh/v1/models",
       "nativeCurrency": "USD",
       "id": "vercel-gateway",
-      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
+      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
       "stale": false
     },
     {
@@ -87,7 +87,7 @@
       "source": "https://api.kilo.ai/api/gateway/models",
       "nativeCurrency": "USD",
       "id": "kilo",
-      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
+      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
       "stale": false
     },
     {
@@ -96,7 +96,7 @@
       "source": "https://nano-gpt.com/api/v1/models?detailed=true",
       "nativeCurrency": "USD",
       "id": "nano-gpt",
-      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
+      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
       "stale": false
     },
     {
@@ -105,7 +105,7 @@
       "source": "https://llm.chutes.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "chutes",
-      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
+      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
       "stale": false
     },
     {
@@ -114,7 +114,7 @@
       "source": "https://api.llmgateway.io/v1/models",
       "nativeCurrency": "USD",
       "id": "llmgateway",
-      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
+      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
       "stale": false
     },
     {
@@ -123,7 +123,7 @@
       "source": "https://api.aiand.com/v1/models",
       "nativeCurrency": "USD",
       "id": "aiand",
-      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
+      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
       "stale": false
     },
     {
@@ -132,7 +132,7 @@
       "source": "https://api.aimlapi.com/v1/models?include=pricing,modalities",
       "nativeCurrency": "USD",
       "id": "aimlapi",
-      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
+      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
       "stale": false
     },
     {
@@ -141,7 +141,7 @@
       "source": "https://api.ambient.xyz/v1/models",
       "nativeCurrency": "USD",
       "id": "ambient",
-      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
+      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
       "stale": false
     },
     {
@@ -150,7 +150,7 @@
       "source": "https://www.crossmodel.ai/api/models",
       "nativeCurrency": "USD",
       "id": "crossmodel",
-      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
+      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
       "stale": false
     },
     {
@@ -159,7 +159,7 @@
       "source": "https://api.edenai.run/v3/models",
       "nativeCurrency": "USD",
       "id": "edenai",
-      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
+      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
       "stale": false
     },
     {
@@ -168,7 +168,7 @@
       "source": "https://api.empiriolabs.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "empiriolabs",
-      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
+      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
       "stale": false
     },
     {
@@ -177,7 +177,7 @@
       "source": "https://api.engy.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "engy",
-      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
+      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
       "stale": false
     },
     {
@@ -186,7 +186,7 @@
       "source": "https://api.friendli.ai/serverless/v1/models",
       "nativeCurrency": "USD",
       "id": "friendli",
-      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
+      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
       "stale": false
     },
     {
@@ -195,7 +195,16 @@
       "source": "https://hyper.charm.land/v1/models",
       "nativeCurrency": "USD",
       "id": "hyper",
-      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
+      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
+      "stale": false
+    },
+    {
+      "name": "Inceptron",
+      "sellerKind": "gateway",
+      "source": "https://api.inceptron.io/v1/models",
+      "nativeCurrency": "USD",
+      "id": "inceptron",
+      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
       "stale": false
     },
     {
@@ -204,7 +213,7 @@
       "sellerKind": "first-party",
       "id": "deepseek-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
+      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
       "stale": false
     },
     {
@@ -213,7 +222,7 @@
       "sellerKind": "first-party",
       "id": "zai-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
+      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
       "stale": false
     },
     {
@@ -222,7 +231,7 @@
       "sellerKind": "first-party",
       "id": "claude-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
+      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
       "stale": false
     },
     {
@@ -231,7 +240,7 @@
       "sellerKind": "first-party",
       "id": "openai-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-19T17:17:44.680526+00:00",
+      "fetchedAt": "2026-10-19T17:27:06.107568+00:00",
       "stale": false
     }
   ],
@@ -68828,6 +68837,192 @@
       "priceNote": "USD price published in Hyper's model catalog and converted with the listed ECB rate."
     },
     {
+      "key": "inceptron:deepseek-ai/DeepSeek-V4-Flash-0731",
+      "seller": "inceptron",
+      "sellerName": "Inceptron",
+      "modelId": "deepseek-ai/DeepSeek-V4-Flash-0731",
+      "name": "DeepSeek V4 Flash 0731",
+      "creator": "DeepSeek",
+      "description": "DeepSeek V4 Flash 0731",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.11581291759465479,
+        "cached": 0.024053452115812918,
+        "output": 0.35599109131403117,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.13,
+          "cached": 0.027,
+          "output": 0.3996
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Inceptron's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "inceptron:moonshotai/Kimi-K2.6",
+      "seller": "inceptron",
+      "sellerName": "Inceptron",
+      "modelId": "moonshotai/Kimi-K2.6",
+      "name": "Kimi K2.6",
+      "creator": "Moonshot AI",
+      "description": "Kimi K2.6 model",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.38512249443207125,
+        "cached": 0.14164810690423163,
+        "output": 2.8507795100222717,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.4323,
+          "cached": 0.159,
+          "output": 3.2
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Inceptron's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "inceptron:moonshotai/Kimi-K2.7-Code",
+      "seller": "inceptron",
+      "sellerName": "Inceptron",
+      "modelId": "moonshotai/Kimi-K2.7-Code",
+      "name": "Kimi K2.7 Code",
+      "creator": "Moonshot AI",
+      "description": "Kimi K2.7 Code model",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.5979510022271715,
+        "cached": 0.16035634743875277,
+        "output": 2.9844097995545655,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.6712,
+          "cached": 0.18,
+          "output": 3.35
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Inceptron's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "inceptron:zai-org/GLM-5.2",
+      "seller": "inceptron",
+      "sellerName": "Inceptron",
+      "modelId": "zai-org/GLM-5.2",
+      "name": "GLM 5.2",
+      "creator": "Z.ai",
+      "description": "GLM 5.2 model",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.6146993318485523,
+        "cached": 0.12472160356347439,
+        "output": 2.244988864142539,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.69,
+          "cached": 0.14,
+          "output": 2.52
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Inceptron's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "inceptron:zai-org/GLM-5.3",
+      "seller": "inceptron",
+      "sellerName": "Inceptron",
+      "modelId": "zai-org/GLM-5.3",
+      "name": "GLM 5.3",
+      "creator": "Z.ai",
+      "description": "GLM 5.3 model",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.48997772828507796,
+        "cached": 0.16035634743875277,
+        "output": 1.2472160356347437,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.55,
+          "cached": 0.18,
+          "output": 1.4
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Inceptron's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "inceptron:zai-org/GLM-5.3-Flash",
+      "seller": "inceptron",
+      "sellerName": "Inceptron",
+      "modelId": "zai-org/GLM-5.3-Flash",
+      "name": "GLM 5.3 Flash",
+      "creator": "Z.ai",
+      "description": "GLM 5.3 Flash model",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.08908685968819599,
+        "cached": 0.06681514476614699,
+        "output": 0.6146993318485523,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.1,
+          "cached": 0.075,
+          "output": 0.69
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Inceptron's model catalog and converted with the listed ECB rate."
+    },
+    {
       "key": "kilo:aion-labs/aion-2.0",
       "seller": "kilo",
       "sellerName": "Kilo",
@@ -80562,15 +80757,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.013452115812917595,
-        "cached": 0.013452115812917595,
-        "output": 0.40089086859688194,
+        "input": 0.010761692650334076,
+        "cached": 0.0029434298440979955,
+        "output": 0.10690423162583518,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0151,
-          "cached": 0.0151,
-          "output": 0.45
+          "input": 0.01208,
+          "cached": 0.003304,
+          "output": 0.12
         }
       },
       "pricingTiers": [],
@@ -83063,7 +83258,7 @@
       "modelId": "glm-5.2",
       "name": "GLM-5.2",
       "creator": "Z.ai",
-      "description": "glm-5.2 provided by zai, novita, canopywave, embercloud, bytedance, alibaba, nebius, baidu, tencent, scx-ai-gp, runware",
+      "description": "glm-5.2 provided by zai, novita, canopywave, embercloud, bytedance, alibaba, nebius, baidu, tencent, runware, scx-ai-gp",
       "releaseDate": null,
       "contextSize": 1048576,
       "capabilities": {
@@ -117997,15 +118192,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.3703216035634744,
-        "cached": 0.03086013363028953,
-        "output": 0.7406432071269488,
+        "input": 0.36737639198218264,
+        "cached": 0.03061469933184855,
+        "output": 0.7347527839643653,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.415686,
-          "cached": 0.0346405,
-          "output": 0.831372
+          "input": 0.41238,
+          "cached": 0.034365,
+          "output": 0.82476
         }
       },
       "pricingTiers": [],
@@ -118059,13 +118254,13 @@
         "audio": false
       },
       "rates": {
-        "input": 0.029220489977728286,
+        "input": 0.028507795100222718,
         "cached": 0.0014253897550111359,
         "output": 0.07126948775055679,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0328,
+          "input": 0.032,
           "cached": 0.0016,
           "output": 0.08
         }
@@ -129808,13 +130003,13 @@
         "audio": false
       },
       "rates": {
-        "input": 0.03652561247216036,
+        "input": 0.035634743875278395,
         "cached": 0.004454342984409799,
         "output": 0.5345211581291759,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.041,
+          "input": 0.04,
           "cached": 0.005,
           "output": 0.6
         }
@@ -129870,13 +130065,13 @@
         "audio": false
       },
       "rates": {
-        "input": 0.014182628062360801,
+        "input": 0.010761692650334076,
         "cached": 0.0029434298440979955,
         "output": 0.10690423162583518,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.01592,
+          "input": 0.01208,
           "cached": 0.003304,
           "output": 0.12
         }
@@ -158802,6 +158997,37 @@
           "input": 0.04,
           "cached": 0.004,
           "output": 0.15
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Vercel AI Gateway's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "vercel-gateway:inception/mercury-3",
+      "seller": "vercel-gateway",
+      "sellerName": "Vercel AI Gateway",
+      "modelId": "inception/mercury-3",
+      "name": "Mercury 3",
+      "creator": "inception",
+      "description": "Mercury 3 is Inception\u2019s most capable model for agentic workflows and real-time applications. It is one of the world\u2019s fastest models, powered by diffusion.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.08908685968819599,
+        "cached": 0.008908685968819599,
+        "output": 0.3118040089086859,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.1,
+          "cached": 0.01,
+          "output": 0.35
         }
       },
       "pricingTiers": [],

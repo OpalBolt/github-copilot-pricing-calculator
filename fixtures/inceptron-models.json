@@ -1,0 +1,191 @@
+{
+  "object": "list",
+  "data": [
+    {
+      "id": "zai-org/GLM-5.2",
+      "object": "model",
+      "name": "GLM 5.2",
+      "description": "GLM 5.2 model",
+      "owned_by": "zai-org",
+      "context_length": 1048576,
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "supported_features": [
+        "chat",
+        "completion",
+        "tools",
+        "reasoning",
+        "logprobs",
+        "json_mode",
+        "structured_outputs"
+      ],
+      "pricing": {
+        "completion": "0.00000252",
+        "image": "0",
+        "input_cache_reads": "0.00000014",
+        "input_cache_writes": "0",
+        "prompt": "0.00000069",
+        "request": "0"
+      }
+    },
+    {
+      "id": "zai-org/GLM-5.3",
+      "object": "model",
+      "name": "GLM 5.3",
+      "description": "GLM 5.3 model",
+      "owned_by": "zai-org",
+      "context_length": 1048576,
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "supported_features": [
+        "chat",
+        "completion",
+        "tools",
+        "reasoning",
+        "json_mode",
+        "structured_outputs"
+      ],
+      "pricing": {
+        "completion": "0.0000014",
+        "image": "0",
+        "input_cache_reads": "0.00000018",
+        "input_cache_writes": "0",
+        "prompt": "0.00000055",
+        "request": "0"
+      }
+    },
+    {
+      "id": "moonshotai/Kimi-K2.6",
+      "object": "model",
+      "name": "Kimi K2.6",
+      "description": "Kimi K2.6 model",
+      "owned_by": "moonshotai",
+      "context_length": 262144,
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "supported_features": [
+        "chat",
+        "completion",
+        "tools",
+        "reasoning",
+        "logprobs",
+        "json_mode",
+        "structured_outputs"
+      ],
+      "pricing": {
+        "completion": "0.0000032",
+        "image": "0",
+        "input_cache_reads": "0.000000159",
+        "input_cache_writes": "0",
+        "prompt": "0.0000004323",
+        "request": "0"
+      }
+    },
+    {
+      "id": "moonshotai/Kimi-K2.7-Code",
+      "object": "model",
+      "name": "Kimi K2.7 Code",
+      "description": "Kimi K2.7 Code model",
+      "owned_by": "moonshotai",
+      "context_length": 262144,
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "supported_features": [
+        "chat",
+        "completion",
+        "tools",
+        "reasoning",
+        "logprobs",
+        "json_mode",
+        "structured_outputs"
+      ],
+      "pricing": {
+        "completion": "0.00000335",
+        "image": "0",
+        "input_cache_reads": "0.00000018",
+        "input_cache_writes": "0",
+        "prompt": "0.0000006712",
+        "request": "0"
+      }
+    },
+    {
+      "id": "deepseek-ai/DeepSeek-V4-Flash-0731",
+      "object": "model",
+      "name": "DeepSeek V4 Flash 0731",
+      "description": "DeepSeek V4 Flash 0731",
+      "owned_by": "deepseek-ai",
+      "context_length": 1048576,
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "supported_features": [
+        "chat",
+        "completion",
+        "tools",
+        "reasoning",
+        "logprobs",
+        "json_mode",
+        "structured_outputs"
+      ],
+      "pricing": {
+        "completion": "0.0000003996",
+        "image": "0",
+        "input_cache_reads": "0.000000027",
+        "input_cache_writes": "0",
+        "prompt": "0.00000013",
+        "request": "0"
+      }
+    },
+    {
+      "id": "zai-org/GLM-5.3-Flash",
+      "object": "model",
+      "name": "GLM 5.3 Flash",
+      "description": "GLM 5.3 Flash model",
+      "owned_by": "zai-org",
+      "context_length": 1048576,
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "supported_features": [
+        "chat",
+        "completion",
+        "tools",
+        "reasoning",
+        "json_mode",
+        "structured_outputs"
+      ],
+      "pricing": {
+        "completion": "0.00000069",
+        "image": "0",
+        "input_cache_reads": "0.000000075",
+        "input_cache_writes": "0",
+        "prompt": "0.0000001",
+        "request": "0"
+      }
+    }
+  ]
+}
