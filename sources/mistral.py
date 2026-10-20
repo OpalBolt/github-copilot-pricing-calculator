@@ -4,12 +4,19 @@ import re
 
 from fetch_providers import fetch_text, parse_markdown_tables
 from sources.helpers import (
+    _creator,
     _direct_api_offers,
     _plain_markdown,
     listing_from_offer,
 )
 
 MISTRAL_PRICING_URL = "https://docs.mistral.ai/inference/pricing.md"
+
+# Mistral's regional-inference doc bills its EU endpoint at "1.1× standard
+# list pricing (a 10% upcharge) for input tokens, output tokens, cached
+# reads, and cache writes"
+# (docs.mistral.ai/inference/regional-inference).
+EU_LIST_MULTIPLIER = 1.1
 
 # Every section's table prices one model per row, with the Price cell
 # joining rate lines on <br>: "Input $0.68 /M Tokens (sale price, regular
@@ -119,6 +126,63 @@ def _sale_note(sale: dict) -> str:
         " Mistral currently advertises a sale price of "
         f"{' / '.join(parts)} per million tokens."
     )
+
+
+def _eu_regional_rates(default: dict, usd_per_eur: float) -> dict:
+    """The EU regional endpoint's rates for one offer: the native USD list
+    rates × the 1.1× regional upcharge, converted with the shared ECB rate
+    (EUR = native × 1.1 / usdPerEur). Free rows' zeros stay zero (0 × 1.1 =
+    0), and a cached-input fallback keeps estimating cache reads at the
+    equally multiplied input rate."""
+    native = {
+        field: value * EU_LIST_MULTIPLIER
+        for field, value in default["native"].items()
+    }
+    return {
+        "input": native["input"] / usd_per_eur,
+        "cached": native["cached"] / usd_per_eur,
+        "output": native["output"] / usd_per_eur,
+        "cachedFallback": default["cachedFallback"],
+        "nativeCurrency": "USD",
+        "native": native,
+    }
+
+
+def fetch_mistral_direct(exchange_rate: dict) -> list[dict]:
+    """EU-page Router Offers: Mistral AI's own API as an EU-claiming seller.
+    The default mode carries the standard list prices the global listings
+    headline; the EU mode prices the EU regional endpoint
+    (api.eu.mistral.ai), which bills inference in EU/EFTA data centers at
+    the 1.1× list upcharge computed from the native USD rates. The
+    regional-inference doc only serves "models hosted in that region" with
+    no stateful features, so the price note carries those caveats, and the
+    sale-price discipline matches the listings path: the regular price is
+    the headline and any advertised sale price stays in the price note."""
+    models = parse_mistral_pricing(fetch_text(MISTRAL_PRICING_URL))
+    base_note = (
+        "Direct USD API price published by Mistral AI and converted with "
+        "the listed ECB rate. EU prices apply the EU regional endpoint's "
+        "1.1× list upcharge; regional endpoints only serve models hosted "
+        "in that region, and stateful features (Agents, Batch, Files) are "
+        "unavailable there."
+    )
+    offers = _direct_api_offers(
+        {"id": "mistral", "name": "Mistral AI", "owner": "mistralai"},
+        models,
+        exchange_rate,
+        price_note=base_note,
+    )
+    if not offers:
+        raise ValueError("Mistral API has no usable offers")
+    usd_per_eur = exchange_rate["usdPerEur"]
+    for model, offer in zip(models, offers):
+        # Third-party hosted rows carry the model operator's own canonical
+        # owner name; the seller stays Mistral AI either way.
+        offer["owner"] = _creator(model["owner"])
+        if model.get("sale"):
+            offer["priceNote"] = base_note + _sale_note(model["sale"])
+        offer["eu"] = _eu_regional_rates(offer["default"], usd_per_eur)
+    return offers
 
 
 def fetch_mistral_listings(exchange_rate: dict) -> list[dict]:

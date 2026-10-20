@@ -23,8 +23,10 @@ compare in a bottom tray. A task guide recommends models for each kind of work.
 ### EU Router Price Calculator
 
 Compares EU routing prices from Cortecs, EUrouter, and OpenRouter in euros,
-with direct Claude, DeepSeek, OpenAI, and z.ai API prices as marked baselines.
-Router rows are router model offers. Every row either uses the router's
+with direct Claude, DeepSeek, OpenAI, and z.ai API prices as marked baselines,
+and Mistral's EU regional endpoint (api.eu.mistral.ai) as an EU-claiming
+direct API whose EU prices bill at 1.1× its list prices. Router rows are
+router model offers. Every row either uses the router's
 published EU Router Price or carries its unrestricted price with a
 no-EU-routing marker.
 
@@ -64,7 +66,9 @@ The four tools fetch data differently.
 - **EU router page** — reads the public bulk model catalogs from Cortecs, EUrouter,
   and OpenRouter. It also reads the Cortecs and OpenRouter EU
   catalogs. The same build scrapes direct Claude,
-  DeepSeek, OpenAI, and z.ai API prices as non-router comparison baselines.
+  DeepSeek, OpenAI, and z.ai API prices as non-router comparison baselines,
+  and Mistral's published API prices as an EU-claiming direct API (its EU
+  regional endpoint bills inference at 1.1× list price).
 - **Model pricing page** — reads the same catalogs plus OpenCode Zen's catalog
   with models.dev metadata (ADR 0003), the direct Claude, DeepSeek, OpenAI,
   and z.ai API prices, and every further keyless catalog adapter in the

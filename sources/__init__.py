@@ -461,7 +461,7 @@ SOURCES = {
     },
     "mistral": {
         "name": "Mistral AI",
-        "pages": ("global",),
+        "pages": ("router", "global"),
         "sellerKind": "first-party",
         "source": MISTRAL_PRICING_URL,
         # Every rate on Mistral's API-pricing markdown is dollar-prefixed
@@ -470,7 +470,14 @@ SOURCES = {
         # (docs.mistral.ai/inference/pricing/), so the published rates are
         # US dollars per million tokens.
         "nativeCurrency": "USD",
-        "euClaim": "No EU routing catalog is published.",
+        # Mistral's regional-inference doc names the EU endpoint
+        # "api.eu.mistral.ai" with "multiple data centers in EU and EFTA
+        # countries" and bills regional inference at "1.1× standard list
+        # pricing (a 10% upcharge) for input tokens, output tokens, cached
+        # reads, and cache writes"; regional endpoints "only serve models
+        # hosted in that region" (docs.mistral.ai/inference/
+        # regional-inference).
+        "euClaim": "EU regional endpoint (api.eu.mistral.ai): inference in EU/EFTA data centers at 1.1× list price.",
     },
     "meta": {
         "name": "Meta",

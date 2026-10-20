@@ -16,6 +16,7 @@ from sources.cortecs import fetch_cortecs
 from sources.deepseek_direct import fetch_deepseek_direct
 from sources.eurouter import fetch_eurouter
 from sources.helpers import fetch_ecb_rate, now_utc
+from sources.mistral import fetch_mistral_direct
 from sources.openai_direct import fetch_openai_direct
 from sources.openrouter import fetch_openrouter
 from sources.zai_direct import fetch_zai_direct
@@ -37,6 +38,7 @@ ADAPTERS = {
     "zai-direct": lambda exchange_rate: fetch_zai_direct(exchange_rate),
     "claude-direct": lambda exchange_rate: fetch_claude_direct(exchange_rate),
     "openai-direct": lambda exchange_rate: fetch_openai_direct(exchange_rate),
+    "mistral": lambda exchange_rate: fetch_mistral_direct(exchange_rate),
 }
 # Sources that still produce offers when the ECB rate fetch fails.
 RATE_OPTIONAL_SOURCES = {"cortecs", "eurouter"}

@@ -43,6 +43,7 @@
     #router-table tr.router-cortecs td:first-child { border-left: 3px solid #7e9cd8; }
     #router-table tr.router-eurouter td:first-child { border-left: 3px solid #98bb6c; }
     #router-table tr.router-openrouter td:first-child { border-left: 3px solid #d27e99; }
+    #router-table tr.router-mistral td:first-child { border-left: 3px solid #d08770; }
     #router-table tr.router-deepseek-direct td:first-child,
     #router-table tr.router-zai-direct td:first-child,
     #router-table tr.router-claude-direct td:first-child,
@@ -72,6 +73,7 @@
     .router-cortecs .router-chip { color: #7e9cd8; border-color: #7e9cd8; }
     .router-eurouter .router-chip { color: #98bb6c; border-color: #98bb6c; }
     .router-openrouter .router-chip { color: #d27e99; border-color: #d27e99; }
+    .router-mistral .router-chip { color: #d08770; border-color: #d08770; }
     .router-deepseek-direct .router-chip,
     .router-zai-direct .router-chip,
     .router-claude-direct .router-chip,
@@ -83,6 +85,7 @@
     .legend-cortecs { color: #7e9cd8; border-color: #7e9cd8; }
     .legend-eurouter { color: #98bb6c; border-color: #98bb6c; }
     .legend-openrouter { color: #d27e99; border-color: #d27e99; }
+    .legend-mistral { color: #d08770; border-color: #d08770; }
     .table-legend {
       display: flex; align-items: center; flex-wrap: wrap; gap: 5px 12px;
       margin: 0 0 12px; color: var(--slate-6); font-size: 12px;
@@ -109,7 +112,7 @@
 <header class="page-header">
   <p class="eyebrow">EU routing · Direct API baselines</p>
   <h1>EU Router Price Calculator</h1>
-  <p>Compare EU routing prices from Cortecs, EUrouter, and OpenRouter with direct Claude, DeepSeek, OpenAI, and z.ai API prices in euros. Offers without a published EU routing price carry their unrestricted price and a no-EU-routing marker.</p>
+  <p>Compare EU routing prices from Cortecs, EUrouter, and OpenRouter with direct Claude, DeepSeek, OpenAI, and z.ai API prices in euros, plus Mistral's EU regional endpoint as an EU-claiming direct API. Offers without a published EU routing price carry their unrestricted price and a no-EU-routing marker.</p>
   <p class="meta">
     <a href="index.html">← All tools</a> · Data built: {{ generatedAt }}
     {% if exchangeRate %}
@@ -161,6 +164,7 @@
     <span class="legend-item"><span class="router-chip legend-cortecs">EU</span> Cortecs EU catalog</span>
     <span class="legend-item"><span class="router-chip legend-eurouter">EU</span> EUrouter baseline</span>
     <span class="legend-item"><span class="router-chip legend-openrouter">EU</span> OpenRouter EU region</span>
+    <span class="legend-item"><span class="router-chip legend-mistral">EU</span> Mistral EU regional endpoint</span>
     <span class="legend-item"><span class="no-eu-chip">No EU routing</span> unrestricted price, no EU routing published</span>
     <span class="legend-item"><span class="direct-chip">Direct API</span> provider price, not routed</span>
     <span class="legend-item"><span class="warning-chip">⚠</span> cache rate not published</span>
@@ -240,8 +244,8 @@
   </div>
 
   <p class="page-note">
-    EU routing means the documented mode of each router: Cortecs uses its <code>eu_native=true</code> catalog, EUrouter uses its baseline EU guarantee, and OpenRouter uses its EU regional catalog; OpenRouter EU routing requires a Business or Enterprise plan. Offers without a published EU routing price carry their unrestricted price and are marked as not EU-routed.
-    OpenRouter, Claude, DeepSeek, OpenAI, and z.ai USD prices are converted with the unrounded ECB reference rate shown above. Calculations use unrounded values and display rounding only.
+    EU routing means the documented mode of each router: Cortecs uses its <code>eu_native=true</code> catalog, EUrouter uses its baseline EU guarantee, and OpenRouter uses its EU regional catalog; OpenRouter EU routing requires a Business or Enterprise plan. Mistral's EU price is its EU regional endpoint (api.eu.mistral.ai): regional inference in EU/EFTA data centers billed at 1.1× list price. Offers without a published EU routing price carry their unrestricted price and are marked as not EU-routed.
+    OpenRouter, Claude, DeepSeek, OpenAI, z.ai, and Mistral USD prices are converted with the unrounded ECB reference rate shown above. Calculations use unrounded values and display rounding only.
     When no cached-input price is published, the input rate is used as an estimate and marked with ⚠. This does not mean the router publishes or supports prompt caching. Fully free offers do not show this warning because the fallback cannot change their cost.
   </p>
   </div>

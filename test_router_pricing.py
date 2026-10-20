@@ -232,6 +232,7 @@ def test_aggregate_contract():
         "cortecs",
         "deepseek-direct",
         "eurouter",
+        "mistral",
         "openai-direct",
         "openrouter",
         "claude-direct",
@@ -316,18 +317,39 @@ def test_aggregate_contract():
             assert prices["nativeCurrency"] == "USD"
             assert math.isclose(prices["input"], prices["native"]["input"] / rate)
 
+    # Mistral is the EU-claiming direct API: its EU mode bills the EU
+    # regional endpoint's 1.1× list upcharge on the native USD rates.
+    mistral_offers = [item for item in offers if item["router"] == "mistral"]
+    assert mistral_offers
+    mistral_router = next(
+        router for router in data["routers"] if router["id"] == "mistral"
+    )
+    assert mistral_router["euClaim"]
+    for offer in mistral_offers:
+        assert offer["eu"] is not None
+        assert offer["default"]["nativeCurrency"] == "USD"
+        for field in ("input", "cached", "output"):
+            assert math.isclose(
+                offer["eu"][field],
+                offer["default"]["native"][field] * 1.1 / rate,
+            )
+
     direct_offers = [item for item in offers if item.get("direct")]
     assert {offer["router"] for offer in direct_offers} == {
         "claude-direct",
         "deepseek-direct",
         "openai-direct",
         "zai-direct",
+        "mistral",
     }
-    assert all(offer["eu"] is None for offer in direct_offers)
+    # Only the direct baselines lack an EU mode; Mistral's direct offers
+    # carry the EU regional endpoint's prices.
     assert all(
-        offer["default"]["nativeCurrency"] == "USD"
+        offer["eu"] is None
         for offer in direct_offers
+        if offer["router"] != "mistral"
     )
+    assert all(offer["default"]["nativeCurrency"] == "USD" for offer in direct_offers)
 
     tiered_offers = [item for item in offers if item.get("pricingTiers")]
     assert {offer["key"] for offer in tiered_offers} == {
@@ -357,6 +379,7 @@ def test_generated_pages():
         'data-router="cortecs"',
         'data-router="eurouter"',
         'data-router="openrouter"',
+        'data-router="mistral"',
         'data-router="deepseek-direct"',
         'data-router="zai-direct"',
         'data-router="claude-direct"',
@@ -392,6 +415,7 @@ def test_generated_pages():
         "Cortecs EU catalog",
         "EUrouter baseline",
         "OpenRouter EU region",
+        "Mistral EU regional endpoint",
         "no-eu-chip",
         "No EU routing",
         "model.eu || model.default",
@@ -408,6 +432,14 @@ def test_generated_pages():
         assert marker in html
     assert 'id="eu-routing-filter"' not in html
     assert "state.mode" not in html
+    # Mistral AI rows ride in the embedded offer data with an EU price, so
+    # each renders the EU chip and never the no-EU-routing marker.
+    all_models_start = html.index("const ALL_MODELS = ") + len("const ALL_MODELS = ")
+    page_models, _ = json.JSONDecoder().raw_decode(html[all_models_start:])
+    mistral_rows = [model for model in page_models if model["router"] == "mistral"]
+    assert mistral_rows
+    assert all(model["routerName"] == "Mistral AI" for model in mistral_rows)
+    assert all(model["eu"] for model in mistral_rows)
     # Zen is gone from the page's live content: no offers, filter chip, CSS,
     # or copy. Dated changelog.json history entries may still mention it.
     assert '"router": "opencode"' not in html

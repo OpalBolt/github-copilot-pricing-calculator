@@ -238,7 +238,6 @@ def test_registry_pages():
         "tinfoil",
         "venice",
         "xai",
-        "mistral",
         "meta",
     }
     assert global_pages == ALL_SELLERS
@@ -3873,10 +3872,12 @@ def test_mistral_adapter():
     # Mistral's markdown quotes every rate with a dollar prefix and the
     # rendered page's currency toggle opens on USD; the registry records
     # that verified native currency, and the first-party catalog feeds the
-    # global page only.
+    # global page and the EU router page (EU regional endpoint). The EU
+    # page's claim and page list stay registry-side.
     assert SOURCES["mistral"]["nativeCurrency"] == "USD"
-    assert SOURCES["mistral"]["pages"] == ("global",)
+    assert SOURCES["mistral"]["pages"] == ("router", "global")
     assert SOURCES["mistral"]["sellerKind"] == "first-party"
+    assert SOURCES["mistral"]["euClaim"]
 
     fixture = ROOT / "fixtures" / "mistral-pricing.md"
     markdown = fixture.read_text(encoding="utf-8")
@@ -3962,6 +3963,13 @@ def test_mistral_adapter():
     assert "voxtral-mini-2602" not in by_id
     assert "voxtral-mini-tts-2603" not in by_id
     assert "codestral-embed-2505" not in by_id
+
+    # Joining the EU router page changes the registry only: the listings
+    # keep their byte-shape and no EU-page field leaks into them.
+    for listing in listings:
+        assert "euClaim" not in listing
+        assert "pages" not in listing
+        assert "eu" not in listing
 
     # Parser: a sale on some fields only headlines the regular price and
     # keeps the advertised sale prices beside it, the free row's unlabeled

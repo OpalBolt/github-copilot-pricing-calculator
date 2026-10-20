@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-20T04:43:28.993979+00:00",
+  "generatedAt": "2026-10-20T07:06:03.508216+00:00",
   "currency": "EUR",
   "exchangeRate": {
     "series": "EXR.D.USD.EUR.SP00.A",
@@ -14,7 +14,7 @@
       "source": "https://api.cortecs.ai/v1/models?extended=true&currency=EUR",
       "euClaim": "EU catalog: providers based and regulated within the EU.",
       "id": "cortecs",
-      "fetchedAt": "2026-10-20T04:43:28.993979+00:00",
+      "fetchedAt": "2026-10-20T07:06:03.508216+00:00",
       "stale": false
     },
     {
@@ -22,7 +22,7 @@
       "source": "https://api.eurouter.ai/api/v1/models",
       "euClaim": "EU handling is EUrouter's baseline routing guarantee.",
       "id": "eurouter",
-      "fetchedAt": "2026-10-20T04:43:28.993979+00:00",
+      "fetchedAt": "2026-10-20T07:06:03.508216+00:00",
       "stale": false
     },
     {
@@ -30,7 +30,7 @@
       "source": "https://openrouter.ai/api/v1/models",
       "euClaim": "EU regional routing; Business or Enterprise plan required.",
       "id": "openrouter",
-      "fetchedAt": "2026-10-20T04:43:28.993979+00:00",
+      "fetchedAt": "2026-10-20T07:06:03.508216+00:00",
       "stale": false
     },
     {
@@ -39,7 +39,7 @@
       "kind": "direct",
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "deepseek-direct",
-      "fetchedAt": "2026-10-20T04:43:28.993979+00:00",
+      "fetchedAt": "2026-10-20T07:06:03.508216+00:00",
       "stale": false
     },
     {
@@ -48,7 +48,7 @@
       "kind": "direct",
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "zai-direct",
-      "fetchedAt": "2026-10-20T04:43:28.993979+00:00",
+      "fetchedAt": "2026-10-20T07:06:03.508216+00:00",
       "stale": false
     },
     {
@@ -58,7 +58,7 @@
       "kind": "direct",
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "claude-direct",
-      "fetchedAt": "2026-10-20T04:43:28.993979+00:00",
+      "fetchedAt": "2026-10-20T07:06:03.508216+00:00",
       "stale": false
     },
     {
@@ -68,7 +68,16 @@
       "kind": "direct",
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "openai-direct",
-      "fetchedAt": "2026-10-20T04:43:28.993979+00:00",
+      "fetchedAt": "2026-10-20T07:06:03.508216+00:00",
+      "stale": false
+    },
+    {
+      "name": "Mistral AI",
+      "source": "https://docs.mistral.ai/inference/pricing.md",
+      "nativeCurrency": "USD",
+      "euClaim": "EU regional endpoint (api.eu.mistral.ai): inference in EU/EFTA data centers at 1.1\u00d7 list price.",
+      "id": "mistral",
+      "fetchedAt": "2026-10-20T07:06:03.508216+00:00",
       "stale": false
     }
   ],
@@ -10245,6 +10254,476 @@
       "priceNote": "EUR Router Price published by EUrouter."
     },
     {
+      "key": "mistral:codestral-2508",
+      "router": "mistral",
+      "routerName": "Mistral AI",
+      "modelId": "codestral-2508",
+      "name": "Codestral",
+      "owner": "Mistral AI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.26726057906458794,
+        "cached": 0.26726057906458794,
+        "output": 0.8017817371937639,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3,
+          "cached": 0.3,
+          "output": 0.9
+        }
+      },
+      "eu": {
+        "input": 0.29398663697104677,
+        "cached": 0.29398663697104677,
+        "output": 0.8819599109131404,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.33,
+          "cached": 0.33,
+          "output": 0.9900000000000001
+        }
+      },
+      "quantization": null,
+      "direct": true,
+      "priceNote": "Direct USD API price published by Mistral AI and converted with the listed ECB rate. EU prices apply the EU regional endpoint's 1.1\u00d7 list upcharge; regional endpoints only serve models hosted in that region, and stateful features (Agents, Batch, Files) are unavailable there.",
+      "pricingTiers": []
+    },
+    {
+      "key": "mistral:ministral-14b-2512",
+      "router": "mistral",
+      "routerName": "Mistral AI",
+      "modelId": "ministral-14b-2512",
+      "name": "Ministral 3 14B",
+      "owner": "Mistral AI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.17817371937639198,
+        "cached": 0.17817371937639198,
+        "output": 0.17817371937639198,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.2,
+          "cached": 0.2,
+          "output": 0.2
+        }
+      },
+      "eu": {
+        "input": 0.1959910913140312,
+        "cached": 0.1959910913140312,
+        "output": 0.1959910913140312,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.22000000000000003,
+          "cached": 0.22000000000000003,
+          "output": 0.22000000000000003
+        }
+      },
+      "quantization": null,
+      "direct": true,
+      "priceNote": "Direct USD API price published by Mistral AI and converted with the listed ECB rate. EU prices apply the EU regional endpoint's 1.1\u00d7 list upcharge; regional endpoints only serve models hosted in that region, and stateful features (Agents, Batch, Files) are unavailable there.",
+      "pricingTiers": []
+    },
+    {
+      "key": "mistral:ministral-3b-2512",
+      "router": "mistral",
+      "routerName": "Mistral AI",
+      "modelId": "ministral-3b-2512",
+      "name": "Ministral 3 3B",
+      "owner": "Mistral AI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.08908685968819599,
+        "cached": 0.08908685968819599,
+        "output": 0.08908685968819599,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.1,
+          "cached": 0.1,
+          "output": 0.1
+        }
+      },
+      "eu": {
+        "input": 0.0979955456570156,
+        "cached": 0.0979955456570156,
+        "output": 0.0979955456570156,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.11000000000000001,
+          "cached": 0.11000000000000001,
+          "output": 0.11000000000000001
+        }
+      },
+      "quantization": null,
+      "direct": true,
+      "priceNote": "Direct USD API price published by Mistral AI and converted with the listed ECB rate. EU prices apply the EU regional endpoint's 1.1\u00d7 list upcharge; regional endpoints only serve models hosted in that region, and stateful features (Agents, Batch, Files) are unavailable there.",
+      "pricingTiers": []
+    },
+    {
+      "key": "mistral:ministral-8b-2512",
+      "router": "mistral",
+      "routerName": "Mistral AI",
+      "modelId": "ministral-8b-2512",
+      "name": "Ministral 3 8B",
+      "owner": "Mistral AI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.13363028953229397,
+        "cached": 0.13363028953229397,
+        "output": 0.13363028953229397,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.15,
+          "cached": 0.15,
+          "output": 0.15
+        }
+      },
+      "eu": {
+        "input": 0.14699331848552338,
+        "cached": 0.14699331848552338,
+        "output": 0.14699331848552338,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.165,
+          "cached": 0.165,
+          "output": 0.165
+        }
+      },
+      "quantization": null,
+      "direct": true,
+      "priceNote": "Direct USD API price published by Mistral AI and converted with the listed ECB rate. EU prices apply the EU regional endpoint's 1.1\u00d7 list upcharge; regional endpoints only serve models hosted in that region, and stateful features (Agents, Batch, Files) are unavailable there.",
+      "pricingTiers": []
+    },
+    {
+      "key": "mistral:mistral-large-2512",
+      "router": "mistral",
+      "routerName": "Mistral AI",
+      "modelId": "mistral-large-2512",
+      "name": "Mistral Large 3",
+      "owner": "Mistral AI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.4454342984409799,
+        "cached": 0.4454342984409799,
+        "output": 1.3363028953229399,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.5,
+          "cached": 0.5,
+          "output": 1.5
+        }
+      },
+      "eu": {
+        "input": 0.48997772828507796,
+        "cached": 0.48997772828507796,
+        "output": 1.469933184855234,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.55,
+          "cached": 0.55,
+          "output": 1.6500000000000001
+        }
+      },
+      "quantization": null,
+      "direct": true,
+      "priceNote": "Direct USD API price published by Mistral AI and converted with the listed ECB rate. EU prices apply the EU regional endpoint's 1.1\u00d7 list upcharge; regional endpoints only serve models hosted in that region, and stateful features (Agents, Batch, Files) are unavailable there.",
+      "pricingTiers": []
+    },
+    {
+      "key": "mistral:mistral-large-4",
+      "router": "mistral",
+      "routerName": "Mistral AI",
+      "modelId": "mistral-large-4",
+      "name": "Mistral Large 4",
+      "owner": "Mistral AI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 1.2115812917594655,
+        "cached": 0.12472160356347439,
+        "output": 3.723830734966592,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.36,
+          "cached": 0.14,
+          "output": 4.18
+        }
+      },
+      "eu": {
+        "input": 1.3327394209354122,
+        "cached": 0.13719376391982185,
+        "output": 4.096213808463252,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.4960000000000002,
+          "cached": 0.15400000000000003,
+          "output": 4.598
+        }
+      },
+      "quantization": null,
+      "direct": true,
+      "priceNote": "Direct USD API price published by Mistral AI and converted with the listed ECB rate. EU prices apply the EU regional endpoint's 1.1\u00d7 list upcharge; regional endpoints only serve models hosted in that region, and stateful features (Agents, Batch, Files) are unavailable there. Mistral currently advertises a sale price of $0.68 input / $0.07 cached input / $2.09 output per million tokens.",
+      "pricingTiers": []
+    },
+    {
+      "key": "mistral:mistral-medium-3-5",
+      "router": "mistral",
+      "routerName": "Mistral AI",
+      "modelId": "mistral-medium-3-5",
+      "name": "Mistral Medium 3.5",
+      "owner": "Mistral AI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 1.3363028953229399,
+        "cached": 1.3363028953229399,
+        "output": 6.681514476614699,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.5,
+          "cached": 1.5,
+          "output": 7.5
+        }
+      },
+      "eu": {
+        "input": 1.469933184855234,
+        "cached": 1.469933184855234,
+        "output": 7.349665924276169,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.6500000000000001,
+          "cached": 1.6500000000000001,
+          "output": 8.25
+        }
+      },
+      "quantization": null,
+      "direct": true,
+      "priceNote": "Direct USD API price published by Mistral AI and converted with the listed ECB rate. EU prices apply the EU regional endpoint's 1.1\u00d7 list upcharge; regional endpoints only serve models hosted in that region, and stateful features (Agents, Batch, Files) are unavailable there.",
+      "pricingTiers": []
+    },
+    {
+      "key": "mistral:mistral-moderation-2603",
+      "router": "mistral",
+      "routerName": "Mistral AI",
+      "modelId": "mistral-moderation-2603",
+      "name": "Mistral Moderation 2",
+      "owner": "Mistral AI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.0,
+        "cached": 0.0,
+        "output": 0.0,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.0,
+          "cached": 0.0,
+          "output": 0.0
+        }
+      },
+      "eu": {
+        "input": 0.0,
+        "cached": 0.0,
+        "output": 0.0,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.0,
+          "cached": 0.0,
+          "output": 0.0
+        }
+      },
+      "quantization": null,
+      "direct": true,
+      "priceNote": "Direct USD API price published by Mistral AI and converted with the listed ECB rate. EU prices apply the EU regional endpoint's 1.1\u00d7 list upcharge; regional endpoints only serve models hosted in that region, and stateful features (Agents, Batch, Files) are unavailable there.",
+      "pricingTiers": []
+    },
+    {
+      "key": "mistral:mistral-small-2603",
+      "router": "mistral",
+      "routerName": "Mistral AI",
+      "modelId": "mistral-small-2603",
+      "name": "Mistral Small 4",
+      "owner": "Mistral AI",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.13363028953229397,
+        "cached": 0.13363028953229397,
+        "output": 0.5345211581291759,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.15,
+          "cached": 0.15,
+          "output": 0.6
+        }
+      },
+      "eu": {
+        "input": 0.14699331848552338,
+        "cached": 0.14699331848552338,
+        "output": 0.5879732739420935,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.165,
+          "cached": 0.165,
+          "output": 0.66
+        }
+      },
+      "quantization": null,
+      "direct": true,
+      "priceNote": "Direct USD API price published by Mistral AI and converted with the listed ECB rate. EU prices apply the EU regional endpoint's 1.1\u00d7 list upcharge; regional endpoints only serve models hosted in that region, and stateful features (Agents, Batch, Files) are unavailable there.",
+      "pricingTiers": []
+    },
+    {
+      "key": "mistral:zai-glm-5-3",
+      "router": "mistral",
+      "routerName": "Mistral AI",
+      "modelId": "zai-glm-5-3",
+      "name": "Z.ai GLM 5.3",
+      "owner": "Z.ai",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": null,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 1.2472160356347437,
+        "cached": 0.12472160356347439,
+        "output": 3.9198218262806237,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.4,
+          "cached": 0.14,
+          "output": 4.4
+        }
+      },
+      "eu": {
+        "input": 1.3719376391982183,
+        "cached": 0.13719376391982185,
+        "output": 4.311804008908687,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.54,
+          "cached": 0.15400000000000003,
+          "output": 4.840000000000001
+        }
+      },
+      "quantization": null,
+      "direct": true,
+      "priceNote": "Direct USD API price published by Mistral AI and converted with the listed ECB rate. EU prices apply the EU regional endpoint's 1.1\u00d7 list upcharge; regional endpoints only serve models hosted in that region, and stateful features (Agents, Batch, Files) are unavailable there.",
+      "pricingTiers": []
+    },
+    {
       "key": "openai-direct:babbage-002",
       "router": "openai-direct",
       "routerName": "OpenAI API",
@@ -14407,15 +14886,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.13363028953229397,
-        "cached": 0.0026726057906458797,
-        "output": 0.5345211581291759,
+        "input": 0.26726057906458794,
+        "cached": 0.005345211581291759,
+        "output": 1.0690423162583518,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.15,
-          "cached": 0.003,
-          "output": 0.6
+          "input": 0.3,
+          "cached": 0.006,
+          "output": 1.2
         }
       },
       "eu": null,
@@ -15978,15 +16457,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.06815144766146992,
-        "cached": 0.0378619153674833,
-        "output": 0.22717149220489977,
+        "input": 0.08017817371937638,
+        "cached": 0.044543429844097995,
+        "output": 0.26726057906458794,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0765,
-          "cached": 0.0425,
-          "output": 0.255
+          "input": 0.09,
+          "cached": 0.05,
+          "output": 0.3
         }
       },
       "eu": null,
@@ -25457,15 +25936,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.21380846325167036,
-        "cached": 0.044543429844097995,
-        "output": 1.9599109131403119,
+        "input": 0.035634743875278395,
+        "cached": 0.016035634743875277,
+        "output": 1.2026726057906458,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.24,
-          "cached": 0.05,
-          "output": 2.2
+          "input": 0.04,
+          "cached": 0.018,
+          "output": 1.35
         }
       },
       "eu": null,
@@ -27781,13 +28260,13 @@
       "eu": {
         "input": 0.6146993318485523,
         "cached": 0.12472160356347439,
-        "output": 2.244988864142539,
+        "output": 2.8062360801781736,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
           "input": 0.69,
           "cached": 0.14,
-          "output": 2.52
+          "output": 3.15
         }
       },
       "quantization": null,
@@ -28255,14 +28734,14 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.17959910913140312,
-        "cached": 0.17817371937639198,
+        "input": 0.20044543429844097,
+        "cached": 0.20489977728285078,
         "output": 7.126948775055679,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.2016,
-          "cached": 0.2,
+          "input": 0.225,
+          "cached": 0.23,
           "output": 8.0
         }
       },
@@ -28290,13 +28769,13 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.010761692650334076,
+        "input": 0.014182628062360801,
         "cached": 0.0029933184855233854,
         "output": 0.10690423162583518,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.01208,
+          "input": 0.01592,
           "cached": 0.00336,
           "output": 0.12
         }
