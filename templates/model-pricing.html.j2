@@ -17,7 +17,7 @@
     #model-table tbody td { padding: 4px 5px; line-height: 1.2; }
     #model-table th.cmp-col, #model-table td.cmp-cell { width: 28px; text-align: center; padding: 3px; }
     #model-table th[data-col="sellerName"] { width: 105px; }
-    #model-table th[data-col="name"] { width: 320px; }
+    #model-table th[data-col="name"] { width: 180px; }
     #model-table th[data-col="creator"] { width: 90px; }
     #model-table th.capabilities-col { width: 112px; }
     #model-table th[data-col="input"],
@@ -29,8 +29,10 @@
     #model-table th.bar-cell { width: 58px; }
     #model-table .bar-cell { min-width: 0; }
     #model-table td.model-id {
-      white-space: normal;
-      overflow-wrap: anywhere;
+      max-width: 170px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
       font-weight: 600;
     }
     #model-table td.creator { overflow: hidden; text-overflow: ellipsis; }
@@ -229,9 +231,9 @@
           <th class="cmp-col" title="Add to compare tray"></th>
           <th class="sortable" data-col="sellerName">Seller <span class="sort-icon">↕</span></th>
           <th class="sortable" data-col="name">Model <span class="sort-icon">↕</span></th>
+          <th class="sortable num context-col" data-col="contextSize">Context <span class="sort-icon">↕</span></th>
           <th class="sortable" data-col="creator">Creator <span class="sort-icon">↕</span></th>
           <th class="capabilities-col">Capabilities</th>
-          <th class="sortable num context-col" data-col="contextSize">Context <span class="sort-icon">↕</span></th>
           <th class="sortable num col-input" data-col="input">Input <span class="sort-icon">↕</span></th>
           <th class="sortable num col-cached" data-col="cached">Cached <span class="sort-icon">↕</span></th>
           <th class="sortable num col-output" data-col="output">Output <span class="sort-icon">↕</span></th>

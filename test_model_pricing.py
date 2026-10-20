@@ -5073,9 +5073,10 @@ def test_generated_page():
         "Back to default view",
         "Show all ${ALL_MODELS.length.toLocaleString('en-US')} listings",
         'class="chip-count"',
-        # The Model column carries the upstream org via modelId; the pretty
-        # name moves to the tooltip.
-        '<td class="model-id" title="${esc(model.name)}">${esc(model.modelId)}</td>',
+        # The Model column shows the id's last `/` segment; the full modelId
+        # leads the tooltip so same-name variants from one Seller stay
+        # distinguishable.
+        '<td class="model-id" title="${esc(model.modelId)} — ${esc(model.name)}">${esc(shortModelId(model.modelId))}</td>',
         'aria-label="Table legend"',
         "state.minimumRuns",
         "state.hideFree",
@@ -5127,6 +5128,20 @@ def test_generated_page():
     # across variants while modelId carries the upstream org.
     assert '>${esc(model.name)}</td>' not in html
 
+    # The Model column truncates visually only: the cell shows the id's last
+    # `/` segment, CSS caps the cell width with an ellipsis, and the tooltip
+    # carries the full modelId plus the pretty name so same-name variants
+    # from one Seller stay distinguishable.
+    assert "const shortModelId = id => id.slice(id.lastIndexOf('/') + 1);" in html
+    model_css = re.search(r"#model-table td\.model-id \{[^}]*\}", html).group(0)
+    for rule in (
+        "max-width: 170px",
+        "overflow: hidden",
+        "text-overflow: ellipsis",
+        "white-space: nowrap",
+    ):
+        assert rule in model_css
+
     # Per-Seller accents: one golden-angle hue per registry seller, applied
     # to row chips and active Seller filter chips.
     accent_hues = set(re.findall(r"hsl\((\d+\.\d{3}), 55%, 70%\)", html))
@@ -5154,9 +5169,9 @@ def test_generated_page():
 
 
 def test_context_column():
-    """The Context column: sortable numeric header between Capabilities and
-    Input, compact cell labels with the exact token count as tooltip, and the
-    not-published path for listings without a contextSize."""
+    """The Context column: sortable numeric header between Model and
+    Creator, compact cell labels with the exact token count as tooltip, and
+    the not-published path for listings without a contextSize."""
     html = HTML.read_text(encoding="utf-8")
     # The header registers the contextSize sort key on the same generic
     # numeric sort path the cost and runs columns use.
@@ -5166,12 +5181,26 @@ def test_context_column():
         'Context <span class="sort-icon">↕</span></th>'
     ) in thead
     assert html.count('data-col="contextSize"') == 1
-    assert thead.index('data-col="contextSize"') < thead.index('data-col="input"')
+    # Position pin: Context sits between Model and Creator, still ahead of
+    # the price columns.
+    assert (
+        thead.index('data-col="name"')
+        < thead.index('data-col="contextSize"')
+        < thead.index('data-col="creator"')
+        < thead.index('data-col="input"')
+    )
     # Compact cell: no decimals, raw token counts under 1K.
     assert "${Math.floor(n / 1_000_000)}M`" in html
     assert "${Math.floor(n / 1_000)}K`" in html
     assert ": String(n);" in html
     assert '<td class="num context-col">${contextCell(model)}</td>' in html
+    # The row cells follow the header order: Model, then Context, then
+    # Creator.
+    assert (
+        html.index('<td class="model-id"')
+        < html.index('<td class="num context-col">${contextCell(model)}</td>')
+        < html.index('<td class="creator"')
+    )
     # The tooltip carries the exact token count in the detail drawer's
     # toLocaleString() + ' tokens' phrasing.
     assert 'title="${model.contextSize.toLocaleString()} tokens"' in html

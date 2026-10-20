@@ -67,6 +67,11 @@
   const esc = value => String(value ?? '').replace(/[&<>"']/g, character => ({
     '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
   })[character]);
+  // The Model cell shows only the id's last `/` segment; the full modelId
+  // leads the cell's tooltip because same-name variants from one Seller
+  // (different upstream routes at different prices) are only distinguishable
+  // by the full id.
+  const shortModelId = id => id.slice(id.lastIndexOf('/') + 1);
 
   function getConfig() {
     const total = parseFloat(document.getElementById('total-tokens').value) || 1_000_000;
@@ -194,10 +199,10 @@
       return `<tr class="model-row seller-${model.seller}${selected ? ' in-compare' : ''}" data-key="${encoded(model.key)}">
         <td class="cmp-cell"><button class="cmp-btn${selected ? ' active' : ''}" onclick="toggleCompare(decodeURIComponent('${encoded(model.key)}'))">${selected ? '−' : '+'}</button></td>
         <td><span class="seller-chip" title="${esc(sellerOf(model)?.stale ? 'Stale data; the last refresh failed' : model.sellerName)}">${esc(model.sellerName)}${stale}</span></td>
-        <td class="model-id" title="${esc(model.name)}">${esc(model.modelId)}</td>
+        <td class="model-id" title="${esc(model.modelId)} — ${esc(model.name)}">${esc(shortModelId(model.modelId))}</td>
+        <td class="num context-col">${contextCell(model)}</td>
         <td class="creator" title="${esc(model.creator || '')}">${esc(model.creator || '—')}</td>
         <td class="caps">${capabilities(model)}${warnings(model, model)}</td>
-        <td class="num context-col">${contextCell(model)}</td>
         <td class="num col-input">${rate(model.input)}</td>
         <td class="num col-cached">${rate(model.cached)}${model.cachedFallback && !isFree(model) ? ' ⚠' : ''}</td>
         <td class="num col-output">${rate(model.output)}</td>

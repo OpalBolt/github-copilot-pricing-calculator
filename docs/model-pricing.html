@@ -1283,7 +1283,7 @@
     #model-table tbody td { padding: 4px 5px; line-height: 1.2; }
     #model-table th.cmp-col, #model-table td.cmp-cell { width: 28px; text-align: center; padding: 3px; }
     #model-table th[data-col="sellerName"] { width: 105px; }
-    #model-table th[data-col="name"] { width: 320px; }
+    #model-table th[data-col="name"] { width: 180px; }
     #model-table th[data-col="creator"] { width: 90px; }
     #model-table th.capabilities-col { width: 112px; }
     #model-table th[data-col="input"],
@@ -1295,8 +1295,10 @@
     #model-table th.bar-cell { width: 58px; }
     #model-table .bar-cell { min-width: 0; }
     #model-table td.model-id {
-      white-space: normal;
-      overflow-wrap: anywhere;
+      max-width: 170px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
       font-weight: 600;
     }
     #model-table td.creator { overflow: hidden; text-overflow: ellipsis; }
@@ -1820,9 +1822,9 @@
           <th class="cmp-col" title="Add to compare tray"></th>
           <th class="sortable" data-col="sellerName">Seller <span class="sort-icon">↕</span></th>
           <th class="sortable" data-col="name">Model <span class="sort-icon">↕</span></th>
+          <th class="sortable num context-col" data-col="contextSize">Context <span class="sort-icon">↕</span></th>
           <th class="sortable" data-col="creator">Creator <span class="sort-icon">↕</span></th>
           <th class="capabilities-col">Capabilities</th>
-          <th class="sortable num context-col" data-col="contextSize">Context <span class="sort-icon">↕</span></th>
           <th class="sortable num col-input" data-col="input">Input <span class="sort-icon">↕</span></th>
           <th class="sortable num col-cached" data-col="cached">Cached <span class="sort-icon">↕</span></th>
           <th class="sortable num col-output" data-col="output">Output <span class="sort-icon">↕</span></th>
@@ -2070,6 +2072,11 @@
   const esc = value => String(value ?? '').replace(/[&<>"']/g, character => ({
     '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
   })[character]);
+  // The Model cell shows only the id's last `/` segment; the full modelId
+  // leads the cell's tooltip because same-name variants from one Seller
+  // (different upstream routes at different prices) are only distinguishable
+  // by the full id.
+  const shortModelId = id => id.slice(id.lastIndexOf('/') + 1);
 
   function getConfig() {
     const total = parseFloat(document.getElementById('total-tokens').value) || 1_000_000;
@@ -2197,10 +2204,10 @@
       return `<tr class="model-row seller-${model.seller}${selected ? ' in-compare' : ''}" data-key="${encoded(model.key)}">
         <td class="cmp-cell"><button class="cmp-btn${selected ? ' active' : ''}" onclick="toggleCompare(decodeURIComponent('${encoded(model.key)}'))">${selected ? '−' : '+'}</button></td>
         <td><span class="seller-chip" title="${esc(sellerOf(model)?.stale ? 'Stale data; the last refresh failed' : model.sellerName)}">${esc(model.sellerName)}${stale}</span></td>
-        <td class="model-id" title="${esc(model.name)}">${esc(model.modelId)}</td>
+        <td class="model-id" title="${esc(model.modelId)} — ${esc(model.name)}">${esc(shortModelId(model.modelId))}</td>
+        <td class="num context-col">${contextCell(model)}</td>
         <td class="creator" title="${esc(model.creator || '')}">${esc(model.creator || '—')}</td>
         <td class="caps">${capabilities(model)}${warnings(model, model)}</td>
-        <td class="num context-col">${contextCell(model)}</td>
         <td class="num col-input">${rate(model.input)}</td>
         <td class="num col-cached">${rate(model.cached)}${model.cachedFallback && !isFree(model) ? ' ⚠' : ''}</td>
         <td class="num col-output">${rate(model.output)}</td>
