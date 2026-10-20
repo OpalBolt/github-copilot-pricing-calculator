@@ -36,22 +36,13 @@
     {
       "date": "2026-10-20",
       "changes": [
-        "+ Mistral AI: Codestral",
-        "+ Mistral AI: Ministral 3 14B",
-        "+ Mistral AI: Ministral 3 3B",
-        "+ Mistral AI: Ministral 3 8B",
-        "+ Mistral AI: Mistral Large 3",
-        "+ Mistral AI: Mistral Large 4",
-        "+ Mistral AI: Mistral Medium 3.5",
-        "+ Mistral AI: Mistral Moderation 2",
-        "+ Mistral AI: Mistral Small 4",
-        "+ Mistral AI: Z.ai GLM 5.3",
-        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4.1 Flash 1017 \u2014 input $0.15\u2192$0.3 \u00b7 cached $0.003\u2192$0.006 \u00b7 output $0.6\u2192$1.2",
-        "\u2192 OpenRouter \u00b7 Google: Gemma 4 26B A4B \u2014 input $0.0765\u2192$0.09 \u00b7 cached $0.0425\u2192$0.05 \u00b7 output $0.255\u2192$0.3",
-        "\u2192 OpenRouter \u00b7 Qwen: Qwen3.8 27B \u2014 input $0.24\u2192$0.04 \u00b7 cached $0.05\u2192$0.018 \u00b7 output $2.2\u2192$1.35",
-        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.2 \u2014 eu output $2.52\u2192$3.15",
-        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek Pro Latest \u2014 input $0.2016\u2192$0.225 \u00b7 cached $0.2\u2192$0.23",
-        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash Latest \u2014 input $0.01208\u2192$0.01592"
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4.1 Flash \u2014 input $0.0352\u2192$0.056 \u00b7 output $0.0112\u2192$0.12",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4.1 Flash 1017 \u2014 input $0.3\u2192$0.15 \u00b7 cached $0.006\u2192$0.003 \u00b7 output $1.2\u2192$0.6",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.2 \u2014 eu output $3.15\u2192$2.52",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.3 Flash \u2014 input $0.048\u2192$0.03748",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek Flash Latest \u2014 input $0.05\u2192$0.07 \u00b7 cached $0.01\u2192$0.008 \u00b7 output $0.024\u2192$0.5",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash Latest \u2014 input $0.01592\u2192$0.00392",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM Flash Latest \u2014 input $0.048\u2192$0.03748"
       ]
     }
   ],
@@ -71,15 +62,23 @@
     {
       "date": "2026-10-20",
       "changes": [
-        "\u2192 Kilo \u00b7 DeepSeek: DeepSeek V4.1 Flash 1017 \u2014 input $0.15\u2192$0.3 \u00b7 cached $0.003\u2192$0.006 \u00b7 output $0.6\u2192$1.2",
-        "\u2192 Kilo \u00b7 DeepSeek: DeepSeek Pro Latest \u2014 input $0.2016\u2192$0.225 \u00b7 cached $0.2\u2192$0.23",
-        "\u2192 Kilo \u00b7 DeepSeek: DeepSeek V4 Flash Latest \u2014 input $0.0052\u2192$0.01592",
-        "\u2192 nano-gpt \u00b7 Gemma 4 26B A4B \u2014 input $0.0765\u2192$0.09 \u00b7 cached $0.0425\u2192$0.05 \u00b7 output $0.255\u2192$0.3",
-        "\u2192 nano-gpt \u00b7 Gemma 4 26B A4B Thinking \u2014 input $0.0765\u2192$0.09 \u00b7 cached $0.0425\u2192$0.05 \u00b7 output $0.255\u2192$0.3",
-        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4.1 Flash 1017 \u2014 input $0.15\u2192$0.3 \u00b7 cached $0.003\u2192$0.006 \u00b7 output $0.6\u2192$1.2",
-        "\u2192 OpenRouter \u00b7 Google: Gemma 4 26B A4B \u2014 input $0.0765\u2192$0.09 \u00b7 cached $0.0425\u2192$0.05 \u00b7 output $0.255\u2192$0.3",
-        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek Pro Latest \u2014 input $0.2016\u2192$0.225 \u00b7 cached $0.2\u2192$0.23",
-        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash Latest \u2014 input $0.0052\u2192$0.01592"
+        "\u2212 Empirio Labs: MiMo V2.5",
+        "\u2212 Empirio Labs: MiMo V2.5 Pro",
+        "\u2212 nano-gpt: DeepSeek R1",
+        "\u2212 nano-gpt: DeepSeek R1 Fast",
+        "\u2212 nano-gpt: DeepSeek Reasoner",
+        "\u2212 nano-gpt: Deepseek R1 Cheaper",
+        "\u2192 Inceptron \u00b7 GLM 5.2 \u2014 output $3.15\u2192$2.52",
+        "\u2192 Kilo \u00b7 DeepSeek: DeepSeek V4.1 Flash 1017 \u2014 input $0.3\u2192$0.15 \u00b7 cached $0.006\u2192$0.003 \u00b7 output $1.2\u2192$0.6",
+        "\u2192 Kilo \u00b7 DeepSeek: DeepSeek Flash Latest \u2014 input $0.05\u2192$0.07 \u00b7 cached $0.01\u2192$0.008 \u00b7 output $0.024\u2192$0.5",
+        "\u2192 Kilo \u00b7 DeepSeek: DeepSeek V4 Flash Latest \u2014 input $0.01592\u2192$0.00392",
+        "\u2192 Kilo \u00b7 Z.ai: GLM Flash Latest \u2014 input $0.048\u2192$0.03748",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4.1 Flash \u2014 input $0.0352\u2192$0.056 \u00b7 output $0.0112\u2192$0.12",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4.1 Flash 1017 \u2014 input $0.3\u2192$0.15 \u00b7 cached $0.006\u2192$0.003 \u00b7 output $1.2\u2192$0.6",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.3 Flash \u2014 input $0.048\u2192$0.03748",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek Flash Latest \u2014 input $0.05\u2192$0.07 \u00b7 cached $0.01\u2192$0.008 \u00b7 output $0.024\u2192$0.5",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash Latest \u2014 input $0.01592\u2192$0.00392",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM Flash Latest \u2014 input $0.048\u2192$0.03748"
       ]
     }
   ]

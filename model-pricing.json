@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-20T07:06:06.568163+00:00",
+  "generatedAt": "2026-10-20T10:52:23.758420+00:00",
   "currency": "EUR",
   "exchangeRate": {
     "series": "EXR.D.USD.EUR.SP00.A",
@@ -15,7 +15,7 @@
       "source": "https://api.cortecs.ai/v1/models?extended=true&currency=EUR",
       "id": "cortecs",
       "nativeCurrency": "EUR",
-      "fetchedAt": "2026-10-20T07:06:06.568163+00:00",
+      "fetchedAt": "2026-10-20T10:52:23.758420+00:00",
       "stale": false
     },
     {
@@ -24,7 +24,7 @@
       "source": "https://api.eurouter.ai/api/v1/models",
       "id": "eurouter",
       "nativeCurrency": "mixed",
-      "fetchedAt": "2026-10-20T07:06:06.568163+00:00",
+      "fetchedAt": "2026-10-20T10:52:23.758420+00:00",
       "stale": false
     },
     {
@@ -33,7 +33,7 @@
       "source": "https://openrouter.ai/api/v1/models",
       "id": "openrouter",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-20T07:06:06.568163+00:00",
+      "fetchedAt": "2026-10-20T10:52:23.758420+00:00",
       "stale": false
     },
     {
@@ -42,7 +42,7 @@
       "source": "https://opencode.ai/zen/v1/models",
       "id": "opencode",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-20T07:06:06.568163+00:00",
+      "fetchedAt": "2026-10-20T10:52:23.758420+00:00",
       "stale": false
     },
     {
@@ -51,7 +51,7 @@
       "source": "https://api.deepinfra.com/v1/models",
       "nativeCurrency": "USD",
       "id": "deepinfra",
-      "fetchedAt": "2026-10-20T07:06:06.568163+00:00",
+      "fetchedAt": "2026-10-20T10:52:23.758420+00:00",
       "stale": false
     },
     {
@@ -60,7 +60,7 @@
       "source": "https://api.novita.ai/v3/openai/models",
       "nativeCurrency": "USD",
       "id": "novita",
-      "fetchedAt": "2026-10-20T07:06:06.568163+00:00",
+      "fetchedAt": "2026-10-20T10:52:23.758420+00:00",
       "stale": false
     },
     {
@@ -69,7 +69,7 @@
       "source": "https://router.requesty.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "requesty",
-      "fetchedAt": "2026-10-20T07:06:06.568163+00:00",
+      "fetchedAt": "2026-10-20T10:52:23.758420+00:00",
       "stale": false
     },
     {
@@ -78,7 +78,7 @@
       "source": "https://ai-gateway.vercel.sh/v1/models",
       "nativeCurrency": "USD",
       "id": "vercel-gateway",
-      "fetchedAt": "2026-10-20T07:06:06.568163+00:00",
+      "fetchedAt": "2026-10-20T10:52:23.758420+00:00",
       "stale": false
     },
     {
@@ -87,7 +87,7 @@
       "source": "https://api.kilo.ai/api/gateway/models",
       "nativeCurrency": "USD",
       "id": "kilo",
-      "fetchedAt": "2026-10-20T07:06:06.568163+00:00",
+      "fetchedAt": "2026-10-20T10:52:23.758420+00:00",
       "stale": false
     },
     {
@@ -96,7 +96,7 @@
       "source": "https://nano-gpt.com/api/v1/models?detailed=true",
       "nativeCurrency": "USD",
       "id": "nano-gpt",
-      "fetchedAt": "2026-10-20T07:06:06.568163+00:00",
+      "fetchedAt": "2026-10-20T10:52:23.758420+00:00",
       "stale": false
     },
     {
@@ -105,7 +105,7 @@
       "source": "https://llm.chutes.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "chutes",
-      "fetchedAt": "2026-10-20T07:06:06.568163+00:00",
+      "fetchedAt": "2026-10-20T10:52:23.758420+00:00",
       "stale": false
     },
     {
@@ -114,7 +114,7 @@
       "source": "https://api.llmgateway.io/v1/models",
       "nativeCurrency": "USD",
       "id": "llmgateway",
-      "fetchedAt": "2026-10-20T07:06:06.568163+00:00",
+      "fetchedAt": "2026-10-20T10:52:23.758420+00:00",
       "stale": false
     },
     {
@@ -123,7 +123,7 @@
       "source": "https://api.aiand.com/v1/models",
       "nativeCurrency": "USD",
       "id": "aiand",
-      "fetchedAt": "2026-10-20T07:06:06.568163+00:00",
+      "fetchedAt": "2026-10-20T10:52:23.758420+00:00",
       "stale": false
     },
     {
@@ -132,7 +132,7 @@
       "source": "https://api.aimlapi.com/v1/models?include=pricing,modalities",
       "nativeCurrency": "USD",
       "id": "aimlapi",
-      "fetchedAt": "2026-10-20T07:06:06.568163+00:00",
+      "fetchedAt": "2026-10-20T10:52:23.758420+00:00",
       "stale": false
     },
     {
@@ -141,7 +141,7 @@
       "source": "https://api.ambient.xyz/v1/models",
       "nativeCurrency": "USD",
       "id": "ambient",
-      "fetchedAt": "2026-10-20T07:06:06.568163+00:00",
+      "fetchedAt": "2026-10-20T10:52:23.758420+00:00",
       "stale": false
     },
     {
@@ -150,7 +150,7 @@
       "source": "https://www.crossmodel.ai/api/models",
       "nativeCurrency": "USD",
       "id": "crossmodel",
-      "fetchedAt": "2026-10-20T07:06:06.568163+00:00",
+      "fetchedAt": "2026-10-20T10:52:23.758420+00:00",
       "stale": false
     },
     {
@@ -159,7 +159,7 @@
       "source": "https://api.edenai.run/v3/models",
       "nativeCurrency": "USD",
       "id": "edenai",
-      "fetchedAt": "2026-10-20T07:06:06.568163+00:00",
+      "fetchedAt": "2026-10-20T10:52:23.758420+00:00",
       "stale": false
     },
     {
@@ -168,7 +168,7 @@
       "source": "https://api.empiriolabs.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "empiriolabs",
-      "fetchedAt": "2026-10-20T07:06:06.568163+00:00",
+      "fetchedAt": "2026-10-20T10:52:23.758420+00:00",
       "stale": false
     },
     {
@@ -177,7 +177,7 @@
       "source": "https://api.engy.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "engy",
-      "fetchedAt": "2026-10-20T07:06:06.568163+00:00",
+      "fetchedAt": "2026-10-20T10:52:23.758420+00:00",
       "stale": false
     },
     {
@@ -186,7 +186,7 @@
       "source": "https://api.friendli.ai/serverless/v1/models",
       "nativeCurrency": "USD",
       "id": "friendli",
-      "fetchedAt": "2026-10-20T07:06:06.568163+00:00",
+      "fetchedAt": "2026-10-20T10:52:23.758420+00:00",
       "stale": false
     },
     {
@@ -195,7 +195,7 @@
       "source": "https://hyper.charm.land/v1/models",
       "nativeCurrency": "USD",
       "id": "hyper",
-      "fetchedAt": "2026-10-20T07:06:06.568163+00:00",
+      "fetchedAt": "2026-10-20T10:52:23.758420+00:00",
       "stale": false
     },
     {
@@ -204,7 +204,7 @@
       "source": "https://api.inceptron.io/v1/models",
       "nativeCurrency": "USD",
       "id": "inceptron",
-      "fetchedAt": "2026-10-20T07:06:06.568163+00:00",
+      "fetchedAt": "2026-10-20T10:52:23.758420+00:00",
       "stale": false
     },
     {
@@ -213,7 +213,7 @@
       "source": "https://cloud-api.near.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "nearai",
-      "fetchedAt": "2026-10-20T07:06:06.568163+00:00",
+      "fetchedAt": "2026-10-20T10:52:23.758420+00:00",
       "stale": false
     },
     {
@@ -222,7 +222,7 @@
       "source": "https://api.ofox.ai/v2/models/catalog?include=provider_price&limit=500",
       "nativeCurrency": "USD",
       "id": "ofox",
-      "fetchedAt": "2026-10-20T07:06:06.568163+00:00",
+      "fetchedAt": "2026-10-20T10:52:23.758420+00:00",
       "stale": false
     },
     {
@@ -231,7 +231,7 @@
       "source": "https://api.fastino.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "pioneer",
-      "fetchedAt": "2026-10-20T07:06:06.568163+00:00",
+      "fetchedAt": "2026-10-20T10:52:23.758420+00:00",
       "stale": false
     },
     {
@@ -240,7 +240,7 @@
       "source": "https://api.pinference.ai/api/v1/models",
       "nativeCurrency": "USD",
       "id": "prime",
-      "fetchedAt": "2026-10-20T07:06:06.568163+00:00",
+      "fetchedAt": "2026-10-20T10:52:23.758420+00:00",
       "stale": false
     },
     {
@@ -249,7 +249,7 @@
       "source": "https://inference.tinfoil.sh/v1/models",
       "nativeCurrency": "USD",
       "id": "tinfoil",
-      "fetchedAt": "2026-10-20T07:06:06.568163+00:00",
+      "fetchedAt": "2026-10-20T10:52:23.758420+00:00",
       "stale": false
     },
     {
@@ -258,7 +258,7 @@
       "source": "https://api.venice.ai/api/v1/models?type=text",
       "nativeCurrency": "USD",
       "id": "venice",
-      "fetchedAt": "2026-10-20T07:06:06.568163+00:00",
+      "fetchedAt": "2026-10-20T10:52:23.758420+00:00",
       "stale": false
     },
     {
@@ -267,7 +267,7 @@
       "sellerKind": "first-party",
       "id": "deepseek-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-20T07:06:06.568163+00:00",
+      "fetchedAt": "2026-10-20T10:52:23.758420+00:00",
       "stale": false
     },
     {
@@ -276,7 +276,7 @@
       "sellerKind": "first-party",
       "id": "zai-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-20T07:06:06.568163+00:00",
+      "fetchedAt": "2026-10-20T10:52:23.758420+00:00",
       "stale": false
     },
     {
@@ -285,7 +285,7 @@
       "sellerKind": "first-party",
       "id": "claude-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-20T07:06:06.568163+00:00",
+      "fetchedAt": "2026-10-20T10:52:23.758420+00:00",
       "stale": false
     },
     {
@@ -294,7 +294,7 @@
       "sellerKind": "first-party",
       "id": "openai-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-20T07:06:06.568163+00:00",
+      "fetchedAt": "2026-10-20T10:52:23.758420+00:00",
       "stale": false
     },
     {
@@ -303,7 +303,7 @@
       "source": "https://docs.x.ai/developers/pricing.md",
       "nativeCurrency": "USD",
       "id": "xai",
-      "fetchedAt": "2026-10-20T07:06:06.568163+00:00",
+      "fetchedAt": "2026-10-20T10:52:23.758420+00:00",
       "stale": false
     },
     {
@@ -312,7 +312,7 @@
       "source": "https://docs.mistral.ai/inference/pricing.md",
       "nativeCurrency": "USD",
       "id": "mistral",
-      "fetchedAt": "2026-10-20T07:06:06.568163+00:00",
+      "fetchedAt": "2026-10-20T10:52:23.758420+00:00",
       "stale": false
     },
     {
@@ -321,7 +321,7 @@
       "source": "https://dev.meta.ai/docs/pricing-rate-limits.md",
       "nativeCurrency": "USD",
       "id": "meta",
-      "fetchedAt": "2026-10-20T07:06:06.568163+00:00",
+      "fetchedAt": "2026-10-20T10:52:23.758420+00:00",
       "stale": false
     }
   ],
@@ -53909,68 +53909,6 @@
       "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
     },
     {
-      "key": "empiriolabs:mimo-v2-5",
-      "seller": "empiriolabs",
-      "sellerName": "Empirio Labs",
-      "modelId": "mimo-v2-5",
-      "name": "MiMo V2.5",
-      "creator": "Xiaomi",
-      "description": "Multimodal model with native visual and audio understanding on a 1M context, designed to reason and act across modalities in agentic workflows.",
-      "releaseDate": null,
-      "contextSize": 1000000,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": true,
-        "audio": true
-      },
-      "rates": {
-        "input": 0.6236080178173719,
-        "cached": 0.012472160356347439,
-        "output": 1.2472160356347437,
-        "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.7,
-          "cached": 0.014,
-          "output": 1.4
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "empiriolabs:mimo-v2-5-pro",
-      "seller": "empiriolabs",
-      "sellerName": "Empirio Labs",
-      "modelId": "mimo-v2-5-pro",
-      "name": "MiMo V2.5 Pro",
-      "creator": "Xiaomi",
-      "description": "Top-tier model for agentic workflows, complex software engineering, and long-horizon tasks, sustaining work across 1000+ tool calls on 1M context.",
-      "releaseDate": null,
-      "contextSize": 1000000,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 1.9376391982182626,
-        "cached": 0.016035634743875277,
-        "output": 3.875278396436525,
-        "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 2.175,
-          "cached": 0.018,
-          "output": 4.35
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
-    },
-    {
       "key": "empiriolabs:mimo-v2-6-flash",
       "seller": "empiriolabs",
       "sellerName": "Empirio Labs",
@@ -61961,13 +61899,13 @@
       "rates": {
         "input": 0.6146993318485523,
         "cached": 0.12472160356347439,
-        "output": 2.8062360801781736,
+        "output": 2.244988864142539,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
           "input": 0.69,
           "cached": 0.14,
-          "output": 3.15
+          "output": 2.52
         }
       },
       "pricingTiers": [],
@@ -63757,15 +63695,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.26726057906458794,
-        "cached": 0.005345211581291759,
-        "output": 1.0690423162583518,
+        "input": 0.13363028953229397,
+        "cached": 0.0026726057906458797,
+        "output": 0.5345211581291759,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.3,
-          "cached": 0.006,
-          "output": 1.2
+          "input": 0.15,
+          "cached": 0.003,
+          "output": 0.6
         }
       },
       "pricingTiers": [],
@@ -73708,15 +73646,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.044543429844097995,
-        "cached": 0.008908685968819599,
-        "output": 0.021380846325167038,
+        "input": 0.062360801781737196,
+        "cached": 0.0071269487750556795,
+        "output": 0.4454342984409799,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.05,
-          "cached": 0.01,
-          "output": 0.024
+          "input": 0.07,
+          "cached": 0.008,
+          "output": 0.5
         }
       },
       "pricingTiers": [],
@@ -73770,13 +73708,13 @@
         "audio": false
       },
       "rates": {
-        "input": 0.014182628062360801,
+        "input": 0.0034922048997772827,
         "cached": 0.0029933184855233854,
         "output": 0.10690423162583518,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.01592,
+          "input": 0.00392,
           "cached": 0.00336,
           "output": 0.12
         }
@@ -74111,13 +74049,13 @@
         "audio": false
       },
       "rates": {
-        "input": 0.042761692650334075,
+        "input": 0.03338619153674833,
         "cached": 0.005345211581291759,
         "output": 0.14253897550111358,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.048,
+          "input": 0.037476,
           "cached": 0.006,
           "output": 0.16
         }
@@ -74938,7 +74876,7 @@
       "modelId": "deepseek-v4.1-flash",
       "name": "DeepSeek V4.1 Flash",
       "creator": "DeepSeek",
-      "description": "deepseek-v4.1-flash provided by deepseek, alibaba, deepinfra, fireworks, together-ai, novita, baidu, luminal, entrim, runware, consensusprotocol, scx-ai-gp",
+      "description": "deepseek-v4.1-flash provided by deepseek, alibaba, deepinfra, fireworks, together-ai, novita, baidu, luminal, entrim, scx-ai-gp, runware, consensusprotocol",
       "releaseDate": null,
       "contextSize": 1050000,
       "capabilities": {
@@ -76271,7 +76209,7 @@
       "modelId": "glm-5.2",
       "name": "GLM-5.2",
       "creator": "Z.ai",
-      "description": "glm-5.2 provided by zai, novita, canopywave, embercloud, bytedance, alibaba, nebius, baidu, tencent, runware, scx-ai-gp",
+      "description": "glm-5.2 provided by zai, novita, canopywave, embercloud, bytedance, alibaba, nebius, baidu, tencent, scx-ai-gp, runware",
       "releaseDate": null,
       "contextSize": 1048576,
       "capabilities": {
@@ -76333,7 +76271,7 @@
       "modelId": "glm-5.3",
       "name": "GLM-5.3",
       "creator": "Z.ai",
-      "description": "glm-5.3 provided by zai, novita, baidu, alibaba, fireworks, inference.net, mistral, deepinfra, together-ai, runware, entrim, reka-ai, scx-ai-gp",
+      "description": "glm-5.3 provided by zai, novita, baidu, alibaba, fireworks, inference.net, mistral, deepinfra, together-ai, entrim, runware, reka-ai, scx-ai-gp",
       "releaseDate": null,
       "contextSize": 1048576,
       "capabilities": {
@@ -76395,7 +76333,7 @@
       "modelId": "glm-5.3-flash",
       "name": "GLM-5.3 Flash",
       "creator": "Z.ai",
-      "description": "glm-5.3-flash provided by zai, novita, fireworks, inference.net, together-ai, consensusprotocol, entrim, runware, scx-ai-gp",
+      "description": "glm-5.3-flash provided by zai, novita, fireworks, inference.net, together-ai, entrim, consensusprotocol, runware, scx-ai-gp",
       "releaseDate": null,
       "contextSize": 1048576,
       "capabilities": {
@@ -87605,130 +87543,6 @@
           "input": 0.1,
           "cached": 0.1,
           "output": 0.425
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in nano-gpt's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "nano-gpt:deepseek-r1",
-      "seller": "nano-gpt",
-      "sellerName": "nano-gpt",
-      "modelId": "deepseek-r1",
-      "name": "DeepSeek R1",
-      "creator": "DeepSeek",
-      "description": "DeepSeek's R1 is a thinking model, scoring very well on all benchmarks at low cost. This version runs on open-source providers and never sends requests to DeepSeek directly.",
-      "releaseDate": null,
-      "contextSize": 128000,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.35634743875278396,
-        "cached": 0.35634743875278396,
-        "output": 1.5144766146993318,
-        "cachedFallback": true,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.4,
-          "cached": 0.4,
-          "output": 1.7
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in nano-gpt's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "nano-gpt:deepseek-r1-sambanova",
-      "seller": "nano-gpt",
-      "sellerName": "nano-gpt",
-      "modelId": "deepseek-r1-sambanova",
-      "name": "DeepSeek R1 Fast",
-      "creator": "DeepSeek",
-      "description": "DeepSeek R1 on SambaNova: the full model with very fast output. Note: max 4k output tokens.",
-      "releaseDate": null,
-      "contextSize": 128000,
-      "capabilities": {
-        "reasoning": false,
-        "tools": false,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 4.452561247216035,
-        "cached": 4.452561247216035,
-        "output": 6.224498886414254,
-        "cachedFallback": true,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 4.998,
-          "cached": 4.998,
-          "output": 6.987
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in nano-gpt's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "nano-gpt:deepseek-reasoner",
-      "seller": "nano-gpt",
-      "sellerName": "nano-gpt",
-      "modelId": "deepseek-reasoner",
-      "name": "DeepSeek Reasoner",
-      "creator": "DeepSeek",
-      "description": "DeepSeek-R1 is now live and open source, rivaling OpenAI's Model o1.",
-      "releaseDate": null,
-      "contextSize": 64000,
-      "capabilities": {
-        "reasoning": false,
-        "tools": false,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.35634743875278396,
-        "cached": 0.35634743875278396,
-        "output": 1.5144766146993318,
-        "cachedFallback": true,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.4,
-          "cached": 0.4,
-          "output": 1.7
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in nano-gpt's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "nano-gpt:deepseek-reasoner-cheaper",
-      "seller": "nano-gpt",
-      "sellerName": "nano-gpt",
-      "modelId": "deepseek-reasoner-cheaper",
-      "name": "Deepseek R1 Cheaper",
-      "creator": "DeepSeek",
-      "description": "Cheaper version of DeepSeek R1. Note: may be routed through Chinese providers.",
-      "releaseDate": null,
-      "contextSize": 128000,
-      "capabilities": {
-        "reasoning": false,
-        "tools": false,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.35634743875278396,
-        "cached": 0.35634743875278396,
-        "output": 1.5144766146993318,
-        "cachedFallback": true,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.4,
-          "cached": 0.4,
-          "output": 1.7
         }
       },
       "pricingTiers": [],
@@ -117033,15 +116847,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.03135857461024499,
+        "input": 0.049888641425389756,
         "cached": 0.0014253897550111359,
-        "output": 0.00997772828507795,
+        "output": 0.10690423162583518,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0352,
+          "input": 0.056,
           "cached": 0.0016,
-          "output": 0.0112
+          "output": 0.12
         }
       },
       "pricingTiers": [],
@@ -117064,15 +116878,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.26726057906458794,
-        "cached": 0.005345211581291759,
-        "output": 1.0690423162583518,
+        "input": 0.13363028953229397,
+        "cached": 0.0026726057906458797,
+        "output": 0.5345211581291759,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.3,
-          "cached": 0.006,
-          "output": 1.2
+          "input": 0.15,
+          "cached": 0.003,
+          "output": 0.6
         }
       },
       "pricingTiers": [],
@@ -128472,13 +128286,13 @@
         "audio": false
       },
       "rates": {
-        "input": 0.042761692650334075,
+        "input": 0.03338619153674833,
         "cached": 0.005345211581291759,
         "output": 0.14253897550111358,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.048,
+          "input": 0.037476,
           "cached": 0.006,
           "output": 0.16
         }
@@ -128782,15 +128596,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.044543429844097995,
-        "cached": 0.008908685968819599,
-        "output": 0.021380846325167038,
+        "input": 0.062360801781737196,
+        "cached": 0.0071269487750556795,
+        "output": 0.4454342984409799,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.05,
-          "cached": 0.01,
-          "output": 0.024
+          "input": 0.07,
+          "cached": 0.008,
+          "output": 0.5
         }
       },
       "pricingTiers": [],
@@ -128844,13 +128658,13 @@
         "audio": false
       },
       "rates": {
-        "input": 0.014182628062360801,
+        "input": 0.0034922048997772827,
         "cached": 0.0029933184855233854,
         "output": 0.10690423162583518,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.01592,
+          "input": 0.00392,
           "cached": 0.00336,
           "output": 0.12
         }
@@ -129185,13 +128999,13 @@
         "audio": false
       },
       "rates": {
-        "input": 0.042761692650334075,
+        "input": 0.03338619153674833,
         "cached": 0.005345211581291759,
         "output": 0.14253897550111358,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.048,
+          "input": 0.037476,
           "cached": 0.006,
           "output": 0.16
         }
@@ -163607,7 +163421,6 @@
       "crossmodel:xiaomi/mimo-v2.5",
       "edenai:deepinfra/XiaomiMiMo/MiMo-V2.5",
       "edenai:xiaomi/mimo-v2.5",
-      "empiriolabs:mimo-v2-5",
       "prime:xiaomi/mimo-v2.5",
       "cortecs:glm-5.2",
       "eurouter:glm-5.2",
