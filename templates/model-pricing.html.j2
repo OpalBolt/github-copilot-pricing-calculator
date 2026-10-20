@@ -25,6 +25,7 @@
     #model-table th[data-col="output"],
     #model-table th[data-col="cost"] { width: 62px; }
     #model-table th.runs-col { width: 50px; }
+    #model-table th.context-col { width: 62px; }
     #model-table th.bar-cell { width: 58px; }
     #model-table .bar-cell { min-width: 0; }
     #model-table td.model-id {
@@ -230,6 +231,7 @@
           <th class="sortable" data-col="name">Model <span class="sort-icon">↕</span></th>
           <th class="sortable" data-col="creator">Creator <span class="sort-icon">↕</span></th>
           <th class="capabilities-col">Capabilities</th>
+          <th class="sortable num context-col" data-col="contextSize">Context <span class="sort-icon">↕</span></th>
           <th class="sortable num col-input" data-col="input">Input <span class="sort-icon">↕</span></th>
           <th class="sortable num col-cached" data-col="cached">Cached <span class="sort-icon">↕</span></th>
           <th class="sortable num col-output" data-col="output">Output <span class="sort-icon">↕</span></th>

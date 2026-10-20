@@ -5153,6 +5153,40 @@ def test_generated_page():
     assert "Model Price Calculator" in hub
 
 
+def test_context_column():
+    """The Context column: sortable numeric header between Capabilities and
+    Input, compact cell labels with the exact token count as tooltip, and the
+    not-published path for listings without a contextSize."""
+    html = HTML.read_text(encoding="utf-8")
+    # The header registers the contextSize sort key on the same generic
+    # numeric sort path the cost and runs columns use.
+    thead = re.search(r"<thead>.*?</thead>", html, re.S).group(0)
+    assert (
+        '<th class="sortable num context-col" data-col="contextSize">'
+        'Context <span class="sort-icon">↕</span></th>'
+    ) in thead
+    assert html.count('data-col="contextSize"') == 1
+    assert thead.index('data-col="contextSize"') < thead.index('data-col="input"')
+    # Compact cell: no decimals, raw token counts under 1K.
+    assert "${Math.floor(n / 1_000_000)}M`" in html
+    assert "${Math.floor(n / 1_000)}K`" in html
+    assert ": String(n);" in html
+    assert '<td class="num context-col">${contextCell(model)}</td>' in html
+    # The tooltip carries the exact token count in the detail drawer's
+    # toLocaleString() + ' tokens' phrasing.
+    assert 'title="${model.contextSize.toLocaleString()} tokens"' in html
+    # Listings without a published contextSize render the dim dash.
+    assert (
+        '\'<span class="dim" title="Not published by this Seller">—</span>\''
+    ) in html
+    # The embedded listings carry numeric contextSize values for the numeric
+    # sort, including the 1,048,576 listings that compact to 1M.
+    assert '"contextSize": 1048576' in html
+    # The drilldown panel spans every column including Context.
+    assert '<td colspan="12">' in html
+    assert '<td colspan="11">' not in html
+
+
 def main():
     test_registry_pages()
     test_listing_from_offer()
@@ -5210,6 +5244,7 @@ def main():
     test_default_view_page_note_with_selection()
     test_aggregate_contract()
     test_generated_page()
+    test_context_column()
     print(
         "OK - listing helpers, adapters, default view, aggregate data, "
         "and generated page"

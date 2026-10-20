@@ -1291,6 +1291,7 @@
     #model-table th[data-col="output"],
     #model-table th[data-col="cost"] { width: 62px; }
     #model-table th.runs-col { width: 50px; }
+    #model-table th.context-col { width: 62px; }
     #model-table th.bar-cell { width: 58px; }
     #model-table .bar-cell { min-width: 0; }
     #model-table td.model-id {
@@ -1821,6 +1822,7 @@
           <th class="sortable" data-col="name">Model <span class="sort-icon">↕</span></th>
           <th class="sortable" data-col="creator">Creator <span class="sort-icon">↕</span></th>
           <th class="capabilities-col">Capabilities</th>
+          <th class="sortable num context-col" data-col="contextSize">Context <span class="sort-icon">↕</span></th>
           <th class="sortable num col-input" data-col="input">Input <span class="sort-icon">↕</span></th>
           <th class="sortable num col-cached" data-col="cached">Cached <span class="sort-icon">↕</span></th>
           <th class="sortable num col-output" data-col="output">Output <span class="sort-icon">↕</span></th>
@@ -2040,6 +2042,15 @@
   const fmt = n => n.toLocaleString('en-US', { minimumFractionDigits: 3, maximumFractionDigits: 3 });
   const fmtMoney = n => n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   const fmtRuns = n => n.toLocaleString('en-US', { maximumFractionDigits: 1 });
+  // Compact context-size label: raw token counts under 1K, then K and M with
+  // no decimals; the exact token count stays in the cell's tooltip.
+  const fmtContext = n =>
+    n >= 1_000_000 ? `${Math.floor(n / 1_000_000)}M` : n >= 1_000 ? `${Math.floor(n / 1_000)}K` : String(n);
+  // Null contextSize means the Seller never published one (the
+  // markdown-scraped first-party catalogs); 0 is a real published value.
+  const contextCell = model => model.contextSize == null
+    ? '<span class="dim" title="Not published by this Seller">—</span>'
+    : `<span title="${model.contextSize.toLocaleString()} tokens">${fmtContext(model.contextSize)}</span>`;
   const rate = n => n === 0 ? 'Free' : `€${fmt(n)}`;
   // Every listing carries its Seller's published rate in EUR. Long-context
   // tiers raise the rates when input plus cached tokens cross a tier's
@@ -2189,6 +2200,7 @@
         <td class="model-id" title="${esc(model.name)}">${esc(model.modelId)}</td>
         <td class="creator" title="${esc(model.creator || '')}">${esc(model.creator || '—')}</td>
         <td class="caps">${capabilities(model)}${warnings(model, model)}</td>
+        <td class="num context-col">${contextCell(model)}</td>
         <td class="num col-input">${rate(model.input)}</td>
         <td class="num col-cached">${rate(model.cached)}${model.cachedFallback && !isFree(model) ? ' ⚠' : ''}</td>
         <td class="num col-output">${rate(model.output)}</td>
@@ -2261,7 +2273,7 @@
     const model = ALL_MODELS.find(item => item.key === decodeURIComponent(row.dataset.key));
     const detail = document.createElement('tr');
     detail.className = 'drilldown-row';
-    detail.innerHTML = `<td colspan="11">${detailHtml(model)}</td>`;
+    detail.innerHTML = `<td colspan="12">${detailHtml(model)}</td>`;
     row.after(detail);
   }
 
