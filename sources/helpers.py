@@ -382,6 +382,29 @@ def listing_from_offer(offer: dict, price_note: str | None = None) -> dict:
     }
 
 
+def dedupe_identical_listings(listings: list[dict]) -> list[dict]:
+    """One seller's listings with identical variant rows collapsed: the same
+    model reached through several upstream routes at one price renders as
+    visually identical duplicate rows, so only the first variant in listing
+    order survives (the edenai adapter's first-wins precedent). Variants
+    differing in display name, creator, or any EUR rate are genuine distinct
+    offers (confidential-compute and discount rows) and stay."""
+    seen: set[tuple] = set()
+    surviving = []
+    for listing in listings:
+        identity = (
+            listing["name"],
+            listing["creator"],
+            listing["rates"]["input"],
+            listing["rates"]["cached"],
+            listing["rates"]["output"],
+        )
+        if identity not in seen:
+            seen.add(identity)
+            surviving.append(listing)
+    return surviving
+
+
 def _plain_markdown(value: str) -> str:
     value = re.sub(r"<[^>]+>", "", value)
     value = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", value)

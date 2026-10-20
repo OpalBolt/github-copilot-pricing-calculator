@@ -1610,7 +1610,35 @@
     
 <div class="changelog">
   
-  <p class="changelog-intro">No changes recorded yet. Entries appear here automatically whenever the daily data fetch changes a price, model, or plan.</p>
+  <p class="changelog-intro">Newest first · 1 recorded day of change. Entries appear automatically whenever the daily data fetch changes a price, model, or plan.</p>
+  
+  <div class="changelog-entry">
+    <h3 class="changelog-date">2026-10-20</h3>
+    
+      
+    
+      
+      <h4 class="changelog-group-title cl-remove-h">Removed <span class="changelog-count">5</span></h4>
+      <ul class="changelog-list">
+        
+        <li>GPT-5 mini</li>
+        
+        <li>GPT-5.4</li>
+        
+        <li>GPT-5.4 mini</li>
+        
+        <li>GPT-5.5</li>
+        
+        <li>Gemini 3.7 Flash</li>
+        
+      </ul>
+      
+    
+      
+    
+    
+  </div>
+  
   
 </div>
 
@@ -1634,27 +1662,12 @@
 </div>
 
 <script>
-  // ── Pricing data (fetched 2026-10-19) ──
-  const FETCH_DATE = '2026-10-19';
+  // ── Pricing data (fetched 2026-10-20) ──
+  const FETCH_DATE = '2026-10-20';
   document.getElementById('fetch-date').textContent = FETCH_DATE;
 
   // All rates $ per 1M tokens
   const ALL_MODELS = [
-  {
-    "name": "GPT-5 mini",
-    "provider": "OpenAI",
-    "category": "Lightweight",
-    "status": "GA",
-    "tier": "Default",
-    "input": 0.25,
-    "cached": 0.025,
-    "cacheWrite": "Not applicable",
-    "output": 2.0,
-    "footnote": null,
-    "taskArea": null,
-    "excelsAt": null,
-    "furtherReadingUrl": null
-  },
   {
     "name": "GPT-5.3-Codex",
     "provider": "OpenAI",
@@ -1671,51 +1684,6 @@
     "furtherReadingUrl": "https://deploymentsafety.openai.com/gpt-5-3-codex"
   },
   {
-    "name": "GPT-5.4",
-    "provider": "OpenAI",
-    "category": "Versatile",
-    "status": "GA",
-    "tier": "Default",
-    "input": 2.5,
-    "cached": 0.25,
-    "cacheWrite": "Not applicable",
-    "output": 15.0,
-    "footnote": null,
-    "taskArea": null,
-    "excelsAt": null,
-    "furtherReadingUrl": null
-  },
-  {
-    "name": "GPT-5.4",
-    "provider": "OpenAI",
-    "category": "Versatile",
-    "status": "GA",
-    "tier": "Long context",
-    "input": 5.0,
-    "cached": 0.5,
-    "cacheWrite": "Not applicable",
-    "output": 22.5,
-    "footnote": null,
-    "taskArea": null,
-    "excelsAt": null,
-    "furtherReadingUrl": null
-  },
-  {
-    "name": "GPT-5.4 mini",
-    "provider": "OpenAI",
-    "category": "Lightweight",
-    "status": "GA",
-    "tier": "Default",
-    "input": 0.75,
-    "cached": 0.075,
-    "cacheWrite": "Not applicable",
-    "output": 4.5,
-    "footnote": null,
-    "taskArea": null,
-    "excelsAt": null,
-    "furtherReadingUrl": null
-  },
-  {
     "name": "GPT-5.4 nano",
     "provider": "OpenAI",
     "category": "Lightweight",
@@ -1725,36 +1693,6 @@
     "cached": 0.02,
     "cacheWrite": "Not applicable",
     "output": 1.25,
-    "footnote": null,
-    "taskArea": null,
-    "excelsAt": null,
-    "furtherReadingUrl": null
-  },
-  {
-    "name": "GPT-5.5",
-    "provider": "OpenAI",
-    "category": "Powerful",
-    "status": "GA",
-    "tier": "Default",
-    "input": 5.0,
-    "cached": 0.5,
-    "cacheWrite": "Not applicable",
-    "output": 30.0,
-    "footnote": null,
-    "taskArea": null,
-    "excelsAt": null,
-    "furtherReadingUrl": null
-  },
-  {
-    "name": "GPT-5.5",
-    "provider": "OpenAI",
-    "category": "Powerful",
-    "status": "GA",
-    "tier": "Long context",
-    "input": 10.0,
-    "cached": 1.0,
-    "cacheWrite": "Not applicable",
-    "output": 45.0,
     "footnote": null,
     "taskArea": null,
     "excelsAt": null,
@@ -2166,21 +2104,6 @@
     "furtherReadingUrl": "https://www-cdn.anthropic.com/0339e6a7c5c7b87f5c07798616dc32c215d14235/Claude%20Fable%205.1%20&%20Claude%20Mythos%205.1%20System%20Card.pdf"
   },
   {
-    "name": "Gemini 3.7 Flash",
-    "provider": "Google",
-    "category": "Versatile",
-    "status": "GA",
-    "tier": "Default",
-    "input": 0.75,
-    "cached": 0.075,
-    "cacheWrite": null,
-    "output": 3.75,
-    "footnote": "Gemini 3.7 Flash and Gemini 3.8 Flash are available at the promotional pricing of $0.75 per 1M input tokens, $0.075 per 1M cached input tokens, and $3.75 per 1M output tokens through December 31, 2026.",
-    "taskArea": null,
-    "excelsAt": null,
-    "furtherReadingUrl": null
-  },
-  {
     "name": "Gemini 3.8 Flash",
     "provider": "Google",
     "category": "Versatile",
@@ -2190,7 +2113,7 @@
     "cached": 0.075,
     "cacheWrite": null,
     "output": 3.75,
-    "footnote": "Gemini 3.7 Flash and Gemini 3.8 Flash are available at the promotional pricing of $0.75 per 1M input tokens, $0.075 per 1M cached input tokens, and $3.75 per 1M output tokens through December 31, 2026.",
+    "footnote": "Gemini 3.8 Flash is available at the promotional pricing of $0.75 per 1M input tokens, $0.075 per 1M cached input tokens, and $3.75 per 1M output tokens through December 31, 2026.",
     "taskArea": "Fast help with simple or repetitive tasks",
     "excelsAt": "Fast, reliable answers to lightweight coding questions",
     "furtherReadingUrl": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-8-Flash-Model-Card.pdf"

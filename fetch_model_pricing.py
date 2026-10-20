@@ -28,7 +28,7 @@ from sources.engy import fetch_engy_listings
 from sources.friendli import fetch_friendli_listings
 from sources.deepseek_direct import fetch_deepseek_direct_listings
 from sources.eurouter import fetch_eurouter_listings
-from sources.helpers import fetch_ecb_rate, now_utc
+from sources.helpers import dedupe_identical_listings, fetch_ecb_rate, now_utc
 from sources.hyper import fetch_hyper_listings
 from sources.inceptron import fetch_inceptron_listings
 from sources.kilo import fetch_kilo_listings
@@ -193,7 +193,11 @@ def build(previous: dict | None = None) -> dict:
 
     for seller_id, adapter in adapters.items():
         try:
-            seller_listings = adapter()
+            # Identical same-price variants of one model (multiple upstream
+            # routes) collapse per seller before the default view maps
+            # rankings to listing keys, so only surviving keys are ever
+            # referenced.
+            seller_listings = dedupe_identical_listings(adapter())
             sellers.append(
                 {
                     **_seller_metadata(seller_id),
@@ -209,7 +213,9 @@ def build(previous: dict | None = None) -> dict:
             if cached:
                 metadata, seller_listings = cached
                 sellers.append(metadata)
-                listings.extend(seller_listings)
+                # spill: cached listings were built before the variant
+                # dedupe, so they pass through it too before selection.
+                listings.extend(dedupe_identical_listings(seller_listings))
                 if seller_id not in RATE_OPTIONAL_SOURCES:
                     exchange_rate = previous.get("exchangeRate")
             else:
@@ -218,6 +224,19 @@ def build(previous: dict | None = None) -> dict:
     if not listings:
         reasons = "; ".join(f"{item['id']}: {item['reason']}" for item in omitted)
         raise RuntimeError(f"no model pricing data is usable ({reasons})")
+
+    default_view = resolve_default_view(previous, listings)
+    if default_view:
+        # A reused previous selection predates this build's variant dedupe;
+        # drop keys whose listings collapsed, so listingKeys only ever
+        # reference this build's surviving rows.
+        surviving = {listing["key"] for listing in listings}
+        default_view = {
+            **default_view,
+            "listingKeys": [
+                key for key in default_view["listingKeys"] if key in surviving
+            ],
+        }
 
     return {
         "schemaVersion": 1,
@@ -231,7 +250,7 @@ def build(previous: dict | None = None) -> dict:
         # fetched-at, stale flag): live when the key works, else the previous
         # build's stored selection, else the committed snapshot; None when no
         # rankings data is usable and the page loads search-only.
-        "defaultView": resolve_default_view(previous, listings),
+        "defaultView": default_view,
     }
 
 

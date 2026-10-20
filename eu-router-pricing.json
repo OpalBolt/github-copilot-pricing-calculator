@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-19T20:34:03.235868+00:00",
+  "generatedAt": "2026-10-20T04:43:28.993979+00:00",
   "currency": "EUR",
   "exchangeRate": {
     "series": "EXR.D.USD.EUR.SP00.A",
-    "source": "https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A?format=csvdata&startPeriod=2026-10-05",
+    "source": "https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A?format=csvdata&startPeriod=2026-10-06",
     "observationDate": "2026-10-19",
     "usdPerEur": 1.1225
   },
@@ -14,7 +14,7 @@
       "source": "https://api.cortecs.ai/v1/models?extended=true&currency=EUR",
       "euClaim": "EU catalog: providers based and regulated within the EU.",
       "id": "cortecs",
-      "fetchedAt": "2026-10-19T20:34:03.235868+00:00",
+      "fetchedAt": "2026-10-20T04:43:28.993979+00:00",
       "stale": false
     },
     {
@@ -22,7 +22,7 @@
       "source": "https://api.eurouter.ai/api/v1/models",
       "euClaim": "EU handling is EUrouter's baseline routing guarantee.",
       "id": "eurouter",
-      "fetchedAt": "2026-10-19T20:34:03.235868+00:00",
+      "fetchedAt": "2026-10-20T04:43:28.993979+00:00",
       "stale": false
     },
     {
@@ -30,7 +30,7 @@
       "source": "https://openrouter.ai/api/v1/models",
       "euClaim": "EU regional routing; Business or Enterprise plan required.",
       "id": "openrouter",
-      "fetchedAt": "2026-10-19T20:34:03.235868+00:00",
+      "fetchedAt": "2026-10-20T04:43:28.993979+00:00",
       "stale": false
     },
     {
@@ -39,7 +39,7 @@
       "kind": "direct",
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "deepseek-direct",
-      "fetchedAt": "2026-10-19T20:34:03.235868+00:00",
+      "fetchedAt": "2026-10-20T04:43:28.993979+00:00",
       "stale": false
     },
     {
@@ -48,7 +48,7 @@
       "kind": "direct",
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "zai-direct",
-      "fetchedAt": "2026-10-19T20:34:03.235868+00:00",
+      "fetchedAt": "2026-10-20T04:43:28.993979+00:00",
       "stale": false
     },
     {
@@ -58,7 +58,7 @@
       "kind": "direct",
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "claude-direct",
-      "fetchedAt": "2026-10-19T20:34:03.235868+00:00",
+      "fetchedAt": "2026-10-20T04:43:28.993979+00:00",
       "stale": false
     },
     {
@@ -68,7 +68,7 @@
       "kind": "direct",
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "openai-direct",
-      "fetchedAt": "2026-10-19T20:34:03.235868+00:00",
+      "fetchedAt": "2026-10-20T04:43:28.993979+00:00",
       "stale": false
     }
   ],
@@ -13941,15 +13941,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.28507795100222716,
-        "cached": 0.28507795100222716,
-        "output": 0.7928730512249443,
+        "input": 0.22930957683741648,
+        "cached": 0.22930957683741648,
+        "output": 0.916436525612472,
         "cachedFallback": true,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.32,
-          "cached": 0.32,
-          "output": 0.89
+          "input": 0.2574,
+          "cached": 0.2574,
+          "output": 1.0287
         }
       },
       "eu": null,
@@ -14221,15 +14221,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.11563474387527839,
-        "cached": 0.0036792873051224944,
-        "output": 0.34690423162583517,
+        "input": 0.39198218262806234,
+        "cached": 0.012472160356347439,
+        "output": 1.175946547884187,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.1298,
-          "cached": 0.00413,
-          "output": 0.3894
+          "input": 0.44,
+          "cached": 0.014,
+          "output": 1.32
         }
       },
       "eu": {
@@ -14302,15 +14302,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.3386993318485523,
-        "cached": 0.028224944320712694,
-        "output": 0.6773986636971046,
+        "input": 0.851011135857461,
+        "cached": 0.0709175946547884,
+        "output": 1.702022271714922,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.38019,
-          "cached": 0.0316825,
-          "output": 0.76038
+          "input": 0.95526,
+          "cached": 0.079605,
+          "output": 1.91052
         }
       },
       "eu": null,
@@ -14372,15 +14372,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.024944320712694878,
+        "input": 0.03135857461024499,
         "cached": 0.0014253897550111359,
-        "output": 0.07126948775055679,
+        "output": 0.00997772828507795,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.028,
+          "input": 0.0352,
           "cached": 0.0016,
-          "output": 0.08
+          "output": 0.0112
         }
       },
       "eu": null,
@@ -15943,15 +15943,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.044543429844097995,
-        "cached": 0.044543429844097995,
-        "output": 0.08908685968819599,
-        "cachedFallback": true,
+        "input": 0.035634743875278395,
+        "cached": 0.017817371937639197,
+        "output": 0.044543429844097995,
+        "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.05,
-          "cached": 0.05,
-          "output": 0.1
+          "input": 0.04,
+          "cached": 0.02,
+          "output": 0.05
         }
       },
       "eu": null,
@@ -18953,14 +18953,14 @@
         }
       },
       "eu": {
-        "input": 0.38512249443207125,
-        "cached": 0.14164810690423163,
+        "input": 0.3928730512249443,
+        "cached": 0.10824053452115812,
         "output": 2.8507795100222717,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.4323,
-          "cached": 0.159,
+          "input": 0.441,
+          "cached": 0.1215,
           "output": 3.2
         }
       },
@@ -19698,15 +19698,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.08908685968819599,
-        "cached": 0.07126948775055679,
-        "output": 0.35634743875278396,
+        "input": 0.13363028953229397,
+        "cached": 0.017817371937639197,
+        "output": 0.4454342984409799,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.1,
-          "cached": 0.08,
-          "output": 0.4
+          "input": 0.15,
+          "cached": 0.02,
+          "output": 0.5
         }
       },
       "eu": null,
@@ -24967,15 +24967,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.4454342984409799,
-        "cached": 0.26726057906458794,
-        "output": 3.2071269487750556,
-        "cachedFallback": false,
+        "input": 0.34743875278396436,
+        "cached": 0.34743875278396436,
+        "output": 2.084632516703786,
+        "cachedFallback": true,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.5,
-          "cached": 0.3,
-          "output": 3.6
+          "input": 0.39,
+          "cached": 0.39,
+          "output": 2.34
         }
       },
       "eu": null,
@@ -25177,15 +25177,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.13363028953229397,
+        "input": 0.08908685968819599,
         "cached": 0.044543429844097995,
-        "output": 0.8908685968819599,
+        "output": 0.8463251670378619,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.15,
+          "input": 0.1,
           "cached": 0.05,
-          "output": 1.0
+          "output": 0.95
         }
       },
       "eu": null,
@@ -26332,15 +26332,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.07349665924276169,
-        "cached": 0.018374164810690423,
-        "output": 0.29398663697104677,
+        "input": 0.11759465478841871,
+        "cached": 0.029398663697104678,
+        "output": 0.47037861915367485,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0825,
-          "cached": 0.020625,
-          "output": 0.33
+          "input": 0.132,
+          "cached": 0.033,
+          "output": 0.528
         }
       },
       "eu": null,
@@ -26402,15 +26402,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.6686859688195991,
-        "cached": 0.033674832962138086,
-        "output": 2.0052561247216034,
+        "input": 0.7429844097995545,
+        "cached": 0.037416481069042315,
+        "output": 2.2280623608017813,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.7506,
-          "cached": 0.0378,
-          "output": 2.2509
+          "input": 0.834,
+          "cached": 0.042,
+          "output": 2.501
         }
       },
       "eu": null,
@@ -26857,15 +26857,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.08017817371937638,
-        "cached": 0.016035634743875277,
-        "output": 0.32071269487750553,
+        "input": 0.13363028953229397,
+        "cached": 0.026726057906458794,
+        "output": 0.5345211581291759,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.09,
-          "cached": 0.018,
-          "output": 0.36
+          "input": 0.15,
+          "cached": 0.03,
+          "output": 0.6
         }
       },
       "eu": null,
@@ -27662,15 +27662,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.8908685968819599,
-        "cached": 0.17817371937639198,
-        "output": 2.8507795100222717,
+        "input": 0.5345211581291759,
+        "cached": 0.10690423162583518,
+        "output": 1.7104677060133628,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 1.0,
-          "cached": 0.2,
-          "output": 3.2
+          "input": 0.6,
+          "cached": 0.12,
+          "output": 1.92
         }
       },
       "eu": null,
@@ -28220,15 +28220,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.031180400890868598,
-        "cached": 0.0035634743875278397,
-        "output": 0.5345211581291759,
+        "input": 0.044543429844097995,
+        "cached": 0.008908685968819599,
+        "output": 0.021380846325167038,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.035,
-          "cached": 0.004,
-          "output": 0.6
+          "input": 0.05,
+          "cached": 0.01,
+          "output": 0.024
         }
       },
       "eu": null,
@@ -28255,14 +28255,14 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.11643652561247217,
-        "cached": 0.11581291759465479,
+        "input": 0.17959910913140312,
+        "cached": 0.17817371937639198,
         "output": 7.126948775055679,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.1307,
-          "cached": 0.13,
+          "input": 0.2016,
+          "cached": 0.2,
           "output": 8.0
         }
       },
@@ -28290,14 +28290,14 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.0034922048997772827,
-        "cached": 0.0029434298440979955,
+        "input": 0.010761692650334076,
+        "cached": 0.0029933184855233854,
         "output": 0.10690423162583518,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.00392,
-          "cached": 0.003304,
+          "input": 0.01208,
+          "cached": 0.00336,
           "output": 0.12
         }
       },
@@ -28710,15 +28710,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.04899777282850779,
-        "cached": 0.030289532293986638,
-        "output": 5.3452115812917596,
+        "input": 0.07037861915367483,
+        "cached": 0.06948775055679286,
+        "output": 1.2472160356347437,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.055,
-          "cached": 0.034,
-          "output": 6.0
+          "input": 0.079,
+          "cached": 0.078,
+          "output": 1.4
         }
       },
       "eu": null,

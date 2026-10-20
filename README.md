@@ -68,7 +68,10 @@ The four tools fetch data differently.
 - **Model pricing page** — reads the same catalogs plus OpenCode Zen's catalog
   with models.dev metadata (ADR 0003), the direct Claude, DeepSeek, OpenAI,
   and z.ai API prices, and every further keyless catalog adapter in the
-  `sources/` registry. One Model Listing per catalog row per Seller.
+  `sources/` registry. One Model Listing per catalog row per Seller; where a
+  Seller re-lists the same model through several upstream routes at identical
+  prices, the build keeps one row (the surviving variants differ in price or
+  product, e.g. TEE or discounted routes).
 - **ECB exchange rate** — reads series `EXR.D.USD.EUR.SP00.A`. The build divides
   USD prices by the latest USD-per-EUR observation.
 - **Provider comparison** — scrapes DeepSeek, z.ai, and OpenCode Go pricing pages into

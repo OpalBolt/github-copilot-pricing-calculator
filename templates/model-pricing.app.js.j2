@@ -26,6 +26,9 @@
     hideFree: false,
     sellers: new Set(),
     filters: { reasoning: false, tools: false, vision: false, audio: false },
+    // View mode, not a filter: Show all widens baseCatalog to the full
+    // catalog even with nothing else engaged.
+    showAll: false,
     showInput: true,
     showCached: true,
     showOutput: true,
@@ -153,14 +156,16 @@
       <span class="chip">Budget: <strong>€${fmtMoney(cfg.budget)}</strong></span>`;
   }
 
-  // Whether the visitor is searching or filtering. The page opens on the
-  // usage-ranked default view; any active search or filter widens the row
-  // universe back to the full catalog so nothing is unreachable. With no
-  // selection at all the page loads search-only (see the visible note).
-  // Derived from the same filterEngaged detectors passesFilters guards with.
+  // Whether the visitor is searching, filtering, or showing the full
+  // catalog via Show all. The page opens on the usage-ranked default view;
+  // any active search or filter widens the row universe back to the full
+  // catalog so nothing is unreachable. With no selection at all the page
+  // loads search-only (see the visible note). Derived from the same
+  // filterEngaged detectors passesFilters guards with; Show all is a view
+  // toggle, not a filter, so it lives outside filterEngaged.
   const filtersActive = () => Object.values(filterEngaged).some(engaged => engaged());
   function baseCatalog() {
-    if (filtersActive()) return ALL_MODELS;
+    if (filtersActive() || state.showAll) return ALL_MODELS;
     if (!DEFAULT_KEYS.size) return [];
     return ALL_MODELS.filter(model => DEFAULT_KEYS.has(model.key));
   }
@@ -180,7 +185,7 @@
       return `<tr class="model-row seller-${model.seller}${selected ? ' in-compare' : ''}" data-key="${encoded(model.key)}">
         <td class="cmp-cell"><button class="cmp-btn${selected ? ' active' : ''}" onclick="toggleCompare(decodeURIComponent('${encoded(model.key)}'))">${selected ? '−' : '+'}</button></td>
         <td><span class="seller-chip" title="${esc(sellerOf(model)?.stale ? 'Stale data; the last refresh failed' : model.sellerName)}">${esc(model.sellerName)}${stale}</span></td>
-        <td class="model-id" title="${esc(model.name)}">${esc(model.name)}</td>
+        <td class="model-id" title="${esc(model.name)}">${esc(model.modelId)}</td>
         <td class="creator" title="${esc(model.creator || '')}">${esc(model.creator || '—')}</td>
         <td class="caps">${capabilities(model)}${warnings(model, model)}</td>
         <td class="num col-input">${rate(model.input)}</td>
@@ -193,6 +198,9 @@
     }).join('');
     document.getElementById('no-results').style.display = rows.length ? 'none' : 'block';
     document.getElementById('row-count').innerHTML = `Showing <strong>${rows.length}</strong> of <strong>${ALL_MODELS.length}</strong> model listings`;
+    document.getElementById('show-all-btn').textContent = state.showAll
+      ? 'Back to default view'
+      : `Show all ${ALL_MODELS.length.toLocaleString('en-US')} listings`;
     document.querySelectorAll('thead th[data-col]').forEach(th => {
       const icon = th.querySelector('.sort-icon');
       icon.textContent = th.dataset.col === state.sortCol ? (state.sortDir === 'asc' ? '↑' : '↓') : '↕';
@@ -340,6 +348,10 @@
   document.getElementById('hide-free-filter').addEventListener('click', event => {
     state.hideFree = !state.hideFree;
     event.currentTarget.classList.toggle('active', state.hideFree);
+    render();
+  });
+  document.getElementById('show-all-btn').addEventListener('click', () => {
+    state.showAll = !state.showAll;
     render();
   });
   document.querySelectorAll('thead th.sortable').forEach(th => th.addEventListener('click', () => {

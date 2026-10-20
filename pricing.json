@@ -1,18 +1,6 @@
 {
-  "fetchDate": "2026-10-19",
+  "fetchDate": "2026-10-20",
   "models": [
-    {
-      "provider": "OpenAI",
-      "Model": "GPT-5 mini",
-      "Release status": "GA",
-      "Category": "Lightweight",
-      "Tier": "Default",
-      "Threshold (input tokens)": "Not applicable",
-      "Input": 0.25,
-      "Cached input": 0.025,
-      "Cache write": "Not applicable",
-      "Output": 2.0
-    },
     {
       "provider": "OpenAI",
       "Model": "GPT-5.3-Codex",
@@ -27,42 +15,6 @@
     },
     {
       "provider": "OpenAI",
-      "Model": "GPT-5.4",
-      "Release status": "GA",
-      "Category": "Versatile",
-      "Tier": "Default",
-      "Threshold (input tokens)": "\u2264 272K",
-      "Input": 2.5,
-      "Cached input": 0.25,
-      "Cache write": "Not applicable",
-      "Output": 15.0
-    },
-    {
-      "provider": "OpenAI",
-      "Model": "GPT-5.4",
-      "Release status": "GA",
-      "Category": "Versatile",
-      "Tier": "Long context",
-      "Threshold (input tokens)": "> 272K",
-      "Input": 5.0,
-      "Cached input": 0.5,
-      "Cache write": "Not applicable",
-      "Output": 22.5
-    },
-    {
-      "provider": "OpenAI",
-      "Model": "GPT-5.4 mini",
-      "Release status": "GA",
-      "Category": "Lightweight",
-      "Tier": "Default",
-      "Threshold (input tokens)": "Not applicable",
-      "Input": 0.75,
-      "Cached input": 0.075,
-      "Cache write": "Not applicable",
-      "Output": 4.5
-    },
-    {
-      "provider": "OpenAI",
       "Model": "GPT-5.4 nano",
       "Release status": "GA",
       "Category": "Lightweight",
@@ -72,30 +24,6 @@
       "Cached input": 0.02,
       "Cache write": "Not applicable",
       "Output": 1.25
-    },
-    {
-      "provider": "OpenAI",
-      "Model": "GPT-5.5",
-      "Release status": "GA",
-      "Category": "Powerful",
-      "Tier": "Default",
-      "Threshold (input tokens)": "\u2264 272K",
-      "Input": 5.0,
-      "Cached input": 0.5,
-      "Cache write": "Not applicable",
-      "Output": 30.0
-    },
-    {
-      "provider": "OpenAI",
-      "Model": "GPT-5.5",
-      "Release status": "GA",
-      "Category": "Powerful",
-      "Tier": "Long context",
-      "Threshold (input tokens)": "> 272K",
-      "Input": 10.0,
-      "Cached input": 1.0,
-      "Cache write": "Not applicable",
-      "Output": 45.0
     },
     {
       "provider": "OpenAI",
@@ -423,20 +351,6 @@
     },
     {
       "provider": "Google",
-      "Model": "Gemini 3.7 Flash",
-      "_footnotes": [
-        "gemini-flash-promo"
-      ],
-      "Release status": "GA",
-      "Category": "Versatile",
-      "Tier": "Default",
-      "Threshold (input tokens)": "Not applicable",
-      "Input": 0.75,
-      "Cached input": 0.075,
-      "Output": 3.75
-    },
-    {
-      "provider": "Google",
       "Model": "Gemini 3.8 Flash",
       "_footnotes": [
         "gemini-flash-promo"
@@ -549,7 +463,7 @@
     }
   ],
   "footnotes": {
-    "gemini-flash-promo": "Gemini 3.7 Flash and Gemini 3.8 Flash are available at the promotional pricing of $0.75 per 1M input tokens, $0.075 per 1M cached input tokens, and $3.75 per 1M output tokens through December 31, 2026.",
+    "gemini-flash-promo": "Gemini 3.8 Flash is available at the promotional pricing of $0.75 per 1M input tokens, $0.075 per 1M cached input tokens, and $3.75 per 1M output tokens through December 31, 2026.",
     "gemini-4-argon-promo": "Gemini 4 Argon is available at the promotional pricing of $2.00 per 1M input tokens, $0.10 per 1M cached input tokens, and $10.00 per 1M output tokens until December 1, 2026."
   }
 }

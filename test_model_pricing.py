@@ -33,7 +33,12 @@ from sources.friendli import _friendli_rates, fetch_friendli_listings
 from sources.hyper import _hyper_rates, fetch_hyper_listings
 from sources.inceptron import _inceptron_rates, fetch_inceptron_listings
 from sources.eurouter import fetch_eurouter_listings
-from sources.helpers import _rates, listing_from_offer, now_utc
+from sources.helpers import (
+    _rates,
+    dedupe_identical_listings,
+    listing_from_offer,
+    now_utc,
+)
 from sources.kilo import _kilo_rates, fetch_kilo_listings
 from sources.llm_gateway import _llm_gateway_rates, fetch_llmgateway_listings
 from sources.meta import fetch_meta_listings, parse_meta_pricing
@@ -279,6 +284,59 @@ def test_listing_from_offer():
     )
     assert eur["rates"]["nativeCurrency"] == "EUR"
     assert eur["rates"]["native"] == {"input": 3, "cached": 3, "output": 6}
+
+
+def test_dedupe_identical_listings():
+    """Identical variant listings collapse to the first in listing order;
+    variants differing in price, name (TEE-style), or creator are genuine
+    distinct offers and survive with unique keys."""
+
+    def variant(key, model_id, name="glm-flash", creator="Z.ai", input_rate=1.0):
+        return {
+            "key": key,
+            "seller": "requesty",
+            "modelId": model_id,
+            "name": name,
+            "creator": creator,
+            "rates": {
+                "input": input_rate,
+                "cached": input_rate / 5,
+                "output": 3.0,
+                "cachedFallback": False,
+                "nativeCurrency": "USD",
+                "native": {
+                    "input": input_rate,
+                    "cached": input_rate / 5,
+                    "output": 3.0,
+                },
+            },
+        }
+
+    listings = [
+        variant("requesty:deepinfra/glm-flash", "deepinfra/glm-flash"),
+        variant("requesty:fireworks/glm-flash", "fireworks/glm-flash"),
+        variant("requesty:tencent/glm-flash", "tencent/glm-flash"),
+        variant("requesty:melious/glm-flash", "melious/glm-flash", input_rate=0.8),
+        variant(
+            "requesty:chutes/glm-flash-tee",
+            "chutes/glm-flash-tee",
+            name="GLM Flash TEE",
+        ),
+        variant("requesty:kilo/glm-flash", "kilo/glm-flash", creator="Kilo"),
+    ]
+    surviving = dedupe_identical_listings(listings)
+    # First-wins: the identical trio keeps its first variant's key; the
+    # price-, name-, and creator-differing variants all stay.
+    assert [item["key"] for item in surviving] == [
+        "requesty:deepinfra/glm-flash",
+        "requesty:melious/glm-flash",
+        "requesty:chutes/glm-flash-tee",
+        "requesty:kilo/glm-flash",
+    ]
+    assert surviving[0]["modelId"] == "deepinfra/glm-flash"
+    assert len({item["key"] for item in surviving}) == len(surviving)
+    # Already-deduped listings pass through unchanged.
+    assert dedupe_identical_listings(surviving) == surviving
 
 
 def test_listing_notes_name_the_sellers_own_source():
@@ -4241,6 +4299,77 @@ def test_ecb_failure_keeps_rate_optional_sellers():
     assert all("ECB" in item["reason"] for item in output["omittedSellers"])
 
 
+def test_build_collapses_identical_variant_listings():
+    """build() dedupes each seller's adapter listings before the default
+    view resolves, so the dataset holds one row per distinct offer and keys
+    stay unique."""
+    base = _listing("requesty")
+    twin = {
+        **base,
+        "key": "requesty:route-b/m0",
+        "modelId": "route-b/m0",
+    }
+    cheaper = {
+        **base,
+        "key": "requesty:cheap/m0",
+        "modelId": "cheap/m0",
+        "rates": {
+            **base["rates"],
+            "input": 0.5,
+            "cached": 0.5,
+            "native": {**base["rates"]["native"], "input": 0.5, "cached": 0.5},
+        },
+    }
+    adapters = {
+        source_id: RuntimeError("offline") for source_id in ALL_SELLERS
+    }
+    adapters["requesty"] = [base, twin, cheaper]
+    with _patch_adapters(**adapters):
+        output = fetch_model_pricing.build({})
+    # The identical twin collapses onto the first listing; the cheaper
+    # variant survives. Keys stay unique.
+    assert {listing["key"] for listing in output["listings"]} == {
+        "requesty:m0",
+        "requesty:cheap/m0",
+    }
+    assert len(output["listings"]) == 2
+    assert {
+        item["id"]: item["reason"] for item in output["omittedSellers"]
+    } == {seller_id: "offline" for seller_id in ALL_SELLERS - {"requesty"}}
+
+
+def test_build_filters_dropped_keys_from_stored_selection():
+    """A reused previous selection predates the variant dedupe; build drops
+    its dead listing keys so the page only references surviving rows."""
+    base = _listing("requesty")
+    twin = {
+        **base,
+        "key": "requesty:route-b/m0",
+        "modelId": "route-b/m0",
+    }
+    adapters = {
+        source_id: RuntimeError("offline") for source_id in ALL_SELLERS
+    }
+    adapters["requesty"] = [base, twin]
+    previous = {
+        "defaultView": {
+            "source": "previous-build",
+            "window": {"start": "2026-09-19", "end": "2026-10-18"},
+            "fetchedAt": now_utc().isoformat(),
+            "stale": False,
+            "models": ["m0"],
+            "listingKeys": ["requesty:m0", "requesty:route-b/m0"],
+            "misses": [],
+        }
+    }
+    with _patch_adapters(**adapters):
+        output = fetch_model_pricing.build(previous)
+    view = output["defaultView"]
+    assert view["stale"] is True
+    # The collapsed twin's key is gone; the surviving row's key stays.
+    assert view["listingKeys"] == ["requesty:m0"]
+
+
 def test_aggregate_contract():
     data = json.loads(DATA.read_text(encoding="utf-8"))
     sellers = data["sellers"]
@@ -4841,6 +4970,7 @@ def _render_model_page(default_view_selection, default_view_json: str) -> str:
         omittedSellers=[],
         exchangeRate=None,
         listingCount=5806,
+        sellerListingCounts={},
         defaultView=default_view_selection,
         models_json="[]",
         sellers_json="[]",
@@ -4936,6 +5066,16 @@ def test_generated_page():
         'id="minimum-runs-filter"',
         'id="hide-free-filter"',
         'id="search-input"',
+        'id="show-all-btn"',
+        'class="show-all-btn"',
+        "state.showAll",
+        "filtersActive() || state.showAll",
+        "Back to default view",
+        "Show all ${ALL_MODELS.length.toLocaleString('en-US')} listings",
+        'class="chip-count"',
+        # The Model column carries the upstream org via modelId; the pretty
+        # name moves to the tooltip.
+        '<td class="model-id" title="${esc(model.name)}">${esc(model.modelId)}</td>',
         'aria-label="Table legend"',
         "state.minimumRuns",
         "state.hideFree",
@@ -4982,6 +5122,26 @@ def test_generated_page():
     assert 'data-col="group"' not in html
     assert "group-row" not in html
     assert "cheapest per model" not in html
+    # The Model column never renders the pretty name in the cell again: the
+    # identical-variant duplicates were only visible because name is equal
+    # across variants while modelId carries the upstream org.
+    assert '>${esc(model.name)}</td>' not in html
+
+    # Per-Seller accents: one golden-angle hue per registry seller, applied
+    # to row chips and active Seller filter chips.
+    accent_hues = set(re.findall(r"hsl\((\d+\.\d{3}), 55%, 70%\)", html))
+    assert len(accent_hues) >= len(ALL_SELLERS)
+    assert "hsl(0.000, 55%, 70%)" in html
+    assert "hsl(137.508, 55%, 70%)" in html
+
+    # Every Seller filter chip names its listing count, and the counts sum
+    # to the dataset the page was built from.
+    chip_counts = re.findall(r'class="chip-count"> · (\d+)</span>', html)
+    assert len(chip_counts) == len(ALL_SELLERS)
+    assert all(int(count) > 0 for count in chip_counts)
+    assert sum(int(count) for count in chip_counts) == len(
+        json.loads(DATA.read_text(encoding="utf-8"))["listings"]
+    )
     # EU-page-only concepts stay off the global page.
     assert "router-chip" not in html
     assert "no-eu-chip" not in html
@@ -5022,6 +5182,9 @@ def main():
     test_tinfoil_adapter()
     test_venice_adapter()
     test_seven_day_seller_fallback()
+    test_dedupe_identical_listings()
+    test_build_collapses_identical_variant_listings()
+    test_build_filters_dropped_keys_from_stored_selection()
     test_broken_source_fails_in_isolation()
     test_build_fails_only_without_usable_data()
     test_stale_seller_keeps_its_exchange_rate()

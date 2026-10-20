@@ -14,6 +14,7 @@ Requires: Python 3.8+, jinja2
 import argparse
 import json
 import sys
+from collections import Counter
 from pathlib import Path
 
 try:
@@ -361,6 +362,9 @@ def main():
     model_sellers = model_pricing_data.get("sellers", [])
     model_exchange_rate = model_pricing_data.get("exchangeRate")
     model_default_view = model_pricing_data.get("defaultView")
+    seller_listing_counts = Counter(
+        listing["seller"] for listing in model_listings
+    )
     model_template = env.get_template("model-pricing.html.j2")
     model_html = model_template.render(
         generatedAt=model_pricing_data.get("generatedAt", "unknown"),
@@ -376,6 +380,7 @@ def main():
         ],
         exchangeRate=model_exchange_rate,
         listingCount=len(model_listings),
+        sellerListingCounts=seller_listing_counts,
         defaultView=model_default_view,
         models_json=json_for_script(model_listings),
         sellers_json=json_for_script(model_sellers),
