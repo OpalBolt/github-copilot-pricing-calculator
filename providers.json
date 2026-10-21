@@ -213,7 +213,7 @@
           "input": 1.0,
           "input_cache": 0.1,
           "output": 2.7,
-          "monthly_limit_usd": 604.0,
+          "monthly_limit_usd": 15.0,
           "default_visible": false
         },
         {
