@@ -12,6 +12,12 @@
       "changes": [
         "\u2192 OpenCode Go \u00b7 Step 5 Preview \u2014 monthly limit $604\u2192$15"
       ]
+    },
+    {
+      "date": "2026-10-22",
+      "changes": [
+        "+ z.ai \u00b7 glm-5.3-flashx-legal (input $0.37 \u00b7 cached $0.075 \u00b7 output $1.25)"
+      ]
     }
   ],
   "router": [
@@ -106,6 +112,27 @@
         "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash Latest \u2014 input $0.00392\u2192$0.0475 \u00b7 cached $0.00336\u2192$0.028 \u00b7 output $0.12\u2192$0.1568",
         "\u2026 and 2 more"
       ]
+    },
+    {
+      "date": "2026-10-22",
+      "changes": [
+        "\u2212 OpenRouter: Google: Gemini 2.5 Flash Lite (batch)",
+        "+ OpenRouter: Recursive: Flint (free)",
+        "+ z.ai API: glm-5.3-flashx-legal",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash 0731 \u2014 eu input $0.13\u2192$0.11",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4.1 Flash \u2014 input $0.049\u2192$0.3 \u00b7 cached $0.001\u2192$0.006 \u00b7 output $0.375\u2192$1.2",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi K2.6 \u2014 eu input $0.4725\u2192$0.54 \u00b7 eu cached $0.135\u2192$0.1238",
+        "\u2192 OpenRouter \u00b7 Qwen: Qwen3.5-122B-A10B \u2014 input $0.26\u2192$0.4 \u00b7 cached $0.26\u2192$0.4 \u00b7 output $2.08\u2192$3.2",
+        "\u2192 OpenRouter \u00b7 Qwen: Qwen3.5 397B A17B \u2014 input $0.39\u2192$0.5 \u00b7 cached $0.39\u2192$0.3 \u00b7 output $2.34\u2192$3.6",
+        "\u2192 OpenRouter \u00b7 Reflection: Beam 1.0 501B A23B \u2014 input $0.3\u2192$0.25 \u00b7 cached $0.04\u2192$0.05",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.2 \u2014 eu input $0.69\u2192$0.61",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.3 \u2014 eu input $0.55\u2192$0.5 \u00b7 eu cached $0.18\u2192$0.165 \u00b7 eu output $1.4\u2192$1.96",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.3 Flash \u2014 input $0.15\u2192$0.0052 \u00b7 cached $0.03\u2192$0.0052 \u00b7 output $0.5\u2192$0.1985",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek Flash Latest \u2014 input $0.049\u2192$0.07 \u00b7 cached $0.001176\u2192$0.008 \u00b7 output $0.375\u2192$0.5",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek Pro Latest \u2014 input $0.225\u2192$0.2235 \u00b7 cached $0.23\u2192$0.22",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi Latest \u2014 output $24\u2192$16",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM Flash Latest \u2014 input $0.05169\u2192$0.0052 \u00b7 cached $0.00375\u2192$0.0052 \u00b7 output $0.12\u2192$0.1985"
+      ]
     }
   ],
   "copilot": [
@@ -197,6 +224,62 @@
         "\u2212 OpenRouter: Google: Gemini 2.5 Pro (batch)",
         "\u2212 Venice: Qwen 3.5 9B",
         "\u2026 and 117 more"
+      ]
+    },
+    {
+      "date": "2026-10-22",
+      "changes": [
+        "\u2212 Eden AI: databricks-claude-opus-5-5",
+        "\u2212 Eden AI: deepseek-ai/deepseek-v3.2-maas",
+        "\u2212 Eden AI: deepseek-ai/deepseek-v3.2-maas",
+        "\u2212 Eden AI: minimaxai/minimax-m2-maas",
+        "\u2212 Eden AI: moonshotai/kimi-k2-thinking-maas",
+        "\u2212 Eden AI: qwen/qwen3-next-80b-a3b-instruct-maas",
+        "\u2212 Eden AI: qwen/qwen3-next-80b-a3b-instruct-maas",
+        "\u2212 Eden AI: qwen/qwen3-next-80b-a3b-thinking-maas",
+        "\u2212 Eden AI: qwen/qwen3-next-80b-a3b-thinking-maas",
+        "\u2212 Eden AI: zai-org/glm-4.7-maas",
+        "\u2212 Eden AI: zai-org/glm-4.7-maas",
+        "\u2212 Empirio Labs: Deepgram Nova 3",
+        "\u2212 Empirio Labs: Deepgram Nova-3 Stream",
+        "\u2212 Empirio Labs: Exa Search",
+        "\u2212 Empirio Labs: GPTZero",
+        "\u2212 Empirio Labs: Manus",
+        "\u2212 Empirio Labs: OpenAI Whisper 1",
+        "\u2212 Empirio Labs: Sonilo Proofread",
+        "\u2212 Empirio Labs: Sonilo Video Analysis",
+        "\u2212 Empirio Labs: StepAudio 2.5 ASR",
+        "\u2212 Empirio Labs: StepAudio 2.5 ASR Stream",
+        "\u2212 Empirio Labs: StepAudio 3 ASR Max",
+        "\u2212 Empirio Labs: Tavily Research",
+        "\u2212 Empirio Labs: Tavily Search",
+        "\u2212 Empirio Labs: Whisper Large v3 Turbo",
+        "\u2212 FriendliAI: MiniMaxAI/MiniMax-M2.5",
+        "\u2212 LLM Gateway: Inkling",
+        "\u2212 OfoxAI: Doubao Seed 2.0 Lite",
+        "\u2212 OfoxAI: Doubao Seed 2.0 Mini",
+        "\u2212 OpenCode Zen: LongCat 2.5 Preview Free",
+        "\u2212 OpenRouter: Google: Gemini 2.5 Flash Lite (batch)",
+        "+ AI/ML API: Mercury 3",
+        "+ Eden AI: databricks-claude-opus-5-5",
+        "+ Eden AI: Qwen/Qwen3.5-397B-A17B",
+        "+ Eden AI: deepseek-ai/DeepSeek-V4-Flash-0731",
+        "+ Eden AI: deepseek-ai/DeepSeek-V4.1-Flash-1017",
+        "+ Eden AI: moonshotai/Kimi-K3",
+        "+ Eden AI: zai-org/GLM-5.3",
+        "+ Eden AI: zai-org/GLM-5.3-Flash",
+        "+ Eden AI: claude-opus-5-5",
+        "+ Eden AI: claude-opus-5-5",
+        "+ Kilo: Recursive: Flint (free)",
+        "+ nano-gpt: Gemma 4 Dark Thoughts V2 31B",
+        "+ nano-gpt: d3 (Decision Large)",
+        "+ nano-gpt: d3 Flash (Decision Medium)",
+        "+ nano-gpt: d3 Mini (Decision Small)",
+        "+ nano-gpt: Gemma 4 Gutenberg 31B",
+        "+ nano-gpt: Gemma 4 Giftige-Blume V2 31B",
+        "+ nano-gpt: Schattenblume 31B",
+        "+ nano-gpt: Grayline Qwen3 8B",
+        "\u2026 and 104 more"
       ]
     }
   ]
