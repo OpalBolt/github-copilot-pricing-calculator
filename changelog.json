@@ -18,6 +18,13 @@
       "changes": [
         "+ z.ai \u00b7 glm-5.3-flashx-legal (input $0.37 \u00b7 cached $0.075 \u00b7 output $1.25)"
       ]
+    },
+    {
+      "date": "2026-10-23",
+      "changes": [
+        "\u2212 OpenCode Go \u00b7 MiniMax M3.1 Flash Free",
+        "+ OpenCode Go \u00b7 MiniMax M3.1 Flash (input $0.15 \u00b7 cached $0.015 \u00b7 output $0.6)"
+      ]
     }
   ],
   "router": [
@@ -132,6 +139,25 @@
         "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek Pro Latest \u2014 input $0.225\u2192$0.2235 \u00b7 cached $0.23\u2192$0.22",
         "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi Latest \u2014 output $24\u2192$16",
         "\u2192 OpenRouter \u00b7 Z.ai: GLM Flash Latest \u2014 input $0.05169\u2192$0.0052 \u00b7 cached $0.00375\u2192$0.0052 \u00b7 output $0.12\u2192$0.1985"
+      ]
+    },
+    {
+      "date": "2026-10-23",
+      "changes": [
+        "\u2212 OpenRouter: MiniMax: MiniMax M3.1 Flash (free)",
+        "+ Cortecs: kolibri-1",
+        "+ Mistral AI: Voxtral Small",
+        "+ Mistral AI: Z.ai GLM 5.3 Flash",
+        "+ OpenRouter: MiniMax: MiniMax M3.1 Flash",
+        "\u2192 Cortecs \u00b7 deepseek-v4.1-flash-1017 \u2014 input $0.459\u2192$0.25 \u00b7 cached $0.115\u2192$0.1 \u00b7 output $1.377\u2192$1 \u00b7 eu input $0.459\u2192$0.25 \u00b7 eu cached $0.115\u2192$0.1 \u00b7 eu output $1.377\u2192$1",
+        "\u2192 OpenRouter \u00b7 Mistral: Mistral Small 3.2 24B \u2014 input $0.09375\u2192$0.075 \u00b7 cached $0.09375\u2192$0.075 \u00b7 output $0.25\u2192$0.2",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi K2.6 \u2014 eu input $0.54\u2192$0.603 \u00b7 eu cached $0.1238\u2192$0.126",
+        "\u2192 OpenRouter \u00b7 Qwen: Qwen3.5-9B \u2014 input $0.08\u2192$0.17 \u00b7 cached $0.04\u2192$0.17 \u00b7 output $0.13\u2192$0.25",
+        "\u2192 OpenRouter \u00b7 Qwen: Qwen3.8 27B \u2014 input $0.04\u2192$0.2 \u00b7 cached $0.018\u2192$0.09 \u00b7 output $1.35\u2192$2.5",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.2 \u2014 eu input $0.61\u2192$0.55 \u00b7 eu output $2.52\u2192$2.88",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.3 \u2014 eu input $0.5\u2192$0.4 \u00b7 eu cached $0.165\u2192$0.12",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.3 Flash \u2014 eu input $0.175\u2192$0.18",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek Pro Latest \u2014 input $0.2235\u2192$0.2565 \u00b7 cached $0.22\u2192$0.26"
       ]
     }
   ],
@@ -280,6 +306,62 @@
         "+ nano-gpt: Schattenblume 31B",
         "+ nano-gpt: Grayline Qwen3 8B",
         "\u2026 and 104 more"
+      ]
+    },
+    {
+      "date": "2026-10-23",
+      "changes": [
+        "\u2212 DeepInfra: Gryphe/MythoMax-L2-13b",
+        "\u2212 Eden AI: mistralai/Mistral-Nemo-Instruct-2407",
+        "\u2212 Kilo: MiniMax: MiniMax M3.1 Flash (free)",
+        "\u2212 LLM Gateway: GPT-3.5 Turbo",
+        "\u2212 LLM Gateway: GPT-4",
+        "\u2212 LLM Gateway: GPT-4 Turbo",
+        "\u2212 LLM Gateway: GPT-4.1 Nano",
+        "\u2212 LLM Gateway: MiMo V2.5",
+        "\u2212 LLM Gateway: MiMo V2.5 Pro",
+        "\u2212 LLM Gateway: o1",
+        "\u2212 LLM Gateway: o3 Mini",
+        "\u2212 LLM Gateway: o4 Mini",
+        "\u2212 Novita: Xiaomi MiMo V2.5",
+        "\u2212 Novita: Xiaomi MiMo V2.5 Pro",
+        "\u2212 OpenCode Zen: MiniMax M3.1 Flash Free",
+        "\u2212 OpenRouter: MiniMax: MiniMax M3.1 Flash (free)",
+        "\u2212 Vercel AI Gateway: GPT-3.5 Turbo",
+        "\u2212 Vercel AI Gateway: GPT-4 Turbo",
+        "\u2212 Vercel AI Gateway: GPT-4.1 nano (Batch)",
+        "\u2212 Vercel AI Gateway: GPT-4.1 nano (Fast)",
+        "\u2212 Vercel AI Gateway: o4-mini (Fast)",
+        "\u2212 Vercel AI Gateway: Grok 4.1 Fast Non-Reasoning",
+        "\u2212 Vercel AI Gateway: Grok 4.1 Fast Reasoning",
+        "+ Cortecs: kolibri-1",
+        "+ Eden AI: DeepSeek-V4.1-Flash-1017",
+        "+ Eden AI: glm-5-3-flash",
+        "+ Eden AI: zai-glm-5-3-flash",
+        "+ Eden AI: deepseek-ai/DeepSeek-V4.1-Flash-1017",
+        "+ Eden AI: MiniMaxAI/MiniMax-M3.1-Flash",
+        "+ Kilo: MiniMax: MiniMax M3.1 Flash",
+        "+ Mistral AI: Voxtral Small",
+        "+ Mistral AI: Z.ai GLM 5.3 Flash",
+        "+ nano-gpt: Abliterated Large Flash",
+        "+ nano-gpt: Ternary Bonsai2 9B",
+        "+ nano-gpt: SubQ Snap 1.1",
+        "+ NEAR AI: GLM 5.3",
+        "+ Novita: MiniMax M3.1 Flash",
+        "+ OpenRouter: MiniMax: MiniMax M3.1 Flash",
+        "+ Requesty: clef",
+        "+ Requesty: clef-flash",
+        "\u2192 AI/ML API \u00b7 Aion-2.0 \u2014 input $1.1\u2192$0.8464 \u00b7 cached $0.2751\u2192$0.2116 \u00b7 output $2.201\u2192$1.693",
+        "\u2192 AI/ML API \u00b7 Aion-3.0 \u2014 input $4.126\u2192$3.174 \u00b7 cached $1.032\u2192$0.7935 \u00b7 output $8.252\u2192$6.348",
+        "\u2192 AI/ML API \u00b7 Aion-3.0-Mini \u2014 input $0.9628\u2192$0.7406 \u00b7 cached $0.2476\u2192$0.1904 \u00b7 output $1.926\u2192$1.481",
+        "\u2192 AI/ML API \u00b7 Aion-3.5 \u2014 input $4.126\u2192$3.174 \u00b7 cached $1.032\u2192$0.7935 \u00b7 output $8.252\u2192$6.348",
+        "\u2192 AI/ML API \u00b7 Aion-3.5-Mini \u2014 input $0.9628\u2192$0.7406 \u00b7 cached $0.2476\u2192$0.1904 \u00b7 output $1.926\u2192$1.481",
+        "\u2192 AI/ML API \u00b7 Aion-RP 1.0 (8B) \u2014 input $1.1\u2192$0.8464 \u00b7 cached $1.1\u2192$0.8464 \u00b7 output $2.201\u2192$1.693",
+        "\u2192 AI/ML API \u00b7 GLM 5.2 \u2014 input $1.82\u2192$1.4 \u00b7 cached $0.364\u2192$0.28 \u00b7 output $5.72\u2192$4.4",
+        "\u2192 AI/ML API \u00b7 GLM 5.2 Fast Preview \u2014 input $4.55\u2192$3.5 \u00b7 cached $0.91\u2192$0.7 \u00b7 output $14.3\u2192$11",
+        "\u2192 AI/ML API \u00b7 Qwen Max \u2014 input $2.08\u2192$1.6 \u00b7 cached $0.416\u2192$0.32 \u00b7 output $8.32\u2192$6.4",
+        "\u2192 AI/ML API \u00b7 Qwen Plus \u2014 input $0.52\u2192$0.4 \u00b7 cached $0.104\u2192$0.08 \u00b7 output $1.56\u2192$1.2",
+        "\u2026 and 404 more"
       ]
     }
   ]
