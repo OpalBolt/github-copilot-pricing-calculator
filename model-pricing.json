@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-24T10:12:45.009925+00:00",
+  "generatedAt": "2026-10-25T10:37:29.243304+00:00",
   "currency": "EUR",
   "exchangeRate": {
     "series": "EXR.D.USD.EUR.SP00.A",
-    "source": "https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A?format=csvdata&startPeriod=2026-10-10",
+    "source": "https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A?format=csvdata&startPeriod=2026-10-11",
     "observationDate": "2026-10-23",
     "usdPerEur": 1.1193
   },
@@ -15,7 +15,7 @@
       "source": "https://api.cortecs.ai/v1/models?extended=true&currency=EUR",
       "id": "cortecs",
       "nativeCurrency": "EUR",
-      "fetchedAt": "2026-10-24T10:12:45.009925+00:00",
+      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
       "stale": false
     },
     {
@@ -26,7 +26,7 @@
       "fetchedAt": "2026-10-21T11:04:55.696822+00:00",
       "stale": true,
       "error": "'NoneType' object has no attribute 'get'",
-      "fallbackAttemptedAt": "2026-10-24T10:12:45.009925+00:00"
+      "fallbackAttemptedAt": "2026-10-25T10:37:29.243304+00:00"
     },
     {
       "name": "OpenRouter",
@@ -34,7 +34,7 @@
       "source": "https://openrouter.ai/api/v1/models",
       "id": "openrouter",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-24T10:12:45.009925+00:00",
+      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
       "stale": false
     },
     {
@@ -43,7 +43,7 @@
       "source": "https://opencode.ai/zen/v1/models",
       "id": "opencode",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-24T10:12:45.009925+00:00",
+      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
       "stale": false
     },
     {
@@ -52,7 +52,7 @@
       "source": "https://api.deepinfra.com/v1/models",
       "nativeCurrency": "USD",
       "id": "deepinfra",
-      "fetchedAt": "2026-10-24T10:12:45.009925+00:00",
+      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
       "stale": false
     },
     {
@@ -61,7 +61,7 @@
       "source": "https://api.novita.ai/v3/openai/models",
       "nativeCurrency": "USD",
       "id": "novita",
-      "fetchedAt": "2026-10-24T10:12:45.009925+00:00",
+      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
       "stale": false
     },
     {
@@ -70,7 +70,7 @@
       "source": "https://router.requesty.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "requesty",
-      "fetchedAt": "2026-10-24T10:12:45.009925+00:00",
+      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
       "stale": false
     },
     {
@@ -79,7 +79,7 @@
       "source": "https://ai-gateway.vercel.sh/v1/models",
       "nativeCurrency": "USD",
       "id": "vercel-gateway",
-      "fetchedAt": "2026-10-24T10:12:45.009925+00:00",
+      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
       "stale": false
     },
     {
@@ -88,7 +88,7 @@
       "source": "https://api.kilo.ai/api/gateway/models",
       "nativeCurrency": "USD",
       "id": "kilo",
-      "fetchedAt": "2026-10-24T10:12:45.009925+00:00",
+      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
       "stale": false
     },
     {
@@ -97,7 +97,7 @@
       "source": "https://nano-gpt.com/api/v1/models?detailed=true",
       "nativeCurrency": "USD",
       "id": "nano-gpt",
-      "fetchedAt": "2026-10-24T10:12:45.009925+00:00",
+      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
       "stale": false
     },
     {
@@ -106,7 +106,7 @@
       "source": "https://llm.chutes.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "chutes",
-      "fetchedAt": "2026-10-24T10:12:45.009925+00:00",
+      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
       "stale": false
     },
     {
@@ -115,7 +115,7 @@
       "source": "https://api.llmgateway.io/v1/models",
       "nativeCurrency": "USD",
       "id": "llmgateway",
-      "fetchedAt": "2026-10-24T10:12:45.009925+00:00",
+      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
       "stale": false
     },
     {
@@ -124,7 +124,7 @@
       "source": "https://api.aiand.com/v1/models",
       "nativeCurrency": "USD",
       "id": "aiand",
-      "fetchedAt": "2026-10-24T10:12:45.009925+00:00",
+      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
       "stale": false
     },
     {
@@ -133,7 +133,7 @@
       "source": "https://api.aimlapi.com/v1/models?include=pricing,modalities",
       "nativeCurrency": "USD",
       "id": "aimlapi",
-      "fetchedAt": "2026-10-24T10:12:45.009925+00:00",
+      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
       "stale": false
     },
     {
@@ -142,7 +142,7 @@
       "source": "https://api.ambient.xyz/v1/models",
       "nativeCurrency": "USD",
       "id": "ambient",
-      "fetchedAt": "2026-10-24T10:12:45.009925+00:00",
+      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
       "stale": false
     },
     {
@@ -151,7 +151,7 @@
       "source": "https://www.crossmodel.ai/api/models",
       "nativeCurrency": "USD",
       "id": "crossmodel",
-      "fetchedAt": "2026-10-24T10:12:45.009925+00:00",
+      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
       "stale": false
     },
     {
@@ -160,7 +160,7 @@
       "source": "https://api.edenai.run/v3/models",
       "nativeCurrency": "USD",
       "id": "edenai",
-      "fetchedAt": "2026-10-24T10:12:45.009925+00:00",
+      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
       "stale": false
     },
     {
@@ -169,7 +169,7 @@
       "source": "https://api.empiriolabs.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "empiriolabs",
-      "fetchedAt": "2026-10-24T10:12:45.009925+00:00",
+      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
       "stale": false
     },
     {
@@ -178,7 +178,7 @@
       "source": "https://api.engy.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "engy",
-      "fetchedAt": "2026-10-24T10:12:45.009925+00:00",
+      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
       "stale": false
     },
     {
@@ -187,7 +187,7 @@
       "source": "https://api.friendli.ai/serverless/v1/models",
       "nativeCurrency": "USD",
       "id": "friendli",
-      "fetchedAt": "2026-10-24T10:12:45.009925+00:00",
+      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
       "stale": false
     },
     {
@@ -196,7 +196,7 @@
       "source": "https://hyper.charm.land/v1/models",
       "nativeCurrency": "USD",
       "id": "hyper",
-      "fetchedAt": "2026-10-24T10:12:45.009925+00:00",
+      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
       "stale": false
     },
     {
@@ -205,7 +205,7 @@
       "source": "https://api.inceptron.io/v1/models",
       "nativeCurrency": "USD",
       "id": "inceptron",
-      "fetchedAt": "2026-10-24T10:12:45.009925+00:00",
+      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
       "stale": false
     },
     {
@@ -214,7 +214,7 @@
       "source": "https://cloud-api.near.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "nearai",
-      "fetchedAt": "2026-10-24T10:12:45.009925+00:00",
+      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
       "stale": false
     },
     {
@@ -223,7 +223,7 @@
       "source": "https://api.ofox.ai/v2/models/catalog?include=provider_price&limit=500",
       "nativeCurrency": "USD",
       "id": "ofox",
-      "fetchedAt": "2026-10-24T10:12:45.009925+00:00",
+      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
       "stale": false
     },
     {
@@ -232,7 +232,7 @@
       "source": "https://api.fastino.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "pioneer",
-      "fetchedAt": "2026-10-24T10:12:45.009925+00:00",
+      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
       "stale": false
     },
     {
@@ -241,7 +241,7 @@
       "source": "https://api.pinference.ai/api/v1/models",
       "nativeCurrency": "USD",
       "id": "prime",
-      "fetchedAt": "2026-10-24T10:12:45.009925+00:00",
+      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
       "stale": false
     },
     {
@@ -250,7 +250,7 @@
       "source": "https://inference.tinfoil.sh/v1/models",
       "nativeCurrency": "USD",
       "id": "tinfoil",
-      "fetchedAt": "2026-10-24T10:12:45.009925+00:00",
+      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
       "stale": false
     },
     {
@@ -259,7 +259,7 @@
       "source": "https://api.venice.ai/api/v1/models?type=text",
       "nativeCurrency": "USD",
       "id": "venice",
-      "fetchedAt": "2026-10-24T10:12:45.009925+00:00",
+      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
       "stale": false
     },
     {
@@ -268,7 +268,7 @@
       "sellerKind": "first-party",
       "id": "deepseek-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-24T10:12:45.009925+00:00",
+      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
       "stale": false
     },
     {
@@ -277,7 +277,7 @@
       "sellerKind": "first-party",
       "id": "zai-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-24T10:12:45.009925+00:00",
+      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
       "stale": false
     },
     {
@@ -286,7 +286,7 @@
       "sellerKind": "first-party",
       "id": "claude-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-24T10:12:45.009925+00:00",
+      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
       "stale": false
     },
     {
@@ -295,7 +295,7 @@
       "sellerKind": "first-party",
       "id": "openai-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-24T10:12:45.009925+00:00",
+      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
       "stale": false
     },
     {
@@ -304,7 +304,7 @@
       "source": "https://docs.x.ai/developers/pricing.md",
       "nativeCurrency": "USD",
       "id": "xai",
-      "fetchedAt": "2026-10-24T10:12:45.009925+00:00",
+      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
       "stale": false
     },
     {
@@ -313,7 +313,7 @@
       "source": "https://docs.mistral.ai/inference/pricing.md",
       "nativeCurrency": "USD",
       "id": "mistral",
-      "fetchedAt": "2026-10-24T10:12:45.009925+00:00",
+      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
       "stale": false
     },
     {
@@ -322,7 +322,7 @@
       "source": "https://dev.meta.ai/docs/pricing-rate-limits.md",
       "nativeCurrency": "USD",
       "id": "meta",
-      "fetchedAt": "2026-10-24T10:12:45.009925+00:00",
+      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
       "stale": false
     }
   ],
@@ -12807,15 +12807,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.25,
-        "cached": 0.1,
-        "output": 1.0,
+        "input": 0.182,
+        "cached": 0.005,
+        "output": 0.547,
         "cachedFallback": false,
         "nativeCurrency": "EUR",
         "native": {
-          "input": 0.25,
-          "cached": 0.1,
-          "output": 1.0
+          "input": 0.182,
+          "cached": 0.005,
+          "output": 0.547
         }
       },
       "pricingTiers": [],
@@ -14335,6 +14335,37 @@
           "input": 0.269,
           "cached": 0.054,
           "output": 1.077
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "Model-level minimum price published by Cortecs."
+    },
+    {
+      "key": "cortecs:minimax-m3.1-flash",
+      "seller": "cortecs",
+      "sellerName": "Cortecs",
+      "modelId": "minimax-m3.1-flash",
+      "name": "minimax-m3.1-flash",
+      "creator": "MiniMax AI",
+      "description": "MiniMax M3.1 Flash - the speed-optimized model, delivering low-latency, cost-efficient inference while preserving strong reasoning, coding, and long-context handling for high-volume workloads.",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.273,
+        "cached": 0.068,
+        "output": 1.094,
+        "cachedFallback": false,
+        "nativeCurrency": "EUR",
+        "native": {
+          "input": 0.273,
+          "cached": 0.068,
+          "output": 1.094
         }
       },
       "pricingTiers": [],
@@ -49483,6 +49514,37 @@
       "priceNote": "USD price published in Eden AI's model catalog and converted with the listed ECB rate."
     },
     {
+      "key": "edenai:tensorx/minimax/minimax-m3.1-flash",
+      "seller": "edenai",
+      "sellerName": "Eden AI",
+      "modelId": "tensorx/minimax/minimax-m3.1-flash",
+      "name": "minimax/minimax-m3.1-flash",
+      "creator": "tensorx",
+      "description": "Served by TensorX at fp8 quantization.",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.2680246582685607,
+        "cached": 0.06700616456714018,
+        "output": 1.0720986330742428,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3,
+          "cached": 0.075,
+          "output": 1.2
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Eden AI's model catalog and converted with the listed ECB rate."
+    },
+    {
       "key": "edenai:tensorx/moonshotai/kimi-k2.5",
       "seller": "edenai",
       "sellerName": "Eden AI",
@@ -57864,7 +57926,7 @@
       "capabilities": {
         "reasoning": false,
         "tools": false,
-        "vision": false,
+        "vision": true,
         "audio": false
       },
       "rates": {
@@ -57895,7 +57957,7 @@
       "capabilities": {
         "reasoning": false,
         "tools": false,
-        "vision": false,
+        "vision": true,
         "audio": false
       },
       "rates": {
@@ -65943,6 +66005,37 @@
       "priceNote": "USD price published in Kilo's model catalog and converted with the listed ECB rate."
     },
     {
+      "key": "kilo:liquid/lfm-2.5-2.6b",
+      "seller": "kilo",
+      "sellerName": "Kilo",
+      "modelId": "liquid/lfm-2.5-2.6b",
+      "name": "LiquidAI: LFM2.5-2.6B",
+      "creator": "liquid",
+      "description": "LFM2.5-2.6B is a compact reasoning model from Liquid AI. It is suited for agent workflows, data extraction, RAG, and long-context processing. Liquid advises against using it for agentic coding or...",
+      "releaseDate": null,
+      "contextSize": 128000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.31269543464665417,
+        "cached": 0.03573662110247476,
+        "output": 0.4467077637809345,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.35,
+          "cached": 0.04,
+          "output": 0.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Kilo's model catalog and converted with the listed ECB rate."
+    },
+    {
       "key": "kilo:liquid/lfm-2.5-2.6b:free",
       "seller": "kilo",
       "sellerName": "Kilo",
@@ -66858,15 +66951,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.08934155275618691,
+        "input": 0.08040739748056822,
         "cached": 0.00893415527561869,
-        "output": 0.49137854015902804,
+        "output": 0.4467077637809345,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.1,
+          "input": 0.09,
           "cached": 0.01,
-          "output": 0.55
+          "output": 0.5
         }
       },
       "pricingTiers": [],
@@ -68392,37 +68485,6 @@
       "priceNote": "USD price published in Kilo's model catalog and converted with the listed ECB rate."
     },
     {
-      "key": "kilo:openai/gpt-3.5-turbo",
-      "seller": "kilo",
-      "sellerName": "Kilo",
-      "modelId": "openai/gpt-3.5-turbo",
-      "name": "OpenAI: GPT-3.5 Turbo",
-      "creator": "OpenAI",
-      "description": "GPT-3.5 Turbo is OpenAI's fastest model. It can understand and generate natural language or code, and is optimized for chat and traditional completion tasks.\n\nTraining data up to Sep 2021.",
-      "releaseDate": null,
-      "contextSize": 16385,
-      "capabilities": {
-        "reasoning": false,
-        "tools": true,
-        "vision": true,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.4467077637809345,
-        "cached": 0.4467077637809345,
-        "output": 1.3401232913428036,
-        "cachedFallback": true,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.5,
-          "cached": 0.5,
-          "output": 1.5
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Kilo's model catalog and converted with the listed ECB rate."
-    },
-    {
       "key": "kilo:openai/gpt-3.5-turbo-0613",
       "seller": "kilo",
       "sellerName": "Kilo",
@@ -68479,37 +68541,6 @@
           "input": 3.0,
           "cached": 3.0,
           "output": 4.0
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Kilo's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "kilo:openai/gpt-3.5-turbo-instruct",
-      "seller": "kilo",
-      "sellerName": "Kilo",
-      "modelId": "openai/gpt-3.5-turbo-instruct",
-      "name": "OpenAI: GPT-3.5 Turbo Instruct",
-      "creator": "OpenAI",
-      "description": "This model is a variant of GPT-3.5 Turbo tuned for instructional prompts and omitting chat-related optimizations. Training data: up to Sep 2021.",
-      "releaseDate": null,
-      "contextSize": 4095,
-      "capabilities": {
-        "reasoning": false,
-        "tools": false,
-        "vision": true,
-        "audio": false
-      },
-      "rates": {
-        "input": 1.3401232913428036,
-        "cached": 1.3401232913428036,
-        "output": 1.786831055123738,
-        "cachedFallback": true,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 1.5,
-          "cached": 1.5,
-          "output": 2.0
         }
       },
       "pricingTiers": [],
@@ -73989,13 +74020,13 @@
       },
       "rates": {
         "input": 0.2680246582685607,
-        "cached": 0.0491378540159028,
+        "cached": 0.044670776378093455,
         "output": 0.8040739748056822,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
           "input": 0.3,
-          "cached": 0.055,
+          "cached": 0.05,
           "output": 0.9
         }
       },
@@ -74639,15 +74670,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.16974895023675513,
-        "cached": 0.16974895023675513,
-        "output": 7.987134816403109,
+        "input": 0.18046993656749757,
+        "cached": 0.17153578129187885,
+        "output": 14.294648440989905,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.19,
-          "cached": 0.19,
-          "output": 8.94
+          "input": 0.202,
+          "cached": 0.192,
+          "output": 16.0
         }
       },
       "pricingTiers": [],
@@ -74887,15 +74918,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.01563477173233271,
-        "cached": 0.01563477173233271,
-        "output": 0.12731171267756633,
+        "input": 0.04583221656392388,
+        "cached": 0.02680246582685607,
+        "output": 0.06262842848208702,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0175,
-          "cached": 0.0175,
-          "output": 0.1425
+          "input": 0.0513,
+          "cached": 0.03,
+          "output": 0.0701
         }
       },
       "pricingTiers": [],
@@ -74918,15 +74949,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.06700616456714018,
-        "cached": 0.06700616456714018,
-        "output": 3.8372196908782277,
+        "input": 0.0628071115875994,
+        "cached": 0.0628071115875994,
+        "output": 3.917001697489502,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.075,
-          "cached": 0.075,
-          "output": 4.295
+          "input": 0.0703,
+          "cached": 0.0703,
+          "output": 4.3843
         }
       },
       "pricingTiers": [],
@@ -85636,7 +85667,7 @@
       "creator": "abliteration",
       "description": "Abliteration.ai's default unrestricted large text reasoning model is derived from GLM-5.3 and weight-modified to reduce refusals compared with the base model. It supports native tool calling, structured output, automatic prompt caching, and a one-million-token context window.",
       "releaseDate": null,
-      "contextSize": 1000000,
+      "contextSize": 1048576,
       "capabilities": {
         "reasoning": true,
         "tools": true,
@@ -85932,6 +85963,37 @@
           "input": 0.3,
           "cached": 0.3,
           "output": 0.6
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in nano-gpt's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nano-gpt:aleph-alpha/kolibri-1",
+      "seller": "nano-gpt",
+      "sellerName": "nano-gpt",
+      "modelId": "aleph-alpha/kolibri-1",
+      "name": "Kolibri 1",
+      "creator": "aleph-alpha",
+      "description": "Kolibri 1 is Aleph Alpha\u2019s open-weight reasoning model for German and English, hosted by Munito in the EU. It supports a one-million-token context, tool calling, structured output, and adjustable reasoning.",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.15009380863039398,
+        "cached": 0.08818011257035648,
+        "output": 0.5253283302063789,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.16799999999999998,
+          "cached": 0.0987,
+          "output": 0.588
         }
       },
       "pricingTiers": [],
@@ -87234,37 +87296,6 @@
           "input": 1.0,
           "cached": 1.0,
           "output": 1.0
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in nano-gpt's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "nano-gpt:ateron/gemma-4-dark-thoughts-v2-31b",
-      "seller": "nano-gpt",
-      "sellerName": "nano-gpt",
-      "modelId": "ateron/gemma-4-dark-thoughts-v2-31b",
-      "name": "Gemma 4 Dark Thoughts V2 31B",
-      "creator": "Google",
-      "description": "Ateron's second Dark Thoughts merge combines Dark Scarlett V2, MeroMero V2, and Scotoma 2 for creative dialogue and extended character roleplay. This text-only Gemma 4 31B deployment supports a 65,536-token context window and up to 8,192 output tokens.",
-      "releaseDate": null,
-      "contextSize": 65536,
-      "capabilities": {
-        "reasoning": true,
-        "tools": false,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.08934155275618691,
-        "cached": 0.044670776378093455,
-        "output": 0.4020369874028411,
-        "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.1,
-          "cached": 0.05,
-          "output": 0.45
         }
       },
       "pricingTiers": [],
@@ -88579,7 +88610,7 @@
       "modelId": "deepseek/deepseek-v4-flash-latest",
       "name": "DeepSeek Flash Latest",
       "creator": "DeepSeek",
-      "description": "Moving alias for DeepSeek V4.1 Flash 1017, with text and image input, tool calling, and optional reasoning. Zero data retention is available on eligible routes; output limits and reasoning levels depend on the selected route. JSON Schema output is not currently supported.",
+      "description": "Moving alias for DeepSeek V4.1 Flash 1017, with text and image input, tool calling, structured output, and optional reasoning. Zero data retention and JSON Schema output are available on eligible routes; output limits and reasoning levels depend on the selected route.",
       "releaseDate": null,
       "contextSize": 1048576,
       "capabilities": {
@@ -90966,7 +90997,7 @@
       "modelId": "google/diffusiongemma",
       "name": "DiffusionGemma",
       "creator": "Google",
-      "description": "DiffusionGemma is a high-speed diffusion-based version of Gemma 4 26B A4B. It supports optional reasoning and a 262,144-token context window.",
+      "description": "DiffusionGemma is a high-speed diffusion-based version of Gemma 4 26B A4B. It supports optional reasoning and a 262,144-token context window. Temperature, min-p, seed, minimum output tokens, logit bias, bad words, and allowed token IDs are unavailable; omit these parameters to use native diffusion sampling.",
       "releaseDate": null,
       "contextSize": 262144,
       "capabilities": {
@@ -91628,13 +91659,13 @@
       },
       "rates": {
         "input": 0.12507817385866168,
-        "cached": 0.12507817385866168,
+        "cached": 0.04467077637809345,
         "output": 0.3573662110247476,
-        "cachedFallback": true,
+        "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
           "input": 0.14,
-          "cached": 0.14,
+          "cached": 0.049999999999999996,
           "output": 0.39999999999999997
         }
       },
@@ -91743,7 +91774,7 @@
       "creator": "heabsy",
       "description": "Heabsy's NVFP4 build of Qwen3.8-27B by Alibaba Cloud, with refusal removal based on huihui-ai's Huihui-Qwen3.8-27B-abliterated. Quantized and calibrated by Heabsy, with unpublished weights under the Heabsy Model License. Supports text and image input, tools, and optional reasoning capped at 16,384 tokens within the output budget. This named build is separate from Qwen 3.8 27B Uncensored.",
       "releaseDate": null,
-      "contextSize": 1048576,
+      "contextSize": 524288,
       "capabilities": {
         "reasoning": true,
         "tools": true,
@@ -95083,37 +95114,6 @@
       "priceNote": "USD price published in nano-gpt's model catalog and converted with the listed ECB rate."
     },
     {
-      "key": "nano-gpt:nbeerbower/gemma4-gutenberg-31b",
-      "seller": "nano-gpt",
-      "sellerName": "nano-gpt",
-      "modelId": "nbeerbower/gemma4-gutenberg-31b",
-      "name": "Gemma 4 Gutenberg 31B",
-      "creator": "Google",
-      "description": "nbeerbower's Gemma 4 31B finetune for literary fiction, character interiority, and controlled narrative pacing. Its text decoder was trained with ORPO on 14,816 Athanorlite-DPO preference pairs. This text-only deployment supports a 65,536-token context window and up to 8,192 output tokens.",
-      "releaseDate": null,
-      "contextSize": 65536,
-      "capabilities": {
-        "reasoning": false,
-        "tools": false,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.08934155275618691,
-        "cached": 0.044670776378093455,
-        "output": 0.4020369874028411,
-        "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.1,
-          "cached": 0.05,
-          "output": 0.45
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in nano-gpt's model catalog and converted with the listed ECB rate."
-    },
-    {
       "key": "nano-gpt:nex-agi/nex-n2.5-mini",
       "seller": "nano-gpt",
       "sellerName": "nano-gpt",
@@ -95170,68 +95170,6 @@
           "input": 0.075,
           "cached": 0.015000000000000001,
           "output": 0.25
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in nano-gpt's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "nano-gpt:nimbz/gemma-4-giftige-blume-31b-v2",
-      "seller": "nano-gpt",
-      "sellerName": "nano-gpt",
-      "modelId": "nimbz/gemma-4-giftige-blume-31b-v2",
-      "name": "Gemma 4 Giftige-Blume V2 31B",
-      "creator": "Google",
-      "description": "Nimbz's second Giftige-Blume merge focuses on character roleplay, creative prose, and stricter prompt adherence. It combines storymaxxed, Equinox, Mero-Artemis, Musica, Ortenzya, Gemopus, and Sprinkle. This text-only Gemma 4 31B deployment supports a 65,536-token context window and up to 8,192 output tokens.",
-      "releaseDate": null,
-      "contextSize": 65536,
-      "capabilities": {
-        "reasoning": true,
-        "tools": false,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.08934155275618691,
-        "cached": 0.044670776378093455,
-        "output": 0.4020369874028411,
-        "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.1,
-          "cached": 0.05,
-          "output": 0.45
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in nano-gpt's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "nano-gpt:nimbz/schattenblume-31b",
-      "seller": "nano-gpt",
-      "sellerName": "nano-gpt",
-      "modelId": "nimbz/schattenblume-31b",
-      "name": "Schattenblume 31B",
-      "creator": "Google",
-      "description": "Nimbz's Gemma 4 31B merge for character roleplay, expressive prose, and creative dialogue. It combines Scotoma 2, Giftige-Blume v1, and MeroMero v2. This text-only deployment supports a 65,536-token context window and up to 8,192 output tokens.",
-      "releaseDate": null,
-      "contextSize": 65536,
-      "capabilities": {
-        "reasoning": true,
-        "tools": false,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.08934155275618691,
-        "cached": 0.044670776378093455,
-        "output": 0.4020369874028411,
-        "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.1,
-          "cached": 0.05,
-          "output": 0.45
         }
       },
       "pricingTiers": [],
@@ -97517,15 +97455,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.17868310551237382,
-        "cached": 0.044670776378093455,
-        "output": 0.7147324220494953,
+        "input": 0.23228803716608593,
+        "cached": 0.06253908692933083,
+        "output": 1.8583042973286874,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.2,
-          "cached": 0.05,
-          "output": 0.8
+          "input": 0.25999999999999995,
+          "cached": 0.06999999999999999,
+          "output": 2.0799999999999996
         }
       },
       "pricingTiers": [],
@@ -99857,68 +99795,6 @@
       "priceNote": "USD price published in nano-gpt's model catalog and converted with the listed ECB rate."
     },
     {
-      "key": "nano-gpt:qwen/qwen3.8-27b-obliterated",
-      "seller": "nano-gpt",
-      "sellerName": "nano-gpt",
-      "modelId": "qwen/qwen3.8-27b-obliterated",
-      "name": "Qwen 3.8 27B Obliterated",
-      "creator": "Alibaba",
-      "description": "Qwen 3.8 27B Obliterated is an open-weight multimodal model LoRA-tuned for fewer refusals across chat, coding, reasoning, tool use, and long-context work.",
-      "releaseDate": null,
-      "contextSize": 524288,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": true,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.22335388189046726,
-        "cached": 0.20101849370142055,
-        "output": 1.5634771732332708,
-        "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.25,
-          "cached": 0.225,
-          "output": 1.75
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in nano-gpt's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "nano-gpt:qwen/qwen3.8-27b-obliterated:thinking",
-      "seller": "nano-gpt",
-      "sellerName": "nano-gpt",
-      "modelId": "qwen/qwen3.8-27b-obliterated:thinking",
-      "name": "Qwen 3.8 27B Obliterated Thinking",
-      "creator": "Alibaba",
-      "description": "Qwen 3.8 27B Obliterated with thinking enabled for more deliberate creative work, coding, multimodal analysis, tool use, and long-context problem solving.",
-      "releaseDate": null,
-      "contextSize": 524288,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": true,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.22335388189046726,
-        "cached": 0.20101849370142055,
-        "output": 1.5634771732332708,
-        "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.25,
-          "cached": 0.225,
-          "output": 1.75
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in nano-gpt's model catalog and converted with the listed ECB rate."
-    },
-    {
       "key": "nano-gpt:qwen/qwen3.8-27b-queen",
       "seller": "nano-gpt",
       "sellerName": "nano-gpt",
@@ -100911,37 +100787,6 @@
       "priceNote": "USD price published in nano-gpt's model catalog and converted with the listed ECB rate."
     },
     {
-      "key": "nano-gpt:swiss-ai/apertus-v1.5-8b",
-      "seller": "nano-gpt",
-      "sellerName": "nano-gpt",
-      "modelId": "swiss-ai/apertus-v1.5-8b",
-      "name": "Apertus 1.5 8B",
-      "creator": "swiss-ai",
-      "description": "A compact, fully open model from the Swiss AI Initiative for multilingual chat and text tasks, with open weights, training data and recipes. Supports tool calling and a 262K context window.",
-      "releaseDate": null,
-      "contextSize": 262144,
-      "capabilities": {
-        "reasoning": false,
-        "tools": true,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.1072098633074243,
-        "cached": 0.1072098633074243,
-        "output": 0.2144197266148486,
-        "cachedFallback": true,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.12000000000000001,
-          "cached": 0.12000000000000001,
-          "output": 0.24000000000000002
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in nano-gpt's model catalog and converted with the listed ECB rate."
-    },
-    {
       "key": "nano-gpt:synth-2.5-flash",
       "seller": "nano-gpt",
       "sellerName": "nano-gpt",
@@ -101060,68 +100905,6 @@
           "input": 0.834,
           "cached": 0.041999999999999996,
           "output": 2.501
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in nano-gpt's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "nano-gpt:thedrummer/orion-26b-a4b-v1.1",
-      "seller": "nano-gpt",
-      "sellerName": "nano-gpt",
-      "modelId": "thedrummer/orion-26b-a4b-v1.1",
-      "name": "Orion 26B A4B v1.1",
-      "creator": "Google",
-      "description": "TheDrummer's Gemma 4 26B A4B fine-tune for creative writing, roleplay, and expressive dialogue. Supports optional thinking with a 65,536-token context window and up to 8,192 output tokens. Text input only.",
-      "releaseDate": null,
-      "contextSize": 65536,
-      "capabilities": {
-        "reasoning": true,
-        "tools": false,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.08934155275618691,
-        "cached": 0.044670776378093455,
-        "output": 0.4020369874028411,
-        "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.1,
-          "cached": 0.05,
-          "output": 0.45
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in nano-gpt's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "nano-gpt:thedrummer/skyfall-31b-v4.2",
-      "seller": "nano-gpt",
-      "sellerName": "nano-gpt",
-      "modelId": "thedrummer/skyfall-31b-v4.2",
-      "name": "TheDrummer Skyfall 31B v4.2",
-      "creator": "Mistral AI",
-      "description": "TheDrummer's Skyfall 31B v4.2 is a Magistral Small finetune for creative writing, roleplay, and dialogue. This text-only deployment uses NVFP4 weights and supports a 16K-token context window.",
-      "releaseDate": null,
-      "contextSize": 16384,
-      "capabilities": {
-        "reasoning": false,
-        "tools": false,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.1072098633074243,
-        "cached": 0.05360493165371215,
-        "output": 0.13401232913428035,
-        "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.12000000000000001,
-          "cached": 0.060000000000000005,
-          "output": 0.15
         }
       },
       "pricingTiers": [],
@@ -101260,7 +101043,7 @@
       "creator": "thinkingmachines",
       "description": "The thinking version of Thinking Machines' 975B-parameter open-weights Mixture-of-Experts generalist with 41B active parameters. It reasons natively over text, images, and audio, and is built for agentic coding, tool use, detailed instruction following, long-context work, and controllable thinking effort.",
       "releaseDate": null,
-      "contextSize": 1048000,
+      "contextSize": 1040000,
       "capabilities": {
         "reasoning": true,
         "tools": true,
@@ -102250,7 +102033,7 @@
       "modelId": "xiaomi/mimo-v2.6-flash-uncensored",
       "name": "MiMo V2.6 Flash Uncensored",
       "creator": "Xiaomi",
-      "description": "A lower-refusal MiMo V2.6 Flash finetune with a 1M-token context window, separate reasoning output, and tool calling. Image input and graded thinking effort depend on the selected provider; Kitani supports text input and thinking on or off.",
+      "description": "A lower-refusal MiMo V2.6 Flash finetune with a 1M-token context window, separate reasoning output, and tool calling. Supports image input and adjustable thinking effort.",
       "releaseDate": null,
       "contextSize": 1048576,
       "capabilities": {
@@ -102415,15 +102198,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.1072098633074243,
-        "cached": 0.1072098633074243,
-        "output": 0.7147324220494953,
-        "cachedFallback": true,
+        "input": 0.11614401858304296,
+        "cached": 0.022335388189046724,
+        "output": 0.7594031984275887,
+        "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.12000000000000001,
-          "cached": 0.12000000000000001,
-          "output": 0.8
+          "input": 0.12999999999999998,
+          "cached": 0.024999999999999998,
+          "output": 0.8500000000000001
         }
       },
       "pricingTiers": [],
@@ -102446,15 +102229,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.1072098633074243,
-        "cached": 0.1072098633074243,
-        "output": 0.7147324220494953,
-        "cachedFallback": true,
+        "input": 0.11614401858304296,
+        "cached": 0.022335388189046724,
+        "output": 0.7594031984275887,
+        "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.12000000000000001,
-          "cached": 0.12000000000000001,
-          "output": 0.8
+          "input": 0.12999999999999998,
+          "cached": 0.024999999999999998,
+          "output": 0.8500000000000001
         }
       },
       "pricingTiers": [],
@@ -116786,15 +116569,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.03970338604484946,
-        "cached": 0.0012632895559724828,
-        "output": 0.11911015813454838,
+        "input": 0.03770213526311088,
+        "cached": 0.025015634771732333,
+        "output": 0.15134459036898062,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.04444,
-          "cached": 0.001414,
-          "output": 0.13332
+          "input": 0.0422,
+          "cached": 0.028,
+          "output": 0.1694
         }
       },
       "pricingTiers": [],
@@ -116848,15 +116631,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.3289413025998392,
-        "cached": 0.027411775216653268,
-        "output": 0.6578826051996784,
+        "input": 0.18654516215491826,
+        "cached": 0.015545430179576521,
+        "output": 0.3730903243098365,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.368184,
-          "cached": 0.030682,
-          "output": 0.736368
+          "input": 0.2088,
+          "cached": 0.0174,
+          "output": 0.4176
         }
       },
       "pricingTiers": [],
@@ -118692,6 +118475,37 @@
       "priceNote": "USD price published in OpenRouter's model catalog and converted with the listed ECB rate."
     },
     {
+      "key": "openrouter:liquid/lfm-2.5-2.6b",
+      "seller": "openrouter",
+      "sellerName": "OpenRouter",
+      "modelId": "liquid/lfm-2.5-2.6b",
+      "name": "LiquidAI: LFM2.5-2.6B",
+      "creator": "liquid",
+      "description": "LFM2.5-2.6B is a compact reasoning model from Liquid AI. It is suited for agent workflows, data extraction, RAG, and long-context processing. Liquid advises against using it for agentic coding or...",
+      "releaseDate": null,
+      "contextSize": 128000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.31269543464665417,
+        "cached": 0.03573662110247476,
+        "output": 0.4467077637809345,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.35,
+          "cached": 0.04,
+          "output": 0.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OpenRouter's model catalog and converted with the listed ECB rate."
+    },
+    {
       "key": "openrouter:liquid/lfm-2.5-2.6b:free",
       "seller": "openrouter",
       "sellerName": "OpenRouter",
@@ -118925,15 +118739,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.04547485035289914,
-        "cached": 0.04547485035289914,
-        "output": 0.29929420173322613,
+        "input": 0.044670776378093455,
+        "cached": 0.044670776378093455,
+        "output": 0.2948271240954168,
         "cachedFallback": true,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0509,
-          "cached": 0.0509,
-          "output": 0.335
+          "input": 0.05,
+          "cached": 0.05,
+          "output": 0.33
         }
       },
       "pricingTiers": [],
@@ -121358,37 +121172,6 @@
       "priceNote": "USD price published in OpenRouter's model catalog and converted with the listed ECB rate."
     },
     {
-      "key": "openrouter:openai/gpt-3.5-turbo",
-      "seller": "openrouter",
-      "sellerName": "OpenRouter",
-      "modelId": "openai/gpt-3.5-turbo",
-      "name": "OpenAI: GPT-3.5 Turbo",
-      "creator": "OpenAI",
-      "description": "GPT-3.5 Turbo is OpenAI's fastest model. It can understand and generate natural language or code, and is optimized for chat and traditional completion tasks.\n\nTraining data up to Sep 2021.",
-      "releaseDate": null,
-      "contextSize": 16385,
-      "capabilities": {
-        "reasoning": false,
-        "tools": true,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.4467077637809345,
-        "cached": 0.4467077637809345,
-        "output": 1.3401232913428036,
-        "cachedFallback": true,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.5,
-          "cached": 0.5,
-          "output": 1.5
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in OpenRouter's model catalog and converted with the listed ECB rate."
-    },
-    {
       "key": "openrouter:openai/gpt-3.5-turbo-0613",
       "seller": "openrouter",
       "sellerName": "OpenRouter",
@@ -121445,68 +121228,6 @@
           "input": 3.0,
           "cached": 3.0,
           "output": 4.0
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in OpenRouter's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "openrouter:openai/gpt-3.5-turbo-instruct",
-      "seller": "openrouter",
-      "sellerName": "OpenRouter",
-      "modelId": "openai/gpt-3.5-turbo-instruct",
-      "name": "OpenAI: GPT-3.5 Turbo Instruct",
-      "creator": "OpenAI",
-      "description": "This model is a variant of GPT-3.5 Turbo tuned for instructional prompts and omitting chat-related optimizations. Training data: up to Sep 2021.",
-      "releaseDate": null,
-      "contextSize": 4095,
-      "capabilities": {
-        "reasoning": false,
-        "tools": false,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 1.3401232913428036,
-        "cached": 1.3401232913428036,
-        "output": 1.786831055123738,
-        "cachedFallback": true,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 1.5,
-          "cached": 1.5,
-          "output": 2.0
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in OpenRouter's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "openrouter:openai/gpt-3.5-turbo:batch",
-      "seller": "openrouter",
-      "sellerName": "OpenRouter",
-      "modelId": "openai/gpt-3.5-turbo:batch",
-      "name": "OpenAI: GPT-3.5 Turbo (batch)",
-      "creator": "OpenAI",
-      "description": "GPT-3.5 Turbo is OpenAI's fastest model. It can understand and generate natural language or code, and is optimized for chat and traditional completion tasks.\n\nTraining data up to Sep 2021.",
-      "releaseDate": null,
-      "contextSize": 16385,
-      "capabilities": {
-        "reasoning": false,
-        "tools": true,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.22335388189046726,
-        "cached": 0.22335388189046726,
-        "output": 0.6700616456714018,
-        "cachedFallback": true,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.25,
-          "cached": 0.25,
-          "output": 0.75
         }
       },
       "pricingTiers": [],
@@ -128071,13 +127792,13 @@
       },
       "rates": {
         "input": 0.2680246582685607,
-        "cached": 0.0491378540159028,
+        "cached": 0.044670776378093455,
         "output": 0.8040739748056822,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
           "input": 0.3,
-          "cached": 0.055,
+          "cached": 0.05,
           "output": 0.9
         }
       },
@@ -128783,15 +128504,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.16974895023675513,
-        "cached": 0.16974895023675513,
-        "output": 7.987134816403109,
+        "input": 0.18046993656749757,
+        "cached": 0.17153578129187885,
+        "output": 14.294648440989905,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.19,
-          "cached": 0.19,
-          "output": 8.94
+          "input": 0.202,
+          "cached": 0.192,
+          "output": 16.0
         }
       },
       "pricingTiers": [],
@@ -129031,15 +128752,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.01563477173233271,
-        "cached": 0.01563477173233271,
-        "output": 0.12731171267756633,
+        "input": 0.04583221656392388,
+        "cached": 0.02680246582685607,
+        "output": 0.06262842848208702,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0175,
-          "cached": 0.0175,
-          "output": 0.1425
+          "input": 0.0513,
+          "cached": 0.03,
+          "output": 0.0701
         }
       },
       "pricingTiers": [],
@@ -129062,15 +128783,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.06700616456714018,
-        "cached": 0.06700616456714018,
-        "output": 3.8372196908782277,
+        "input": 0.0628071115875994,
+        "cached": 0.0628071115875994,
+        "output": 3.917001697489502,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.075,
-          "cached": 0.075,
-          "output": 4.295
+          "input": 0.0703,
+          "cached": 0.0703,
+          "output": 4.3843
         }
       },
       "pricingTiers": [],
@@ -132884,6 +132605,37 @@
           "input": 0.6,
           "cached": 0.6,
           "output": 3.6
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "prime:qwen/qwen3.5-9b",
+      "seller": "prime",
+      "sellerName": "Prime",
+      "modelId": "qwen/qwen3.5-9b",
+      "name": "Qwen3.5 9B",
+      "creator": "Alibaba",
+      "description": "Qwen3.5 9B: a dense multimodal model with reasoning, tool calling and structured outputs, at its full 262K context.",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.15188063968551774,
+        "cached": 0.15188063968551774,
+        "output": 0.22335388189046726,
+        "cachedFallback": true,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.17,
+          "cached": 0.17,
+          "output": 0.25
         }
       },
       "pricingTiers": [],
@@ -145594,6 +145346,37 @@
           "input": 0.4,
           "cached": 0.1,
           "output": 2.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Requesty's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "requesty:tensorx/minimax-m3.1-flash",
+      "seller": "requesty",
+      "sellerName": "Requesty",
+      "modelId": "tensorx/minimax-m3.1-flash",
+      "name": "minimax-m3.1-flash",
+      "creator": "MiniMax AI",
+      "description": "MiniMax M3.1 Flash is a fast multimodal model in the MiniMax M3 family, built for agentic cowork automation, coding and visual tasks. It scores 72.5% on AutomationBench AA (best among open models), 73.67% on DeepSWE, 91.0 on BabyVision with tools, 82.5 on CharXiv RQ, 56% on AA Omniscience and 48% on HLE. Supports image input, tool calling, structured JSON output, reasoning and prompt caching. Ideal for multi step workflows, coding agents, frontend and presentation generation, and professional analysis at low cost.",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.2680246582685607,
+        "cached": 0.06253908692933084,
+        "output": 1.0720986330742428,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3,
+          "cached": 0.07,
+          "output": 1.2
         }
       },
       "pricingTiers": [],

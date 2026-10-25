@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-24T10:12:39.953426+00:00",
+  "generatedAt": "2026-10-25T10:37:23.385452+00:00",
   "currency": "EUR",
   "exchangeRate": {
     "series": "EXR.D.USD.EUR.SP00.A",
-    "source": "https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A?format=csvdata&startPeriod=2026-10-10",
+    "source": "https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A?format=csvdata&startPeriod=2026-10-11",
     "observationDate": "2026-10-23",
     "usdPerEur": 1.1193
   },
@@ -14,7 +14,7 @@
       "source": "https://api.cortecs.ai/v1/models?extended=true&currency=EUR",
       "euClaim": "EU catalog: providers based and regulated within the EU.",
       "id": "cortecs",
-      "fetchedAt": "2026-10-24T10:12:39.953426+00:00",
+      "fetchedAt": "2026-10-25T10:37:23.385452+00:00",
       "stale": false
     },
     {
@@ -25,14 +25,14 @@
       "fetchedAt": "2026-10-21T11:04:48.644814+00:00",
       "stale": true,
       "error": "'NoneType' object has no attribute 'get'",
-      "fallbackAttemptedAt": "2026-10-24T10:12:39.953426+00:00"
+      "fallbackAttemptedAt": "2026-10-25T10:37:23.385452+00:00"
     },
     {
       "name": "OpenRouter",
       "source": "https://openrouter.ai/api/v1/models",
       "euClaim": "EU regional routing; Business or Enterprise plan required.",
       "id": "openrouter",
-      "fetchedAt": "2026-10-24T10:12:39.953426+00:00",
+      "fetchedAt": "2026-10-25T10:37:23.385452+00:00",
       "stale": false
     },
     {
@@ -41,7 +41,7 @@
       "kind": "direct",
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "deepseek-direct",
-      "fetchedAt": "2026-10-24T10:12:39.953426+00:00",
+      "fetchedAt": "2026-10-25T10:37:23.385452+00:00",
       "stale": false
     },
     {
@@ -50,7 +50,7 @@
       "kind": "direct",
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "zai-direct",
-      "fetchedAt": "2026-10-24T10:12:39.953426+00:00",
+      "fetchedAt": "2026-10-25T10:37:23.385452+00:00",
       "stale": false
     },
     {
@@ -60,7 +60,7 @@
       "kind": "direct",
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "claude-direct",
-      "fetchedAt": "2026-10-24T10:12:39.953426+00:00",
+      "fetchedAt": "2026-10-25T10:37:23.385452+00:00",
       "stale": false
     },
     {
@@ -70,7 +70,7 @@
       "kind": "direct",
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "openai-direct",
-      "fetchedAt": "2026-10-24T10:12:39.953426+00:00",
+      "fetchedAt": "2026-10-25T10:37:23.385452+00:00",
       "stale": false
     },
     {
@@ -79,7 +79,7 @@
       "nativeCurrency": "USD",
       "euClaim": "EU regional endpoint (api.eu.mistral.ai): inference in EU/EFTA data centers at 1.1\u00d7 list price.",
       "id": "mistral",
-      "fetchedAt": "2026-10-24T10:12:39.953426+00:00",
+      "fetchedAt": "2026-10-25T10:37:23.385452+00:00",
       "stale": false
     }
   ],
@@ -1323,23 +1323,25 @@
       "providers": [
         "Tensorix",
         "sference",
-        "aki"
+        "aki",
+        "Entrim"
       ],
       "euProviders": [
         "Tensorix",
-        "aki"
+        "aki",
+        "Entrim"
       ],
       "default": {
-        "input": 0.25,
-        "cached": 0.1,
-        "output": 1.0,
+        "input": 0.182,
+        "cached": 0.005,
+        "output": 0.547,
         "cachedFallback": false,
         "nativeCurrency": "EUR"
       },
       "eu": {
-        "input": 0.25,
-        "cached": 0.1,
-        "output": 1.0,
+        "input": 0.182,
+        "cached": 0.005,
+        "output": 0.547,
         "cachedFallback": false,
         "nativeCurrency": "EUR"
       },
@@ -3071,6 +3073,45 @@
         "input": 0.269,
         "cached": 0.054,
         "output": 1.077,
+        "cachedFallback": false,
+        "nativeCurrency": "EUR"
+      },
+      "quantization": null,
+      "priceNote": "Model-level minimum price published by Cortecs."
+    },
+    {
+      "key": "cortecs:minimax-m3.1-flash",
+      "router": "cortecs",
+      "routerName": "Cortecs",
+      "modelId": "minimax-m3.1-flash",
+      "name": "minimax-m3.1-flash",
+      "owner": "MiniMax AI",
+      "description": "MiniMax M3.1 Flash - the speed-optimized model, delivering low-latency, cost-efficient inference while preserving strong reasoning, coding, and long-context handling for high-volume workloads.",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "providers": [
+        "Tensorix"
+      ],
+      "euProviders": [
+        "Tensorix"
+      ],
+      "default": {
+        "input": 0.273,
+        "cached": 0.068,
+        "output": 1.094,
+        "cachedFallback": false,
+        "nativeCurrency": "EUR"
+      },
+      "eu": {
+        "input": 0.273,
+        "cached": 0.068,
+        "output": 1.094,
         "cachedFallback": false,
         "nativeCurrency": "EUR"
       },
@@ -13663,15 +13704,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.03970338604484946,
-        "cached": 0.0012632895559724828,
-        "output": 0.11911015813454838,
+        "input": 0.03770213526311088,
+        "cached": 0.025015634771732333,
+        "output": 0.15134459036898062,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.04444,
-          "cached": 0.001414,
-          "output": 0.13332
+          "input": 0.0422,
+          "cached": 0.028,
+          "output": 0.1694
         }
       },
       "eu": {
@@ -13744,15 +13785,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.3289413025998392,
-        "cached": 0.027411775216653268,
-        "output": 0.6578826051996784,
+        "input": 0.18654516215491826,
+        "cached": 0.015545430179576521,
+        "output": 0.3730903243098365,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.368184,
-          "cached": 0.030682,
-          "output": 0.736368
+          "input": 0.2088,
+          "cached": 0.0174,
+          "output": 0.4176
         }
       },
       "eu": null,
@@ -15848,6 +15889,41 @@
       "priceNote": "USD Router Price converted with the listed ECB rate."
     },
     {
+      "key": "openrouter:liquid/lfm-2.5-2.6b",
+      "router": "openrouter",
+      "routerName": "OpenRouter",
+      "modelId": "liquid/lfm-2.5-2.6b",
+      "name": "LiquidAI: LFM2.5-2.6B",
+      "owner": "liquid",
+      "description": "LFM2.5-2.6B is a compact reasoning model from Liquid AI. It is suited for agent workflows, data extraction, RAG, and long-context processing. Liquid advises against using it for agentic coding or...",
+      "releaseDate": null,
+      "contextSize": 128000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "providers": [],
+      "euProviders": [],
+      "default": {
+        "input": 0.31269543464665417,
+        "cached": 0.03573662110247476,
+        "output": 0.4467077637809345,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.35,
+          "cached": 0.04,
+          "output": 0.5
+        }
+      },
+      "eu": null,
+      "quantization": null,
+      "euPlan": "Business or Enterprise",
+      "priceNote": "USD Router Price converted with the listed ECB rate."
+    },
+    {
       "key": "openrouter:liquid/lfm-2.5-2.6b:free",
       "router": "openrouter",
       "routerName": "OpenRouter",
@@ -16111,15 +16187,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.04547485035289914,
-        "cached": 0.04547485035289914,
-        "output": 0.29929420173322613,
+        "input": 0.044670776378093455,
+        "cached": 0.044670776378093455,
+        "output": 0.2948271240954168,
         "cachedFallback": true,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0509,
-          "cached": 0.0509,
-          "output": 0.335
+          "input": 0.05,
+          "cached": 0.05,
+          "output": 0.33
         }
       },
       "eu": null,
@@ -19078,41 +19154,6 @@
       "priceNote": "USD Router Price converted with the listed ECB rate."
     },
     {
-      "key": "openrouter:openai/gpt-3.5-turbo",
-      "router": "openrouter",
-      "routerName": "OpenRouter",
-      "modelId": "openai/gpt-3.5-turbo",
-      "name": "OpenAI: GPT-3.5 Turbo",
-      "owner": "OpenAI",
-      "description": "GPT-3.5 Turbo is OpenAI's fastest model. It can understand and generate natural language or code, and is optimized for chat and traditional completion tasks.\n\nTraining data up to Sep 2021.",
-      "releaseDate": null,
-      "contextSize": 16385,
-      "capabilities": {
-        "reasoning": false,
-        "tools": true,
-        "vision": false,
-        "audio": false
-      },
-      "providers": [],
-      "euProviders": [],
-      "default": {
-        "input": 0.4467077637809345,
-        "cached": 0.4467077637809345,
-        "output": 1.3401232913428036,
-        "cachedFallback": true,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.5,
-          "cached": 0.5,
-          "output": 1.5
-        }
-      },
-      "eu": null,
-      "quantization": null,
-      "euPlan": "Business or Enterprise",
-      "priceNote": "USD Router Price converted with the listed ECB rate."
-    },
-    {
       "key": "openrouter:openai/gpt-3.5-turbo-0613",
       "router": "openrouter",
       "routerName": "OpenRouter",
@@ -19175,76 +19216,6 @@
           "input": 3.0,
           "cached": 3.0,
           "output": 4.0
-        }
-      },
-      "eu": null,
-      "quantization": null,
-      "euPlan": "Business or Enterprise",
-      "priceNote": "USD Router Price converted with the listed ECB rate."
-    },
-    {
-      "key": "openrouter:openai/gpt-3.5-turbo-instruct",
-      "router": "openrouter",
-      "routerName": "OpenRouter",
-      "modelId": "openai/gpt-3.5-turbo-instruct",
-      "name": "OpenAI: GPT-3.5 Turbo Instruct",
-      "owner": "OpenAI",
-      "description": "This model is a variant of GPT-3.5 Turbo tuned for instructional prompts and omitting chat-related optimizations. Training data: up to Sep 2021.",
-      "releaseDate": null,
-      "contextSize": 4095,
-      "capabilities": {
-        "reasoning": false,
-        "tools": false,
-        "vision": false,
-        "audio": false
-      },
-      "providers": [],
-      "euProviders": [],
-      "default": {
-        "input": 1.3401232913428036,
-        "cached": 1.3401232913428036,
-        "output": 1.786831055123738,
-        "cachedFallback": true,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 1.5,
-          "cached": 1.5,
-          "output": 2.0
-        }
-      },
-      "eu": null,
-      "quantization": null,
-      "euPlan": "Business or Enterprise",
-      "priceNote": "USD Router Price converted with the listed ECB rate."
-    },
-    {
-      "key": "openrouter:openai/gpt-3.5-turbo:batch",
-      "router": "openrouter",
-      "routerName": "OpenRouter",
-      "modelId": "openai/gpt-3.5-turbo:batch",
-      "name": "OpenAI: GPT-3.5 Turbo (batch)",
-      "owner": "OpenAI",
-      "description": "GPT-3.5 Turbo is OpenAI's fastest model. It can understand and generate natural language or code, and is optimized for chat and traditional completion tasks.\n\nTraining data up to Sep 2021.",
-      "releaseDate": null,
-      "contextSize": 16385,
-      "capabilities": {
-        "reasoning": false,
-        "tools": true,
-        "vision": false,
-        "audio": false
-      },
-      "providers": [],
-      "euProviders": [],
-      "default": {
-        "input": 0.22335388189046726,
-        "cached": 0.22335388189046726,
-        "output": 0.6700616456714018,
-        "cachedFallback": true,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.25,
-          "cached": 0.25,
-          "output": 0.75
         }
       },
       "eu": null,
@@ -26921,13 +26892,13 @@
       "euProviders": [],
       "default": {
         "input": 0.2680246582685607,
-        "cached": 0.0491378540159028,
+        "cached": 0.044670776378093455,
         "output": 0.8040739748056822,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
           "input": 0.3,
-          "cached": 0.055,
+          "cached": 0.05,
           "output": 0.9
         }
       },
@@ -27758,15 +27729,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.16974895023675513,
-        "cached": 0.16974895023675513,
-        "output": 7.987134816403109,
+        "input": 0.18046993656749757,
+        "cached": 0.17153578129187885,
+        "output": 14.294648440989905,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.19,
-          "cached": 0.19,
-          "output": 8.94
+          "input": 0.202,
+          "cached": 0.192,
+          "output": 16.0
         }
       },
       "eu": null,
@@ -28038,15 +28009,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.01563477173233271,
-        "cached": 0.01563477173233271,
-        "output": 0.12731171267756633,
+        "input": 0.04583221656392388,
+        "cached": 0.02680246582685607,
+        "output": 0.06262842848208702,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0175,
-          "cached": 0.0175,
-          "output": 0.1425
+          "input": 0.0513,
+          "cached": 0.03,
+          "output": 0.0701
         }
       },
       "eu": null,
@@ -28073,15 +28044,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.06700616456714018,
-        "cached": 0.06700616456714018,
-        "output": 3.8372196908782277,
+        "input": 0.0628071115875994,
+        "cached": 0.0628071115875994,
+        "output": 3.917001697489502,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.075,
-          "cached": 0.075,
-          "output": 4.295
+          "input": 0.0703,
+          "cached": 0.0703,
+          "output": 4.3843
         }
       },
       "eu": null,

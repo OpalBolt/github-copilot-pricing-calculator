@@ -215,15 +215,6 @@
           "default_visible": false
         },
         {
-          "id": "longcat-2-5-preview-free",
-          "name": "LongCat 2.5 Preview Free",
-          "input": 0.0,
-          "input_cache": 0.0,
-          "output": 0.0,
-          "monthly_limit_usd": null,
-          "default_visible": false
-        },
-        {
           "id": "step-5-preview",
           "name": "Step 5 Preview",
           "input": 1.0,
@@ -476,12 +467,12 @@
           "default_visible": false
         },
         {
-          "id": "gemini-4-argon-contributor",
-          "name": "Gemini 4 Argon Contributor",
+          "id": "gemini-4-argon-50-off",
+          "name": "Gemini 4 Argon (50% off)",
           "input": 4.0,
           "input_cache": 0.2,
           "output": 20.0,
-          "monthly_limit_usd": 602.0,
+          "monthly_limit_usd": 30.0,
           "default_visible": false
         }
       ]

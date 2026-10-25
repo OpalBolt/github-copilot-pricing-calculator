@@ -31,6 +31,14 @@
       "changes": [
         "+ OpenCode Go \u00b7 Kimi K3.1 Pro (input $2 \u00b7 cached $0.2 \u00b7 output $10)"
       ]
+    },
+    {
+      "date": "2026-10-25",
+      "changes": [
+        "\u2212 OpenCode Go \u00b7 Gemini 4 Argon Contributor",
+        "\u2212 OpenCode Go \u00b7 LongCat 2.5 Preview Free",
+        "+ OpenCode Go \u00b7 Gemini 4 Argon (50% off) (input $4 \u00b7 cached $0.2 \u00b7 output $20)"
+      ]
     }
   ],
   "router": [
@@ -187,6 +195,24 @@
         "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi Latest \u2014 input $0.238\u2192$0.19 \u00b7 cached $0.228\u2192$0.19 \u00b7 output $16\u2192$8.94",
         "\u2192 OpenRouter \u00b7 Z.ai: GLM Flash Latest \u2014 input $0.0052\u2192$0.0175 \u00b7 cached $0.0052\u2192$0.0175 \u00b7 output $0.1985\u2192$0.1425",
         "\u2192 OpenRouter \u00b7 Z.ai: GLM Latest \u2014 input $0.079\u2192$0.075 \u00b7 cached $0.078\u2192$0.075 \u00b7 output $1.4\u2192$4.295"
+      ]
+    },
+    {
+      "date": "2026-10-25",
+      "changes": [
+        "\u2212 OpenRouter: OpenAI: GPT-3.5 Turbo",
+        "\u2212 OpenRouter: OpenAI: GPT-3.5 Turbo Instruct",
+        "\u2212 OpenRouter: OpenAI: GPT-3.5 Turbo (batch)",
+        "+ Cortecs: minimax-m3.1-flash",
+        "+ OpenRouter: LiquidAI: LFM2.5-2.6B",
+        "\u2192 Cortecs \u00b7 deepseek-v4.1-flash-1017 \u2014 input $0.25\u2192$0.182 \u00b7 cached $0.1\u2192$0.005 \u00b7 output $1\u2192$0.547 \u00b7 eu input $0.25\u2192$0.182 \u00b7 eu cached $0.1\u2192$0.005 \u00b7 eu output $1\u2192$0.547",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash 0731 \u2014 input $0.04444\u2192$0.0422 \u00b7 cached $0.001414\u2192$0.028 \u00b7 output $0.1333\u2192$0.1694",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Pro 0423 \u2014 input $0.3682\u2192$0.2088 \u00b7 cached $0.03068\u2192$0.0174 \u00b7 output $0.7364\u2192$0.4176",
+        "\u2192 OpenRouter \u00b7 Meta: Llama 3.2 3B Instruct \u2014 input $0.0509\u2192$0.05 \u00b7 cached $0.0509\u2192$0.05 \u00b7 output $0.335\u2192$0.33",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 4.6V \u2014 cached $0.055\u2192$0.05",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi Latest \u2014 input $0.19\u2192$0.202 \u00b7 cached $0.19\u2192$0.192 \u00b7 output $8.94\u2192$16",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM Flash Latest \u2014 input $0.0175\u2192$0.0513 \u00b7 cached $0.0175\u2192$0.03 \u00b7 output $0.1425\u2192$0.0701",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM Latest \u2014 input $0.075\u2192$0.0703 \u00b7 cached $0.075\u2192$0.0703 \u00b7 output $4.295\u2192$4.384"
       ]
     }
   ],
@@ -447,6 +473,49 @@
         "+ nano-gpt: Xing 4.0 29B A4B",
         "+ NEAR AI: Kimi K3.1 Pro",
         "\u2026 and 121 more"
+      ]
+    },
+    {
+      "date": "2026-10-25",
+      "changes": [
+        "\u2212 Kilo: OpenAI: GPT-3.5 Turbo",
+        "\u2212 Kilo: OpenAI: GPT-3.5 Turbo Instruct",
+        "\u2212 nano-gpt: Gemma 4 Dark Thoughts V2 31B",
+        "\u2212 nano-gpt: Gemma 4 Gutenberg 31B",
+        "\u2212 nano-gpt: Gemma 4 Giftige-Blume V2 31B",
+        "\u2212 nano-gpt: Schattenblume 31B",
+        "\u2212 nano-gpt: Qwen 3.8 27B Obliterated",
+        "\u2212 nano-gpt: Qwen 3.8 27B Obliterated Thinking",
+        "\u2212 nano-gpt: Apertus 1.5 8B",
+        "\u2212 nano-gpt: Orion 26B A4B v1.1",
+        "\u2212 nano-gpt: TheDrummer Skyfall 31B v4.2",
+        "\u2212 OpenRouter: OpenAI: GPT-3.5 Turbo",
+        "\u2212 OpenRouter: OpenAI: GPT-3.5 Turbo Instruct",
+        "\u2212 OpenRouter: OpenAI: GPT-3.5 Turbo (batch)",
+        "+ Cortecs: minimax-m3.1-flash",
+        "+ Eden AI: minimax/minimax-m3.1-flash",
+        "+ Kilo: LiquidAI: LFM2.5-2.6B",
+        "+ nano-gpt: Kolibri 1",
+        "+ OpenRouter: LiquidAI: LFM2.5-2.6B",
+        "+ Prime: Qwen3.5 9B",
+        "+ Requesty: minimax-m3.1-flash",
+        "\u2192 Cortecs \u00b7 deepseek-v4.1-flash-1017 \u2014 input $0.25\u2192$0.182 \u00b7 cached $0.1\u2192$0.005 \u00b7 output $1\u2192$0.547",
+        "\u2192 Kilo \u00b7 MiniMax: MiniMax M3.1 Flash \u2014 input $0.1\u2192$0.09 \u00b7 output $0.55\u2192$0.5",
+        "\u2192 Kilo \u00b7 Z.ai: GLM 4.6V \u2014 cached $0.055\u2192$0.05",
+        "\u2192 Kilo \u00b7 MoonshotAI: Kimi Latest \u2014 input $0.19\u2192$0.202 \u00b7 cached $0.19\u2192$0.192 \u00b7 output $8.94\u2192$16",
+        "\u2192 Kilo \u00b7 Z.ai: GLM Flash Latest \u2014 input $0.0175\u2192$0.0513 \u00b7 cached $0.0175\u2192$0.03 \u00b7 output $0.1425\u2192$0.0701",
+        "\u2192 Kilo \u00b7 Z.ai: GLM Latest \u2014 input $0.075\u2192$0.0703 \u00b7 cached $0.075\u2192$0.0703 \u00b7 output $4.295\u2192$4.384",
+        "\u2192 nano-gpt \u00b7 Gemma 4 31B \u2014 cached $0.14\u2192$0.05",
+        "\u2192 nano-gpt \u00b7 Ornith 1.5 122B \u2014 input $0.2\u2192$0.26 \u00b7 cached $0.05\u2192$0.07 \u00b7 output $0.8\u2192$2.08",
+        "\u2192 nano-gpt \u00b7 GLM 4.5 Air \u2014 input $0.12\u2192$0.13 \u00b7 cached $0.12\u2192$0.025 \u00b7 output $0.8\u2192$0.85",
+        "\u2192 nano-gpt \u00b7 GLM 4.5 Air (Thinking) \u2014 input $0.12\u2192$0.13 \u00b7 cached $0.12\u2192$0.025 \u00b7 output $0.8\u2192$0.85",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash 0731 \u2014 input $0.04444\u2192$0.0422 \u00b7 cached $0.001414\u2192$0.028 \u00b7 output $0.1333\u2192$0.1694",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Pro 0423 \u2014 input $0.3682\u2192$0.2088 \u00b7 cached $0.03068\u2192$0.0174 \u00b7 output $0.7364\u2192$0.4176",
+        "\u2192 OpenRouter \u00b7 Meta: Llama 3.2 3B Instruct \u2014 input $0.0509\u2192$0.05 \u00b7 cached $0.0509\u2192$0.05 \u00b7 output $0.335\u2192$0.33",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 4.6V \u2014 cached $0.055\u2192$0.05",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi Latest \u2014 input $0.19\u2192$0.202 \u00b7 cached $0.19\u2192$0.192 \u00b7 output $8.94\u2192$16",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM Flash Latest \u2014 input $0.0175\u2192$0.0513 \u00b7 cached $0.0175\u2192$0.03 \u00b7 output $0.1425\u2192$0.0701",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM Latest \u2014 input $0.075\u2192$0.0703 \u00b7 cached $0.075\u2192$0.0703 \u00b7 output $4.295\u2192$4.384"
       ]
     }
   ]
