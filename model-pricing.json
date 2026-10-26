@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-25T10:37:29.243304+00:00",
+  "generatedAt": "2026-10-26T12:10:42.075889+00:00",
   "currency": "EUR",
   "exchangeRate": {
     "series": "EXR.D.USD.EUR.SP00.A",
-    "source": "https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A?format=csvdata&startPeriod=2026-10-11",
+    "source": "https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A?format=csvdata&startPeriod=2026-10-12",
     "observationDate": "2026-10-23",
     "usdPerEur": 1.1193
   },
@@ -15,7 +15,7 @@
       "source": "https://api.cortecs.ai/v1/models?extended=true&currency=EUR",
       "id": "cortecs",
       "nativeCurrency": "EUR",
-      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
+      "fetchedAt": "2026-10-26T12:10:42.075889+00:00",
       "stale": false
     },
     {
@@ -26,7 +26,7 @@
       "fetchedAt": "2026-10-21T11:04:55.696822+00:00",
       "stale": true,
       "error": "'NoneType' object has no attribute 'get'",
-      "fallbackAttemptedAt": "2026-10-25T10:37:29.243304+00:00"
+      "fallbackAttemptedAt": "2026-10-26T12:10:42.075889+00:00"
     },
     {
       "name": "OpenRouter",
@@ -34,7 +34,7 @@
       "source": "https://openrouter.ai/api/v1/models",
       "id": "openrouter",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
+      "fetchedAt": "2026-10-26T12:10:42.075889+00:00",
       "stale": false
     },
     {
@@ -43,7 +43,7 @@
       "source": "https://opencode.ai/zen/v1/models",
       "id": "opencode",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
+      "fetchedAt": "2026-10-26T12:10:42.075889+00:00",
       "stale": false
     },
     {
@@ -52,7 +52,7 @@
       "source": "https://api.deepinfra.com/v1/models",
       "nativeCurrency": "USD",
       "id": "deepinfra",
-      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
+      "fetchedAt": "2026-10-26T12:10:42.075889+00:00",
       "stale": false
     },
     {
@@ -61,7 +61,7 @@
       "source": "https://api.novita.ai/v3/openai/models",
       "nativeCurrency": "USD",
       "id": "novita",
-      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
+      "fetchedAt": "2026-10-26T12:10:42.075889+00:00",
       "stale": false
     },
     {
@@ -70,7 +70,7 @@
       "source": "https://router.requesty.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "requesty",
-      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
+      "fetchedAt": "2026-10-26T12:10:42.075889+00:00",
       "stale": false
     },
     {
@@ -79,7 +79,7 @@
       "source": "https://ai-gateway.vercel.sh/v1/models",
       "nativeCurrency": "USD",
       "id": "vercel-gateway",
-      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
+      "fetchedAt": "2026-10-26T12:10:42.075889+00:00",
       "stale": false
     },
     {
@@ -88,7 +88,7 @@
       "source": "https://api.kilo.ai/api/gateway/models",
       "nativeCurrency": "USD",
       "id": "kilo",
-      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
+      "fetchedAt": "2026-10-26T12:10:42.075889+00:00",
       "stale": false
     },
     {
@@ -97,7 +97,7 @@
       "source": "https://nano-gpt.com/api/v1/models?detailed=true",
       "nativeCurrency": "USD",
       "id": "nano-gpt",
-      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
+      "fetchedAt": "2026-10-26T12:10:42.075889+00:00",
       "stale": false
     },
     {
@@ -106,7 +106,7 @@
       "source": "https://llm.chutes.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "chutes",
-      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
+      "fetchedAt": "2026-10-26T12:10:42.075889+00:00",
       "stale": false
     },
     {
@@ -115,7 +115,7 @@
       "source": "https://api.llmgateway.io/v1/models",
       "nativeCurrency": "USD",
       "id": "llmgateway",
-      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
+      "fetchedAt": "2026-10-26T12:10:42.075889+00:00",
       "stale": false
     },
     {
@@ -124,7 +124,7 @@
       "source": "https://api.aiand.com/v1/models",
       "nativeCurrency": "USD",
       "id": "aiand",
-      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
+      "fetchedAt": "2026-10-26T12:10:42.075889+00:00",
       "stale": false
     },
     {
@@ -133,7 +133,7 @@
       "source": "https://api.aimlapi.com/v1/models?include=pricing,modalities",
       "nativeCurrency": "USD",
       "id": "aimlapi",
-      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
+      "fetchedAt": "2026-10-26T12:10:42.075889+00:00",
       "stale": false
     },
     {
@@ -142,7 +142,7 @@
       "source": "https://api.ambient.xyz/v1/models",
       "nativeCurrency": "USD",
       "id": "ambient",
-      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
+      "fetchedAt": "2026-10-26T12:10:42.075889+00:00",
       "stale": false
     },
     {
@@ -151,7 +151,7 @@
       "source": "https://www.crossmodel.ai/api/models",
       "nativeCurrency": "USD",
       "id": "crossmodel",
-      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
+      "fetchedAt": "2026-10-26T12:10:42.075889+00:00",
       "stale": false
     },
     {
@@ -160,7 +160,7 @@
       "source": "https://api.edenai.run/v3/models",
       "nativeCurrency": "USD",
       "id": "edenai",
-      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
+      "fetchedAt": "2026-10-26T12:10:42.075889+00:00",
       "stale": false
     },
     {
@@ -169,7 +169,7 @@
       "source": "https://api.empiriolabs.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "empiriolabs",
-      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
+      "fetchedAt": "2026-10-26T12:10:42.075889+00:00",
       "stale": false
     },
     {
@@ -178,7 +178,7 @@
       "source": "https://api.engy.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "engy",
-      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
+      "fetchedAt": "2026-10-26T12:10:42.075889+00:00",
       "stale": false
     },
     {
@@ -187,7 +187,7 @@
       "source": "https://api.friendli.ai/serverless/v1/models",
       "nativeCurrency": "USD",
       "id": "friendli",
-      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
+      "fetchedAt": "2026-10-26T12:10:42.075889+00:00",
       "stale": false
     },
     {
@@ -196,7 +196,7 @@
       "source": "https://hyper.charm.land/v1/models",
       "nativeCurrency": "USD",
       "id": "hyper",
-      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
+      "fetchedAt": "2026-10-26T12:10:42.075889+00:00",
       "stale": false
     },
     {
@@ -205,7 +205,7 @@
       "source": "https://api.inceptron.io/v1/models",
       "nativeCurrency": "USD",
       "id": "inceptron",
-      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
+      "fetchedAt": "2026-10-26T12:10:42.075889+00:00",
       "stale": false
     },
     {
@@ -214,7 +214,7 @@
       "source": "https://cloud-api.near.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "nearai",
-      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
+      "fetchedAt": "2026-10-26T12:10:42.075889+00:00",
       "stale": false
     },
     {
@@ -223,7 +223,7 @@
       "source": "https://api.ofox.ai/v2/models/catalog?include=provider_price&limit=500",
       "nativeCurrency": "USD",
       "id": "ofox",
-      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
+      "fetchedAt": "2026-10-26T12:10:42.075889+00:00",
       "stale": false
     },
     {
@@ -232,7 +232,7 @@
       "source": "https://api.fastino.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "pioneer",
-      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
+      "fetchedAt": "2026-10-26T12:10:42.075889+00:00",
       "stale": false
     },
     {
@@ -241,7 +241,7 @@
       "source": "https://api.pinference.ai/api/v1/models",
       "nativeCurrency": "USD",
       "id": "prime",
-      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
+      "fetchedAt": "2026-10-26T12:10:42.075889+00:00",
       "stale": false
     },
     {
@@ -250,7 +250,7 @@
       "source": "https://inference.tinfoil.sh/v1/models",
       "nativeCurrency": "USD",
       "id": "tinfoil",
-      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
+      "fetchedAt": "2026-10-26T12:10:42.075889+00:00",
       "stale": false
     },
     {
@@ -259,7 +259,7 @@
       "source": "https://api.venice.ai/api/v1/models?type=text",
       "nativeCurrency": "USD",
       "id": "venice",
-      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
+      "fetchedAt": "2026-10-26T12:10:42.075889+00:00",
       "stale": false
     },
     {
@@ -268,7 +268,7 @@
       "sellerKind": "first-party",
       "id": "deepseek-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
+      "fetchedAt": "2026-10-26T12:10:42.075889+00:00",
       "stale": false
     },
     {
@@ -277,7 +277,7 @@
       "sellerKind": "first-party",
       "id": "zai-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
+      "fetchedAt": "2026-10-26T12:10:42.075889+00:00",
       "stale": false
     },
     {
@@ -286,7 +286,7 @@
       "sellerKind": "first-party",
       "id": "claude-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
+      "fetchedAt": "2026-10-26T12:10:42.075889+00:00",
       "stale": false
     },
     {
@@ -295,7 +295,7 @@
       "sellerKind": "first-party",
       "id": "openai-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
+      "fetchedAt": "2026-10-26T12:10:42.075889+00:00",
       "stale": false
     },
     {
@@ -304,7 +304,7 @@
       "source": "https://docs.x.ai/developers/pricing.md",
       "nativeCurrency": "USD",
       "id": "xai",
-      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
+      "fetchedAt": "2026-10-26T12:10:42.075889+00:00",
       "stale": false
     },
     {
@@ -313,7 +313,7 @@
       "source": "https://docs.mistral.ai/inference/pricing.md",
       "nativeCurrency": "USD",
       "id": "mistral",
-      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
+      "fetchedAt": "2026-10-26T12:10:42.075889+00:00",
       "stale": false
     },
     {
@@ -322,7 +322,7 @@
       "source": "https://dev.meta.ai/docs/pricing-rate-limits.md",
       "nativeCurrency": "USD",
       "id": "meta",
-      "fetchedAt": "2026-10-25T10:37:29.243304+00:00",
+      "fetchedAt": "2026-10-26T12:10:42.075889+00:00",
       "stale": false
     }
   ],
@@ -19421,7 +19421,7 @@
       "creator": "DeepSeek",
       "description": "DeepSeek-V3.2 is a large language model designed to harmonize high computational efficiency with strong reasoning and agentic tool-use performance. It introduces DeepSeek Sparse Attention (DSA), a fine-grained sparse attention mechanism that reduces training and inference cost while preserving quality in long-context scenarios. A scalable reinforcement learning post-training framework further improves reasoning, with reported performance in the GPT-5 class, and the model has demonstrated gold-medal results on the 2025 IMO and IOI. V3.2 also uses a large-scale agentic task synthesis pipeline to better integrate reasoning into tool-use settings, boosting compliance and generalization in interactive environments.",
       "releaseDate": null,
-      "contextSize": 16384,
+      "contextSize": 163840,
       "capabilities": {
         "reasoning": false,
         "tools": false,
@@ -32782,7 +32782,7 @@
       "creator": "deepinfra",
       "description": "DeepSeek-V3.2 is a large language model designed to harmonize high computational efficiency with strong reasoning and agentic tool-use performance. It introduces DeepSeek Sparse Attention (DSA), a fine-grained sparse attention mechanism...",
       "releaseDate": null,
-      "contextSize": 16384,
+      "contextSize": 163840,
       "capabilities": {
         "reasoning": true,
         "tools": true,
@@ -40617,37 +40617,6 @@
       "priceNote": "USD price published in Eden AI's model catalog and converted with the listed ECB rate."
     },
     {
-      "key": "edenai:mistral/glm-5-3-flash",
-      "seller": "edenai",
-      "sellerName": "Eden AI",
-      "modelId": "mistral/glm-5-3-flash",
-      "name": "glm-5-3-flash",
-      "creator": "Mistral AI",
-      "description": "",
-      "releaseDate": null,
-      "contextSize": 1048576,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.13401232913428035,
-        "cached": 0.02680246582685607,
-        "output": 0.4467077637809345,
-        "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.15,
-          "cached": 0.03,
-          "output": 0.5
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Eden AI's model catalog and converted with the listed ECB rate."
-    },
-    {
       "key": "edenai:mistral/labs-devstral-small-2512",
       "seller": "edenai",
       "sellerName": "Eden AI",
@@ -43221,223 +43190,6 @@
       "priceNote": "USD price published in Eden AI's model catalog and converted with the listed ECB rate."
     },
     {
-      "key": "edenai:openai/gpt-3.5-turbo",
-      "seller": "edenai",
-      "sellerName": "Eden AI",
-      "modelId": "openai/gpt-3.5-turbo",
-      "name": "gpt-3.5-turbo",
-      "creator": "OpenAI",
-      "description": "GPT-3.5 Turbo is OpenAI's fastest model. It can understand and generate natural language or code, and is optimized for chat and traditional completion tasks.\n\nTraining data up to Sep 2021.",
-      "releaseDate": null,
-      "contextSize": 16385,
-      "capabilities": {
-        "reasoning": false,
-        "tools": true,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.4467077637809345,
-        "cached": 0.4467077637809345,
-        "output": 1.3401232913428036,
-        "cachedFallback": true,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.5,
-          "cached": 0.5,
-          "output": 1.5
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Eden AI's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "edenai:openai/gpt-3.5-turbo-0125",
-      "seller": "edenai",
-      "sellerName": "Eden AI",
-      "modelId": "openai/gpt-3.5-turbo-0125",
-      "name": "gpt-3.5-turbo-0125",
-      "creator": "OpenAI",
-      "description": "",
-      "releaseDate": null,
-      "contextSize": 16385,
-      "capabilities": {
-        "reasoning": false,
-        "tools": true,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.4467077637809345,
-        "cached": 0.4467077637809345,
-        "output": 1.3401232913428036,
-        "cachedFallback": true,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.5,
-          "cached": 0.5,
-          "output": 1.5
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Eden AI's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "edenai:openai/gpt-3.5-turbo-16k",
-      "seller": "edenai",
-      "sellerName": "Eden AI",
-      "modelId": "openai/gpt-3.5-turbo-16k",
-      "name": "gpt-3.5-turbo-16k",
-      "creator": "OpenAI",
-      "description": "This model offers four times the context length of gpt-3.5-turbo, allowing it to support approximately 20 pages of text in a single request at a higher cost. Training data: up...",
-      "releaseDate": null,
-      "contextSize": 16385,
-      "capabilities": {
-        "reasoning": false,
-        "tools": true,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 2.6802465826856072,
-        "cached": 2.6802465826856072,
-        "output": 3.573662110247476,
-        "cachedFallback": true,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 3.0,
-          "cached": 3.0,
-          "output": 4.0
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Eden AI's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "edenai:openai/gpt-4",
-      "seller": "edenai",
-      "sellerName": "Eden AI",
-      "modelId": "openai/gpt-4",
-      "name": "gpt-4",
-      "creator": "OpenAI",
-      "description": "OpenAI's flagship model, GPT-4 is a large-scale multimodal language model capable of solving difficult problems with greater accuracy than previous models due to its broader general knowledge and advanced reasoning...",
-      "releaseDate": null,
-      "contextSize": 8191,
-      "capabilities": {
-        "reasoning": false,
-        "tools": true,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 26.80246582685607,
-        "cached": 26.80246582685607,
-        "output": 53.60493165371214,
-        "cachedFallback": true,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 30.0,
-          "cached": 30.0,
-          "output": 60.0
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Eden AI's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "edenai:openai/gpt-4-0613",
-      "seller": "edenai",
-      "sellerName": "Eden AI",
-      "modelId": "openai/gpt-4-0613",
-      "name": "gpt-4-0613",
-      "creator": "OpenAI",
-      "description": "",
-      "releaseDate": null,
-      "contextSize": 8192,
-      "capabilities": {
-        "reasoning": false,
-        "tools": true,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 26.80246582685607,
-        "cached": 26.80246582685607,
-        "output": 53.60493165371214,
-        "cachedFallback": true,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 30.0,
-          "cached": 30.0,
-          "output": 60.0
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Eden AI's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "edenai:openai/gpt-4-turbo",
-      "seller": "edenai",
-      "sellerName": "Eden AI",
-      "modelId": "openai/gpt-4-turbo",
-      "name": "gpt-4-turbo",
-      "creator": "OpenAI",
-      "description": "The latest GPT-4 Turbo model with vision capabilities. Vision requests can now use JSON mode and function calling.\n\nTraining data: up to December 2023.",
-      "releaseDate": null,
-      "contextSize": 128000,
-      "capabilities": {
-        "reasoning": false,
-        "tools": true,
-        "vision": true,
-        "audio": false
-      },
-      "rates": {
-        "input": 8.934155275618691,
-        "cached": 8.934155275618691,
-        "output": 26.80246582685607,
-        "cachedFallback": true,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 10.0,
-          "cached": 10.0,
-          "output": 30.0
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Eden AI's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "edenai:openai/gpt-4-turbo-2024-04-09",
-      "seller": "edenai",
-      "sellerName": "Eden AI",
-      "modelId": "openai/gpt-4-turbo-2024-04-09",
-      "name": "gpt-4-turbo-2024-04-09",
-      "creator": "OpenAI",
-      "description": "The latest GPT-4 Turbo model with vision capabilities. Vision requests can now use JSON mode and function calling.\n\nTraining data: up to December 2023.",
-      "releaseDate": null,
-      "contextSize": 128000,
-      "capabilities": {
-        "reasoning": false,
-        "tools": true,
-        "vision": true,
-        "audio": false
-      },
-      "rates": {
-        "input": 8.934155275618691,
-        "cached": 8.934155275618691,
-        "output": 26.80246582685607,
-        "cachedFallback": true,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 10.0,
-          "cached": 10.0,
-          "output": 30.0
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Eden AI's model catalog and converted with the listed ECB rate."
-    },
-    {
       "key": "edenai:openai/gpt-4.1",
       "seller": "edenai",
       "sellerName": "Eden AI",
@@ -43556,68 +43308,6 @@
           "input": 0.4,
           "cached": 0.1,
           "output": 1.6
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Eden AI's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "edenai:openai/gpt-4.1-nano",
-      "seller": "edenai",
-      "sellerName": "Eden AI",
-      "modelId": "openai/gpt-4.1-nano",
-      "name": "gpt-4.1-nano",
-      "creator": "OpenAI",
-      "description": "For tasks that demand low latency, GPT\u20114.1 nano is the fastest and cheapest model in the GPT-4.1 series. It delivers exceptional performance at a small size with its 1 million...",
-      "releaseDate": null,
-      "contextSize": 1047576,
-      "capabilities": {
-        "reasoning": false,
-        "tools": true,
-        "vision": true,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.08934155275618691,
-        "cached": 0.022335388189046727,
-        "output": 0.35736621102474764,
-        "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.1,
-          "cached": 0.025,
-          "output": 0.4
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Eden AI's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "edenai:openai/gpt-4.1-nano-2025-04-14",
-      "seller": "edenai",
-      "sellerName": "Eden AI",
-      "modelId": "openai/gpt-4.1-nano-2025-04-14",
-      "name": "gpt-4.1-nano-2025-04-14",
-      "creator": "OpenAI",
-      "description": "For tasks that demand low latency, GPT\u20114.1 nano is the fastest and cheapest model in the GPT-4.1 series. It delivers exceptional performance at a small size with its 1 million...",
-      "releaseDate": null,
-      "contextSize": 1047576,
-      "capabilities": {
-        "reasoning": false,
-        "tools": true,
-        "vision": true,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.08934155275618691,
-        "cached": 0.022335388189046727,
-        "output": 0.35736621102474764,
-        "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.1,
-          "cached": 0.025,
-          "output": 0.4
         }
       },
       "pricingTiers": [],
@@ -44895,68 +44585,6 @@
       "priceNote": "USD price published in Eden AI's model catalog and converted with the listed ECB rate."
     },
     {
-      "key": "edenai:openai/o1",
-      "seller": "edenai",
-      "sellerName": "Eden AI",
-      "modelId": "openai/o1",
-      "name": "o1",
-      "creator": "OpenAI",
-      "description": "The latest and strongest model family from OpenAI, o1 is designed to spend more time thinking before responding. The o1 model series is trained with large-scale reinforcement learning to reason...",
-      "releaseDate": null,
-      "contextSize": 200000,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": true,
-        "audio": false
-      },
-      "rates": {
-        "input": 13.401232913428036,
-        "cached": 6.700616456714018,
-        "output": 53.60493165371214,
-        "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 15.0,
-          "cached": 7.5,
-          "output": 60.0
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Eden AI's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "edenai:openai/o1-2024-12-17",
-      "seller": "edenai",
-      "sellerName": "Eden AI",
-      "modelId": "openai/o1-2024-12-17",
-      "name": "o1-2024-12-17",
-      "creator": "OpenAI",
-      "description": "The latest and strongest model family from OpenAI, o1 is designed to spend more time thinking before responding. The o1 model series is trained with large-scale reinforcement learning to reason...",
-      "releaseDate": null,
-      "contextSize": 200000,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": true,
-        "audio": false
-      },
-      "rates": {
-        "input": 13.401232913428036,
-        "cached": 6.700616456714018,
-        "output": 53.60493165371214,
-        "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 15.0,
-          "cached": 7.5,
-          "output": 60.0
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Eden AI's model catalog and converted with the listed ECB rate."
-    },
-    {
       "key": "edenai:openai/o1-pro",
       "seller": "edenai",
       "sellerName": "Eden AI",
@@ -45143,68 +44771,6 @@
       "priceNote": "USD price published in Eden AI's model catalog and converted with the listed ECB rate."
     },
     {
-      "key": "edenai:openai/o3-mini",
-      "seller": "edenai",
-      "sellerName": "Eden AI",
-      "modelId": "openai/o3-mini",
-      "name": "o3-mini",
-      "creator": "OpenAI",
-      "description": "OpenAI o3-mini is a cost-efficient language model optimized for STEM reasoning tasks, particularly excelling in science, mathematics, and coding. This model supports the `reasoning_effort` parameter, which can be set to...",
-      "releaseDate": null,
-      "contextSize": 200000,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.9827570803180561,
-        "cached": 0.49137854015902804,
-        "output": 3.9310283212722243,
-        "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 1.1,
-          "cached": 0.55,
-          "output": 4.4
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Eden AI's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "edenai:openai/o3-mini-2025-01-31",
-      "seller": "edenai",
-      "sellerName": "Eden AI",
-      "modelId": "openai/o3-mini-2025-01-31",
-      "name": "o3-mini-2025-01-31",
-      "creator": "OpenAI",
-      "description": "OpenAI o3-mini is a cost-efficient language model optimized for STEM reasoning tasks, particularly excelling in science, mathematics, and coding. This model supports the `reasoning_effort` parameter, which can be set to...",
-      "releaseDate": null,
-      "contextSize": 200000,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.9827570803180561,
-        "cached": 0.49137854015902804,
-        "output": 3.9310283212722243,
-        "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 1.1,
-          "cached": 0.55,
-          "output": 4.4
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Eden AI's model catalog and converted with the listed ECB rate."
-    },
-    {
       "key": "edenai:openai/o3-pro",
       "seller": "edenai",
       "sellerName": "Eden AI",
@@ -45261,68 +44827,6 @@
           "input": 20.0,
           "cached": 20.0,
           "output": 80.0
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Eden AI's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "edenai:openai/o4-mini",
-      "seller": "edenai",
-      "sellerName": "Eden AI",
-      "modelId": "openai/o4-mini",
-      "name": "o4-mini",
-      "creator": "OpenAI",
-      "description": "OpenAI o4-mini is a compact reasoning model in the o-series, optimized for fast, cost-efficient performance while retaining strong multimodal and agentic capabilities. It supports tool use and demonstrates competitive reasoning...",
-      "releaseDate": null,
-      "contextSize": 200000,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": true,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.9827570803180561,
-        "cached": 0.24568927007951402,
-        "output": 3.9310283212722243,
-        "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 1.1,
-          "cached": 0.275,
-          "output": 4.4
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Eden AI's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "edenai:openai/o4-mini-2025-04-16",
-      "seller": "edenai",
-      "sellerName": "Eden AI",
-      "modelId": "openai/o4-mini-2025-04-16",
-      "name": "o4-mini-2025-04-16",
-      "creator": "OpenAI",
-      "description": "OpenAI o4-mini is a compact reasoning model in the o-series, optimized for fast, cost-efficient performance while retaining strong multimodal and agentic capabilities. It supports tool use and demonstrates competitive reasoning...",
-      "releaseDate": null,
-      "contextSize": 200000,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": true,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.9827570803180561,
-        "cached": 0.24568927007951402,
-        "output": 3.9310283212722243,
-        "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 1.1,
-          "cached": 0.275,
-          "output": 4.4
         }
       },
       "pricingTiers": [],
@@ -52304,37 +51808,6 @@
       "priceNote": "USD price published in Eden AI's model catalog and converted with the listed ECB rate."
     },
     {
-      "key": "edenai:vertex/openai/gpt-oss-20b-maas",
-      "seller": "edenai",
-      "sellerName": "Eden AI",
-      "modelId": "vertex/openai/gpt-oss-20b-maas",
-      "name": "openai/gpt-oss-20b-maas",
-      "creator": "vertex",
-      "description": "gpt-oss-20b is an open-weight 21B parameter model released by OpenAI under the Apache 2.0 license. It uses a Mixture-of-Experts (MoE) architecture with 3.6B active parameters per forward pass, optimized for...",
-      "releaseDate": null,
-      "contextSize": 131072,
-      "capabilities": {
-        "reasoning": true,
-        "tools": false,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.06253908692933084,
-        "cached": 0.006253908692933083,
-        "output": 0.22335388189046726,
-        "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.07,
-          "cached": 0.007,
-          "output": 0.25
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Eden AI's model catalog and converted with the listed ECB rate."
-    },
-    {
       "key": "edenai:xai/grok-3",
       "seller": "edenai",
       "sellerName": "Eden AI",
@@ -53445,68 +52918,6 @@
           "input": 0.2,
           "cached": 0.02,
           "output": 1.5
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Eden AI's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "edenai:xiaomi/mimo-v2.5",
-      "seller": "edenai",
-      "sellerName": "Eden AI",
-      "modelId": "xiaomi/mimo-v2.5",
-      "name": "mimo-v2.5",
-      "creator": "Xiaomi",
-      "description": "MiMo-V2.5 is a native omnimodal model by Xiaomi. It delivers Pro-level agentic performance at roughly half the inference cost, while surpassing MiMo-V2-Omni in multimodal perception across image and video understanding...",
-      "releaseDate": null,
-      "contextSize": 1048576,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": true,
-        "audio": true
-      },
-      "rates": {
-        "input": 0.12507817385866168,
-        "cached": 0.0025015634771732333,
-        "output": 0.25015634771732337,
-        "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.14,
-          "cached": 0.0028,
-          "output": 0.28
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Eden AI's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "edenai:xiaomi/mimo-v2.5-pro",
-      "seller": "edenai",
-      "sellerName": "Eden AI",
-      "modelId": "xiaomi/mimo-v2.5-pro",
-      "name": "mimo-v2.5-pro",
-      "creator": "Xiaomi",
-      "description": "MiMo-V2.5-Pro is Xiaomi\u2019s flagship model, delivering strong performance in general agentic capabilities, complex software engineering, and long-horizon tasks, with top rankings on benchmarks such as ClawEval, GDPVal, and SWE-bench Pro....",
-      "releaseDate": null,
-      "contextSize": 1048576,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.388635754489413,
-        "cached": 0.0032162958992227285,
-        "output": 0.777271508978826,
-        "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.435,
-          "cached": 0.0036,
-          "output": 0.87
         }
       },
       "pricingTiers": [],
@@ -62675,13 +62086,13 @@
       "rates": {
         "input": 0.0982757080318056,
         "cached": 0.024122219244170465,
-        "output": 0.32752613240418116,
+        "output": 0.368533905119271,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
           "input": 0.11,
           "cached": 0.027,
-          "output": 0.3666
+          "output": 0.4125
         }
       },
       "pricingTiers": [],
@@ -62704,15 +62115,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.5383721969087824,
-        "cached": 0.15098722415795587,
-        "output": 2.858929688197981,
+        "input": 0.5628517823639775,
+        "cached": 0.12061109622085234,
+        "output": 3.1269543464665417,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.6026,
-          "cached": 0.169,
-          "output": 3.2
+          "input": 0.63,
+          "cached": 0.135,
+          "output": 3.5
         }
       },
       "pricingTiers": [],
@@ -62768,13 +62179,13 @@
       "rates": {
         "input": 0.8844813722862503,
         "cached": 0.14294648440989904,
-        "output": 1.0613776467435003,
+        "output": 3.859555079067275,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
           "input": 0.99,
           "cached": 0.16,
-          "output": 1.188
+          "output": 4.32
         }
       },
       "pricingTiers": [],
@@ -62828,15 +62239,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.17868310551237382,
-        "cached": 0.06700616456714018,
-        "output": 0.6700616456714018,
+        "input": 0.15188063968551774,
+        "cached": 0.044670776378093455,
+        "output": 0.5360493165371214,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.2,
-          "cached": 0.075,
-          "output": 0.75
+          "input": 0.17,
+          "cached": 0.05,
+          "output": 0.6
         }
       },
       "pricingTiers": [],
@@ -66951,15 +66362,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.08040739748056822,
+        "input": 0.08934155275618691,
         "cached": 0.00893415527561869,
-        "output": 0.4467077637809345,
+        "output": 0.49137854015902804,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.09,
+          "input": 0.1,
           "cached": 0.01,
-          "output": 0.5
+          "output": 0.55
         }
       },
       "pricingTiers": [],
@@ -71136,14 +70547,14 @@
         "audio": false
       },
       "rates": {
-        "input": 0.08040739748056822,
-        "cached": 0.08040739748056822,
+        "input": 0.08934155275618691,
+        "cached": 0.08934155275618691,
         "output": 0.2680246582685607,
         "cachedFallback": true,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.09,
-          "cached": 0.09,
+          "input": 0.1,
+          "cached": 0.1,
           "output": 0.3
         }
       },
@@ -74546,14 +73957,14 @@
         "audio": false
       },
       "rates": {
-        "input": 0.10613776467435004,
-        "cached": 0.10720986330742428,
+        "input": 0.22916108281961942,
+        "cached": 0.23228803716608595,
         "output": 7.147324220494952,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.1188,
-          "cached": 0.12,
+          "input": 0.2565,
+          "cached": 0.26,
           "output": 8.0
         }
       },
@@ -74577,15 +73988,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.03770213526311088,
+        "input": 0.04243723755918878,
         "cached": 0.025015634771732333,
-        "output": 0.15134459036898062,
+        "output": 0.14008755472170106,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0422,
+          "input": 0.0475,
           "cached": 0.028,
-          "output": 0.1694
+          "output": 0.1568
         }
       },
       "pricingTiers": [],
@@ -74670,15 +74081,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.18046993656749757,
-        "cached": 0.17153578129187885,
-        "output": 14.294648440989905,
+        "input": 0.16206557669972305,
+        "cached": 0.16081479496113643,
+        "output": 6.876797998749218,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.202,
-          "cached": 0.192,
-          "output": 16.0
+          "input": 0.1814,
+          "cached": 0.18,
+          "output": 7.6972
         }
       },
       "pricingTiers": [],
@@ -74918,15 +74329,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.04583221656392388,
+        "input": 0.036898061288305195,
         "cached": 0.02680246582685607,
-        "output": 0.06262842848208702,
+        "output": 0.06772089698918968,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0513,
+          "input": 0.0413,
           "cached": 0.03,
-          "output": 0.0701
+          "output": 0.0758
         }
       },
       "pricingTiers": [],
@@ -74949,15 +74360,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.0628071115875994,
-        "cached": 0.0628071115875994,
-        "output": 3.917001697489502,
+        "input": 0.06244974537657465,
+        "cached": 0.061556329849012784,
+        "output": 1.2507817385866167,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0703,
-          "cached": 0.0703,
-          "output": 4.3843
+          "input": 0.0699,
+          "cached": 0.0689,
+          "output": 1.4
         }
       },
       "pricingTiers": [],
@@ -88372,15 +87783,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.11793084963816669,
-        "cached": 0.0037523452157598508,
-        "output": 0.3537925489145001,
+        "input": 0.4020369874028411,
+        "cached": 0.05807200929152148,
+        "output": 0.7147324220494952,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.13199999999999998,
-          "cached": 0.004200000000000001,
-          "output": 0.39599999999999996
+          "input": 0.45,
+          "cached": 0.06499999999999999,
+          "output": 0.7999999999999999
         }
       },
       "pricingTiers": [],
@@ -88558,15 +87969,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.03970338604484946,
-        "cached": 0.001263289555972483,
-        "output": 0.11911015813454838,
+        "input": 0.044670776378093455,
+        "cached": 0.011614401858304297,
+        "output": 0.14294648440989904,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.04444,
-          "cached": 0.0014140000000000001,
-          "output": 0.13332
+          "input": 0.05,
+          "cached": 0.013,
+          "output": 0.16
         }
       },
       "pricingTiers": [],
@@ -88589,15 +88000,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.03970338604484946,
-        "cached": 0.001263289555972483,
-        "output": 0.11911015813454838,
+        "input": 0.044670776378093455,
+        "cached": 0.011614401858304297,
+        "output": 0.14294648440989904,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.04444,
-          "cached": 0.0014140000000000001,
-          "output": 0.13332
+          "input": 0.05,
+          "cached": 0.013,
+          "output": 0.16
         }
       },
       "pricingTiers": [],
@@ -88744,15 +88155,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.11793084963816669,
-        "cached": 0.0037523452157598508,
-        "output": 0.3537925489145001,
+        "input": 0.4020369874028411,
+        "cached": 0.05807200929152148,
+        "output": 0.7147324220494952,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.13199999999999998,
-          "cached": 0.004200000000000001,
-          "output": 0.39599999999999996
+          "input": 0.45,
+          "cached": 0.06499999999999999,
+          "output": 0.7999999999999999
         }
       },
       "pricingTiers": [],
@@ -88775,15 +88186,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.11793084963816669,
-        "cached": 0.0037523452157598508,
-        "output": 0.3537925489145001,
+        "input": 0.4020369874028411,
+        "cached": 0.05807200929152148,
+        "output": 0.7147324220494952,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.13199999999999998,
-          "cached": 0.004200000000000001,
-          "output": 0.39599999999999996
+          "input": 0.45,
+          "cached": 0.06499999999999999,
+          "output": 0.7999999999999999
         }
       },
       "pricingTiers": [],
@@ -88837,15 +88248,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.04797641383007237,
-        "cached": 0.0009595282766014474,
-        "output": 0.19190565532028947,
+        "input": 0.08040739748056822,
+        "cached": 0.005360493165371214,
+        "output": 0.22335388189046726,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0537,
-          "cached": 0.001074,
-          "output": 0.2148
+          "input": 0.09,
+          "cached": 0.006,
+          "output": 0.25
         }
       },
       "pricingTiers": [],
@@ -88992,15 +88403,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.04797641383007237,
-        "cached": 0.0009595282766014474,
-        "output": 0.19190565532028947,
+        "input": 0.08040739748056822,
+        "cached": 0.005360493165371214,
+        "output": 0.22335388189046726,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0537,
-          "cached": 0.001074,
-          "output": 0.2148
+          "input": 0.09,
+          "cached": 0.006,
+          "output": 0.25
         }
       },
       "pricingTiers": [],
@@ -91565,15 +90976,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.06030554811042617,
-        "cached": 0.03350308228357009,
-        "output": 0.20101849370142055,
+        "input": 0.08040739748056822,
+        "cached": 0.04467077637809345,
+        "output": 0.2680246582685607,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0675,
-          "cached": 0.0375,
-          "output": 0.225
+          "input": 0.09,
+          "cached": 0.049999999999999996,
+          "output": 0.3
         }
       },
       "pricingTiers": [],
@@ -91627,15 +91038,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.06030554811042617,
-        "cached": 0.03350308228357009,
-        "output": 0.20101849370142055,
+        "input": 0.08040739748056822,
+        "cached": 0.04467077637809345,
+        "output": 0.2680246582685607,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0675,
-          "cached": 0.0375,
-          "output": 0.225
+          "input": 0.09,
+          "cached": 0.049999999999999996,
+          "output": 0.3
         }
       },
       "pricingTiers": [],
@@ -93487,15 +92898,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.2948271240954168,
-        "cached": 0.2948271240954168,
-        "output": 1.1793084963816671,
-        "cachedFallback": true,
+        "input": 0.2680246582685607,
+        "cached": 0.02680246582685607,
+        "output": 1.0720986330742428,
+        "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.33,
-          "cached": 0.33,
-          "output": 1.32
+          "input": 0.3,
+          "cached": 0.03,
+          "output": 1.2
         }
       },
       "pricingTiers": [],
@@ -94696,15 +94107,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.40145626730992584,
-        "cached": 0.06761368712588224,
-        "output": 1.6903421781470565,
+        "input": 0.4020369874028411,
+        "cached": 0.04020369874028411,
+        "output": 1.7421602787456447,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.44934999999999997,
-          "cached": 0.07568,
-          "output": 1.8920000000000001
+          "input": 0.45,
+          "cached": 0.045,
+          "output": 1.95
         }
       },
       "pricingTiers": [],
@@ -94727,15 +94138,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.40145626730992584,
-        "cached": 0.06761368712588224,
-        "output": 1.6903421781470565,
+        "input": 0.4020369874028411,
+        "cached": 0.04020369874028411,
+        "output": 1.7421602787456447,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.44934999999999997,
-          "cached": 0.07568,
-          "output": 1.8920000000000001
+          "input": 0.45,
+          "cached": 0.045,
+          "output": 1.95
         }
       },
       "pricingTiers": [],
@@ -94903,7 +94314,7 @@
       "modelId": "moonshotai/kimi-latest",
       "name": "Kimi Latest",
       "creator": "Moonshot AI",
-      "description": "Compatibility alias that routes to the newest Kimi model. Currently routes to Kimi K3.",
+      "description": "Always points to the newest recommended Kimi model, currently Kimi K3.1 Pro. Reasoning is always enabled. Select Kimi K3 explicitly to retain its checkpoint and pricing; K3.1 Pro Highspeed is available separately.",
       "releaseDate": null,
       "contextSize": 1048576,
       "capabilities": {
@@ -94913,15 +94324,15 @@
         "audio": false
       },
       "rates": {
-        "input": 1.0720986330742428,
-        "cached": 0.1786831055123738,
-        "output": 4.91378540159028,
+        "input": 1.786831055123738,
+        "cached": 0.17868310551237382,
+        "output": 8.934155275618691,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 1.2,
-          "cached": 0.19999999999999998,
-          "output": 5.5
+          "input": 2.0,
+          "cached": 0.2,
+          "output": 10.0
         }
       },
       "pricingTiers": [],
@@ -98323,15 +97734,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.08934155275618691,
-        "cached": 0.08934155275618691,
-        "output": 0.2680246582685607,
+        "input": 0.07147324220494952,
+        "cached": 0.07147324220494952,
+        "output": 0.2144197266148486,
         "cachedFallback": true,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.1,
-          "cached": 0.1,
-          "output": 0.3
+          "input": 0.08,
+          "cached": 0.08,
+          "output": 0.24000000000000002
         }
       },
       "pricingTiers": [],
@@ -98571,14 +97982,14 @@
         "audio": false
       },
       "rates": {
-        "input": 0.0893415527561869,
-        "cached": 0.06253908692933084,
+        "input": 0.08040739748056822,
+        "cached": 0.08040739748056822,
         "output": 0.9827570803180561,
-        "cachedFallback": false,
+        "cachedFallback": true,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.09999999999999999,
-          "cached": 0.07,
+          "input": 0.09,
+          "cached": 0.09,
           "output": 1.1
         }
       },
@@ -102694,15 +102105,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.5360493165371214,
-        "cached": 0.0982757080318056,
-        "output": 1.9655141606361122,
+        "input": 0.35772357723577236,
+        "cached": 0.07154471544715449,
+        "output": 1.7235772357723578,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.6,
-          "cached": 0.11,
-          "output": 2.2
+          "input": 0.4004,
+          "cached": 0.08008000000000001,
+          "output": 1.9292
         }
       },
       "pricingTiers": [],
@@ -102725,15 +102136,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.5360493165371214,
-        "cached": 0.0982757080318056,
-        "output": 1.9655141606361122,
+        "input": 0.35772357723577236,
+        "cached": 0.07154471544715449,
+        "output": 1.7235772357723578,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.6,
-          "cached": 0.11,
-          "output": 2.2
+          "input": 0.4004,
+          "cached": 0.08008000000000001,
+          "output": 1.9292
         }
       },
       "pricingTiers": [],
@@ -102973,15 +102384,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.16885553470919326,
-        "cached": 0.03135888501742161,
-        "output": 0.5306888233717502,
+        "input": 0.375234521575985,
+        "cached": 0.06968641114982578,
+        "output": 1.1793084963816671,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.189,
-          "cached": 0.035100000000000006,
-          "output": 0.594
+          "input": 0.42000000000000004,
+          "cached": 0.078,
+          "output": 1.32
         }
       },
       "pricingTiers": [],
@@ -103004,15 +102415,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.16885553470919326,
-        "cached": 0.03135888501742161,
-        "output": 0.5306888233717502,
+        "input": 0.375234521575985,
+        "cached": 0.06968641114982578,
+        "output": 1.1793084963816671,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.189,
-          "cached": 0.035100000000000006,
-          "output": 0.594
+          "input": 0.42000000000000004,
+          "cached": 0.078,
+          "output": 1.32
         }
       },
       "pricingTiers": [],
@@ -104352,37 +103763,6 @@
       "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
     },
     {
-      "key": "nearai:openai/gpt-4.1-nano",
-      "seller": "nearai",
-      "sellerName": "NEAR AI",
-      "modelId": "openai/gpt-4.1-nano",
-      "name": "OpenAI GPT-4.1 Nano",
-      "creator": "OpenAI",
-      "description": "OpenAI's most cost-efficient model with 1M token context. Ideal for classification, extraction, and high-volume tasks where cost matters most.",
-      "releaseDate": null,
-      "contextSize": 1000000,
-      "capabilities": {
-        "reasoning": false,
-        "tools": true,
-        "vision": true,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.08934155275618691,
-        "cached": 0.022335388189046727,
-        "output": 0.35736621102474764,
-        "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.1,
-          "cached": 0.025,
-          "output": 0.4
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in NEAR AI's model catalog and converted with the listed ECB rate."
-    },
-    {
       "key": "nearai:openai/gpt-5",
       "seller": "nearai",
       "sellerName": "NEAR AI",
@@ -104949,7 +104329,7 @@
       "creator": "OpenAI",
       "description": "PII detection (token classification) \u2014 returns spans for emails, phones, addresses, names, account numbers, secrets. NEAR AI runs this model in a TEE; prompts are not anonymized by the model itself, the cloud-api wraps it to do redaction.",
       "releaseDate": null,
-      "contextSize": 512,
+      "contextSize": 128000,
       "capabilities": {
         "reasoning": false,
         "tools": false,
@@ -116569,15 +115949,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.03770213526311088,
-        "cached": 0.025015634771732333,
-        "output": 0.15134459036898062,
+        "input": 0.3931028321272224,
+        "cached": 0.012507817385866166,
+        "output": 1.1793084963816671,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0422,
-          "cached": 0.028,
-          "output": 0.1694
+          "input": 0.44,
+          "cached": 0.014,
+          "output": 1.32
         }
       },
       "pricingTiers": [],
@@ -116631,15 +116011,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.18654516215491826,
-        "cached": 0.015545430179576521,
-        "output": 0.3730903243098365,
+        "input": 0.853444116858751,
+        "cached": 0.07112034307156258,
+        "output": 1.706888233717502,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.2088,
-          "cached": 0.0174,
-          "output": 0.4176
+          "input": 0.95526,
+          "cached": 0.079605,
+          "output": 1.91052
         }
       },
       "pricingTiers": [],
@@ -117964,15 +117344,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.06030554811042617,
-        "cached": 0.03350308228357009,
-        "output": 0.20101849370142055,
+        "input": 0.08040739748056822,
+        "cached": 0.044670776378093455,
+        "output": 0.2680246582685607,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0675,
-          "cached": 0.0375,
-          "output": 0.225
+          "input": 0.09,
+          "cached": 0.05,
+          "output": 0.3
         }
       },
       "pricingTiers": [],
@@ -120506,15 +119886,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.2135263110872867,
-        "cached": 0.18761726078799248,
-        "output": 9.648887697668187,
+        "input": 0.170642365764317,
+        "cached": 0.1617082104886983,
+        "output": 17.868310551237382,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.239,
-          "cached": 0.21,
-          "output": 10.8
+          "input": 0.191,
+          "cached": 0.181,
+          "output": 20.0
         }
       },
       "pricingTiers": [],
@@ -121437,13 +120817,13 @@
       },
       "rates": {
         "input": 0.08934155275618691,
-        "cached": 0.022335388189046727,
+        "cached": 0.02680246582685607,
         "output": 0.35736621102474764,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
           "input": 0.1,
-          "cached": 0.025,
+          "cached": 0.03,
           "output": 0.4
         }
       },
@@ -125001,14 +124381,14 @@
         "audio": false
       },
       "rates": {
-        "input": 0.08040739748056822,
-        "cached": 0.08040739748056822,
+        "input": 0.08934155275618691,
+        "cached": 0.08934155275618691,
         "output": 0.2680246582685607,
         "cachedFallback": true,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.09,
-          "cached": 0.09,
+          "input": 0.1,
+          "cached": 0.1,
           "output": 0.3
         }
       },
@@ -125373,15 +124753,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.35736621102474764,
-        "cached": 0.35736621102474764,
-        "output": 2.858929688197981,
+        "input": 0.23228803716608595,
+        "cached": 0.23228803716608595,
+        "output": 1.8583042973286876,
         "cachedFallback": true,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.4,
-          "cached": 0.4,
-          "output": 3.2
+          "input": 0.26,
+          "cached": 0.26,
+          "output": 2.08
         }
       },
       "pricingTiers": [],
@@ -125621,15 +125001,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.22335388189046726,
-        "cached": 0.022335388189046727,
-        "output": 1.786831055123738,
-        "cachedFallback": false,
+        "input": 0.2858929688197981,
+        "cached": 0.2858929688197981,
+        "output": 2.858929688197981,
+        "cachedFallback": true,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.25,
-          "cached": 0.025,
-          "output": 2.0
+          "input": 0.32,
+          "cached": 0.32,
+          "output": 3.2
         }
       },
       "pricingTiers": [],
@@ -128008,14 +127388,14 @@
         "audio": false
       },
       "rates": {
-        "input": 0.07057982667738766,
-        "cached": 0.06968641114982578,
+        "input": 0.06244974537657465,
+        "cached": 0.061556329849012784,
         "output": 1.2507817385866167,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.079,
-          "cached": 0.078,
+          "input": 0.0699,
+          "cached": 0.0689,
           "output": 1.4
         }
       },
@@ -128380,14 +127760,14 @@
         "audio": false
       },
       "rates": {
-        "input": 0.10613776467435004,
-        "cached": 0.10720986330742428,
+        "input": 0.22916108281961942,
+        "cached": 0.23228803716608595,
         "output": 7.147324220494952,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.1188,
-          "cached": 0.12,
+          "input": 0.2565,
+          "cached": 0.26,
           "output": 8.0
         }
       },
@@ -128411,15 +127791,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.03770213526311088,
+        "input": 0.04243723755918878,
         "cached": 0.025015634771732333,
-        "output": 0.15134459036898062,
+        "output": 0.14008755472170106,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0422,
+          "input": 0.0475,
           "cached": 0.028,
-          "output": 0.1694
+          "output": 0.1568
         }
       },
       "pricingTiers": [],
@@ -128504,15 +127884,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.18046993656749757,
-        "cached": 0.17153578129187885,
-        "output": 14.294648440989905,
+        "input": 0.16206557669972305,
+        "cached": 0.16081479496113643,
+        "output": 6.876797998749218,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.202,
-          "cached": 0.192,
-          "output": 16.0
+          "input": 0.1814,
+          "cached": 0.18,
+          "output": 7.6972
         }
       },
       "pricingTiers": [],
@@ -128752,15 +128132,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.04583221656392388,
+        "input": 0.036898061288305195,
         "cached": 0.02680246582685607,
-        "output": 0.06262842848208702,
+        "output": 0.06772089698918968,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0513,
+          "input": 0.0413,
           "cached": 0.03,
-          "output": 0.0701
+          "output": 0.0758
         }
       },
       "pricingTiers": [],
@@ -128783,15 +128163,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.0628071115875994,
-        "cached": 0.0628071115875994,
-        "output": 3.917001697489502,
+        "input": 0.06244974537657465,
+        "cached": 0.061556329849012784,
+        "output": 1.2507817385866167,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0703,
-          "cached": 0.0703,
-          "output": 4.3843
+          "input": 0.0699,
+          "cached": 0.0689,
+          "output": 1.4
         }
       },
       "pricingTiers": [],
@@ -129288,130 +128668,6 @@
           "input": 0.2,
           "cached": 0.2,
           "output": 2.4
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "prime:Qwen/Qwen3.5-0.8B",
-      "seller": "prime",
-      "sellerName": "Prime",
-      "modelId": "Qwen/Qwen3.5-0.8B",
-      "name": "Qwen/Qwen3.5-0.8B",
-      "creator": "Alibaba",
-      "description": "",
-      "releaseDate": null,
-      "contextSize": null,
-      "capabilities": {
-        "reasoning": false,
-        "tools": false,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.03573662110247476,
-        "cached": 0.003573662110247476,
-        "output": 0.07147324220494952,
-        "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.04,
-          "cached": 0.004,
-          "output": 0.08
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "prime:Qwen/Qwen3.5-2B",
-      "seller": "prime",
-      "sellerName": "Prime",
-      "modelId": "Qwen/Qwen3.5-2B",
-      "name": "Qwen/Qwen3.5-2B",
-      "creator": "Alibaba",
-      "description": "",
-      "releaseDate": null,
-      "contextSize": null,
-      "capabilities": {
-        "reasoning": false,
-        "tools": false,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.05360493165371214,
-        "cached": 0.005360493165371214,
-        "output": 0.16081479496113643,
-        "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.06,
-          "cached": 0.006,
-          "output": 0.18
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "prime:Qwen/Qwen3.5-4B",
-      "seller": "prime",
-      "sellerName": "Prime",
-      "modelId": "Qwen/Qwen3.5-4B",
-      "name": "Qwen/Qwen3.5-4B",
-      "creator": "Alibaba",
-      "description": "",
-      "releaseDate": null,
-      "contextSize": null,
-      "capabilities": {
-        "reasoning": false,
-        "tools": false,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.08934155275618691,
-        "cached": 0.00893415527561869,
-        "output": 0.2680246582685607,
-        "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.1,
-          "cached": 0.01,
-          "output": 0.3
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Prime's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "prime:Qwen/Qwen3.5-9B",
-      "seller": "prime",
-      "sellerName": "Prime",
-      "modelId": "Qwen/Qwen3.5-9B",
-      "name": "Qwen/Qwen3.5-9B",
-      "creator": "Alibaba",
-      "description": "",
-      "releaseDate": null,
-      "contextSize": null,
-      "capabilities": {
-        "reasoning": false,
-        "tools": false,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.16081479496113643,
-        "cached": 0.016081479496113642,
-        "output": 0.48244438488340935,
-        "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.18,
-          "cached": 0.018,
-          "output": 0.54
         }
       },
       "pricingTiers": [],
@@ -132627,14 +131883,14 @@
         "audio": false
       },
       "rates": {
-        "input": 0.15188063968551774,
-        "cached": 0.15188063968551774,
+        "input": 0.08934155275618691,
+        "cached": 0.08934155275618691,
         "output": 0.22335388189046726,
         "cachedFallback": true,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.17,
-          "cached": 0.17,
+          "input": 0.1,
+          "cached": 0.1,
           "output": 0.25
         }
       },
@@ -163223,6 +162479,7 @@
       "aiand:deepseek-ai/deepseek-v4.1-flash",
       "aimlapi:deepseek/deepseek-v4.1-flash",
       "crossmodel:deepseek/deepseek-v4.1-flash",
+      "edenai:arkanecloud/deepseek-ai/DeepSeek-V4.1-Flash",
       "edenai:greenpt/deepseek-v4.1-flash",
       "edenai:greenference/deepseek-v4.1-flash",
       "edenai:scaleway/deepseek-v4.1-flash",
@@ -163259,13 +162516,14 @@
       "aiand:zai-org/glm-5.3-flash",
       "aimlapi:z-ai/glm-5.3-flash",
       "crossmodel:z-ai/glm-5.3-flash",
+      "edenai:sference/zai-org/GLM-5.3-Flash",
       "edenai:greenpt/glm-5.3-flash",
       "edenai:greenference/glm-5.3-flash",
       "edenai:flexai/GLM-5.3-Flash",
-      "edenai:nebius/zai-org/GLM-5.3-Flash",
       "edenai:tensorx/z-ai/glm-5.3-flash",
       "edenai:cloudflare/@cf/zai-org/glm-5.3-flash",
       "edenai:deepinfra/zai-org/GLM-5.3-Flash",
+      "edenai:nebius/zai-org/GLM-5.3-Flash",
       "edenai:together_ai/zai-org/GLM-5.3-Flash",
       "edenai:zai/glm-5.3-flash",
       "empiriolabs:glm-5-3-flash",
@@ -163315,6 +162573,7 @@
       "aiand:deepseek-ai/deepseek-v4-flash",
       "aimlapi:deepseek/deepseek-v4-flash",
       "crossmodel:deepseek/deepseek-v4-flash",
+      "edenai:arkanecloud/deepseek-ai/DeepSeek-V4-Flash",
       "edenai:azure/deepseek-v4-flash",
       "edenai:deepinfra/deepseek-ai/DeepSeek-V4-Flash",
       "edenai:deepseek/deepseek-v4-flash",
@@ -163329,6 +162588,7 @@
       "kilo:nvidia/nemotron-3-ultra-550b-a55b:free",
       "nano-gpt:nvidia/nemotron-3-ultra-550b-a55b",
       "aimlapi:nvidia/nemotron-3-ultra-550b-a55b",
+      "edenai:arkanecloud/nvidia/nemotron-3-ultra-550b-a55b",
       "edenai:deepinfra/nemotron-3-ultra-550b-a55b",
       "edenai:nebius/nvidia/Nemotron-3-Ultra-550b-a55b",
       "cortecs:gpt-6-luna",
@@ -163356,6 +162616,7 @@
       "nano-gpt:stepfun/step-5-preview",
       "aimlapi:stepfun/step-5-preview",
       "edenai:deepinfra/stepfun-ai/Step-5-Preview",
+      "edenai:tencent/step-5-preview",
       "empiriolabs:step-5-preview",
       "cortecs:gpt-5.6-luna",
       "eurouter:gpt-5.6-luna",
@@ -163374,8 +162635,8 @@
       "prime:openai/gpt-5.6-luna",
       "openai-direct:gpt-5.6-luna",
       "cortecs:glm-5.3",
-      "eurouter:zhipu/glm-5.3",
       "eurouter:glm-5.3",
+      "eurouter:zhipu/glm-5.3",
       "openrouter:z-ai/glm-5.3",
       "opencode:glm-5.3",
       "deepinfra:zai-org/GLM-5.3",
@@ -163395,6 +162656,8 @@
       "aiand:zai-org/glm-5.3",
       "aimlapi:zhipu/glm-5-3",
       "crossmodel:z-ai/glm-5.3",
+      "edenai:arkanecloud/zai-org/GLM-5.3",
+      "edenai:sference/zai-org/GLM-5.3",
       "edenai:greenpt/glm-5.3",
       "edenai:scaleway/glm-5.3",
       "edenai:greenference/glm-5.3",
@@ -163412,6 +162675,7 @@
       "friendli:zai-org/GLM-5.3",
       "hyper:glm-5.3",
       "inceptron:zai-org/GLM-5.3",
+      "nearai:z-ai/glm-5.3",
       "ofox:z-ai/glm-5.3",
       "prime:z-ai/glm-5.3",
       "tinfoil:glm-5-3",
@@ -163430,6 +162694,7 @@
       "crossmodel:anthropic/claude-opus-5-5",
       "edenai:deepinfra/anthropic/claude-opus-5-5",
       "edenai:anthropic/claude-opus-5-5",
+      "edenai:vertex/claude-opus-5-5",
       "nearai:anthropic/claude-opus-5-5",
       "ofox:anthropic/claude-opus-5.5",
       "prime:anthropic/claude-opus-5.5",
@@ -163485,6 +162750,8 @@
       "aiand:moonshotai/kimi-k3",
       "aimlapi:moonshot/kimi-k3",
       "crossmodel:moonshot/kimi-k3",
+      "edenai:arkanecloud/moonshotai/Kimi-K3",
+      "edenai:sference/moonshotai/Kimi-K3",
       "edenai:greenpt/kimi-k3",
       "edenai:tencent/kimi-k3",
       "edenai:tensorx/moonshotai/kimi-k3",
@@ -163511,7 +162778,6 @@
       "nano-gpt:xiaomi/mimo-v2.5",
       "aimlapi:xiaomi/mimo-v2.5",
       "edenai:deepinfra/XiaomiMiMo/MiMo-V2.5",
-      "edenai:xiaomi/mimo-v2.5",
       "prime:xiaomi/mimo-v2.5",
       "cortecs:glm-5.2",
       "eurouter:glm-5.2",
@@ -163540,6 +162806,7 @@
       "aimlapi:zhipu/glm-5-2",
       "ambient:z-ai/glm-5.2",
       "crossmodel:z-ai/glm-5.2",
+      "edenai:arkanecloud/zai-org/GLM-5.2",
       "edenai:greenpt/glm-5.2",
       "edenai:tencent/glm-5.2",
       "edenai:compactifai/glm-5-2",
