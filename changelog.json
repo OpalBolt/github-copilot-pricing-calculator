@@ -39,6 +39,12 @@
         "\u2212 OpenCode Go \u00b7 LongCat 2.5 Preview Free",
         "+ OpenCode Go \u00b7 Gemini 4 Argon (50% off) (input $4 \u00b7 cached $0.2 \u00b7 output $20)"
       ]
+    },
+    {
+      "date": "2026-10-27",
+      "changes": [
+        "+ OpenCode Go \u00b7 Iceman Contributor Free (input free \u00b7 cached free \u00b7 output free)"
+      ]
     }
   ],
   "router": [
@@ -236,6 +242,42 @@
         "\u2192 OpenRouter \u00b7 Z.ai: GLM Flash Latest \u2014 input $0.0513\u2192$0.0413 \u00b7 output $0.0701\u2192$0.0758",
         "\u2192 OpenRouter \u00b7 Z.ai: GLM Latest \u2014 input $0.0703\u2192$0.0699 \u00b7 cached $0.0703\u2192$0.0689 \u00b7 output $4.384\u2192$1.4"
       ]
+    },
+    {
+      "date": "2026-10-27",
+      "changes": [
+        "\u2212 OpenRouter: Arcee AI: Trinity Large Thinking",
+        "\u2212 OpenRouter: IBM: Granite 4.0 Micro",
+        "\u2212 OpenRouter: Mistral: Codestral 2508 (batch)",
+        "\u2212 OpenRouter: Mistral: Ministral 3 8B 2512 (batch)",
+        "\u2212 OpenRouter: Mistral: Mistral Large 3 2512 (batch)",
+        "\u2212 OpenRouter: Mistral: Mistral Medium 3.1 (batch)",
+        "\u2212 OpenRouter: Mistral: Mistral Small 4 (batch)",
+        "\u2212 OpenRouter: NVIDIA: Nemotron 3 Super (free)",
+        "+ OpenAI API: gpt-6.1-terra",
+        "+ OpenRouter: OpenAI: GPT-6.1 Terra",
+        "+ OpenRouter: OpenAI: GPT-6.1 Terra Pro",
+        "+ OpenRouter: OpenAI: GPT-6.1 Terra Pro (batch)",
+        "+ OpenRouter: OpenAI: GPT-6.1 Terra (batch)",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash 0423 \u2014 input $0.091\u2192$0.05 \u00b7 cached $0.0182\u2192$0.05 \u00b7 output $0.182\u2192$0.45",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash 0731 \u2014 input $0.44\u2192$0.119 \u00b7 cached $0.014\u2192$0.0238 \u00b7 output $1.32\u2192$0.238 \u00b7 eu input $0.11\u2192$0.13",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4.1 Flash \u2014 input $0.02\u2192$0.14 \u00b7 cached $0.015\u2192$0.0042 \u00b7 output $1\u2192$0.42",
+        "\u2192 OpenRouter \u00b7 Google: Gemma 3 4B \u2014 input $0.04\u2192$0.05 \u00b7 cached $0.02\u2192$0.05 \u00b7 output $0.05\u2192$0.1",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi K2.6 \u2014 eu input $0.63\u2192$0.585 \u00b7 eu cached $0.135\u2192$0.117",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi K2.7 Code \u2014 input $0.6712\u2192$0.56 \u00b7 output $3.35\u2192$3.1 \u00b7 eu input $0.6712\u2192$0.56 \u00b7 eu output $3.35\u2192$3.1",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi K3 \u2014 input $0.191\u2192$0.15 \u00b7 cached $0.181\u2192$0.14",
+        "\u2192 OpenRouter \u00b7 Qwen: Qwen3.5-27B \u2014 input $0.27\u2192$0.26 \u00b7 cached $0.27\u2192$0.26 \u00b7 output $2.16\u2192$2.6",
+        "\u2192 OpenRouter \u00b7 Xiaomi: MiMo-V2.5 \u2014 input $0.119\u2192$0.4 \u00b7 cached $0.00255\u2192$0.08 \u00b7 output $0.238\u2192$2",
+        "\u2192 OpenRouter \u00b7 Xiaomi: MiMo-V2.5-Pro \u2014 input $0.3045\u2192$0.48 \u00b7 cached $0.0028\u2192$0.096 \u00b7 output $0.609\u2192$1.8",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 4.6V \u2014 cached $0.05\u2192$0.055",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.1 \u2014 input $1.4\u2192$0.966 \u00b7 cached $0.26\u2192$0.1794 \u00b7 output $4.4\u2192$3.036",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.3 \u2014 eu input $0.6\u2192$1.2 \u00b7 eu cached $0.12\u2192$0.14 \u00b7 eu output $2.8\u2192$3.5",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.3 Flash \u2014 eu cached $0.05\u2192$0.06",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek Pro Latest \u2014 input $0.2565\u2192$0.2428 \u00b7 cached $0.26\u2192$0.24",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi Latest \u2014 input $0.1814\u2192$0.15 \u00b7 cached $0.18\u2192$0.14 \u00b7 output $7.697\u2192$20",
+        "\u2192 OpenRouter \u00b7 OpenAI: GPT Terra Latest \u2014 input $2\u2192$1 \u00b7 cached $0.2\u2192$0.05 \u00b7 output $12\u2192$5",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM Flash Latest \u2014 input $0.0413\u2192$0.0258 \u00b7 cached $0.03\u2192$0.0258 \u00b7 output $0.0758\u2192$0.0923"
+      ]
     }
   ],
   "copilot": [
@@ -247,6 +289,12 @@
         "\u2212 GPT-5.4 mini",
         "\u2212 GPT-5.5",
         "\u2212 Gemini 3.7 Flash"
+      ]
+    },
+    {
+      "date": "2026-10-27",
+      "changes": [
+        "+ GPT-6.1 Terra (in $2 \u00b7 out $7.5)"
       ]
     }
   ],
@@ -594,6 +642,62 @@
         "\u2192 nano-gpt \u00b7 Qwen 3 32b \u2014 input $0.1\u2192$0.08 \u00b7 cached $0.1\u2192$0.08 \u00b7 output $0.3\u2192$0.24",
         "\u2192 nano-gpt \u00b7 Qwen3 Next 80B A3B (Instruct) \u2014 input $0.1\u2192$0.09 \u00b7 cached $0.07\u2192$0.09",
         "\u2026 and 19 more"
+      ]
+    },
+    {
+      "date": "2026-10-27",
+      "changes": [
+        "\u2212 aiand: deepseek-ai/DeepSeek-V4-Flash",
+        "\u2212 aiand: moonshotai/kimi-k2.7-code",
+        "\u2212 aiand: zai-org/glm-5.2",
+        "\u2212 AI/ML API: GPT-3.5 Turbo",
+        "\u2212 AI/ML API: GPT-4",
+        "\u2212 AI/ML API: GPT-4 Turbo",
+        "\u2212 AI/ML API: GPT-4.1 Nano",
+        "\u2212 AI/ML API: o1",
+        "\u2212 AI/ML API: o1-pro",
+        "\u2212 AI/ML API: o3 Mini",
+        "\u2212 AI/ML API: o4 Mini",
+        "\u2212 Chutes: Nemotron-3-Nano-Omni-30B-TEE",
+        "\u2212 Chutes: Qwen/Qwen3-235B-A22B-Thinking-2507-TEE",
+        "\u2212 Chutes: Qwen/Qwen3-32B-TEE",
+        "\u2212 Chutes: unsloth/Mistral-Nemo-Instruct-2407-TEE",
+        "\u2212 DeepInfra: meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",
+        "\u2212 Empirio Labs: DeepSeek V4.1 Flash",
+        "\u2212 Kilo: Arcee AI: Trinity Large Thinking (retires Oct 26)",
+        "\u2212 Kilo: IBM: Granite 4.0 Micro",
+        "\u2212 Kilo: NVIDIA: Nemotron 3 Super (free)",
+        "\u2212 LLM Gateway: Qwen3 VL 235B A22B Thinking",
+        "\u2212 nano-gpt: Gemma SEA-LION v4 27B",
+        "\u2212 nano-gpt: Qwen SEA-LION v4 32B",
+        "\u2212 nano-gpt: d3 (Decision Large)",
+        "\u2212 nano-gpt: d3 Flash (Decision Medium)",
+        "\u2212 nano-gpt: d3 Mini (Decision Small)",
+        "\u2212 nano-gpt: LongCat 2.5 Preview",
+        "\u2212 nano-gpt: GPT-3.5 Turbo",
+        "\u2212 nano-gpt: Qwen3 Max",
+        "\u2212 nano-gpt: Qwen3 Max 2026-01-23",
+        "\u2212 nano-gpt: Bielik 11B v3.0",
+        "\u2212 nano-gpt: Ultramarine 1 Flash",
+        "\u2212 OfoxAI: DeepSeek V3.2",
+        "\u2212 OfoxAI: Google: Gemini 3.6 Flash",
+        "\u2212 OfoxAI: MiniMax: MiniMax M2 Her",
+        "\u2212 OfoxAI: MiniMax: MiniMax M2",
+        "\u2212 OfoxAI: MiniMax: MiniMax M2.1",
+        "\u2212 OfoxAI: MiniMax: MiniMax M2.1 Lightning",
+        "\u2212 OfoxAI: MiniMax: MiniMax M2.5 Lightning",
+        "\u2212 OfoxAI: MiniMax: MiniMax M2.7 Highspeed",
+        "\u2212 OfoxAI: Qwen Max",
+        "\u2212 OfoxAI: Qwen Turbo",
+        "\u2212 OfoxAI: Qwen VL Max",
+        "\u2212 OfoxAI: Qwen3 Coder Flash",
+        "\u2212 OfoxAI: Qwen3 Coder Next",
+        "\u2212 OfoxAI: Qwen3 Coder Plus",
+        "\u2212 OfoxAI: Qwen3 Max",
+        "\u2212 OfoxAI: Qwen: Qwen3.5 122B A10B",
+        "\u2212 OfoxAI: Qwen: Qwen3.5 27B",
+        "\u2212 OfoxAI: Qwen: Qwen3.5 35B A3B",
+        "\u2026 and 168 more"
       ]
     }
   ]

@@ -1,5 +1,5 @@
 {
-  "fetchDate": "2026-10-26",
+  "fetchDate": "2026-10-27",
   "summary": [
     {
       "model": "GPT-5.3-Codex",
@@ -56,6 +56,13 @@
       "excelsAt": "Advanced, efficient reasoning for complex coding tasks",
       "furtherReadingText": "GPT-6.1 Sol model card",
       "furtherReadingUrl": "https://deploymentsafety.openai.com/gpt-6-1-sol/gpt-6-1-sol.pdf"
+    },
+    {
+      "model": "GPT-6.1 Terra",
+      "taskArea": "General-purpose coding and agent tasks",
+      "excelsAt": "Everyday agentic coding and terminal work",
+      "furtherReadingText": "",
+      "furtherReadingUrl": ""
     },
     {
       "model": "Claude Fable 5",
