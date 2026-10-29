@@ -71,7 +71,7 @@ def fetch_eurouter(exchange_rate: dict | None = None) -> list[dict]:
             "modelId": model["id"],
             "name": model.get("name") or model["id"],
             "owner": _creator(
-                model.get("author_info", {}).get("display_name")
+                (model.get("author_info") or {}).get("display_name")
                 or model.get("author")
                 or model.get("owned_by")
                 or ""
