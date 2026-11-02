@@ -287,11 +287,20 @@
           "default_visible": false
         },
         {
-          "id": "minimax-m3",
-          "name": "MiniMax M3",
+          "id": "minimax-m3-512k-tokens",
+          "name": "MiniMax M3 (\u2264 512K tokens)",
           "input": 0.3,
           "input_cache": 0.06,
           "output": 1.2,
+          "monthly_limit_usd": 60.0,
+          "default_visible": true
+        },
+        {
+          "id": "minimax-m3-512k-tokens",
+          "name": "MiniMax M3 (> 512K tokens)",
+          "input": 0.6,
+          "input_cache": 0.12,
+          "output": 2.4,
           "monthly_limit_usd": 60.0,
           "default_visible": true
         },
@@ -355,7 +364,7 @@
           "input": 0.15,
           "input_cache": 0.003,
           "output": 0.6,
-          "monthly_limit_usd": 80.0,
+          "monthly_limit_usd": 100.0,
           "default_visible": false
         },
         {
@@ -364,7 +373,7 @@
           "input": 0.3,
           "input_cache": 0.006,
           "output": 1.2,
-          "monthly_limit_usd": 80.0,
+          "monthly_limit_usd": 100.0,
           "default_visible": false
         },
         {

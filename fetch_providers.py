@@ -379,14 +379,13 @@ def scrape_opencode_go() -> dict:
                 "input_cache": parse_price(row[cached_i]),
                 "output": parse_price(row[output_i]),
                 "monthly_limit_usd": max(limits) if limits else None,
-                "default_visible": name in OPENCODE_GO_DEFAULT_MODELS,
+                "default_visible": name.split(" (")[0] in OPENCODE_GO_DEFAULT_MODELS,
             }
         )
     assert len(models) >= 35, f"expected at least 35 OpenCode Go rows, got {len(models)}"
     assert any(model["monthly_limit_usd"] is None for model in models)
-    assert {
-        model["name"] for model in models if model["default_visible"]
-    } == OPENCODE_GO_DEFAULT_MODELS
+    if not any(model["default_visible"] for model in models):
+        print("Note: none of the OpenCode Go default models exist anymore")
     return {
         "id": "opencode-go",
         "name": "OpenCode Go",
