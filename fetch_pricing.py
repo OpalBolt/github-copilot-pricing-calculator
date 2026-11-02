@@ -108,7 +108,7 @@ def parse_tables(markdown: str) -> tuple[list[dict], dict[str, str]]:
             continue
 
         # Data row — only record if we have headers and the first cell is non-empty
-        if headers and cells[0] != "":
+        if headers and "Model" in headers and cells[0] != "":
             obj: dict = {"provider": provider}
             for idx, header in enumerate(headers):
                 val = cells[idx].strip() if idx < len(cells) else ""

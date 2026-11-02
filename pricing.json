@@ -1,5 +1,5 @@
 {
-  "fetchDate": "2026-10-28",
+  "fetchDate": "2026-11-02",
   "models": [
     {
       "provider": "OpenAI",
@@ -484,6 +484,16 @@
       "Input": 3.0,
       "Cached input": 0.3,
       "Output": 15.0
+    },
+    {
+      "provider": "Image generation models",
+      "Model": "GPT Image 2.5 Flare",
+      "Release status": "Public preview",
+      "Text input": 5.0,
+      "Cached text input": 1.25,
+      "Image input": 8.0,
+      "Cached image input": 2.0,
+      "Image output": 30.0
     }
   ],
   "footnotes": {
