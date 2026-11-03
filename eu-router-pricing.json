@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-02T14:39:17.238847+00:00",
+  "generatedAt": "2026-11-03T13:32:18.064136+00:00",
   "currency": "EUR",
   "exchangeRate": {
     "series": "EXR.D.USD.EUR.SP00.A",
@@ -14,7 +14,7 @@
       "source": "https://api.cortecs.ai/v1/models?extended=true&currency=EUR",
       "euClaim": "EU catalog: providers based and regulated within the EU.",
       "id": "cortecs",
-      "fetchedAt": "2026-11-02T14:39:17.238847+00:00",
+      "fetchedAt": "2026-11-03T13:32:18.064136+00:00",
       "stale": false
     },
     {
@@ -22,7 +22,7 @@
       "source": "https://api.eurouter.ai/api/v1/models",
       "euClaim": "EU handling is EUrouter's baseline routing guarantee.",
       "id": "eurouter",
-      "fetchedAt": "2026-11-02T14:39:17.238847+00:00",
+      "fetchedAt": "2026-11-03T13:32:18.064136+00:00",
       "stale": false
     },
     {
@@ -31,7 +31,9 @@
       "euClaim": "EU regional routing; Business or Enterprise plan required.",
       "id": "openrouter",
       "fetchedAt": "2026-11-02T14:39:17.238847+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: HTTP Error 504: Gateway Time-out",
+      "fallbackAttemptedAt": "2026-11-03T13:32:18.064136+00:00"
     },
     {
       "name": "DeepSeek API",
@@ -40,7 +42,9 @@
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "deepseek-direct",
       "fetchedAt": "2026-11-02T14:39:17.238847+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: HTTP Error 504: Gateway Time-out",
+      "fallbackAttemptedAt": "2026-11-03T13:32:18.064136+00:00"
     },
     {
       "name": "z.ai API",
@@ -49,7 +53,9 @@
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "zai-direct",
       "fetchedAt": "2026-11-02T14:39:17.238847+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: HTTP Error 504: Gateway Time-out",
+      "fallbackAttemptedAt": "2026-11-03T13:32:18.064136+00:00"
     },
     {
       "name": "Claude API",
@@ -59,7 +65,9 @@
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "claude-direct",
       "fetchedAt": "2026-11-02T14:39:17.238847+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: HTTP Error 504: Gateway Time-out",
+      "fallbackAttemptedAt": "2026-11-03T13:32:18.064136+00:00"
     },
     {
       "name": "OpenAI API",
@@ -69,7 +77,9 @@
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "openai-direct",
       "fetchedAt": "2026-11-02T14:39:17.238847+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: HTTP Error 504: Gateway Time-out",
+      "fallbackAttemptedAt": "2026-11-03T13:32:18.064136+00:00"
     },
     {
       "name": "Mistral AI",
@@ -78,7 +88,9 @@
       "euClaim": "EU regional endpoint (api.eu.mistral.ai): inference in EU/EFTA data centers at 1.1\u00d7 list price.",
       "id": "mistral",
       "fetchedAt": "2026-11-02T14:39:17.238847+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: HTTP Error 504: Gateway Time-out",
+      "fallbackAttemptedAt": "2026-11-03T13:32:18.064136+00:00"
     }
   ],
   "omittedRouters": [],
@@ -622,45 +634,6 @@
       "direct": true,
       "priceNote": "Direct USD API price published by Anthropic and converted with the listed ECB rate. This is not a routed offer.",
       "pricingTiers": []
-    },
-    {
-      "key": "cortecs:apertus-70b",
-      "router": "cortecs",
-      "routerName": "Cortecs",
-      "modelId": "apertus-70b",
-      "name": "apertus-70b",
-      "owner": "Swiss AI Initiative",
-      "description": "Apertus 70B is an open, multilingual language model designed for research, long-context reasoning, and sovereignty-focused AI systems.",
-      "releaseDate": null,
-      "contextSize": 65536,
-      "capabilities": {
-        "reasoning": false,
-        "tools": true,
-        "vision": false,
-        "audio": false
-      },
-      "providers": [
-        "aki"
-      ],
-      "euProviders": [
-        "aki"
-      ],
-      "default": {
-        "input": 1.25,
-        "cached": 1.25,
-        "output": 2.0,
-        "cachedFallback": true,
-        "nativeCurrency": "EUR"
-      },
-      "eu": {
-        "input": 1.25,
-        "cached": 1.25,
-        "output": 2.0,
-        "cachedFallback": true,
-        "nativeCurrency": "EUR"
-      },
-      "quantization": null,
-      "priceNote": "Model-level minimum price published by Cortecs."
     },
     {
       "key": "cortecs:claude-4-5-sonnet",
@@ -3078,7 +3051,7 @@
       "owner": "MiniMax AI",
       "description": "MiniMax M3 is a multimodal frontier model built for coding and agentic workflows, featuring ultra-long context and advanced tool-driven reasoning.",
       "releaseDate": null,
-      "contextSize": 1048576,
+      "contextSize": 1000000,
       "capabilities": {
         "reasoning": true,
         "tools": true,
@@ -3086,11 +3059,9 @@
         "audio": false
       },
       "providers": [
-        "Tensorix",
         "arkane"
       ],
       "euProviders": [
-        "Tensorix",
         "arkane"
       ],
       "default": {
@@ -4267,24 +4238,22 @@
         "audio": false
       },
       "providers": [
-        "Scaleway",
-        "aki"
+        "Scaleway"
       ],
       "euProviders": [
-        "Scaleway",
-        "aki"
+        "Scaleway"
       ],
       "default": {
-        "input": 0.15,
-        "cached": 0.15,
-        "output": 0.5,
+        "input": 0.25,
+        "cached": 0.25,
+        "output": 1.5,
         "cachedFallback": true,
         "nativeCurrency": "EUR"
       },
       "eu": {
-        "input": 0.15,
-        "cached": 0.15,
-        "output": 0.5,
+        "input": 0.25,
+        "cached": 0.25,
+        "output": 1.5,
         "cachedFallback": true,
         "nativeCurrency": "EUR"
       },
@@ -4375,45 +4344,6 @@
         "input": 0.09,
         "cached": 0.036,
         "output": 0.359,
-        "cachedFallback": false,
-        "nativeCurrency": "EUR"
-      },
-      "quantization": null,
-      "priceNote": "Model-level minimum price published by Cortecs."
-    },
-    {
-      "key": "cortecs:qwen3.8-flash-next",
-      "router": "cortecs",
-      "routerName": "Cortecs",
-      "modelId": "qwen3.8-flash-next",
-      "name": "qwen3.8-flash-next",
-      "owner": "Alibaba",
-      "description": "Qwen3.8 Flash Next is an efficient multimodal MoE model designed for low-cost inference and strong coding performance.",
-      "releaseDate": null,
-      "contextSize": 262144,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": true,
-        "audio": false
-      },
-      "providers": [
-        "Tensorix"
-      ],
-      "euProviders": [
-        "Tensorix"
-      ],
-      "default": {
-        "input": 0.18,
-        "cached": 0.045,
-        "output": 0.449,
-        "cachedFallback": false,
-        "nativeCurrency": "EUR"
-      },
-      "eu": {
-        "input": 0.18,
-        "cached": 0.045,
-        "output": 0.449,
         "cachedFallback": false,
         "nativeCurrency": "EUR"
       },
@@ -4645,94 +4575,6 @@
       },
       "quantization": null,
       "priceNote": "EUR Router Price published by EUrouter."
-    },
-    {
-      "key": "eurouter:alibaba/qwen3.6-35b-instruct",
-      "router": "eurouter",
-      "routerName": "EUrouter",
-      "modelId": "alibaba/qwen3.6-35b-instruct",
-      "name": "Qwen3.6 35B A3B Instruct",
-      "owner": "Alibaba",
-      "description": "",
-      "releaseDate": null,
-      "contextSize": 256000,
-      "capabilities": {
-        "reasoning": false,
-        "tools": true,
-        "vision": true,
-        "audio": false
-      },
-      "providers": [
-        "AKI.IO"
-      ],
-      "euProviders": [
-        "AKI.IO"
-      ],
-      "default": {
-        "input": 0.15,
-        "cached": 0.15,
-        "output": 0.5,
-        "cachedFallback": true,
-        "nativeCurrency": "EUR"
-      },
-      "eu": {
-        "input": 0.15,
-        "cached": 0.15,
-        "output": 0.5,
-        "cachedFallback": true,
-        "nativeCurrency": "EUR"
-      },
-      "quantization": null,
-      "priceNote": "EUR Router Price published by EUrouter."
-    },
-    {
-      "key": "eurouter:alibaba/qwen3.8-flash-next",
-      "router": "eurouter",
-      "routerName": "EUrouter",
-      "modelId": "alibaba/qwen3.8-flash-next",
-      "name": "Qwen3.8 Flash Next",
-      "owner": "Alibaba",
-      "description": "Qwen3.8 Flash Next is Alibaba Qwen's open-weight sparse mixture-of-experts model (125B total, 6B active) and an experimental preview of the Qwen4 architecture, for reasoning, coding, tool use, agentic workflows, and image and video understanding.",
-      "releaseDate": "2026-08-26",
-      "contextSize": 262144,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": true,
-        "audio": false
-      },
-      "providers": [
-        "Lyceum Technology GmbH"
-      ],
-      "euProviders": [
-        "Lyceum Technology GmbH"
-      ],
-      "default": {
-        "input": 0.17901897601145722,
-        "cached": 0.044754744002864305,
-        "output": 0.44754744002864305,
-        "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.2,
-          "cached": 0.05,
-          "output": 0.5
-        }
-      },
-      "eu": {
-        "input": 0.17901897601145722,
-        "cached": 0.044754744002864305,
-        "output": 0.44754744002864305,
-        "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.2,
-          "cached": 0.05,
-          "output": 0.5
-        }
-      },
-      "quantization": null,
-      "priceNote": "USD Router Price published by EUrouter and converted with the listed ECB rate."
     },
     {
       "key": "eurouter:alibaba/qwen3guard-gen-0.6b",
@@ -8442,12 +8284,10 @@
         "audio": false
       },
       "providers": [
-        "Tensorix",
-        "Lyceum Technology GmbH"
+        "Tensorix"
       ],
       "euProviders": [
-        "Tensorix",
-        "Lyceum Technology GmbH"
+        "Tensorix"
       ],
       "default": {
         "input": 0.35803795202291444,
@@ -10114,14 +9954,12 @@
       },
       "providers": [
         "IONOS Cloud",
-        "Lyceum Technology GmbH",
         "Tensorix",
         "OVHcloud",
         "Regolo"
       ],
       "euProviders": [
         "IONOS Cloud",
-        "Lyceum Technology GmbH",
         "Tensorix",
         "OVHcloud",
         "Regolo"
