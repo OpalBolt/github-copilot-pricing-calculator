@@ -395,6 +395,15 @@
           "default_visible": false
         },
         {
+          "id": "hy4",
+          "name": "Hy4",
+          "input": 0.834,
+          "input_cache": 0.042,
+          "output": 2.501,
+          "monthly_limit_usd": 60.0,
+          "default_visible": false
+        },
+        {
           "id": "hy4-preview",
           "name": "Hy4 preview",
           "input": 0.834,

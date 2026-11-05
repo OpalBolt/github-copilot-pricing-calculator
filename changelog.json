@@ -45,6 +45,12 @@
       "changes": [
         "+ OpenCode Go \u00b7 Iceman Contributor Free (input free \u00b7 cached free \u00b7 output free)"
       ]
+    },
+    {
+      "date": "2026-11-05",
+      "changes": [
+        "+ OpenCode Go \u00b7 Hy4 (input $0.834 \u00b7 cached $0.042 \u00b7 output $2.501)"
+      ]
     }
   ],
   "router": [
@@ -379,6 +385,37 @@
         "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek Flash Latest \u2014 input $0.035\u2192$0.032",
         "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi Latest \u2014 input $0.1495\u2192$0.1824 \u00b7 cached $0.07475\u2192$0.18 \u00b7 output $7.15\u2192$10.16",
         "\u2192 OpenRouter \u00b7 Z.ai: GLM Flash Latest \u2014 input $0.0285\u2192$0.0269 \u00b7 cached $0.0285\u2192$0.0269 \u00b7 output $0.0923\u2192$0.0996"
+      ]
+    },
+    {
+      "date": "2026-11-05",
+      "changes": [
+        "\u2212 OpenRouter: MiniMax: MiniMax-01",
+        "\u2212 OpenRouter: MiniMax: MiniMax M2",
+        "\u2212 OpenRouter: MiniMax: MiniMax M2-her",
+        "\u2212 OpenRouter: MiniMax: MiniMax M2.1",
+        "+ Cortecs: kimi-k3.1-pro",
+        "+ EUrouter: Kimi K3.1 Pro",
+        "+ OpenRouter: inclusionAI: Ling 3.0 Tiny",
+        "+ OpenRouter: ricursiveAI/Ripple-65B-Preview",
+        "\u2192 EUrouter \u00b7 Mistral Nemo 12B \u2014 input $0.13\u2192$0.17 \u00b7 cached $0.13\u2192$0.17 \u00b7 output $0.13\u2192$0.17 \u00b7 eu input $0.13\u2192$0.17 \u00b7 eu cached $0.13\u2192$0.17 \u00b7 eu output $0.13\u2192$0.17",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash 0731 \u2014 input $0.059\u2192$0.0566",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Pro 0813 \u2014 input $0.115\u2192$0.103 \u00b7 cached $0.11\u2192$0.098 \u00b7 output $4.6\u2192$4.11",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4.1 Flash (batch) \u2014 input $0.05\u2192$0.112 \u00b7 cached $0.004\u2192$0.00336 \u00b7 output $0.15\u2192$0.336",
+        "\u2192 OpenRouter \u00b7 Google: Gemma 4 26B A4B \u2014 input $0.082\u2192$0.025 \u00b7 cached $0.041\u2192$0.013 \u00b7 output $0.246\u2192$0.075",
+        "\u2192 OpenRouter \u00b7 Meta: Llama 3.3 70B Instruct \u2014 input $0.1\u2192$0.2 \u00b7 output $0.32\u2192$0.52",
+        "\u2192 OpenRouter \u00b7 Meta: Llama 4 Maverick \u2014 input $0.1875\u2192$0.35 \u00b7 cached $0.05\u2192$0.17 \u00b7 output $0.6525\u2192$1",
+        "\u2192 OpenRouter \u00b7 MiniMax: MiniMax M2.7 \u2014 input $0.3\u2192$0.21 \u00b7 cached $0.06\u2192$0.042 \u00b7 output $1.2\u2192$0.84",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi K2.6 \u2014 eu input $0.7985\u2192$0.799 \u00b7 eu cached $0.2624\u2192$0.2092",
+        "\u2192 OpenRouter \u00b7 OpenAI: gpt-oss-120b \u2014 input $0.028\u2192$0.15 \u00b7 cached $0.025\u2192$0.075 \u00b7 output $0.104\u2192$0.6",
+        "\u2192 OpenRouter \u00b7 Qwen: Qwen3 Next 80B A3B Instruct \u2014 input $0.1\u2192$0.09 \u00b7 cached $0.07\u2192$0.09",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.3 \u2014 input $0.08\u2192$0.0699 \u00b7 cached $0.076\u2192$0.0689 \u00b7 output $3.6\u2192$1.4",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.3 Flash \u2014 input $0.0269\u2192$0.15 \u00b7 cached $0.0269\u2192$0.03 \u00b7 output $0.0996\u2192$0.5",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek Flash Latest \u2014 input $0.032\u2192$0.006",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek Pro Latest \u2014 input $0.1035\u2192$0.0927 \u00b7 cached $0.1\u2192$0.0927",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Flash Latest \u2014 input $0.059\u2192$0.05632 \u00b7 cached $0.035\u2192$0.001792 \u00b7 output $0.3\u2192$0.169",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi Latest \u2014 input $0.1824\u2192$0.1577 \u00b7 cached $0.18\u2192$0.15 \u00b7 output $10.16\u2192$10.54",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM Flash Latest \u2014 input $0.0269\u2192$0.0285 \u00b7 cached $0.0269\u2192$0.0285 \u00b7 output $0.0996\u2192$0.0923"
       ]
     }
   ],
@@ -995,6 +1032,62 @@
         "\u2192 Eden AI \u00b7 glm-5.2-caveman-ultra \u2014 input $1.738\u2192$1.733 \u00b7 cached $0.4486\u2192$0.4472 \u00b7 output $5.159\u2192$5.142",
         "\u2192 Eden AI \u00b7 glm-5.2-honey \u2014 input $1.738\u2192$1.733 \u00b7 cached $0.4486\u2192$0.4472 \u00b7 output $5.159\u2192$5.142",
         "\u2026 and 99 more"
+      ]
+    },
+    {
+      "date": "2026-11-05",
+      "changes": [
+        "\u2212 AI/ML API: LFM2.5-2.6B",
+        "\u2212 Kilo: MiniMax: MiniMax-01 (retires Nov 5)",
+        "\u2212 Kilo: MiniMax: MiniMax M2 (retires Nov 5)",
+        "\u2212 Kilo: MiniMax: MiniMax M2-her (retires Nov 5)",
+        "\u2212 Kilo: MiniMax: MiniMax M2.1 (retires Nov 5)",
+        "\u2212 nano-gpt: EVA-Qwen2.5-32B-v0.2",
+        "\u2212 nano-gpt: Kimi K2.7 Code TEE",
+        "\u2212 nano-gpt: Nvidia Nemotron 3.5 Lightning TEE",
+        "\u2212 nano-gpt: Cogito v1 Preview Qwen 32B",
+        "\u2212 nano-gpt: Qwen 2.5 32B Abliterated",
+        "\u2212 nano-gpt: Hermes 3 70B",
+        "\u2212 nano-gpt: Hermes 4 Large",
+        "\u2212 nano-gpt: Hermes 4 Large (Thinking)",
+        "\u2212 nano-gpt: Assistant Pepe 32B",
+        "\u2212 nano-gpt: Grayline Qwen3 8B",
+        "\u2212 nano-gpt: Veiled Calla 12B",
+        "\u2212 OpenRouter: MiniMax: MiniMax-01",
+        "\u2212 OpenRouter: MiniMax: MiniMax M2",
+        "\u2212 OpenRouter: MiniMax: MiniMax M2-her",
+        "\u2212 OpenRouter: MiniMax: MiniMax M2.1",
+        "\u2212 Prime: Nemotron 3.5 Super VL",
+        "\u2212 Requesty: claude-sonnet-4-5",
+        "\u2212 Requesty: kimi-k3.1-pro",
+        "+ aiand: moonshotai/kimi-k3.1-pro",
+        "+ AI/ML API: Ling 3.0 Tiny",
+        "+ AI/ML API: Crouton Alpha",
+        "+ Cortecs: kimi-k3.1-pro",
+        "+ DeepInfra: moonshotai/Kimi-K3.1-Pro",
+        "+ Eden AI: moonshotai/Kimi-K3.1-Pro",
+        "+ Eden AI: accounts/fireworks/routers/deepseek-v4p1-flash-1017-ultrafast",
+        "+ Eden AI: moonshotai/Kimi-K3.1-Pro",
+        "+ Eden AI: o3-deep-research",
+        "+ Eden AI: o3-deep-research-2025-06-26",
+        "+ Eden AI: o4-mini-deep-research",
+        "+ Eden AI: o4-mini-deep-research-2025-06-26",
+        "+ Eden AI: kimi-k3.1-pro",
+        "+ Eden AI: moonshotai/kimi-k3.1-pro",
+        "+ Eden AI: moonshotai/Kimi-K3.1-Pro",
+        "+ Eden AI: ricursive-ai/Ripple-65B-Preview",
+        "+ Empirio Labs: Kimi K3.1 Pro",
+        "+ Engy: kimi-k3.1-pro",
+        "+ EUrouter: Kimi K3.1 Pro",
+        "+ Hyper: Kimi K3.1 Pro",
+        "+ Hyper: Prism Core",
+        "+ Kilo: inclusionAI: Ling 3.0 Tiny",
+        "+ Kilo: ricursiveAI/Ripple-65B-Preview",
+        "+ nano-gpt: OrcaCyber K3.1 Pro Uncensored",
+        "+ nano-gpt: Ripple 65B Preview",
+        "+ nano-gpt: Tencent Hy4",
+        "+ OpenRouter: inclusionAI: Ling 3.0 Tiny",
+        "\u2026 and 110 more"
       ]
     }
   ]
