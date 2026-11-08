@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-07T12:22:18.324447+00:00",
+  "generatedAt": "2026-11-08T12:41:08.229129+00:00",
   "currency": "EUR",
   "exchangeRate": {
     "series": "EXR.D.USD.EUR.SP00.A",
@@ -14,7 +14,7 @@
       "source": "https://api.cortecs.ai/v1/models?extended=true&currency=EUR",
       "euClaim": "EU catalog: providers based and regulated within the EU.",
       "id": "cortecs",
-      "fetchedAt": "2026-11-07T12:22:18.324447+00:00",
+      "fetchedAt": "2026-11-08T12:41:08.229129+00:00",
       "stale": false
     },
     {
@@ -22,7 +22,7 @@
       "source": "https://api.eurouter.ai/api/v1/models",
       "euClaim": "EU handling is EUrouter's baseline routing guarantee.",
       "id": "eurouter",
-      "fetchedAt": "2026-11-07T12:22:18.324447+00:00",
+      "fetchedAt": "2026-11-08T12:41:08.229129+00:00",
       "stale": false
     },
     {
@@ -31,7 +31,9 @@
       "euClaim": "EU regional routing; Business or Enterprise plan required.",
       "id": "openrouter",
       "fetchedAt": "2026-11-07T12:22:18.324447+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: HTTP Error 500: Internal Server Error",
+      "fallbackAttemptedAt": "2026-11-08T12:41:08.229129+00:00"
     },
     {
       "name": "DeepSeek API",
@@ -40,7 +42,9 @@
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "deepseek-direct",
       "fetchedAt": "2026-11-07T12:22:18.324447+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: HTTP Error 500: Internal Server Error",
+      "fallbackAttemptedAt": "2026-11-08T12:41:08.229129+00:00"
     },
     {
       "name": "z.ai API",
@@ -49,7 +53,9 @@
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "zai-direct",
       "fetchedAt": "2026-11-07T12:22:18.324447+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: HTTP Error 500: Internal Server Error",
+      "fallbackAttemptedAt": "2026-11-08T12:41:08.229129+00:00"
     },
     {
       "name": "Claude API",
@@ -59,7 +65,9 @@
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "claude-direct",
       "fetchedAt": "2026-11-07T12:22:18.324447+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: HTTP Error 500: Internal Server Error",
+      "fallbackAttemptedAt": "2026-11-08T12:41:08.229129+00:00"
     },
     {
       "name": "OpenAI API",
@@ -69,7 +77,9 @@
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "openai-direct",
       "fetchedAt": "2026-11-07T12:22:18.324447+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: HTTP Error 500: Internal Server Error",
+      "fallbackAttemptedAt": "2026-11-08T12:41:08.229129+00:00"
     },
     {
       "name": "Mistral AI",
@@ -78,7 +88,9 @@
       "euClaim": "EU regional endpoint (api.eu.mistral.ai): inference in EU/EFTA data centers at 1.1\u00d7 list price.",
       "id": "mistral",
       "fetchedAt": "2026-11-07T12:22:18.324447+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: HTTP Error 500: Internal Server Error",
+      "fallbackAttemptedAt": "2026-11-08T12:41:08.229129+00:00"
     }
   ],
   "omittedRouters": [],
