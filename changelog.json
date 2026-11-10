@@ -63,6 +63,12 @@
       "changes": [
         "+ OpenCode Go \u00b7 LongCat 2.5 Free (input free \u00b7 cached free \u00b7 output free)"
       ]
+    },
+    {
+      "date": "2026-11-10",
+      "changes": [
+        "\u2212 OpenCode Go \u00b7 Crouton Alpha Free"
+      ]
     }
   ],
   "router": [
@@ -512,6 +518,38 @@
         "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi Latest \u2014 output $9.339\u2192$10.55",
         "\u2192 OpenRouter \u00b7 Z.ai: GLM Flash Latest \u2014 input $0.0285\u2192$0.0335 \u00b7 cached $0.0285\u2192$0.03 \u00b7 output $0.0923\u2192$0.083"
       ]
+    },
+    {
+      "date": "2026-11-10",
+      "changes": [
+        "\u2212 Cortecs: minicpm-v-4.5",
+        "\u2212 OpenRouter: MiniMax: MiniMax M1",
+        "\u2212 OpenRouter: Crouton Alpha",
+        "+ Claude API: Claude Fable 5.2",
+        "+ OpenRouter: Anthropic: Claude Fable 5.2",
+        "+ OpenRouter: Anthropic: Claude Fable 5.2 (batch)",
+        "+ OpenRouter: Meta: Muse Ember",
+        "+ OpenRouter: Nex AGI: Nex-N2.6",
+        "+ OpenRouter: Thinking Machines: Inkling 2 Small (free)",
+        "\u2192 Cortecs \u00b7 minimax-m3.1-flash \u2014 input $0.273\u2192$0.137 \u00b7 cached $0.068\u2192$0.014 \u00b7 output $1.094\u2192$0.55 \u00b7 eu input $0.273\u2192$0.137 \u00b7 eu cached $0.068\u2192$0.014 \u00b7 eu output $1.094\u2192$0.55",
+        "\u2192 EUrouter \u00b7 Qwen3.5 397B A17B \u2014 input $0.6\u2192$0.67 \u00b7 cached $0.6\u2192$0.67 \u00b7 output $3.6\u2192$4 \u00b7 eu input $0.6\u2192$0.67 \u00b7 eu cached $0.6\u2192$0.67 \u00b7 eu output $3.6\u2192$4",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4 Pro 0423 \u2014 input $0.894\u2192$0.9553 \u00b7 cached $0.0745\u2192$0.0796 \u00b7 output $1.788\u2192$1.911",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4.1 Flash \u2014 input $0.051\u2192$0.3 \u00b7 cached $0.018\u2192$0.006 \u00b7 output $0.567\u2192$1.2",
+        "\u2192 OpenRouter \u00b7 DeepSeek: DeepSeek V4.1 Flash (batch) \u2014 input $0.011\u2192$0.112 \u00b7 cached $0.002\u2192$0.00336 \u00b7 output $0.2\u2192$0.336",
+        "\u2192 OpenRouter \u00b7 Google: Gemma 4 26B A4B \u2014 input $0.09\u2192$0.08 \u00b7 cached $0.05\u2192$0.046 \u00b7 output $0.3\u2192$0.1",
+        "\u2192 OpenRouter \u00b7 Meta: Llama 3.3 70B Instruct \u2014 input $0.59\u2192$0.71 \u00b7 cached $0.295\u2192$0.71 \u00b7 output $0.79\u2192$0.71",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi K2.6 \u2014 eu input $0.799\u2192$0.7995 \u00b7 eu cached $0.2092\u2192$0.156",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi K3 (batch) \u2014 input $0.883\u2192$2.28 \u00b7 cached $0.218\u2192$0.228 \u00b7 output $6\u2192$11.4",
+        "\u2192 OpenRouter \u00b7 NVIDIA: Nemotron 3.5 Super VL \u2014 output $0.5\u2192$0.47",
+        "\u2192 OpenRouter \u00b7 Qwen: Qwen3 14B \u2014 input $0.12\u2192$0.1 \u00b7 cached $0.12\u2192$0.1 \u00b7 output $0.24\u2192$0.22",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.2 \u2014 input $0.006\u2192$0.007 \u00b7 cached $0.005\u2192$0.006",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.2 (batch) \u2014 input $0.623\u2192$0.527 \u00b7 cached $0.21\u2192$0.178 \u00b7 output $1.271\u2192$1.075",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.3 Flash \u2014 input $0.0335\u2192$0.0399 \u00b7 output $0.083\u2192$0.0784",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM 5.3 Flash (batch) \u2014 input $0.05\u2192$0.03 \u00b7 cached $0.01\u2192$0.013 \u00b7 output $0.18\u2192$0.061",
+        "\u2192 OpenRouter \u00b7 Anthropic: Claude Fable Latest \u2014 input $10\u2192$8 \u00b7 cached $0.25\u2192$0.2 \u00b7 output $50\u2192$40",
+        "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi Latest \u2014 output $10.55\u2192$9.339",
+        "\u2192 OpenRouter \u00b7 Z.ai: GLM Flash Latest \u2014 input $0.0335\u2192$0.0399 \u00b7 output $0.083\u2192$0.0784"
+      ]
     }
   ],
   "copilot": [
@@ -535,6 +573,12 @@
       "date": "2026-11-02",
       "changes": [
         "+ GPT Image 2.5 Flare (in None \u00b7 out None)"
+      ]
+    },
+    {
+      "date": "2026-11-10",
+      "changes": [
+        "+ Claude Fable 5.2 (in $8 \u00b7 out $40)"
       ]
     }
   ],
@@ -1351,6 +1395,62 @@
         "\u2192 nano-gpt \u00b7 MS3.2 24B Magnum Diamond \u2014 input $0.493\u2192$0.493 \u00b7 cached $0.493\u2192$0.493 \u00b7 output $0.493\u2192$0.493",
         "\u2192 nano-gpt \u00b7 Llama 3.05 Storybreaker Ministral 70b \u2014 input $0.493\u2192$0.493 \u00b7 cached $0.493\u2192$0.493 \u00b7 output $0.493\u2192$0.493",
         "\u2026 and 133 more"
+      ]
+    },
+    {
+      "date": "2026-11-10",
+      "changes": [
+        "\u2212 Cortecs: minicpm-v-4.5",
+        "\u2212 Eden AI: Qwen/Qwen3.5-397B-A17B",
+        "\u2212 Eden AI: deepseek-ai/DeepSeek-V4-Flash-0731",
+        "\u2212 Eden AI: deepseek-ai/DeepSeek-V4.1-Flash",
+        "\u2212 Eden AI: moonshotai/Kimi-K2.6",
+        "\u2212 Eden AI: moonshotai/Kimi-K2.7-Code",
+        "\u2212 Eden AI: openbmb/MiniCPM-V-4_5",
+        "\u2212 Kilo: MiniMax: MiniMax M1",
+        "\u2212 Kilo: Crouton Alpha",
+        "\u2212 nano-gpt: Qwen2.5 VL 72B TEE",
+        "\u2212 nano-gpt: Qwen3.5 397B A17B TEE",
+        "\u2212 nano-gpt: ASI1 Mini",
+        "\u2212 nano-gpt: DeepSeek V4.1 Flash 0910 Uncensored",
+        "\u2212 nano-gpt: DeepSeek V4.1 Flash 0910 Uncensored Thinking",
+        "\u2212 Novita: ming image 0.1 design",
+        "\u2212 Novita: ming image 0.1 design layer",
+        "\u2212 OpenCode Zen: Crouton Alpha Free",
+        "\u2212 OpenRouter: MiniMax: MiniMax M1",
+        "\u2212 OpenRouter: Crouton Alpha",
+        "\u2212 Requesty: deepseek-v4-flash-0424",
+        "\u2212 Requesty: deepseek-v4-flash-0424",
+        "\u2212 Requesty: deepseek-v4-pro-0424",
+        "\u2212 Requesty: deepseek-v4-pro-0424",
+        "\u2212 Requesty: deepseek-v4-flash-0731",
+        "\u2212 Requesty: deepseek-v4-flash-vision-exp",
+        "\u2212 Requesty: deepseek-v4-pro-0813",
+        "\u2212 Requesty: glm-5.1",
+        "\u2212 Requesty: glm-5.2",
+        "\u2212 Requesty: gpt-oss-20b",
+        "\u2212 Requesty: kimi-k2.6",
+        "\u2212 Requesty: kimi-k2.7-code",
+        "\u2212 Requesty: muse-glimmer-30b",
+        "\u2212 Requesty: qwen3.7-plus",
+        "\u2212 Requesty: minimax-m2.5",
+        "\u2212 Requesty: deepseek-v4-pro",
+        "\u2212 Requesty: llama-3.3-70b-instruct",
+        "\u2212 Requesty: kimi-k2.6",
+        "\u2212 Requesty: hermes-4-70b",
+        "\u2212 Requesty: nemotron-3-nano-omni",
+        "\u2212 Requesty: qwen3-next-80b-a3b-thinking",
+        "\u2212 Requesty: qwen3.5-397b-a17b",
+        "\u2212 Requesty: deepseek-r1",
+        "\u2212 Requesty: deepseek-r1-distill-llama-70b",
+        "\u2212 Requesty: deepseek-v3-0324",
+        "\u2212 Requesty: deepseek-v3-turbo",
+        "\u2212 Requesty: deepseek-v3.2",
+        "\u2212 Requesty: ling-2.6-1t",
+        "\u2212 Requesty: ling-2.6-flash",
+        "\u2212 Requesty: ling-3.0-tiny",
+        "\u2212 Requesty: ring-2.6-1t",
+        "\u2026 and 179 more"
       ]
     }
   ]

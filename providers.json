@@ -224,15 +224,6 @@
           "default_visible": false
         },
         {
-          "id": "crouton-alpha-free",
-          "name": "Crouton Alpha Free",
-          "input": 0.0,
-          "input_cache": 0.0,
-          "output": 0.0,
-          "monthly_limit_usd": null,
-          "default_visible": false
-        },
-        {
           "id": "beam-free",
           "name": "Beam Free",
           "input": 0.0,

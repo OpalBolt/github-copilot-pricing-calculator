@@ -1,5 +1,5 @@
 {
-  "fetchDate": "2026-11-09",
+  "fetchDate": "2026-11-10",
   "summary": [
     {
       "model": "GPT-5.3-Codex",
@@ -77,6 +77,13 @@
       "excelsAt": "Substantial, long-running coding tasks, including deep codebase research, feature development, and complex agentic workflows",
       "furtherReadingText": "Claude Fable 5.1 model card",
       "furtherReadingUrl": "https://www-cdn.anthropic.com/0339e6a7c5c7b87f5c07798616dc32c215d14235/Claude%20Fable%205.1%20&%20Claude%20Mythos%205.1%20System%20Card.pdf"
+    },
+    {
+      "model": "Claude Fable 5.2",
+      "taskArea": "Long-horizon, autonomous coding and knowledge-work",
+      "excelsAt": "Substantial, long-running coding tasks, including deep codebase research, feature development, and complex agentic workflows",
+      "furtherReadingText": "",
+      "furtherReadingUrl": ""
     },
     {
       "model": "Claude Haiku 4.5",
