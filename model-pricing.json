@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-10T14:14:17.959110+00:00",
+  "generatedAt": "2026-11-11T13:29:18.853254+00:00",
   "currency": "EUR",
   "exchangeRate": {
     "series": "EXR.D.USD.EUR.SP00.A",
@@ -15,7 +15,7 @@
       "source": "https://api.cortecs.ai/v1/models?extended=true&currency=EUR",
       "id": "cortecs",
       "nativeCurrency": "EUR",
-      "fetchedAt": "2026-11-10T14:14:17.959110+00:00",
+      "fetchedAt": "2026-11-11T13:29:18.853254+00:00",
       "stale": false
     },
     {
@@ -24,7 +24,7 @@
       "source": "https://api.eurouter.ai/api/v1/models",
       "id": "eurouter",
       "nativeCurrency": "mixed",
-      "fetchedAt": "2026-11-10T14:14:17.959110+00:00",
+      "fetchedAt": "2026-11-11T13:29:18.853254+00:00",
       "stale": false
     },
     {
@@ -32,18 +32,20 @@
       "sellerKind": "router",
       "source": "https://openrouter.ai/api/v1/models",
       "id": "openrouter",
-      "nativeCurrency": "USD",
       "fetchedAt": "2026-11-10T14:14:17.959110+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: The read operation timed out",
+      "fallbackAttemptedAt": "2026-11-11T13:29:18.853254+00:00"
     },
     {
       "name": "OpenCode Zen",
       "sellerKind": "gateway",
       "source": "https://opencode.ai/zen/v1/models",
       "id": "opencode",
-      "nativeCurrency": "USD",
       "fetchedAt": "2026-11-10T14:14:17.959110+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: The read operation timed out",
+      "fallbackAttemptedAt": "2026-11-11T13:29:18.853254+00:00"
     },
     {
       "name": "DeepInfra",
@@ -52,7 +54,9 @@
       "nativeCurrency": "USD",
       "id": "deepinfra",
       "fetchedAt": "2026-11-10T14:14:17.959110+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: The read operation timed out",
+      "fallbackAttemptedAt": "2026-11-11T13:29:18.853254+00:00"
     },
     {
       "name": "Novita",
@@ -61,7 +65,9 @@
       "nativeCurrency": "USD",
       "id": "novita",
       "fetchedAt": "2026-11-10T14:14:17.959110+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: The read operation timed out",
+      "fallbackAttemptedAt": "2026-11-11T13:29:18.853254+00:00"
     },
     {
       "name": "Requesty",
@@ -70,7 +76,9 @@
       "nativeCurrency": "USD",
       "id": "requesty",
       "fetchedAt": "2026-11-10T14:14:17.959110+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: The read operation timed out",
+      "fallbackAttemptedAt": "2026-11-11T13:29:18.853254+00:00"
     },
     {
       "name": "Vercel AI Gateway",
@@ -79,7 +87,9 @@
       "nativeCurrency": "USD",
       "id": "vercel-gateway",
       "fetchedAt": "2026-11-10T14:14:17.959110+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: The read operation timed out",
+      "fallbackAttemptedAt": "2026-11-11T13:29:18.853254+00:00"
     },
     {
       "name": "Kilo",
@@ -88,7 +98,9 @@
       "nativeCurrency": "USD",
       "id": "kilo",
       "fetchedAt": "2026-11-10T14:14:17.959110+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: The read operation timed out",
+      "fallbackAttemptedAt": "2026-11-11T13:29:18.853254+00:00"
     },
     {
       "name": "nano-gpt",
@@ -97,7 +109,9 @@
       "nativeCurrency": "USD",
       "id": "nano-gpt",
       "fetchedAt": "2026-11-10T14:14:17.959110+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: The read operation timed out",
+      "fallbackAttemptedAt": "2026-11-11T13:29:18.853254+00:00"
     },
     {
       "name": "Chutes",
@@ -106,7 +120,9 @@
       "nativeCurrency": "USD",
       "id": "chutes",
       "fetchedAt": "2026-11-10T14:14:17.959110+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: The read operation timed out",
+      "fallbackAttemptedAt": "2026-11-11T13:29:18.853254+00:00"
     },
     {
       "name": "LLM Gateway",
@@ -115,7 +131,9 @@
       "nativeCurrency": "USD",
       "id": "llmgateway",
       "fetchedAt": "2026-11-10T14:14:17.959110+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: The read operation timed out",
+      "fallbackAttemptedAt": "2026-11-11T13:29:18.853254+00:00"
     },
     {
       "name": "aiand",
@@ -124,7 +142,9 @@
       "nativeCurrency": "USD",
       "id": "aiand",
       "fetchedAt": "2026-11-10T14:14:17.959110+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: The read operation timed out",
+      "fallbackAttemptedAt": "2026-11-11T13:29:18.853254+00:00"
     },
     {
       "name": "AI/ML API",
@@ -133,7 +153,9 @@
       "nativeCurrency": "USD",
       "id": "aimlapi",
       "fetchedAt": "2026-11-10T14:14:17.959110+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: The read operation timed out",
+      "fallbackAttemptedAt": "2026-11-11T13:29:18.853254+00:00"
     },
     {
       "name": "Ambient",
@@ -142,7 +164,9 @@
       "nativeCurrency": "USD",
       "id": "ambient",
       "fetchedAt": "2026-11-10T14:14:17.959110+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: The read operation timed out",
+      "fallbackAttemptedAt": "2026-11-11T13:29:18.853254+00:00"
     },
     {
       "name": "Crossmodel",
@@ -151,7 +175,9 @@
       "nativeCurrency": "USD",
       "id": "crossmodel",
       "fetchedAt": "2026-11-10T14:14:17.959110+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: The read operation timed out",
+      "fallbackAttemptedAt": "2026-11-11T13:29:18.853254+00:00"
     },
     {
       "name": "Eden AI",
@@ -160,7 +186,9 @@
       "nativeCurrency": "USD",
       "id": "edenai",
       "fetchedAt": "2026-11-10T14:14:17.959110+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: The read operation timed out",
+      "fallbackAttemptedAt": "2026-11-11T13:29:18.853254+00:00"
     },
     {
       "name": "Empirio Labs",
@@ -169,7 +197,9 @@
       "nativeCurrency": "USD",
       "id": "empiriolabs",
       "fetchedAt": "2026-11-10T14:14:17.959110+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: The read operation timed out",
+      "fallbackAttemptedAt": "2026-11-11T13:29:18.853254+00:00"
     },
     {
       "name": "Engy",
@@ -178,7 +208,9 @@
       "nativeCurrency": "USD",
       "id": "engy",
       "fetchedAt": "2026-11-10T14:14:17.959110+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: The read operation timed out",
+      "fallbackAttemptedAt": "2026-11-11T13:29:18.853254+00:00"
     },
     {
       "name": "FriendliAI",
@@ -187,7 +219,9 @@
       "nativeCurrency": "USD",
       "id": "friendli",
       "fetchedAt": "2026-11-10T14:14:17.959110+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: The read operation timed out",
+      "fallbackAttemptedAt": "2026-11-11T13:29:18.853254+00:00"
     },
     {
       "name": "Hyper",
@@ -196,7 +230,9 @@
       "nativeCurrency": "USD",
       "id": "hyper",
       "fetchedAt": "2026-11-10T14:14:17.959110+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: The read operation timed out",
+      "fallbackAttemptedAt": "2026-11-11T13:29:18.853254+00:00"
     },
     {
       "name": "Inceptron",
@@ -205,7 +241,9 @@
       "nativeCurrency": "USD",
       "id": "inceptron",
       "fetchedAt": "2026-11-10T14:14:17.959110+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: The read operation timed out",
+      "fallbackAttemptedAt": "2026-11-11T13:29:18.853254+00:00"
     },
     {
       "name": "NEAR AI",
@@ -214,7 +252,9 @@
       "nativeCurrency": "USD",
       "id": "nearai",
       "fetchedAt": "2026-11-10T14:14:17.959110+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: The read operation timed out",
+      "fallbackAttemptedAt": "2026-11-11T13:29:18.853254+00:00"
     },
     {
       "name": "OfoxAI",
@@ -223,7 +263,9 @@
       "nativeCurrency": "USD",
       "id": "ofox",
       "fetchedAt": "2026-11-10T14:14:17.959110+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: The read operation timed out",
+      "fallbackAttemptedAt": "2026-11-11T13:29:18.853254+00:00"
     },
     {
       "name": "Pioneer (Fastino)",
@@ -232,7 +274,9 @@
       "nativeCurrency": "USD",
       "id": "pioneer",
       "fetchedAt": "2026-11-10T14:14:17.959110+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: The read operation timed out",
+      "fallbackAttemptedAt": "2026-11-11T13:29:18.853254+00:00"
     },
     {
       "name": "Prime",
@@ -241,7 +285,9 @@
       "nativeCurrency": "USD",
       "id": "prime",
       "fetchedAt": "2026-11-10T14:14:17.959110+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: The read operation timed out",
+      "fallbackAttemptedAt": "2026-11-11T13:29:18.853254+00:00"
     },
     {
       "name": "Tinfoil",
@@ -250,7 +296,9 @@
       "nativeCurrency": "USD",
       "id": "tinfoil",
       "fetchedAt": "2026-11-10T14:14:17.959110+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: The read operation timed out",
+      "fallbackAttemptedAt": "2026-11-11T13:29:18.853254+00:00"
     },
     {
       "name": "Venice",
@@ -259,43 +307,49 @@
       "nativeCurrency": "USD",
       "id": "venice",
       "fetchedAt": "2026-11-10T14:14:17.959110+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: The read operation timed out",
+      "fallbackAttemptedAt": "2026-11-11T13:29:18.853254+00:00"
     },
     {
       "name": "DeepSeek API",
       "source": "https://api-docs.deepseek.com/quick_start/pricing/",
       "sellerKind": "first-party",
       "id": "deepseek-direct",
-      "nativeCurrency": "USD",
       "fetchedAt": "2026-11-10T14:14:17.959110+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: The read operation timed out",
+      "fallbackAttemptedAt": "2026-11-11T13:29:18.853254+00:00"
     },
     {
       "name": "z.ai API",
       "source": "https://docs.z.ai/guides/overview/pricing.md",
       "sellerKind": "first-party",
       "id": "zai-direct",
-      "nativeCurrency": "USD",
       "fetchedAt": "2026-11-10T14:14:17.959110+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: The read operation timed out",
+      "fallbackAttemptedAt": "2026-11-11T13:29:18.853254+00:00"
     },
     {
       "name": "Claude API",
       "source": "https://platform.claude.com/docs/en/about-claude/pricing.md",
       "sellerKind": "first-party",
       "id": "claude-direct",
-      "nativeCurrency": "USD",
       "fetchedAt": "2026-11-10T14:14:17.959110+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: The read operation timed out",
+      "fallbackAttemptedAt": "2026-11-11T13:29:18.853254+00:00"
     },
     {
       "name": "OpenAI API",
       "source": "https://developers.openai.com/api/docs/pricing.md",
       "sellerKind": "first-party",
       "id": "openai-direct",
-      "nativeCurrency": "USD",
       "fetchedAt": "2026-11-10T14:14:17.959110+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: The read operation timed out",
+      "fallbackAttemptedAt": "2026-11-11T13:29:18.853254+00:00"
     },
     {
       "name": "xAI",
@@ -304,7 +358,9 @@
       "nativeCurrency": "USD",
       "id": "xai",
       "fetchedAt": "2026-11-10T14:14:17.959110+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: The read operation timed out",
+      "fallbackAttemptedAt": "2026-11-11T13:29:18.853254+00:00"
     },
     {
       "name": "Mistral AI",
@@ -313,7 +369,9 @@
       "nativeCurrency": "USD",
       "id": "mistral",
       "fetchedAt": "2026-11-10T14:14:17.959110+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: The read operation timed out",
+      "fallbackAttemptedAt": "2026-11-11T13:29:18.853254+00:00"
     },
     {
       "name": "Meta",
@@ -322,7 +380,9 @@
       "nativeCurrency": "USD",
       "id": "meta",
       "fetchedAt": "2026-11-10T14:14:17.959110+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: The read operation timed out",
+      "fallbackAttemptedAt": "2026-11-11T13:29:18.853254+00:00"
     }
   ],
   "omittedSellers": [],
@@ -12914,6 +12974,37 @@
       "priceNote": "Model-level minimum price published by Cortecs."
     },
     {
+      "key": "cortecs:gemini-4-carbon",
+      "seller": "cortecs",
+      "sellerName": "Cortecs",
+      "modelId": "gemini-4-carbon",
+      "name": "gemini-4-carbon",
+      "creator": "Google",
+      "description": "Gemini 4 Carbon is built for long-running agentic coding, knowledge work and science, and defensive cybersecurity.",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 2.001,
+        "cached": 0.1,
+        "output": 10.005,
+        "cachedFallback": false,
+        "nativeCurrency": "EUR",
+        "native": {
+          "input": 2.001,
+          "cached": 0.1,
+          "output": 10.005
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "Model-level minimum price published by Cortecs."
+    },
+    {
       "key": "cortecs:gemma-3-27b-it",
       "seller": "cortecs",
       "sellerName": "Cortecs",
@@ -13032,37 +13123,6 @@
           "input": 0.072,
           "cached": 0.072,
           "output": 0.429
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "Model-level minimum price published by Cortecs."
-    },
-    {
-      "key": "cortecs:glm-5.1",
-      "seller": "cortecs",
-      "sellerName": "Cortecs",
-      "modelId": "glm-5.1",
-      "name": "glm-5.1",
-      "creator": "Z.ai",
-      "description": "GLM-5.1 is a next-generation flagship model for agentic engineering, excelling in long-horizon reasoning and advanced coding tasks.",
-      "releaseDate": null,
-      "contextSize": 202752,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 1.242,
-        "cached": 1.242,
-        "output": 3.903,
-        "cachedFallback": true,
-        "nativeCurrency": "EUR",
-        "native": {
-          "input": 1.242,
-          "cached": 1.242,
-          "output": 3.903
         }
       },
       "pricingTiers": [],
@@ -161250,28 +161310,28 @@
       "openrouter:deepseek/deepseek-v4.1-flash",
       "opencode:deepseek-v4.1-flash",
       "deepinfra:deepseek-ai/DeepSeek-V4.1-Flash",
+      "requesty:deepinfra/deepseek-v4.1-flash",
+      "requesty:fireworks/deepseek-v4.1-flash",
+      "requesty:melious/deepseek-v4.1-flash",
+      "requesty:novita/deepseek-v4.1-flash",
       "requesty:runware/deepseek-v4.1-flash",
       "requesty:sference/deepseek-v4.1-flash",
       "requesty:tensorx/deepseek-v4.1-flash",
-      "requesty:fireworks/deepseek-v4.1-flash",
-      "requesty:novita/deepseek-v4.1-flash",
-      "requesty:melious/deepseek-v4.1-flash",
-      "requesty:deepinfra/deepseek-v4.1-flash",
       "requesty:together/deepseek-v4.1-flash",
       "vercel-gateway:deepseek/deepseek-v4.1-flash",
       "kilo:deepseek/deepseek-v4.1-flash",
-      "nano-gpt:deepseek/deepseek-v4.1-flash",
       "nano-gpt:TEE/deepseek-v4.1-flash",
+      "nano-gpt:deepseek/deepseek-v4.1-flash",
       "llmgateway:deepseek-v4.1-flash",
       "aimlapi:deepseek/deepseek-v4.1-flash",
       "crossmodel:deepseek/deepseek-v4.1-flash",
       "edenai:arkanecloud/deepseek-ai/DeepSeek-V4.1-Flash",
+      "edenai:deepinfra/deepseek-ai/DeepSeek-V4.1-Flash",
       "edenai:greenpt/deepseek-v4.1-flash",
+      "edenai:qwen/deepseek-v4.1-flash",
       "edenai:scaleway/deepseek-v4.1-flash",
       "edenai:tencent/deepseek-v4.1-flash",
       "edenai:tensorx/deepseek/deepseek-v4.1-flash",
-      "edenai:deepinfra/deepseek-ai/DeepSeek-V4.1-Flash",
-      "edenai:qwen/deepseek-v4.1-flash",
       "edenai:together_ai/deepseek-ai/DeepSeek-V4.1-Flash",
       "engy:deepseek-v4.1-flash",
       "nearai:deepseek/deepseek-v4.1-flash",
@@ -161285,27 +161345,27 @@
       "opencode:glm-5.3-flash",
       "deepinfra:zai-org/GLM-5.3-Flash",
       "novita:zai-org/glm-5.3-flash",
+      "requesty:melious/glm-5.3-flash",
       "requesty:runware/glm-5.3-flash",
       "requesty:sference/glm-5.3-flash",
       "requesty:tensorx/glm-5.3-flash",
-      "requesty:melious/glm-5.3-flash",
       "vercel-gateway:zai/glm-5.3-flash",
       "kilo:z-ai/glm-5.3-flash",
-      "nano-gpt:z-ai/glm-5.3-flash",
       "nano-gpt:TEE/glm-5.3-flash",
+      "nano-gpt:z-ai/glm-5.3-flash",
       "llmgateway:glm-5.3-flash",
       "aiand:zai-org/glm-5.3-flash",
       "aimlapi:z-ai/glm-5.3-flash",
       "crossmodel:z-ai/glm-5.3-flash",
       "edenai:arkanecloud/zai-org/GLM-5.3-Flash",
-      "edenai:sference/zai-org/GLM-5.3-Flash",
-      "edenai:greenpt/glm-5.3-flash",
-      "edenai:greenference/glm-5.3-flash",
-      "edenai:flexai/GLM-5.3-Flash",
-      "edenai:tensorx/z-ai/glm-5.3-flash",
       "edenai:cloudflare/@cf/zai-org/glm-5.3-flash",
       "edenai:deepinfra/zai-org/GLM-5.3-Flash",
+      "edenai:flexai/GLM-5.3-Flash",
+      "edenai:greenference/glm-5.3-flash",
+      "edenai:greenpt/glm-5.3-flash",
       "edenai:nebius/zai-org/GLM-5.3-Flash",
+      "edenai:sference/zai-org/GLM-5.3-Flash",
+      "edenai:tensorx/z-ai/glm-5.3-flash",
       "edenai:together_ai/zai-org/GLM-5.3-Flash",
       "edenai:zai/glm-5.3-flash",
       "empiriolabs:glm-5-3-flash",
@@ -161328,8 +161388,8 @@
       "llmgateway:mimo-v2.6-flash",
       "aimlapi:xiaomi/mimo-v2.6-flash",
       "crossmodel:xiaomi/mimo-v2.6-flash",
-      "edenai:tencent/mimo-v2.6-flash",
       "edenai:deepinfra/XiaomiMiMo/MiMo-V2.6-Flash",
+      "edenai:tencent/mimo-v2.6-flash",
       "edenai:xiaomi/mimo-v2.6-flash",
       "empiriolabs:mimo-v2-6-flash",
       "openrouter:tencent/hy4-preview",
@@ -161342,8 +161402,8 @@
       "llmgateway:hy4-preview",
       "aimlapi:tencent/hy4-preview",
       "crossmodel:tencent/hy4-preview",
-      "edenai:tencent/hy4-preview",
       "edenai:deepinfra/tencent/Hy4-preview",
+      "edenai:tencent/hy4-preview",
       "venice:hy4-preview",
       "openrouter:deepseek/deepseek-v4-flash",
       "deepinfra:deepseek-ai/DeepSeek-V4-Flash",
@@ -161420,32 +161480,32 @@
       "opencode:glm-5.3",
       "deepinfra:zai-org/GLM-5.3",
       "novita:zai-org/glm-5.3",
-      "requesty:mistral/glm-5-3",
-      "requesty:melious/glm-5.3",
-      "requesty:sference/glm-5.3",
       "requesty:deepinfra/glm-5.3",
       "requesty:fireworks/glm-5.3",
+      "requesty:melious/glm-5.3",
+      "requesty:mistral/glm-5-3",
       "requesty:runware/glm-5.3",
+      "requesty:sference/glm-5.3",
       "requesty:tensorx/glm-5.3",
       "vercel-gateway:zai/glm-5.3",
       "kilo:z-ai/glm-5.3",
-      "nano-gpt:z-ai/glm-5.3",
       "nano-gpt:TEE/glm-5.3",
+      "nano-gpt:z-ai/glm-5.3",
       "llmgateway:glm-5.3",
       "aiand:zai-org/glm-5.3",
       "aimlapi:zhipu/glm-5-3",
       "crossmodel:z-ai/glm-5.3",
       "edenai:arkanecloud/zai-org/GLM-5.3",
-      "edenai:sference/zai-org/GLM-5.3",
-      "edenai:greenpt/glm-5.3",
-      "edenai:scaleway/glm-5.3",
-      "edenai:tencent/glm-5.3",
-      "edenai:compactifai/glm-5-3",
-      "edenai:tensorx/z-ai/glm-5.3",
       "edenai:cloudflare/@cf/zai-org/glm-5.3",
+      "edenai:compactifai/glm-5-3",
       "edenai:deepinfra/zai-org/GLM-5.3",
+      "edenai:greenpt/glm-5.3",
       "edenai:nebius/zai-org/GLM-5.3",
       "edenai:qwen/glm-5.3",
+      "edenai:scaleway/glm-5.3",
+      "edenai:sference/zai-org/GLM-5.3",
+      "edenai:tencent/glm-5.3",
+      "edenai:tensorx/z-ai/glm-5.3",
       "edenai:together_ai/zai-org/GLM-5.3",
       "edenai:zai/glm-5.3",
       "empiriolabs:glm-5-3",
@@ -161470,8 +161530,8 @@
       "llmgateway:claude-opus-5-5",
       "aimlapi:anthropic/claude-opus-5-5",
       "crossmodel:anthropic/claude-opus-5-5",
-      "edenai:deepinfra/anthropic/claude-opus-5-5",
       "edenai:anthropic/claude-opus-5-5",
+      "edenai:deepinfra/anthropic/claude-opus-5-5",
       "edenai:vertex/claude-opus-5-5",
       "nearai:anthropic/claude-opus-5-5",
       "ofox:anthropic/claude-opus-5.5",
@@ -161488,8 +161548,8 @@
       "llmgateway:hy3",
       "aimlapi:tencent/hy3",
       "crossmodel:tencent/hy3",
-      "edenai:tencent/hy3",
       "edenai:deepinfra/tencent/Hy3",
+      "edenai:tencent/hy3",
       "openrouter:meta/muse-spark-1.3-contributor",
       "vercel-gateway:meta/muse-spark-1.3-contributor",
       "kilo:meta/muse-spark-1.3-contributor",
@@ -161521,23 +161581,23 @@
       "requesty:tensorx/kimi-k3",
       "vercel-gateway:moonshotai/kimi-k3",
       "kilo:moonshotai/kimi-k3",
-      "nano-gpt:moonshotai/kimi-k3",
       "nano-gpt:TEE/kimi-k3",
+      "nano-gpt:moonshotai/kimi-k3",
       "llmgateway:kimi-k3",
       "aiand:moonshotai/kimi-k3",
       "aimlapi:moonshot/kimi-k3",
       "crossmodel:moonshot/kimi-k3",
       "edenai:arkanecloud/moonshotai/Kimi-K3",
-      "edenai:sference/moonshotai/Kimi-K3",
-      "edenai:greenpt/kimi-k3",
-      "edenai:tencent/kimi-k3",
-      "edenai:tensorx/moonshotai/kimi-k3",
       "edenai:deepinfra/moonshotai/Kimi-K3",
       "edenai:fireworks_ai/accounts/fireworks/models/kimi-k3",
       "edenai:fireworks_ai/kimi-k3",
+      "edenai:greenpt/kimi-k3",
       "edenai:moonshot/kimi-k3",
       "edenai:nebius/moonshotai/Kimi-K3",
       "edenai:qwen/kimi-k3",
+      "edenai:sference/moonshotai/Kimi-K3",
+      "edenai:tencent/kimi-k3",
+      "edenai:tensorx/moonshotai/kimi-k3",
       "edenai:together_ai/moonshotai/Kimi-K3",
       "empiriolabs:kimi-k3",
       "engy:kimi-k3",
@@ -161566,32 +161626,32 @@
       "requesty:inceptron/glm-5.2",
       "requesty:mistral/glm-5-2",
       "requesty:nebius/glm-5.2",
-      "requesty:tencent/glm-5.2",
-      "requesty:tensorx/glm-5.2",
       "requesty:runware/glm-5.2",
       "requesty:sail/glm-5.2",
       "requesty:scaleway/glm-5.2",
+      "requesty:tencent/glm-5.2",
+      "requesty:tensorx/glm-5.2",
       "vercel-gateway:zai/glm-5.2",
       "kilo:z-ai/glm-5.2",
-      "nano-gpt:z-ai/glm-5.2",
       "nano-gpt:TEE/glm-5.2",
+      "nano-gpt:z-ai/glm-5.2",
       "llmgateway:glm-5.2",
       "aimlapi:alibaba/glm-5.2",
       "aimlapi:zhipu/glm-5-2",
       "ambient:z-ai/glm-5.2",
       "crossmodel:z-ai/glm-5.2",
       "edenai:arkanecloud/zai-org/GLM-5.2",
-      "edenai:greenpt/glm-5.2",
-      "edenai:tencent/glm-5.2",
-      "edenai:compactifai/glm-5-2",
-      "edenai:tensorx/z-ai/glm-5.2",
-      "edenai:flexai/GLM-5.2",
-      "edenai:scaleway/glm-5.2",
-      "edenai:nebius/zai-org/GLM-5.2",
       "edenai:cloudflare/@cf/zai-org/glm-5.2",
+      "edenai:compactifai/glm-5-2",
       "edenai:deepinfra/zai-org/GLM-5.2",
+      "edenai:flexai/GLM-5.2",
+      "edenai:greenpt/glm-5.2",
       "edenai:mistral/glm-5-2",
+      "edenai:nebius/zai-org/GLM-5.2",
       "edenai:qwen/glm-5.2",
+      "edenai:scaleway/glm-5.2",
+      "edenai:tencent/glm-5.2",
+      "edenai:tensorx/z-ai/glm-5.2",
       "edenai:together_ai/zai-org/GLM-5.2",
       "edenai:zai/glm-5.2",
       "empiriolabs:glm-5-2",

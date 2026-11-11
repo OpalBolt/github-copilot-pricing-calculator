@@ -1610,7 +1610,26 @@
     
 <div class="changelog">
   
-  <p class="changelog-intro">Newest first · 4 recorded days of change. Entries appear automatically whenever the daily data fetch changes a price, model, or plan.</p>
+  <p class="changelog-intro">Newest first · 5 recorded days of change. Entries appear automatically whenever the daily data fetch changes a price, model, or plan.</p>
+  
+  <div class="changelog-entry">
+    <h3 class="changelog-date">2026-11-11</h3>
+    
+      
+      <h4 class="changelog-group-title cl-add-h">Added <span class="changelog-count">1</span></h4>
+      <ul class="changelog-list">
+        
+        <li>Gemini 4 Carbon (in $2 · out $10)</li>
+        
+      </ul>
+      
+    
+      
+    
+      
+    
+    
+  </div>
   
   <div class="changelog-entry">
     <h3 class="changelog-date">2026-11-10</h3>
@@ -1719,8 +1738,8 @@
 </div>
 
 <script>
-  // ── Pricing data (fetched 2026-11-10) ──
-  const FETCH_DATE = '2026-11-10';
+  // ── Pricing data (fetched 2026-11-11) ──
+  const FETCH_DATE = '2026-11-11';
   document.getElementById('fetch-date').textContent = FETCH_DATE;
 
   // All rates $ per 1M tokens
@@ -2203,7 +2222,7 @@
     "footnote": null,
     "taskArea": "Long-horizon, autonomous coding and knowledge-work",
     "excelsAt": "Substantial, long-running coding tasks, including deep codebase research, feature development, and complex agentic workflows",
-    "furtherReadingUrl": ""
+    "furtherReadingUrl": "https://assets.claude.com/27d60918d218125e7504bc7354c4b4626ec56b11.pdf"
   },
   {
     "name": "Gemini 3.8 Flash",
@@ -2234,6 +2253,21 @@
     "taskArea": "Complex coding, agentic, and reasoning tasks",
     "excelsAt": "Thorough work that tests edge cases before finishing",
     "furtherReadingUrl": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-4-Argon-Model-Card.pdf"
+  },
+  {
+    "name": "Gemini 4 Carbon",
+    "provider": "Google",
+    "category": "Powerful",
+    "status": "GA",
+    "tier": "Default",
+    "input": 2.0,
+    "cached": 0.1,
+    "cacheWrite": null,
+    "output": 10.0,
+    "footnote": "Gemini 4 Carbon is available at the promotional pricing of $2.00 per 1M input tokens, $0.10 per 1M cached input tokens, and $10.00 per 1M output tokens until December 1, 2026. Starting December 1, 2026, pricing is $4.00 per 1M input tokens, $0.20 per 1M cached input tokens, and $20.00 per 1M output tokens.",
+    "taskArea": "Complex coding, agentic, and reasoning tasks",
+    "excelsAt": "Secure code generation and security-focused work",
+    "furtherReadingUrl": ""
   },
   {
     "name": "MAI-Code-1.1-Flash",

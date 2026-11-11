@@ -1,5 +1,5 @@
 {
-  "fetchDate": "2026-11-10",
+  "fetchDate": "2026-11-11",
   "summary": [
     {
       "model": "GPT-5.3-Codex",
@@ -82,8 +82,8 @@
       "model": "Claude Fable 5.2",
       "taskArea": "Long-horizon, autonomous coding and knowledge-work",
       "excelsAt": "Substantial, long-running coding tasks, including deep codebase research, feature development, and complex agentic workflows",
-      "furtherReadingText": "",
-      "furtherReadingUrl": ""
+      "furtherReadingText": "Claude Fable 5.2 model card",
+      "furtherReadingUrl": "https://assets.claude.com/27d60918d218125e7504bc7354c4b4626ec56b11.pdf"
     },
     {
       "model": "Claude Haiku 4.5",
@@ -161,6 +161,13 @@
       "excelsAt": "Thorough work that tests edge cases before finishing",
       "furtherReadingText": "Gemini 4 Argon",
       "furtherReadingUrl": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-4-Argon-Model-Card.pdf"
+    },
+    {
+      "model": "Gemini 4 Carbon",
+      "taskArea": "Complex coding, agentic, and reasoning tasks",
+      "excelsAt": "Secure code generation and security-focused work",
+      "furtherReadingText": "",
+      "furtherReadingUrl": ""
     },
     {
       "model": "MAI-Code-1.1-Flash[^mai-models]",

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-10T14:14:11.803071+00:00",
+  "generatedAt": "2026-11-11T13:28:44.647954+00:00",
   "currency": "EUR",
   "exchangeRate": {
     "series": "EXR.D.USD.EUR.SP00.A",
@@ -14,7 +14,7 @@
       "source": "https://api.cortecs.ai/v1/models?extended=true&currency=EUR",
       "euClaim": "EU catalog: providers based and regulated within the EU.",
       "id": "cortecs",
-      "fetchedAt": "2026-11-10T14:14:11.803071+00:00",
+      "fetchedAt": "2026-11-11T13:28:44.647954+00:00",
       "stale": false
     },
     {
@@ -22,7 +22,7 @@
       "source": "https://api.eurouter.ai/api/v1/models",
       "euClaim": "EU handling is EUrouter's baseline routing guarantee.",
       "id": "eurouter",
-      "fetchedAt": "2026-11-10T14:14:11.803071+00:00",
+      "fetchedAt": "2026-11-11T13:28:44.647954+00:00",
       "stale": false
     },
     {
@@ -31,7 +31,9 @@
       "euClaim": "EU regional routing; Business or Enterprise plan required.",
       "id": "openrouter",
       "fetchedAt": "2026-11-10T14:14:11.803071+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: The read operation timed out",
+      "fallbackAttemptedAt": "2026-11-11T13:28:44.647954+00:00"
     },
     {
       "name": "DeepSeek API",
@@ -40,7 +42,9 @@
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "deepseek-direct",
       "fetchedAt": "2026-11-10T14:14:11.803071+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: The read operation timed out",
+      "fallbackAttemptedAt": "2026-11-11T13:28:44.647954+00:00"
     },
     {
       "name": "z.ai API",
@@ -49,7 +53,9 @@
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "zai-direct",
       "fetchedAt": "2026-11-10T14:14:11.803071+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: The read operation timed out",
+      "fallbackAttemptedAt": "2026-11-11T13:28:44.647954+00:00"
     },
     {
       "name": "Claude API",
@@ -59,7 +65,9 @@
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "claude-direct",
       "fetchedAt": "2026-11-10T14:14:11.803071+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: The read operation timed out",
+      "fallbackAttemptedAt": "2026-11-11T13:28:44.647954+00:00"
     },
     {
       "name": "OpenAI API",
@@ -69,7 +77,9 @@
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "openai-direct",
       "fetchedAt": "2026-11-10T14:14:11.803071+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: The read operation timed out",
+      "fallbackAttemptedAt": "2026-11-11T13:28:44.647954+00:00"
     },
     {
       "name": "Mistral AI",
@@ -78,7 +88,9 @@
       "euClaim": "EU regional endpoint (api.eu.mistral.ai): inference in EU/EFTA data centers at 1.1\u00d7 list price.",
       "id": "mistral",
       "fetchedAt": "2026-11-10T14:14:11.803071+00:00",
-      "stale": false
+      "stale": true,
+      "error": "ECB: The read operation timed out",
+      "fallbackAttemptedAt": "2026-11-11T13:28:44.647954+00:00"
     }
   ],
   "omittedRouters": [],
@@ -1662,6 +1674,38 @@
       "priceNote": "Model-level minimum price published by Cortecs."
     },
     {
+      "key": "cortecs:gemini-4-carbon",
+      "router": "cortecs",
+      "routerName": "Cortecs",
+      "modelId": "gemini-4-carbon",
+      "name": "gemini-4-carbon",
+      "owner": "Google",
+      "description": "Gemini 4 Carbon is built for long-running agentic coding, knowledge work and science, and defensive cybersecurity.",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "providers": [
+        "google",
+        "google_priority"
+      ],
+      "euProviders": [],
+      "default": {
+        "input": 2.001,
+        "cached": 0.1,
+        "output": 10.005,
+        "cachedFallback": false,
+        "nativeCurrency": "EUR"
+      },
+      "eu": null,
+      "quantization": null,
+      "priceNote": "Model-level minimum price published by Cortecs."
+    },
+    {
       "key": "cortecs:gemma-3-27b-it",
       "router": "cortecs",
       "routerName": "Cortecs",
@@ -1810,45 +1854,6 @@
         "nativeCurrency": "EUR"
       },
       "eu": null,
-      "quantization": null,
-      "priceNote": "Model-level minimum price published by Cortecs."
-    },
-    {
-      "key": "cortecs:glm-5.1",
-      "router": "cortecs",
-      "routerName": "Cortecs",
-      "modelId": "glm-5.1",
-      "name": "glm-5.1",
-      "owner": "Z.ai",
-      "description": "GLM-5.1 is a next-generation flagship model for agentic engineering, excelling in long-horizon reasoning and advanced coding tasks.",
-      "releaseDate": null,
-      "contextSize": 202752,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": false,
-        "audio": false
-      },
-      "providers": [
-        "Nebius"
-      ],
-      "euProviders": [
-        "Nebius"
-      ],
-      "default": {
-        "input": 1.242,
-        "cached": 1.242,
-        "output": 3.903,
-        "cachedFallback": true,
-        "nativeCurrency": "EUR"
-      },
-      "eu": {
-        "input": 1.242,
-        "cached": 1.242,
-        "output": 3.903,
-        "cachedFallback": true,
-        "nativeCurrency": "EUR"
-      },
       "quantization": null,
       "priceNote": "Model-level minimum price published by Cortecs."
     },
@@ -4125,7 +4130,7 @@
         "cachedFallback": true,
         "nativeCurrency": "EUR"
       },
-      "quantization": null,
+      "quantization": "fp4",
       "priceNote": "Model-level minimum price published by Cortecs."
     },
     {
@@ -4205,7 +4210,7 @@
         "cachedFallback": true,
         "nativeCurrency": "EUR"
       },
-      "quantization": null,
+      "quantization": "fp4",
       "priceNote": "Model-level minimum price published by Cortecs."
     },
     {

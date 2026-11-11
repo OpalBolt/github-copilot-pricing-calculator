@@ -550,6 +550,13 @@
         "\u2192 OpenRouter \u00b7 MoonshotAI: Kimi Latest \u2014 output $10.55\u2192$9.339",
         "\u2192 OpenRouter \u00b7 Z.ai: GLM Flash Latest \u2014 input $0.0335\u2192$0.0399 \u00b7 output $0.083\u2192$0.0784"
       ]
+    },
+    {
+      "date": "2026-11-11",
+      "changes": [
+        "\u2212 Cortecs: glm-5.1",
+        "+ Cortecs: gemini-4-carbon"
+      ]
     }
   ],
   "copilot": [
@@ -579,6 +586,12 @@
       "date": "2026-11-10",
       "changes": [
         "+ Claude Fable 5.2 (in $8 \u00b7 out $40)"
+      ]
+    },
+    {
+      "date": "2026-11-11",
+      "changes": [
+        "+ Gemini 4 Carbon (in $2 \u00b7 out $10)"
       ]
     }
   ],
@@ -1451,6 +1464,13 @@
         "\u2212 Requesty: ling-3.0-tiny",
         "\u2212 Requesty: ring-2.6-1t",
         "\u2026 and 179 more"
+      ]
+    },
+    {
+      "date": "2026-11-11",
+      "changes": [
+        "\u2212 Cortecs: glm-5.1",
+        "+ Cortecs: gemini-4-carbon"
       ]
     }
   ]
