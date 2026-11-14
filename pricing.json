@@ -1,5 +1,5 @@
 {
-  "fetchDate": "2026-11-13",
+  "fetchDate": "2026-11-14",
   "models": [
     {
       "provider": "OpenAI",
@@ -426,6 +426,17 @@
       "Input": 2.0,
       "Cached input": 0.1,
       "Output": 10.0
+    },
+    {
+      "provider": "Google",
+      "Model": "Gemini 4 Hydrogen",
+      "Release status": "GA",
+      "Category": "Versatile",
+      "Tier": "Default",
+      "Threshold (input tokens)": "Not applicable",
+      "Input": 1.5,
+      "Cached input": 0.075,
+      "Output": 7.5
     },
     {
       "provider": "Microsoft",

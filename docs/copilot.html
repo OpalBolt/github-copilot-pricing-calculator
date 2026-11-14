@@ -1610,7 +1610,26 @@
     
 <div class="changelog">
   
-  <p class="changelog-intro">Newest first · 5 recorded days of change. Entries appear automatically whenever the daily data fetch changes a price, model, or plan.</p>
+  <p class="changelog-intro">Newest first · 6 recorded days of change. Entries appear automatically whenever the daily data fetch changes a price, model, or plan.</p>
+  
+  <div class="changelog-entry">
+    <h3 class="changelog-date">2026-11-14</h3>
+    
+      
+      <h4 class="changelog-group-title cl-add-h">Added <span class="changelog-count">1</span></h4>
+      <ul class="changelog-list">
+        
+        <li>Gemini 4 Hydrogen (in $1.5 · out $7.5)</li>
+        
+      </ul>
+      
+    
+      
+    
+      
+    
+    
+  </div>
   
   <div class="changelog-entry">
     <h3 class="changelog-date">2026-11-11</h3>
@@ -1738,8 +1757,8 @@
 </div>
 
 <script>
-  // ── Pricing data (fetched 2026-11-13) ──
-  const FETCH_DATE = '2026-11-13';
+  // ── Pricing data (fetched 2026-11-14) ──
+  const FETCH_DATE = '2026-11-14';
   document.getElementById('fetch-date').textContent = FETCH_DATE;
 
   // All rates $ per 1M tokens
@@ -2267,7 +2286,22 @@
     "footnote": "Gemini 4 Carbon is available at the promotional pricing of $2.00 per 1M input tokens, $0.10 per 1M cached input tokens, and $10.00 per 1M output tokens until December 1, 2026. Starting December 1, 2026, pricing is $4.00 per 1M input tokens, $0.20 per 1M cached input tokens, and $20.00 per 1M output tokens.",
     "taskArea": "Complex coding, agentic, and reasoning tasks",
     "excelsAt": "Secure code generation and security-focused work",
-    "furtherReadingUrl": ""
+    "furtherReadingUrl": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-4-Carbon-Model-Card.pdf"
+  },
+  {
+    "name": "Gemini 4 Hydrogen",
+    "provider": "Google",
+    "category": "Versatile",
+    "status": "GA",
+    "tier": "Default",
+    "input": 1.5,
+    "cached": 0.075,
+    "cacheWrite": null,
+    "output": 7.5,
+    "footnote": null,
+    "taskArea": "Fast, efficient agentic coding and multistep workflows",
+    "excelsAt": "Fast tool use with improved instruction following",
+    "furtherReadingUrl": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-4-Hydrogen-Model-Card.pdf"
   },
   {
     "name": "MAI-Code-1.1-Flash",

@@ -1,5 +1,5 @@
 {
-  "fetchDate": "2026-11-13",
+  "fetchDate": "2026-11-14",
   "summary": [
     {
       "model": "GPT-5.3-Codex",
@@ -159,15 +159,22 @@
       "model": "Gemini 4 Argon",
       "taskArea": "Complex coding, agentic, and reasoning tasks",
       "excelsAt": "Thorough work that tests edge cases before finishing",
-      "furtherReadingText": "Gemini 4 Argon",
+      "furtherReadingText": "Gemini 4 Argon model card",
       "furtherReadingUrl": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-4-Argon-Model-Card.pdf"
     },
     {
       "model": "Gemini 4 Carbon",
       "taskArea": "Complex coding, agentic, and reasoning tasks",
       "excelsAt": "Secure code generation and security-focused work",
-      "furtherReadingText": "",
-      "furtherReadingUrl": ""
+      "furtherReadingText": "Gemini 4 Carbon model card",
+      "furtherReadingUrl": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-4-Carbon-Model-Card.pdf"
+    },
+    {
+      "model": "Gemini 4 Hydrogen",
+      "taskArea": "Fast, efficient agentic coding and multistep workflows",
+      "excelsAt": "Fast tool use with improved instruction following",
+      "furtherReadingText": "Gemini 4 Hydrogen model card",
+      "furtherReadingUrl": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-4-Hydrogen-Model-Card.pdf"
     },
     {
       "model": "MAI-Code-1.1-Flash[^mai-models]",
