@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-14T12:54:57.115929+00:00",
+  "generatedAt": "2026-11-15T13:22:40.855482+00:00",
   "currency": "EUR",
   "exchangeRate": {
     "series": "EXR.D.USD.EUR.SP00.A",
-    "source": "https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A?format=csvdata&startPeriod=2026-10-31",
+    "source": "https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A?format=csvdata&startPeriod=2026-11-01",
     "observationDate": "2026-11-13",
     "usdPerEur": 1.1052
   },
@@ -15,7 +15,7 @@
       "source": "https://api.cortecs.ai/v1/models?extended=true&currency=EUR",
       "id": "cortecs",
       "nativeCurrency": "EUR",
-      "fetchedAt": "2026-11-14T12:54:57.115929+00:00",
+      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
       "stale": false
     },
     {
@@ -24,7 +24,7 @@
       "source": "https://api.eurouter.ai/api/v1/models",
       "id": "eurouter",
       "nativeCurrency": "mixed",
-      "fetchedAt": "2026-11-14T12:54:57.115929+00:00",
+      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
       "stale": false
     },
     {
@@ -33,7 +33,7 @@
       "source": "https://openrouter.ai/api/v1/models",
       "id": "openrouter",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-11-14T12:54:57.115929+00:00",
+      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
       "stale": false
     },
     {
@@ -42,7 +42,7 @@
       "source": "https://opencode.ai/zen/v1/models",
       "id": "opencode",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-11-14T12:54:57.115929+00:00",
+      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
       "stale": false
     },
     {
@@ -51,7 +51,7 @@
       "source": "https://api.deepinfra.com/v1/models",
       "nativeCurrency": "USD",
       "id": "deepinfra",
-      "fetchedAt": "2026-11-14T12:54:57.115929+00:00",
+      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
       "stale": false
     },
     {
@@ -60,7 +60,7 @@
       "source": "https://api.novita.ai/v3/openai/models",
       "nativeCurrency": "USD",
       "id": "novita",
-      "fetchedAt": "2026-11-14T12:54:57.115929+00:00",
+      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
       "stale": false
     },
     {
@@ -69,7 +69,7 @@
       "source": "https://router.requesty.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "requesty",
-      "fetchedAt": "2026-11-14T12:54:57.115929+00:00",
+      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
       "stale": false
     },
     {
@@ -78,7 +78,7 @@
       "source": "https://ai-gateway.vercel.sh/v1/models",
       "nativeCurrency": "USD",
       "id": "vercel-gateway",
-      "fetchedAt": "2026-11-14T12:54:57.115929+00:00",
+      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
       "stale": false
     },
     {
@@ -87,7 +87,7 @@
       "source": "https://api.kilo.ai/api/gateway/models",
       "nativeCurrency": "USD",
       "id": "kilo",
-      "fetchedAt": "2026-11-14T12:54:57.115929+00:00",
+      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
       "stale": false
     },
     {
@@ -96,7 +96,7 @@
       "source": "https://nano-gpt.com/api/v1/models?detailed=true",
       "nativeCurrency": "USD",
       "id": "nano-gpt",
-      "fetchedAt": "2026-11-14T12:54:57.115929+00:00",
+      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
       "stale": false
     },
     {
@@ -105,7 +105,7 @@
       "source": "https://llm.chutes.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "chutes",
-      "fetchedAt": "2026-11-14T12:54:57.115929+00:00",
+      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
       "stale": false
     },
     {
@@ -114,7 +114,7 @@
       "source": "https://api.llmgateway.io/v1/models",
       "nativeCurrency": "USD",
       "id": "llmgateway",
-      "fetchedAt": "2026-11-14T12:54:57.115929+00:00",
+      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
       "stale": false
     },
     {
@@ -123,7 +123,7 @@
       "source": "https://api.aiand.com/v1/models",
       "nativeCurrency": "USD",
       "id": "aiand",
-      "fetchedAt": "2026-11-14T12:54:57.115929+00:00",
+      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
       "stale": false
     },
     {
@@ -132,7 +132,7 @@
       "source": "https://api.aimlapi.com/v1/models?include=pricing,modalities",
       "nativeCurrency": "USD",
       "id": "aimlapi",
-      "fetchedAt": "2026-11-14T12:54:57.115929+00:00",
+      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
       "stale": false
     },
     {
@@ -141,7 +141,7 @@
       "source": "https://api.ambient.xyz/v1/models",
       "nativeCurrency": "USD",
       "id": "ambient",
-      "fetchedAt": "2026-11-14T12:54:57.115929+00:00",
+      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
       "stale": false
     },
     {
@@ -150,7 +150,7 @@
       "source": "https://www.crossmodel.ai/api/models",
       "nativeCurrency": "USD",
       "id": "crossmodel",
-      "fetchedAt": "2026-11-14T12:54:57.115929+00:00",
+      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
       "stale": false
     },
     {
@@ -159,7 +159,7 @@
       "source": "https://api.edenai.run/v3/models",
       "nativeCurrency": "USD",
       "id": "edenai",
-      "fetchedAt": "2026-11-14T12:54:57.115929+00:00",
+      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
       "stale": false
     },
     {
@@ -168,7 +168,7 @@
       "source": "https://api.empiriolabs.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "empiriolabs",
-      "fetchedAt": "2026-11-14T12:54:57.115929+00:00",
+      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
       "stale": false
     },
     {
@@ -177,7 +177,7 @@
       "source": "https://api.engy.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "engy",
-      "fetchedAt": "2026-11-14T12:54:57.115929+00:00",
+      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
       "stale": false
     },
     {
@@ -186,7 +186,7 @@
       "source": "https://api.friendli.ai/serverless/v1/models",
       "nativeCurrency": "USD",
       "id": "friendli",
-      "fetchedAt": "2026-11-14T12:54:57.115929+00:00",
+      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
       "stale": false
     },
     {
@@ -195,7 +195,7 @@
       "source": "https://hyper.charm.land/v1/models",
       "nativeCurrency": "USD",
       "id": "hyper",
-      "fetchedAt": "2026-11-14T12:54:57.115929+00:00",
+      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
       "stale": false
     },
     {
@@ -204,7 +204,7 @@
       "source": "https://api.inceptron.io/v1/models",
       "nativeCurrency": "USD",
       "id": "inceptron",
-      "fetchedAt": "2026-11-14T12:54:57.115929+00:00",
+      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
       "stale": false
     },
     {
@@ -213,7 +213,7 @@
       "source": "https://cloud-api.near.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "nearai",
-      "fetchedAt": "2026-11-14T12:54:57.115929+00:00",
+      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
       "stale": false
     },
     {
@@ -222,7 +222,7 @@
       "source": "https://api.ofox.ai/v2/models/catalog?include=provider_price&limit=500",
       "nativeCurrency": "USD",
       "id": "ofox",
-      "fetchedAt": "2026-11-14T12:54:57.115929+00:00",
+      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
       "stale": false
     },
     {
@@ -231,7 +231,7 @@
       "source": "https://api.fastino.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "pioneer",
-      "fetchedAt": "2026-11-14T12:54:57.115929+00:00",
+      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
       "stale": false
     },
     {
@@ -240,7 +240,7 @@
       "source": "https://api.pinference.ai/api/v1/models",
       "nativeCurrency": "USD",
       "id": "prime",
-      "fetchedAt": "2026-11-14T12:54:57.115929+00:00",
+      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
       "stale": false
     },
     {
@@ -249,7 +249,7 @@
       "source": "https://inference.tinfoil.sh/v1/models",
       "nativeCurrency": "USD",
       "id": "tinfoil",
-      "fetchedAt": "2026-11-14T12:54:57.115929+00:00",
+      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
       "stale": false
     },
     {
@@ -258,7 +258,7 @@
       "source": "https://api.venice.ai/api/v1/models?type=text",
       "nativeCurrency": "USD",
       "id": "venice",
-      "fetchedAt": "2026-11-14T12:54:57.115929+00:00",
+      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
       "stale": false
     },
     {
@@ -267,7 +267,7 @@
       "sellerKind": "first-party",
       "id": "deepseek-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-11-14T12:54:57.115929+00:00",
+      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
       "stale": false
     },
     {
@@ -276,7 +276,7 @@
       "sellerKind": "first-party",
       "id": "zai-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-11-14T12:54:57.115929+00:00",
+      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
       "stale": false
     },
     {
@@ -285,7 +285,7 @@
       "sellerKind": "first-party",
       "id": "claude-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-11-14T12:54:57.115929+00:00",
+      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
       "stale": false
     },
     {
@@ -294,7 +294,7 @@
       "sellerKind": "first-party",
       "id": "openai-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-11-14T12:54:57.115929+00:00",
+      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
       "stale": false
     },
     {
@@ -303,7 +303,7 @@
       "source": "https://docs.x.ai/developers/pricing.md",
       "nativeCurrency": "USD",
       "id": "xai",
-      "fetchedAt": "2026-11-14T12:54:57.115929+00:00",
+      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
       "stale": false
     },
     {
@@ -312,7 +312,7 @@
       "source": "https://docs.mistral.ai/inference/pricing.md",
       "nativeCurrency": "USD",
       "id": "mistral",
-      "fetchedAt": "2026-11-14T12:54:57.115929+00:00",
+      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
       "stale": false
     },
     {
@@ -321,7 +321,7 @@
       "source": "https://dev.meta.ai/docs/pricing-rate-limits.md",
       "nativeCurrency": "USD",
       "id": "meta",
-      "fetchedAt": "2026-11-14T12:54:57.115929+00:00",
+      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
       "stale": false
     }
   ],
@@ -35585,7 +35585,7 @@
       "creator": "deepinfra",
       "description": "Inkling 2 Small is an open-weight multimodal mixture-of-experts reasoning model from Thinking Machines Lab, with 17B active parameters out of 594B total.",
       "releaseDate": null,
-      "contextSize": 262144,
+      "contextSize": 1048576,
       "capabilities": {
         "reasoning": true,
         "tools": true,
@@ -61447,13 +61447,13 @@
       },
       "rates": {
         "input": 1.583423814694173,
-        "cached": 0.39585595367354326,
+        "cached": 0.39811798769453494,
         "output": 3.166847629388346,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
           "input": 1.75,
-          "cached": 0.4375,
+          "cached": 0.44,
           "output": 3.5
         }
       },
@@ -61602,14 +61602,14 @@
       },
       "rates": {
         "input": 0.1,
-        "cached": 0.1,
-        "output": 0.5,
+        "cached": 0.02,
+        "output": 0.3,
         "cachedFallback": false,
         "nativeCurrency": "EUR",
         "native": {
           "input": 0.1,
-          "cached": 0.1,
-          "output": 0.5
+          "cached": 0.02,
+          "output": 0.3
         }
       },
       "pricingTiers": [],
@@ -62872,19 +62872,19 @@
         "audio": false
       },
       "rates": {
-        "input": 0.66,
-        "cached": 0.22,
-        "output": 3.751,
+        "input": 0.6605139341295693,
+        "cached": 0.2262034020991676,
+        "output": 3.166847629388346,
         "cachedFallback": false,
-        "nativeCurrency": "EUR",
+        "nativeCurrency": "USD",
         "native": {
-          "input": 0.66,
-          "cached": 0.22,
-          "output": 3.751
+          "input": 0.73,
+          "cached": 0.25,
+          "output": 3.5
         }
       },
       "pricingTiers": [],
-      "priceNote": "EUR price published in EUrouter's catalog."
+      "priceNote": "USD price published in EUrouter's catalog and converted with the listed ECB rate."
     },
     {
       "key": "eurouter:kimi-k2.7-code",
@@ -62965,19 +62965,19 @@
         "audio": false
       },
       "rates": {
-        "input": 2.714440825190011,
-        "cached": 0.6786102062975028,
-        "output": 13.572204125950055,
+        "input": 3.0,
+        "cached": 0.9,
+        "output": 10.0,
         "cachedFallback": false,
-        "nativeCurrency": "USD",
+        "nativeCurrency": "EUR",
         "native": {
           "input": 3.0,
-          "cached": 0.75,
-          "output": 15.0
+          "cached": 0.9,
+          "output": 10.0
         }
       },
       "pricingTiers": [],
-      "priceNote": "USD price published in EUrouter's catalog and converted with the listed ECB rate."
+      "priceNote": "EUR price published in EUrouter's catalog."
     },
     {
       "key": "eurouter:lightonocr-2-1b",
@@ -64228,7 +64228,7 @@
       "creator": "Alibaba",
       "description": "Qwen3.5 397B A17B is an Alibaba/Qwen MoE model for long-context reasoning, coding, agentic tasks, tool use, and multimodal understanding.",
       "releaseDate": "2026-02-15",
-      "contextSize": 250000,
+      "contextSize": 262144,
       "capabilities": {
         "reasoning": false,
         "tools": true,
@@ -64259,7 +64259,7 @@
       "creator": "Alibaba",
       "description": "Qwen3.5 9B is Alibaba's compact Qwen3.5 model for efficient long-context chat, reasoning, and tool use.",
       "releaseDate": "2026-02-23",
-      "contextSize": 262000,
+      "contextSize": 262144,
       "capabilities": {
         "reasoning": false,
         "tools": true,
@@ -64267,15 +64267,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.07,
-        "cached": 0.07,
-        "output": 0.35,
+        "input": 0.1,
+        "cached": 0.1,
+        "output": 0.15,
         "cachedFallback": true,
         "nativeCurrency": "EUR",
         "native": {
-          "input": 0.07,
-          "cached": 0.07,
-          "output": 0.35
+          "input": 0.1,
+          "cached": 0.1,
+          "output": 0.15
         }
       },
       "pricingTiers": [],
@@ -68421,15 +68421,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.07238508867173363,
-        "cached": 0.07238508867173363,
-        "output": 0.14477017734346725,
+        "input": 0.0579080709373869,
+        "cached": 0.0579080709373869,
+        "output": 0.1158161418747738,
         "cachedFallback": true,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.08,
-          "cached": 0.08,
-          "output": 0.16
+          "input": 0.064,
+          "cached": 0.064,
+          "output": 0.128
         }
       },
       "pricingTiers": [],
@@ -68483,15 +68483,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.010857763300760045,
-        "cached": 0.005428881650380022,
-        "output": 0.0334781035106768,
+        "input": 0.018096272167933407,
+        "cached": 0.009048136083966703,
+        "output": 0.05519363011219689,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.012,
-          "cached": 0.006,
-          "output": 0.037
+          "input": 0.02,
+          "cached": 0.01,
+          "output": 0.061
         }
       },
       "pricingTiers": [],
@@ -68684,68 +68684,6 @@
       "priceNote": "USD price published in Kilo's model catalog and converted with the listed ECB rate."
     },
     {
-      "key": "kilo:inception/mercury-2",
-      "seller": "kilo",
-      "sellerName": "Kilo",
-      "modelId": "inception/mercury-2",
-      "name": "Mercury 2 (retires Nov 15)",
-      "creator": "inception",
-      "description": "A diffusion-based reasoning LLM that generates text via parallel refinement (not token-by-token), delivering real-time latency with ~1k tokens/sec plus 128K context and built-in tool/JSON support.",
-      "releaseDate": null,
-      "contextSize": 128000,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.2262034020991676,
-        "cached": 0.02262034020991676,
-        "output": 0.6786102062975028,
-        "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.25,
-          "cached": 0.025,
-          "output": 0.75
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Kilo's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "kilo:inception/mercury-2.5",
-      "seller": "kilo",
-      "sellerName": "Kilo",
-      "modelId": "inception/mercury-2.5",
-      "name": "Mercury 2.5 (retires Nov 15)",
-      "creator": "inception",
-      "description": "Mercury 2.5 is Inception\u2019s diffusion-based reasoning model for chat, agents, and structured workflows, with tool calling, structured outputs, and a 260K context window.",
-      "releaseDate": null,
-      "contextSize": 260000,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.036192544335866814,
-        "cached": 0.0036192544335866814,
-        "output": 0.13572204125950055,
-        "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.04,
-          "cached": 0.004,
-          "output": 0.15
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Kilo's model catalog and converted with the listed ECB rate."
-    },
-    {
       "key": "kilo:inception/mercury-3",
       "seller": "kilo",
       "sellerName": "Kilo",
@@ -68771,37 +68709,6 @@
           "input": 0.1,
           "cached": 0.01,
           "output": 0.35
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Kilo's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "kilo:inception/mercury-coder-small",
-      "seller": "kilo",
-      "sellerName": "Kilo",
-      "modelId": "inception/mercury-coder-small",
-      "name": "Mercury Coder Small Beta (retires Nov 15)",
-      "creator": "inception",
-      "description": "Mercury Coder Small is ideal for code generation, debugging, and refactoring tasks with minimal latency.",
-      "releaseDate": null,
-      "contextSize": 32000,
-      "capabilities": {
-        "reasoning": false,
-        "tools": true,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.2262034020991676,
-        "cached": 0.2262034020991676,
-        "output": 0.9048136083966704,
-        "cachedFallback": true,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.25,
-          "cached": 0.25,
-          "output": 1.0
         }
       },
       "pricingTiers": [],
@@ -71428,15 +71335,15 @@
         "audio": false
       },
       "rates": {
-        "input": 1.8096272167933407,
+        "input": 0.21742671009771988,
         "cached": 0.18096272167933408,
-        "output": 9.048136083966703,
+        "output": 7.602515381831343,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 2.0,
+          "input": 0.2403,
           "cached": 0.2,
-          "output": 10.0
+          "output": 8.4023
         }
       },
       "pricingTiers": [],
@@ -71769,15 +71676,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.06786102062975027,
-        "cached": 0.06786102062975027,
-        "output": 0.36192544335866816,
+        "input": 0.05428881650380022,
+        "cached": 0.05428881650380022,
+        "output": 0.2895403546869345,
         "cachedFallback": true,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.075,
-          "cached": 0.075,
-          "output": 0.4
+          "input": 0.06,
+          "cached": 0.06,
+          "output": 0.32
         }
       },
       "pricingTiers": [],
@@ -74745,13 +74652,13 @@
         "audio": false
       },
       "rates": {
-        "input": 0.04524068041983352,
+        "input": 0.05428881650380022,
         "cached": 0.002714440825190011,
         "output": 0.4524068041983352,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.05,
+          "input": 0.06,
           "cached": 0.003,
           "output": 0.5
         }
@@ -75783,37 +75690,6 @@
       "priceNote": "USD price published in Kilo's model catalog and converted with the listed ECB rate."
     },
     {
-      "key": "kilo:qwen/qwen3-vl-30b-a3b-thinking",
-      "seller": "kilo",
-      "sellerName": "Kilo",
-      "modelId": "qwen/qwen3-vl-30b-a3b-thinking",
-      "name": "Qwen: Qwen3 VL 30B A3B Thinking (retires Nov 15)",
-      "creator": "Alibaba",
-      "description": "Qwen3-VL-30B-A3B-Thinking is a multimodal model that unifies strong text generation with visual understanding for images and videos. Its Thinking variant enhances reasoning in STEM, math, and complex tasks. It excels...",
-      "releaseDate": null,
-      "contextSize": 262144,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": true,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.2623959464350344,
-        "cached": 0.2623959464350344,
-        "output": 0.9048136083966704,
-        "cachedFallback": true,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.29,
-          "cached": 0.29,
-          "output": 1.0
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Kilo's model catalog and converted with the listed ECB rate."
-    },
-    {
       "key": "kilo:qwen/qwen3-vl-8b-instruct",
       "seller": "kilo",
       "sellerName": "Kilo",
@@ -75985,15 +75861,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.1429605501266739,
-        "cached": 0.12848353239232718,
-        "output": 0.20991675714802752,
+        "input": 0.019905899384726745,
+        "cached": 0.018096272167933407,
+        "output": 0.029858849077090122,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.158,
-          "cached": 0.142,
-          "output": 0.232
+          "input": 0.022,
+          "cached": 0.02,
+          "output": 0.033
         }
       },
       "pricingTiers": [],
@@ -76977,15 +76853,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.7690915671371698,
-        "cached": 0.7690915671371698,
-        "output": 0.7690915671371698,
+        "input": 0.6152732537097358,
+        "cached": 0.6152732537097358,
+        "output": 0.6152732537097358,
         "cachedFallback": true,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.85,
-          "cached": 0.85,
-          "output": 0.85
+          "input": 0.68,
+          "cached": 0.68,
+          "output": 0.68
         }
       },
       "pricingTiers": [],
@@ -77147,37 +77023,6 @@
       "priceNote": "USD price published in Kilo's model catalog and converted with the listed ECB rate."
     },
     {
-      "key": "kilo:stepfun/step-3.5-flash",
-      "seller": "kilo",
-      "sellerName": "Kilo",
-      "modelId": "stepfun/step-3.5-flash",
-      "name": "StepFun: Step 3.5 Flash (retires Nov 15)",
-      "creator": "stepfun",
-      "description": "Step 3.5 Flash is StepFun's most capable open-source foundation model. Built on a sparse Mixture of Experts (MoE) architecture, it selectively activates only 11B of its 196B parameters per token....",
-      "releaseDate": null,
-      "contextSize": 262144,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.09048136083966704,
-        "cached": 0.09048136083966704,
-        "output": 0.2714440825190011,
-        "cachedFallback": true,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.1,
-          "cached": 0.1,
-          "output": 0.3
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Kilo's model catalog and converted with the listed ECB rate."
-    },
-    {
       "key": "kilo:stepfun/step-3.7-flash",
       "seller": "kilo",
       "sellerName": "Kilo",
@@ -77234,37 +77079,6 @@
           "input": 1.0,
           "cached": 0.1,
           "output": 2.7
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Kilo's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "kilo:tencent/hunyuan-a13b-instruct",
-      "seller": "kilo",
-      "sellerName": "Kilo",
-      "modelId": "tencent/hunyuan-a13b-instruct",
-      "name": "Tencent: Hunyuan A13B Instruct (retires Nov 15)",
-      "creator": "tencent",
-      "description": "Hunyuan-A13B is a 13B active parameter Mixture-of-Experts (MoE) language model developed by Tencent, with a total parameter count of 80B and support for reasoning via Chain-of-Thought. It offers competitive benchmark...",
-      "releaseDate": null,
-      "contextSize": 131072,
-      "capabilities": {
-        "reasoning": true,
-        "tools": false,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.12667390517553387,
-        "cached": 0.12667390517553387,
-        "output": 0.5157437567861021,
-        "cachedFallback": true,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.14,
-          "cached": 0.14,
-          "output": 0.57
         }
       },
       "pricingTiers": [],
@@ -78682,15 +78496,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.5428881650380022,
-        "cached": 0.09952949692363373,
-        "output": 1.9905899384726748,
+        "input": 0.36192544335866816,
+        "cached": 0.07238508867173363,
+        "output": 1.583423814694173,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.6,
-          "cached": 0.11,
-          "output": 2.2
+          "input": 0.4,
+          "cached": 0.08,
+          "output": 1.75
         }
       },
       "pricingTiers": [],
@@ -78825,7 +78639,7 @@
       "seller": "kilo",
       "sellerName": "Kilo",
       "modelId": "z-ai/glm-5.1",
-      "name": "Z.ai: GLM 5.1",
+      "name": "Z.ai: GLM 5.1 (retires Nov 20)",
       "creator": "Z.ai",
       "description": "GLM-5.1 delivers a major leap in coding capability, with particularly significant gains in handling long-horizon tasks. Unlike previous models built around minute-level interactions, GLM-5.1 can work independently and continuously on...",
       "releaseDate": null,
@@ -79271,15 +79085,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.03438291711907347,
-        "cached": 0.009048136083966703,
-        "output": 0.4524068041983352,
+        "input": 0.018096272167933407,
+        "cached": 0.006333695258776692,
+        "output": 0.09771986970684039,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.038,
-          "cached": 0.01,
-          "output": 0.5
+          "input": 0.02,
+          "cached": 0.007,
+          "output": 0.108
         }
       },
       "pricingTiers": [],
@@ -80512,13 +80326,13 @@
       },
       "rates": {
         "input": 0.1221498371335505,
-        "cached": 0.00244299674267101,
+        "cached": 0.006333695258776692,
         "output": 0.488599348534202,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
           "input": 0.135,
-          "cached": 0.0027,
+          "cached": 0.007,
           "output": 0.54
         }
       },
@@ -94926,15 +94740,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.012667390517553384,
-        "cached": 0.006333695258776692,
-        "output": 0.038906985161056826,
+        "input": 0.01447701773434673,
+        "cached": 0.007238508867173365,
+        "output": 0.04252623959464351,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.014,
-          "cached": 0.007,
-          "output": 0.043000000000000003
+          "input": 0.016000000000000004,
+          "cached": 0.008000000000000002,
+          "output": 0.047
         }
       },
       "pricingTiers": [],
@@ -98088,15 +97902,15 @@
         "audio": false
       },
       "rates": {
-        "input": 1.8096272167933407,
-        "cached": 0.18096272167933408,
-        "output": 9.048136083966703,
+        "input": 1.2667390517553383,
+        "cached": 0.12667390517553384,
+        "output": 6.333695258776692,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 2.0,
-          "cached": 0.2,
-          "output": 10.0
+          "input": 1.4,
+          "cached": 0.13999999999999999,
+          "output": 7.0
         }
       },
       "pricingTiers": [],
@@ -98150,15 +97964,15 @@
         "audio": false
       },
       "rates": {
-        "input": 1.8096272167933407,
-        "cached": 0.18096272167933408,
-        "output": 9.048136083966703,
+        "input": 1.2667390517553383,
+        "cached": 0.12667390517553384,
+        "output": 6.333695258776692,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 2.0,
-          "cached": 0.2,
-          "output": 10.0
+          "input": 1.4,
+          "cached": 0.13999999999999999,
+          "output": 7.0
         }
       },
       "pricingTiers": [],
@@ -119248,15 +119062,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.03438291711907347,
-        "cached": 0.009048136083966703,
-        "output": 0.4524068041983352,
+        "input": 0.13572204125950055,
+        "cached": 0.002714440825190011,
+        "output": 0.5428881650380022,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.038,
-          "cached": 0.01,
-          "output": 0.5
+          "input": 0.15,
+          "cached": 0.003,
+          "output": 0.6
         }
       },
       "pricingTiers": [],
@@ -119279,15 +119093,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.04524068041983352,
-        "cached": 0.0036192544335866814,
-        "output": 0.13572204125950055,
+        "input": 0.03257328990228013,
+        "cached": 0.002714440825190011,
+        "output": 0.28773072747014117,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.05,
-          "cached": 0.004,
-          "output": 0.15
+          "input": 0.036,
+          "cached": 0.003,
+          "output": 0.318
         }
       },
       "pricingTiers": [],
@@ -120924,13 +120738,13 @@
       "rates": {
         "input": 0.05428881650380022,
         "cached": 0.013572204125950055,
-        "output": 0.2262034020991676,
+        "output": 0.13572204125950055,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
           "input": 0.06,
           "cached": 0.015,
-          "output": 0.25
+          "output": 0.15
         }
       },
       "pricingTiers": [],
@@ -123030,15 +122844,15 @@
         "audio": false
       },
       "rates": {
-        "input": 1.8096272167933407,
+        "input": 0.21742671009771988,
         "cached": 0.18096272167933408,
-        "output": 9.048136083966703,
+        "output": 7.602515381831343,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 2.0,
+          "input": 0.2403,
           "cached": 0.2,
-          "output": 10.0
+          "output": 8.4023
         }
       },
       "pricingTiers": [],
@@ -123061,15 +122875,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.6333695258776691,
-        "cached": 0.09048136083966704,
-        "output": 5.428881650380022,
+        "input": 0.24882374230908436,
+        "cached": 0.07962359753890698,
+        "output": 3.732356134636265,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.7,
-          "cached": 0.1,
-          "output": 6.0
+          "input": 0.275,
+          "cached": 0.088,
+          "output": 4.125
         }
       },
       "pricingTiers": [],
@@ -123652,13 +123466,13 @@
       "rates": {
         "input": 0.13572204125950055,
         "cached": 0.018096272167933407,
-        "output": 0.425262395946435,
+        "output": 0.4524068041983352,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
           "input": 0.15,
           "cached": 0.02,
-          "output": 0.47
+          "output": 0.5
         }
       },
       "pricingTiers": [],
@@ -125448,15 +125262,15 @@
         "audio": false
       },
       "rates": {
-        "input": 3.6192544335866814,
-        "cached": 0.36192544335866816,
-        "output": 18.096272167933407,
+        "input": 3.9811798769453497,
+        "cached": 0.39811798769453494,
+        "output": 19.905899384726748,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 4.0,
-          "cached": 0.4,
-          "output": 20.0
+          "input": 4.4,
+          "cached": 0.44,
+          "output": 22.0
         }
       },
       "pricingTiers": [],
@@ -126781,13 +126595,13 @@
         "audio": false
       },
       "rates": {
-        "input": 0.04524068041983352,
+        "input": 0.05428881650380022,
         "cached": 0.002714440825190011,
         "output": 0.4524068041983352,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.05,
+          "input": 0.06,
           "cached": 0.003,
           "output": 0.5
         }
@@ -127633,37 +127447,6 @@
       "priceNote": "USD price published in OpenRouter's model catalog and converted with the listed ECB rate."
     },
     {
-      "key": "openrouter:qwen/qwen3-vl-30b-a3b-thinking",
-      "seller": "openrouter",
-      "sellerName": "OpenRouter",
-      "modelId": "qwen/qwen3-vl-30b-a3b-thinking",
-      "name": "Qwen: Qwen3 VL 30B A3B Thinking",
-      "creator": "Alibaba",
-      "description": "Qwen3-VL-30B-A3B-Thinking is a multimodal model that unifies strong text generation with visual understanding for images and videos. Its Thinking variant enhances reasoning in STEM, math, and complex tasks. It excels...",
-      "releaseDate": null,
-      "contextSize": 262144,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": true,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.2623959464350344,
-        "cached": 0.2623959464350344,
-        "output": 0.9048136083966704,
-        "cachedFallback": true,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.29,
-          "cached": 0.29,
-          "output": 1.0
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in OpenRouter's model catalog and converted with the listed ECB rate."
-    },
-    {
       "key": "openrouter:qwen/qwen3-vl-8b-instruct",
       "seller": "openrouter",
       "sellerName": "OpenRouter",
@@ -127835,15 +127618,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.1275787187839305,
-        "cached": 0.11491132826637714,
-        "output": 0.18729641693811075,
+        "input": 0.019001085776330078,
+        "cached": 0.017191458559536736,
+        "output": 0.02714440825190011,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.141,
-          "cached": 0.127,
-          "output": 0.207
+          "input": 0.021,
+          "cached": 0.019,
+          "output": 0.03
         }
       },
       "pricingTiers": [],
@@ -128904,37 +128687,6 @@
       "priceNote": "USD price published in OpenRouter's model catalog and converted with the listed ECB rate."
     },
     {
-      "key": "openrouter:stepfun/step-3.5-flash",
-      "seller": "openrouter",
-      "sellerName": "OpenRouter",
-      "modelId": "stepfun/step-3.5-flash",
-      "name": "StepFun: Step 3.5 Flash",
-      "creator": "stepfun",
-      "description": "Step 3.5 Flash is StepFun's most capable open-source foundation model. Built on a sparse Mixture of Experts (MoE) architecture, it selectively activates only 11B of its 196B parameters per token....",
-      "releaseDate": null,
-      "contextSize": 262144,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.09048136083966704,
-        "cached": 0.09048136083966704,
-        "output": 0.2714440825190011,
-        "cachedFallback": true,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.1,
-          "cached": 0.1,
-          "output": 0.3
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in OpenRouter's model catalog and converted with the listed ECB rate."
-    },
-    {
       "key": "openrouter:stepfun/step-3.7-flash",
       "seller": "openrouter",
       "sellerName": "OpenRouter",
@@ -128991,37 +128743,6 @@
           "input": 1.0,
           "cached": 0.1,
           "output": 2.7
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in OpenRouter's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "openrouter:tencent/hunyuan-a13b-instruct",
-      "seller": "openrouter",
-      "sellerName": "OpenRouter",
-      "modelId": "tencent/hunyuan-a13b-instruct",
-      "name": "Tencent: Hunyuan A13B Instruct",
-      "creator": "tencent",
-      "description": "Hunyuan-A13B is a 13B active parameter Mixture-of-Experts (MoE) language model developed by Tencent, with a total parameter count of 80B and support for reasoning via Chain-of-Thought. It offers competitive benchmark...",
-      "releaseDate": null,
-      "contextSize": 131072,
-      "capabilities": {
-        "reasoning": true,
-        "tools": false,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.12667390517553387,
-        "cached": 0.12667390517553387,
-        "output": 0.5157437567861021,
-        "cachedFallback": true,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.14,
-          "cached": 0.14,
-          "output": 0.57
         }
       },
       "pricingTiers": [],
@@ -130346,15 +130067,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.5428881650380022,
-        "cached": 0.09952949692363373,
-        "output": 1.9905899384726748,
+        "input": 0.36192544335866816,
+        "cached": 0.07238508867173363,
+        "output": 1.583423814694173,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.6,
-          "cached": 0.11,
-          "output": 2.2
+          "input": 0.4,
+          "cached": 0.08,
+          "output": 1.75
         }
       },
       "pricingTiers": [],
@@ -130510,37 +130231,6 @@
           "input": 0.007,
           "cached": 0.006,
           "output": 6.8
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in OpenRouter's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "openrouter:z-ai/glm-5.2:batch",
-      "seller": "openrouter",
-      "sellerName": "OpenRouter",
-      "modelId": "z-ai/glm-5.2:batch",
-      "name": "Z.ai: GLM 5.2 (batch)",
-      "creator": "Z.ai",
-      "description": "GLM 5.2 is a large-scale reasoning model from Z.ai. It supports text input and output with a 1M-token context window, and is suited for long-horizon agent workflows, project-level software engineering,...",
-      "releaseDate": null,
-      "contextSize": 1048576,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.29134998190372785,
-        "cached": 0.09862468331523706,
-        "output": 0.894860658704307,
-        "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.322,
-          "cached": 0.109,
-          "output": 0.989
         }
       },
       "pricingTiers": [],
@@ -130749,15 +130439,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.40716612377850164,
-        "cached": 0.09048136083966704,
-        "output": 1.8096272167933407,
+        "input": 0.29134998190372785,
+        "cached": 0.09862468331523706,
+        "output": 0.894860658704307,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.45,
-          "cached": 0.1,
-          "output": 2.0
+          "input": 0.322,
+          "cached": 0.109,
+          "output": 0.989
         }
       },
       "pricingTiers": [],
@@ -130935,15 +130625,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.03438291711907347,
-        "cached": 0.009048136083966703,
-        "output": 0.4524068041983352,
+        "input": 0.018096272167933407,
+        "cached": 0.006333695258776692,
+        "output": 0.09771986970684039,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.038,
-          "cached": 0.01,
-          "output": 0.5
+          "input": 0.02,
+          "cached": 0.007,
+          "output": 0.108
         }
       },
       "pricingTiers": [],
@@ -157320,68 +157010,6 @@
       "priceNote": "USD price published in Vercel AI Gateway's model catalog and converted with the listed ECB rate."
     },
     {
-      "key": "vercel-gateway:inception/mercury-2",
-      "seller": "vercel-gateway",
-      "sellerName": "Vercel AI Gateway",
-      "modelId": "inception/mercury-2",
-      "name": "Mercury 2",
-      "creator": "inception",
-      "description": "A diffusion-based reasoning LLM that generates text via parallel refinement (not token-by-token), delivering real-time latency with ~1k tokens/sec plus 128K context and built-in tool/JSON support.",
-      "releaseDate": null,
-      "contextSize": 128000,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.2262034020991676,
-        "cached": 0.02262034020991676,
-        "output": 0.6786102062975028,
-        "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.25,
-          "cached": 0.025,
-          "output": 0.75
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Vercel AI Gateway's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "vercel-gateway:inception/mercury-2.5",
-      "seller": "vercel-gateway",
-      "sellerName": "Vercel AI Gateway",
-      "modelId": "inception/mercury-2.5",
-      "name": "Mercury 2.5",
-      "creator": "inception",
-      "description": "Mercury 2.5 is Inception\u2019s diffusion-based reasoning model for chat, agents, and structured workflows, with tool calling, structured outputs, and a 260K context window.",
-      "releaseDate": null,
-      "contextSize": 260000,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.036192544335866814,
-        "cached": 0.0036192544335866814,
-        "output": 0.13572204125950055,
-        "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.04,
-          "cached": 0.004,
-          "output": 0.15
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Vercel AI Gateway's model catalog and converted with the listed ECB rate."
-    },
-    {
       "key": "vercel-gateway:inception/mercury-3",
       "seller": "vercel-gateway",
       "sellerName": "Vercel AI Gateway",
@@ -157407,37 +157035,6 @@
           "input": 0.1,
           "cached": 0.01,
           "output": 0.35
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Vercel AI Gateway's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "vercel-gateway:inception/mercury-coder-small",
-      "seller": "vercel-gateway",
-      "sellerName": "Vercel AI Gateway",
-      "modelId": "inception/mercury-coder-small",
-      "name": "Mercury Coder Small Beta",
-      "creator": "inception",
-      "description": "Mercury Coder Small is ideal for code generation, debugging, and refactoring tasks with minimal latency.",
-      "releaseDate": null,
-      "contextSize": 32000,
-      "capabilities": {
-        "reasoning": false,
-        "tools": true,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.2262034020991676,
-        "cached": 0.2262034020991676,
-        "output": 0.9048136083966704,
-        "cachedFallback": true,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.25,
-          "cached": 0.25,
-          "output": 1.0
         }
       },
       "pricingTiers": [],

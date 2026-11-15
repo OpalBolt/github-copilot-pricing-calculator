@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-14T12:54:40.737095+00:00",
+  "generatedAt": "2026-11-15T13:22:34.050148+00:00",
   "currency": "EUR",
   "exchangeRate": {
     "series": "EXR.D.USD.EUR.SP00.A",
-    "source": "https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A?format=csvdata&startPeriod=2026-10-31",
+    "source": "https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A?format=csvdata&startPeriod=2026-11-01",
     "observationDate": "2026-11-13",
     "usdPerEur": 1.1052
   },
@@ -14,7 +14,7 @@
       "source": "https://api.cortecs.ai/v1/models?extended=true&currency=EUR",
       "euClaim": "EU catalog: providers based and regulated within the EU.",
       "id": "cortecs",
-      "fetchedAt": "2026-11-14T12:54:40.737095+00:00",
+      "fetchedAt": "2026-11-15T13:22:34.050148+00:00",
       "stale": false
     },
     {
@@ -22,7 +22,7 @@
       "source": "https://api.eurouter.ai/api/v1/models",
       "euClaim": "EU handling is EUrouter's baseline routing guarantee.",
       "id": "eurouter",
-      "fetchedAt": "2026-11-14T12:54:40.737095+00:00",
+      "fetchedAt": "2026-11-15T13:22:34.050148+00:00",
       "stale": false
     },
     {
@@ -30,7 +30,7 @@
       "source": "https://openrouter.ai/api/v1/models",
       "euClaim": "EU regional routing; Business or Enterprise plan required.",
       "id": "openrouter",
-      "fetchedAt": "2026-11-14T12:54:40.737095+00:00",
+      "fetchedAt": "2026-11-15T13:22:34.050148+00:00",
       "stale": false
     },
     {
@@ -39,7 +39,7 @@
       "kind": "direct",
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "deepseek-direct",
-      "fetchedAt": "2026-11-14T12:54:40.737095+00:00",
+      "fetchedAt": "2026-11-15T13:22:34.050148+00:00",
       "stale": false
     },
     {
@@ -48,7 +48,7 @@
       "kind": "direct",
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "zai-direct",
-      "fetchedAt": "2026-11-14T12:54:40.737095+00:00",
+      "fetchedAt": "2026-11-15T13:22:34.050148+00:00",
       "stale": false
     },
     {
@@ -58,7 +58,7 @@
       "kind": "direct",
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "claude-direct",
-      "fetchedAt": "2026-11-14T12:54:40.737095+00:00",
+      "fetchedAt": "2026-11-15T13:22:34.050148+00:00",
       "stale": false
     },
     {
@@ -68,7 +68,7 @@
       "kind": "direct",
       "euClaim": "Direct API baseline; no router or EU routing mode.",
       "id": "openai-direct",
-      "fetchedAt": "2026-11-14T12:54:40.737095+00:00",
+      "fetchedAt": "2026-11-15T13:22:34.050148+00:00",
       "stale": false
     },
     {
@@ -77,7 +77,7 @@
       "nativeCurrency": "USD",
       "euClaim": "EU regional endpoint (api.eu.mistral.ai): inference in EU/EFTA data centers at 1.1\u00d7 list price.",
       "id": "mistral",
-      "fetchedAt": "2026-11-14T12:54:40.737095+00:00",
+      "fetchedAt": "2026-11-15T13:22:34.050148+00:00",
       "stale": false
     }
   ],
@@ -5625,25 +5625,25 @@
       ],
       "default": {
         "input": 1.583423814694173,
-        "cached": 0.39585595367354326,
+        "cached": 0.39811798769453494,
         "output": 3.166847629388346,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
           "input": 1.75,
-          "cached": 0.4375,
+          "cached": 0.44,
           "output": 3.5
         }
       },
       "eu": {
         "input": 1.583423814694173,
-        "cached": 0.39585595367354326,
+        "cached": 0.39811798769453494,
         "output": 3.166847629388346,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
           "input": 1.75,
-          "cached": 0.4375,
+          "cached": 0.44,
           "output": 3.5
         }
       },
@@ -5890,15 +5890,15 @@
       ],
       "default": {
         "input": 0.1,
-        "cached": 0.1,
-        "output": 0.5,
+        "cached": 0.02,
+        "output": 0.3,
         "cachedFallback": false,
         "nativeCurrency": "EUR"
       },
       "eu": {
         "input": 0.1,
-        "cached": 0.1,
-        "output": 0.5,
+        "cached": 0.02,
+        "output": 0.3,
         "cachedFallback": false,
         "nativeCurrency": "EUR"
       },
@@ -7798,21 +7798,31 @@
         "Inceptron"
       ],
       "default": {
-        "input": 0.66,
-        "cached": 0.22,
-        "output": 3.751,
+        "input": 0.6605139341295693,
+        "cached": 0.2262034020991676,
+        "output": 3.166847629388346,
         "cachedFallback": false,
-        "nativeCurrency": "EUR"
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.73,
+          "cached": 0.25,
+          "output": 3.5
+        }
       },
       "eu": {
-        "input": 0.66,
-        "cached": 0.22,
-        "output": 3.751,
+        "input": 0.6605139341295693,
+        "cached": 0.2262034020991676,
+        "output": 3.166847629388346,
         "cachedFallback": false,
-        "nativeCurrency": "EUR"
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.73,
+          "cached": 0.25,
+          "output": 3.5
+        }
       },
       "quantization": null,
-      "priceNote": "EUR Router Price published by EUrouter."
+      "priceNote": "USD Router Price published by EUrouter and converted with the listed ECB rate."
     },
     {
       "key": "eurouter:kimi-k2.7-code",
@@ -7941,39 +7951,31 @@
         "audio": false
       },
       "providers": [
+        "Berget AI AB",
         "Nebul",
         "Tensorix"
       ],
       "euProviders": [
+        "Berget AI AB",
         "Nebul",
         "Tensorix"
       ],
       "default": {
-        "input": 2.714440825190011,
-        "cached": 0.6786102062975028,
-        "output": 13.572204125950055,
+        "input": 3.0,
+        "cached": 0.9,
+        "output": 10.0,
         "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 3.0,
-          "cached": 0.75,
-          "output": 15.0
-        }
+        "nativeCurrency": "EUR"
       },
       "eu": {
-        "input": 2.714440825190011,
-        "cached": 0.6786102062975028,
-        "output": 13.572204125950055,
+        "input": 3.0,
+        "cached": 0.9,
+        "output": 10.0,
         "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 3.0,
-          "cached": 0.75,
-          "output": 15.0
-        }
+        "nativeCurrency": "EUR"
       },
       "quantization": null,
-      "priceNote": "USD Router Price published by EUrouter and converted with the listed ECB rate."
+      "priceNote": "EUR Router Price published by EUrouter."
     },
     {
       "key": "eurouter:lightonocr-2-1b",
@@ -9886,7 +9888,7 @@
       "owner": "Alibaba",
       "description": "Qwen3.5 397B A17B is an Alibaba/Qwen MoE model for long-context reasoning, coding, agentic tasks, tool use, and multimodal understanding.",
       "releaseDate": "2026-02-15",
-      "contextSize": 250000,
+      "contextSize": 262144,
       "capabilities": {
         "reasoning": false,
         "tools": true,
@@ -9933,7 +9935,7 @@
       "owner": "Alibaba",
       "description": "Qwen3.5 9B is Alibaba's compact Qwen3.5 model for efficient long-context chat, reasoning, and tool use.",
       "releaseDate": "2026-02-23",
-      "contextSize": 262000,
+      "contextSize": 262144,
       "capabilities": {
         "reasoning": false,
         "tools": true,
@@ -9953,16 +9955,16 @@
         "Regolo"
       ],
       "default": {
-        "input": 0.07,
-        "cached": 0.07,
-        "output": 0.35,
+        "input": 0.1,
+        "cached": 0.1,
+        "output": 0.15,
         "cachedFallback": true,
         "nativeCurrency": "EUR"
       },
       "eu": {
-        "input": 0.07,
-        "cached": 0.07,
-        "output": 0.35,
+        "input": 0.1,
+        "cached": 0.1,
+        "output": 0.15,
         "cachedFallback": true,
         "nativeCurrency": "EUR"
       },
@@ -13960,15 +13962,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.03438291711907347,
-        "cached": 0.009048136083966703,
-        "output": 0.4524068041983352,
+        "input": 0.13572204125950055,
+        "cached": 0.002714440825190011,
+        "output": 0.5428881650380022,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.038,
-          "cached": 0.01,
-          "output": 0.5
+          "input": 0.15,
+          "cached": 0.003,
+          "output": 0.6
         }
       },
       "eu": null,
@@ -13995,15 +13997,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.04524068041983352,
-        "cached": 0.0036192544335866814,
-        "output": 0.13572204125950055,
+        "input": 0.03257328990228013,
+        "cached": 0.002714440825190011,
+        "output": 0.28773072747014117,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.05,
-          "cached": 0.004,
-          "output": 0.15
+          "input": 0.036,
+          "cached": 0.003,
+          "output": 0.318
         }
       },
       "eu": null,
@@ -15896,13 +15898,13 @@
       "default": {
         "input": 0.05428881650380022,
         "cached": 0.013572204125950055,
-        "output": 0.2262034020991676,
+        "output": 0.13572204125950055,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
           "input": 0.06,
           "cached": 0.015,
-          "output": 0.25
+          "output": 0.15
         }
       },
       "eu": null,
@@ -18494,15 +18496,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 1.8096272167933407,
+        "input": 0.21742671009771988,
         "cached": 0.18096272167933408,
-        "output": 9.048136083966703,
+        "output": 7.602515381831343,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 2.0,
+          "input": 0.2403,
           "cached": 0.2,
-          "output": 10.0
+          "output": 8.4023
         }
       },
       "eu": null,
@@ -18529,15 +18531,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.6333695258776691,
-        "cached": 0.09048136083966704,
-        "output": 5.428881650380022,
+        "input": 0.24882374230908436,
+        "cached": 0.07962359753890698,
+        "output": 3.732356134636265,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.7,
-          "cached": 0.1,
-          "output": 6.0
+          "input": 0.275,
+          "cached": 0.088,
+          "output": 4.125
         }
       },
       "eu": null,
@@ -19196,13 +19198,13 @@
       "default": {
         "input": 0.13572204125950055,
         "cached": 0.018096272167933407,
-        "output": 0.425262395946435,
+        "output": 0.4524068041983352,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
           "input": 0.15,
           "cached": 0.02,
-          "output": 0.47
+          "output": 0.5
         }
       },
       "eu": null,
@@ -21356,15 +21358,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 3.6192544335866814,
-        "cached": 0.36192544335866816,
-        "output": 18.096272167933407,
+        "input": 3.9811798769453497,
+        "cached": 0.39811798769453494,
+        "output": 19.905899384726748,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 4.0,
-          "cached": 0.4,
-          "output": 20.0
+          "input": 4.4,
+          "cached": 0.44,
+          "output": 22.0
         }
       },
       "eu": {
@@ -23015,13 +23017,13 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.04524068041983352,
+        "input": 0.05428881650380022,
         "cached": 0.002714440825190011,
         "output": 0.4524068041983352,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.05,
+          "input": 0.06,
           "cached": 0.003,
           "output": 0.5
         }
@@ -23977,41 +23979,6 @@
       "priceNote": "USD Router Price converted with the listed ECB rate."
     },
     {
-      "key": "openrouter:qwen/qwen3-vl-30b-a3b-thinking",
-      "router": "openrouter",
-      "routerName": "OpenRouter",
-      "modelId": "qwen/qwen3-vl-30b-a3b-thinking",
-      "name": "Qwen: Qwen3 VL 30B A3B Thinking",
-      "owner": "Alibaba",
-      "description": "Qwen3-VL-30B-A3B-Thinking is a multimodal model that unifies strong text generation with visual understanding for images and videos. Its Thinking variant enhances reasoning in STEM, math, and complex tasks. It excels...",
-      "releaseDate": null,
-      "contextSize": 262144,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": true,
-        "audio": false
-      },
-      "providers": [],
-      "euProviders": [],
-      "default": {
-        "input": 0.2623959464350344,
-        "cached": 0.2623959464350344,
-        "output": 0.9048136083966704,
-        "cachedFallback": true,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.29,
-          "cached": 0.29,
-          "output": 1.0
-        }
-      },
-      "eu": null,
-      "quantization": null,
-      "euPlan": "Business or Enterprise",
-      "priceNote": "USD Router Price converted with the listed ECB rate."
-    },
-    {
       "key": "openrouter:qwen/qwen3-vl-8b-instruct",
       "router": "openrouter",
       "routerName": "OpenRouter",
@@ -24205,15 +24172,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.1275787187839305,
-        "cached": 0.11491132826637714,
-        "output": 0.18729641693811075,
+        "input": 0.019001085776330078,
+        "cached": 0.017191458559536736,
+        "output": 0.02714440825190011,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.141,
-          "cached": 0.127,
-          "output": 0.207
+          "input": 0.021,
+          "cached": 0.019,
+          "output": 0.03
         }
       },
       "eu": null,
@@ -25412,41 +25379,6 @@
       "priceNote": "USD Router Price converted with the listed ECB rate."
     },
     {
-      "key": "openrouter:stepfun/step-3.5-flash",
-      "router": "openrouter",
-      "routerName": "OpenRouter",
-      "modelId": "stepfun/step-3.5-flash",
-      "name": "StepFun: Step 3.5 Flash",
-      "owner": "stepfun",
-      "description": "Step 3.5 Flash is StepFun's most capable open-source foundation model. Built on a sparse Mixture of Experts (MoE) architecture, it selectively activates only 11B of its 196B parameters per token....",
-      "releaseDate": null,
-      "contextSize": 262144,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": false,
-        "audio": false
-      },
-      "providers": [],
-      "euProviders": [],
-      "default": {
-        "input": 0.09048136083966704,
-        "cached": 0.09048136083966704,
-        "output": 0.2714440825190011,
-        "cachedFallback": true,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.1,
-          "cached": 0.1,
-          "output": 0.3
-        }
-      },
-      "eu": null,
-      "quantization": null,
-      "euPlan": "Business or Enterprise",
-      "priceNote": "USD Router Price converted with the listed ECB rate."
-    },
-    {
       "key": "openrouter:stepfun/step-3.7-flash",
       "router": "openrouter",
       "routerName": "OpenRouter",
@@ -25509,41 +25441,6 @@
           "input": 1.0,
           "cached": 0.1,
           "output": 2.7
-        }
-      },
-      "eu": null,
-      "quantization": null,
-      "euPlan": "Business or Enterprise",
-      "priceNote": "USD Router Price converted with the listed ECB rate."
-    },
-    {
-      "key": "openrouter:tencent/hunyuan-a13b-instruct",
-      "router": "openrouter",
-      "routerName": "OpenRouter",
-      "modelId": "tencent/hunyuan-a13b-instruct",
-      "name": "Tencent: Hunyuan A13B Instruct",
-      "owner": "tencent",
-      "description": "Hunyuan-A13B is a 13B active parameter Mixture-of-Experts (MoE) language model developed by Tencent, with a total parameter count of 80B and support for reasoning via Chain-of-Thought. It offers competitive benchmark...",
-      "releaseDate": null,
-      "contextSize": 131072,
-      "capabilities": {
-        "reasoning": true,
-        "tools": false,
-        "vision": false,
-        "audio": false
-      },
-      "providers": [],
-      "euProviders": [],
-      "default": {
-        "input": 0.12667390517553387,
-        "cached": 0.12667390517553387,
-        "output": 0.5157437567861021,
-        "cachedFallback": true,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.14,
-          "cached": 0.14,
-          "output": 0.57
         }
       },
       "eu": null,
@@ -27040,15 +26937,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.5428881650380022,
-        "cached": 0.09952949692363373,
-        "output": 1.9905899384726748,
+        "input": 0.36192544335866816,
+        "cached": 0.07238508867173363,
+        "output": 1.583423814694173,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.6,
-          "cached": 0.11,
-          "output": 2.2
+          "input": 0.4,
+          "cached": 0.08,
+          "output": 1.75
         }
       },
       "eu": null,
@@ -27238,41 +27135,6 @@
           "output": 4.4
         }
       },
-      "quantization": null,
-      "euPlan": "Business or Enterprise",
-      "priceNote": "USD Router Price converted with the listed ECB rate."
-    },
-    {
-      "key": "openrouter:z-ai/glm-5.2:batch",
-      "router": "openrouter",
-      "routerName": "OpenRouter",
-      "modelId": "z-ai/glm-5.2:batch",
-      "name": "Z.ai: GLM 5.2 (batch)",
-      "owner": "Z.ai",
-      "description": "GLM 5.2 is a large-scale reasoning model from Z.ai. It supports text input and output with a 1M-token context window, and is suited for long-horizon agent workflows, project-level software engineering,...",
-      "releaseDate": null,
-      "contextSize": 1048576,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": false,
-        "audio": false
-      },
-      "providers": [],
-      "euProviders": [],
-      "default": {
-        "input": 0.29134998190372785,
-        "cached": 0.09862468331523706,
-        "output": 0.894860658704307,
-        "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.322,
-          "cached": 0.109,
-          "output": 0.989
-        }
-      },
-      "eu": null,
       "quantization": null,
       "euPlan": "Business or Enterprise",
       "priceNote": "USD Router Price converted with the listed ECB rate."
@@ -27528,15 +27390,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.40716612377850164,
-        "cached": 0.09048136083966704,
-        "output": 1.8096272167933407,
+        "input": 0.29134998190372785,
+        "cached": 0.09862468331523706,
+        "output": 0.894860658704307,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.45,
-          "cached": 0.1,
-          "output": 2.0
+          "input": 0.322,
+          "cached": 0.109,
+          "output": 0.989
         }
       },
       "eu": null,
@@ -27738,15 +27600,15 @@
       "providers": [],
       "euProviders": [],
       "default": {
-        "input": 0.03438291711907347,
-        "cached": 0.009048136083966703,
-        "output": 0.4524068041983352,
+        "input": 0.018096272167933407,
+        "cached": 0.006333695258776692,
+        "output": 0.09771986970684039,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.038,
-          "cached": 0.01,
-          "output": 0.5
+          "input": 0.02,
+          "cached": 0.007,
+          "output": 0.108
         }
       },
       "eu": null,
