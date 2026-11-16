@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-15T13:22:40.855482+00:00",
+  "generatedAt": "2026-11-16T14:39:00.326255+00:00",
   "currency": "EUR",
   "exchangeRate": {
     "series": "EXR.D.USD.EUR.SP00.A",
-    "source": "https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A?format=csvdata&startPeriod=2026-11-01",
+    "source": "https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A?format=csvdata&startPeriod=2026-11-02",
     "observationDate": "2026-11-13",
     "usdPerEur": 1.1052
   },
@@ -15,7 +15,7 @@
       "source": "https://api.cortecs.ai/v1/models?extended=true&currency=EUR",
       "id": "cortecs",
       "nativeCurrency": "EUR",
-      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
+      "fetchedAt": "2026-11-16T14:39:00.326255+00:00",
       "stale": false
     },
     {
@@ -24,7 +24,7 @@
       "source": "https://api.eurouter.ai/api/v1/models",
       "id": "eurouter",
       "nativeCurrency": "mixed",
-      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
+      "fetchedAt": "2026-11-16T14:39:00.326255+00:00",
       "stale": false
     },
     {
@@ -33,7 +33,7 @@
       "source": "https://openrouter.ai/api/v1/models",
       "id": "openrouter",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
+      "fetchedAt": "2026-11-16T14:39:00.326255+00:00",
       "stale": false
     },
     {
@@ -42,7 +42,7 @@
       "source": "https://opencode.ai/zen/v1/models",
       "id": "opencode",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
+      "fetchedAt": "2026-11-16T14:39:00.326255+00:00",
       "stale": false
     },
     {
@@ -51,7 +51,7 @@
       "source": "https://api.deepinfra.com/v1/models",
       "nativeCurrency": "USD",
       "id": "deepinfra",
-      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
+      "fetchedAt": "2026-11-16T14:39:00.326255+00:00",
       "stale": false
     },
     {
@@ -60,7 +60,7 @@
       "source": "https://api.novita.ai/v3/openai/models",
       "nativeCurrency": "USD",
       "id": "novita",
-      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
+      "fetchedAt": "2026-11-16T14:39:00.326255+00:00",
       "stale": false
     },
     {
@@ -69,7 +69,7 @@
       "source": "https://router.requesty.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "requesty",
-      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
+      "fetchedAt": "2026-11-16T14:39:00.326255+00:00",
       "stale": false
     },
     {
@@ -78,7 +78,7 @@
       "source": "https://ai-gateway.vercel.sh/v1/models",
       "nativeCurrency": "USD",
       "id": "vercel-gateway",
-      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
+      "fetchedAt": "2026-11-16T14:39:00.326255+00:00",
       "stale": false
     },
     {
@@ -87,7 +87,7 @@
       "source": "https://api.kilo.ai/api/gateway/models",
       "nativeCurrency": "USD",
       "id": "kilo",
-      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
+      "fetchedAt": "2026-11-16T14:39:00.326255+00:00",
       "stale": false
     },
     {
@@ -96,7 +96,7 @@
       "source": "https://nano-gpt.com/api/v1/models?detailed=true",
       "nativeCurrency": "USD",
       "id": "nano-gpt",
-      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
+      "fetchedAt": "2026-11-16T14:39:00.326255+00:00",
       "stale": false
     },
     {
@@ -105,7 +105,7 @@
       "source": "https://llm.chutes.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "chutes",
-      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
+      "fetchedAt": "2026-11-16T14:39:00.326255+00:00",
       "stale": false
     },
     {
@@ -114,7 +114,7 @@
       "source": "https://api.llmgateway.io/v1/models",
       "nativeCurrency": "USD",
       "id": "llmgateway",
-      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
+      "fetchedAt": "2026-11-16T14:39:00.326255+00:00",
       "stale": false
     },
     {
@@ -123,7 +123,7 @@
       "source": "https://api.aiand.com/v1/models",
       "nativeCurrency": "USD",
       "id": "aiand",
-      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
+      "fetchedAt": "2026-11-16T14:39:00.326255+00:00",
       "stale": false
     },
     {
@@ -132,7 +132,7 @@
       "source": "https://api.aimlapi.com/v1/models?include=pricing,modalities",
       "nativeCurrency": "USD",
       "id": "aimlapi",
-      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
+      "fetchedAt": "2026-11-16T14:39:00.326255+00:00",
       "stale": false
     },
     {
@@ -141,7 +141,7 @@
       "source": "https://api.ambient.xyz/v1/models",
       "nativeCurrency": "USD",
       "id": "ambient",
-      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
+      "fetchedAt": "2026-11-16T14:39:00.326255+00:00",
       "stale": false
     },
     {
@@ -150,7 +150,7 @@
       "source": "https://www.crossmodel.ai/api/models",
       "nativeCurrency": "USD",
       "id": "crossmodel",
-      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
+      "fetchedAt": "2026-11-16T14:39:00.326255+00:00",
       "stale": false
     },
     {
@@ -159,7 +159,7 @@
       "source": "https://api.edenai.run/v3/models",
       "nativeCurrency": "USD",
       "id": "edenai",
-      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
+      "fetchedAt": "2026-11-16T14:39:00.326255+00:00",
       "stale": false
     },
     {
@@ -168,7 +168,7 @@
       "source": "https://api.empiriolabs.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "empiriolabs",
-      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
+      "fetchedAt": "2026-11-16T14:39:00.326255+00:00",
       "stale": false
     },
     {
@@ -177,7 +177,7 @@
       "source": "https://api.engy.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "engy",
-      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
+      "fetchedAt": "2026-11-16T14:39:00.326255+00:00",
       "stale": false
     },
     {
@@ -186,7 +186,7 @@
       "source": "https://api.friendli.ai/serverless/v1/models",
       "nativeCurrency": "USD",
       "id": "friendli",
-      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
+      "fetchedAt": "2026-11-16T14:39:00.326255+00:00",
       "stale": false
     },
     {
@@ -195,7 +195,7 @@
       "source": "https://hyper.charm.land/v1/models",
       "nativeCurrency": "USD",
       "id": "hyper",
-      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
+      "fetchedAt": "2026-11-16T14:39:00.326255+00:00",
       "stale": false
     },
     {
@@ -204,7 +204,7 @@
       "source": "https://api.inceptron.io/v1/models",
       "nativeCurrency": "USD",
       "id": "inceptron",
-      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
+      "fetchedAt": "2026-11-16T14:39:00.326255+00:00",
       "stale": false
     },
     {
@@ -213,7 +213,7 @@
       "source": "https://cloud-api.near.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "nearai",
-      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
+      "fetchedAt": "2026-11-16T14:39:00.326255+00:00",
       "stale": false
     },
     {
@@ -222,7 +222,7 @@
       "source": "https://api.ofox.ai/v2/models/catalog?include=provider_price&limit=500",
       "nativeCurrency": "USD",
       "id": "ofox",
-      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
+      "fetchedAt": "2026-11-16T14:39:00.326255+00:00",
       "stale": false
     },
     {
@@ -231,7 +231,7 @@
       "source": "https://api.fastino.ai/v1/models",
       "nativeCurrency": "USD",
       "id": "pioneer",
-      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
+      "fetchedAt": "2026-11-16T14:39:00.326255+00:00",
       "stale": false
     },
     {
@@ -240,7 +240,7 @@
       "source": "https://api.pinference.ai/api/v1/models",
       "nativeCurrency": "USD",
       "id": "prime",
-      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
+      "fetchedAt": "2026-11-16T14:39:00.326255+00:00",
       "stale": false
     },
     {
@@ -249,7 +249,7 @@
       "source": "https://inference.tinfoil.sh/v1/models",
       "nativeCurrency": "USD",
       "id": "tinfoil",
-      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
+      "fetchedAt": "2026-11-16T14:39:00.326255+00:00",
       "stale": false
     },
     {
@@ -258,7 +258,7 @@
       "source": "https://api.venice.ai/api/v1/models?type=text",
       "nativeCurrency": "USD",
       "id": "venice",
-      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
+      "fetchedAt": "2026-11-16T14:39:00.326255+00:00",
       "stale": false
     },
     {
@@ -267,7 +267,7 @@
       "sellerKind": "first-party",
       "id": "deepseek-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
+      "fetchedAt": "2026-11-16T14:39:00.326255+00:00",
       "stale": false
     },
     {
@@ -276,7 +276,7 @@
       "sellerKind": "first-party",
       "id": "zai-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
+      "fetchedAt": "2026-11-16T14:39:00.326255+00:00",
       "stale": false
     },
     {
@@ -285,7 +285,7 @@
       "sellerKind": "first-party",
       "id": "claude-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
+      "fetchedAt": "2026-11-16T14:39:00.326255+00:00",
       "stale": false
     },
     {
@@ -294,7 +294,7 @@
       "sellerKind": "first-party",
       "id": "openai-direct",
       "nativeCurrency": "USD",
-      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
+      "fetchedAt": "2026-11-16T14:39:00.326255+00:00",
       "stale": false
     },
     {
@@ -303,7 +303,7 @@
       "source": "https://docs.x.ai/developers/pricing.md",
       "nativeCurrency": "USD",
       "id": "xai",
-      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
+      "fetchedAt": "2026-11-16T14:39:00.326255+00:00",
       "stale": false
     },
     {
@@ -312,7 +312,7 @@
       "source": "https://docs.mistral.ai/inference/pricing.md",
       "nativeCurrency": "USD",
       "id": "mistral",
-      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
+      "fetchedAt": "2026-11-16T14:39:00.326255+00:00",
       "stale": false
     },
     {
@@ -321,7 +321,7 @@
       "source": "https://dev.meta.ai/docs/pricing-rate-limits.md",
       "nativeCurrency": "USD",
       "id": "meta",
-      "fetchedAt": "2026-11-15T13:22:40.855482+00:00",
+      "fetchedAt": "2026-11-16T14:39:00.326255+00:00",
       "stale": false
     }
   ],
@@ -1661,6 +1661,37 @@
       "priceNote": "USD price published in AI/ML API's model catalog and converted with the listed ECB rate."
     },
     {
+      "key": "aimlapi:alibaba/qwen4-max",
+      "seller": "aimlapi",
+      "sellerName": "AI/ML API",
+      "modelId": "alibaba/qwen4-max",
+      "name": "Qwen4 Max",
+      "creator": "Alibaba",
+      "description": "Qwen4 Max is the flagship model of Alibaba's Qwen4 series. It accepts text, image and video inputs and produces text, with a 1M-token context window. Reasoning is enabled by default and can be turned off.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.3572204125950056,
+        "cached": 0.06786102062975027,
+        "output": 4.071661237785016,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.5,
+          "cached": 0.075,
+          "output": 4.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in AI/ML API's model catalog and converted with the listed ECB rate."
+    },
+    {
       "key": "aimlapi:amazon/nova-2-lite-v1",
       "seller": "aimlapi",
       "sellerName": "AI/ML API",
@@ -2932,68 +2963,6 @@
       "priceNote": "USD price published in AI/ML API's model catalog and converted with the listed ECB rate."
     },
     {
-      "key": "aimlapi:bytedance/dola-seed-2-0-lite",
-      "seller": "aimlapi",
-      "sellerName": "AI/ML API",
-      "modelId": "bytedance/dola-seed-2-0-lite",
-      "name": "Dola-Seed 2.0 Lite",
-      "creator": "ByteDance",
-      "description": "",
-      "releaseDate": null,
-      "contextSize": 256000,
-      "capabilities": {
-        "reasoning": false,
-        "tools": false,
-        "vision": true,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.2262034020991676,
-        "cached": 0.04524068041983352,
-        "output": 1.8096272167933407,
-        "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.25,
-          "cached": 0.05,
-          "output": 2.0
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in AI/ML API's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "aimlapi:bytedance/dola-seed-2-0-mini",
-      "seller": "aimlapi",
-      "sellerName": "AI/ML API",
-      "modelId": "bytedance/dola-seed-2-0-mini",
-      "name": "Dola-Seed 2.0 Mini",
-      "creator": "ByteDance",
-      "description": "",
-      "releaseDate": null,
-      "contextSize": 256000,
-      "capabilities": {
-        "reasoning": false,
-        "tools": false,
-        "vision": true,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.09048136083966704,
-        "cached": 0.018096272167933407,
-        "output": 0.36192544335866816,
-        "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.1,
-          "cached": 0.02,
-          "output": 0.4
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in AI/ML API's model catalog and converted with the listed ECB rate."
-    },
-    {
       "key": "aimlapi:bytedance/dola-seed-2-0-pro",
       "seller": "aimlapi",
       "sellerName": "AI/ML API",
@@ -3019,37 +2988,6 @@
           "input": 0.5,
           "cached": 0.1,
           "output": 3.0
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in AI/ML API's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "aimlapi:bytedance/seed-1-8",
-      "seller": "aimlapi",
-      "sellerName": "AI/ML API",
-      "modelId": "bytedance/seed-1-8",
-      "name": "Seed 1.8",
-      "creator": "ByteDance",
-      "description": "ByteDance Seed 1.8 is a large language model with a 256K context window optimized for long-context reasoning and generation.",
-      "releaseDate": null,
-      "contextSize": 256000,
-      "capabilities": {
-        "reasoning": false,
-        "tools": false,
-        "vision": true,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.2262034020991676,
-        "cached": 0.2262034020991676,
-        "output": 1.8096272167933407,
-        "cachedFallback": true,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.25,
-          "cached": 0.25,
-          "output": 2.0
         }
       },
       "pricingTiers": [],
@@ -16152,68 +16090,6 @@
       "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
     },
     {
-      "key": "crossmodel:deepseek/deepseek-v4-flash",
-      "seller": "crossmodel",
-      "sellerName": "Crossmodel",
-      "modelId": "deepseek/deepseek-v4-flash",
-      "name": "DeepSeek V4 Flash",
-      "creator": "DeepSeek",
-      "description": "",
-      "releaseDate": null,
-      "contextSize": 1000000,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.2714440825190011,
-        "cached": 0.005428881650380022,
-        "output": 1.0857763300760044,
-        "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.3,
-          "cached": 0.006,
-          "output": 1.2
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "crossmodel:deepseek/deepseek-v4-flash-vision-exp",
-      "seller": "crossmodel",
-      "sellerName": "Crossmodel",
-      "modelId": "deepseek/deepseek-v4-flash-vision-exp",
-      "name": "DeepSeek V4 Flash Vision Exp",
-      "creator": "DeepSeek",
-      "description": "",
-      "releaseDate": null,
-      "contextSize": 1000000,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": true,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.2714440825190011,
-        "cached": 0.005428881650380022,
-        "output": 1.0857763300760044,
-        "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.3,
-          "cached": 0.006,
-          "output": 1.2
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
-    },
-    {
       "key": "crossmodel:deepseek/deepseek-v4-pro",
       "seller": "crossmodel",
       "sellerName": "Crossmodel",
@@ -16670,6 +16546,37 @@
           "input": 2.0,
           "cached": 0.1,
           "output": 10.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "crossmodel:gemini/gemini-4-hydrogen",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "gemini/gemini-4-hydrogen",
+      "name": "Gemini 4 Hydrogen",
+      "creator": "Google",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 1.3572204125950056,
+        "cached": 0.06786102062975027,
+        "output": 6.7861020629750275,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.5,
+          "cached": 0.075,
+          "output": 7.5
         }
       },
       "pricingTiers": [],
@@ -17843,6 +17750,37 @@
       "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
     },
     {
+      "key": "crossmodel:qwen/qwen4-max",
+      "seller": "crossmodel",
+      "sellerName": "Crossmodel",
+      "modelId": "qwen/qwen4-max",
+      "name": "Qwen4 Max",
+      "creator": "Alibaba",
+      "description": "",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.4477017734346727,
+        "cached": 0.07238508867173363,
+        "output": 4.3431053203040175,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.6,
+          "cached": 0.08,
+          "output": 4.8
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
+    },
+    {
       "key": "crossmodel:tencent/hy3",
       "seller": "crossmodel",
       "sellerName": "Crossmodel",
@@ -17905,11 +17843,11 @@
       "priceNote": "USD price published in Crossmodel's model catalog and converted with the listed ECB rate."
     },
     {
-      "key": "crossmodel:tencent/hy4-preview",
+      "key": "crossmodel:tencent/hy4-flash",
       "seller": "crossmodel",
       "sellerName": "Crossmodel",
-      "modelId": "tencent/hy4-preview",
-      "name": "Hy4 Preview",
+      "modelId": "tencent/hy4-flash",
+      "name": "Hy4 flash",
       "creator": "tencent",
       "description": "",
       "releaseDate": null,
@@ -17917,19 +17855,19 @@
       "capabilities": {
         "reasoning": true,
         "tools": true,
-        "vision": false,
+        "vision": true,
         "audio": false
       },
       "rates": {
-        "input": 0.8686210640608035,
-        "cached": 0.04343105320304018,
-        "output": 2.6058631921824102,
+        "input": 0.07238508867173363,
+        "cached": 0.0028954035468693453,
+        "output": 0.2895403546869345,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.96,
-          "cached": 0.048,
-          "output": 2.88
+          "input": 0.08,
+          "cached": 0.0032,
+          "output": 0.32
         }
       },
       "pricingTiers": [],
@@ -21055,13 +20993,13 @@
       },
       "rates": {
         "input": 0.0334781035106768,
-        "cached": 0.0334781035106768,
+        "cached": 0.0167390517553384,
         "output": 0.15381831342743393,
-        "cachedFallback": true,
+        "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
           "input": 0.037,
-          "cached": 0.037,
+          "cached": 0.0185,
           "output": 0.16999999999999998
         }
       },
@@ -21117,13 +21055,13 @@
       },
       "rates": {
         "input": 0.02714440825190011,
-        "cached": 0.02714440825190011,
+        "cached": 0.013572204125950055,
         "output": 0.12667390517553387,
-        "cachedFallback": true,
+        "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
           "input": 0.030000000000000002,
-          "cached": 0.030000000000000002,
+          "cached": 0.015000000000000001,
           "output": 0.14
         }
       },
@@ -27641,68 +27579,6 @@
       "priceNote": "USD price published in Eden AI's model catalog and converted with the listed ECB rate."
     },
     {
-      "key": "edenai:bytedance/seed-1-6-250915",
-      "seller": "edenai",
-      "sellerName": "Eden AI",
-      "modelId": "bytedance/seed-1-6-250915",
-      "name": "seed-1-6-250915",
-      "creator": "ByteDance",
-      "description": "Seed 1.6 is a general-purpose model released by the ByteDance Seed team. It incorporates multimodal capabilities and adaptive deep thinking with a 256K context window.",
-      "releaseDate": null,
-      "contextSize": 262144,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": true,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.2262034020991676,
-        "cached": 0.2262034020991676,
-        "output": 1.8096272167933407,
-        "cachedFallback": true,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.25,
-          "cached": 0.25,
-          "output": 2.0
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Eden AI's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "edenai:bytedance/seed-1-6-flash-250715",
-      "seller": "edenai",
-      "sellerName": "Eden AI",
-      "modelId": "bytedance/seed-1-6-flash-250715",
-      "name": "seed-1-6-flash-250715",
-      "creator": "ByteDance",
-      "description": "Seed 1.6 Flash is an ultra-fast multimodal deep thinking model by ByteDance Seed, supporting both text and visual understanding.",
-      "releaseDate": null,
-      "contextSize": 262144,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": true,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.06786102062975027,
-        "cached": 0.06786102062975027,
-        "output": 0.2714440825190011,
-        "cachedFallback": true,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.075,
-          "cached": 0.075,
-          "output": 0.3
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Eden AI's model catalog and converted with the listed ECB rate."
-    },
-    {
       "key": "edenai:bytedance/seed-2-0-code-preview-260328",
       "seller": "edenai",
       "sellerName": "Eden AI",
@@ -27734,37 +27610,6 @@
       "priceNote": "USD price published in Eden AI's model catalog and converted with the listed ECB rate."
     },
     {
-      "key": "edenai:bytedance/seed-2-0-lite-260228",
-      "seller": "edenai",
-      "sellerName": "Eden AI",
-      "modelId": "bytedance/seed-2-0-lite-260228",
-      "name": "seed-2-0-lite-260228",
-      "creator": "ByteDance",
-      "description": "",
-      "releaseDate": null,
-      "contextSize": 256000,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.2262034020991676,
-        "cached": 0.04524068041983352,
-        "output": 1.8096272167933407,
-        "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.25,
-          "cached": 0.05,
-          "output": 2.0
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Eden AI's model catalog and converted with the listed ECB rate."
-    },
-    {
       "key": "edenai:bytedance/seed-2-0-lite-260428",
       "seller": "edenai",
       "sellerName": "Eden AI",
@@ -27790,37 +27635,6 @@
           "input": 0.25,
           "cached": 0.25,
           "output": 2.0
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Eden AI's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "edenai:bytedance/seed-2-0-mini-260215",
-      "seller": "edenai",
-      "sellerName": "Eden AI",
-      "modelId": "bytedance/seed-2-0-mini-260215",
-      "name": "seed-2-0-mini-260215",
-      "creator": "ByteDance",
-      "description": "",
-      "releaseDate": null,
-      "contextSize": 256000,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": true,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.09048136083966704,
-        "cached": 0.018096272167933407,
-        "output": 0.36192544335866816,
-        "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.1,
-          "cached": 0.02,
-          "output": 0.4
         }
       },
       "pricingTiers": [],
@@ -30927,37 +30741,6 @@
       "priceNote": "USD price published in Eden AI's model catalog and converted with the listed ECB rate."
     },
     {
-      "key": "edenai:deepinfra/ByteDance/Seed-1.8",
-      "seller": "edenai",
-      "sellerName": "Eden AI",
-      "modelId": "deepinfra/ByteDance/Seed-1.8",
-      "name": "ByteDance/Seed-1.8",
-      "creator": "deepinfra",
-      "description": "",
-      "releaseDate": null,
-      "contextSize": 256000,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": true,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.2262034020991676,
-        "cached": 0.04524068041983352,
-        "output": 1.8096272167933407,
-        "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.25,
-          "cached": 0.05,
-          "output": 2.0
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Eden AI's model catalog and converted with the listed ECB rate."
-    },
-    {
       "key": "edenai:deepinfra/ByteDance/Seed-2.0-code",
       "seller": "edenai",
       "sellerName": "Eden AI",
@@ -30983,37 +30766,6 @@
           "input": 0.5,
           "cached": 0.1,
           "output": 2.9999999999999996
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Eden AI's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "edenai:deepinfra/ByteDance/Seed-2.0-mini",
-      "seller": "edenai",
-      "sellerName": "Eden AI",
-      "modelId": "deepinfra/ByteDance/Seed-2.0-mini",
-      "name": "ByteDance/Seed-2.0-mini",
-      "creator": "deepinfra",
-      "description": "Seed-2.0-mini targets latency-sensitive, high-concurrency, and cost-sensitive scenarios, emphasizing fast response and flexible inference deployment.",
-      "releaseDate": null,
-      "contextSize": 256000,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": true,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.09048136083966704,
-        "cached": 0.01809627216793341,
-        "output": 0.36192544335866816,
-        "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.1,
-          "cached": 0.020000000000000004,
-          "output": 0.4
         }
       },
       "pricingTiers": [],
@@ -34981,37 +34733,6 @@
         "native": {
           "input": 0.4,
           "cached": 0.4,
-          "output": 0.4
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Eden AI's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "edenai:deepinfra/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B",
-      "seller": "edenai",
-      "sellerName": "Eden AI",
-      "modelId": "deepinfra/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B",
-      "name": "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B",
-      "creator": "deepinfra",
-      "description": "",
-      "releaseDate": null,
-      "contextSize": 262144,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.06786102062975027,
-        "cached": 0.06786102062975027,
-        "output": 0.36192544335866816,
-        "cachedFallback": true,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.075,
-          "cached": 0.075,
           "output": 0.4
         }
       },
@@ -49496,6 +49217,37 @@
       "priceNote": "USD price published in Eden AI's model catalog and converted with the listed ECB rate."
     },
     {
+      "key": "edenai:qwen/qwen4-max",
+      "seller": "edenai",
+      "sellerName": "Eden AI",
+      "modelId": "qwen/qwen4-max",
+      "name": "qwen4-max",
+      "creator": "Alibaba",
+      "description": "Qwen4-Max is the next-generation flagship multimodal model in the Qwen family, combining text generation, image and video understanding, and deep reasoning. It is designed for coding, office productivity, frontend design, and complex agentic tasks. With support for web search, tool calling, and structured outputs, along with compatibility with the OpenAI and Anthropic APIs, it enables developers to build intelligent applications capable of multimodal understanding and task execution.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.8821932681867536,
+        "cached": 0.044109663409337675,
+        "output": 2.646579804560261,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.975,
+          "cached": 0.048749999999999995,
+          "output": 2.9250000000000003
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Eden AI's model catalog and converted with the listed ECB rate."
+    },
+    {
       "key": "edenai:scaleway/deepseek-v4-flash-0731",
       "seller": "edenai",
       "sellerName": "Eden AI",
@@ -52032,37 +51784,6 @@
           "input": 0.17,
           "cached": 0.17,
           "output": 0.25
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Eden AI's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "edenai:together_ai/Qwen/Qwen3.8-2.4T-A95B",
-      "seller": "edenai",
-      "sellerName": "Eden AI",
-      "modelId": "together_ai/Qwen/Qwen3.8-2.4T-A95B",
-      "name": "Qwen/Qwen3.8-2.4T-A95B",
-      "creator": "together_ai",
-      "description": "Qwen3.8 2.4T A95B is an open-weight sparse mixture-of-experts model from Qwen and the open-weight variant of [Qwen3.8 Max](/qwen/qwen3.8-max), with 95 billion active parameters out of 2.4 trillion total. It is...",
-      "releaseDate": null,
-      "contextSize": 1010000,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": false,
-        "audio": false
-      },
-      "rates": {
-        "input": 1.8096272167933407,
-        "cached": 0.2262034020991676,
-        "output": 5.428881650380022,
-        "cachedFallback": false,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 2.0,
-          "cached": 0.25,
-          "output": 6.0
         }
       },
       "pricingTiers": [],
@@ -60010,6 +59731,37 @@
       "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
     },
     {
+      "key": "empiriolabs:qwen4-max",
+      "seller": "empiriolabs",
+      "sellerName": "Empirio Labs",
+      "modelId": "qwen4-max",
+      "name": "Qwen4 Max",
+      "creator": "Alibaba",
+      "description": "Next-generation Qwen flagship for coding, frontend design, office work, and complex agents, with image and video understanding across a 1M-token context.",
+      "releaseDate": null,
+      "contextSize": 983616,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.3572204125950056,
+        "cached": 0.06786102062975027,
+        "output": 4.071661237785016,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.5,
+          "cached": 0.075,
+          "output": 4.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Empirio Labs's model catalog and converted with the listed ECB rate."
+    },
+    {
       "key": "empiriolabs:seed-2-0-code",
       "seller": "empiriolabs",
       "sellerName": "Empirio Labs",
@@ -65260,13 +65012,13 @@
       },
       "rates": {
         "input": 0.7224936663047412,
-        "cached": 0.17191458559536738,
+        "cached": 0.19905899384726747,
         "output": 3.3930510314875137,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
           "input": 0.7985,
-          "cached": 0.19,
+          "cached": 0.22,
           "output": 3.75
         }
       },
@@ -65353,13 +65105,13 @@
       },
       "rates": {
         "input": 0.9048136083966704,
-        "cached": 0.12667390517553387,
+        "cached": 0.1221498371335505,
         "output": 3.8002171552660156,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
           "input": 1.0,
-          "cached": 0.14,
+          "cached": 0.135,
           "output": 4.2
         }
       },
@@ -68483,15 +68235,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.018096272167933407,
+        "input": 0.036192544335866814,
         "cached": 0.009048136083966703,
-        "output": 0.05519363011219689,
+        "output": 0.13572204125950055,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.02,
+          "input": 0.04,
           "cached": 0.01,
-          "output": 0.061
+          "output": 0.15
         }
       },
       "pricingTiers": [],
@@ -68926,37 +68678,6 @@
           "input": 0.3,
           "cached": 0.06,
           "output": 0.9
-        }
-      },
-      "pricingTiers": [],
-      "priceNote": "USD price published in Kilo's model catalog and converted with the listed ECB rate."
-    },
-    {
-      "key": "kilo:inclusionai/ling-3.2-flash:free",
-      "seller": "kilo",
-      "sellerName": "Kilo",
-      "modelId": "inclusionai/ling-3.2-flash:free",
-      "name": "inclusionAI: Ling 3.2 Flash (free)",
-      "creator": "inclusionai",
-      "description": "Ling 3.2 Flash is a hybrid reasoning model from inclusionAI that accepts text and image input, with a 1M-token context window and up to 200 images per request. Thinking can...",
-      "releaseDate": null,
-      "contextSize": 1048576,
-      "capabilities": {
-        "reasoning": true,
-        "tools": true,
-        "vision": true,
-        "audio": false
-      },
-      "rates": {
-        "input": 0.0,
-        "cached": 0.0,
-        "output": 0.0,
-        "cachedFallback": true,
-        "nativeCurrency": "USD",
-        "native": {
-          "input": 0.0,
-          "cached": 0.0,
-          "output": 0.0
         }
       },
       "pricingTiers": [],
@@ -70002,15 +69723,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.244299674267101,
-        "cached": 0.02714440825190011,
-        "output": 0.8595729279768367,
+        "input": 0.26692001447701774,
+        "cached": 0.05428881650380022,
+        "output": 1.0857763300760044,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.27,
-          "cached": 0.03,
-          "output": 0.95
+          "input": 0.295,
+          "cached": 0.06,
+          "output": 1.2
         }
       },
       "pricingTiers": [],
@@ -75861,15 +75582,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.019905899384726745,
-        "cached": 0.018096272167933407,
-        "output": 0.029858849077090122,
+        "input": 0.09048136083966704,
+        "cached": 0.08143322475570032,
+        "output": 0.1339124140427072,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.022,
-          "cached": 0.02,
-          "output": 0.033
+          "input": 0.1,
+          "cached": 0.09,
+          "output": 0.148
         }
       },
       "pricingTiers": [],
@@ -76459,6 +76180,37 @@
           "input": 0.15,
           "cached": 0.016,
           "output": 0.47
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Kilo's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "kilo:qwen/qwen4-max",
+      "seller": "kilo",
+      "sellerName": "Kilo",
+      "modelId": "qwen/qwen4-max",
+      "name": "Qwen: Qwen4 Max",
+      "creator": "Alibaba",
+      "description": "Qwen4 Max is the flagship model in Alibaba's Qwen4 series. It accepts text, image, and video input and returns text, with a 1M-token context window and reasoning enabled by default....",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.3572204125950056,
+        "cached": 0.06786102062975027,
+        "output": 4.071661237785016,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.5,
+          "cached": 0.075,
+          "output": 4.5
         }
       },
       "pricingTiers": [],
@@ -77358,6 +77110,37 @@
           "input": 0.834,
           "cached": 0.042,
           "output": 2.501
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Kilo's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "kilo:tencent/hy4-flash",
+      "seller": "kilo",
+      "sellerName": "Kilo",
+      "modelId": "tencent/hy4-flash",
+      "name": "Tencent: Hy4 flash",
+      "creator": "tencent",
+      "description": "Hy4 flash is a cost-efficient variant of [Hy4](https://openrouter.ai/tencent/hy4) from Tencent, served with roughly a quarter of the flagship's parameter count for lower latency and cost. It targets code assistance, agent...",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.06333695258776693,
+        "cached": 0.002714440825190011,
+        "output": 0.2542526239594644,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.07,
+          "cached": 0.003,
+          "output": 0.281
         }
       },
       "pricingTiers": [],
@@ -78372,15 +78155,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.18096272167933408,
-        "cached": 0.02714440825190011,
-        "output": 0.9952949692363374,
+        "input": 0.11762576909156715,
+        "cached": 0.02262034020991676,
+        "output": 0.7690915671371698,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.2,
-          "cached": 0.03,
-          "output": 1.1
+          "input": 0.13,
+          "cached": 0.025,
+          "output": 0.85
         }
       },
       "pricingTiers": [],
@@ -79085,15 +78868,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.018096272167933407,
-        "cached": 0.006333695258776692,
-        "output": 0.09771986970684039,
+        "input": 0.03257328990228013,
+        "cached": 0.009048136083966703,
+        "output": 0.4524068041983352,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.02,
-          "cached": 0.007,
-          "output": 0.108
+          "input": 0.036,
+          "cached": 0.01,
+          "output": 0.5
         }
       },
       "pricingTiers": [],
@@ -79559,6 +79342,37 @@
           "input": 0.0,
           "cached": 0.0,
           "output": 0.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in LLM Gateway's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "llmgateway:beam-1.0-501b-a23b",
+      "seller": "llmgateway",
+      "sellerName": "LLM Gateway",
+      "modelId": "beam-1.0-501b-a23b",
+      "name": "Beam 1.0 501B A23B",
+      "creator": "reflection",
+      "description": "Reflection's open-weight reasoning MoE model (501B total, 23B active) for coding and long-horizon agentic workflows, with a 1M-token context window.",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.36192544335866816,
+        "cached": 0.036192544335866814,
+        "output": 1.0857763300760044,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.4,
+          "cached": 0.04,
+          "output": 1.2
         }
       },
       "pricingTiers": [],
@@ -80278,6 +80092,37 @@
       "priceNote": "USD price published in LLM Gateway's model catalog and converted with the listed ECB rate."
     },
     {
+      "key": "llmgateway:deepseek-v4-flash-vision-exp",
+      "seller": "llmgateway",
+      "sellerName": "LLM Gateway",
+      "modelId": "deepseek-v4-flash-vision-exp",
+      "name": "DeepSeek V4 Flash Vision Exp",
+      "creator": "DeepSeek",
+      "description": "Experimental multimodal DeepSeek V4 Flash model with vision, extended context, and reasoning.",
+      "releaseDate": null,
+      "contextSize": 1050000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.39811798769453494,
+        "cached": 0.0,
+        "output": 1.1943539630836049,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.44,
+          "cached": 0.0,
+          "output": 1.32
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in LLM Gateway's model catalog and converted with the listed ECB rate."
+    },
+    {
       "key": "llmgateway:deepseek-v4-pro",
       "seller": "llmgateway",
       "sellerName": "LLM Gateway",
@@ -80406,7 +80251,7 @@
       "seller": "llmgateway",
       "sellerName": "LLM Gateway",
       "modelId": "deepseek-v4.1-flash-latest",
-      "name": "deepseek-v4.1-flash-latest",
+      "name": "DeepSeek V4.1 Flash Latest",
       "creator": "DeepSeek",
       "description": "DeepSeek's October 2026 update of V4.1 Flash, with native vision, 1M context, and reasoning.",
       "releaseDate": null,
@@ -81007,15 +80852,15 @@
         "audio": true
       },
       "rates": {
-        "input": 0.6786102062975028,
-        "cached": 0.06786102062975027,
-        "output": 3.3930510314875137,
+        "input": 1.3572204125950056,
+        "cached": 0.13572204125950055,
+        "output": 6.7861020629750275,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.75,
-          "cached": 0.075,
-          "output": 3.75
+          "input": 1.5,
+          "cached": 0.15,
+          "output": 7.5
         }
       },
       "pricingTiers": [],
@@ -81038,15 +80883,15 @@
         "audio": true
       },
       "rates": {
-        "input": 0.6786102062975028,
-        "cached": 0.06786102062975027,
-        "output": 3.3930510314875137,
+        "input": 1.3572204125950056,
+        "cached": 0.13572204125950055,
+        "output": 6.7861020629750275,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.75,
-          "cached": 0.075,
-          "output": 3.75
+          "input": 1.5,
+          "cached": 0.15,
+          "output": 7.5
         }
       },
       "pricingTiers": [],
@@ -81069,15 +80914,15 @@
         "audio": true
       },
       "rates": {
-        "input": 0.6786102062975028,
-        "cached": 0.06786102062975027,
-        "output": 3.3930510314875137,
+        "input": 1.3572204125950056,
+        "cached": 0.13572204125950055,
+        "output": 6.7861020629750275,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.75,
-          "cached": 0.075,
-          "output": 3.75
+          "input": 1.5,
+          "cached": 0.15,
+          "output": 7.5
         }
       },
       "pricingTiers": [],
@@ -81898,7 +81743,7 @@
       "creator": "Z.ai",
       "description": "Multimodal GLM-5.3 FlashX model with reasoning, tool calling, and a 1M-token context window.",
       "releaseDate": null,
-      "contextSize": 1000000,
+      "contextSize": 1048576,
       "capabilities": {
         "reasoning": true,
         "tools": true,
@@ -83696,7 +83541,7 @@
       "creator": "tencent",
       "description": "Tencent's preview release of Hy4, its next-generation Hunyuan reasoning model, with a 1M context window and preserved thinking.",
       "releaseDate": null,
-      "contextSize": 1000000,
+      "contextSize": 1048576,
       "capabilities": {
         "reasoning": true,
         "tools": true,
@@ -84014,15 +83859,15 @@
         "audio": false
       },
       "rates": {
-        "input": 3.6192544335866814,
-        "cached": 0.18096272167933408,
-        "output": 18.096272167933407,
+        "input": 3.438291711907347,
+        "cached": 0.17191458559536738,
+        "output": 17.191458559536738,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 4.0,
-          "cached": 0.2,
-          "output": 20.0
+          "input": 3.8,
+          "cached": 0.19,
+          "output": 19.0
         }
       },
       "pricingTiers": [],
@@ -84302,6 +84147,37 @@
           "input": 0.435,
           "cached": 0.0036,
           "output": 0.87
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in LLM Gateway's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "llmgateway:mimo-v2.6-pro-ultraspeed",
+      "seller": "llmgateway",
+      "sellerName": "LLM Gateway",
+      "modelId": "mimo-v2.6-pro-ultraspeed",
+      "name": "MiMo V2.6 Pro UltraSpeed",
+      "creator": "Xiaomi",
+      "description": "High-speed edition of Xiaomi's flagship MiMo V2.6 Pro, built from the same checkpoint with matching quality and much faster generation for latency-sensitive workloads, with 1M context.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": true
+      },
+      "rates": {
+        "input": 3.9359391965255157,
+        "cached": 0.03257328990228013,
+        "output": 7.871878393051031,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 4.35,
+          "cached": 0.036,
+          "output": 8.7
         }
       },
       "pricingTiers": [],
@@ -85108,6 +84984,37 @@
           "input": 0.1,
           "cached": 0.002,
           "output": 0.2
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in LLM Gateway's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "llmgateway:muse-spark-open",
+      "seller": "llmgateway",
+      "sellerName": "LLM Gateway",
+      "modelId": "muse-spark-open",
+      "name": "Muse Spark Open",
+      "creator": "Meta",
+      "description": "Meta's open-weight multimodal MoE model (816B total, 42B active) trained for agentic coding, with reliable tool calling and image understanding.",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.131017010495838,
+        "cached": 0.13572204125950055,
+        "output": 3.8454578356858486,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.25,
+          "cached": 0.15,
+          "output": 4.25
         }
       },
       "pricingTiers": [],
@@ -86199,6 +86106,37 @@
       "priceNote": "USD price published in LLM Gateway's model catalog and converted with the listed ECB rate."
     },
     {
+      "key": "llmgateway:qwen4-max",
+      "seller": "llmgateway",
+      "sellerName": "LLM Gateway",
+      "modelId": "qwen4-max",
+      "name": "Qwen4 Max",
+      "creator": "Alibaba",
+      "description": "Flagship Qwen4 model with native visual understanding, built for professional tool use, long-horizon agent execution, and high-quality deliverables at lower token usage than Qwen3.8 Max.",
+      "releaseDate": null,
+      "contextSize": 983616,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.3572204125950056,
+        "cached": 0.06786102062975027,
+        "output": 4.071661237785016,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.5,
+          "cached": 0.075,
+          "output": 4.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in LLM Gateway's model catalog and converted with the listed ECB rate."
+    },
+    {
       "key": "llmgateway:reka-edge-2603",
       "seller": "llmgateway",
       "sellerName": "LLM Gateway",
@@ -86230,13 +86168,44 @@
       "priceNote": "USD price published in LLM Gateway's model catalog and converted with the listed ECB rate."
     },
     {
+      "key": "llmgateway:sakana-namazu",
+      "seller": "llmgateway",
+      "sellerName": "LLM Gateway",
+      "modelId": "sakana-namazu",
+      "name": "Sakana Namazu",
+      "creator": "sakana",
+      "description": "Sakana AI's Japanese-specialized reasoning model, built on Kimi K2.6 and tuned for Japanese language, culture, and business work.",
+      "releaseDate": null,
+      "contextSize": 262144,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.8595729279768367,
+        "cached": 0.13572204125950055,
+        "output": 3.6192544335866814,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.95,
+          "cached": 0.15,
+          "output": 4.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in LLM Gateway's model catalog and converted with the listed ECB rate."
+    },
+    {
       "key": "llmgateway:scribe-v3-live",
       "seller": "llmgateway",
       "sellerName": "LLM Gateway",
       "modelId": "scribe-v3-live",
       "name": "Scribe v3 Live",
       "creator": "elevenlabs",
-      "description": "ElevenLabs' most accurate realtime speech-to-text model, with turn prediction and live diarization across 90+ languages. Served through the gateway's /v1/realtime WebSocket endpoint in ElevenLabs' native realtime protocol, billed per hour of audio sent.",
+      "description": "ElevenLabs' most accurate realtime speech-to-text model, with turn prediction across 90+ languages. Served through the gateway's OpenAI-compatible /v1/realtime transcription sessions, billed per hour of audio sent.",
       "releaseDate": null,
       "contextSize": 0,
       "capabilities": {
@@ -89107,6 +89076,37 @@
           "input": 0.15,
           "cached": 0.15,
           "output": 0.6
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in nano-gpt's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nano-gpt:TEE/inkling-2-small",
+      "seller": "nano-gpt",
+      "sellerName": "nano-gpt",
+      "modelId": "TEE/inkling-2-small",
+      "name": "Inkling 2 Small TEE",
+      "creator": "thinkingmachines",
+      "description": "Inkling 2 Small is Thinking Machines Lab's open-weight multimodal Mixture-of-Experts model, with 594B total and 17B active parameters, released under Apache 2.0. It accepts text and images and is built for agentic coding, tool use, visual reasoning and general chat, with adjustable reasoning effort and a 524,288-token context window shared by input and output. Running inside a TEE (Trusted Execution Environment) with attestation support for more private, verifiable inference. This route is experimental, so availability may change.",
+      "releaseDate": null,
+      "contextSize": 524288,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.2714440825190011,
+        "cached": 0.02714440825190011,
+        "output": 0.9048136083966704,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3,
+          "cached": 0.030000000000000002,
+          "output": 1.0
         }
       },
       "pricingTiers": [],
@@ -94740,15 +94740,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.01447701773434673,
-        "cached": 0.007238508867173365,
-        "output": 0.04252623959464351,
+        "input": 0.0334781035106768,
+        "cached": 0.017191458559536736,
+        "output": 0.10133912414042708,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.016000000000000004,
-          "cached": 0.008000000000000002,
-          "output": 0.047
+          "input": 0.037,
+          "cached": 0.019,
+          "output": 0.112
         }
       },
       "pricingTiers": [],
@@ -95183,6 +95183,37 @@
           "input": 0.7,
           "cached": 0.35,
           "output": 0.7
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in nano-gpt's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nano-gpt:hyperresearch/ousia-1",
+      "seller": "nano-gpt",
+      "sellerName": "nano-gpt",
+      "modelId": "hyperresearch/ousia-1",
+      "name": "Ousia 1",
+      "creator": "hyperresearch",
+      "description": "Ousia 1 is a web research model from Hyperresearch: it searches the web for your question and answers with numbered citations and a list of its sources. Answers usually take 30 to 70 seconds and arrive all at once, and harder questions can take several minutes. It follows the answer language and length set in a system message, but not formatting instructions. Leave the output limit unset or at least 15,000 tokens: a smaller limit cuts the research short. Text only, with no tool calling. Ousia 1 searches the web for you: searches based on your question are sent to search providers, some of which may use them to improve their services. Not zero-retention.",
+      "releaseDate": null,
+      "contextSize": 128000,
+      "capabilities": {
+        "reasoning": false,
+        "tools": false,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.8096272167933407,
+        "cached": 1.8096272167933407,
+        "output": 9.048136083966703,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 2.0,
+          "cached": 2.0,
+          "output": 10.0
         }
       },
       "pricingTiers": [],
@@ -95772,6 +95803,68 @@
           "input": 0.75,
           "cached": 0.015000000000000001,
           "output": 3.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in nano-gpt's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nano-gpt:lyber/deepseek-v4.1-flash-1017-abliterated",
+      "seller": "nano-gpt",
+      "sellerName": "nano-gpt",
+      "modelId": "lyber/deepseek-v4.1-flash-1017-abliterated",
+      "name": "DeepSeek V4.1 Flash 1017 Abliterated (Lyber)",
+      "creator": "lyber",
+      "description": "DeepSeek V4.1 Flash 1017 Abliterated served by Lyber.ai.",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.2623959464350344,
+        "cached": 0.02623959464350344,
+        "output": 0.8957654723127036,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.29,
+          "cached": 0.029,
+          "output": 0.99
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in nano-gpt's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nano-gpt:lyber/kimi-k3.1-pro-abliterated",
+      "seller": "nano-gpt",
+      "sellerName": "nano-gpt",
+      "modelId": "lyber/kimi-k3.1-pro-abliterated",
+      "name": "Kimi K3.1 Pro Abliterated (Lyber)",
+      "creator": "lyber",
+      "description": "Kimi K3.1 Pro Abliterated served by Lyber.ai.",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 3.6192544335866814,
+        "cached": 0.36192544335866816,
+        "output": 13.572204125950055,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 4.0,
+          "cached": 0.4,
+          "output": 15.0
         }
       },
       "pricingTiers": [],
@@ -96423,6 +96516,37 @@
           "input": 0.493,
           "cached": 0.24649999999999997,
           "output": 0.493
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in nano-gpt's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nano-gpt:mindlab/macaron-v1.1-coding-venti",
+      "seller": "nano-gpt",
+      "sellerName": "nano-gpt",
+      "modelId": "mindlab/macaron-v1.1-coding-venti",
+      "name": "Macaron V1.1 Coding Venti",
+      "creator": "mindlab",
+      "description": "Macaron V1.1 Coding Venti is MindLab's coding-focused model for software development and tool-based workflows. It accepts text and images and returns text, with always-on reasoning, tool calling and structured JSON output. Choose low, high or max reasoning effort (max by default). It supports a 1,048,576-token context window and up to 131,072 output tokens.",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.0767281939920377,
+        "cached": 0.19905899384726747,
+        "output": 3.384002895403547,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.19,
+          "cached": 0.22,
+          "output": 3.74
         }
       },
       "pricingTiers": [],
@@ -103063,6 +103187,68 @@
       "priceNote": "USD price published in nano-gpt's model catalog and converted with the listed ECB rate."
     },
     {
+      "key": "nano-gpt:qwen/qwen4-max",
+      "seller": "nano-gpt",
+      "sellerName": "nano-gpt",
+      "modelId": "qwen/qwen4-max",
+      "name": "Qwen 4 Max",
+      "creator": "Alibaba",
+      "description": "Qwen 4 Max is Alibaba's flagship multimodal model for coding, knowledge work, data analysis, and long-running agent workflows. It accepts text, image, and video input, supports selectable reasoning, tool calling, structured output, and a 1M-token context window.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.2785016286644952,
+        "cached": 0.0642417661961636,
+        "output": 3.8364096996018824,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.413,
+          "cached": 0.07100000000000001,
+          "output": 4.24
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in nano-gpt's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "nano-gpt:qwen/qwen4-max:thinking",
+      "seller": "nano-gpt",
+      "sellerName": "nano-gpt",
+      "modelId": "qwen/qwen4-max:thinking",
+      "name": "Qwen 4 Max Thinking",
+      "creator": "Alibaba",
+      "description": "Qwen 4 Max with reasoning enabled for deeper coding, knowledge work, data analysis, and long-running agent workflows. It accepts text, image, and video input and supports tool calling, structured output, and a 1M-token context window.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.2785016286644952,
+        "cached": 0.0642417661961636,
+        "output": 3.8364096996018824,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.413,
+          "cached": 0.07100000000000001,
+          "output": 4.24
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in nano-gpt's model catalog and converted with the listed ECB rate."
+    },
+    {
       "key": "nano-gpt:qwen3-vl-235b-a22b-instruct-original",
       "seller": "nano-gpt",
       "sellerName": "nano-gpt",
@@ -105776,15 +105962,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.1710097719869707,
-        "cached": 0.031758957654723134,
-        "output": 0.5374592833876222,
+        "input": 0.3800217155266015,
+        "cached": 0.07057546145494029,
+        "output": 1.1943539630836049,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.189,
-          "cached": 0.035100000000000006,
-          "output": 0.594
+          "input": 0.42,
+          "cached": 0.078,
+          "output": 1.32
         }
       },
       "pricingTiers": [],
@@ -105807,15 +105993,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.1710097719869707,
-        "cached": 0.031758957654723134,
-        "output": 0.5374592833876222,
+        "input": 0.3800217155266015,
+        "cached": 0.07057546145494029,
+        "output": 1.1943539630836049,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.189,
-          "cached": 0.035100000000000006,
-          "output": 0.594
+          "input": 0.42,
+          "cached": 0.078,
+          "output": 1.32
         }
       },
       "pricingTiers": [],
@@ -110131,6 +110317,37 @@
       "priceNote": "USD price published in Novita's model catalog and converted with the listed ECB rate."
     },
     {
+      "key": "novita:qwen/qwen4-max",
+      "seller": "novita",
+      "sellerName": "Novita",
+      "modelId": "qwen/qwen4-max",
+      "name": "Qwen4 Max",
+      "creator": "Alibaba",
+      "description": "Qwen4\u2011max is the new\u2011generation MoE flagship model of the Qwen4 family, with 2.4T total parameters and 71B activated parameters. Boasting million\u2011token context window and native vision capability, it delivers major improvements in coding and office productivity. It can autonomously drive long\u2011cycle projects and deliver complete outputs in tens of days, supporting hundreds of professional domains such as law, finance, design and scientific research for end\u2011to\u2011end production\u2011grade results. Native visual understanding runs through planning, execution and verification, enabling deep semantic analysis of ultra\u2011long documents and long\u2011form videos. Powered by Live\u2011Delivery mechanism, it performs self\u2011planning and closed\u2011loop iteration for long\u2011horizon tasks, steadily iterating deliverables for real\u2011world complex workflows\u3002",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.2785016286644952,
+        "cached": 0.06424176619616359,
+        "output": 3.8364096996018824,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.413,
+          "cached": 0.071,
+          "output": 4.24
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Novita's model catalog and converted with the listed ECB rate."
+    },
+    {
       "key": "novita:sao10k/l3-70b-euryale-v2.1",
       "seller": "novita",
       "sellerName": "Novita",
@@ -110280,6 +110497,37 @@
           "input": 0.417,
           "cached": 0.021,
           "output": 1.2505
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Novita's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "novita:tencent/hy4-flash",
+      "seller": "novita",
+      "sellerName": "Novita",
+      "modelId": "tencent/hy4-flash",
+      "name": "Hy4 Flash",
+      "creator": "tencent",
+      "description": "Tencent: The official release of Hy4 delivers comprehensive and substantial improvements over Hy4 Preview, with particularly strong gains in agentic capabilities and performance across a wide range of long-horizon, real-world productivity tasks. It also introduces visual understanding for the first time.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.06333695258776693,
+        "cached": 0.002714440825190011,
+        "output": 0.2542526239594644,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.07,
+          "cached": 0.003,
+          "output": 0.281
         }
       },
       "pricingTiers": [],
@@ -116118,6 +116366,37 @@
       "priceNote": "USD price published in models.dev's OpenCode Zen catalog (models.dev api.json) and converted with the listed ECB rate."
     },
     {
+      "key": "opencode:hy4-flash-free",
+      "seller": "opencode",
+      "sellerName": "OpenCode Zen",
+      "modelId": "hy4-flash-free",
+      "name": "Hy4 flash Free",
+      "creator": "OpenCode",
+      "description": "Tencent's lower-cost Hy4 tier for everyday agent and productivity tasks, with image understanding and a 1M-token context window.",
+      "releaseDate": "2026-11-16",
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.0,
+        "cached": 0.0,
+        "output": 0.0,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.0,
+          "cached": 0.0,
+          "output": 0.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in models.dev's OpenCode Zen catalog (models.dev api.json) and converted with the listed ECB rate."
+    },
+    {
       "key": "opencode:iceman-free",
       "seller": "opencode",
       "sellerName": "OpenCode Zen",
@@ -118876,15 +119155,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.039268910604415494,
-        "cached": 0.03166847629388347,
-        "output": 0.2714440825190011,
+        "input": 0.05428881650380022,
+        "cached": 0.013572204125950055,
+        "output": 0.16286644951140064,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0434,
-          "cached": 0.035,
-          "output": 0.3
+          "input": 0.06,
+          "cached": 0.015,
+          "output": 0.18
         }
       },
       "pricingTiers": [],
@@ -119093,15 +119372,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.03257328990228013,
+        "input": 0.03166847629388347,
         "cached": 0.002714440825190011,
-        "output": 0.28773072747014117,
+        "output": 0.2813970322113645,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.036,
+          "input": 0.035,
           "cached": 0.003,
-          "output": 0.318
+          "output": 0.311
         }
       },
       "pricingTiers": [],
@@ -120519,15 +120798,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.06107491856677525,
-        "cached": 0.03393051031487514,
-        "output": 0.20358306188925082,
+        "input": 0.08143322475570032,
+        "cached": 0.04524068041983352,
+        "output": 0.2714440825190011,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.0675,
-          "cached": 0.0375,
-          "output": 0.225
+          "input": 0.09,
+          "cached": 0.05,
+          "output": 0.3
         }
       },
       "pricingTiers": [],
@@ -121759,15 +122038,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.244299674267101,
-        "cached": 0.02714440825190011,
-        "output": 0.8595729279768367,
+        "input": 0.26692001447701774,
+        "cached": 0.05428881650380022,
+        "output": 1.0857763300760044,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.27,
-          "cached": 0.03,
-          "output": 0.95
+          "input": 0.295,
+          "cached": 0.06,
+          "output": 1.2
         }
       },
       "pricingTiers": [],
@@ -122875,15 +123154,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.24882374230908436,
-        "cached": 0.07962359753890698,
-        "output": 3.732356134636265,
+        "input": 0.6333695258776691,
+        "cached": 0.09048136083966704,
+        "output": 5.428881650380022,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.275,
-          "cached": 0.088,
-          "output": 4.125
+          "input": 0.7,
+          "cached": 0.1,
+          "output": 6.0
         }
       },
       "pricingTiers": [],
@@ -125262,15 +125541,15 @@
         "audio": false
       },
       "rates": {
-        "input": 3.9811798769453497,
-        "cached": 0.39811798769453494,
-        "output": 19.905899384726748,
+        "input": 3.6192544335866814,
+        "cached": 0.36192544335866816,
+        "output": 18.096272167933407,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 4.4,
-          "cached": 0.44,
-          "output": 22.0
+          "input": 4.0,
+          "cached": 0.4,
+          "output": 20.0
         }
       },
       "pricingTiers": [],
@@ -126316,15 +126595,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.02714440825190011,
-        "cached": 0.02714440825190011,
-        "output": 0.11762576909156715,
+        "input": 0.016286644951140065,
+        "cached": 0.008143322475570033,
+        "output": 0.08143322475570032,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.03,
-          "cached": 0.03,
-          "output": 0.13
+          "input": 0.018,
+          "cached": 0.009,
+          "output": 0.09
         }
       },
       "pricingTiers": [],
@@ -127587,15 +127866,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.5428881650380022,
-        "cached": 0.10857763300760044,
-        "output": 3.257328990228013,
+        "input": 0.40716612377850164,
+        "cached": 0.19905899384726747,
+        "output": 2.714440825190011,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.6,
-          "cached": 0.12,
-          "output": 3.6
+          "input": 0.45,
+          "cached": 0.22,
+          "output": 3.0
         }
       },
       "pricingTiers": [],
@@ -127618,15 +127897,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.019001085776330078,
-        "cached": 0.017191458559536736,
-        "output": 0.02714440825190011,
+        "input": 0.07962359753890698,
+        "cached": 0.07148027506333696,
+        "output": 0.11672095548317048,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.021,
-          "cached": 0.019,
-          "output": 0.03
+          "input": 0.088,
+          "cached": 0.079,
+          "output": 0.129
         }
       },
       "pricingTiers": [],
@@ -128216,6 +128495,37 @@
           "input": 0.15,
           "cached": 0.016,
           "output": 0.47
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OpenRouter's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "openrouter:qwen/qwen4-max",
+      "seller": "openrouter",
+      "sellerName": "OpenRouter",
+      "modelId": "qwen/qwen4-max",
+      "name": "Qwen: Qwen4 Max",
+      "creator": "Alibaba",
+      "description": "Qwen4 Max is the flagship model in Alibaba's Qwen4 series. It accepts text, image, and video input and returns text, with a 1M-token context window and reasoning enabled by default....",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.3572204125950056,
+        "cached": 0.06786102062975027,
+        "output": 4.071661237785016,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.5,
+          "cached": 0.075,
+          "output": 4.5
         }
       },
       "pricingTiers": [],
@@ -128929,6 +129239,37 @@
           "input": 0.417,
           "cached": 0.021,
           "output": 1.2505
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in OpenRouter's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "openrouter:tencent/hy4-flash",
+      "seller": "openrouter",
+      "sellerName": "OpenRouter",
+      "modelId": "tencent/hy4-flash",
+      "name": "Tencent: Hy4 flash",
+      "creator": "tencent",
+      "description": "Hy4 flash is a cost-efficient variant of [Hy4](https://openrouter.ai/tencent/hy4) from Tencent, served with roughly a quarter of the flagship's parameter count for lower latency and cost. It targets code assistance, agent...",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.03958559536735432,
+        "cached": 0.0016965255157437569,
+        "output": 0.15890788997466523,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.04375,
+          "cached": 0.001875,
+          "output": 0.175625
         }
       },
       "pricingTiers": [],
@@ -129943,15 +130284,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.18096272167933408,
-        "cached": 0.02714440825190011,
-        "output": 0.9952949692363374,
+        "input": 0.11762576909156715,
+        "cached": 0.02262034020991676,
+        "output": 0.7690915671371698,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.2,
-          "cached": 0.03,
-          "output": 1.1
+          "input": 0.13,
+          "cached": 0.025,
+          "output": 0.85
         }
       },
       "pricingTiers": [],
@@ -130253,15 +130594,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.07600434310532031,
-        "cached": 0.07148027506333696,
-        "output": 3.257328990228013,
+        "input": 0.06324647122692725,
+        "cached": 0.06234165761853059,
+        "output": 1.2667390517553383,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.084,
-          "cached": 0.079,
-          "output": 3.6
+          "input": 0.0699,
+          "cached": 0.0689,
+          "output": 1.4
         }
       },
       "pricingTiers": [],
@@ -130439,15 +130780,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.29134998190372785,
-        "cached": 0.09862468331523706,
-        "output": 0.894860658704307,
+        "input": 0.40716612377850164,
+        "cached": 0.09048136083966704,
+        "output": 1.8096272167933407,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.322,
-          "cached": 0.109,
-          "output": 0.989
+          "input": 0.45,
+          "cached": 0.1,
+          "output": 2.0
         }
       },
       "pricingTiers": [],
@@ -130625,15 +130966,15 @@
         "audio": false
       },
       "rates": {
-        "input": 0.018096272167933407,
-        "cached": 0.006333695258776692,
-        "output": 0.09771986970684039,
+        "input": 0.03257328990228013,
+        "cached": 0.009048136083966703,
+        "output": 0.4524068041983352,
         "cachedFallback": false,
         "nativeCurrency": "USD",
         "native": {
-          "input": 0.02,
-          "cached": 0.007,
-          "output": 0.108
+          "input": 0.036,
+          "cached": 0.01,
+          "output": 0.5
         }
       },
       "pricingTiers": [],
@@ -141645,6 +141986,37 @@
       "priceNote": "USD price published in Requesty's model catalog and converted with the listed ECB rate."
     },
     {
+      "key": "requesty:lyceum/deepseek-v4-pro",
+      "seller": "requesty",
+      "sellerName": "Requesty",
+      "modelId": "lyceum/deepseek-v4-pro",
+      "name": "deepseek-v4-pro",
+      "creator": "DeepSeek",
+      "description": "DeepSeek V4 Pro is DeepSeek's flagship Mixture of Experts model (1.6T total, 49B active parameters) with a 1M token context window, built for advanced reasoning, coding, and long-horizon agentic workflows with strong tool use. Served by Lyceum in the EU.",
+      "releaseDate": null,
+      "contextSize": 1048576,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": false,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.583423814694173,
+        "cached": 0.39811798769453494,
+        "output": 3.166847629388346,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.75,
+          "cached": 0.44,
+          "output": 3.5
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Requesty's model catalog and converted with the listed ECB rate."
+    },
+    {
       "key": "requesty:melious/clef",
       "seller": "requesty",
       "sellerName": "Requesty",
@@ -148341,6 +148713,37 @@
       "priceNote": "USD price published in Tinfoil's model catalog and converted with the listed ECB rate."
     },
     {
+      "key": "tinfoil:inkling-2-small",
+      "seller": "tinfoil",
+      "sellerName": "Tinfoil",
+      "modelId": "inkling-2-small",
+      "name": "Inkling 2 Small",
+      "creator": "Tinfoil",
+      "description": "Thinking Machines Lab's multimodal MoE model with variable reasoning effort, strong agentic coding, and image understanding",
+      "releaseDate": null,
+      "contextSize": 524288,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.2714440825190011,
+        "cached": 0.02714440825190011,
+        "output": 0.9048136083966704,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.3,
+          "cached": 0.03,
+          "output": 1.0
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Tinfoil's model catalog and converted with the listed ECB rate."
+    },
+    {
       "key": "tinfoil:kimi-k3-1-pro",
       "seller": "tinfoil",
       "sellerName": "Tinfoil",
@@ -152422,6 +152825,37 @@
       "priceNote": "USD price published in Venice's model catalog and converted with the listed ECB rate."
     },
     {
+      "key": "venice:qwen-4-max",
+      "seller": "venice",
+      "sellerName": "Venice",
+      "modelId": "qwen-4-max",
+      "name": "Qwen 4 Max",
+      "creator": "Venice",
+      "description": "Qwen 4 Max is the flagship model of the Qwen 4 series. It accepts text, image, and video input, thinks by default with adjustable reasoning effort, and supports a 1M-token context window.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.6965255157437569,
+        "cached": 0.08482627578718785,
+        "output": 5.08957654723127,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.875,
+          "cached": 0.09375,
+          "output": 5.625
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Venice's model catalog and converted with the listed ECB rate."
+    },
+    {
       "key": "venice:qwen3-235b-a22b-instruct-2507",
       "seller": "venice",
       "sellerName": "Venice",
@@ -153935,6 +154369,37 @@
           "input": 0.15,
           "cached": 0.016,
           "output": 0.47
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Vercel AI Gateway's model catalog and converted with the listed ECB rate."
+    },
+    {
+      "key": "vercel-gateway:alibaba/qwen4-max",
+      "seller": "vercel-gateway",
+      "sellerName": "Vercel AI Gateway",
+      "modelId": "alibaba/qwen4-max",
+      "name": "Qwen 4 Max",
+      "creator": "Alibaba",
+      "description": "Qwen 4 Max brings deeper knowledge, richer world understanding, and stronger coding and agentic capabilities. It is built for real-world tasks, from complex coding and knowledge work to front-end builds and professional software workflows.",
+      "releaseDate": null,
+      "contextSize": 1000000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 1.3572204125950056,
+        "cached": 0.06786102062975027,
+        "output": 4.071661237785016,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 1.5,
+          "cached": 0.075,
+          "output": 4.5
         }
       },
       "pricingTiers": [],
@@ -163210,6 +163675,37 @@
       "priceNote": "USD price published in Vercel AI Gateway's model catalog and converted with the listed ECB rate."
     },
     {
+      "key": "vercel-gateway:tencent/hy4-flash",
+      "seller": "vercel-gateway",
+      "sellerName": "Vercel AI Gateway",
+      "modelId": "tencent/hy4-flash",
+      "name": "Tencent Hy4 Flash",
+      "creator": "tencent",
+      "description": "Tencent Hy4 Flash is a lower-cost model in the Hy4 family for coding, reasoning, and agentic workflows. It supports deep reasoning with preserved thinking, tool calling, structured outputs, prompt caching, and image understanding, with a 1M-token context window.",
+      "releaseDate": null,
+      "contextSize": 1024000,
+      "capabilities": {
+        "reasoning": true,
+        "tools": true,
+        "vision": true,
+        "audio": false
+      },
+      "rates": {
+        "input": 0.03166847629388347,
+        "cached": 0.0013572204125950056,
+        "output": 0.1271263119797322,
+        "cachedFallback": false,
+        "nativeCurrency": "USD",
+        "native": {
+          "input": 0.035,
+          "cached": 0.0015,
+          "output": 0.1405
+        }
+      },
+      "pricingTiers": [],
+      "priceNote": "USD price published in Vercel AI Gateway's model catalog and converted with the listed ECB rate."
+    },
+    {
       "key": "vercel-gateway:tencent/hy4-preview",
       "seller": "vercel-gateway",
       "sellerName": "Vercel AI Gateway",
@@ -164843,7 +165339,6 @@
       "nano-gpt:tencent/hy4-preview",
       "llmgateway:hy4-preview",
       "aimlapi:tencent/hy4-preview",
-      "crossmodel:tencent/hy4-preview",
       "edenai:tencent/hy4-preview",
       "edenai:deepinfra/tencent/Hy4-preview",
       "venice:hy4-preview",
@@ -164854,7 +165349,6 @@
       "nano-gpt:deepseek/deepseek-v4-flash",
       "llmgateway:deepseek-v4-flash",
       "aimlapi:deepseek/deepseek-v4-flash",
-      "crossmodel:deepseek/deepseek-v4-flash",
       "edenai:arkanecloud/deepseek-ai/DeepSeek-V4-Flash",
       "edenai:azure/deepseek-v4-flash",
       "edenai:deepinfra/deepseek-ai/DeepSeek-V4-Flash",

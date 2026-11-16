@@ -251,6 +251,15 @@
           "default_visible": false
         },
         {
+          "id": "hy4-flash-free",
+          "name": "Hy4 flash Free",
+          "input": 0.0,
+          "input_cache": 0.0,
+          "output": 0.0,
+          "monthly_limit_usd": null,
+          "default_visible": false
+        },
+        {
           "id": "mimo-v2-6-flash",
           "name": "MiMo-V2.6-Flash",
           "input": 0.14,
@@ -329,6 +338,15 @@
           "input_cache": 0.002,
           "output": 0.2,
           "monthly_limit_usd": 60.0,
+          "default_visible": false
+        },
+        {
+          "id": "qwen4-max",
+          "name": "Qwen4 Max",
+          "input": 1.5,
+          "input_cache": 0.075,
+          "output": 4.5,
+          "monthly_limit_usd": 15.0,
           "default_visible": false
         },
         {
