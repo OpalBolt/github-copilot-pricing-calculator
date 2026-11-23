@@ -30,7 +30,7 @@ from pathlib import Path
 DEEPSEEK_URL = "https://api-docs.deepseek.com/quick_start/pricing/"  # trailing slash: the bare URL serves a different page
 ZAI_PAYGO_URL = "https://docs.z.ai/guides/overview/pricing.md"
 ZAI_DEVPACK_URL = "https://docs.z.ai/devpack/overview.md"
-OPENCODE_GO_URL = "https://opencode.ai/docs/go/"
+OPENCODE_GO_MODELS_URL = "https://opencode.ai/inference/go/v1/models"
 # Fallback only — the real value is parsed from the page's CONTEXT LENGTH row.
 DEEPSEEK_CONTEXT = 1_048_576
 
@@ -348,41 +348,27 @@ def scrape_zai_devpack() -> dict:
 
 
 def scrape_opencode_go() -> dict:
-    """Published token rates and per-model dollar limits -> subscription entry."""
-    html = fetch_text(OPENCODE_GO_URL)
-    tables = [
-        html_table_rows(table)
-        for table in re.findall(r"<table.*?</table>", html, re.S)
-    ]
-    table = next(
-        rows for rows in tables
-        if rows and "Monthly limit" in rows[0]
-    )
-    header, *rows = table
-    model_i = header.index("Model")
-    input_i = header.index("Input")
-    output_i = header.index("Output")
-    cached_i = header.index("Cached Read")
-    limit_i = header.index("Monthly limit")
-
+    """Go models endpoint (token rates and per-model monthly limit) -> subscription entry."""
+    data = json.loads(fetch_text(OPENCODE_GO_MODELS_URL))["data"]
     models = []
-    for row in rows:
-        if len(row) != len(header):
+    for item in data:
+        text = item.get("cost", {}).get("text")
+        if item.get("type") != "chat" or not text or not item.get("go"):
             continue
-        name = row[model_i]
-        limits = [float(value) for value in PRICE_RE.findall(row[limit_i])]
+        name = item["name"]
+        limit = (item["go"].get("monthly_usage") or {}).get("go")
         models.append(
             {
                 "id": re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-"),
                 "name": name,
-                "input": parse_price(row[input_i]),
-                "input_cache": parse_price(row[cached_i]),
-                "output": parse_price(row[output_i]),
-                "monthly_limit_usd": max(limits) if limits else None,
+                "input": text["input"]["price"],
+                "input_cache": text["input"].get("cache", {}).get("read"),
+                "output": text["output"]["price"],
+                "monthly_limit_usd": float(limit) if limit else None,
                 "default_visible": name.split(" (")[0] in OPENCODE_GO_DEFAULT_MODELS,
             }
         )
-    assert len(models) >= 35, f"expected at least 35 OpenCode Go rows, got {len(models)}"
+    assert len(models) >= 20, f"expected at least 20 OpenCode Go rows, got {len(models)}"
     assert any(model["monthly_limit_usd"] is None for model in models)
     if not any(model["default_visible"] for model in models):
         print("Note: none of the OpenCode Go default models exist anymore")
