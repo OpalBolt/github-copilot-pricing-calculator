@@ -1,5 +1,5 @@
 {
-  "fetchDate": "2026-11-16",
+  "fetchDate": "2026-11-23",
   "models": [
     {
       "provider": "OpenAI",
@@ -72,30 +72,6 @@
       "Cached input": 0.8,
       "Cache write": 10.0,
       "Output": 30.0
-    },
-    {
-      "provider": "OpenAI",
-      "Model": "GPT-5.6 Terra",
-      "Release status": "GA",
-      "Category": "Versatile",
-      "Tier": "Default",
-      "Threshold (input tokens)": "\u2264 272K",
-      "Input": 2.0,
-      "Cached input": 0.2,
-      "Cache write": 2.5,
-      "Output": 12.0
-    },
-    {
-      "provider": "OpenAI",
-      "Model": "GPT-5.6 Terra",
-      "Release status": "GA",
-      "Category": "Versatile",
-      "Tier": "Long context",
-      "Threshold (input tokens)": "> 272K",
-      "Input": 4.0,
-      "Cached input": 0.4,
-      "Cache write": 5.0,
-      "Output": 18.0
     },
     {
       "provider": "OpenAI",
@@ -218,6 +194,54 @@
       "Output": 7.5
     },
     {
+      "provider": "OpenAI",
+      "Model": "GPT-6.2 Astra",
+      "Release status": "GA",
+      "Category": "Powerful",
+      "Tier": "Default",
+      "Threshold (input tokens)": "\u2264 272K",
+      "Input": 8.0,
+      "Cached input": 0.4,
+      "Cache write": 10.0,
+      "Output": 40.0
+    },
+    {
+      "provider": "OpenAI",
+      "Model": "GPT-6.2 Astra",
+      "Release status": "GA",
+      "Category": "Powerful",
+      "Tier": "Long context",
+      "Threshold (input tokens)": "> 272K",
+      "Input": 16.0,
+      "Cached input": 0.8,
+      "Cache write": 20.0,
+      "Output": 60.0
+    },
+    {
+      "provider": "OpenAI",
+      "Model": "GPT-6.2 Sol",
+      "Release status": "GA",
+      "Category": "Powerful",
+      "Tier": "Default",
+      "Threshold (input tokens)": "\u2264 272K",
+      "Input": 2.0,
+      "Cached input": 0.1,
+      "Cache write": 2.5,
+      "Output": 10.0
+    },
+    {
+      "provider": "OpenAI",
+      "Model": "GPT-6.2 Sol",
+      "Release status": "GA",
+      "Category": "Powerful",
+      "Tier": "Long context",
+      "Threshold (input tokens)": "> 272K",
+      "Input": 4.0,
+      "Cached input": 0.2,
+      "Cache write": 5.0,
+      "Output": 15.0
+    },
+    {
       "provider": "Anthropic",
       "Model": "Claude Haiku 4.5",
       "Release status": "GA",
@@ -280,18 +304,6 @@
     {
       "provider": "Anthropic",
       "Model": "Claude Opus 4.8",
-      "Release status": "GA",
-      "Category": "Powerful",
-      "Tier": "Default",
-      "Threshold (input tokens)": "Not applicable",
-      "Input": 5.0,
-      "Cached input": 0.5,
-      "Cache write": 6.25,
-      "Output": 25.0
-    },
-    {
-      "provider": "Anthropic",
-      "Model": "Claude Opus 5",
       "Release status": "GA",
       "Category": "Powerful",
       "Tier": "Default",
@@ -439,6 +451,17 @@
       "Output": 7.5
     },
     {
+      "provider": "Google",
+      "Model": "Gemini 4 Neon",
+      "Release status": "GA",
+      "Category": "Versatile",
+      "Tier": "Default",
+      "Threshold (input tokens)": "Not applicable",
+      "Input": 3.0,
+      "Cached input": 0.15,
+      "Output": 15.0
+    },
+    {
       "provider": "Microsoft",
       "Model": "MAI-Code-1.1-Flash",
       "Release status": "GA",
@@ -446,6 +469,30 @@
       "Input": 0.2,
       "Cached input": 0.02,
       "Output": 1.2
+    },
+    {
+      "provider": "Microsoft",
+      "Model": "MAI Code 2",
+      "_footnotes": [
+        "mai-code-2-promo"
+      ],
+      "Release status": "GA",
+      "Category": "Powerful",
+      "Input": 0.5,
+      "Cached input": 0.025,
+      "Output": 2.5
+    },
+    {
+      "provider": "Microsoft",
+      "Model": "MAI Code 2 Flash",
+      "_footnotes": [
+        "mai-code-2-flash-promo"
+      ],
+      "Release status": "GA",
+      "Category": "Lightweight",
+      "Input": 0.05,
+      "Cached input": 0.005,
+      "Output": 0.25
     },
     {
       "provider": "xAI",
@@ -536,6 +583,8 @@
   "footnotes": {
     "gemini-flash-promo": "Gemini 3.8 Flash is available at the promotional pricing of $0.75 per 1M input tokens, $0.075 per 1M cached input tokens, and $3.75 per 1M output tokens through December 31, 2026.",
     "gemini-4-argon-promo": "Gemini 4 Argon is available at the promotional pricing of $2.00 per 1M input tokens, $0.10 per 1M cached input tokens, and $10.00 per 1M output tokens until December 1, 2026.",
-    "gemini-4-carbon-promo": "Gemini 4 Carbon is available at the promotional pricing of $2.00 per 1M input tokens, $0.10 per 1M cached input tokens, and $10.00 per 1M output tokens until December 1, 2026. Starting December 1, 2026, pricing is $4.00 per 1M input tokens, $0.20 per 1M cached input tokens, and $20.00 per 1M output tokens."
+    "gemini-4-carbon-promo": "Gemini 4 Carbon is available at the promotional pricing of $2.00 per 1M input tokens, $0.10 per 1M cached input tokens, and $10.00 per 1M output tokens until December 1, 2026. Starting December 1, 2026, pricing is $4.00 per 1M input tokens, $0.20 per 1M cached input tokens, and $20.00 per 1M output tokens.",
+    "mai-code-2-promo": "MAI Code 2 is available at the promotional pricing of $0.50 per 1M input tokens, $0.025 per 1M cached input tokens, and $2.50 per 1M output tokens until May 17, 2027. Starting May 17, 2027, pricing is $1.00 per 1M input tokens, $0.05 per 1M cached input tokens, and $5.00 per 1M output tokens.",
+    "mai-code-2-flash-promo": "MAI Code 2 Flash is available at the promotional pricing of $0.05 per 1M input tokens, $0.005 per 1M cached input tokens, and $0.25 per 1M output tokens until May 17, 2027. Starting May 17, 2027, pricing is $0.10 per 1M input tokens, $0.01 per 1M cached input tokens, and $0.50 per 1M output tokens."
   }
 }
